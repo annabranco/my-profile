@@ -3,20 +3,20 @@ import '../styles/components/Languages.css';
 
 const texts = {
   en: {
-    line1: 'You are reading my profile in English.',
+    line1: 'You are reading my professional profile in English.',
     line2: 'Click below to change your default language:'
   },
   es: {
-    line1: 'Usted está leyendo mi perfil en español.',
+    line1: 'Usted está leyendo mi perfil profesional en español.',
     line2: 'Haga click abajo para cambiar su idioma predeterminado:'
   },
   pt: {
-    line1: 'Você está lendo meu perfil em português.',
-    line2: 'Clique abaixo para mudar o seu idioma padrão:'
+    line1: '', //Você está lendo meu perfil profissional em português.
+    line2: 'Desculpa, mas o português ainda não está implementado.' //Clique abaixo para mudar o seu idioma padrão:
   },
   fr: {
-    line1: 'Vous lisez mon profil en français.',
-    line2: 'Cliquez ci-dessous pour changer votre langue par défaut:'
+    line1: '', //Vous lisez mon profil professionel en français.
+    line2: "Je suis désolée mais le français n'est pas encore implementé."  //Cliquez ci-dessous pour changer votre langue par défaut:
   }
 }
 
@@ -63,12 +63,12 @@ const showDisplay = this.state.display;
 
             <div className="languages__flags--inner" id="pt" onClick={this.props.changeLanguage}>
               <p className="languages__label">Português (BR)</p>
-              <img className="languages__flag" src="https://www.countryflags.io/br/shiny/64.png" />
+              <img className="languages__flag notYet" src="https://www.countryflags.io/br/shiny/64.png" />
             </div>
 
             <div className="languages__flags--inner" id="fr" onClick={this.props.changeLanguage}>
               <p className="languages__label">Français (FR)</p>
-              <img className="languages__flag" src="https://www.countryflags.io/fr/shiny/64.png" />
+              <img className="languages__flag notYet" src="https://www.countryflags.io/fr/shiny/64.png" />
             </div>
           </div>
 

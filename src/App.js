@@ -243,6 +243,10 @@ class App extends Component {
     this.loadDefaultLanguage();
   }
 
+componentWillUnmount() {
+  window.removeEventListener('scroll', this.handleScroll);
+}
+
   mountBGs = () => {
     for (const block of blockContents) {
       allBackgrounds.push(block.bg)
@@ -271,6 +275,7 @@ class App extends Component {
   showText = () => {
     const language = this.state.language;
     console.log(doc.scrollTop);
+    console.log(this.state.currentBlock.scrollTop);
     if (doc.scrollTop >= this.state.currentBlock.scrollBegin && doc.scrollTop <= this.state.currentBlock.scrollBegin + 190 ) {
       return (
         <div className="innertext animateIn">
@@ -289,10 +294,6 @@ class App extends Component {
           <p className="innertext--p">{blockContents[this.state.currentBlock.num][language].bottom}</p>
         </div>
       )
-    } else {
-      <div className="innertext animateIn animateOut">
-oooo
-      </div>
     }
   }
 
