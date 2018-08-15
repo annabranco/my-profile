@@ -17,17 +17,17 @@ const allBlocks = [
   {
     num: 0,
     scrollBegin: 600,
-    scrollEnd: 1200,
+    scrollEnd: 1250,
     bg: beach
   },
   {
     num: 1, //3
-    scrollBegin: 1300,
-    scrollEnd: 1950
+    scrollBegin: 1250,
+    scrollEnd: 2050
   },
   {
     num: 2, //6
-    scrollBegin: 2000,
+    scrollBegin: 2050,
     scrollEnd: 2800
   },
   {
@@ -270,7 +270,7 @@ class App extends Component {
 
   showText = () => {
     const language = this.state.language;
-console.log(doc.scrollTop);
+    console.log(doc.scrollTop);
     if (doc.scrollTop >= this.state.currentBlock.scrollBegin && doc.scrollTop <= this.state.currentBlock.scrollBegin + 190 ) {
       return (
         <div className="innertext animateIn">
@@ -290,11 +290,10 @@ console.log(doc.scrollTop);
         </div>
       )
     } else {
-      return (
-        <div className="innertext">
-        </div>
-      )
-}
+      <div className="innertext animateIn animateOut">
+oooo
+      </div>
+    }
   }
 
   changeLanguage = event => {

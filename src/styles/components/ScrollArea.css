@@ -29,11 +29,6 @@
   line-height: 60px;
   transform: translate(-50%, -50%);
   opacity: 0; }
-  .innertext:nth-child(2) {
-    background: green; }
-  .innertext:last-of-type {
-    top: 60%;
-    background: red; }
 
 .innertext--p {
   text-align: center; }
@@ -46,14 +41,15 @@
   align-items: flex-start;
   justify-content: center;
   transform: translate(-50%, 0);
-  border-bottom: 5px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
   height: 120px;
   width: 100vw;
   padding-top: 30px;
   background-image: linear-gradient(rgba(255, 255, 255, 0.95), #351442);
   font-family: "Corben", cursive;
   font-size: 3rem;
-  color: #651795; }
+  color: #651795;
+  box-shadow: 0 0 50px 20px rgba(66, 66, 66, 0.7); }
   .innertext--between:last-child {
     height: 100px; }
 
@@ -65,6 +61,14 @@
   transform: scale(0);
   animation-fill-mode: forwards; }
 
+.animateOut {
+  animation-name: comeOut;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  transform: scale(1);
+  animation-fill-mode: forwards; }
+
 @keyframes comeIn {
   from {
     transform: scale(0.6);
@@ -72,3 +76,11 @@
   to {
     transform: scale(1);
     opacity: 1; } }
+
+@keyframes comeOut {
+  from {
+    transform: scale(1);
+    opacity: 1; }
+  to {
+    transform: scale(0.6);
+    opacity: 0; } }

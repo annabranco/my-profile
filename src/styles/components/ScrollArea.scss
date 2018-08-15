@@ -33,16 +33,6 @@ $main__font: 'Corben', cursive;
   line-height    : 60px;
   transform      : translate(-50%, -50%);
   opacity        : 0;
-
-  &:nth-child(2) {
-    background: green;
-
-  }
-
-  &:last-of-type {
-    top       : 60%;
-    background: red;
-  }
 }
 
 .innertext--p {
@@ -57,7 +47,7 @@ $main__font: 'Corben', cursive;
   align-items     : flex-start;
   justify-content : center;
   transform       : translate(-50%, 0);
-  border-bottom   : 5px solid #ffffff;
+  border-bottom   : 1px solid #ffffff;
   height          : 120px;
   width           : 100vw;
   padding-top     : 30px;
@@ -65,6 +55,7 @@ $main__font: 'Corben', cursive;
   font-family     : $main__font;
   font-size       : 3rem;
   color           : #651795;
+  box-shadow      : 0 0 50px 20px rgba(66, 66, 66,0.7);
 
   &:last-child {
     height: 100px;
@@ -78,7 +69,15 @@ $main__font: 'Corben', cursive;
   animation-timing-function: ease-in;
   transform                : scale(0);
   animation-fill-mode      : forwards;
+}
 
+.animateOut {
+  animation-name           : comeOut;
+  animation-duration       : 0.2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  transform                : scale(1);
+  animation-fill-mode      : forwards;
 }
 
 @keyframes comeIn {
@@ -90,5 +89,17 @@ $main__font: 'Corben', cursive;
   to {
     transform: scale(1);
     opacity  : 1;
+  }
+}
+
+@keyframes comeOut {
+  from {
+    transform: scale(1);
+    opacity  : 1;
+  }
+
+  to {
+    transform: scale(0.6);
+    opacity  : 0;
   }
 }
