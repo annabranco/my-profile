@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import Header from './components/Header';
+import Hero from './components/Hero';
 import MainArea from './components/MainArea';
 import beach from './images/bg/beach.jpg';
 import coding from './images/bg/coding.jpg';
@@ -9,6 +10,8 @@ import skate from './images/bg/skate.jpg';
 import football from './images/bg/football.jpg';
 import bunnies from './images/bg/bunnies.jpg';
 import love from './images/bg/love.jpg';
+import texts from './db/texts.js';
+
 
 const doc = document.documentElement;
 const innerText = document.querySelectorAll('.innertext');
@@ -308,13 +311,18 @@ componentWillUnmount() {
 
     return (
       <div className="App">
-        <Header />
+        <Header
+					texts={texts}
+					language={this.state.language}
+					changeLanguage={this.changeLanguage}
+				/>
         <MainArea
           showText={this.showText}
           bgs={allBackgrounds}
           language={this.state.language}
           changeLanguage={this.changeLanguage}
           blockContents={blockContents}
+					texts={texts}
         />
       </div>
     );

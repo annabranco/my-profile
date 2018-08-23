@@ -1,7 +1,8 @@
 import React from 'react';
+import Hero from './Hero';
+import InfoArea from './InfoArea';
 import ScrollArea from './ScrollArea';
 import Languages from './Languages';
-import InfoArea from './InfoArea';
 
 class MainArea extends React.Component {
 
@@ -12,7 +13,10 @@ class MainArea extends React.Component {
       <main className="main__outer">
         <section className="main__intro">
 
-            <InfoArea />
+          <Hero
+						texts={this.props.texts}
+						language={this.props.language}
+ 					/>
 
         </section>
 

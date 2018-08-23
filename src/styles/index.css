@@ -1,1 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Corben");
+@import url("https://fonts.googleapis.com/css?family=Corben|Acme|Alegreya+Sans+SC:400,700,900");
+.hidden {
+  display: none; }

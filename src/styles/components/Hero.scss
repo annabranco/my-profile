@@ -1,0 +1,125 @@
+$font__title: 'Alegreya Sans SC', sans-serif;
+$font__title-alt: 'Acme', sans-serif;
+$font__subtitle: 'Corben', cursive;
+
+.section__hero {
+	margin-top: 100px;
+}
+
+.hero__center,
+.hero__left,
+.hero__right {
+	height: 400px;
+}
+
+.hero__photo {
+	height: 500px;
+}
+
+.hero__mugshot {
+	width: 100%;
+}
+
+.hero__aditional,
+.hero__id {
+	height: 200px;
+}
+
+.hero__name {
+	background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+	background-size        : contain;
+	background-position    : center;
+	background-clip        : text;
+	-webkit-background-clip: text;
+	color                  : transparent;
+	font-family            : $font__title;
+	font-size              : 5rem;
+	font-weight            : 900;
+}
+
+/* OPTIONS OF BG
+
+background-image       : url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-abstract-matrix-background-binary-computer-code-coding-and-hacker-concept-tech-background-4k-animation_btu47n5jb_thumbnail-full06.png');
+background-size        : contain;
+
+background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size        : contain;
+
+background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size        : cover;
+background-position    : center;
+
+background-image       : url('https://images.pond5.com/green-loopable-it-background-glowing-footage-000878726_prevstill.jpeg');
+background-size        : cover;
+*/
+
+.hero__job {
+	font-family: $font__subtitle;
+	font-size  : 2rem;
+}
+
+.hero__scrollDown {
+	margin-top     : 80px;
+	display        : flex;
+	flex-direction : column;
+	align-items    : center;
+	justify-content: center;
+}
+
+.hero__scrollDown-inner {
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+}
+
+.scroll-icon {
+	margin                   : 0 100px;
+	font-size                : 3rem;
+	color                    : #ececec;
+	animation-duration       : 3s;
+	animation-iteration-count: infinite;
+	opacity                  : 0;
+	animation-fill-mode      : forwards;
+}
+
+.anim1 {
+	animation-name: vanish;
+}
+
+.anim2 {
+	animation-name: vanish2;
+}
+
+.anim3 {
+	animation-name: vanish3;
+}
+
+@keyframes vanish {
+	0% {
+		opacity: 0;
+	}
+
+	5% {
+		opacity: 1;
+	}
+}
+
+@keyframes vanish2 {
+	30% {
+		opacity: 0;
+	}
+
+	35% {
+		opacity: 1;
+	}
+}
+
+@keyframes vanish3 {
+	80% {
+		opacity: 0;
+	}
+
+	95% {
+		opacity: 1;
+	}
+}

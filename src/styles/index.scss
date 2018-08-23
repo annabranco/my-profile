@@ -1,3 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Corben');
+@import url('https://fonts.googleapis.com/css?family=Corben|Acme|Alegreya+Sans+SC:400,700,900');
 
-$main__font: 'Corben', cursive;
+$font__subtitle: 'Corben', cursive;
+$font__title: 'Acme', sans-serif;
+$font__title2: 'Alegreya Sans SC', sans-serif;
+
+.hidden {
+	display: none;
+}
