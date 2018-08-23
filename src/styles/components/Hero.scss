@@ -3,7 +3,17 @@ $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
 
 .section__hero {
+	z-index   : 0;
+	position  : fixed;
+	left      : 50%;
+	transform : translate(-50%, 0);
 	margin-top: 100px;
+	height    : 100vh;
+}
+
+.main__intro {
+	background-image   : linear-gradient(white,rgba(255, 255, 255, 0.98),rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.7)), url('https://data.whicdn.com/images/303133698/original.gif');
+	background-position: bottom;
 }
 
 .hero__center,
@@ -56,6 +66,55 @@ background-size        : cover;
 .hero__job {
 	font-family: $font__subtitle;
 	font-size  : 2rem;
+}
+
+.hero__boat {
+	position                 : absolute;
+	top                      : 30%;
+	//left     : 50%;
+	transform                : translate(-50%,0);
+	filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
+	width                    : 100px;
+	animation-name           : navigating;
+	animation-duration       : 120s;
+	animation-iteration-count: 1;
+	animation-fill-mode      : forwards;
+	animation-timing-function: linear;
+}
+
+@keyframes navigating {
+	0% {
+		right  : 10vw;
+		opacity: 0;
+	}
+
+	35% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	70% {
+		right  : 60vw;
+		opacity: 0;
+	}
+
+	100% {
+		right  : 110vw;
+		opacity: 0;
+	}
+}
+
+.hero__aditional {
+	margin     : -40px 0 0 20px;
+	width      : 70%;
+	font-family: $font__subtitle;
+	font-size  : 1.1rem;
+	line-height: 1.5;
+	color      : #7280c9;
+
 }
 
 .hero__scrollDown {
