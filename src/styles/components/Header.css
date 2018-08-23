@@ -17,10 +17,12 @@
 
 .header__flags {
   margin: 0 10px;
-  opacity: 0.3; }
+  opacity: 0.3;
+  cursor: pointer; }
 
 .header__flags--active {
-  opacity: 1; }
+  opacity: 1;
+  cursor: default; }
 
 .header__text-contact {
   font-family: "Corben", cursive;

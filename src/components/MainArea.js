@@ -8,6 +8,8 @@ class MainArea extends React.Component {
 
   render () {
 
+console.log(this.props.doNotShowLanguagePopupAgain);
+
     return (
 
       <main className="main__outer">
@@ -26,10 +28,15 @@ class MainArea extends React.Component {
           blockContents={this.props.blockContents}
           language={this.props.language}
         />
-        <Languages
-          language={this.props.language}
-          changeLanguage={this.props.changeLanguage}
-        />
+
+				{!this.props.doNotShowLanguagePopupAgain ?
+	        <Languages
+	          language={this.props.language}
+	          changeLanguage={this.props.changeLanguage}
+						clearLanguagePopup={this.props.clearLanguagePopup}
+	        />
+				: null }
+
       </main>
 
 

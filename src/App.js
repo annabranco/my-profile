@@ -236,7 +236,8 @@ class App extends Component {
 
     this.state = {
       language: 'en',
-      currentBlock: {}
+      currentBlock: {},
+			doNotShowLanguagePopupAgain: undefined
     }
   }
 
@@ -246,9 +247,13 @@ class App extends Component {
     this.loadDefaultLanguage();
   }
 
-componentWillUnmount() {
-  window.removeEventListener('scroll', this.handleScroll);
-}
+	componentDidUpdate() {
+		this.saveToLocalStorage();
+	}
+
+	componentWillUnmount() {
+	  window.removeEventListener('scroll', this.handleScroll);
+	}
 
   mountBGs = () => {
     for (const block of blockContents) {
@@ -258,10 +263,10 @@ componentWillUnmount() {
 
   loadDefaultLanguage = () => {
 
-    if (localStorage.getItem("Anna Branco's profile default language") !== null) {
-      this.setState({
-        language: localStorage.getItem("Anna Branco's profile default language")
-      })
+    if (localStorage.getItem("Anna Branco's professional profile") !== null) {
+      this.setState(
+        JSON.parse(localStorage.getItem("Anna Branco's professional profile"))
+      )
     }
 
   }
@@ -301,11 +306,19 @@ componentWillUnmount() {
   }
 
   changeLanguage = event => {
+
     this.setState({
-      language: event.currentTarget.id
-    })
-    localStorage.setItem("Anna Branco's profile default language", event.currentTarget.id)
+      language: event.currentTarget.lang
+    });
   }
+
+	clearLanguagePopup = doNotShowAgain => {
+		this.setState({
+			doNotShowLanguagePopupAgain: doNotShowAgain
+		});
+	}
+
+	saveToLocalStorage = () => localStorage.setItem("Anna Branco's professional profile", JSON.stringify(this.state));
 
   render() {
 
@@ -323,6 +336,8 @@ componentWillUnmount() {
           changeLanguage={this.changeLanguage}
           blockContents={blockContents}
 					texts={texts}
+					clearLanguagePopup={this.clearLanguagePopup}
+					doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
         />
       </div>
     );
