@@ -27,7 +27,7 @@ export default {
 			 chat: 'Mensaje'
 		 },
 		 pt: {
-			 job: 'Programadora Front end junior',
+			 job: 'Programadora Front end júnior',
 			 aditional: 'Aprendendo a desenvolver sites pelos quais navegar seja uma bonita experiência',
 			 call: 'Chamar',
 			 chat: 'Chat'
