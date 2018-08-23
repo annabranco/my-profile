@@ -1,0 +1,139 @@
+.section__hero {
+  z-index: 0;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 100px;
+  height: 100vh; }
+
+.main__intro {
+  background-image: linear-gradient(white, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url("https://data.whicdn.com/images/303133698/original.gif");
+  background-position: bottom; }
+
+.hero__center,
+.hero__left,
+.hero__right {
+  height: 400px; }
+
+.hero__photo {
+  height: 500px; }
+
+.hero__mugshot {
+  width: 100%; }
+
+.hero__aditional,
+.hero__id {
+  height: 200px; }
+
+.hero__name {
+  background-image: url("https://images3.alphacoders.com/279/279465.jpg");
+  background-size: contain;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 5rem;
+  font-weight: 900; }
+
+/* OPTIONS OF BG
+
+background-image       : url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-abstract-matrix-background-binary-computer-code-coding-and-hacker-concept-tech-background-4k-animation_btu47n5jb_thumbnail-full06.png');
+background-size        : contain;
+
+background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size        : contain;
+
+background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size        : cover;
+background-position    : center;
+
+background-image       : url('https://images.pond5.com/green-loopable-it-background-glowing-footage-000878726_prevstill.jpeg');
+background-size        : cover;
+*/
+.hero__job {
+  font-family: "Corben", cursive;
+  font-size: 2rem; }
+
+.hero__boat {
+  position: absolute;
+  top: 30%;
+  transform: translate(-50%, 0);
+  filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
+  width: 100px;
+  animation-name: navigating;
+  animation-duration: 120s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear; }
+
+@keyframes navigating {
+  0% {
+    right: 10vw;
+    opacity: 0; }
+  35% {
+    opacity: 1; }
+  50% {
+    opacity: 1; }
+  70% {
+    right: 60vw;
+    opacity: 0; }
+  100% {
+    right: 110vw;
+    opacity: 0; } }
+
+.hero__aditional {
+  margin: -40px 0 0 20px;
+  width: 70%;
+  font-family: "Corben", cursive;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #7280c9; }
+
+.hero__scrollDown {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.hero__scrollDown-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.scroll-icon {
+  margin: 0 100px;
+  font-size: 3rem;
+  color: #ececec;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  animation-fill-mode: forwards; }
+
+.anim1 {
+  animation-name: vanish; }
+
+.anim2 {
+  animation-name: vanish2; }
+
+.anim3 {
+  animation-name: vanish3; }
+
+@keyframes vanish {
+  0% {
+    opacity: 0; }
+  5% {
+    opacity: 1; } }
+
+@keyframes vanish2 {
+  30% {
+    opacity: 0; }
+  35% {
+    opacity: 1; } }
+
+@keyframes vanish3 {
+  80% {
+    opacity: 0; }
+  95% {
+    opacity: 1; } }

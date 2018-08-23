@@ -1,18 +1,24 @@
 import React from 'react';
+import Hero from './Hero';
+import InfoArea from './InfoArea';
 import ScrollArea from './ScrollArea';
 import Languages from './Languages';
-import InfoArea from './InfoArea';
 
 class MainArea extends React.Component {
 
   render () {
+
+console.log(this.props.doNotShowLanguagePopupAgain);
 
     return (
 
       <main className="main__outer">
         <section className="main__intro">
 
-            <InfoArea />
+          <Hero
+						texts={this.props.texts}
+						language={this.props.language}
+ 					/>
 
         </section>
 
@@ -22,10 +28,15 @@ class MainArea extends React.Component {
           blockContents={this.props.blockContents}
           language={this.props.language}
         />
-        <Languages
-          language={this.props.language}
-          changeLanguage={this.props.changeLanguage}
-        />
+
+				{!this.props.doNotShowLanguagePopupAgain ?
+	        <Languages
+	          language={this.props.language}
+	          changeLanguage={this.props.changeLanguage}
+						clearLanguagePopup={this.props.clearLanguagePopup}
+	        />
+				: null }
+
       </main>
 
 

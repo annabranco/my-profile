@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import Header from './components/Header';
+import Hero from './components/Hero';
 import MainArea from './components/MainArea';
 import beach from './images/bg/beach.jpg';
 import coding from './images/bg/coding.jpg';
@@ -9,6 +10,8 @@ import skate from './images/bg/skate.jpg';
 import football from './images/bg/football.jpg';
 import bunnies from './images/bg/bunnies.jpg';
 import love from './images/bg/love.jpg';
+import texts from './db/texts.js';
+
 
 const doc = document.documentElement;
 const innerText = document.querySelectorAll('.innertext');
@@ -233,7 +236,8 @@ class App extends Component {
 
     this.state = {
       language: 'en',
-      currentBlock: {}
+      currentBlock: {},
+			doNotShowLanguagePopupAgain: undefined
     }
   }
 
@@ -243,9 +247,13 @@ class App extends Component {
     this.loadDefaultLanguage();
   }
 
-componentWillUnmount() {
-  window.removeEventListener('scroll', this.handleScroll);
-}
+	componentDidUpdate() {
+		this.saveToLocalStorage();
+	}
+
+	componentWillUnmount() {
+	  window.removeEventListener('scroll', this.handleScroll);
+	}
 
   mountBGs = () => {
     for (const block of blockContents) {
@@ -255,10 +263,10 @@ componentWillUnmount() {
 
   loadDefaultLanguage = () => {
 
-    if (localStorage.getItem("Anna Branco's profile default language") !== null) {
-      this.setState({
-        language: localStorage.getItem("Anna Branco's profile default language")
-      })
+    if (localStorage.getItem("Anna Branco's professional profile") !== null) {
+      this.setState(
+        JSON.parse(localStorage.getItem("Anna Branco's professional profile"))
+      )
     }
 
   }
@@ -298,23 +306,38 @@ componentWillUnmount() {
   }
 
   changeLanguage = event => {
+
     this.setState({
-      language: event.currentTarget.id
-    })
-    localStorage.setItem("Anna Branco's profile default language", event.currentTarget.id)
+      language: event.currentTarget.lang
+    });
   }
+
+	clearLanguagePopup = doNotShowAgain => {
+		this.setState({
+			doNotShowLanguagePopupAgain: doNotShowAgain
+		});
+	}
+
+	saveToLocalStorage = () => localStorage.setItem("Anna Branco's professional profile", JSON.stringify(this.state));
 
   render() {
 
     return (
       <div className="App">
-        <Header />
+        <Header
+					texts={texts}
+					language={this.state.language}
+					changeLanguage={this.changeLanguage}
+				/>
         <MainArea
           showText={this.showText}
           bgs={allBackgrounds}
           language={this.state.language}
           changeLanguage={this.changeLanguage}
           blockContents={blockContents}
+					texts={texts}
+					clearLanguagePopup={this.clearLanguagePopup}
+					doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
         />
       </div>
     );
