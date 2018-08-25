@@ -1,0 +1,158 @@
+.section__developer {
+  position: relative;
+  display: fixed;
+  background-color: red;
+  height: 100vh;
+  padding-top: 50px; }
+
+.developer__outer {
+  background: rgba(156, 201, 207, 0.5);
+  height: auto; }
+
+.developer__sidebar {
+  border-radius: 30px;
+  background-image: linear-gradient(rgba(19, 175, 7, 0.1), rgba(255, 255, 255, 0.2));
+  height: 500px;
+  display: flex;
+  padding: 10px 0 80px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; }
+
+.developer__left,
+.developer__main {
+  height: 400px; }
+
+.developer__inner--skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px; }
+
+.skills__outer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .skills__outer:hover .skills__stars {
+    display: block; }
+
+.skills__text {
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white; }
+
+.skills__text--others {
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 0.9rem;
+  color: white; }
+
+.skills__stars {
+  position: absolute;
+  display: none;
+  margin-top: 5px; }
+
+.icon--star {
+  margin: 0 1px;
+  border-radius: 50%;
+  background: black;
+  height: 20px;
+  width: 20px;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 0.8rem;
+  text-shadow: 0 0 5px black;
+  color: #e8e781; }
+
+.icon--star--others {
+  background: black;
+  height: 15px;
+  width: 15px;
+  padding-top: 5px;
+  font-size: 0.6rem; }
+
+.skills__icon {
+  display: block;
+  height: 68px;
+  width: 60px;
+  font-size: 3.5rem; }
+
+.skills__icon--others {
+  display: block;
+  height: 34px;
+  width: 30px;
+  font-size: 3rem; }
+
+.icon--npm,
+.icon--sass {
+  margin: 3px 0 -3px;
+  color: #c41717;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.53); }
+
+.icon--react {
+  margin: 3px 0 -3px;
+  color: #5acee7;
+  text-shadow: 0 0 1px rgba(50, 50, 50, 0.53);
+  animation: App-logo-spin infinite 60s linear; }
+
+.icon--gulp {
+  margin: 3px 0 -3px;
+  color: #f54040;
+  text-shadow: 0 0 1px rgba(50, 50, 50, 0.3); }
+
+.icon--node {
+  margin: 3px 0 -3px;
+  color: #32d269;
+  text-shadow: 0 0 1px rgba(50, 50, 50, 0.3); }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.hero__id {
+  height: 150px; }
+
+.developer__proyects {
+  height: auto;
+  background: yellow; }
+
+.hero__name {
+  background-image: url("https://images3.alphacoders.com/279/279465.jpg");
+  background-size: contain;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 5rem;
+  font-weight: 900; }
+
+/* OPTIONS OF BG
+
+background-image       : url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-abstract-matrix-background-binary-computer-code-coding-and-hacker-concept-tech-background-4k-animation_btu47n5jb_thumbnail-full06.png');
+background-size        : contain;
+
+background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size        : contain;
+
+background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size        : cover;
+background-position    : center;
+
+background-image       : url('https://images.pond5.com/green-loopable-it-background-glowing-footage-000878726_prevstill.jpeg');
+background-size        : cover;
+*/
+.hero__job {
+  font-family: "Corben", cursive;
+  font-size: 2rem; }
+
+.hero__aditional {
+  margin: -40px 0 0 20px;
+  width: 70%;
+  font-family: "Corben", cursive;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #7280c9; }

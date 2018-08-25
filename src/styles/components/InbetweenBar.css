@@ -1,0 +1,16 @@
+.innertext--between {
+  z-index: 99;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: -20px;
+  height: 80px;
+  width: 100vw;
+  padding-top: 30px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9), #626262);
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 2rem;
+  color: #000000;
+  box-shadow: 0 5px 30px 0 rgba(66, 66, 66, 0.8); }
+  .innertext--between:last-child {
+    height: 100px; }

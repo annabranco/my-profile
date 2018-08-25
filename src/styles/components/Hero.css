@@ -1,5 +1,5 @@
 .section__hero {
-  z-index: 0;
+  z-index: -1;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
@@ -7,6 +7,7 @@
   height: 100vh; }
 
 .main__intro {
+  z-index: -2;
   background-image: linear-gradient(white, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url("https://data.whicdn.com/images/303133698/original.gif");
   background-position: bottom; }
 

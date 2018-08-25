@@ -33,26 +33,6 @@
 .innertext--p {
   text-align: center; }
 
-.innertext--between {
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  transform: translate(-50%, 0);
-  border-bottom: 1px solid #ffffff;
-  height: 120px;
-  width: 100vw;
-  padding-top: 30px;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.95), #351442);
-  font-family: "Corben", cursive;
-  font-size: 3rem;
-  color: #651795;
-  box-shadow: 0 0 50px 20px rgba(66, 66, 66, 0.7); }
-  .innertext--between:last-child {
-    height: 100px; }
-
 .animateIn {
   animation-name: comeIn;
   animation-duration: 0.5s;

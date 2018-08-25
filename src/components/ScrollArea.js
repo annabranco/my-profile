@@ -1,4 +1,6 @@
 import React from 'react';
+import InbetweenBar from './InbetweenBar';
+import Developer from './Developer';
 import ScrollItem from './ScrollItem';
 import '../styles/components/ScrollArea.css';
 
@@ -30,6 +32,14 @@ class ScrollArea extends React.Component {
 
     return (
       <section className="main__images">
+
+		<InbetweenBar
+			texts={this.props.texts}
+		/>
+		<Developer
+			  texts={this.props.texts}
+			  language={this.props.language}
+		/>
 
         {this.determineBlocks()}
 

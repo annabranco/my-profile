@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from './Hero';
-import InfoArea from './InfoArea';
 import ScrollArea from './ScrollArea';
 import Languages from './Languages';
 
@@ -13,19 +12,20 @@ console.log(this.props.doNotShowLanguagePopupAgain);
     return (
 
       <main className="main__outer">
-        <section className="main__intro">
+        <div className="main__intro">
 
-          <Hero
-						texts={this.props.texts}
-						language={this.props.language}
- 					/>
+          	<Hero
+				texts={this.props.texts}
+				language={this.props.language}
+ 			/>
 
-        </section>
+        </div>
 
         <ScrollArea
           showText={this.props.showText}
           bgs={this.props.bgs}
           blockContents={this.props.blockContents}
+		  texts={this.props.texts}
           language={this.props.language}
         />
 

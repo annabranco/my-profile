@@ -3,6 +3,7 @@ $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
 
 .languages__outer {
+	z-index         : 3;
 	position        : fixed;
 	display         : flex;
 	flex-direction  : column;
