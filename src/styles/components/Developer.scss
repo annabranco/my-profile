@@ -3,16 +3,16 @@ $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
 
 .section__developer {
-	position        : relative;
-	display         : fixed;
-	background-color: red;
-	height          : 100vh;
-	padding-top     : 50px;
+	position           : relative;
+	display            : fixed;
+	background-image   : linear-gradient(rgba(255, 255, 255, 0.92),rgba(240, 241, 252, 0.93),rgba(230, 239, 251, 0.98)), url('https://data.whicdn.com/images/303133698/original.gif');
+	background-position: center;
+	height             : 100vh;
+	padding-top        : 50px;
 }
 
 .developer__outer {
-	background: rgba(156, 201, 207, 0.5);
-	height    : auto;
+	height: auto;
 }
 
 .developer__sidebar {
@@ -26,15 +26,37 @@ $font__subtitle: 'Corben', cursive;
 	justify-content : space-around;
 }
 
-.developer__left,
-.developer__main {
-	height: 400px;
+.developer__main,
+.developer__sidebar {
+	height     : 600px;
+	padding-top: 30px;
+}
+
+.developer__sidebar {
+	padding-top: 15px;
+}
+
+.developer__skills--title {
+	margin          : 20px 0 15px;
+	border          : 1px solid black;
+	border-radius   : 10px 0;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(47, 195, 74, 0.5));
+	width           : 100px;
+	padding         : 5px 0;
+	font-family     : $font__title-alt;
+	text-align      : center;
+	text-decoration : none;
 }
 
 .developer__inner--skills {
 	display              : grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3,60px);
 	grid-gap             : 20px;
+}
+
+.developer__inner--skills-others {
+	grid-template-columns: repeat(3,50px);
+	grid-gap             : 10px 40px;
 
 }
 
@@ -45,34 +67,123 @@ $font__subtitle: 'Corben', cursive;
 	align-items    : center;
 	justify-content: center;
 
-	&:hover .skills__stars {
+	&:hover .skills__inner--stars {
 		display: block;
 	}
 
 }
 
 .skills__text {
-	font-family: $font__title;
-	font-weight: bold;
-	font-size  : 1rem;
-	color      : white;
+	margin-bottom: 5px;
+	font-family  : $font__title;
+	font-weight  : bold;
+	font-size    : 1rem;
+	color        : black;
 }
 
 .skills__text--others {
 	font-family: $font__title;
+	font-weight: bold;
 	font-size  : 0.9rem;
-	color      : white;
+	color      : black;
 }
 
-.skills__stars {
+.skills__inner--icon {
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+	height         : 68px;
+	width          : 60px;
+}
+
+.skills__inner--icon-others {
+	display        : flex;
+	align-items    : center;
+	justify-content: center;
+	height         : 60px;
+	width          : 40px;
+}
+
+.skills__icon {
+	height   : 100%;
+	font-size: 3.5rem;
+
+	&.icon--react {
+		height: 60px;
+	}
+
+	&.icon--sass {
+		height     : auto;
+		width      : 100%;
+		color      : rgb(196, 23, 23);
+		text-shadow: 0 0 1px rgba(255, 255, 255, 0.53);
+	}
+}
+
+.skills__icon--others {
+	font-size: 3rem;
+
+	&.icon--zeplin {
+		height: auto;
+		width : 60px;
+	}
+
+	&.icon--npm {
+		height     : auto;
+		width      : 60px;
+		color      : rgb(196, 23, 23);
+		text-shadow: 0 0 1px rgba(255, 255, 255, 0.53);
+	}
+
+	&.icon--gulp {
+		margin     : 3px 0 -3px;
+		color      : rgb(196, 23, 23);
+		text-shadow: 0 0 1px rgba(50, 50, 50, 0.3);
+	}
+
+	&.icon--node {
+		margin     : 3px 0 -3px;
+		color      : #32d269;
+		text-shadow: 0 0 1px rgba(50, 50, 50, 0.3);
+	}
+
+	&.icon--github {
+		margin-top: 5px;
+		height    : 58px;
+		width     : 55px;
+	}
+
+	&.icon--bootstrap {
+		height: 50px;
+		width : 50px;
+	}
+}
+
+.icon--react {
+	color      : #51b8cf;
+	text-shadow: 0 0 1px rgba(255, 255, 255, 0.53);
+	animation  : App-logo-spin infinite 40s linear;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.skills__inner--stars {
 	position  : absolute;
 	display   : none;
 	margin-top: 5px;
 }
 
 .icon--star {
-	margin       : 0 1px;
 	border-radius: 50%;
+	box-shadow   : 0 0 5px 2px white;
 	background   : black;
 	height       : 20px;
 	width        : 20px;
@@ -87,108 +198,20 @@ $font__subtitle: 'Corben', cursive;
 	background : black;
 	height     : 15px;
 	width      : 15px;
-	padding-top: 5px;
 	font-size  : 0.6rem;
+	line-height: 0.6;
 }
 
-.skills__icon {
-	display  : block;
-	height   : 68px;
-	width    : 60px;
-	font-size: 3.5rem;
-}
-
-.skills__icon--others {
-	display  : block;
-	height   : 34px;
-	width    : 30px;
-	font-size: 3rem;
-}
-
-.icon--npm,
-.icon--sass {
-	margin     : 3px 0 -3px;
-	color      : rgb(196, 23, 23);
-	text-shadow: 0 0 1px rgba(255, 255, 255, 0.53);
-}
-
-.icon--react {
-	margin     : 3px 0 -3px;
-	color      : #5acee7;
-	text-shadow: 0 0 1px rgba(50, 50, 50, 0.53);
-	animation  : App-logo-spin infinite 60s linear;
-}
-
-.icon--gulp {
-	margin     : 3px 0 -3px;
-	color      : rgb(245, 64, 64);
-	text-shadow: 0 0 1px rgba(50, 50, 50, 0.3);
-}
-
-.icon--node {
-	margin     : 3px 0 -3px;
-	color      : #32d269;
-	text-shadow: 0 0 1px rgba(50, 50, 50, 0.3);
-}
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-.hero__id {
+.developer__formation {
 	height: 150px;
 }
 
-.developer__proyects {
+.developer__projects {
 	height    : auto;
-
 	background: yellow;
 }
 
-.hero__name {
-	background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
-	background-size        : contain;
-	background-position    : center;
-	background-clip        : text;
-	-webkit-background-clip: text;
-	color                  : transparent;
-	font-family            : $font__title;
-	font-size              : 5rem;
-	font-weight            : 900;
-}
-
-/* OPTIONS OF BG
-
-background-image       : url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-abstract-matrix-background-binary-computer-code-coding-and-hacker-concept-tech-background-4k-animation_btu47n5jb_thumbnail-full06.png');
-background-size        : contain;
-
-background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
-background-size        : contain;
-
-background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
-background-size        : cover;
-background-position    : center;
-
-background-image       : url('https://images.pond5.com/green-loopable-it-background-glowing-footage-000878726_prevstill.jpeg');
-background-size        : cover;
-*/
-
-.hero__job {
+.developer__adalab {
 	font-family: $font__subtitle;
 	font-size  : 2rem;
-}
-
-.hero__aditional {
-	margin     : -40px 0 0 20px;
-	width      : 70%;
-	font-family: $font__subtitle;
-	font-size  : 1.1rem;
-	line-height: 1.5;
-	color      : #7280c9;
 }
