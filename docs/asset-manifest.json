@@ -1,15 +1,21 @@
 {
-  "main.css": "static/css/main.845bd776.css",
-  "main.css.map": "static/css/main.845bd776.css.map",
-  "main.js": "static/js/main.dcb2576d.js",
-  "main.js.map": "static/js/main.dcb2576d.js.map",
+  "main.css": "static/css/main.e0dde764.css",
+  "main.css.map": "static/css/main.e0dde764.css.map",
+  "main.js": "static/js/main.4cd80e1a.js",
+  "main.js.map": "static/js/main.4cd80e1a.js.map",
   "static/media/annabranco.png": "static/media/annabranco.dbce0765.png",
   "static/media/beach.jpg": "static/media/beach.09b2755d.jpg",
+  "static/media/bootstrap.png": "static/media/bootstrap.5c0f17e5.png",
   "static/media/bunnies.jpg": "static/media/bunnies.0bb6a437.jpg",
   "static/media/coding.jpg": "static/media/coding.71e26f78.jpg",
+  "static/media/css3.png": "static/media/css3.cfab9157.png",
   "static/media/football.jpg": "static/media/football.95447301.jpg",
-  "static/media/logo-anna-rabbit.gif": "static/media/logo-anna-rabbit.04808435.gif",
+  "static/media/git.png": "static/media/git.3eb77fc3.png",
+  "static/media/github.png": "static/media/github.7ac8e341.png",
+  "static/media/html5.png": "static/media/html5.2060bf3d.png",
+  "static/media/js.png": "static/media/js.5c47f97c.png",
   "static/media/love.jpg": "static/media/love.add43a5c.jpg",
   "static/media/skate.jpg": "static/media/skate.1c11c14e.jpg",
-  "static/media/surf.jpg": "static/media/surf.87a96e1f.jpg"
+  "static/media/surf.jpg": "static/media/surf.87a96e1f.jpg",
+  "static/media/zeplin.png": "static/media/zeplin.559f129e.png"
 }
