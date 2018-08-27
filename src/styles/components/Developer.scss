@@ -7,7 +7,7 @@ $font__subtitle: 'Corben', cursive;
 	display            : fixed;
 	background-image   : linear-gradient(rgba(255, 255, 255, 0.92),rgba(240, 241, 252, 0.93),rgba(230, 239, 251, 0.98)), url('https://data.whicdn.com/images/303133698/original.gif');
 	background-position: center;
-	height             : 100vh;
+	height             : auto; //100vh
 	padding-top        : 50px;
 }
 
@@ -18,29 +18,24 @@ $font__subtitle: 'Corben', cursive;
 .developer__sidebar {
 	border-radius   : 30px;
 	background-image: linear-gradient(rgba(19, 175, 7, 0.1),rgba(255, 255, 255, 0.2));
-	height          : 500px;
+	height          : 600px;
 	display         : flex;
-	padding         : 10px 0 80px;
+	padding         : 15px 0 80px;
 	flex-direction  : column;
 	align-items     : center;
 	justify-content : space-around;
 }
 
-.developer__main,
-.developer__sidebar {
-	height     : 600px;
-	padding-top: 30px;
-}
-
-.developer__sidebar {
-	padding-top: 15px;
+.developer__main {
+	height     : auto;
+	padding-top: 0;
 }
 
 .developer__skills--title {
 	margin          : 20px 0 15px;
 	border          : 1px solid black;
 	border-radius   : 10px 0;
-	background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(47, 195, 74, 0.5));
+	background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(47, 164, 195, 0.5));
 	width           : 100px;
 	padding         : 5px 0;
 	font-family     : $font__title-alt;
@@ -202,16 +197,59 @@ $font__subtitle: 'Corben', cursive;
 	line-height: 0.6;
 }
 
-.developer__formation {
-	height: 150px;
+.developer__formation,
+.developer__projects {
+	margin-left: 30px;
+	height     : auto;
 }
 
 .developer__projects {
-	height    : auto;
-	background: yellow;
+	//	background   : rgba(93, 154, 204, 0.1);
+	border-radius: 50px 0 0 0;
 }
 
-.developer__adalab {
-	font-family: $font__subtitle;
-	font-size  : 2rem;
+.developer__adalab--logo {
+	margin        : 0 0 2px 5px;
+	width         : 130px;
+	vertical-align: middle;
+}
+
+.developer__adalab--text,
+.developer__projects--text {
+	margin     : 10px 30px 20px;
+	font-size  : 1.1rem;
+	line-height: 1.5;
+	text-align : justify;
+}
+
+.developer__adalab--title,
+.developer__projects--title {
+	position        : relative;
+	margin          : 0 0 15px;
+	border          : 1px solid white;
+	border-radius   : 20px 0;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(47, 164, 195, 0.5));
+	height          : 70px;
+	width           : 100%;
+	padding         : 12px 0 10px 30px;
+	font-family     : $font__subtitle;
+	font-size       : 2rem;
+	text-align      : left;
+	text-decoration : none;
+}
+
+.developer__adalab--more {
+	position      : absolute;
+	bottom        : 25px;
+	right         : 30px;
+	font-family   : $font__title-alt;
+	font-size     : 1.1rem;
+	letter-spacing: 1px;
+	color         : #3e76c1;
+	text-shadow   : 0 0 2px white;
+	cursor        : default;
+
+	&:hover {
+		color: rgb(148, 150, 50);
+	}
 }

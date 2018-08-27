@@ -1,5 +1,4 @@
-.images,
-.main__intro {
+.images {
   position: relative;
   height: 100vh;
   background-attachment: fixed;
@@ -7,8 +6,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin: 20px 0; }
-  .images:last-child,
-  .main__intro:last-child {
+  .images:last-child {
     margin: 0; }
 
 .innertext {

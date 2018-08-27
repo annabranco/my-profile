@@ -1,0 +1,68 @@
+$font__title: 'Alegreya Sans SC', sans-serif;
+$font__title-alt: 'Acme', sans-serif;
+$font__subtitle: 'Corben', cursive;
+
+.developer__projects--thumbnails-checkbox {
+	text-align: center;
+	width     : 100%;
+}
+
+.developer__projects-checkbox {
+	margin: 0 10px;
+}
+
+.projects__list {
+	display              : grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows   : auto;
+	grid-gap             : 30px 20px;
+	margin               : 30px 20px 20px;
+	height               : auto;
+	//overflow-x           : scroll;
+
+}
+
+.project__item {
+	height: auto;
+}
+
+.project__title {
+	margin     : 10px 0;
+	font-family: $font__title;
+	font-weight: bold;
+	font-size  : 1.3rem;
+	color      : #3e76c1;
+}
+
+.project__title-icon {
+	color  : black;
+	opacity: 0.4;
+}
+
+.project__thumbnail {
+	border: 1px solid black;
+	width : 100%;
+}
+
+.project__description {
+	margin-bottom: 30px;
+	text-align   : justify;
+	line-height  : 1.4;
+}
+
+.project__url-a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.project__repo--icon {
+	vertical-align: middle;
+	font-size     : 1.3rem;
+	margin-right  : 10px;
+	color         : black;
+	opacity       : 0.4;
+
+}

@@ -6,6 +6,7 @@ import Mugshot from '../images/annabranco.png';
 
 class Hero extends React.Component {
 
+
 	render () {
 
 		const text = this.props.texts.Hero;

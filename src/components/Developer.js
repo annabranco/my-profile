@@ -1,6 +1,8 @@
 import React from 'react';
 import Social from './Social';
+import ProjectsList from './ProjectsList';
 import '../styles/components/Developer.css';
+import LogoAdalab from '../images/logo-adalab.png';
 import html from '../images/skills/html5.png';
 import css from '../images/skills/css3.png';
 import javascript from '../images/skills/js.png';
@@ -10,6 +12,17 @@ import bootstrap from '../images/skills/bootstrap.png';
 import zeplin from '../images/skills/zeplin.png';
 
 class Developer extends React.Component {
+
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			knowMore: false
+		}
+
+	}
+
+	knowMore = () => this.setState(prevState => ({ knowMore: !prevState.knowMore }));
 
 	render () {
 
@@ -169,20 +182,32 @@ class Developer extends React.Component {
 
 						</div>
 
-							<div className="developer__main col-9">
-								<div className="developer__formation">
-									<p className="developer__adalab">Formation by: Adalab</p>
-								</div>
-								<div className="developer__projects">Some projects of mine</div>
+						<div className="developer__main col-9">
+							<div className="developer__formation">
+								<h2 className="developer__adalab--title">Formation by <img src={LogoAdalab} alt="Adalab" className="developer__adalab--logo"/><span className="developer__adalab--more" onClick={this.knowMore}>Know more</span></h2>
+								{ this.state.knowMore ?
+										<p className="developer__adalab--text">Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector digital. En cuatro meses, con una media de 9 horas de estudios por día (6 presenciales), aprendemos la parte técnica de front-end, bien como importantes temas de desarrollo profesional. Trabajamos también com metodologías ágiles.</p>
+								: null }
+								{ this.state.knowMore ?
+
+										<p className="developer__adalab--text">Para saber más informaciones sobre Adalab, puedes consultar <a href="https://www.adalab.es" target="_Blank" className="project__url-a">su página web</a>.</p>
+								: null }
+
 							</div>
+							<div className="developer__projects">
+								<h2 className="developer__projects--title">Projects</h2>
+								<p className="developer__projects--text">En esta sección puede ver algunos de mis proyectos y creacciones:
+								</p>
+
+
+								<ProjectsList />
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
-
-
 		);
 	}
-
 }
 
 export default Developer;
