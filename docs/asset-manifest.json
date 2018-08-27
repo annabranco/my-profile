@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.e0dde764.css",
-  "main.css.map": "static/css/main.e0dde764.css.map",
-  "main.js": "static/js/main.4cd80e1a.js",
-  "main.js.map": "static/js/main.4cd80e1a.js.map",
+  "main.css": "static/css/main.b64a9283.css",
+  "main.css.map": "static/css/main.b64a9283.css.map",
+  "main.js": "static/js/main.d79610bb.js",
+  "main.js.map": "static/js/main.d79610bb.js.map",
   "static/media/annabranco.png": "static/media/annabranco.dbce0765.png",
   "static/media/beach.jpg": "static/media/beach.09b2755d.jpg",
   "static/media/bootstrap.png": "static/media/bootstrap.5c0f17e5.png",
@@ -17,5 +17,12 @@
   "static/media/love.jpg": "static/media/love.add43a5c.jpg",
   "static/media/skate.jpg": "static/media/skate.1c11c14e.jpg",
   "static/media/surf.jpg": "static/media/surf.87a96e1f.jpg",
+  "static/media/thumbnail-an-adventure.jpg": "static/media/thumbnail-an-adventure.3fd262cb.jpg",
+  "static/media/thumbnail-awesome-profile-cards.jpg": "static/media/thumbnail-awesome-profile-cards.80379503.jpg",
+  "static/media/thumbnail-harry-potter-database.jpg": "static/media/thumbnail-harry-potter-database.416c7dff.jpg",
+  "static/media/thumbnail-my-profile.jpg": "static/media/thumbnail-my-profile.aa1cf865.jpg",
+  "static/media/thumbnail-ni-piter.jpg": "static/media/thumbnail-ni-piter.3d4fd964.jpg",
+  "static/media/thumbnail-toy-story.jpg": "static/media/thumbnail-toy-story.a668022e.jpg",
+  "static/media/thumbnail-tv-series-finder.jpg": "static/media/thumbnail-tv-series-finder.23b9a077.jpg",
   "static/media/zeplin.png": "static/media/zeplin.559f129e.png"
 }
