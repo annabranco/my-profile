@@ -42,12 +42,17 @@ class Developer extends React.Component {
 	}
 
 componentDidUpdate() {
+	adjust = 0;
+
 	if((this.state.seeThumbnails) && (this.state.seeAll)) {
 		adjust = 1300;
 	} else if(this.state.seeAll) {
 		adjust = 650;
 	} else {
 		adjust = 0;
+	}
+	if (this.state.knowMore) {
+		adjust += 200;
 	}
 	this.props.handleAdjustExpandedProjectsView(adjust);
 }
