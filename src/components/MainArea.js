@@ -7,8 +7,6 @@ class MainArea extends React.Component {
 
   render () {
 
-console.log(this.props.doNotShowLanguagePopupAgain);
-
     return (
 
       <main className="main__outer">
@@ -22,7 +20,7 @@ console.log(this.props.doNotShowLanguagePopupAgain);
         </div>
 
         <ScrollArea
-          showText={this.props.showText}
+          handleAnimation={this.props.handleAnimation}
           bgs={this.props.bgs}
           blockContents={this.props.blockContents}
 		  texts={this.props.texts}

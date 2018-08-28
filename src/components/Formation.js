@@ -5,6 +5,9 @@ class Formation extends React.Component {
 
 	render () {
 
+		const text = this.props.texts.Formation;
+		const language = this.props.language;
+
 		return (
 
 			<section className="section__formation">
@@ -24,15 +27,28 @@ class Formation extends React.Component {
 					<div className="formation__inner">
 						<div className="formation__inner--horizontalBar">
 							<div className="formation__horizontarBar-psi"></div>
-							<h2 className="formation__title">Psychology</h2>
+							<h2 className="formation__title">{text[language].psy}</h2>
+							<p className="formation__details">Universidade Gama Filho
+								<img className="formation__flag" src="https://www.countryflags.io/br/flat/16.png" alt={text[language].brazil} title={text[language].brazil} />
+							</p>
+							<p className="formation__details">{text[language].grade}8,46</p>
 						</div>
 						<div className="formation__inner--horizontalBar">
 							<div className="formation__horizontarBar-ri"></div>
-							<h2 className="formation__title">International Relations</h2>
+							<h2 className="formation__title">{text[language].ir}</h2>
+							<p className="formation__details">Universidade Estácio de Sá
+								<img className="formation__flag" src="https://www.countryflags.io/br/flat/16.png" alt={text[language].brazil} title={text[language].brazil}  />
+							</p>
+							<p className="formation__details">{text[language].grade}9,15</p>
+
 						</div>
 						<div className="formation__inner--horizontalBar">
 							<div className="formation__horizontarBar-master"></div>
-							<h2 className="formation__title">Master in International Relations</h2>
+							<h2 className="formation__title">{text[language].master}</h2>
+							<p className="formation__details">Universitat Autònoma de Barcelona <img className="formation__flag" src="https://www.countryflags.io/es/flat/16.png" alt={text[language].spain} title={text[language].spain}  />
+							</p>
+							<p className="formation__details">{text[language].grade}8,00</p>
+
 						</div>
 						<div className="formation__inner--horizontalBar">
 							<div className="formation__horizontarBar-adalab"></div>

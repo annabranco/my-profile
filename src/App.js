@@ -11,44 +11,12 @@ import football from './images/bg/football.jpg';
 import bunnies from './images/bg/bunnies.jpg';
 import love from './images/bg/love.jpg';
 import texts from './db/texts.js';
+import scrollPoints from './db/scrollPoints.js';
 
 
 const doc = document.documentElement;
 const innerText = document.querySelectorAll('.innertext');
 let allBackgrounds = [];
-const allBlocks = [
-  {
-    num: 0,
-    scrollBegin: 600,
-    scrollEnd: 1250,
-    bg: beach
-  },
-  {
-    num: 1, //3
-    scrollBegin: 1250,
-    scrollEnd: 2050
-  },
-  {
-    num: 2, //6
-    scrollBegin: 2050,
-    scrollEnd: 2800
-  },
-  {
-    num: 3, //9
-    scrollBegin: 2800,
-    scrollEnd: 3600
-  },
-  {
-    num: 4, //12
-    scrollBegin: 3600,
-    scrollEnd: 4400
-  },
-  {
-    num: 5, //15
-    scrollBegin: 4400,
-    scrollEnd: 5200
-  },
-];
 
 const blockContents = [
   {
@@ -235,9 +203,9 @@ class App extends Component {
     super(props)
 
     this.state = {
-      language: 'en',
-      currentBlock: {},
-			doNotShowLanguagePopupAgain: undefined
+      	language: 'en',
+      	currentSection: {},
+		doNotShowLanguagePopupAgain: undefined
     }
   }
 
@@ -271,39 +239,38 @@ class App extends Component {
 
   }
 
-  handleScroll = () => {
+  	handleScroll = () => {
 
-    for (const block of allBlocks) {
-      if (doc.scrollTop >= block.scrollBegin && doc.scrollTop <= block.scrollEnd){
-        this.setState({ currentBlock: block })
-      }
-    }
-  }
+  		console.log(doc.scrollTop);
+  	}
 
-  showText = () => {
-    const language = this.state.language;
-    console.log(doc.scrollTop);
-    console.log(this.state.currentBlock.scrollTop);
-    if (doc.scrollTop >= this.state.currentBlock.scrollBegin && doc.scrollTop <= this.state.currentBlock.scrollBegin + 190 ) {
-      return (
-        <div className="innertext animateIn">
-          <p className="innertext--p">{blockContents[this.state.currentBlock.num][language].top}</p>
-        </div>
-      )
-    } else if (doc.scrollTop > this.state.currentBlock.scrollBegin + 210 && doc.scrollTop <= this.state.currentBlock.scrollEnd - 210) {
-      return (
-        <div className="innertext animateIn">
-          <p className="innertext--p">{blockContents[this.state.currentBlock.num][language].middle}</p>
-        </div>
-      )
-    } else if (doc.scrollTop > this.state.currentBlock.scrollEnd - 190 && doc.scrollTop <= this.state.currentBlock.scrollEnd ) {
-      return (
-        <div className="innertext animateIn">
-          <p className="innertext--p">{blockContents[this.state.currentBlock.num][language].bottom}</p>
-        </div>
-      )
-    }
-  }
+  // handleAnimation = () => {
+  //   const language = this.state.language;
+  //   console.log(doc.scrollTop);
+  //   if (doc.scrollTop >= this.state.currentSection.scrollBegin && doc.scrollTop <= this.state.currentSection.scrollBegin + 190 ) {
+  //     return (
+  //       <div className="innertext animateIn">
+  //         <p className="innertext--p">{blockContents[this.state.currentSection.num][language].top}</p>
+  //       </div>
+  //     )
+  //   } else if (doc.scrollTop > this.state.currentSection.scrollBegin + 210 && doc.scrollTop <= this.state.currentSection.scrollEnd - 210) {
+  //     return (
+  //       <div className="innertext animateIn">
+  //         <p className="innertext--p">{blockContents[this.state.currentSection.num][language].middle}</p>
+  //       </div>
+  //     )
+  //   } else if (doc.scrollTop > this.state.currentSection.scrollEnd - 190 && doc.scrollTop <= this.state.currentSection.scrollEnd ) {
+  //     return (
+  //       <div className="innertext animateIn">
+  //         <p className="innertext--p">{blockContents[this.state.currentSection.num][language].bottom}</p>
+  //       </div>
+  //     )
+  //   }
+  // }
+
+ 	handleAnimation = () => {
+	    console.log(doc.scrollTop);
+	}
 
   changeLanguage = event => {
 
@@ -330,7 +297,7 @@ class App extends Component {
 					changeLanguage={this.changeLanguage}
 				/>
         <MainArea
-          showText={this.showText}
+          handleAnimation={this.handleAnimation}
           bgs={allBackgrounds}
           language={this.state.language}
           changeLanguage={this.changeLanguage}

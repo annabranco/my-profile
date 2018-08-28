@@ -9,28 +9,29 @@ import '../styles/components/ScrollArea.css';
 class ScrollArea extends React.Component {
 
 
-  determineBlocks() {
-    let BlocksToRender = [];
-
-    for (let i = 0; i < 7; i++) {
-      BlocksToRender.push(
-
-        <ScrollItem
-            num={i}
-            bg={`url('${this.props.bgs[i]}')`}
-            showText={this.props.showText}
-            title={this.props.blockContents[i][this.props.language].title}
-        />
-      ) ;
-    }
-    return BlocksToRender;
-  }
+  // determineBlocks() {
+  //   let BlocksToRender = [];
+  //
+  //   for (let i = 0; i < 7; i++) {
+  //     BlocksToRender.push(
+  //
+  //       <ScrollItem
+  //           num={i}
+  //           bg={`url('${this.props.bgs[i]}')`}
+  //           handleAnimation={this.props.handleAnimation}
+  //           title={this.props.blockContents[i][this.props.language].title}
+  //       />
+  //     ) ;
+  //   }
+  //   return BlocksToRender;
+  // }
 
 
   render () {
 
     return (
       	<section className="main__images">
+
 
 			<InbetweenBar title={this.props.texts.Developer[this.props.language].title} />
 			<Developer
@@ -43,9 +44,6 @@ class ScrollArea extends React.Component {
 				  texts={this.props.texts}
 				  language={this.props.language}
 			/>
-
-
-	        {this.determineBlocks()}
 
       	</section>
     );

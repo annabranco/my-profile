@@ -9,7 +9,7 @@ class ScrollItem extends React.Component {
       <div className="images" style={{backgroundImage: this.props.bg}} key={this.props.num}>
 
         <div className="innertext--between">{this.props.title}</div>
-        {this.props.showText()}
+        {this.props.handleAnimation()}
 
       </div>
 

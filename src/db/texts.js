@@ -82,5 +82,34 @@ export default {
 			goUp: 'subir',
 			showMore: 'ver mais',
 		}
-   }
+   },
+   Formation: {
+	   en: {
+		   title: 'Formation',
+		   psy: 'Psychology',
+		   ir: 'International Relations',
+		   master: 'Master in International Relations',
+		   grade: 'Final grade: ',
+		   brazil: 'Brazil',
+		   spain: 'Spain'
+	   },
+	   es: {
+		   title: 'Formación',
+		   psy: 'Psicología',
+		   ir: 'Relaciones Internacionales',
+		   master: 'Master en Relaciones Internacionales',
+		   grade: 'Grado final: ',
+		   brazil: 'Brasil',
+		   spain: 'España'
+	   },
+	   pt: {
+		   title: 'Formação',
+		   psy: 'Psicologia',
+		   ir: 'Relações Internacionais',
+		   master: 'Mestrado em Relações Internacionais',
+		   grade: 'Média final: ',
+		   brazil: 'Brasil',
+		   spain: 'Espanha'
+	   }
+  },
 }
