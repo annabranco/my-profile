@@ -3,7 +3,6 @@ import './styles/App.css';
 import Header from './components/Header';
 import MainArea from './components/MainArea';
 import texts from './db/texts.js';
-import scrollPoints from './db/scrollPoints.js';
 
 const doc = document.documentElement;
 let adjustExpandedProjectsView = 0;
@@ -120,34 +119,6 @@ class App extends Component {
 		}
   		console.log(doc.scrollTop);
   	}
-
-  // handleAnimation = () => {
-  //   const language = this.state.language;
-  //   console.log(doc.scrollTop);
-  //   if (doc.scrollTop >= this.state.currentSection.scrollBegin && doc.scrollTop <= this.state.currentSection.scrollBegin + 190 ) {
-  //     return (
-  //       <div className="innertext animateIn">
-  //         <p className="innertext--p">{blockContents[this.state.currentSection.num][language].top}</p>
-  //       </div>
-  //     )
-  //   } else if (doc.scrollTop > this.state.currentSection.scrollBegin + 210 && doc.scrollTop <= this.state.currentSection.scrollEnd - 210) {
-  //     return (
-  //       <div className="innertext animateIn">
-  //         <p className="innertext--p">{blockContents[this.state.currentSection.num][language].middle}</p>
-  //       </div>
-  //     )
-  //   } else if (doc.scrollTop > this.state.currentSection.scrollEnd - 190 && doc.scrollTop <= this.state.currentSection.scrollEnd ) {
-  //     return (
-  //       <div className="innertext animateIn">
-  //         <p className="innertext--p">{blockContents[this.state.currentSection.num][language].bottom}</p>
-  //       </div>
-  //     )
-  //   }
-  // }
-
- 	// handleAnimation = () => {
-	//     console.log(doc.scrollTop);
-	// }
 
   changeLanguage = event => {
     this.setState({

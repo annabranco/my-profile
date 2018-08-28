@@ -1,11 +1,9 @@
 .section__hero {
-  z-index: -1;
   left: 50%;
   margin-top: 100px;
   height: 100vh; }
 
 .main__intro {
-  z-index: -2;
   position: relative;
   margin: 20px 0 0;
   height: 100vh;
