@@ -1,6 +1,7 @@
 import React from 'react';
 import InbetweenBar from './InbetweenBar';
 import Developer from './Developer';
+import Formation from './Formation';
 import ScrollItem from './ScrollItem';
 import '../styles/components/ScrollArea.css';
 
@@ -31,19 +32,24 @@ class ScrollArea extends React.Component {
 
 
     return (
-      <section className="main__images">
+      	<section className="main__images">
 
-		<InbetweenBar
-			texts={this.props.texts}
-		/>
-		<Developer
-			  texts={this.props.texts}
-			  language={this.props.language}
-		/>
+			<InbetweenBar texts={this.props.texts} />
+			<Developer
+				  texts={this.props.texts}
+				  language={this.props.language}
+			/>
 
-        {this.determineBlocks()}
+			<InbetweenBar texts={this.props.texts} />
+			<Formation
+				  texts={this.props.texts}
+				  language={this.props.language}
+			/>
 
-      </section>
+
+	        {this.determineBlocks()}
+
+      	</section>
     );
   }
 

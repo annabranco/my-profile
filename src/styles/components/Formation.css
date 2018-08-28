@@ -1,0 +1,59 @@
+.section__formation {
+  height: 100vh;
+  position: relative;
+  display: fixed;
+  background-image: linear-gradient(rgba(230, 239, 251, 0.98), rgba(230, 239, 251, 0.93), rgba(189, 214, 246, 0.98)), url("https://data.whicdn.com/images/303133698/original.gif");
+  background-position: center; }
+
+.formation__outer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin: 0 auto;
+  height: auto;
+  width: 80vw; }
+
+.formation__inner {
+  height: auto; }
+
+.formation__inner--year {
+  margin-right: 15px;
+  width: 40px;
+  text-align: center;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 1.2em;
+  color: #4b0a62; }
+
+.formation__verticalBar {
+  border-right: 5px solid #2b2f59;
+  height: 90vh; }
+
+.formation__inner--horizontalBar,
+.formation__inner--year {
+  height: 130px; }
+
+.formation__horizontarBar-adalab,
+.formation__horizontarBar-master,
+.formation__horizontarBar-psi,
+.formation__horizontarBar-ri {
+  display: inline-block;
+  border-top: 5px solid #2b2f59; }
+
+.formation__horizontarBar-psi {
+  width: 15vw; }
+
+.formation__horizontarBar-ri {
+  width: 30vw; }
+
+.formation__horizontarBar-master {
+  width: 45vw; }
+
+.formation__horizontarBar-adalab {
+  width: 60vw; }
+
+.formation__title {
+  margin-left: 20px;
+  display: inline;
+  font-family: "Acme", sans-serif;
+  font-size: 1.4em;
+  color: #3e76c1; }
