@@ -7,7 +7,7 @@ class InbetweenBar extends React.Component {
 
 		return (
 
-			<div className="innertext--between">{this.props.title}Technical competences</div>
+			<div className="innertext--between">{this.props.title}</div>
 
 		);
 	}

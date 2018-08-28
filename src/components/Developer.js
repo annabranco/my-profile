@@ -37,7 +37,7 @@ class Developer extends React.Component {
 
 	render () {
 
-		const text = this.props.texts.Hero;
+		const text = this.props.texts.Developer;
 		const language = this.props.language;
 
 		return (
@@ -48,7 +48,7 @@ class Developer extends React.Component {
 					<div className="row">
 
 						<div className="developer__sidebar col-3">
-							<h3 className="developer__skills--title">Main skills</h3>
+							<h3 className="developer__skills--title">{text[language].main}</h3>
 
 							<div className="developer__inner--skills">
 
@@ -123,7 +123,7 @@ class Developer extends React.Component {
 								</div>
 
 							</div>
-							<h3 className="developer__skills--title">Others skills</h3>
+							<h3 className="developer__skills--title">{text[language].other}</h3>
 							<div className="developer__inner--skills developer__inner--skills-others">
 
 								<div className="skills__outer">
@@ -195,23 +195,34 @@ class Developer extends React.Component {
 
 						<div className="developer__main col-9">
 							<div className="developer__formation">
-								<h2 className="developer__adalab--title">Formation by <img src={LogoAdalab} alt="Adalab" className="developer__adalab--logo"/><span className="developer--more" onClick={this.knowMore}>Know more</span></h2>
+								<h2 className="developer__adalab--title">{text[language].formation} <img src={LogoAdalab} alt="Adalab" className="developer__adalab--logo"/><span className="developer--more" onClick={this.knowMore}>{text[language].more}</span></h2>
+
 								{ this.state.knowMore ?
-										<p className="developer__adalab--text">Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector digital. En cuatro meses, con una media de 9 horas de estudios por día (6 presenciales), aprendemos la parte técnica de front-end, bien como importantes temas de desarrollo profesional. Trabajamos también com metodologías ágiles.</p>
+										<p className="developer__adalab--text">
+											{text[language].adalabText}
+										</p>
 								: null }
 								{ this.state.knowMore ?
 
-										<p className="developer__adalab--text">Para saber más informaciones sobre Adalab, puedes consultar <a href="https://www.adalab.es" target="_Blank" className="project__url-a">su página web</a>.</p>
+										<p className="developer__adalab--text">
+											{text[language].adalabMore}
+											<a href="https://www.adalab.es" target="_Blank" className="project__url-a">Adalab</a>
+										</p>
 								: null }
 
 							</div>
 							<div className="developer__projects">
-								<h2 className="developer__projects--title">Projects<span className="developer--more" onClick={this.seeAll}>{this.state.seeAll ? 'Reduced view' : 'Expanded view'}</span></h2>
-								<p className="developer__projects--text">En esta sección puede ver algunos de mis proyectos y creacciones:
+								<h2 className="developer__projects--title">{text[language].projects}<span className="developer--more" onClick={this.seeAll}>{this.state.seeAll ? text[language].reduced : text[language].expanded}</span></h2>
+								<p className="developer__projects--text">
+									{text[language].projectsText}
 								</p>
 
 
-								<ProjectsList seeAll={this.state.seeAll}/>
+								<ProjectsList
+									seeAll={this.state.seeAll}
+									text={text}
+									language={language}
+								/>
 							</div>
 						</div>
 					</div>

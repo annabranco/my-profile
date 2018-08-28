@@ -29,12 +29,10 @@ class ScrollArea extends React.Component {
 
   render () {
 
-
-
     return (
       	<section className="main__images">
 
-			<InbetweenBar texts={this.props.texts} />
+			<InbetweenBar title={this.props.texts.Developer[this.props.language].title} />
 			<Developer
 				  texts={this.props.texts}
 				  language={this.props.language}
