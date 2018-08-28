@@ -17,12 +17,23 @@ class Developer extends React.Component {
 		super(props)
 
 		this.state = {
-			knowMore: false
+			knowMore: false,
+			seeAll: false
 		}
 
 	}
 
 	knowMore = () => this.setState(prevState => ({ knowMore: !prevState.knowMore }));
+
+	seeAll = () => {
+		this.setState(prevState => ({ seeAll: !prevState.seeAll }));
+
+		if(this.state.seeAll) {
+			document.querySelector('.projects__list').style.height = '210px';
+		} else {
+			document.querySelector('.projects__list').style.height = 'auto';
+		}
+	}
 
 	render () {
 
@@ -184,7 +195,7 @@ class Developer extends React.Component {
 
 						<div className="developer__main col-9">
 							<div className="developer__formation">
-								<h2 className="developer__adalab--title">Formation by <img src={LogoAdalab} alt="Adalab" className="developer__adalab--logo"/><span className="developer__adalab--more" onClick={this.knowMore}>Know more</span></h2>
+								<h2 className="developer__adalab--title">Formation by <img src={LogoAdalab} alt="Adalab" className="developer__adalab--logo"/><span className="developer--more" onClick={this.knowMore}>Know more</span></h2>
 								{ this.state.knowMore ?
 										<p className="developer__adalab--text">Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector digital. En cuatro meses, con una media de 9 horas de estudios por día (6 presenciales), aprendemos la parte técnica de front-end, bien como importantes temas de desarrollo profesional. Trabajamos también com metodologías ágiles.</p>
 								: null }
@@ -195,12 +206,12 @@ class Developer extends React.Component {
 
 							</div>
 							<div className="developer__projects">
-								<h2 className="developer__projects--title">Projects</h2>
+								<h2 className="developer__projects--title">Projects<span className="developer--more" onClick={this.seeAll}>{this.state.seeAll ? 'Reduced view' : 'Expanded view'}</span></h2>
 								<p className="developer__projects--text">En esta sección puede ver algunos de mis proyectos y creacciones:
 								</p>
 
 
-								<ProjectsList />
+								<ProjectsList seeAll={this.state.seeAll}/>
 							</div>
 						</div>
 					</div>

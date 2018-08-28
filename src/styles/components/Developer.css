@@ -157,7 +157,11 @@
   height: auto; }
 
 .developer__projects {
-  border-radius: 50px 0 0 0; }
+  border-radius: 50px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
 
 .developer__adalab--logo {
   margin: 0 0 2px 5px;
@@ -186,7 +190,7 @@
   text-align: left;
   text-decoration: none; }
 
-.developer__adalab--more {
+.developer--more {
   position: absolute;
   bottom: 25px;
   right: 30px;
@@ -196,5 +200,5 @@
   color: #3e76c1;
   text-shadow: 0 0 2px white;
   cursor: default; }
-  .developer__adalab--more:hover {
+  .developer--more:hover {
     color: #949632; }

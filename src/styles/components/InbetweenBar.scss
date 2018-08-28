@@ -3,11 +3,10 @@ $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
 
 .innertext--between {
-	z-index         : 99;
+	z-index         : 3;
 	display         : flex;
 	align-items     : flex-start;
 	justify-content : center;
-	margin-top      : -20px;
 	height          : 60px;
 	width           : 100vw;
 	padding-top     : 15px;

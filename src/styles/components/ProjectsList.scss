@@ -13,12 +13,12 @@ $font__subtitle: 'Corben', cursive;
 
 .projects__list {
 	display              : grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows   : auto;
+	grid-template-columns: 300px 300px;
+	grid-template-rows   : 225px;
 	grid-gap             : 30px 20px;
 	margin               : 30px 20px 20px;
-	height               : auto;
-	//overflow-x           : scroll;
+	height               : 210px;
+	overflow             : hidden;
 
 }
 
@@ -40,12 +40,13 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .project__thumbnail {
-	border: 1px solid black;
-	width : 100%;
+	margin-top: 10px;
+	border    : 1px solid black;
+	width     : 100%;
 }
 
 .project__description {
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	text-align   : justify;
 	line-height  : 1.4;
 }
@@ -64,5 +65,27 @@ $font__subtitle: 'Corben', cursive;
 	margin-right  : 10px;
 	color         : black;
 	opacity       : 0.4;
+}
 
+.project__repo {
+	&:last-of-type {
+		margin-bottom: 40px;
+	}
+}
+
+.project__seeMore {
+	margin-bottom: 40px;
+	opacity      : 0.5;
+
+}
+
+.project__seeMore-text {
+	vertical-align: super;
+	text-align    : center;
+	font-size     : 0.8rem;
+}
+
+.icon--more {
+	margin   : -20px 5px 0;
+	font-size: 2rem;
 }
