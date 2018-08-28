@@ -113,6 +113,7 @@ class ProjectsList extends React.Component {
 		} else {
 			document.querySelector('.projects__list').style.gridTemplateRows = '225px';
 		}
+		this.props.handleAdjustThumbnailsView(e.currentTarget.checked);
 	}
 
 
@@ -153,24 +154,24 @@ class ProjectsList extends React.Component {
 
 				<div className="developer__projects--thumbnails-checkbox">
 					<input id="developer__projects-checkbox" type="checkbox" className="developer__projects-checkbox" onClick={this.handleThumbnails}/>
-					<label forHtml="developer__projects-checkbox">{text[language].showThumbnails}</label>
+					<label htmlFor="developer__projects-checkbox">{text[language].showThumbnails}</label>
 				</div>
 				<ul className="projects__list">
 
-					{ projects.map(project => {
+					{ projects.map( (project,index) => {
 						return (
-							<React.Fragment>
+							<React.Fragment key={index}>
 
 							<li className="project__item">
 								<a href={project.url} className="project__url-a" target="_Blank">
 
-									<h3 className="project__title">{project.title} <i class="far fa-eye project__title-icon"></i></h3>
+									<h3 className="project__title">{project.title} <i className="far fa-eye project__title-icon"></i></h3>
 
 								</a>
 								<p className="project__description">{project.description[language]}</p>
 
 								<a href={project.repo} className="project__url-a" target="_Blank">
-									<p className="project__repo"><i class="fab fa-github-alt project__repo--icon"></i>{project.repo}</p>
+									<p className="project__repo"><i className="fab fa-github-alt project__repo--icon"></i>{project.repo}</p>
 								</a>
 							</li>
 
@@ -191,8 +192,8 @@ class ProjectsList extends React.Component {
 
 				<div className="project__seeMore">
 					<span className="project__seeMore-text project__seeMore-up invisible">{text[language].goUp}</span>
-					<i class="far fa-arrow-alt-circle-up icon--more invisible" onClick={this.previousProjects}></i>
-					<i class="far fa-arrow-alt-circle-down icon--more" onClick={this.nextProjects}></i>
+					<i className="far fa-arrow-alt-circle-up icon--more invisible" onClick={this.previousProjects}></i>
+					<i className="far fa-arrow-alt-circle-down icon--more" onClick={this.nextProjects}></i>
 					<span className="project__seeMore-text project__seeMore-down">{text[language].showMore}</span>
 
 

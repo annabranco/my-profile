@@ -10,30 +10,29 @@ class MainArea extends React.Component {
     return (
 
       <main className="main__outer">
-        <div className="main__intro">
+        	<div className="main__intro">
 
-          	<Hero
+	          	<Hero
+					texts={this.props.texts}
+					language={this.props.language}
+	 			/>
+
+        	</div>
+
+	        <ScrollArea
+		        handleAnimation={this.props.handleAnimation}
 				texts={this.props.texts}
-				language={this.props.language}
- 			/>
-
-        </div>
-
-        <ScrollArea
-          handleAnimation={this.props.handleAnimation}
-          bgs={this.props.bgs}
-          blockContents={this.props.blockContents}
-		  texts={this.props.texts}
-          language={this.props.language}
-        />
-
-				{!this.props.doNotShowLanguagePopupAgain ?
-	        <Languages
-	          language={this.props.language}
-	          changeLanguage={this.props.changeLanguage}
-						clearLanguagePopup={this.props.clearLanguagePopup}
+		        language={this.props.language}
+				handleAdjustExpandedProjectsView={this.props.handleAdjustExpandedProjectsView}
 	        />
-				: null }
+
+			{!this.props.doNotShowLanguagePopupAgain ?
+		        <Languages
+		          	language={this.props.language}
+		          	changeLanguage={this.props.changeLanguage}
+					clearLanguagePopup={this.props.clearLanguagePopup}
+		        />
+			: null }
 
       </main>
 

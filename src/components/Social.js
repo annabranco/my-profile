@@ -18,19 +18,19 @@ class Social extends React.Component {
 					</a>
 				</div>
 				<div className="hero__social--inner">
-					<a className="hero__social--link" href="https://github.com/annabranco" target="_Blank">
+					<a className="hero__social--link" href="https://github.com/annabranco" target="_Blank" rel="noopener noreferrer">
 						<i className="fab fa-github-alt icon-github"></i>
 						<p className="hero__social-text">Github</p>
 					</a>
 				</div>
 				<div className="hero__social--inner">
-					<a className="hero__social--link" href="https://www.linkedin.com/in/annabranco/" target="_Blank">
-						<i class="fab fa-linkedin-in icon-linkedin"></i>
+					<a className="hero__social--link" href="https://www.linkedin.com/in/annabranco/" target="_Blank" rel="noopener noreferrer">
+						<i className="fab fa-linkedin-in icon-linkedin"></i>
 						<p className="hero__social-text">LinkedIn</p>
 				</a>
 				</div>
 				<div className="hero__social--inner">
-					<a className="hero__social--link" href="https://twitter.com/AnyaBranco" target="_Blank">
+					<a className="hero__social--link" href="https://twitter.com/AnyaBranco" target="_Blank" rel="noopener noreferrer">
 						<i className="fab fa-twitter icon-twitter"></i>
 						<p className="hero__social-text">Twitter</p>
 				</a>

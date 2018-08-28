@@ -1,5 +1,4 @@
 import React from 'react';
-import Social from './Social';
 import ProjectsList from './ProjectsList';
 import '../styles/components/Developer.css';
 import LogoAdalab from '../images/logo-adalab.png';
@@ -11,6 +10,8 @@ import github from '../images/skills/github.png';
 import bootstrap from '../images/skills/bootstrap.png';
 import zeplin from '../images/skills/zeplin.png';
 
+let adjust = 0;
+
 class Developer extends React.Component {
 
 	constructor(props) {
@@ -18,7 +19,8 @@ class Developer extends React.Component {
 
 		this.state = {
 			knowMore: false,
-			seeAll: false
+			seeAll: false,
+			seeThumbnails: false
 		}
 
 	}
@@ -28,12 +30,27 @@ class Developer extends React.Component {
 	seeAll = () => {
 		this.setState(prevState => ({ seeAll: !prevState.seeAll }));
 
-		if(this.state.seeAll) {
+		if (this.state.seeAll) {
 			document.querySelector('.projects__list').style.height = '210px';
 		} else {
 			document.querySelector('.projects__list').style.height = 'auto';
 		}
 	}
+
+	handleAdjustThumbnailsView = (thumbnails) => {
+		this.setState({ seeThumbnails: thumbnails });
+	}
+
+componentDidUpdate() {
+	if((this.state.seeThumbnails) && (this.state.seeAll)) {
+		adjust = 1300;
+	} else if(this.state.seeAll) {
+		adjust = 650;
+	} else {
+		adjust = 0;
+	}
+	this.props.handleAdjustExpandedProjectsView(adjust);
+}
 
 	render () {
 
@@ -58,9 +75,9 @@ class Developer extends React.Component {
 										<img src={css} alt="" className="skills__icon"/>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
 									</div>
 								</div>
 
@@ -70,9 +87,9 @@ class Developer extends React.Component {
 										<img src={html} alt="" className="skills__icon"/>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star-half icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star-half icon--star" aria-hidden></i>
 									</div>
 								</div>
 
@@ -82,32 +99,32 @@ class Developer extends React.Component {
 										<img src={javascript} alt="" className="skills__icon"/>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star-half icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star-half icon--star" aria-hidden></i>
 									</div>
 								</div>
 
 								<div className="skills__outer">
 									<h4 className="skills__text">SASS/SCSS</h4>
 									<div className="skills__inner--icon">
-										<i class="fab fa-sass skills__icon icon--sass" aria-hidden></i>
+										<i className="fab fa-sass skills__icon icon--sass" aria-hidden></i>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star-half icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star-half icon--star" aria-hidden></i>
 									</div>
 								</div>
 
 								<div className="skills__outer">
 									<h4 className="skills__text">React.js</h4>
 									<div className="skills__inner--icon">
-										<i class="fab fa-react skills__icon icon--react" aria-hidden></i>
+										<i className="fab fa-react skills__icon icon--react" aria-hidden></i>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
 									</div>
 								</div>
 
@@ -117,8 +134,8 @@ class Developer extends React.Component {
 										<img src={git} alt="" className="skills__icon"/>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star" aria-hidden></i>
-										<i class="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
+										<i className="fas fa-star icon--star" aria-hidden></i>
 									</div>
 								</div>
 
@@ -132,39 +149,39 @@ class Developer extends React.Component {
 										<img src={github} alt="" className="skills__icon--others icon--github"/>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star icon--star--others" aria-hidden></i>
-										<i class="fas fa-star icon--star icon--star--others" aria-hidden></i>
-										<i class="fas fa-star icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star icon--star icon--star--others" aria-hidden></i>
 									</div>
 								</div>
 
 								<div className="skills__outer">
 									<h4 className="skills__text--others">node.js</h4>
 									<div className="skills__inner--icon-others">
-										<i class="fab fa-node-js skills__icon--others icon--node" aria-hidden></i>
+										<i className="fab fa-node-js skills__icon--others icon--node" aria-hidden></i>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
 									</div>
 								</div>
 
 								<div className="skills__outer">
 									<h4 className="skills__text--others">gulp</h4>
 									<div className="skills__inner--icon-others">
-										<i class="fab fa-gulp skills__icon--others icon--gulp" aria-hidden></i>
+										<i className="fab fa-gulp skills__icon--others icon--gulp" aria-hidden></i>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
 									</div>
 								</div>
 
 								<div className="skills__outer">
 									<h4 className="skills__text--others">npm</h4>
 									<div className="skills__inner--icon-others">
-										<i class="fab fa-npm skills__icon--others icon--npm" aria-hidden></i>
+										<i className="fab fa-npm skills__icon--others icon--npm" aria-hidden></i>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
 									</div>
 								</div>
 
@@ -174,7 +191,7 @@ class Developer extends React.Component {
 										<img src={bootstrap} alt="" className="skills__icon--others icon--bootstrap" />
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star-half icon--star icon--star--others" aria-hidden></i>
 									</div>
 								</div>
 
@@ -184,8 +201,8 @@ class Developer extends React.Component {
 										<img src={zeplin} alt="" className="skills__icon--others icon--zeplin"/>
 									</div>
 									<div className="skills__inner--stars">
-										<i class="fas fa-star icon--star icon--star--others" aria-hidden></i>
-										<i class="fas fa-star icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star icon--star icon--star--others" aria-hidden></i>
+										<i className="fas fa-star icon--star icon--star--others" aria-hidden></i>
 									</div>
 								</div>
 
@@ -206,7 +223,7 @@ class Developer extends React.Component {
 
 										<p className="developer__adalab--text">
 											{text[language].adalabMore}
-											<a href="https://www.adalab.es" target="_Blank" className="project__url-a">Adalab</a>
+											<a href="https://www.adalab.es" target="_Blank" rel="noopener noreferrer" className="project__url-a">Adalab</a>
 										</p>
 								: null }
 
@@ -222,6 +239,7 @@ class Developer extends React.Component {
 									seeAll={this.state.seeAll}
 									text={text}
 									language={language}
+									handleAdjustThumbnailsView={this.handleAdjustThumbnailsView}
 								/>
 							</div>
 						</div>

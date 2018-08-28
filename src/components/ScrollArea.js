@@ -2,30 +2,10 @@ import React from 'react';
 import InbetweenBar from './InbetweenBar';
 import Developer from './Developer';
 import Formation from './Formation';
-import ScrollItem from './ScrollItem';
 import '../styles/components/ScrollArea.css';
 
 
 class ScrollArea extends React.Component {
-
-
-  // determineBlocks() {
-  //   let BlocksToRender = [];
-  //
-  //   for (let i = 0; i < 7; i++) {
-  //     BlocksToRender.push(
-  //
-  //       <ScrollItem
-  //           num={i}
-  //           bg={`url('${this.props.bgs[i]}')`}
-  //           handleAnimation={this.props.handleAnimation}
-  //           title={this.props.blockContents[i][this.props.language].title}
-  //       />
-  //     ) ;
-  //   }
-  //   return BlocksToRender;
-  // }
-
 
   render () {
 
@@ -37,9 +17,10 @@ class ScrollArea extends React.Component {
 			<Developer
 				  texts={this.props.texts}
 				  language={this.props.language}
+				  handleAdjustExpandedProjectsView={this.props.handleAdjustExpandedProjectsView}
 			/>
 
-			<InbetweenBar texts={this.props.texts} />
+			<InbetweenBar title={this.props.texts.Formation[this.props.language].title}  />
 			<Formation
 				  texts={this.props.texts}
 				  language={this.props.language}

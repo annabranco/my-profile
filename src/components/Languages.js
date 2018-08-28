@@ -34,9 +34,9 @@ class Languages extends React.Component {
     super(props)
 
     this.state = {
-      display: true,
-			frenchClicked: false,
-			doNotShowLanguagePopupAgain: true
+     	display: true,
+		frenchClicked: false,
+		doNotShowLanguagePopupAgain: true
     }
   }
 
@@ -63,7 +63,6 @@ class Languages extends React.Component {
 
   render () {
 
-const showDisplay = this.state.display;
 const language = this.props.language;
 
     return (
@@ -79,22 +78,22 @@ const language = this.props.language;
 
             <div className="languages__flags--inner" lang="en" onClick={this.props.changeLanguage}>
               <p className="languages__label">English (US)</p>
-              <img className={`languages__flag ${language === 'en' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/us/shiny/64.png" />
+              <img className={`languages__flag ${language === 'en' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/us/shiny/64.png" alt="" />
             </div>
 
             <div className="languages__flags--inner" lang="es" onClick={this.props.changeLanguage}>
               <p className="languages__label">Español (ES)</p>
-              <img className={`languages__flag ${language === 'es' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/es/shiny/64.png" />
+              <img className={`languages__flag ${language === 'es' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/es/shiny/64.png" alt="" />
             </div>
 
             <div className="languages__flags--inner" lang="pt" onClick={this.props.changeLanguage}>
               <p className="languages__label">Português (BR)</p>
-              <img className={`languages__flag ${language === 'pt' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/br/shiny/64.png" />
+              <img className={`languages__flag ${language === 'pt' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/br/shiny/64.png" alt="" />
             </div>
 
             <div className="languages__flags--inner" lang="fr" onClick={this.frenchSelected}>
               <p className="languages__label notYet">Français (FR)</p>
-              <img className={`languages__flag notYet ${language === 'en' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/fr/shiny/64.png" />
+              <img className={`languages__flag notYet ${language === 'en' ? 'languages__flag--active' : ''}`} src="https://www.countryflags.io/fr/shiny/64.png" alt="" />
             </div>
 
           </div>

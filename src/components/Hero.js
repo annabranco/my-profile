@@ -39,19 +39,19 @@ class Hero extends React.Component {
 					<img className="hero__boat" src="http://www.animatedimages.org/data/media/271/animated-ship-image-0031.gif" alt="Navigating beautifully"/>
 					<div className="hero__scrollDown">
 						<div className="hero__scrollDown-inner">
-							<i class="fas fa-angle-double-down scroll-icon anim1"></i>
-							<i class="fas fa-angle-double-down scroll-icon anim1"></i>
-							<i class="fas fa-angle-double-down scroll-icon anim1"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim1"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim1"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim1"></i>
 						</div>
 						<div className="hero__scrollDown-inner">
-							<i class="fas fa-angle-double-down scroll-icon anim2"></i>
-							<i class="fas fa-angle-double-down scroll-icon anim2"></i>
-							<i class="fas fa-angle-double-down scroll-icon anim2"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim2"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim2"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim2"></i>
 						</div>
 						<div className="hero__scrollDown-inner">
-							<i class="fas fa-angle-double-down scroll-icon anim3"></i>
-							<i class="fas fa-angle-double-down scroll-icon anim3"></i>
-							<i class="fas fa-angle-double-down scroll-icon anim3"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim3"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim3"></i>
+							<i className="fas fa-angle-double-down scroll-icon anim3"></i>
 						</div>
 					</div>
 			</section>

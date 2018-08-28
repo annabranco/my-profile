@@ -1,246 +1,123 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import MainArea from './components/MainArea';
-import beach from './images/bg/beach.jpg';
-import coding from './images/bg/coding.jpg';
-import surf from './images/bg/surf.jpg';
-import skate from './images/bg/skate.jpg';
-import football from './images/bg/football.jpg';
-import bunnies from './images/bg/bunnies.jpg';
-import love from './images/bg/love.jpg';
 import texts from './db/texts.js';
 import scrollPoints from './db/scrollPoints.js';
 
-
 const doc = document.documentElement;
-const innerText = document.querySelectorAll('.innertext');
-let allBackgrounds = [];
-
-const blockContents = [
-  {
-    bg: beach,
-    en: {
-      title: 'Main traits',
-      top: 'Nice and calm',
-      middle: 'Resilient',
-      bottom: 'Positive and vibrant'
-    },
-    es: {
-      title: 'Rasgos principales',
-      top: 'Calma y tranquila',
-      middle: 'Resiliente',
-      bottom: 'Positiva y alegre'
-    },
-    pt: {
-      title: 'Main traits',
-      top: 'Nice and calm',
-      middle: 'Resilient',
-      bottom: 'Positive and vibrant'
-    },
-    fr: {
-      title: 'Rasgos principales',
-      top: 'Calma y tranquila',
-      middle: 'Resiliente',
-      bottom: 'Positiva y alegre'
-    }
-  },
-  {
-    bg: coding,
-    en: {
-      title: 'Creative',
-      top: 'Passion for technology',
-      middle: 'Capacity to work autonomosuly',
-      bottom: 'Dedicated developer'
-    },
-    es: {
-      title: 'Creativa',
-      top: 'Apasionada por tecnología',
-      middle: 'Capaz de trabajar autonomamente',
-      bottom: 'Desarrolladora dedicada'
-    },
-    pt: {
-      title: 'Creative',
-      top: 'Passion for technology',
-      middle: 'Capacity to work autonomosuly',
-      bottom: 'Dedicated developer'
-    },
-    fr: {
-      title: 'Creativa',
-      top: 'Apasionada por tecnología',
-      middle: 'Capaz de trabajar autonomamente',
-      bottom: 'Desarrolladora dedicada'
-    }
-  },
-  {
-    bg: surf,
-    en: {
-      title: 'Flexible',
-      top: 'Understands fluxes of processes',
-      middle: 'Adapting to each different wave',
-      bottom: 'Enjoying the process'
-    },
-    es: {
-      title: 'Flexible',
-      top: 'Busco conocer todos los flujos de los procesos',
-      middle: 'Adaptándome a cada distinta ola',
-      bottom: 'Y disfrutando el proceso'
-    },
-    pt: {
-      title: 'Flexible',
-      top: 'Understands fluxes of processes',
-      middle: 'Adapting to each different wave',
-      bottom: 'Enjoying the process'
-    },
-    fr: {
-      title: 'Flexible',
-      top: 'Busco conocer todos los flujos de los procesos',
-      middle: 'Adaptándome a cada distinta ola',
-      bottom: 'Y disfrutando el proceso'
-    }
-  },
-  {
-    bg: skate,
-    en: {
-      title: 'Tenacious',
-      top: 'Loves challenges',
-      middle: 'Without fear for falls',
-      bottom: 'And smiling even under pressure'
-    },
-    es: {
-      title: 'Persistente',
-      top: 'Encaro de frente a los desafíos',
-      middle: 'Sin miedo de posibles caídas',
-      bottom: 'Y sonriendo mismo bajo presión'
-    },
-    pt: {
-      title: 'Tenacious',
-      top: 'Loves challenges',
-      middle: 'Without fear for falls',
-      bottom: 'And smiling even under pressure'
-    },
-    fr: {
-      title: 'Persistente',
-      top: 'Encaro de frente a los desafíos',
-      middle: 'Sin miedo de posibles caídas',
-      bottom: 'Y sonriendo mismo bajo presión'
-    }
-  },
-  {
-    bg: football,
-    en: {
-      title: 'Team player',
-      top: 'Neves loses focus on the ball',
-      middle: 'Able to play at different roles',
-      bottom: 'Understanding victories as result of coordinated teamworking'
-    },
-    es: {
-      title: 'Juego en equipo',
-      top: 'Nunca pierdo el foco de la pelota',
-      middle: 'Puedo adaptarme a distintos roles',
-      bottom: 'Entendiendo los logros como resultado de un trabajo coordinado de equipo'
-    },
-    pt: {
-      title: 'Team player',
-      top: 'Neves loses focus on the ball',
-      middle: 'Able to play at different roles',
-      bottom: 'Understanding victories as result of coordinated teamworking'
-    },
-    fr: {
-      title: 'Juego en equipo',
-      top: 'Nunca pierdo el foco de la pelota',
-      middle: 'Puedo adaptarme a distintos roles',
-      bottom: 'Entendiendo los logros como resultado de un trabajo coordinado de equipo'
-    }
-  },
-  {
-    bg: bunnies,
-    en: {
-      title: 'Empathetic',
-      top: 'Kind and gentle',
-      middle: 'Cares for others feeling ans opinions',
-      bottom: 'Always ready to give a helping hand'
-    },
-    es: {
-      title: 'Empática',
-      top: 'Simpática y amable',
-      middle: 'Me importo con los sentimentos y opiniones de los demás',
-      bottom: 'Y siempre lista para ayudar'
-    },
-    pt: {
-      title: 'Empathetic',
-      top: 'Kind and gentle',
-      middle: 'Cares for others feeling ans opinions',
-      bottom: 'Always ready to give a helping hand'
-    },
-    fr: {
-      title: 'Empática',
-      top: 'Simpática y amable',
-      middle: 'Me importo con los sentimentos y opiniones de los demás',
-      bottom: 'Y siempre lista para ayudar'
-    }
-  },
-  {
-    bg: love,
-    en: {
-      title: 'And passionated for life',
-    },
-    es: {
-      title: 'Y apasionada por la vida',
-    },
-    pt: {
-      title: 'And passionated for life',
-    },
-    fr: {
-      title: 'Y apasionada por la vida',
-    }
-  }
-]
+let adjustExpandedProjectsView = 0;
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  	constructor(props) {
+    	super(props)
 
-    this.state = {
-      	language: 'en',
-      	currentSection: {},
-		doNotShowLanguagePopupAgain: undefined
-    }
-  }
+    	this.state = {
+	      	language: 'en',
+	      	currentSection: {},
+			doNotShowLanguagePopupAgain: undefined
+    	}
+  	}
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-    this.mountBGs();
-    this.loadDefaultLanguage();
-  }
+  	componentDidMount() {
+	    window.addEventListener('scroll', this.handleScroll);
+	    this.loadDefaultLanguage();
+  	}
 
 	componentDidUpdate() {
 		this.saveToLocalStorage();
 	}
 
 	componentWillUnmount() {
-	  window.removeEventListener('scroll', this.handleScroll);
+	 	window.removeEventListener('scroll', this.handleScroll);
 	}
 
-  mountBGs = () => {
-    for (const block of blockContents) {
-      allBackgrounds.push(block.bg)
-    }
-  }
 
-  loadDefaultLanguage = () => {
+  	loadDefaultLanguage = () => {
 
-    if (localStorage.getItem("Anna Branco's professional profile") !== null) {
-      this.setState(
-        JSON.parse(localStorage.getItem("Anna Branco's professional profile"))
-      )
-    }
+	    if (localStorage.getItem("Anna Branco's professional profile") !== null) {
+	      this.setState(
+	        JSON.parse(localStorage.getItem("Anna Branco's professional profile"))
+	      )
+	    }
+  	}
 
-  }
+  	handleAdjustExpandedProjectsView = (adjust) => {
+			adjustExpandedProjectsView = adjust;
+	}
 
   	handleScroll = () => {
 
+		if (doc.scrollTop >= 350 && doc.scrollTop <= 1540) {
+			document.querySelector('.developer__formation').classList.add('comeIn');
+		} else {
+			document.querySelector('.developer__formation').classList.remove('comeIn');
+		}
+
+		if (doc.scrollTop >= 500 && doc.scrollTop <= 1540 + adjustExpandedProjectsView) {
+			document.querySelector('.developer__projects').classList.add('comeIn');
+		} else {
+			document.querySelector('.developer__projects').classList.remove('comeIn');
+		}
+
+		if (doc.scrollTop >= 450 && doc.scrollTop <= 1540 + adjustExpandedProjectsView) {
+			document.querySelector('.developer__sidebar').classList.add('comeIn');
+		} else {
+			document.querySelector('.developer__sidebar').classList.remove('comeIn');
+		}
+
+		if (doc.scrollTop >= 1050  + adjustExpandedProjectsView && doc.scrollTop <= 2000 + adjustExpandedProjectsView) {
+			document.querySelector('.formation__horizontarBar-psy').classList.add('comeIn');
+			document.querySelector('.formation__title-psy').classList.add('comeIn');
+			for (const each of document.querySelectorAll('.formation__details-psy')){
+				each.classList.add('comeIn');
+			}
+		} else {
+			document.querySelector('.formation__horizontarBar-psy').classList.remove('comeIn');
+			document.querySelector('.formation__title-psy').classList.remove('comeIn');
+			for (const each of document.querySelectorAll('.formation__details-psy')){
+				each.classList.remove('comeIn');
+			}
+		}
+
+		if (doc.scrollTop >= 1200  + adjustExpandedProjectsView && doc.scrollTop <= 2000 + adjustExpandedProjectsView) {
+			document.querySelector('.formation__horizontarBar-ir').classList.add('comeIn');
+			document.querySelector('.formation__title-ir').classList.add('comeIn');
+			for (const each of document.querySelectorAll('.formation__details-ir')){
+				each.classList.add('comeIn');
+			}
+		} else {
+			document.querySelector('.formation__horizontarBar-ir').classList.remove('comeIn');
+			document.querySelector('.formation__title-ir').classList.remove('comeIn');
+			for (const each of document.querySelectorAll('.formation__details-ir')){
+				each.classList.remove('comeIn');
+			}
+		}
+
+		if (doc.scrollTop >= 1320  + adjustExpandedProjectsView && doc.scrollTop <= 2000 + adjustExpandedProjectsView) {
+			document.querySelector('.formation__horizontarBar-master').classList.add('comeIn');
+			document.querySelector('.formation__title-master').classList.add('comeIn');
+			for (const each of document.querySelectorAll('.formation__details-master')){
+				each.classList.add('comeIn');
+			}
+		} else {
+			document.querySelector('.formation__horizontarBar-master').classList.remove('comeIn');
+			document.querySelector('.formation__title-master').classList.remove('comeIn');
+			for (const each of document.querySelectorAll('.formation__details-master')){
+				each.classList.remove('comeIn');
+			}
+		}
+
+		if (doc.scrollTop >= 1420  + adjustExpandedProjectsView && doc.scrollTop <= 2000 + adjustExpandedProjectsView) {
+			document.querySelector('.formation__horizontarBar-adalab').classList.add('comeIn');
+			document.querySelector('.formation__title-adalab').classList.add('comeIn');
+
+
+		} else {
+			document.querySelector('.formation__horizontarBar-adalab').classList.remove('comeIn');
+			document.querySelector('.formation__title-adalab').classList.remove('comeIn');
+
+		}
   		console.log(doc.scrollTop);
   	}
 
@@ -268,12 +145,11 @@ class App extends Component {
   //   }
   // }
 
- 	handleAnimation = () => {
-	    console.log(doc.scrollTop);
-	}
+ 	// handleAnimation = () => {
+	//     console.log(doc.scrollTop);
+	// }
 
   changeLanguage = event => {
-
     this.setState({
       language: event.currentTarget.lang
     });
@@ -291,21 +167,20 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header
-					texts={texts}
-					language={this.state.language}
-					changeLanguage={this.changeLanguage}
-				/>
-        <MainArea
-          handleAnimation={this.handleAnimation}
-          bgs={allBackgrounds}
-          language={this.state.language}
-          changeLanguage={this.changeLanguage}
-          blockContents={blockContents}
-					texts={texts}
-					clearLanguagePopup={this.clearLanguagePopup}
-					doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
-        />
+	        <Header
+				texts={texts}
+				language={this.state.language}
+				changeLanguage={this.changeLanguage}
+			/>
+	        <MainArea
+		        handleAnimation={this.handleAnimation}
+		        language={this.state.language}
+		        changeLanguage={this.changeLanguage}
+				texts={texts}
+				clearLanguagePopup={this.clearLanguagePopup}
+				doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
+				handleAdjustExpandedProjectsView={this.handleAdjustExpandedProjectsView}
+	        />
       </div>
     );
   }
