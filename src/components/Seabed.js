@@ -18,7 +18,11 @@ class Seabed extends React.Component {
 		this.state = {
 			hideInstructions: false,
 			showExperiences: false,
-			showOtherSkills: false
+			showOtherSkills: false,
+			reachRight: false,
+			countReachRight: 0,
+			reachLeft: false,
+			countReachLeft: 0
 		}
 
 	}
@@ -32,16 +36,22 @@ class Seabed extends React.Component {
 	moveHero = e => {
 		this.setState({ hideInstructions: true });
 		if ( e.key === 'ArrowRight' ) {
-			clearTimeout(floatRight);
-			clearTimeout(floatLeft);
-			Hero.src = swimmingRight;
-			Hero.style.left = (Number(Hero.style.left.slice(0, -2)) + 200) + 'px';
-			Hero.classList.add('swim');
-			floatRight = setTimeout(() => {
-				Hero.src = floatingRight;
-				Hero.classList.remove('swim');
-			},3000);
+			if ((this.state.showExperiences) && (this.state.reachRight)) {
+				this.setState(prevState => ({ countReachRight: prevState.countReachRight + 1 }));
+
+			} else {
+				clearTimeout(floatRight);
+				clearTimeout(floatLeft);
+				Hero.src = swimmingRight;
+				Hero.style.left = (Number(Hero.style.left.slice(0, -2)) + 200) + 'px';
+				Hero.classList.add('swim');
+				floatRight = setTimeout(() => {
+					Hero.src = floatingRight;
+					Hero.classList.remove('swim');
+				},3000);
+			}
 		} else if ( e.key === 'ArrowLeft' ) {
+			this.setState({ reachRight: false });
 			clearTimeout(floatRight);
 			clearTimeout(floatLeft);
 			Hero.src = swimmingLeft;
@@ -58,29 +68,57 @@ class Seabed extends React.Component {
 	moveToSomewhere = () => {
 		console.log(Hero.style.left);
 		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300) {
-			console.log('right reached');
 			document.querySelector('.seabed__go-textRight').classList.add('goThisWay');
+			this.setState({ reachRight: true });
+
 		} else if (Number(Hero.style.left.slice(0, -2)) <= 200) {
-			console.log('left reached');
 			document.querySelector('.seabed__go-textLeft').classList.add('goThisWay');
+			this.setState({ reachLeft: true });
+			this.setState(prevState => ({ countReachLeft: prevState.countReachLeft + 1 }));
+
 		} else {
-			console.log('moving');
 			document.querySelector('.seabed__go-textRight').classList.remove('goThisWay');
 			document.querySelector('.seabed__go-textLeft').classList.remove('goThisWay');
 		}
-		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth -50 ) {
+
+		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth -100 ) {
 
 			this.setState({
 				showExperiences: true,
 				showOtherSkills: false
 			})
 			Hero.style.transition = 'none';
-			Hero.style.left = 0;
+			Hero.style.left = '-100px';
 			document.querySelector('.seabed__go--experiences').classList.add('hidden');
 			document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
 			document.querySelector('.seabed__anna').classList.add('hidden');
 			setTimeout(()=> Hero.style.transition = 'left ease 1s',500);
 		}
+
+		if (Number(Hero.style.left.slice(0, -2)) <=  -300 ) {
+
+			this.setState({ showExperiences: false });
+
+			Hero.style.transition = 'none';
+			Hero.style.left = window.innerWidth -200 + 'px';
+			setTimeout(()=> Hero.style.transition = 'left ease 1s',500);
+
+			if ((!this.state.showExperiences) && (!this.state.showOtherSkills)) {
+
+				document.querySelector('.seabed__go--experiences').classList.remove('hidden');
+				document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
+				document.querySelector('.seabed__anna').classList.remove('hidden');
+
+			}
+
+			//this.setState({ showOtherSkills: true});
+
+
+		}
+
+
+
+
 	}
 
 
@@ -113,6 +151,11 @@ class Seabed extends React.Component {
 						texts={this.props.texts}
 						language={this.props.language}
 					/>
+				: null
+				}
+
+				{this.state.reachRight && this.state.countReachRight === 2 ?
+					<p className="hero__says">Yeah. I too would love to explore around, but we have to focus on the professional profile, right?</p>
 				: null
 				}
 			</section>
