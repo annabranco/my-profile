@@ -114,13 +114,34 @@ export default {
   },
   Seabed: {
 	  en: {
-		  title: 'Other informations'
+		  title: 'Other informations',
+		  message: 'Beyond developing webpages and applications, I love to experiment programming videogames, promoting interactivity with the user and lots of fun.',
+		  messageKeyboard: 'Thus, now you know my basic profile, how about a little gaming experience? If you want more information about previous experiences or other skills, move the scuba diver to the desired direction using arrows keys right or left on your keyboard (◀︎ or ▶︎).',
+		  messageDevices: 'Thus, now you know my basic profile, how about a little gaming experience? If you want more information about previous experiences or other skills, move the scuba diver to the desired direction clicking the directional keys right or left on the corners of the screen.',
+		  experiences: 'Previous experiences',
+		  skills: 'Other skills',
+		  time2go: 'Time to go back...',
+		  me2: 'Yeah. I too would love to explore around, but we have to focus on the professional profile, right?'
 	  },
 	  es: {
-		  title: 'Otras informaciones'
+		  title: 'Otras informaciones',
+		  message: 'Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.',
+		  messageKeyboard: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Si quiere saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueve la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎).',
+		  messageDevices: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Si quiere saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueve la buceadora para la dirección deseada haciendo click en las flechas direccionales en los cantos de la pantalla para la derecha o izquierda.',
+		  experiences: 'Experiencias anteriores',
+		  skills: 'Otras habilidades',
+		  time2go: 'Es hora de volver...',
+		  me2: 'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?'
 	  },
 	  pt: {
-		  title: 'Outras informações'
+		  title: 'Outras informações',
+		  message: 'Além de desenvolver páginas e aplicacões, adoro experimentar com programação de jogos, promovendo interatividade com o usuário de uma maneira bastante lúdica.',
+		  messageKeyboard: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Se você quiser saber mais informações sobre minhas experiências anteriores ou outras habilidades, mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎).',
+		  messageDevices: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Se você quiser saber mais informações sobre minhas experiências anteriores ou outras habilidades, mova a mergulhadora para a direção desejada clicando nas setas direcionais nos cantos da tela para direita ou esquerda.',
+		  experiences: 'Experiências anteriores',
+		  skills: 'Outras habilidades',
+		  time2go: 'É hora de voltar...',
+		  me2: 'Pois é... eu também adoraria explorar mais, mas tenemos que nos focar no perfil profissional, não é?'
 	  }
  },
 }
