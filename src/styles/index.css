@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Corben|Acme|Alegreya+Sans+SC:400,700");
 .hidden {
-  display: none; }
+  display: none !important; }
 
 .invisible {
-  visibility: hidden; }
+  visibility: hidden !important; }

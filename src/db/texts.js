@@ -112,4 +112,15 @@ export default {
 		   spain: 'Espanha'
 	   }
   },
+  Seabed: {
+	  en: {
+		  title: 'Other informations'
+	  },
+	  es: {
+		  title: 'Otras informaciones'
+	  },
+	  pt: {
+		  title: 'Outras informações'
+	  }
+ },
 }

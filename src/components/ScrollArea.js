@@ -2,6 +2,8 @@ import React from 'react';
 import InbetweenBar from './InbetweenBar';
 import Developer from './Developer';
 import Formation from './Formation';
+import Seabed from './Seabed';
+
 import '../styles/components/ScrollArea.css';
 
 
@@ -25,6 +27,29 @@ class ScrollArea extends React.Component {
 				  texts={this.props.texts}
 				  language={this.props.language}
 			/>
+
+			<InbetweenBar title={this.props.texts.Seabed[this.props.language].title}  />
+
+
+			<Seabed
+				  texts={this.props.texts}
+				  language={this.props.language}
+			/>
+
+			{/* <div className="scrollArea__horizontal">
+				<Knowledges
+					texts={this.props.texts}
+					language={this.props.language}
+				/>
+
+
+
+				<Experiences
+					texts={this.props.texts}
+					language={this.props.language}
+				/>
+			</div> */}
+
 
       	</section>
     );

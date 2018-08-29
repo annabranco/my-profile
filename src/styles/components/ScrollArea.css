@@ -61,3 +61,9 @@
   to {
     transform: scale(0.6);
     opacity: 0; } }
+
+.scrollArea__horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300vw; }
