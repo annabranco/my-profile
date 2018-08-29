@@ -34,10 +34,9 @@ class Seabed extends React.Component {
 	}
 
 	moveHero = e => {
-		this.setState({ hideInstructions: true });
 		if ( e.key === 'ArrowRight' ) {
 			if ((this.state.showExperiences) && (this.state.frame === 'right')) {
-				this.setState(prevState => ({ countReachRight: prevState.countReachRight + 1 }));
+				return;
 
 			} else {
 				clearTimeout(floatRight);
@@ -100,6 +99,9 @@ class Seabed extends React.Component {
 
 		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth -50 ) {
 
+			this.setState(prevState => ({ countReachRight: prevState.countReachRight + 1 }));
+			this.setState({ hideInstructions: true });
+			
 			Hero.style.transition = 'none';
 			Hero.style.left = '-30px';
 			setTimeout(()=> Hero.style.transition = 'all ease 1s',10);
