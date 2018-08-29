@@ -18,13 +18,13 @@ class Seabed extends React.Component {
 		this.state = {
 			hideInstructions: false,
 			showExperiences: false,
+			viewedExperiences: false,
 			showOtherSkills: false,
-			reachRight: false,
+			viewedOtherSkills: false,
 			countReachRight: 0,
-			reachLeft: false,
-			countReachLeft: 0
+			countReachLeft: 0,
+			frame: 'center'
 		}
-
 	}
 
 	componentDidMount() {
@@ -36,7 +36,7 @@ class Seabed extends React.Component {
 	moveHero = e => {
 		this.setState({ hideInstructions: true });
 		if ( e.key === 'ArrowRight' ) {
-			if ((this.state.showExperiences) && (this.state.reachRight)) {
+			if ((this.state.showExperiences) && (this.state.frame === 'right')) {
 				this.setState(prevState => ({ countReachRight: prevState.countReachRight + 1 }));
 
 			} else {
@@ -51,7 +51,6 @@ class Seabed extends React.Component {
 				},3000);
 			}
 		} else if ( e.key === 'ArrowLeft' ) {
-			this.setState({ reachRight: false });
 			clearTimeout(floatRight);
 			clearTimeout(floatLeft);
 			Hero.src = swimmingLeft;
@@ -66,14 +65,32 @@ class Seabed extends React.Component {
 	}
 
 	moveToSomewhere = () => {
-		console.log(Hero.style.left);
+
+		if ((this.state.viewedExperiences) && (this.state.viewedOtherSkills)) {
+			window.removeEventListener('keydown',this.moveHero);
+
+			document.querySelector('.seabed__go--experiences').classList.add('hidden');
+			document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
+
+			setTimeout(()=> {
+				clearTimeout(floatRight);
+				clearTimeout(floatLeft);
+				Hero.src = swimmingRight;
+				Hero.classList.remove('floating-soft');
+				Hero.classList.add('goingUp');
+				Hero.style.transition = 'all ease 10s'
+				Hero.style.top = '40%';
+
+			},2000);
+			setTimeout(()=> Hero.style.top = '-200px',2500);
+			setTimeout(()=> window.scrollTo(0, 0),8000);
+		}
+
 		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300) {
 			document.querySelector('.seabed__go-textRight').classList.add('goThisWay');
-			this.setState({ reachRight: true });
 
 		} else if (Number(Hero.style.left.slice(0, -2)) <= 200) {
 			document.querySelector('.seabed__go-textLeft').classList.add('goThisWay');
-			this.setState({ reachLeft: true });
 			this.setState(prevState => ({ countReachLeft: prevState.countReachLeft + 1 }));
 
 		} else {
@@ -81,44 +98,67 @@ class Seabed extends React.Component {
 			document.querySelector('.seabed__go-textLeft').classList.remove('goThisWay');
 		}
 
-		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth -100 ) {
-
-			this.setState({
-				showExperiences: true,
-				showOtherSkills: false
-			})
-			Hero.style.transition = 'none';
-			Hero.style.left = '-100px';
-			document.querySelector('.seabed__go--experiences').classList.add('hidden');
-			document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
-			document.querySelector('.seabed__anna').classList.add('hidden');
-			setTimeout(()=> Hero.style.transition = 'left ease 1s',500);
-		}
-
-		if (Number(Hero.style.left.slice(0, -2)) <=  -300 ) {
-
-			this.setState({ showExperiences: false });
+		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth -50 ) {
 
 			Hero.style.transition = 'none';
-			Hero.style.left = window.innerWidth -200 + 'px';
-			setTimeout(()=> Hero.style.transition = 'left ease 1s',500);
+			Hero.style.left = '-30px';
+			setTimeout(()=> Hero.style.transition = 'all ease 1s',10);
 
-			if ((!this.state.showExperiences) && (!this.state.showOtherSkills)) {
+			if (this.state.frame === 'left') {
 
 				document.querySelector('.seabed__go--experiences').classList.remove('hidden');
 				document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
 				document.querySelector('.seabed__anna').classList.remove('hidden');
+				this.setState({
+					frame: 'center',
+					viewedOtherSkills: true,
+ 				});
 
+			} else if (this.state.frame === 'center') {
+
+				document.querySelector('.seabed__go--experiences').classList.add('hidden');
+				document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
+				document.querySelector('.seabed__anna').classList.add('hidden');
+				this.setState({
+					showExperiences: true,
+					frame: 'right'
+				})
 			}
-
-			//this.setState({ showOtherSkills: true});
-
-
 		}
 
+		if (Number(Hero.style.left.slice(0, -2)) <=  -200 ) {
 
+			this.setState({
+				showExperiences: false,
+				showOtherSkills: false
+			 });
 
+			Hero.style.transition = 'none';
+			Hero.style.left = window.innerWidth -200 + 'px';
+			setTimeout(()=> Hero.style.transition = 'all ease 1s',10);
 
+			if (this.state.frame === 'right') {
+
+				document.querySelector('.seabed__go--experiences').classList.remove('hidden');
+				document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
+				document.querySelector('.seabed__anna').classList.remove('hidden');
+				this.setState({
+					frame: 'center',
+					viewedExperiences: true,
+				 });
+
+			} else if (this.state.frame === 'center') {
+
+				document.querySelector('.seabed__go--experiences').classList.add('hidden');
+				document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
+				document.querySelector('.seabed__anna').classList.add('hidden');
+				this.setState({
+					showOtherSkills: true,
+					frame: 'left'
+				})
+			}
+			//this.setState({ showOtherSkills: true});
+		}
 	}
 
 
@@ -154,7 +194,12 @@ class Seabed extends React.Component {
 				: null
 				}
 
-				{this.state.reachRight && this.state.countReachRight === 2 ?
+				{this.state.viewedExperiences && this.state.viewedOtherSkills ?
+					<p className="seabed__back">Time to go back</p>
+				: null
+				}
+
+				{this.state.frame === 'right' && this.state.countReachRight === 2 ?
 					<p className="hero__says">Yeah. I too would love to explore around, but we have to focus on the professional profile, right?</p>
 				: null
 				}
@@ -163,7 +208,6 @@ class Seabed extends React.Component {
 
 		);
 	}
-
 }
 
 export default Seabed;

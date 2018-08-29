@@ -98,6 +98,10 @@
   opacity: 0.6; }
   #hero.swim {
     width: 250px; }
+  #hero.goingUp {
+    width: 250px;
+    transform: rotate(290deg);
+    transition: top 10s ease; }
 
 .seabed__anna {
   position: absolute;
@@ -122,3 +126,11 @@
   text-align: center;
   width: 180px;
   opacity: 0.8; }
+
+.seabed__back {
+  margin-top: 30vh;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 2px black; }

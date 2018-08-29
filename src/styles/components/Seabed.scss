@@ -131,6 +131,12 @@ $font__subtitle: 'Corben', cursive;
 	&.swim {
 		width: 250px;
 	}
+
+	&.goingUp {
+		width     : 250px;
+		transform : rotate(290deg);
+		transition: top 10s ease;
+	}
 }
 
 .seabed__anna {
@@ -158,4 +164,13 @@ $font__subtitle: 'Corben', cursive;
 	text-align : center;
 	width      : 180px;
 	opacity    : 0.8;
+}
+
+.seabed__back {
+	margin-top : 30vh;
+	font-family: $font__title;
+	font-size  : 3rem;
+	text-align : center;
+	color      : white;
+	text-shadow: 0 0 2px black;
 }
