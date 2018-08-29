@@ -3,8 +3,6 @@ import InbetweenBar from './InbetweenBar';
 import Developer from './Developer';
 import Formation from './Formation';
 import Seabed from './Seabed';
-import Knowledges from './Knowledges';
-import Experiences from './Experiences';
 
 import '../styles/components/ScrollArea.css';
 
