@@ -5,9 +5,9 @@ $font__title: 'Acme', sans-serif;
 $font__title2: 'Alegreya Sans SC', sans-serif;
 
 .hidden {
-	display: none;
+	display: none !important;
 }
 
 .invisible {
-	visibility: hidden;
+	visibility: hidden !important;
 }

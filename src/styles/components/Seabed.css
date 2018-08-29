@@ -1,0 +1,114 @@
+.section__seabed {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: fixed;
+  overflow-x: hidden;
+  background-image: linear-gradient(rgba(189, 214, 246, 0.96), rgba(171, 204, 246, 0.95), rgba(236, 246, 189, 0.9)), url("https://data.whicdn.com/images/303133698/original.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid red; }
+
+.seabed__image {
+  position: absolute;
+  bottom: 0;
+  height: 50vh;
+  width: 100vw;
+  background-image: url("https://www.publicdomainpictures.net/pictures/140000/velka/seabed-underwater-1443611129IMA.jpg");
+  background-position: bottom;
+  background-size: 100% 220%;
+  opacity: 0.05; }
+
+.seabed__message--outer {
+  margin: 60px auto 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 200px;
+  width: 60vw;
+  padding: 10px; }
+
+.floating {
+  animation-name: float;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  animation-iteration-count: infinite; }
+
+.floating-soft {
+  animation-name: float;
+  animation-duration: 7s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  animation-iteration-count: infinite; }
+
+@keyframes float {
+  from {
+    transform: translate(0, 10px); }
+  to {
+    transform: translate(0, -10px); } }
+
+.seabed__message {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  line-height: 1.2; }
+
+.seabed__message-devices {
+  display: none; }
+
+.seabed__go--experiences,
+.seabed__go--otherSkills {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 35vh;
+  width: 60px; }
+
+.seabed__go--experiences {
+  justify-content: flex-end;
+  right: 40px; }
+
+.seabed__go--otherSkills {
+  justify-content: flex-start;
+  left: 40px; }
+
+.seabed__go-text {
+  font-family: "Acme", sans-serif;
+  font-size: 3rem;
+  text-shadow: 0 0 3px white;
+  color: rgba(255, 255, 255, 0.2); }
+  .seabed__go-text.seabed__go-textRight {
+    text-align: right; }
+  .seabed__go-text.seabed__go-textLeft {
+    text-align: left; }
+
+.goThisWay {
+  font-size: 3.2rem;
+  text-shadow: 0 0 3px white;
+  color: rgba(255, 245, 0, 0.73); }
+
+#hero {
+  position: absolute;
+  bottom: 40%;
+  width: 200px;
+  transition: all ease 1s;
+  opacity: 0.6; }
+  #hero.swim {
+    width: 250px; }
+
+.seabed__anna {
+  position: absolute;
+  bottom: 20px;
+  left: 13vw;
+  width: 80%;
+  font-family: "Alegreya Sans SC", sans-serif;
+  line-height: 0.8;
+  font-weight: bold;
+  font-size: 9rem;
+  transform: perspective(5rem) rotateX(20deg);
+  text-shadow: 0 0 3px yellow;
+  transition: translate ease 3s; }
