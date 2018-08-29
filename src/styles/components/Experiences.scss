@@ -1,0 +1,160 @@
+$font__title: 'Alegreya Sans SC', sans-serif;
+$font__title-alt: 'Acme', sans-serif;
+$font__subtitle: 'Corben', cursive;
+
+.experiences__find {
+	margin-top : 20vh;
+	font-family: $font__title;
+	font-size  : 2rem;
+	text-align : center;
+	color      : white;
+	text-shadow: 0 0 2px black;
+
+	&:last-of-type {
+		margin-top: 30px;
+
+	}
+}
+
+.section__experiences {
+	z-index         : 3;
+	position        : absolute;
+	bottom          : 10px;
+	left            : 40%;
+	border          : 1px solid black;
+	border-radius   : 15px 0;
+	background-image: linear-gradient(to top right, rgba(255, 255, 255, 1),rgba(231, 244, 244, 1),rgba(119, 158, 155, 1));
+	height          : 40px;
+	width           : 30px;
+	box-shadow      : 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
+	opacity         : 0.5;
+	transform       : perspective(3em) rotateX(50deg);
+	box-sizing      : border-box;
+	overflow        : hidden;
+	cursor          : pointer;
+
+	&:hover {
+		border : 3px solid yellow;
+		opacity: 0.7;
+
+	}
+
+	&.opened {
+		border-radius: 40px 0;
+		border       : 2px solid black;
+
+		top          : 40px;
+		left         : 20vw;
+		height       : 90vh;
+		width        : 75vw;
+		padding      : 15px;
+		transform    : none;
+		opacity      : 0.9;
+
+		&:hover {
+			border: 2px solid black;
+		}
+	}
+}
+
+.experiences__text-fake {
+	line-height: 0.8;
+	font-size  : 0.8rem;
+}
+
+.experiences__outer {
+	display        : flex;
+	align-items    : flex-end;
+	justify-content: flex-start;
+	margin         : 0 auto;
+	height         : 100%;
+	width          : 100%;
+}
+
+.experiences__inner {
+	height: 100%;
+
+	&:last-of-type {
+		width: 100%;
+	}
+}
+
+.experiences__inner--year {
+	margin-right: 15px;
+	width       : 60px;
+	text-align  : center;
+	font-family : $font__title;
+	font-size   : 1.2em;
+	color       : #4b0a62;
+}
+
+.experiences__verticalBar {
+	border-right: 5px solid #727594;
+	height      : 85vh;
+}
+
+.experiences__inner--horizontalBar,
+.experiences__inner--year {
+	margin-top: 40px;
+	height    : 25%;
+}
+
+.experiences__inner--horizontalBar {}
+
+.experiences__horizontarBar-adalab,
+.experiences__horizontarBar-ir,
+.experiences__horizontarBar-master,
+.experiences__horizontarBar-psy {
+	display   : inline-block;
+	border-top: 5px solid #727594;
+}
+
+.experiences__horizontarBar-psy {
+	width: 10%;
+}
+
+.experiences__horizontarBar-ir {
+	width: 20%;
+}
+
+.experiences__horizontarBar-master {
+	width: 30%;
+}
+
+.experiences__title {
+	margin-left: 20px;
+	display    : inline;
+	font-family: $font__title-alt;
+	font-size  : 1.4em;
+	color      : #003e90;
+
+	&:hover {
+		letter-spacing: 0.1rem;
+		color         : #535911;
+
+	}
+}
+
+.experiences__details {
+	//visibility : hidden;
+	margin     : 5px 10px;
+	font-family: $font__subtitle;
+	font-size  : 1rem;
+	line-height: 2;
+}
+
+.experiences__flag {
+	margin-left   : 5px;
+	vertical-align: middle;
+}
+
+.experiences__more {
+	position: absolute;
+	bottom  : 15px;
+	right   : 35px;
+}
+
+.experiences__social--link {
+	margin-left   : 5px;
+	vertical-align: super;
+}
