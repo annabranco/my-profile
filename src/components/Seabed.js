@@ -34,10 +34,9 @@ class Seabed extends React.Component {
 	}
 
 	moveHero = e => {
-		this.setState({ hideInstructions: true });
 		if ( e.key === 'ArrowRight' ) {
 			if ((this.state.showExperiences) && (this.state.frame === 'right')) {
-				this.setState(prevState => ({ countReachRight: prevState.countReachRight + 1 }));
+				return;
 
 			} else {
 				clearTimeout(floatRight);
@@ -99,6 +98,9 @@ class Seabed extends React.Component {
 		}
 
 		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth -50 ) {
+
+			this.setState(prevState => ({ countReachRight: prevState.countReachRight + 1 }));
+			this.setState({ hideInstructions: true });
 
 			Hero.style.transition = 'none';
 			Hero.style.left = '-30px';
@@ -164,23 +166,26 @@ class Seabed extends React.Component {
 
 	render () {
 
+		const text = this.props.texts.Seabed;
+		const language = this.props.language;
+
 		return (
 
 			<section className="section__seabed">
 				{this.state.hideInstructions ? null :
 
 				<div className="seabed__message--outer floating-soft">
-					<p className="seabed__message">Beyond developing webpages and applications, I love to experiment developing videogames, promoting interactivity with the user and lots of fun.</p>
-					<p className="seabed__message seabed__message-keyboard">Now you know my basic profile. If you want more information about previous experiences or other skills, move the scuba diver to the desired direction using arrows keys on your keyboard.</p>
-					<p className="seabed__message seabed__message-devices">Now you know my basic profile. If you want more information about previous experiences or other skills, move the scuba diver to the desired direction using the arrows keys on the sides.</p>
+					<p className="seabed__message">{text[language].message}</p>
+					<p className="seabed__message seabed__message-keyboard">{text[language].messageKeyboard}</p>
+					<p className="seabed__message seabed__message-devices">{text[language].messageDevices}</p>
 				</div>
 				}
 
 				<div className="seabed__go--experiences floating">
-						<p className="seabed__go-text seabed__go-textRight">Previous experiences</p>
+						<p className="seabed__go-text seabed__go-textRight">{text[language].experiences}</p>
 				</div>
 				<div className="seabed__go--otherSkills floating">
-					<p className="seabed__go-text seabed__go-textLeft">Other skills</p>
+					<p className="seabed__go-text seabed__go-textLeft">{text[language].skills}</p>
 				</div>
 
 				<img src={floatingRight} id="hero" className="seabed__hero floating-soft" alt=""/>
@@ -195,12 +200,12 @@ class Seabed extends React.Component {
 				}
 
 				{this.state.viewedExperiences && this.state.viewedOtherSkills ?
-					<p className="seabed__back">Time to go back</p>
+					<p className="seabed__back">{text[language].time2go}</p>
 				: null
 				}
 
-				{this.state.frame === 'right' && this.state.countReachRight === 2 ?
-					<p className="hero__says">Yeah. I too would love to explore around, but we have to focus on the professional profile, right?</p>
+				{this.state.frame === 'right' && this.state.countReachRight === 3 ?
+					<p className="hero__says">{text[language].me2}</p>
 				: null
 				}
 			</section>
