@@ -67,14 +67,9 @@ $hover--color: yellow;
 	}
 
 	& td {
-
 		height: 30px;
-
-		&:hover {
-			background: $hover--color;
-			font-size : 1.1rem;
-		}
 	}
+
 }
 
 .skills__table--languages {
@@ -90,7 +85,8 @@ $hover--color: yellow;
 		padding-left   : 80px;
 
 		&:hover {
-			font-size: 1.3rem;
+			background: $hover--color;
+			font-size : 1.3rem;
 		}
 	}
 
@@ -167,7 +163,7 @@ $hover--color: yellow;
 
 		&:hover {
 			background: $hover--color;
-			font-size : 1.1rem;
+			font-size : 1rem;
 		}
 	}
 
@@ -176,7 +172,13 @@ $hover--color: yellow;
 
 		&:hover {
 			background: $hover--color;
-			font-size : 1.1rem;
+			font-size : 1rem;
+		}
+	}
+
+	& thead tr {
+		&:hover {
+			background: none;
 		}
 	}
 }

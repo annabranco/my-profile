@@ -50,9 +50,6 @@
     text-shadow: 0 0 1px white; }
   .skills__table td {
     height: 30px; }
-    .skills__table td:hover {
-      background: yellow;
-      font-size: 1.1rem; }
 
 .skills__table--languages {
   width: 80%;
@@ -65,6 +62,7 @@
     width: 100%;
     padding-left: 80px; }
     .skills__table--languages td:hover {
+      background: yellow;
       font-size: 1.3rem; }
   .skills__table--languages td:first-of-type {
     margin-top: 15px;
@@ -119,12 +117,14 @@
     line-height: 30px; }
     .skills__table--other tr:hover {
       background: yellow;
-      font-size: 1.1rem; }
+      font-size: 1rem; }
   .skills__table--other tr:nth-child(even) {
     background-color: #eee; }
     .skills__table--other tr:nth-child(even):hover {
       background: yellow;
-      font-size: 1.1rem; }
+      font-size: 1rem; }
+  .skills__table--other thead tr:hover {
+    background: none; }
 
 .skills__outer--design {
   margin-top: -50px;
