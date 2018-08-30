@@ -1,6 +1,7 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
+$blue--dark: rgba(#054187, 0.9);
 
 .hero__social {
 	border-radius   : 30px;
@@ -95,7 +96,7 @@ $font__subtitle: 'Corben', cursive;
 .icon-call,
 .icon-chat {
 	.hero__social--link-skype:hover & {
-		color: rgba(#054187, 0.9);
+		color: $blue--dark;
 	}
 }
 
@@ -109,7 +110,7 @@ $font__subtitle: 'Corben', cursive;
 	text-shadow   : 0 0 1px black;
 
 	.hero__social--link:hover & {
-		color: rgba(#054187, 0.9);
+		color: $blue--dark;
 	}
 }
 
