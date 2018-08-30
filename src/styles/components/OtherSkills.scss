@@ -150,7 +150,8 @@ $hover--color: yellow;
 	margin-bottom: 30px;
 
 	& td {
-		width: auto;
+		height: 40px;
+		width : auto;
 
 		&:first-of-type {
 			width       : 250px;
@@ -159,7 +160,7 @@ $hover--color: yellow;
 	}
 
 	& tr {
-		line-height: 30px;
+		line-height: 40px;
 
 		&:hover {
 			background: $hover--color;
@@ -184,7 +185,7 @@ $hover--color: yellow;
 }
 
 .skills__outer--design {
-	margin-top   : -50px;
+	margin-top   : -60px;
 	margin-bottom: 50px;
 }
 
