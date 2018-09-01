@@ -48,10 +48,10 @@ class Experiences extends React.Component {
 				<section className="section__experiences" onClick={this.open}>
 					{!this.state.opened ?
 						<React.Fragment>
-							<p className="experiences__text-fake">- - --</p>
-							<p className="experiences__text-fake">- -- -</p>
-							<p className="experiences__text-fake">--- --</p>
-							<p className="experiences__text-fake">-- - -</p>
+							<p className="experiences__text-fake">- - --- - --</p>
+							<p className="experiences__text-fake">- -- -- - --</p>
+							<p className="experiences__text-fake">- -- ---- --</p>
+							<p className="experiences__text-fake">- - - --- --</p>
 						</React.Fragment>
 					:
 					<div className="experiences__outer">

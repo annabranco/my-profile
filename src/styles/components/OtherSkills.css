@@ -40,7 +40,7 @@
   background: #c3c3c3;
   opacity: 0.6;
   transform: perspective(9em) rotateX(65deg) skewX(15deg);
-  box-shadow: -2px 2px 5px 1px rgba(83, 83, 83, 0.8); }
+  box-shadow: -2px 2px 10px 3px rgba(83, 83, 83, 0.8); }
 
 .otherSkills__mac--keyboard-keyArea {
   position: absolute;
