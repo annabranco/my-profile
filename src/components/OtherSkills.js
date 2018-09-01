@@ -44,7 +44,7 @@ class OtherSkills extends React.Component {
 
 	render () {
 
-		const text = this.props.texts.Experiences;
+		const text = this.props.texts.OtherSkills;
 		const language = this.props.language;
 
 		return (
@@ -53,9 +53,9 @@ class OtherSkills extends React.Component {
 
 				{!this.props.viewedOtherSkills && !this.state.read ?
 					<React.Fragment>
-						<p className="seabed__findSomething">You've found... a computer?! </p>
-						<p className="seabed__findSomething">And it is oddly on</p>
-						<p className="seabed__findSomething">Click on the screen to investigate it</p>
+						<p className="seabed__findSomething">{text[language].find}</p>
+						<p className="seabed__findSomething">{text[language].find2}</p>
+						<p className="seabed__findSomething">{text[language].investigate}</p>
 					</React.Fragment>
 				: null
 				}
@@ -67,79 +67,79 @@ class OtherSkills extends React.Component {
 
 							<img src={MacBar} alt="" className="skills--topBar"/>
 							<div className="skills__outer skills__outer--languages">
-								<h2 className="skills__table--title">Languages</h2>
+								<h2 className="skills__table--title">{text[language].languages}</h2>
 								<table className="skills__table skills__table--languages">
 									<tbody>
 										<tr>
-										    <td>English<img src="https://www.countryflags.io/us/flat/16.png" alt="" className="languages--flag" /></td>
-										    <td><i className="fas fa-comments icon--languages" title="Speaking"></i>Fluent</td>
-										    <td><i className="fas fa-book-open icon--languages" title="Reading"></i>Fluent</td>
-											<td><i className="fas fa-pen icon--languages" title="Writing"></i>Fluent</td>
+										    <td>{text[language].english}<img src="https://www.countryflags.io/us/flat/16.png" alt="" className="languages--flag" /></td>
+										    <td><i className="fas fa-comments icon--languages" title="Speaking"></i>{text[language].fluent}</td>
+										    <td><i className="fas fa-book-open icon--languages" title="Reading"></i>{text[language].fluent}</td>
+											<td><i className="fas fa-pen icon--languages" title="Writing"></i>{text[language].fluent}</td>
 										</tr>
 										<tr>
-										    <td>Spanish<img src="https://www.countryflags.io/es/flat/16.png" alt="" className="languages--flag" /></td>
-										    <td><i className="fas fa-comments icon--languages" title="Speaking"></i>Fluent</td>
-										    <td><i className="fas fa-book-open icon--languages" title="Reading"></i>Fluent</td>
-											<td><i className="fas fa-pen icon--languages" title="Writing"></i>Fluent</td>
+										    <td>{text[language].spanish}<img src="https://www.countryflags.io/es/flat/16.png" alt="" className="languages--flag" /></td>
+										    <td><i className="fas fa-comments icon--languages" title="Speaking"></i>{text[language].fluent}</td>
+										    <td><i className="fas fa-book-open icon--languages" title="Reading"></i>{text[language].fluent}</td>
+											<td><i className="fas fa-pen icon--languages" title="Writing"></i>{text[language].fluent}</td>
 										</tr>
 										<tr>
-											<td>Portuguese<img src="https://www.countryflags.io/br/flat/16.png" alt="" className="languages--flag" /></td>
-											<td><i className="fas fa-comments icon--languages" title="Speaking"></i>Fluent</td>
-											<td><i className="fas fa-book-open icon--languages" title="Reading"></i>Fluent</td>
-											<td><i className="fas fa-pen icon--languages" title="Writing"></i>Fluent</td>
+											<td>{text[language].portuguese}<img src="https://www.countryflags.io/br/flat/16.png" alt="" className="languages--flag" /></td>
+											<td><i className="fas fa-comments icon--languages" title="Speaking"></i>{text[language].fluent}</td>
+											<td><i className="fas fa-book-open icon--languages" title="Reading"></i>{text[language].fluent}</td>
+											<td><i className="fas fa-pen icon--languages" title="Writing"></i>{text[language].fluent}</td>
 										</tr>
 										<tr>
-											<td>French<img src="https://www.countryflags.io/fr/flat/16.png" alt="" className="languages--flag" /></td>
-											<td><i className="fas fa-comments icon--languages" title="Speaking"></i>Intermediate</td>
-											<td><i className="fas fa-book-open icon--languages" title="Reading"></i>Intermediate</td>
-											<td><i className="fas fa-pen icon--languages" title="Writing"></i>Basic</td>
+											<td>{text[language].french}<img src="https://www.countryflags.io/fr/flat/16.png" alt="" className="languages--flag" /></td>
+											<td><i className="fas fa-comments icon--languages" title="Speaking"></i>{text[language].intermediate}</td>
+											<td><i className="fas fa-book-open icon--languages" title="Reading"></i>{text[language].intermediate}</td>
+											<td><i className="fas fa-pen icon--languages" title="Writing"></i>{text[language].basic}</td>
 										</tr>
 									 	<tr>
-											<td>Russian<img src="https://www.countryflags.io/ru/flat/16.png" alt="" className="languages--flag" /></td>
-											<td><i className="fas fa-comments icon--languages" title="Speaking"></i>Basic</td>
-											<td><i className="fas fa-book-open icon--languages" title="Reading"></i>Basic</td>
-											<td><i className="fas fa-pen icon--languages" title="Writing"></i>Basic</td>
+											<td>{text[language].russian}<img src="https://www.countryflags.io/ru/flat/16.png" alt="" className="languages--flag" /></td>
+											<td><i className="fas fa-comments icon--languages" title="Speaking"></i>{text[language].basic}</td>
+											<td><i className="fas fa-book-open icon--languages" title="Reading"></i>{text[language].basic}</td>
+											<td><i className="fas fa-pen icon--languages" title="Writing"></i>{text[language].basic}</td>
 									 	</tr>
 									</tbody>
 								</table>
 							</div>
 
 							<div className="skills__outer skills__outer--other">
-								<h2 className="skills__table--title">Other skills</h2>
+								<h2 className="skills__table--title">{text[language].other}</h2>
 								<table className="skills__table skills__table--other">
 									<thead>
 										<tr>
-											<th>Skill</th>
-											<th>How I have developed it</th>
+											<th>{text[language].skill}</th>
+											<th>{text[language].how}</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>Working under pressure</td>
-											<td>More than 5 years as volunteer on ambulances and emergencies</td>
+											<td>{text[language].skill1}</td>
+											<td>{text[language].skill1details}</td>
 										</tr>
 										<tr>
-											<td>Leadership</td>
-											<td>More than 3 years of professional experience managing different teams</td>
+											<td>{text[language].skill2}</td>
+											<td>{text[language].skill2details}</td>
 										</tr>
 										<tr>
-											<td>Communication</td>
-											<td>Solid experience teaching, giving formations and speeches</td>
+											<td>{text[language].skill3}</td>
+											<td>{text[language].skill3details}</td>
 										</tr>
 										<tr>
-											<td>Empathy</td>
-											<td>Psychology formation and humanitarian background</td>
+											<td>{text[language].skill4}</td>
+											<td>{text[language].skill4details}</td>
 										</tr>
 										<tr>
-											<td>Flexibility</td>
-											<td>Very good experience working within multicultural environments</td>
+											<td>{text[language].skill5}</td>
+											<td>{text[language].skill5details}</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 							<div className="skills__outer skills__outer--design">
-								<h2 className="skills__table--title">Graphic design</h2>
-								<p className="skills__design">Here are some samples of my design creations:</p>
+								<h2 className="skills__table--title">{text[language].design}</h2>
+								<p className="skills__design">{text[language].samples}</p>
 								<div className="skills__design--samples">
 								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
 								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
