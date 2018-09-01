@@ -51,7 +51,7 @@ class OtherSkills extends React.Component {
 
 			<React.Fragment>
 
-				{!this.props.viewedOtherSkills ?
+				{!this.props.viewedOtherSkills && !this.state.read ?
 					<React.Fragment>
 						<p className="seabed__findSomething">You've found... a computer?! </p>
 						<p className="seabed__findSomething">And it is oddly on</p>
