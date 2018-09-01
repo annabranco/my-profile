@@ -207,6 +207,7 @@ class Seabed extends React.Component {
 					<Experiences
 						texts={this.props.texts}
 						language={this.props.language}
+						viewedExperiences={this.state.viewedExperiences}
 					/>
 				: null
 				}
@@ -215,6 +216,7 @@ class Seabed extends React.Component {
 							<OtherSkills
 								texts={this.props.texts}
 								language={this.props.language}
+								viewedOtherSkills={this.state.viewedOtherSkills}
 							/>
 				: null
 				}

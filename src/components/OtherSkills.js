@@ -21,6 +21,7 @@ class OtherSkills extends React.Component {
 					opened: true,
 					read: true
 				 });
+
 				document.querySelector('.section__otherSkills').classList.add('opened');
 				document.querySelector('.otherSkills__mac').classList.add('opened');
 				document.querySelector('.otherSkills__mac--screen').classList.add('opened');
@@ -50,10 +51,11 @@ class OtherSkills extends React.Component {
 
 			<React.Fragment>
 
-				{!this.state.read ?
+				{!this.props.viewedOtherSkills ?
 					<React.Fragment>
-						<p className="seabed__findSomething">{text[language].find}</p>
-						<p className="seabed__findSomething">{text[language].investigate}</p>
+						<p className="seabed__findSomething">You've found... a computer?! </p>
+						<p className="seabed__findSomething">And it is oddly on</p>
+						<p className="seabed__findSomething">Click on the screen to investigate it</p>
 					</React.Fragment>
 				: null
 				}

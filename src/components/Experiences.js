@@ -36,7 +36,7 @@ class Experiences extends React.Component {
 		return (
 			<React.Fragment>
 
-				{!this.state.read ?
+				{!this.props.viewedExperiences ?
 					<React.Fragment>
 						<p className="seabed__findSomething">{text[language].find}</p>
 						<p className="seabed__findSomething">{text[language].investigate}</p>

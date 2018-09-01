@@ -55,7 +55,7 @@ $hover--color: yellow;
 	height       : 55px;
 	width        : 77px;
 	background   : rgb(195, 195, 195);
-	opacity      : 0.9;
+	opacity      : 0.6;
 	transform    : perspective(9em) rotateX(65deg) skewX(15deg);
 	box-shadow   : -2px 2px 5px 1px rgba(83, 83, 83, 0.8);
 }
@@ -65,6 +65,7 @@ $hover--color: yellow;
 	top     : 58px;
 	left    : 25px;
 	width   : 70px;
+	opacity : 0.5;
 }
 
 .otherSkills__mac--keyboard-keys {

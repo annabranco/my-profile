@@ -38,7 +38,7 @@
   height: 55px;
   width: 77px;
   background: #c3c3c3;
-  opacity: 0.9;
+  opacity: 0.6;
   transform: perspective(9em) rotateX(65deg) skewX(15deg);
   box-shadow: -2px 2px 5px 1px rgba(83, 83, 83, 0.8); }
 
@@ -46,7 +46,8 @@
   position: absolute;
   top: 58px;
   left: 25px;
-  width: 70px; }
+  width: 70px;
+  opacity: 0.5; }
 
 .otherSkills__mac--keyboard-keys {
   margin: -10px 0;
