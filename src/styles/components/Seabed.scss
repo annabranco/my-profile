@@ -154,7 +154,11 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .seabed__findSomething {
-	margin-top : 20vh;
+	position   : absolute;
+	top        : 20vh;
+	left       : 50%;
+	transform  : translate(-50%, 0);
+	width      : 100%;
 	font-family: $font__title;
 	font-size  : 2rem;
 	text-align : center;
@@ -162,7 +166,7 @@ $font__subtitle: 'Corben', cursive;
 	text-shadow: 0 0 2px black;
 
 	&:last-of-type {
-		margin-top: 30px;
+		top: 35vh;
 
 	}
 }

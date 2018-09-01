@@ -7,22 +7,145 @@ $blue--light: #5599d9;
 $green-bright: #10c737;
 $hover--color: yellow;
 
+.otherSkills__mac {
+	z-index : 2;
+
+	position: relative;
+	top     : 80vh;
+	left    : 40%;
+	height  : 50px;
+	width   : 70px;
+	opacity : 0.8;
+
+	&.opened {
+		top    : 0;
+		left   : -8px;
+		height : 100vh;
+		width  : 100vw;
+		opacity: 1;
+	}
+}
+
+.otherSkills__mac--screen {
+	border-left: 1px solid rgb(195, 195, 195);
+	height     : 50px;
+	width      : 70px;
+	background : black;
+	opacity    : 0.9;
+	transform  : perspective(8em) rotateX(-5deg) skewX(-4deg);
+
+	&.opened {
+		border-left: 0;
+		height     : 100vh;
+		width      : 100vw;
+		transform  : none;
+		overflow-y : scroll;
+		opacity    : 1;
+		background : white;
+	}
+}
+
+.otherSkills__mac--keyboard {
+	position     : absolute;
+	top          : 30px;
+	left         : 2px;
+	border-bottom: 3px solid black;
+	border-left  : 1px solid black;
+
+	height       : 55px;
+	width        : 77px;
+	background   : rgb(195, 195, 195);
+	opacity      : 0.9;
+	transform    : perspective(9em) rotateX(65deg) skewX(15deg);
+	box-shadow   : -2px 2px 5px 1px rgba(83, 83, 83, 0.8);
+}
+
+.otherSkills__mac--keyboard-keyArea {
+	position: absolute;
+	top     : 58px;
+	left    : 25px;
+	width   : 70px;
+}
+
+.otherSkills__mac--keyboard-keys {
+	margin        : -10px 0;
+	line-height   : 0.9;
+	letter-spacing: -1.3px;
+	transform     : perspective(0em) rotateX(120deg) skewX(100deg);
+	text-align    : center;
+}
+
 .section__otherSkills {
-	display              : grid;
-	grid-template-columns: 1fr 3fr;
-	grid-template-rows   : auto;
-	grid-gap             : 50px;
-	background-image     : linear-gradient(rgba(7, 39, 175, 0.3),rgba(255, 255, 255, 0.2));
-	height               : 100vh;
-	width                : 100vw;
-	padding              : 100px 50px 30px;
+	z-index                  : 3;
+	position                 : relative;
+	top                      : 5px;
+	left                     : 5px;
+
+	height                   : 40px;
+	width                    : 60px;
+	background-image         : linear-gradient(#7dbad4,white);
+	overflow                 : hidden;
+
+	opacity                  : 0.9;
+	transform                : perspective(-1em) rotateX(-2deg) skewX(-1deg);
+	box-sizing               : border-box;
+	cursor                   : pointer;
+	animation-name           : bright;
+	animation-duration       : 2s;
+	animation-iteration-count: infinite;
+
+	&:hover {
+		border : 5px solid yellow;
+		opacity: 1;
+	}
+
+	&.opened {
+		display              : grid;
+		grid-template-columns: 1fr 3fr;
+		grid-template-rows   : auto;
+
+		grid-gap             : 50px;
+		background-image     : linear-gradient(rgba(7, 39, 175, 0.3),rgba(255, 255, 255, 0.2));
+
+		border               : 2px solid black;
+		height               : 100vh;
+		width                : 100vw;
+		padding              : 100px 50px 30px;
+		overflow-y           : scroll;
+
+		transform            : none;
+		opacity              : 1;
+
+		&:hover {
+			border: 2px solid black;
+		}
+	}
+}
+
+@keyframes bright {
+	from {
+		box-shadow: 0 0 10px 3px rgb(185, 193, 164);
+	}
+
+	to {
+		box-shadow: 0 0 30px 1px rgb(137, 226, 249);
+	}
 }
 
 .skills--topBar {
 	z-index : 3;
-	position: fixed;
+	position: absolute;
 	top     : 0;
-	width   : 100vw;
+	width   : 60px;
+
+	.opened & {
+		z-index : 4;
+		position: fixed;
+		top     : 0;
+		left    : -8px;
+		width   : 101vw;
+
+	}
 }
 
 .skills__outer {

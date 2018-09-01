@@ -117,14 +117,18 @@
   transition: translate ease 3s; }
 
 .seabed__findSomething {
-  margin-top: 20vh;
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 2rem;
   text-align: center;
   color: white;
   text-shadow: 0 0 2px black; }
   .seabed__findSomething:last-of-type {
-    margin-top: 30px; }
+    top: 35vh; }
 
 .hero__says {
   position: absolute;
