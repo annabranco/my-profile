@@ -69,25 +69,53 @@ class Seabed extends React.Component {
 	moveToSomewhere = () => {
 
 //---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
-		// if ((this.state.viewedExperiences) && (this.state.viewedOtherSkills)) {
-		// 	window.removeEventListener('keydown',this.moveHero);
-		//
-		// 	document.querySelector('.seabed__go--experiences').classList.add('hidden');
-		// 	document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
-		//
-		// 	setTimeout(()=> {
-		// 		clearTimeout(floatRight);
-		// 		clearTimeout(floatLeft);
-		// 		Hero.src = swimmingRight;
-		// 		Hero.classList.remove('floating-soft');
-		// 		Hero.classList.add('goingUp');
-		// 		Hero.style.transition = 'all ease 10s'
-		// 		Hero.style.top = '40%';
-		//
-		// 	},2000);
-		// 	setTimeout(()=> Hero.style.top = '-200px',2500);
-		// 	setTimeout(()=> window.scrollTo(0, 0),8000);
-		// }
+		if ((this.state.viewedExperiences) && (this.state.viewedOtherSkills)) {
+			window.removeEventListener('keydown',this.moveHero);
+
+			document.querySelector('.seabed__go--experiences').classList.add('hidden');
+			document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
+
+			setTimeout(()=> {
+				clearTimeout(floatRight);
+				clearTimeout(floatLeft);
+				Hero.src = swimmingRight;
+				Hero.classList.remove('floating-soft');
+				Hero.classList.add('goingUp');
+				Hero.style.transition = 'all ease 10s'
+				Hero.style.top = '40%';
+
+			},2000);
+			setTimeout(()=> Hero.style.top = '-200px',2500);
+			setTimeout(()=> window.scrollTo(0, 0),8000);
+			setTimeout(()=> {
+
+				//-- Resets component to its initial state
+				this.setState({
+					hideInstructions: false,
+					showExperiences: false,
+					viewedExperiences: false,
+					showOtherSkills: false,
+					viewedOtherSkills: false,
+					countReachRight: 0,
+					countReachLeft: 0,
+					frame: 'center'
+				});
+				document.querySelector('.seabed__go--experiences').classList.remove('hidden');
+				document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
+				document.querySelector('.seabed__go-textRight').classList.remove('goThisWay');
+				document.querySelector('.seabed__go-textLeft').classList.remove('goThisWay');
+				window.addEventListener('keydown',this.moveHero);
+
+				//-- Puts Hero on its initial position
+				Hero.classList.add('floating-soft');
+				Hero.classList.remove('goingUp');
+				Hero.style.top = '40%';
+				Hero.style.left = (window.innerWidth * 0.40) + 'px';
+				Hero.src = floatingRight;
+				Hero.style.transition = 'all ease 1s';
+
+			},8050);
+		}
 
 //---- Highlights the text "Previous Experiences" when hero swims over it
 		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300) {
