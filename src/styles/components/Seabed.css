@@ -106,15 +106,14 @@
 .seabed__anna {
   position: absolute;
   bottom: 20px;
-  left: 13vw;
+  left: 25vw;
   width: 80%;
   font-family: "Alegreya Sans SC", sans-serif;
   line-height: 0.8;
   font-weight: bold;
   font-size: 9rem;
-  transform: perspective(5rem) rotateX(20deg);
-  text-shadow: 0 0 3px yellow;
-  transition: translate ease 3s; }
+  transform: perspective(7rem) rotateX(20deg) skewX(30deg);
+  text-shadow: 0 0 3px yellow; }
 
 .seabed__findSomething {
   position: absolute;
