@@ -151,7 +151,20 @@ $font__subtitle: 'Corben', cursive;
 	transform  : perspective(5rem) rotateX(20deg);
 	text-shadow: 0 0 3px yellow;
 	transition : translate ease 3s;
+}
 
+.seabed__findSomething {
+	margin-top : 20vh;
+	font-family: $font__title;
+	font-size  : 2rem;
+	text-align : center;
+	color      : white;
+	text-shadow: 0 0 2px black;
+
+	&:last-of-type {
+		margin-top: 30px;
+
+	}
 }
 
 .hero__says {

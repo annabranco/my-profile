@@ -5,6 +5,8 @@ import floatingLeft from '../images/other/floatingLeft.gif';
 import swimmingRight from '../images/other/swimmingRight.gif';
 import swimmingLeft from '../images/other/swimmingLeft.gif';
 import Experiences from './Experiences';
+import OtherSkills from './OtherSkills';
+
 
 let floatLeft;
 let floatRight;
@@ -199,6 +201,14 @@ class Seabed extends React.Component {
 				: null
 				}
 
+				{this.state.showOtherSkills ?
+					<OtherSkills
+						texts={this.props.texts}
+						language={this.props.language}
+					/>
+				: null
+				}
+
 				{this.state.viewedExperiences && this.state.viewedOtherSkills ?
 					<p className="seabed__back">{text[language].time2go}</p>
 				: null
@@ -208,6 +218,7 @@ class Seabed extends React.Component {
 					<p className="hero__says">{text[language].me2}</p>
 				: null
 				}
+
 			</section>
 
 

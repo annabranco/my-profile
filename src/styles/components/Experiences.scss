@@ -2,20 +2,6 @@ $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
 
-.experiences__find {
-	margin-top : 20vh;
-	font-family: $font__title;
-	font-size  : 2rem;
-	text-align : center;
-	color      : white;
-	text-shadow: 0 0 2px black;
-
-	&:last-of-type {
-		margin-top: 30px;
-
-	}
-}
-
 .section__experiences {
 	z-index         : 3;
 	position        : absolute;

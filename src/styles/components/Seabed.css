@@ -116,6 +116,16 @@
   text-shadow: 0 0 3px yellow;
   transition: translate ease 3s; }
 
+.seabed__findSomething {
+  margin-top: 20vh;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 2px black; }
+  .seabed__findSomething:last-of-type {
+    margin-top: 30px; }
+
 .hero__says {
   position: absolute;
   bottom: 65%;

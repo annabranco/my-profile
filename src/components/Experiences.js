@@ -10,7 +10,6 @@ class Experiences extends React.Component {
 			opened: false,
 			read: false
 		}
-
 	}
 
 	open = () => {
@@ -26,7 +25,6 @@ class Experiences extends React.Component {
 
 			this.setState({ opened: false });
 			document.querySelector('.section__experiences').classList.remove('opened');
-			document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
 		}
 	}
 
@@ -40,8 +38,8 @@ class Experiences extends React.Component {
 
 				{!this.state.read ?
 					<React.Fragment>
-						<p className="experiences__find">{text[language].find}</p>
-						<p className="experiences__find">{text[language].investigate}</p>
+						<p className="seabed__findSomething">{text[language].find}</p>
+						<p className="seabed__findSomething">{text[language].investigate}</p>
 					</React.Fragment>
 				: null
 				}
