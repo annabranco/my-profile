@@ -51,7 +51,7 @@ class Seabed extends React.Component {
 				clearTimeout(floatRight);
 				clearTimeout(floatLeft);
 				Hero.src = swimmingRight;
-				Hero.style.left = (Number(Hero.style.left.slice(0, -2)) + 200) + 'px';
+				Hero.style.left = (Number(Hero.style.left.slice(0, -2)) + 250) + 'px';
 				Hero.classList.add('swim');
 				floatRight = setTimeout(() => {
 					Hero.src = floatingRight;
@@ -70,7 +70,7 @@ class Seabed extends React.Component {
 				clearTimeout(floatRight);
 				clearTimeout(floatLeft);
 				Hero.src = swimmingLeft;
-				Hero.style.left = (Number(Hero.style.left.slice(0, -2)) - 200) + 'px';
+				Hero.style.left = (Number(Hero.style.left.slice(0, -2)) - 250) + 'px';
 				Hero.classList.add('swim');
 				floatLeft = setTimeout(() => {
 					Hero.src = floatingLeft;
@@ -85,7 +85,7 @@ class Seabed extends React.Component {
 	moveToSomewhere = () => {
 
 //---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
-		if ((this.state.readComponents.OtherSkills) && (this.state.readComponents.Experiences)) {
+		if ((this.state.readComponents.OtherSkills) && (this.state.readComponents.Experiences) && (this.state.frame === 'center')) {
 			window.removeEventListener('keyup',this.moveHero);
 
 			document.querySelector('.seabed__go--experiences').classList.add('hidden');
