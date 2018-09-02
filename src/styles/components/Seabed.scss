@@ -103,10 +103,11 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .seabed__go-text {
-	font-family: $font__title-alt;
+	font-family: sans-serif;
 	font-size  : 3rem;
 	text-shadow: 0 0 3px white;
 	color      : rgba(255, 255, 255, 0.2);
+	opacity    : 0.7;
 
 	&.seabed__go-textRight {
 		text-align: right;
