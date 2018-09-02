@@ -126,8 +126,8 @@ export default {
 				"That's weird... I could swear I've just seen a cat dressed up as an octopus",
 				'The sea... the final frontier...',
 				'hmm... maybe another day.',
-				"I've just remembered that old movie about a huge alien ship living on an underwater abyss...",
-				'Just keep swimming... Just keep swimming...',
+				"I've just remembered that old movie with an alien ship living on an underwater abyss...",
+				'Just keep swimming... Just keep swiiimming...',
 				'Sometimes I forget I am just a character inside a professional profile',
 				'Oh.. I wish we had time to swimm around...'
 			]
@@ -140,7 +140,16 @@ export default {
 			experiences: 'Experiencias anteriores',
 			skills: 'Otras habilidades',
 			time2go: 'Es hora de volver...',
-			me2: 'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?'
+			thoughts: [
+				'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?',
+				'Que raro... podría jurar que he visto un gato disfrazado de pulpo',
+				'El mar... la frontera final...',
+					'hmm... quizás otro día',
+				'Me acordé ahora de aquella peli antigua con una nave alienígena viviendo en un abismo en el mar...',
+				'Nadaremos, nadaremos... en el maaar...',
+				'Hay veces que se me olvida que soy solo una personaje dentro de un perfil profesional',
+				'Oh.. me gustaría que tuviesemos tiempo para nadar por allí...'
+			]
 		},
 		pt: {
 			title: 'Outras informações',
@@ -150,7 +159,16 @@ export default {
 			experiences: 'Experiências anteriores',
 			skills: 'Outras habilidades',
 			time2go: 'É hora de voltar...',
-			me2: 'Pois é... eu também adoraria explorar mais, mas tenemos que nos focar no perfil profissional, não é?'
+			thoughts: [
+				'Pois é... eu também adoraria explorar mais, mas temos que nos focar no perfil profissional, não é?',
+				'Que estranho... eu poderia jurar que acabei de ver um gato disfarçado de polvo',
+				'O mar... a fronteira final...',
+				'hmm... talvez outro dia',
+				'Me lembrei agora daquele filme antigo com uma nave alienígena vivendo em um abismo no mar...',
+				'Continue a nadar... continue a nadaaar...',
+				'Às vezes eu esqueço que sou só uma personagem dentro de um perfil profissional',
+				'Oh.. eu gostaria que tivéssemos tempo para nadar por aí...'
+			]
 		}
  	},
 	Experiences: {
