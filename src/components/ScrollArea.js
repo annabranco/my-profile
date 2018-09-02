@@ -34,21 +34,8 @@ class ScrollArea extends React.Component {
 			<Seabed
 				  texts={this.props.texts}
 				  language={this.props.language}
+				  userViewedAllComponents={this.props.userViewedAllComponents}
 			/>
-
-			{/* <div className="scrollArea__horizontal">
-				<Knowledges
-					texts={this.props.texts}
-					language={this.props.language}
-				/>
-
-
-
-				<Experiences
-					texts={this.props.texts}
-					language={this.props.language}
-				/>
-			</div> */}
 
 
       	</section>

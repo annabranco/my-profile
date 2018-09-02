@@ -27,7 +27,12 @@ class Hero extends React.Component {
 								<h1 className="hero__name">Anna Branco</h1>
 								<h2 className="hero__job">{text[language].job}</h2>
 							</div>
-							<div className="hero__aditional">{text[language].aditional}</div>
+							<div className="hero__aditional">
+							{!this.props.viewedAll ?
+								text[language].aditional
+								: text[language].thankyou
+							}
+							</div>
 						</div>
 						<div className="hero__right col-3">
 							<Social

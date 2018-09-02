@@ -116,6 +116,9 @@ class Seabed extends React.Component {
 				document.querySelector('.seabed__go-textLeft').classList.remove('goThisWay');
 				window.addEventListener('keyup',this.moveHero);
 
+				//-- Triggers thank you message on first personagem
+				this.props.userViewedAllComponents();
+
 				//-- Puts Hero on its initial position
 				Hero.classList.add('floating-soft');
 				Hero.classList.remove('goingUp');

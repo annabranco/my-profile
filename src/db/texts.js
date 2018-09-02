@@ -18,19 +18,22 @@ export default {
 			 job: 'Front end junior developer',
 			 aditional: 'Learning to develop sites where navigating around would be a beautiful journey',
 			 call: 'Call',
-			 chat: 'Chat'
+			 chat: 'Chat',
+			 thankyou: 'Thank you very much for navigating trough all my profile!'
 		 },
 		 es: {
 			 job: 'Desarrolladora Front end junior',
 			 aditional: 'Aprendiendo a desarrollar sitios por donde navegar sea un bonita experiencia',
 			 call: 'Llamar',
-			 chat: 'Mensaje'
+			 chat: 'Mensaje',
+			 thankyou: 'Muchas gracias por nevegar por todo mi perfil!'
 		 },
 		 pt: {
 			 job: 'Programadora Front end júnior',
 			 aditional: 'Aprendendo a desenvolver sites pelos quais navegar seja uma bonita experiência',
 			 call: 'Chamar',
-			 chat: 'Chat'
+			 chat: 'Chat',
+			 thankyou: 'Muito obrigada por navegar por todo o meu perfil!'
 		 }
 	},
 	Developer: {
