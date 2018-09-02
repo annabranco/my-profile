@@ -23,21 +23,19 @@ class Seabed extends React.Component {
 			viewedExperiences: false,
 			showOtherSkills: false,
 			viewedOtherSkills: false,
-			countReachRight: 0,
-			countReachLeft: 0,
 			frame: 'center'
 		}
 	}
 
 	componentDidMount() {
-		window.addEventListener('keydown',this.moveHero);
+		window.addEventListener('keyup',this.moveHero);
 		Hero = document.querySelector('#hero');
 		Hero.style.left = (window.innerWidth * 0.40) + 'px';
 	}
 
 	moveHero = e => {
 		if ( e.key === 'ArrowRight' ) {
-			if ((this.state.showExperiences) && (this.state.frame === 'right')) {
+			if ((Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300) && (this.state.frame === 'right')) {
 				return;
 
 			} else {
@@ -52,15 +50,21 @@ class Seabed extends React.Component {
 				},3000);
 			}
 		} else if ( e.key === 'ArrowLeft' ) {
-			clearTimeout(floatRight);
-			clearTimeout(floatLeft);
-			Hero.src = swimmingLeft;
-			Hero.style.left = (Number(Hero.style.left.slice(0, -2)) - 200) + 'px';
-			Hero.classList.add('swim');
-			floatLeft = setTimeout(() => {
-				Hero.src = floatingLeft;
-				Hero.classList.remove('swim');
-			},3000);
+
+			if ((Number(Hero.style.left.slice(0, -2)) <= 200) && (this.state.frame === 'left')) {
+				return;
+
+			} else {
+				clearTimeout(floatRight);
+				clearTimeout(floatLeft);
+				Hero.src = swimmingLeft;
+				Hero.style.left = (Number(Hero.style.left.slice(0, -2)) - 200) + 'px';
+				Hero.classList.add('swim');
+				floatLeft = setTimeout(() => {
+					Hero.src = floatingLeft;
+					Hero.classList.remove('swim');
+				},3000);
+			}
 		}
 		this.moveToSomewhere();
 	}
@@ -70,7 +74,7 @@ class Seabed extends React.Component {
 
 //---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
 		if ((this.state.viewedExperiences) && (this.state.viewedOtherSkills)) {
-			window.removeEventListener('keydown',this.moveHero);
+			window.removeEventListener('keyup',this.moveHero);
 
 			document.querySelector('.seabed__go--experiences').classList.add('hidden');
 			document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
@@ -96,15 +100,13 @@ class Seabed extends React.Component {
 					viewedExperiences: false,
 					showOtherSkills: false,
 					viewedOtherSkills: false,
-					countReachRight: 0,
-					countReachLeft: 0,
 					frame: 'center'
 				});
 				document.querySelector('.seabed__go--experiences').classList.remove('hidden');
 				document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
 				document.querySelector('.seabed__go-textRight').classList.remove('goThisWay');
 				document.querySelector('.seabed__go-textLeft').classList.remove('goThisWay');
-				window.addEventListener('keydown',this.moveHero);
+				window.addEventListener('keyup',this.moveHero);
 
 				//-- Puts Hero on its initial position
 				Hero.classList.add('floating-soft');
@@ -124,7 +126,6 @@ class Seabed extends React.Component {
 //---- Highlights the text "Other Skills" when hero swims over it
 		} else if (Number(Hero.style.left.slice(0, -2)) <= 200) {
 			document.querySelector('.seabed__go-textLeft').classList.add('goThisWay');
-			this.setState(prevState => ({ countReachLeft: prevState.countReachLeft + 1 }));
 
 //---- Erases both highlights when hero swims anywhere else
 		} else {
@@ -135,7 +136,6 @@ class Seabed extends React.Component {
 // ======== WHEN the Hero crosses the RIGHT border of the screen
 		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth -50 ) {
 
-			this.setState(prevState => ({ countReachRight: prevState.countReachRight + 1 }));
 			this.setState({ hideInstructions: true });
 
 			Hero.style.transition = 'none';
@@ -170,7 +170,6 @@ class Seabed extends React.Component {
 // ======== WHEN the Hero crosses the LEFT border of the screen
 		if (Number(Hero.style.left.slice(0, -2)) <=  -200 ) {
 
-			this.setState(prevState => ({ countReachLeft: prevState.countReachLeft + 1 }));
 			this.setState({ hideInstructions: true });
 
 			Hero.style.transition = 'none';
@@ -254,10 +253,10 @@ class Seabed extends React.Component {
 				: null
 				}
 
-				{this.state.frame === 'right' && this.state.countReachRight === 3 ?
+				{/* {this.state.frame === 'right' && this.state.countReachRight === 3 ?
 					<p className="hero__says">{text[language].me2}</p>
 				: null
-				}
+				} */}
 
 			</section>
 

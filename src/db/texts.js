@@ -242,7 +242,7 @@ export default {
 			skill5: 'Flexibilidad',
 			skill5details: 'Excelente experiencia trabajando en ambientes multiculturales',
 			design: 'Diseño gráfico',
-			samples: 'Usted puede ver abajo algunos ejemplos de creacciones mías:´'
+			samples: 'Usted puede ver abajo algunos ejemplos de creacciones mías:'
 		},
 		pt: {
 			find: "Você encontrou... um computador?!",

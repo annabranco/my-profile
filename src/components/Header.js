@@ -22,7 +22,7 @@ class Header extends React.Component {
 	  			<p className="header__text">{text[language].title}</p>
 				</div>
 				<div className="header__inner">
-					<p className="header__text-contact">{text[language].contact}</p>
+					<p className="header__text-contact hidden">{text[language].contact}</p>
 				</div>
   		</header>
 
