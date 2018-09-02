@@ -21,15 +21,12 @@ class OtherSkills extends React.Component {
 					opened: true,
 					read: true
 				 });
-
 				document.querySelector('.section__otherSkills').classList.add('opened');
 				document.querySelector('.otherSkills__mac').classList.add('opened');
 				document.querySelector('.otherSkills__mac--screen').classList.add('opened');
 				document.querySelector('.otherSkills__mac--keyboard').classList.add('hidden');
 				document.querySelector('.otherSkills__mac--keyboard-keyArea').classList.add('hidden');
-
-
-
+				this.props.markAsRead();
 
 			} else {
 

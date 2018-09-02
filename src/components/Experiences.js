@@ -20,6 +20,7 @@ class Experiences extends React.Component {
 				read: true
 			 });
 			document.querySelector('.section__experiences').classList.add('opened');
+			this.props.markAsRead();
 
 		} else {
 

@@ -24,7 +24,11 @@ class Seabed extends React.Component {
 			showOtherSkills: false,
 			viewedOtherSkills: false,
 			frame: 'center',
-			heroThinks: undefined
+			heroThinks: undefined,
+			readComponents: {
+				Experiences: false,
+				OtherSkills: false
+			}
 		}
 	}
 
@@ -81,7 +85,7 @@ class Seabed extends React.Component {
 	moveToSomewhere = () => {
 
 //---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
-		if ((this.state.viewedExperiences) && (this.state.viewedOtherSkills)) {
+		if ((this.state.readComponents.OtherSkills) && (this.state.readComponents.Experiences)) {
 			window.removeEventListener('keyup',this.moveHero);
 
 			document.querySelector('.seabed__go--experiences').classList.add('hidden');
@@ -108,7 +112,12 @@ class Seabed extends React.Component {
 					viewedExperiences: false,
 					showOtherSkills: false,
 					viewedOtherSkills: false,
-					frame: 'center'
+					frame: 'center',
+					heroThinks: undefined,
+					readComponents: {
+						Experiences: false,
+						OtherSkills: false
+					}
 				});
 				document.querySelector('.seabed__go--experiences').classList.remove('hidden');
 				document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
@@ -224,6 +233,24 @@ class Seabed extends React.Component {
 
 	}
 
+// ======== Marks components as read, so when both were read the Hero can go up
+	markExperiencesAsRead = () => {
+		this.setState({
+			 readComponents: { ... this.state.readComponents,
+				 Experiences: true
+			 }
+		 });
+	}
+
+	markOtherSkillsAsRead = () => {
+		this.setState({
+			 readComponents: { ... this.state.readComponents,
+				 OtherSkills: true
+			 }
+		 });
+	}
+
+
 	render () {
 
 		const text = this.props.texts.Seabed;
@@ -256,6 +283,7 @@ class Seabed extends React.Component {
 						texts={this.props.texts}
 						language={this.props.language}
 						viewedExperiences={this.state.viewedExperiences}
+						markAsRead={this.markExperiencesAsRead}
 					/>
 				: null
 				}
@@ -265,11 +293,12 @@ class Seabed extends React.Component {
 								texts={this.props.texts}
 								language={this.props.language}
 								viewedOtherSkills={this.state.viewedOtherSkills}
+								markAsRead={this.markOtherSkillsAsRead}
 							/>
 				: null
 				}
 
-				{this.state.viewedExperiences && this.state.viewedOtherSkills ?
+				{this.state.readComponents.OtherSkills && this.state.readComponents.Experiences ?
 					<p className="seabed__back">{text[language].time2go}</p>
 				: null
 				}
