@@ -21,12 +21,12 @@ class Experiences extends React.Component {
 			 });
 			document.querySelector('.section__experiences').classList.add('opened');
 			this.props.markAsRead();
-
-		} else {
-
-			this.setState({ opened: false });
-			document.querySelector('.section__experiences').classList.remove('opened');
 		}
+	}
+
+	close = () => {
+		this.setState({ opened: false });
+		document.querySelector('.section__experiences').classList.remove('opened');
 	}
 
 	render () {
@@ -56,7 +56,7 @@ class Experiences extends React.Component {
 						</React.Fragment>
 					:
 					<div className="experiences__outer">
-						<p className="seabed__click2close">{this.props.texts.Seabed[language].click2close}</p>
+						<button className="seabed__click2close" onClick={this.close}>{this.props.texts.Seabed[language].click2close}</button>
 
 						<div className="experiences__inner">
 							<div className="experiences__inner--year">09/2017 - 05/2018</div>

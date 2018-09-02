@@ -119,12 +119,12 @@ export default {
 		en: {
 			title: 'Other informations',
 			message: 'Beyond developing webpages and applications, I love to experiment programming videogames, promoting interactivity with the user and lots of fun.',
-			messageKeyboard: 'Thus, now you know my basic profile, how about a little gaming experience? If you want more information about previous experiences or other skills, move the scuba diver to the desired direction using arrows keys right or left on your keyboard (◀︎ or ▶︎).',
+			messageKeyboard: 'Thus, now you know my basic profile, how about a little gaming experience? Move the diver to the desired direction using arrows keys right or left on your keyboard (◀︎ or ▶︎) to know more about my profile.',
 			messageDevices: 'Thus, now you know my basic profile, how about a little gaming experience? If you want more information about previous experiences or other skills, move the scuba diver to the desired direction clicking the directional keys right or left on the corners of the screen.',
 			experiences: 'Previous experiences',
 			skills: 'Other skills',
 			time2go: 'Time to go back...',
-			click2close: 'Click anywhere to close this window',
+			click2close: 'Click HERE to close this window',
 			thoughts: [
 				'Yeah. I too would love to explore around, but we have to focus on the professional profile, right?',
 				"That's weird... I could swear I've just seen a cat dressed up as an octopus",
@@ -139,12 +139,12 @@ export default {
 		es: {
 			title: 'Otras informaciones',
 			message: 'Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.',
-			messageKeyboard: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Si quiere saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueve la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎).',
+			messageKeyboard: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Mueve la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.',
 			messageDevices: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Si quiere saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueve la buceadora para la dirección deseada haciendo click en las flechas direccionales en los cantos de la pantalla para la derecha o izquierda.',
 			experiences: 'Experiencias anteriores',
 			skills: 'Otras habilidades',
 			time2go: 'Es hora de volver...',
-			click2close: 'Haz click en cualquier parte para cerrar esta ventana',
+			click2close: 'Haz click AQUÍ para cerrar esta ventana',
 			thoughts: [
 				'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?',
 				'Que raro... podría jurar que he visto un gato disfrazado de pulpo',
@@ -159,12 +159,12 @@ export default {
 		pt: {
 			title: 'Outras informações',
 			message: 'Além de desenvolver páginas e aplicacões, adoro experimentar com programação de jogos, promovendo interatividade com o usuário de uma maneira bastante lúdica.',
-			messageKeyboard: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Se você quiser saber mais informações sobre minhas experiências anteriores ou outras habilidades, mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎).',
+			messageKeyboard: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎) para saber mais sobre o meu perfil.',
 			messageDevices: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Se você quiser saber mais informações sobre minhas experiências anteriores ou outras habilidades, mova a mergulhadora para a direção desejada clicando nas setas direcionais nos cantos da tela para direita ou esquerda.',
 			experiences: 'Experiências anteriores',
 			skills: 'Outras habilidades',
 			time2go: 'É hora de voltar...',
-			click2close: 'Clique em qualquer parte para fechar essa janela',
+			click2close: 'Clique AQUI para fechar essa janela',
 			thoughts: [
 				'Pois é... eu também adoraria explorar mais, mas temos que nos focar no perfil profissional, não é?',
 				'Que estranho... eu poderia jurar que acabei de ver um gato disfarçado de polvo',

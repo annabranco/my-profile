@@ -94,8 +94,8 @@
     .section__otherSkills.opened .seabed__click2close-otherSkills {
       display: block;
       position: fixed;
-      top: 33px;
-      right: 80px; }
+      top: 100px;
+      right: 50px; }
 
 @keyframes bright {
   from {
@@ -241,7 +241,33 @@
   grid-gap: 10px; }
 
 .design__sample {
+  height: 200px;
+  width: 300px;
   border: 3px solid lightgray;
   cursor: pointer; }
   .design__sample:hover {
     border: 3px solid yellow; }
+
+.sample01 {
+  background-image: url("https://pre00.deviantart.net/f5fe/th/pre/f/2018/065/a/2/rio_de_janeiro__um_retrato_da_violencia_by_annabranco-dc53j1i.jpg");
+  background-size: cover; }
+
+.sample02 {
+  background-image: url("https://img00.deviantart.net/9fb7/i/2018/069/2/c/recuerda_siempre_mirar_el_color_de_las_banderas_by_annabranco-dc5gv8e.jpg");
+  background-size: cover; }
+
+.sample03 {
+  background-image: url("https://pre00.deviantart.net/3afa/th/pre/i/2018/069/e/3/basic_english_by_annabranco-dc5go6q.jpg");
+  background-size: cover; }
+
+.sample04 {
+  background-image: url("https://pre00.deviantart.net/6e8f/th/pre/f/2018/245/e/8/violencia1_en_by_annabranco-dclta8q.jpg");
+  background-size: cover; }
+
+.sample05 {
+  background-image: url("https://pre00.deviantart.net/9f40/th/pre/f/2018/065/1/7/terremoto_en_mexico_19_09_17_by_alvarobranco_dbo6p_by_annabranco-dc53k8f.jpg");
+  background-size: cover; }
+
+.sample06 {
+  background-image: url("https://pre00.deviantart.net/d51e/th/pre/i/2018/069/5/b/european_map__arabic__by_annabranco-dc5gve5.jpg");
+  background-size: cover; }
