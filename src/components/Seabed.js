@@ -7,10 +7,10 @@ import swimmingLeft from '../images/other/swimmingLeft.gif';
 import Experiences from './Experiences';
 import OtherSkills from './OtherSkills';
 
-
 let floatLeft;
 let floatRight;
 let Hero;
+let thoughts = 0;
 
 class Seabed extends React.Component {
 
@@ -23,7 +23,8 @@ class Seabed extends React.Component {
 			viewedExperiences: false,
 			showOtherSkills: false,
 			viewedOtherSkills: false,
-			frame: 'center'
+			frame: 'center',
+			heroThinks: undefined
 		}
 	}
 
@@ -35,10 +36,14 @@ class Seabed extends React.Component {
 
 	moveHero = e => {
 		if ( e.key === 'ArrowRight' ) {
+
+			//---- Prevents movement beyond right margin on frame 'right'
 			if ((Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300) && (this.state.frame === 'right')) {
+				this.heroThinks('right');
 				return;
 
 			} else {
+				this.setState({ heroThinks: undefined })
 				clearTimeout(floatRight);
 				clearTimeout(floatLeft);
 				Hero.src = swimmingRight;
@@ -51,10 +56,13 @@ class Seabed extends React.Component {
 			}
 		} else if ( e.key === 'ArrowLeft' ) {
 
+			//---- Prevents movement beyond left margin on frame 'left'
 			if ((Number(Hero.style.left.slice(0, -2)) <= 200) && (this.state.frame === 'left')) {
+				this.heroThinks('left');
 				return;
 
 			} else {
+				this.setState({ heroThinks: undefined })
 				clearTimeout(floatRight);
 				clearTimeout(floatLeft);
 				Hero.src = swimmingLeft;
@@ -203,6 +211,16 @@ class Seabed extends React.Component {
 	}
 
 
+// ======== Triggers a random thought when the Hero reaches any border.
+	heroThinks = side => {
+
+	this.setState({ heroThinks: thoughts })
+	thoughts++;
+
+	document.querySelector('.hero__thinks').style[side] = '40px';
+
+	}
+
 	render () {
 
 		const text = this.props.texts.Seabed;
@@ -253,10 +271,10 @@ class Seabed extends React.Component {
 				: null
 				}
 
-				{/* {this.state.frame === 'right' && this.state.countReachRight === 3 ?
-					<p className="hero__says">{text[language].me2}</p>
+				{this.state.heroThinks !== undefined ?
+					<p className="hero__thinks">{text[language].thoughts[this.state.heroThinks]}</p>
 				: null
-				} */}
+				}
 
 			</section>
 

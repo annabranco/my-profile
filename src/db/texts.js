@@ -121,7 +121,16 @@ export default {
 			experiences: 'Previous experiences',
 			skills: 'Other skills',
 			time2go: 'Time to go back...',
-			me2: 'Yeah. I too would love to explore around, but we have to focus on the professional profile, right?'
+			thoughts: [
+				'Yeah. I too would love to explore around, but we have to focus on the professional profile, right?',
+				"That's weird... I could swear I've just seen a cat dressed up as an octopus",
+				'The sea... the final frontier...',
+				'hmm... maybe another day.',
+				"I've just remembered that old movie about a huge alien ship living on an underwater abyss...",
+				'Just keep swimming... Just keep swimming...',
+				'Sometimes I forget I am just a character inside a professional profile',
+				'Oh.. I wish we had time to swimm around...'
+			]
 		},
 		es: {
 			title: 'Otras informaciones',
