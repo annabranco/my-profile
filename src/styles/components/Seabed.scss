@@ -194,3 +194,19 @@ $font__subtitle: 'Corben', cursive;
 	color      : white;
 	text-shadow: 0 0 2px black;
 }
+
+.seabed__click2close {
+	z-index       : 4;
+	position      : absolute;
+	top           : 5px;
+	right         : 5px;
+	font-family   : $font__title-alt;
+	font-size     : 1.1rem;
+	letter-spacing: 1px;
+	color         : #cd1e1e;
+	text-shadow   : 0 0 1px rgba(38, 33, 37, 0.51);
+
+	&.seabed__click2close-otherSkills {
+		display: none;
+	}
+}

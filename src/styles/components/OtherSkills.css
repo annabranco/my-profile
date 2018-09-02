@@ -87,9 +87,15 @@
     padding: 100px 50px 30px;
     overflow-y: scroll;
     transform: none;
-    opacity: 1; }
+    opacity: 1;
+    cursor: default; }
     .section__otherSkills.opened:hover {
       border: 2px solid black; }
+    .section__otherSkills.opened .seabed__click2close-otherSkills {
+      display: block;
+      position: fixed;
+      top: 33px;
+      right: 80px; }
 
 @keyframes bright {
   from {

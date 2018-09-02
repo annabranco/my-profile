@@ -26,7 +26,8 @@
     width: 75vw;
     padding: 15px;
     transform: none;
-    opacity: 0.9; }
+    opacity: 0.9;
+    cursor: default; }
     .section__experiences.opened:hover {
       border: 2px solid black; }
 

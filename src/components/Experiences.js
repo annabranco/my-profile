@@ -55,6 +55,8 @@ class Experiences extends React.Component {
 						</React.Fragment>
 					:
 					<div className="experiences__outer">
+						<p className="seabed__click2close">{this.props.texts.Seabed[language].click2close}</p>
+
 						<div className="experiences__inner">
 							<div className="experiences__inner--year">09/2017 - 05/2018</div>
 							<div className="experiences__inner--year">10/2015 - 11/2015</div>

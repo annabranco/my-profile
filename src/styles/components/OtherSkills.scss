@@ -81,12 +81,10 @@ $hover--color: yellow;
 	position                 : relative;
 	top                      : 5px;
 	left                     : 5px;
-
 	height                   : 40px;
 	width                    : 60px;
 	background-image         : linear-gradient(#7dbad4,white);
 	overflow                 : hidden;
-
 	opacity                  : 0.9;
 	transform                : perspective(-1em) rotateX(-2deg) skewX(-1deg);
 	box-sizing               : border-box;
@@ -104,21 +102,26 @@ $hover--color: yellow;
 		display              : grid;
 		grid-template-columns: 1fr 3fr;
 		grid-template-rows   : auto;
-
 		grid-gap             : 50px;
 		background-image     : linear-gradient(rgba(7, 39, 175, 0.3),rgba(255, 255, 255, 0.2));
-
 		border               : 2px solid black;
 		height               : 100vh;
 		width                : 100vw;
 		padding              : 100px 50px 30px;
 		overflow-y           : scroll;
-
 		transform            : none;
 		opacity              : 1;
+		cursor               : default;
 
 		&:hover {
 			border: 2px solid black;
+		}
+
+		& .seabed__click2close-otherSkills {
+			display : block;
+			position: fixed;
+			top     : 33px;
+			right   : 80px;
 		}
 	}
 }

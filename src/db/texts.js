@@ -16,7 +16,7 @@ export default {
 	 Hero: {
 		 en: {
 			 job: 'Front end junior developer',
-			 aditional: 'Learning to develop sites where navigating around would be a beautiful journey',
+			 aditional: 'Learning to develop sites where navigating around is a beautiful journey',
 			 call: 'Call',
 			 chat: 'Chat',
 			 thankyou: 'Thank you very much for navigating trough all my profile!'
@@ -124,6 +124,7 @@ export default {
 			experiences: 'Previous experiences',
 			skills: 'Other skills',
 			time2go: 'Time to go back...',
+			click2close: 'Click anywhere to close this window',
 			thoughts: [
 				'Yeah. I too would love to explore around, but we have to focus on the professional profile, right?',
 				"That's weird... I could swear I've just seen a cat dressed up as an octopus",
@@ -143,6 +144,7 @@ export default {
 			experiences: 'Experiencias anteriores',
 			skills: 'Otras habilidades',
 			time2go: 'Es hora de volver...',
+			click2close: 'Haz click en cualquier parte para cerrar esta ventana',
 			thoughts: [
 				'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?',
 				'Que raro... podría jurar que he visto un gato disfrazado de pulpo',
@@ -162,6 +164,7 @@ export default {
 			experiences: 'Experiências anteriores',
 			skills: 'Outras habilidades',
 			time2go: 'É hora de voltar...',
+			click2close: 'Clique em qualquer parte para fechar essa janela',
 			thoughts: [
 				'Pois é... eu também adoraria explorar mais, mas temos que nos focar no perfil profissional, não é?',
 				'Que estranho... eu poderia jurar que acabei de ver um gato disfarçado de polvo',

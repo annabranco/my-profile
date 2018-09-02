@@ -66,6 +66,8 @@ class OtherSkills extends React.Component {
 						<section className="section__otherSkills" onClick={this.open}>
 
 							<img src={MacBar} alt="" className="skills--topBar"/>
+							<p className="seabed__click2close seabed__click2close-otherSkills">{this.props.texts.Seabed[language].click2close}</p>
+
 							<div className="skills__outer skills__outer--languages">
 								<h2 className="skills__table--title">{text[language].languages}</h2>
 								<table className="skills__table skills__table--languages">
