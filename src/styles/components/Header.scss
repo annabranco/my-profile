@@ -32,7 +32,9 @@ $font__subtitle: 'Corben', cursive;
 	cursor : default;
 }
 
-.header__text {}
+.header__text {
+	font-family: $font__title;
+}
 
 .header__text-contact {
 	font-family: $font__subtitle;

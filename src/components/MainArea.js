@@ -15,6 +15,7 @@ class MainArea extends React.Component {
 	          	<Hero
 					texts={this.props.texts}
 					language={this.props.language}
+					viewedAll={this.props.viewedAll}
 	 			/>
 
         	</div>
@@ -24,6 +25,7 @@ class MainArea extends React.Component {
 				texts={this.props.texts}
 		        language={this.props.language}
 				handleAdjustExpandedProjectsView={this.props.handleAdjustExpandedProjectsView}
+				userViewedAllComponents={this.props.userViewedAllComponents}
 	        />
 
 			{!this.props.doNotShowLanguagePopupAgain ?

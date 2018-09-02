@@ -10,7 +10,6 @@ class Experiences extends React.Component {
 			opened: false,
 			read: false
 		}
-
 	}
 
 	open = () => {
@@ -21,13 +20,13 @@ class Experiences extends React.Component {
 				read: true
 			 });
 			document.querySelector('.section__experiences').classList.add('opened');
-
-		} else {
-
-			this.setState({ opened: false });
-			document.querySelector('.section__experiences').classList.remove('opened');
-			document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
+			this.props.markAsRead();
 		}
+	}
+
+	close = () => {
+		this.setState({ opened: false });
+		document.querySelector('.section__experiences').classList.remove('opened');
 	}
 
 	render () {
@@ -38,10 +37,10 @@ class Experiences extends React.Component {
 		return (
 			<React.Fragment>
 
-				{!this.state.read ?
+				{!this.props.viewedExperiences && !this.state.read ?
 					<React.Fragment>
-						<p className="experiences__find">{text[language].find}</p>
-						<p className="experiences__find">{text[language].investigate}</p>
+						<p className="seabed__findSomething">{text[language].find}</p>
+						<p className="seabed__findSomething">{text[language].investigate}</p>
 					</React.Fragment>
 				: null
 				}
@@ -50,13 +49,15 @@ class Experiences extends React.Component {
 				<section className="section__experiences" onClick={this.open}>
 					{!this.state.opened ?
 						<React.Fragment>
-							<p className="experiences__text-fake">- - --</p>
-							<p className="experiences__text-fake">- -- -</p>
-							<p className="experiences__text-fake">--- --</p>
-							<p className="experiences__text-fake">-- - -</p>
+							<p className="experiences__text-fake">- - --- - --</p>
+							<p className="experiences__text-fake">- -- -- - --</p>
+							<p className="experiences__text-fake">- -- ---- --</p>
+							<p className="experiences__text-fake">- - - --- --</p>
 						</React.Fragment>
 					:
 					<div className="experiences__outer">
+						<button className="seabed__click2close" onClick={this.close}>{this.props.texts.Seabed[language].click2close}</button>
+
 						<div className="experiences__inner">
 							<div className="experiences__inner--year">09/2017 - 05/2018</div>
 							<div className="experiences__inner--year">10/2015 - 11/2015</div>

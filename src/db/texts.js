@@ -1,36 +1,39 @@
 export default {
 	Header: {
 		en: {
-			title: "Meet Anna Branco's professional profile. Under construction.",
+			title: "Anna Branco's professional profile",
 			contact: 'Contact me'
 		},
 		es: {
-			title: "Conoce el perfil profesional de Anna Branco. En construcción.",
+			title: "Perfil profesional de Anna Branco",
 			contact: 'Contactarme'
 		},
 		pt: {
-			title: "Conheça o perfil profissional de Anna Branco. Em construção.",
+			title: "Perfil profissional de Anna Branco",
 			contact: 'Me contatar'
 		},
 	},
 	 Hero: {
 		 en: {
 			 job: 'Front end junior developer',
-			 aditional: 'Learning to develop sites where navigating around would be a beautiful journey',
+			 aditional: 'Learning to develop sites where navigating around is a beautiful journey',
 			 call: 'Call',
-			 chat: 'Chat'
+			 chat: 'Chat',
+			 thankyou: 'Thank you very much for navigating trough all my profile!'
 		 },
 		 es: {
 			 job: 'Desarrolladora Front end junior',
 			 aditional: 'Aprendiendo a desarrollar sitios por donde navegar sea un bonita experiencia',
 			 call: 'Llamar',
-			 chat: 'Mensaje'
+			 chat: 'Mensaje',
+			 thankyou: 'Muchas gracias por nevegar por todo mi perfil!'
 		 },
 		 pt: {
 			 job: 'Programadora Front end júnior',
 			 aditional: 'Aprendendo a desenvolver sites pelos quais navegar seja uma bonita experiência',
 			 call: 'Chamar',
-			 chat: 'Chat'
+			 chat: 'Chat',
+			 thankyou: 'Muito obrigada por navegar por todo o meu perfil!'
 		 }
 	},
 	Developer: {
@@ -116,32 +119,62 @@ export default {
 		en: {
 			title: 'Other informations',
 			message: 'Beyond developing webpages and applications, I love to experiment programming videogames, promoting interactivity with the user and lots of fun.',
-			messageKeyboard: 'Thus, now you know my basic profile, how about a little gaming experience? If you want more information about previous experiences or other skills, move the scuba diver to the desired direction using arrows keys right or left on your keyboard (◀︎ or ▶︎).',
+			messageKeyboard: 'Thus, now you know my basic profile, how about a little gaming experience? Move the diver to the desired direction using arrows keys right or left on your keyboard (◀︎ or ▶︎) to know more about my profile.',
 			messageDevices: 'Thus, now you know my basic profile, how about a little gaming experience? If you want more information about previous experiences or other skills, move the scuba diver to the desired direction clicking the directional keys right or left on the corners of the screen.',
 			experiences: 'Previous experiences',
 			skills: 'Other skills',
 			time2go: 'Time to go back...',
-			me2: 'Yeah. I too would love to explore around, but we have to focus on the professional profile, right?'
+			click2close: 'Click HERE to close this window',
+			thoughts: [
+				'Yeah. I too would love to explore around, but we have to focus on the professional profile, right?',
+				"That's weird... I could swear I've just seen a cat dressed up as an octopus",
+				'The sea... the final frontier...',
+				'hmm... maybe another day.',
+				"I've just remembered that old movie with an alien ship living on an underwater abyss...",
+				'Just keep swimming... Just keep swiiimming...',
+				'Sometimes I forget I am just a character inside a professional profile',
+				'Oh.. I wish we had time to swimm around...'
+			]
 		},
 		es: {
 			title: 'Otras informaciones',
 			message: 'Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.',
-			messageKeyboard: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Si quiere saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueve la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎).',
+			messageKeyboard: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Mueve la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.',
 			messageDevices: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Si quiere saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueve la buceadora para la dirección deseada haciendo click en las flechas direccionales en los cantos de la pantalla para la derecha o izquierda.',
 			experiences: 'Experiencias anteriores',
 			skills: 'Otras habilidades',
 			time2go: 'Es hora de volver...',
-			me2: 'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?'
+			click2close: 'Haz click AQUÍ para cerrar esta ventana',
+			thoughts: [
+				'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?',
+				'Que raro... podría jurar que he visto un gato disfrazado de pulpo',
+				'El mar... la frontera final...',
+					'hmm... quizás otro día',
+				'Me acordé ahora de aquella peli antigua con una nave alienígena viviendo en un abismo en el mar...',
+				'Nadaremos, nadaremos... en el maaar...',
+				'Hay veces que se me olvida que soy solo una personaje dentro de un perfil profesional',
+				'Oh.. me gustaría que tuviesemos tiempo para nadar por allí...'
+			]
 		},
 		pt: {
 			title: 'Outras informações',
 			message: 'Além de desenvolver páginas e aplicacões, adoro experimentar com programação de jogos, promovendo interatividade com o usuário de uma maneira bastante lúdica.',
-			messageKeyboard: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Se você quiser saber mais informações sobre minhas experiências anteriores ou outras habilidades, mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎).',
+			messageKeyboard: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎) para saber mais sobre o meu perfil.',
 			messageDevices: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Se você quiser saber mais informações sobre minhas experiências anteriores ou outras habilidades, mova a mergulhadora para a direção desejada clicando nas setas direcionais nos cantos da tela para direita ou esquerda.',
 			experiences: 'Experiências anteriores',
 			skills: 'Outras habilidades',
 			time2go: 'É hora de voltar...',
-			me2: 'Pois é... eu também adoraria explorar mais, mas tenemos que nos focar no perfil profissional, não é?'
+			click2close: 'Clique AQUI para fechar essa janela',
+			thoughts: [
+				'Pois é... eu também adoraria explorar mais, mas temos que nos focar no perfil profissional, não é?',
+				'Que estranho... eu poderia jurar que acabei de ver um gato disfarçado de polvo',
+				'O mar... a fronteira final...',
+				'hmm... talvez outro dia',
+				'Me lembrei agora daquele filme antigo com uma nave alienígena vivendo em um abismo no mar...',
+				'Continue a nadar... continue a nadaaar...',
+				'Às vezes eu esqueço que sou só uma personagem dentro de um perfil profissional',
+				'Oh.. eu gostaria que tivéssemos tempo para nadar por aí...'
+			]
 		}
  	},
 	Experiences: {
@@ -183,6 +216,95 @@ export default {
 			linkedin: 'Para mais informações e referências, por favor visite ',
 			brazil: 'Brasil',
 			spain: 'Espanha'
+		}
+	},
+	OtherSkills: {
+		en: {
+			find: "You've found... a computer?!",
+			find2: "And it is oddly on",
+			investigate: 'Click on the screen to investigate it.',
+			languages: 'Languages',
+			english: 'English',
+			spanish: 'Spanish',
+			portuguese: 'Portuguese',
+			french: 'French',
+			russian: 'Russian',
+			fluent: 'Fluent',
+			intermediate: 'Intermediate',
+			basic: 'Basic',
+			other: 'Other skills',
+			skill: 'Skill',
+			how: 'How I have developed it',
+			skill1: 'Working under pressure',
+			skill1details: 'More than 5 years as volunteer on ambulances and emergencies',
+			skill2: 'Leadership',
+			skill2details: 'More than 3 years of professional experience managing different teams',
+			skill3: 'Communication',
+			skill3details: 'Solid experience teaching, giving formations and speeches',
+			skill4: 'Empathy',
+			skill4details: 'Psychology formation and humanitarian background',
+			skill5: 'Flexibility',
+			skill5details: 'Very good experience working within multicultural environments',
+			design: 'Graphic design',
+			samples: 'Here are samples of some of my design creations:'
 		},
+		es: {
+			find: "Has encontrado... un ordenador?!",
+			find2: "Y curiosamente está funcionando...",
+			investigate: 'Haz click en la pantalla para investigarlo.',
+			languages: 'Idiomas',
+			english: 'Inglés',
+			spanish: 'Español',
+			portuguese: 'Portugués',
+			french: 'Francés',
+			russian: 'Ruso',
+			fluent: 'Fluído',
+			intermediate: 'Intermedio',
+			basic: 'Básico',
+			other: 'Otras competencias',
+			skill: 'Competencia',
+			how: 'Como la he desarrollado',
+			skill1: 'Trabajar bajo presión',
+			skill1details: 'Más de 5 años como voluntaria en ambulancias y emergencias',
+			skill2: 'Liderazgo',
+			skill2details: 'Más de 3 años de experiencia profesional gestionando distintos equipos',
+			skill3: 'Comunicación',
+			skill3details: 'Sólida experiencia en enseñanza, impartiendo formaciones y charlas',
+			skill4: 'Empatía',
+			skill4details: 'Formación en psicología y experiencia humanitaria',
+			skill5: 'Flexibilidad',
+			skill5details: 'Excelente experiencia trabajando en ambientes multiculturales',
+			design: 'Diseño gráfico',
+			samples: 'Usted puede ver abajo algunos ejemplos de creacciones mías:'
+		},
+		pt: {
+			find: "Você encontrou... um computador?!",
+			find2: "E estranhamente está funcionando...",
+			investigate: 'Clique na tela para investigá-lo.',
+			languages: 'Idiomas',
+			english: 'Inglês',
+			spanish: 'Espanhol',
+			portuguese: 'Português',
+			french: 'Francês',
+			russian: 'Russo',
+			fluent: 'Fluente',
+			intermediate: 'Intermediário',
+			basic: 'Básico',
+			other: 'Outras competências',
+			skill: 'Competência',
+			how: 'Como eu a desenvolvi',
+			skill1: 'Trabalhar sobre pressão',
+			skill1details: 'Mais de 5 anos como voluntária em ambulâncias e emergências',
+			skill2: 'Liderança',
+			skill2details: 'Mais de 3 anos de experiência profissional gestionando diferentes equipes',
+			skill3: 'Comunicação',
+			skill3details: 'Experiência sólida de ensino, dando formações e palestras',
+			skill4: 'Empatia',
+			skill4details: 'Formação em psicologia e experiência humanitária',
+			skill5: 'Flexibilidade',
+			skill5details: 'Excelente experiência trabalhando em ambientes multiculturais',
+			design: 'Desenho gráfico',
+			samples: 'Abaixo você pode ver alguns exemplos de criações minhas:'
+		}
 	}
 }

@@ -13,14 +13,17 @@ class App extends Component {
 
     	this.state = {
 	      	language: 'en',
-	      	currentSection: {},
-			doNotShowLanguagePopupAgain: undefined
+			doNotShowLanguagePopupAgain: undefined,
+			viewedAll: false
     	}
   	}
 
   	componentDidMount() {
 	    window.addEventListener('scroll', this.handleScroll);
 	    this.loadDefaultLanguage();
+		this.setState({
+			viewedAll: false
+		});
   	}
 
 	componentDidUpdate() {
@@ -134,6 +137,13 @@ class App extends Component {
 
 	saveToLocalStorage = () => localStorage.setItem("Anna Branco's professional profile", JSON.stringify(this.state));
 
+	userViewedAllComponents = () =>  {
+		this.setState({
+			viewedAll: true
+		});
+	}
+
+
   render() {
 
     return (
@@ -151,6 +161,8 @@ class App extends Component {
 				clearLanguagePopup={this.clearLanguagePopup}
 				doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
 				handleAdjustExpandedProjectsView={this.handleAdjustExpandedProjectsView}
+				userViewedAllComponents={this.userViewedAllComponents}
+				viewedAll={this.state.viewedAll}
 	        />
       </div>
     );

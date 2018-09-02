@@ -23,10 +23,12 @@
 
 .seabed__message--outer {
   margin: 60px auto 0;
-  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50px 0;
+  background-color: rgba(255, 255, 255, 0.1);
   height: auto;
   width: 60vw;
-  padding: 10px; }
+  padding: 10px 30px;
+  font-family: sans-serif; }
 
 .floating {
   animation-name: float;
@@ -76,10 +78,11 @@
   left: 40px; }
 
 .seabed__go-text {
-  font-family: "Acme", sans-serif;
+  font-family: sans-serif;
   font-size: 3rem;
   text-shadow: 0 0 3px white;
-  color: rgba(255, 255, 255, 0.2); }
+  color: rgba(255, 255, 255, 0.2);
+  opacity: 0.7; }
   .seabed__go-text.seabed__go-textRight {
     text-align: right; }
   .seabed__go-text.seabed__go-textLeft {
@@ -106,26 +109,42 @@
 .seabed__anna {
   position: absolute;
   bottom: 20px;
-  left: 13vw;
+  left: 25vw;
   width: 80%;
   font-family: "Alegreya Sans SC", sans-serif;
   line-height: 0.8;
   font-weight: bold;
   font-size: 9rem;
-  transform: perspective(5rem) rotateX(20deg);
-  text-shadow: 0 0 3px yellow;
-  transition: translate ease 3s; }
+  transform: perspective(7rem) rotateX(20deg) skewX(30deg);
+  text-shadow: 0 0 3px yellow; }
 
-.hero__says {
+.seabed__findSomething {
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 2px black; }
+  .seabed__findSomething:nth-of-type(2) {
+    top: 37vh; }
+  .seabed__findSomething:nth-of-type(3) {
+    top: 44vh; }
+
+.hero__thinks {
   position: absolute;
   bottom: 65%;
-  left: 30px;
   font-family: sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-style: italic;
   text-align: center;
   width: 180px;
-  opacity: 0.8; }
+  opacity: 0.8;
+  color: #fdff9f;
+  text-shadow: 0 0 1px black; }
 
 .seabed__back {
   margin-top: 30vh;
@@ -134,3 +153,26 @@
   text-align: center;
   color: white;
   text-shadow: 0 0 2px black; }
+
+.seabed__click2close {
+  z-index: 4;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 25px 0;
+  border: 1px solid white;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(193, 27, 27, 0.7));
+  box-shadow: 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  font-family: "Acme", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #630808;
+  text-shadow: 0 0 1px rgba(38, 33, 37, 0.51);
+  cursor: pointer; }
+  .seabed__click2close:hover {
+    text-decoration: none;
+    transform: translate(0, 1px);
+    box-shadow: inset 0 2px 5px 1px rgba(0, 0, 0, 0.4); }
+  .seabed__click2close.seabed__click2close-otherSkills {
+    display: none; }

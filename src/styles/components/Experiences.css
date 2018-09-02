@@ -1,26 +1,16 @@
-.experiences__find {
-  margin-top: 20vh;
-  font-family: "Alegreya Sans SC", sans-serif;
-  font-size: 2rem;
-  text-align: center;
-  color: white;
-  text-shadow: 0 0 2px black; }
-  .experiences__find:last-of-type {
-    margin-top: 30px; }
-
 .section__experiences {
   z-index: 3;
   position: absolute;
-  bottom: 10px;
+  bottom: 50px;
   left: 40%;
   border: 1px solid black;
-  border-radius: 15px 0;
+  border-radius: 10px 0;
   background-image: linear-gradient(to top right, white, #e7f4f4, #779e9b);
   height: 40px;
-  width: 30px;
+  width: 60px;
   box-shadow: 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
   opacity: 0.5;
-  transform: perspective(3em) rotateX(50deg);
+  transform: perspective(5em) rotateX(50deg);
   box-sizing: border-box;
   overflow: hidden;
   cursor: pointer; }
@@ -36,13 +26,16 @@
     width: 75vw;
     padding: 15px;
     transform: none;
-    opacity: 0.9; }
+    opacity: 0.9;
+    cursor: default; }
     .section__experiences.opened:hover {
       border: 2px solid black; }
 
 .experiences__text-fake {
   line-height: 0.8;
-  font-size: 0.8rem; }
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%; }
 
 .experiences__outer {
   display: flex;
