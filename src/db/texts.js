@@ -1,15 +1,15 @@
 export default {
 	Header: {
 		en: {
-			title: "Meet Anna Branco's professional profile. Under construction.",
+			title: "Anna Branco's professional profile",
 			contact: 'Contact me'
 		},
 		es: {
-			title: "Conoce el perfil profesional de Anna Branco. En construcción.",
+			title: "Perfil profesional de Anna Branco",
 			contact: 'Contactarme'
 		},
 		pt: {
-			title: "Conheça o perfil profissional de Anna Branco. Em construção.",
+			title: "Perfil profissional de Anna Branco",
 			contact: 'Me contatar'
 		},
 	},

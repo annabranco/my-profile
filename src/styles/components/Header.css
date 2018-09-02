@@ -24,6 +24,9 @@
   opacity: 1;
   cursor: default; }
 
+.header__text {
+  font-family: "Alegreya Sans SC", sans-serif; }
+
 .header__text-contact {
   font-family: "Corben", cursive;
   font-weight: bold; }

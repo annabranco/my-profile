@@ -140,7 +140,7 @@ class Seabed extends React.Component {
 		}
 
 //---- Highlights the text "Previous Experiences" when hero swims over it
-		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300) {
+		if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 400) {
 			document.querySelector('.seabed__go-textRight').classList.add('goThisWay');
 
 //---- Highlights the text "Other Skills" when hero swims over it
