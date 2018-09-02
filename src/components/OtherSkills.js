@@ -9,7 +9,8 @@ class OtherSkills extends React.Component {
 
 		this.state = {
 			opened: false,
-			read: false
+			read: false,
+			sampleURL: undefined
 		}
 	}
 
@@ -28,16 +29,26 @@ class OtherSkills extends React.Component {
 				document.querySelector('.otherSkills__mac--keyboard-keyArea').classList.add('hidden');
 				this.props.markAsRead();
 
-			} else {
-
-				this.setState({ opened: false });
-				document.querySelector('.section__otherSkills').classList.remove('opened');
-				document.querySelector('.otherSkills__mac').classList.remove('opened');
-				document.querySelector('.otherSkills__mac--screen').classList.remove('opened');
-				document.querySelector('.otherSkills__mac--keyboard').classList.remove('hidden');
-				document.querySelector('.otherSkills__mac--keyboard-keyArea').classList.remove('hidden');
 			}
 		}
+
+close = () => {
+	this.setState({ opened: false });
+	document.querySelector('.section__otherSkills').classList.remove('opened');
+	document.querySelector('.otherSkills__mac').classList.remove('opened');
+	document.querySelector('.otherSkills__mac--screen').classList.remove('opened');
+	document.querySelector('.otherSkills__mac--keyboard').classList.remove('hidden');
+	document.querySelector('.otherSkills__mac--keyboard-keyArea').classList.remove('hidden');
+}
+
+	showSample = url => {
+		if (!url) {
+			this.setState({ sampleURL: undefined });
+
+		} else {
+			this.setState({ sampleURL: url });
+		}
+	}
 
 	render () {
 
@@ -63,7 +74,7 @@ class OtherSkills extends React.Component {
 						<section className="section__otherSkills" onClick={this.open}>
 
 							<img src={MacBar} alt="" className="skills--topBar"/>
-							<p className="seabed__click2close seabed__click2close-otherSkills">{this.props.texts.Seabed[language].click2close}</p>
+							<button className="seabed__click2close seabed__click2close-otherSkills" onClick={this.close}>{this.props.texts.Seabed[language].click2close}</button>
 
 							<div className="skills__outer skills__outer--languages">
 								<h2 className="skills__table--title">{text[language].languages}</h2>
@@ -140,15 +151,27 @@ class OtherSkills extends React.Component {
 								<h2 className="skills__table--title">{text[language].design}</h2>
 								<p className="skills__design">{text[language].samples}</p>
 								<div className="skills__design--samples">
-								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
-								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
-								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
-								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
-								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
-								<img src="https://via.placeholder.com/300x200/fff5f4/000?text=sample" alt="" className="design__sample"/>
+									<a href="https://pre00.deviantart.net/f5fe/th/pre/f/2018/065/a/2/rio_de_janeiro__um_retrato_da_violencia_by_annabranco-dc53j1i.jpg" target="_Blank">
+										<div className="design__sample sample01"></div>
+									</a>
+									<a href="https://img00.deviantart.net/9fb7/i/2018/069/2/c/recuerda_siempre_mirar_el_color_de_las_banderas_by_annabranco-dc5gv8e.jpg" target="_Blank">
+										<div className="design__sample sample02"></div>
+									</a>
+									<a href="https://pre00.deviantart.net/3afa/th/pre/i/2018/069/e/3/basic_english_by_annabranco-dc5go6q.jpg" target="_Blank">
+										<div className="design__sample sample03"></div>
+									</a>
+									<a href="https://pre00.deviantart.net/6e8f/th/pre/f/2018/245/e/8/violencia1_en_by_annabranco-dclta8q.jpg" target="_Blank">
+										<div className="design__sample sample04"></div>
+									</a>
+									<a href="https://pre00.deviantart.net/9f40/th/pre/f/2018/065/1/7/terremoto_en_mexico_19_09_17_by_alvarobranco_dbo6p_by_annabranco-dc53k8f.jpg" target="_Blank">
+										<div className="design__sample sample05"></div>
+									</a>
+									<a href="https://pre00.deviantart.net/d51e/th/pre/i/2018/069/5/b/european_map__arabic__by_annabranco-dc5gve5.jpg" target="_Blank">
+										<div className="design__sample sample06"></div>
+									</a>
+
 								</div>
 							</div>
-
 
 						</section>
 					</div>
