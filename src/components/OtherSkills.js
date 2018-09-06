@@ -76,7 +76,7 @@ close = () => {
 							<img src={MacBar} alt="" className="skills--topBar"/>
 							<button className="seabed__click2close seabed__click2close-otherSkills" onClick={this.close}>{this.props.texts.Seabed[language].click2close}</button>
 
-							<div className="skills__outer skills__outer--languages">
+							<div className="otherSkills__outer otherSkills__outer--languages">
 								<h2 className="skills__table--title">{text[language].languages}</h2>
 								<table className="skills__table skills__table--languages">
 									<tbody>
@@ -114,7 +114,7 @@ close = () => {
 								</table>
 							</div>
 
-							<div className="skills__outer skills__outer--other">
+							<div className="otherSkills__outer otherSkills__outer--other">
 								<h2 className="skills__table--title">{text[language].other}</h2>
 								<table className="skills__table skills__table--other">
 									<thead>
@@ -147,7 +147,7 @@ close = () => {
 									</tbody>
 								</table>
 							</div>
-							<div className="skills__outer skills__outer--design">
+							<div className="otherSkills__outer otherSkills__outer--design">
 								<h2 className="skills__table--title">{text[language].design}</h2>
 								<p className="skills__design">{text[language].samples}</p>
 								<div className="skills__design--samples">

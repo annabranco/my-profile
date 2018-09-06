@@ -152,7 +152,7 @@ $hover--color: yellow;
 	}
 }
 
-.skills__outer {
+.otherSkills__outer {
 	display         : flex;
 	align-items     : center;
 	justify-content : flex-start;
@@ -163,7 +163,7 @@ $hover--color: yellow;
 	padding         : 10px 15px 30px;
 }
 
-.skills__outer--languages {
+.otherSkills__outer--languages {
 	grid-row-start: span 2;
 	padding       : 10px 10px 30px 30px;
 
@@ -263,7 +263,7 @@ $hover--color: yellow;
 	color   : $blue--light;
 }
 
-.skills__outer--other {
+.otherSkills__outer--other {
 	margin-bottom  : 30px;
 
 	padding-bottom : 30px;
@@ -311,7 +311,7 @@ $hover--color: yellow;
 	}
 }
 
-.skills__outer--design {
+.otherSkills__outer--design {
 	margin-top   : -60px;
 	margin-bottom: 50px;
 }
