@@ -26,7 +26,7 @@ export default {
 			 aditional: 'Aprendiendo a desarrollar sitios por donde navegar sea un bonita experiencia',
 			 call: 'Llamar',
 			 chat: 'Mensaje',
-			 thankyou: 'Muchas gracias por nevegar por todo mi perfil!'
+			 thankyou: 'Muchas gracias por navegar por todo mi perfil!'
 		 },
 		 pt: {
 			 job: 'Programadora Front end júnior',
