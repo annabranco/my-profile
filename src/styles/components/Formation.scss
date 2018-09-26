@@ -51,39 +51,56 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .formation__horizontarBar-psy {
-	width     : 0;
-	transition: width ease 2s;
+	width: 20px;
 
-	&.comeIn {
-		width: 15vw;
+	@media all and (min-width: 768px) {
+		width     : 0;
+		transition: width ease 2s;
+
+		&.comeIn {
+			width: 15vw;
+		}
 	}
 }
 
 .formation__horizontarBar-ir {
-	width     : 0;
-	transition: width ease 2s;
+	width: 20px;
 
-	&.comeIn {
-		width: 30vw;
+	@media all and (min-width: 768px) {
+		width     : 0;
+		transition: width ease 2s;
+
+		&.comeIn {
+			width: 30vw;
+		}
 	}
 }
 
 .formation__horizontarBar-master {
-	width     : 0;
-	transition: width ease 2s;
+	width: 20px;
 
-	&.comeIn {
-		width: 45vw;
+	@media all and (min-width: 768px) {
+		width     : 0;
+		transition: width ease 2s;
+
+		&.comeIn {
+			width: 45vw;
+		}
 	}
 }
 
 .formation__horizontarBar-adalab {
-	width     : 0;
-	transition: width ease 2s;
+	width: 20px;
 
-	&.comeIn {
-		width: 60vw;
+	@media all and (min-width: 768px) {
+		width     : 0;
+		transition: width ease 2s;
+
+		&.comeIn {
+			width: 60vw;
+		}
 	}
+
 }
 
 .formation__title {
@@ -104,11 +121,14 @@ $font__subtitle: 'Corben', cursive;
 .formation__title-ir,
 .formation__title-master,
 .formation__title-psy {
-	opacity   : 0;
-	transition: opacity ease 2s;
 
-	&.comeIn {
-		opacity: 1;
+	@media all and (min-width: 768px) {
+		opacity   : 0;
+		transition: opacity ease 2s;
+
+		&.comeIn {
+			opacity: 1;
+		}
 	}
 }
 
@@ -122,11 +142,14 @@ $font__subtitle: 'Corben', cursive;
 .formation__details-ir,
 .formation__details-master,
 .formation__details-psy {
-	opacity   : 0;
-	transition: opacity ease 2s;
 
-	&.comeIn {
-		opacity: 1;
+	@media all and (min-width: 768px) {
+		opacity   : 0;
+		transition: opacity ease 2s;
+
+		&.comeIn {
+			opacity: 1;
+		}
 	}
 }
 
