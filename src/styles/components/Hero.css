@@ -1,7 +1,10 @@
 .section__hero {
   left: 50%;
-  margin-top: 100px;
+  margin-top: 50px;
   height: 100vh; }
+  @media all and (min-width: 500px) {
+    .section__hero {
+      margin-top: 100px; } }
 
 .main__intro {
   position: relative;
@@ -36,8 +39,11 @@
   -webkit-background-clip: text;
   color: transparent;
   font-family: "Alegreya Sans SC", sans-serif;
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 900; }
+  @media all and (min-width: 500px) {
+    .hero__name {
+      font-size: 5rem; } }
 
 /* OPTIONS OF BG
 
