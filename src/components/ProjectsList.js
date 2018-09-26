@@ -19,11 +19,18 @@ class ProjectsList extends React.Component {
 		showThumbnails: e.currentTarget.checked
 		});
 
-		if (e.currentTarget.checked) {
-			document.querySelector('.projects__list').style.gridTemplateRows = '225px';
-		} else {
-			document.querySelector('.projects__list').style.gridTemplateRows = '225px';
+		if (!window.matchMedia("(min-width: 768px)").matches) {
+
+			if (!this.props.seeAll) {
+
+				if (e.currentTarget.checked) {
+					document.querySelector('.projects__list').style.height = '400px';
+				} else {
+					document.querySelector('.projects__list').style.height = '210px';
+				}
+			}
 		}
+
 		this.props.handleAdjustThumbnailsView(e.currentTarget.checked);
 	}
 
@@ -34,21 +41,57 @@ class ProjectsList extends React.Component {
 			adjustments = 2;
 		}
 
-		console.log(document.querySelector('.projects__list').scrollTop);
-		document.querySelector('.projects__list').scrollTop += 248;
+		if (window.matchMedia("(min-width: 768px)").matches) {
+			document.querySelector('.projects__list').scrollTop += 248;
+		} else {
+			if (this.state.showThumbnails) {
+				document.querySelector('.projects__list').scrollTop += 195 * adjustments;
+			} else {
+				document.querySelector('.projects__list').scrollTop += 248 * adjustments;
+			}
+		}
+
 		document.querySelector('.fa-arrow-alt-circle-up').classList.remove('invisible');
 		document.querySelector('.project__seeMore-up').classList.remove('invisible');
 
-		if (document.querySelector('.projects__list').scrollTop >= 744 * adjustments) {
-			document.querySelector('.fa-arrow-alt-circle-down').classList.add('invisible');
-			document.querySelector('.project__seeMore-down').classList.add('invisible');
+		if (window.matchMedia("(min-width: 768px)").matches) {
+			if (document.querySelector('.projects__list').scrollTop >= 744 * adjustments) {
+				document.querySelector('.fa-arrow-alt-circle-down').classList.add('invisible');
+				document.querySelector('.project__seeMore-down').classList.add('invisible');
+			}
+		} else {
 
+			if (this.state.showThumbnails) {
+				if (document.querySelector('.projects__list').scrollTop >= 2000) {
+					document.querySelector('.fa-arrow-alt-circle-down').classList.add('invisible');
+					document.querySelector('.project__seeMore-down').classList.add('invisible');
+				}
+			} else {
+
+				if (document.querySelector('.projects__list').scrollTop >= 1488 * adjustments) {
+					document.querySelector('.fa-arrow-alt-circle-down').classList.add('invisible');
+					document.querySelector('.project__seeMore-down').classList.add('invisible');
+				}
+			}
 		}
 	}
 
 	previousProjects = () => {
-		console.log(document.querySelector('.projects__list').scrollTop);
-		document.querySelector('.projects__list').scrollTop -= 252;
+		let adjustments = 1;
+		if (this.state.showThumbnails) {
+			adjustments = 2;
+		}
+
+		if (window.matchMedia("(min-width: 768px)").matches) {
+			document.querySelector('.projects__list').scrollTop -= 252;
+		} else {
+			if (this.state.showThumbnails) {
+				document.querySelector('.projects__list').scrollTop -= 195 * adjustments;
+			} else {
+				document.querySelector('.projects__list').scrollTop -= 248 * adjustments;
+			}
+		}
+
 		document.querySelector('.fa-arrow-alt-circle-down').classList.remove('invisible');
 		document.querySelector('.project__seeMore-down').classList.remove('invisible');
 
