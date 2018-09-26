@@ -1,4 +1,34 @@
 export default {
+	Languages: {
+		en: {
+			language: 'English',
+		  	readingLanguage: 'You are reading my professional profile in English.',
+		  	changeDefault: 'Click below to change your default language:',
+		   	changeUpperBar: 'You may also change it in the upper bar',
+		   	chekboxText: 'Do not show me this message again.'
+		},
+		es: {
+			language: 'Español',
+			readingLanguage: 'Usted está leyendo mi perfil profesional en español.',
+			changeDefault: 'Haga click abajo para cambiar su idioma predeterminado:',
+			changeUpperBar: 'Usted también puede cambiarlo en la barra superior',
+			chekboxText: 'No enseñar esta mensaje otra vez.'
+		},
+		pt: {
+			language: 'Português',
+		  	readingLanguage: 'Você está lendo meu perfil profissional em português.',
+		  	changeDefault: 'Clique abaixo para mudar o seu idioma padrão:',
+		   	changeUpperBar: 'Você também pode mudá-lo na barra superior',
+		   	chekboxText: 'Não mostrar essa mensagem outra vez.'
+		},
+		fr: {
+			language: 'Français',
+		  	readingLanguage: 'Vous lisez mon profil professionel en français.',
+		  	changeDefault: 'Cliquez ci-dessous pour changer votre langue par défaut:',
+		   	changeUpperBar: 'Vous pouvez aussi le changer dans la barre supérieure',
+		   	chekboxText: 'Ne plus afficher ce message.'
+		}
+	},
 	Header: {
 		en: {
 			title: "Anna Branco's professional profile",
