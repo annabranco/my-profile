@@ -1,4 +1,34 @@
 export default {
+	Languages: {
+		en: {
+			language: 'English',
+		  	readingLanguage: 'You are reading my professional profile in English.',
+		  	changeDefault: 'Click below to change your default language:',
+		   	changeUpperBar: 'You may also change it in the upper bar',
+		   	chekboxText: 'Do not show me this message again.'
+		},
+		es: {
+			language: 'Español',
+			readingLanguage: 'Usted está leyendo mi perfil profesional en español.',
+			changeDefault: 'Haga click abajo para cambiar su idioma predeterminado:',
+			changeUpperBar: 'Usted también puede cambiarlo en la barra superior',
+			chekboxText: 'No enseñar esta mensaje otra vez.'
+		},
+		pt: {
+			language: 'Português',
+		  	readingLanguage: 'Você está lendo meu perfil profissional em português.',
+		  	changeDefault: 'Clique abaixo para mudar o seu idioma padrão:',
+		   	changeUpperBar: 'Você também pode mudá-lo na barra superior',
+		   	chekboxText: 'Não mostrar essa mensagem outra vez.'
+		},
+		fr: {
+			language: 'Français',
+		  	readingLanguage: 'Vous lisez mon profil professionel en français.',
+		  	changeDefault: 'Cliquez ci-dessous pour changer votre langue par défaut:',
+		   	changeUpperBar: 'Vous pouvez aussi le changer dans la barre supérieure',
+		   	chekboxText: 'Ne plus afficher ce message.'
+		}
+	},
 	Header: {
 		en: {
 			title: "Anna Branco's professional profile",
@@ -26,7 +56,7 @@ export default {
 			 aditional: 'Aprendiendo a desarrollar sitios por donde navegar sea un bonita experiencia',
 			 call: 'Llamar',
 			 chat: 'Mensaje',
-			 thankyou: 'Muchas gracias por nevegar por todo mi perfil!'
+			 thankyou: 'Muchas gracias por navegar por todo mi perfil!'
 		 },
 		 pt: {
 			 job: 'Programadora Front end júnior',
@@ -43,8 +73,8 @@ export default {
 			other: 'Other skills',
 			formation: 'Formation by',
 			more: 'Know more',
-			expanded: 'Expanded view',
-			reduced: 'Reduced view',
+			expanded: 'Expand view',
+			reduced: 'Reduce view',
 			projects: 'Projects',
 			adalabText: 'Adalab is an intensive formation program aiming the inclusion of women on the technology sector. In four months, with an average of 9 daily hours of studies (6 of them presential), we dive in deeply on the technical aspects of front-end and learn important skills for professional development. We also work with agile methodologies.',
 			adalabMore: 'To know more about Adalab, you may visit their website: ',

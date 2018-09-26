@@ -6,16 +6,25 @@ $blue--dark: rgba(#054187, 0.9);
 .hero__social {
 	border-radius   : 30px;
 	background-image: linear-gradient(rgba(19, 175, 7, 0.1),rgba(255, 255, 255, 0.2));
-	height          : 500px;
+	height          : 400px;
 	display         : flex;
-	padding         : 10px 0 80px;
+	padding         : 10px 0 30px;
 	flex-direction  : column;
 	align-items     : center;
 	justify-content : space-around;
+
+	@media all and (min-width: 500px) {
+		height : 500px;
+		padding: 10px 0 80px;
+	}
 }
 
 .hero__social--inner {
-	margin: 15px 0;
+	margin: 5px 0;
+
+	@media all and (min-width: 500px) {
+		margin: 15px 0;
+	}
 }
 
 .hero__social--link,
@@ -30,7 +39,7 @@ $blue--dark: rgba(#054187, 0.9);
 	border          : 1px solid white;
 	border-radius   : 25px 0;
 	background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(47, 195, 74, 0.5));
-	width           : 200px;
+	width           : 120px;
 	padding         : 5px 0;
 	text-decoration : none;
 	box-shadow      : 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
@@ -40,6 +49,15 @@ $blue--dark: rgba(#054187, 0.9);
 		transform      : translate(0,1px);
 		box-shadow     : inset 0 2px 5px 1px rgba(0, 0, 0, 0.4);
 	}
+
+	@media all and (min-width: 321px) {
+		width: 150px;
+	}
+
+	@media all and (min-width: 500px) {
+		width: 200px;
+	}
+
 }
 
 .hero__social--inner + .hero__social--link {
@@ -70,7 +88,7 @@ $blue--dark: rgba(#054187, 0.9);
 }
 
 .hero__social--link-skype {
-	width: 50%;
+	width: 75px;
 
 	&:first-of-type {
 		border-radius: 25px 0 0 0;
@@ -78,6 +96,10 @@ $blue--dark: rgba(#054187, 0.9);
 
 	&:last-of-type {
 		border-radius: 0 0 25px 0;
+	}
+
+	@media all and (min-width: 500px) {
+		width: 50%;
 	}
 }
 
@@ -115,13 +137,28 @@ $blue--dark: rgba(#054187, 0.9);
 }
 
 .hero__social-text {
-	margin     : 4px 0 0 25px;
+	margin     : 4px 0 0 5px;
 	font-family: $font__title-alt;
-	font-size  : 1.3rem;
+	font-size  : 1rem;
 	color      : black;
 
 	.hero__social--link-mail &,
 	.hero__social--link-skype & {
-		margin: 4px 25px 0;
+		margin: 4px 0 0;
+	}
+
+	@media all and (min-width: 321px) {
+		margin: 4px 0 0 15px;
+	}
+
+	@media all and (min-width: 500px) {
+		margin   : 4px 0 0 25px;
+		font-size: 1.3rem;
+
+		.hero__social--link-mail &,
+		.hero__social--link-skype & {
+			margin: 4px 25px 0;
+		}
+
 	}
 }
