@@ -224,11 +224,16 @@ background-size        : cover;
 }
 
 .hero__scrollDown {
-	margin-top     : 80px;
+	margin-top     : 0;
 	display        : flex;
 	flex-direction : column;
 	align-items    : center;
 	justify-content: center;
+
+	@media all and (min-width: 768px) {
+		margin-top: 80px;
+
+	}
 }
 
 .hero__scrollDown-inner {
@@ -238,13 +243,17 @@ background-size        : cover;
 }
 
 .scroll-icon {
-	margin                   : 0 100px;
+	margin                   : 0 20px;
 	font-size                : 3rem;
 	color                    : rgba(#b8d3e0, 0.55);
 	animation-duration       : 3s;
 	animation-iteration-count: infinite;
 	opacity                  : 0;
 	animation-fill-mode      : forwards;
+
+	@media all and (min-width: 768px) {
+		margin: 0 100px;
+	}
 }
 
 .anim1 {

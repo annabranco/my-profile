@@ -181,11 +181,14 @@ background-size        : cover;
       text-align: left; } }
 
 .hero__scrollDown {
-  margin-top: 80px;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; }
+  @media all and (min-width: 768px) {
+    .hero__scrollDown {
+      margin-top: 80px; } }
 
 .hero__scrollDown-inner {
   display: flex;
@@ -193,13 +196,16 @@ background-size        : cover;
   justify-content: center; }
 
 .scroll-icon {
-  margin: 0 100px;
+  margin: 0 20px;
   font-size: 3rem;
   color: rgba(184, 211, 224, 0.55);
   animation-duration: 3s;
   animation-iteration-count: infinite;
   opacity: 0;
   animation-fill-mode: forwards; }
+  @media all and (min-width: 768px) {
+    .scroll-icon {
+      margin: 0 100px; } }
 
 .anim1 {
   animation-name: vanish; }
