@@ -8,27 +8,43 @@
   overflow: hidden; }
 
 .developer__outer {
-  height: auto; }
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  @media all and (min-width: 768px) {
+    .developer__outer {
+      flex-direction: row;
+      align-items: flex-start; } }
 
 .developer__sidebar {
   border-radius: 30px;
   background-image: linear-gradient(rgba(19, 175, 7, 0.1), rgba(255, 255, 255, 0.2));
   height: 600px;
+  width: 90%;
   display: flex;
   padding: 15px 0 80px;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  transform: translate(0, 100vh);
-  opacity: 0;
-  transition: all ease 2s; }
-  .developer__sidebar.comeIn {
-    transform: translate(0, 0);
-    opacity: 1; }
+  justify-content: space-around; }
+  @media all and (min-width: 768px) {
+    .developer__sidebar {
+      width: 28%;
+      transform: translate(0, 100vh);
+      opacity: 0;
+      transition: all ease 2s; }
+      .developer__sidebar.comeIn {
+        transform: translate(0, 0);
+        opacity: 1; } }
 
 .developer__main {
   height: auto;
-  padding-top: 0; }
+  padding-top: 0;
+  width: 100%; }
+  @media all and (min-width: 768px) {
+    .developer__main {
+      width: 67%; } }
 
 .developer__skills--title {
   margin: 20px 0 15px;
@@ -160,13 +176,22 @@
 
 .developer__formation,
 .developer__projects {
-  margin-left: 30px;
-  height: auto;
-  transform: translate(100vw, 0);
-  transition: transform ease 2s; }
-  .developer__formation.comeIn,
-  .developer__projects.comeIn {
-    transform: translate(0, 0); }
+  height: auto; }
+  @media all and (min-width: 768px) {
+    .developer__formation,
+    .developer__projects {
+      margin: 0 0 0 30px;
+      transform: translate(100vw, 0);
+      transition: transform ease 2s; }
+      .developer__formation.comeIn,
+      .developer__projects.comeIn {
+        transform: translate(0, 0); } }
+
+.developer__formation {
+  margin: -30px 0 0; }
+  @media all and (min-width: 768px) {
+    .developer__formation {
+      margin: 0 0 0 30px; } }
 
 .developer__projects {
   border-radius: 50px 0 0 0;
@@ -174,18 +199,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center; }
-
-.developer__adalab--logo {
-  margin: 0 0 2px 5px;
-  width: 130px;
-  vertical-align: middle; }
-
-.developer__adalab--text,
-.developer__projects--text {
-  margin: 10px 30px 20px;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  text-align: justify; }
 
 .developer__adalab--title,
 .developer__projects--title {
@@ -196,21 +209,53 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(47, 164, 195, 0.5));
   height: 70px;
   width: 100%;
-  padding: 12px 0 10px 30px;
+  padding: 12px 0 0 10px;
+  line-height: 2rem;
   font-family: "Corben", cursive;
-  font-size: 2rem;
+  font-size: 1.2rem;
   text-align: left;
   text-decoration: none; }
+  @media all and (min-width: 321px) {
+    .developer__adalab--title,
+    .developer__projects--title {
+      font-size: 1.5rem; } }
+  @media all and (min-width: 768px) {
+    .developer__adalab--title,
+    .developer__projects--title {
+      font-size: 2rem;
+      padding: 12px 0 0 30px; } }
+
+.developer__adalab--logo {
+  margin: 0 0 2px 5px;
+  width: 100px;
+  vertical-align: middle; }
+  @media all and (min-width: 768px) {
+    .developer__adalab--logo {
+      width: 130px; } }
+
+.developer__adalab--text,
+.developer__projects--text {
+  margin: 10px 30px 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: justify; }
 
 .developer--more {
   position: absolute;
   bottom: 25px;
-  right: 30px;
+  right: 10px;
   font-family: "Acme", sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
   letter-spacing: 1px;
   color: #3e76c1;
   text-shadow: 0 0 2px white;
   cursor: default; }
   .developer--more:hover {
     color: #949632; }
+  @media all and (min-width: 768px) {
+    .developer--more {
+      position: absolute;
+      bottom: 25px;
+      right: 30px;
+      font-size: 1.1rem; } }
