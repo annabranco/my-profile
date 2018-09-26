@@ -10,15 +10,50 @@ $font__subtitle: 'Corben', cursive;
 	display         : flex;
 	align-items     : center;
 	justify-content : space-around;
+	flex-wrap       : wrap;
 	height          : 40px;
 	width           : 100vw;
 	padding         : 0 80px;
 	background-image: linear-gradient(rgb(175, 165, 185),rgba(255, 255, 255, 0.8));
+
+	@media all and (min-width: 500px) {
+		flex-wrap: nowrap;
+	}
 }
 
 .header__inner {
 	min-width : 250px;
 	text-align: center;
+}
+
+.header__inner--languages {
+	order : 3;
+	height: 20px;
+	@media all and (min-width: 500px) {
+		order: 1;
+	}
+}
+
+.header__inner--title {
+	order : 1;
+	height: 20px;
+	@media all and (min-width: 500px) {
+		order: 2;
+	}
+}
+
+.header__inner--version {
+	order    : 2;
+	position : fixed;
+	bottom   : 0;
+	height   : 20px;
+	font-size: 0.7rem;
+
+	@media all and (min-width: 500px) {
+		order    : 3;
+		position : static;
+		font-size: 1rem;
+	}
 }
 
 .header__flags {
