@@ -14,17 +14,21 @@ class Hero extends React.Component {
 
 		return (
 
-			<section className="section__hero container">
+			<section className="section__hero">
 
-					<div className="row">
-						<div className="hero__left col-3">
+				<h1 className="hero__name hero__name--devices">Anna Branco</h1>
+
+				<div className="hero__container">
+
+					<div className="hero__photoAndName">
+						<div className="hero__photo--container">
 							<div className="hero__photo">
 								<img src={Mugshot} alt="Anna Branco" className="hero__mugshot"/>
 							</div>
 						</div>
-						<div className="hero__center col-6">
+						<div className="hero__id--container">
 							<div className="hero__id">
-								<h1 className="hero__name">Anna Branco</h1>
+								<h1 className="hero__name hero__name--desktop">Anna Branco</h1>
 								<h2 className="hero__job">{text[language].job}</h2>
 							</div>
 							<div className="hero__aditional">
@@ -34,13 +38,15 @@ class Hero extends React.Component {
 							}
 							</div>
 						</div>
-						<div className="hero__right col-3">
-							<Social
-								text={text}
-								language={this.props.language}
-							/>
-						</div>
 					</div>
+					<div className="hero__social--container">
+						<Social
+							text={text}
+							language={this.props.language}
+						/>
+					</div>
+				</div>
+
 					<img className="hero__boat" src="http://www.animatedimages.org/data/media/271/animated-ship-image-0031.gif" alt="Navigating beautifully"/>
 					<div className="hero__scrollDown">
 						<div className="hero__scrollDown-inner">

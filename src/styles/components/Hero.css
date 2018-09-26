@@ -1,10 +1,31 @@
 .section__hero {
-  left: 50%;
   margin-top: 50px;
-  height: 100vh; }
+  height: 100vh;
+  width: 100vw; }
   @media all and (min-width: 500px) {
     .section__hero {
       margin-top: 100px; } }
+
+.hero__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 auto; }
+  @media all and (min-width: 500px) {
+    .hero__container {
+      width: 90%; } }
+
+.hero__photoAndName {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 45%; }
+  @media all and (min-width: 500px) {
+    .hero__photoAndName {
+      width: 75%; } }
 
 .main__intro {
   position: relative;
@@ -19,10 +40,33 @@
     .main__intro {
       background-image: linear-gradient(white, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url("https://raw.githubusercontent.com/annabranco/my-profile/mediaqueries/src/images/bg/sea.gif"); } }
 
-.hero__center,
-.hero__left,
-.hero__right {
-  height: 400px; }
+.hero__photo--container {
+  height: 170px;
+  width: 100%;
+  padding-right: 5px; }
+  @media all and (min-width: 500px) {
+    .hero__photo--container {
+      height: 400px;
+      width: 30%; } }
+
+.hero__id--container {
+  height: 230px;
+  width: 100%;
+  padding: 10px 20px; }
+  @media all and (min-width: 500px) {
+    .hero__id--container {
+      height: 400px;
+      width: 70%; } }
+
+.hero__social--container {
+  height: 400px;
+  width: 55%; }
+  @media all and (min-width: 321px) {
+    .hero__social--container {
+      width: 50%; } }
+  @media all and (min-width: 500px) {
+    .hero__social--container {
+      width: 25%; } }
 
 .hero__photo {
   height: 500px; }
@@ -30,12 +74,14 @@
 .hero__mugshot {
   width: 100%; }
 
-.hero__aditional,
 .hero__id {
-  height: 200px; }
+  height: 100px; }
+  @media all and (min-width: 500px) {
+    .hero__id {
+      height: 200px; } }
 
 .hero__name {
-  background-image: url("https://images3.alphacoders.com/279/279465.jpg");
+  background-image: url("https://raw.githubusercontent.com/annabranco/my-profile/mediaqueries/src/images/other/bg-binary.jpg");
   background-size: contain;
   background-position: center;
   background-clip: text;
@@ -47,6 +93,20 @@
   @media all and (min-width: 500px) {
     .hero__name {
       font-size: 5rem; } }
+
+.hero__name--devices {
+  margin: 20px 0;
+  display: block;
+  text-align: center; }
+  @media all and (min-width: 500px) {
+    .hero__name--devices {
+      display: none; } }
+
+.hero__name--desktop {
+  display: none; }
+  @media all and (min-width: 500px) {
+    .hero__name--desktop {
+      display: block; } }
 
 /* OPTIONS OF BG
 
@@ -64,8 +124,18 @@ background-image       : url('https://images.pond5.com/green-loopable-it-backgro
 background-size        : cover;
 */
 .hero__job {
+  margin-top: -30px;
+  text-align: center;
   font-family: "Corben", cursive;
-  font-size: 2rem; }
+  font-size: 1.5rem; }
+  @media all and (min-width: 321px) {
+    .hero__job {
+      margin-top: 0;
+      font-size: 1.5rem; } }
+  @media all and (min-width: 500px) {
+    .hero__job {
+      text-align: left;
+      font-size: 2rem; } }
 
 .hero__boat {
   position: absolute;
@@ -95,13 +165,20 @@ background-size        : cover;
     opacity: 0; } }
 
 .hero__aditional {
-  margin: -40px 0 0 20px;
-  width: 80%;
+  width: 90%;
+  text-align: center;
   font-family: "Corben", cursive;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-style: italic;
   line-height: 1.5;
   color: #7280c9; }
+  @media all and (min-width: 500px) {
+    .hero__aditional {
+      margin: -40px 0 0 20px;
+      width: 80%;
+      font-size: 1.2rem;
+      height: 200px;
+      text-align: left; } }
 
 .hero__scrollDown {
   margin-top: 80px;
