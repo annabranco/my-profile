@@ -37,7 +37,7 @@ class Experiences extends React.Component {
 		return (
 			<React.Fragment>
 
-				{!this.props.viewedExperiences && !this.state.read ?
+				{!this.props.viewedExperiences && !this.state.read && window.matchMedia("(min-width: 768px)").matches ?
 					<React.Fragment>
 						<p className="seabed__findSomething">{text[language].find}</p>
 						<p className="seabed__findSomething">{text[language].investigate}</p>

@@ -31,6 +31,7 @@ class MainArea extends React.Component {
 			{!this.props.doNotShowLanguagePopupAgain ?
 		        <Languages
 		          	language={this.props.language}
+					texts={this.props.texts}
 		          	changeLanguage={this.props.changeLanguage}
 					clearLanguagePopup={this.props.clearLanguagePopup}
 		        />

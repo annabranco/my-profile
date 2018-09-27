@@ -59,7 +59,7 @@ close = () => {
 
 			<React.Fragment>
 
-				{!this.props.viewedOtherSkills && !this.state.read ?
+				{!this.props.viewedOtherSkills && !this.state.read && window.matchMedia("(min-width: 768px)").matches ?
 					<React.Fragment>
 						<p className="seabed__findSomething">{text[language].find}</p>
 						<p className="seabed__findSomething">{text[language].find2}</p>

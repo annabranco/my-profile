@@ -3,26 +3,87 @@ $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
 
 .section__hero {
-	left      : 50%;
-	margin-top: 100px;
+	margin-top: 50px;
 	height    : 100vh;
+	width     : 100vw;
+	@media all and (min-width: 500px) {
+		margin-top: 100px;
+	}
+}
+
+.hero__container {
+	display        : flex;
+	align-items    : flex-start;
+	justify-content: center;
+	flex-wrap      : wrap;
+	width          : 95%;
+	margin         : 0 auto;
+
+	@media all and (min-width: 500px) {
+		width: 90%;
+	}
+}
+
+.hero__photoAndName {
+	display        : flex;
+	align-items    : flex-start;
+	justify-content: center;
+	flex-wrap      : wrap;
+	width          : 45%;
+
+	@media all and (min-width: 500px) {
+		width: 75%;
+	}
 }
 
 .main__intro {
 	position             : relative;
 	margin               : 20px 0 0;
 	height               : 100vh;
-	background-image     : linear-gradient(white,rgba(255, 255, 255, 0.98),rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.7)), url('https://data.whicdn.com/images/303133698/original.gif');
+	background-image     : linear-gradient(white,rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.3)), url('https://raw.githubusercontent.com/annabranco/my-profile/mediaqueries/src/images/bg/sea.gif');
 	background-position  : bottom;
 	background-attachment: fixed;
 	background-repeat    : no-repeat;
 	background-size      : cover;
+
+	@media all and (min-width: 500px) {
+		background-image: linear-gradient(white,rgba(255, 255, 255, 0.98),rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.7)), url('https://raw.githubusercontent.com/annabranco/my-profile/mediaqueries/src/images/bg/sea.gif');
+	}
 }
 
-.hero__center,
-.hero__left,
-.hero__right {
+.hero__photo--container {
+	height       : 170px;
+	width        : 100%;
+	padding-right: 5px;
+
+	@media all and (min-width: 500px) {
+		height: 400px;
+		width : 30%;
+	}
+}
+
+.hero__id--container {
+	height : 230px;
+	width  : 100%;
+	padding: 10px 20px;
+
+	@media all and (min-width: 500px) {
+		height: 400px;
+		width : 70%;
+	}
+}
+
+.hero__social--container {
 	height: 400px;
+	width : 55%;
+
+	@media all and (min-width: 321px) {
+		width: 50%;
+	}
+
+	@media all and (min-width: 500px) {
+		width: 25%;
+	}
 }
 
 .hero__photo {
@@ -33,21 +94,44 @@ $font__subtitle: 'Corben', cursive;
 	width: 100%;
 }
 
-.hero__aditional,
 .hero__id {
-	height: 200px;
+	height: 100px;
+
+	@media all and (min-width: 500px) {
+		height: 200px;
+	}
 }
 
 .hero__name {
-	background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
+	background-image       : url('https://raw.githubusercontent.com/annabranco/my-profile/mediaqueries/src/images/other/bg-binary.jpg');
 	background-size        : contain;
 	background-position    : center;
 	background-clip        : text;
 	-webkit-background-clip: text;
 	color                  : transparent;
 	font-family            : $font__title;
-	font-size              : 5rem;
+	font-size              : 3rem;
 	font-weight            : 900;
+
+	@media all and (min-width: 500px) {
+		font-size: 5rem;
+	}
+}
+
+.hero__name--devices {
+	margin    : 20px 0;
+	display   : block;
+	text-align: center;
+	@media all and (min-width: 500px) {
+		display: none;
+	}
+}
+
+.hero__name--desktop {
+	display: none;
+	@media all and (min-width: 500px) {
+		display: block;
+	}
 }
 
 /* OPTIONS OF BG
@@ -67,8 +151,20 @@ background-size        : cover;
 */
 
 .hero__job {
+	margin-top : -30px;
+	text-align : center;
 	font-family: $font__subtitle;
-	font-size  : 2rem;
+	font-size  : 1.5rem;
+
+	@media all and (min-width: 321px) {
+		margin-top: 0;
+		font-size : 1.5rem;
+	}
+
+	@media all and (min-width: 500px) {
+		text-align: left;
+		font-size : 2rem;
+	}
 }
 
 .hero__boat {
@@ -110,22 +206,34 @@ background-size        : cover;
 }
 
 .hero__aditional {
-	margin     : -40px 0 0 20px;
-	width      : 80%;
+	width      : 90%;
+	text-align : center;
 	font-family: $font__subtitle;
-	font-size  : 1.2rem;
+	font-size  : 0.8rem;
 	font-style : italic;
 	line-height: 1.5;
 	color      : #7280c9;
 
+	@media all and (min-width: 500px) {
+		margin    : -40px 0 0 20px;
+		width     : 80%;
+		font-size : 1.2rem;
+		height    : 200px;
+		text-align: left;
+	}
 }
 
 .hero__scrollDown {
-	margin-top     : 80px;
+	margin-top     : 0;
 	display        : flex;
 	flex-direction : column;
 	align-items    : center;
 	justify-content: center;
+
+	@media all and (min-width: 768px) {
+		margin-top: 80px;
+
+	}
 }
 
 .hero__scrollDown-inner {
@@ -135,13 +243,17 @@ background-size        : cover;
 }
 
 .scroll-icon {
-	margin                   : 0 100px;
+	margin                   : 0 20px;
 	font-size                : 3rem;
 	color                    : rgba(#b8d3e0, 0.55);
 	animation-duration       : 3s;
 	animation-iteration-count: infinite;
 	opacity                  : 0;
 	animation-fill-mode      : forwards;
+
+	@media all and (min-width: 768px) {
+		margin: 0 100px;
+	}
 }
 
 .anim1 {
