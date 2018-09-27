@@ -8,8 +8,7 @@
   background-image: linear-gradient(rgba(189, 214, 246, 0.96), rgba(171, 204, 246, 0.95), rgba(236, 246, 189, 0.9)), url("https://data.whicdn.com/images/303133698/original.gif");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  border: 1px solid red; }
+  background-size: cover; }
 
 .seabed__image {
   position: absolute;

@@ -135,7 +135,7 @@
 
 .otherSkills__outer--languages {
   grid-row-start: span 2;
-  padding: 10px 10px 30px 30px; }
+  padding: 10px 20px 30px 30px; }
 
 .skills__table--title {
   margin: 10px 0;
@@ -189,7 +189,7 @@
         font-size: 0.9rem; } }
 
 .skills__table--languages {
-  width: 80%;
+  width: 100%;
   margin: 0 auto; }
   .skills__table--languages td {
     position: relative;
@@ -197,10 +197,10 @@
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    padding-left: 80px; }
+    padding-left: 60px; }
     .skills__table--languages td:hover {
       background: yellow;
-      font-size: 1.3rem; }
+      font-size: 1.1rem; }
   .skills__table--languages td:first-of-type {
     margin-top: 15px;
     width: 80%;
@@ -217,7 +217,7 @@
     background-color: #eee; }
     .skills__table--languages td:nth-child(even):hover {
       background: yellow;
-      font-size: 1.3rem; }
+      font-size: 1.1rem; }
     .skills__table--languages td:nth-child(even) .icon--languages {
       color: #157FFB; }
 
