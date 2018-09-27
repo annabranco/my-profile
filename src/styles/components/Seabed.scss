@@ -85,70 +85,57 @@ $font__subtitle: 'Corben', cursive;
 
 .seabed__go--experiences,
 .seabed__go--otherSkills {
-	display    : flex;
-	align-items: center;
-	position   : absolute;
-	bottom     : 33vh;
-	width      : 60px;
-
-	@media all and (min-width: 768px) {}
+	display : flex;
+	position: absolute;
+	width   : 120px;
 }
 
 .seabed__go--experiences {
-	right    : 50%;
-	transform: translate(50%, 0);
+	bottom         : 90px;
+	left           : 40px;
+	justify-content: flex-start;
+	text-align     : left;
 
 	@media all and (min-width: 768px) {
-		justify-content: flex-end;
+		bottom         : 33vh;
+		left           : auto;
 		right          : 40px;
-		transform      : translate(0, 0);
+		justify-content: flex-end;
+		text-align     : right;
 	}
-
 }
 
 .seabed__go--otherSkills {
-	left     : 50%;
-	transform: translate(-50%, 0);
+	bottom         : 130px;
+	right          : 40px;
+	justify-content: flex-end;
+	text-align     : right;
 
 	@media all and (min-width: 768px) {
-		justify-content: flex-start;
+		bottom         : 33vh;
+		right          : auto;
 		left           : 40px;
-		transform      : translate(0, 0);
-
+		justify-content: flex-start;
+		text-align     : left;
 	}
 }
 
 .seabed__go-text {
 	font-family: sans-serif;
-	font-size  : 2rem;
+	font-size  : 1.4rem;
 	text-shadow: 0 0 3px rgb(70, 85, 136);
 	color      : white;
-	opacity    : 0.7;
+	opacity    : 0.9;
 
-	&.seabed__go-textRight {
-		transform : translate(-50%, 110px);
-		text-align: left;
-	}
-
-	&.seabed__go-textLeft {
-		transform : translate(50%, 70px);
-		text-align: right;
+	@media all and (min-width: 400px) {
+		font-size: 2.2rem;
 	}
 
 	@media all and (min-width: 768px) {
 		font-size  : 3rem;
 		color      : rgba(255, 255, 255, 0.2);
 		text-shadow: 0 0 3px white;
-
-		&.seabed__go-textRight {
-			transform : translate(0, 0);
-			text-align: right;
-		}
-
-		&.seabed__go-textLeft {
-			transform : translate(0, 0);
-			text-align: left;
-		}
+		opacity    : 0.7;
 	}
 }
 
@@ -204,13 +191,13 @@ $font__subtitle: 'Corben', cursive;
 	transform  : translate(-50%, 0);
 	width      : 100%;
 	font-family: $font__title;
-	font-size  : 2.3rem;
+	font-size  : 2rem;
 	text-align : center;
 	color      : white;
 	text-shadow: 0 0 2px black;
 
 	&:nth-of-type(2) {
-		top: 43vh;
+		top: 38vh;
 	}
 
 	@media all and (min-width: 768px) {

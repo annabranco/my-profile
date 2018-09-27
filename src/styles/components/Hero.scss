@@ -113,7 +113,11 @@ $font__subtitle: 'Corben', cursive;
 	font-size              : 3rem;
 	font-weight            : 900;
 
-	@media all and (min-width: 500px) {
+	@media all and (min-width: 768px) {
+		font-size: 4rem;
+	}
+
+	@media all and (min-width: 1024px) {
 		font-size: 5rem;
 	}
 }
@@ -173,7 +177,7 @@ background-size        : cover;
 
 .hero__boat {
 	position                 : absolute;
-	top                      : 30%;
+	top                      : 40%;
 	transform                : translate(-50%,0);
 	filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
 	width                    : 100px;
@@ -182,6 +186,12 @@ background-size        : cover;
 	animation-iteration-count: infinite;
 	animation-fill-mode      : forwards;
 	animation-timing-function: linear;
+
+	@media all and (min-width: 768px) {
+		top: 30%;
+
+		filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
+	}
 }
 
 @keyframes navigating {
@@ -226,6 +236,7 @@ background-size        : cover;
 		height    : 200px;
 		text-align: left;
 	}
+
 }
 
 .hero__advise {
@@ -236,6 +247,14 @@ background-size        : cover;
 	font-family: $font__subtitle;
 	font-size  : 0.9rem;
 	text-align : center;
+
+	@media all and (min-width: 768px) {
+		margin-top: 40px;
+	}
+
+	@media all and (min-width: 1200px) {
+		display: none;
+	}
 }
 
 .hero__scrollDown {

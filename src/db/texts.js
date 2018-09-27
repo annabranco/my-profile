@@ -49,7 +49,7 @@ export default {
 			 aditional: 'Learning to develop sites where navigating around is a beautiful journey',
 			 call: 'Call',
 			 chat: 'Chat',
-			 advise: 'For an enhanced user experience, visiting this page on a desktop is highly advised.',
+			 advise: 'For an enhanced user experience, visiting this page on a full screen desktop is highly advised.',
 			 thankyou: 'Thank you very much for navigating trough all my profile!'
 		 },
 		 es: {
@@ -57,7 +57,7 @@ export default {
 			 aditional: 'Aprendiendo a desarrollar sitios por donde navegar sea un bonita experiencia',
 			 call: 'Llamar',
 			 chat: 'Mensaje',
- 			 advise: 'Para una mejor experiencia de usuario, es aconsejable visitar esta página en un ordenador de mesa o notebook.',
+ 			 advise: 'Para una mejor experiencia de usuario, es aconsejable visitar esta página en un ordenador de mesa o notebook en pantalla completa.',
 			 thankyou: 'Muchas gracias por navegar por todo mi perfil!'
 		 },
 		 pt: {
@@ -65,7 +65,7 @@ export default {
 			 aditional: 'Aprendendo a desenvolver sites pelos quais navegar seja uma bonita experiência',
 			 call: 'Chamar',
 			 chat: 'Chat',
- 			 advise: 'Para uma melhor experiência de usuário, recomenda-se visitar essa página em um computador de mesa ou notebook.',
+ 			 advise: 'Para uma melhor experiência de usuário, recomenda-se visitar essa página em um computador de mesa ou notebook em tela cheia.',
 			 thankyou: 'Muito obrigada por navegar por todo o meu perfil!'
 		 }
 	},

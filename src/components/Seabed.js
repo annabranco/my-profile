@@ -40,6 +40,12 @@ class Seabed extends React.Component {
 
 	componentDidUpdate() {
 		if ((this.state.readComponents.OtherSkills) && (this.state.readComponents.Experiences) && (!window.matchMedia("(min-width: 768px)").matches)) {
+			this.setState({
+				readComponents: {
+					Experiences: false,
+					OtherSkills: false
+				}
+			});
 			this.goBackUp();
 			this.props.userViewedAllComponents();
 		}
