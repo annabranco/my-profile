@@ -6,7 +6,7 @@ $font__subtitle: 'Corben', cursive;
 	z-index         : 3;
 	position        : absolute;
 	bottom          : 50px;
-	left            : 40%;
+	left            : 20%;
 	border          : 1px solid black;
 	border-radius   : 10px 0;
 	background-image: linear-gradient(to top right, rgba(255, 255, 255, 1),rgba(231, 244, 244, 1),rgba(119, 158, 155, 1));
@@ -22,7 +22,10 @@ $font__subtitle: 'Corben', cursive;
 	&:hover {
 		border : 3px solid yellow;
 		opacity: 0.7;
+	}
 
+	@media all and (min-width: 768px) {
+		left: 40%;
 	}
 
 	&.opened {
@@ -30,10 +33,10 @@ $font__subtitle: 'Corben', cursive;
 		border       : 2px solid black;
 
 		top          : 40px;
-		left         : 20vw;
+		left         : 0;
 		height       : 90vh;
-		width        : 75vw;
-		padding      : 15px;
+		width        : 100vw;
+		padding      : 5px;
 		transform    : none;
 		opacity      : 0.9;
 		cursor       : default;
@@ -41,6 +44,14 @@ $font__subtitle: 'Corben', cursive;
 		&:hover {
 			border: 2px solid black;
 		}
+
+		@media all and (min-width: 768px) {
+			left   : 20vw;
+			height : 90vh;
+			width  : 75vw;
+			padding: 15px;
+		}
+
 	}
 }
 
@@ -69,23 +80,62 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .experiences__inner--year {
-	margin-right: 15px;
-	width       : 60px;
+	margin-right: 5px;
+	width       : 40px;
 	text-align  : center;
 	font-family : $font__title;
-	font-size   : 1.2em;
+	font-size   : 0.8em;
 	color       : #4b0a62;
+
+	@media all and (min-width: 321px) {
+		margin-right: 10px;
+		width       : 60px;
+		font-size   : 1.2em;
+	}
+
+	@media all and (min-width: 768px) {
+		width       : 60px;
+		margin-right: 15px;
+	}
 }
 
 .experiences__verticalBar {
 	border-right: 5px solid #727594;
-	height      : 85vh;
+	height      : 80vh;
+
+	@media all and (min-width: 768px) {
+		height: 85vh;
+	}
 }
 
 .experiences__inner--horizontalBar,
 .experiences__inner--year {
 	margin-top: 40px;
 	height    : 25%;
+
+	&:first-of-type {
+		margin-top: 40px;
+	}
+
+	&:last-of-type {
+		margin-top: 15px;
+	}
+
+	@media all and (min-width: 321px) {
+		margin-top: 25px;
+
+		&:first-of-type {
+			margin-top: 60px;
+		}
+
+		&:last-of-type {
+			margin-top: 10px;
+		}
+	}
+
+	@media all and (min-width: 768px) {
+		margin-top: 40px;
+	}
 }
 
 .experiences__inner--horizontalBar {}
@@ -103,33 +153,48 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .experiences__horizontarBar-ir {
-	width: 20%;
+	width: 10%;
+
+	@media all and (min-width: 768px) {
+		width: 30%;
+	}
 }
 
 .experiences__horizontarBar-master {
-	width: 30%;
+	width: 10%;
+
+	@media all and (min-width: 768px) {
+		width: 30%;
+	}
 }
 
 .experiences__title {
 	margin-left: 20px;
 	display    : inline;
 	font-family: $font__title-alt;
-	font-size  : 1.4em;
+	font-size  : 1rem;
 	color      : #003e90;
 
 	&:hover {
 		letter-spacing: 0.1rem;
 		color         : #535911;
+	}
 
+	@media all and (min-width: 321px) {
+		font-size: 1.4rem;
 	}
 }
 
 .experiences__details {
-	//visibility : hidden;
 	margin     : 5px 10px;
 	font-family: $font__subtitle;
-	font-size  : 1rem;
-	line-height: 2;
+	font-size  : 0.9rem;
+	line-height: 1;
+
+	@media all and (min-width: 768px) {
+		font-size  : 1rem;
+		line-height: 2;
+	}
 }
 
 .experiences__flag {
@@ -138,9 +203,15 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .experiences__more {
-	position: absolute;
-	bottom  : 15px;
-	right   : 35px;
+	position : absolute;
+	bottom   : 5px;
+	right    : 35px;
+	font-size: 0.8rem;
+
+	@media all and (min-width: 321px) {
+		bottom   : 15px;
+		font-size: 1rem;
+	}
 }
 
 .experiences__social--link {
