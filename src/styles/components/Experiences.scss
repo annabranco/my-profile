@@ -6,7 +6,7 @@ $font__subtitle: 'Corben', cursive;
 	z-index         : 3;
 	position        : absolute;
 	bottom          : 50px;
-	left            : 40%;
+	left            : 20%;
 	border          : 1px solid black;
 	border-radius   : 10px 0;
 	background-image: linear-gradient(to top right, rgba(255, 255, 255, 1),rgba(231, 244, 244, 1),rgba(119, 158, 155, 1));
@@ -22,7 +22,10 @@ $font__subtitle: 'Corben', cursive;
 	&:hover {
 		border : 3px solid yellow;
 		opacity: 0.7;
+	}
 
+	@media all and (min-width: 768px) {
+		left: 40%;
 	}
 
 	&.opened {

@@ -250,7 +250,6 @@ class Seabed extends React.Component {
 		 });
 	}
 
-
 	render () {
 
 		const text = this.props.texts.Seabed;
@@ -259,7 +258,8 @@ class Seabed extends React.Component {
 		return (
 
 			<section className="section__seabed">
-				{this.state.hideInstructions ? null :
+				{this.state.hideInstructions || !window.matchMedia("(min-width: 768px)").matches ?
+				null :
 
 				<div className="seabed__message--outer floating-soft">
 					<p className="seabed__message">{text[language].message}</p>
@@ -268,7 +268,7 @@ class Seabed extends React.Component {
 				</div>
 				}
 
-				<div className="seabed__go--experiences floating">
+				<div className="seabed__go--experiences floating floating-delay">
 						<p className="seabed__go-text seabed__go-textRight">{text[language].experiences}</p>
 				</div>
 				<div className="seabed__go--otherSkills floating">
@@ -276,9 +276,10 @@ class Seabed extends React.Component {
 				</div>
 
 				<img src={floatingRight} id="hero" className="seabed__hero floating-soft" alt=""/>
+
 				<div className="seabed__image"><p className="seabed__anna">Anna Branco</p></div>
 
-				{this.state.showExperiences ?
+				{this.state.showExperiences || 	!window.matchMedia("(min-width: 768px)").matches ?
 					<Experiences
 						texts={this.props.texts}
 						language={this.props.language}
@@ -288,7 +289,7 @@ class Seabed extends React.Component {
 				: null
 				}
 
-				{this.state.showOtherSkills ?
+				{this.state.showOtherSkills || !window.matchMedia("(min-width: 768px)").matches ?
 							<OtherSkills
 								texts={this.props.texts}
 								language={this.props.language}

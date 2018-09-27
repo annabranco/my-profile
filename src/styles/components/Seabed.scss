@@ -49,6 +49,10 @@ $font__subtitle: 'Corben', cursive;
 	animation-iteration-count: infinite;
 }
 
+.floating-delay {
+	animation-delay: 1s;
+}
+
 .floating-soft {
 	animation-name           : float;
 	animation-duration       : 7s;
@@ -60,11 +64,11 @@ $font__subtitle: 'Corben', cursive;
 
 @keyframes float {
 	from {
-		transform: translate(0,10px);
+		transform: translate(-5px,10px);
 	}
 
 	to {
-		transform: translate(0,-10px);
+		transform: translate(3px,-10px);
 	}
 }
 
@@ -82,39 +86,70 @@ $font__subtitle: 'Corben', cursive;
 
 .seabed__go--experiences,
 .seabed__go--otherSkills {
-	display        : flex;
-	align-items    : center;
-	justify-content: flex-end;
-	position       : absolute;
-	bottom         : 33vh;
-	width          : 60px;
+	display    : flex;
+	align-items: center;
+	position   : absolute;
+	bottom     : 33vh;
+	width      : 60px;
+
+	@media all and (min-width: 768px) {}
 }
 
 .seabed__go--experiences {
-	justify-content: flex-end;
-	right          : 40px;
+	right    : 50%;
+	transform: translate(50%, 0);
+
+	@media all and (min-width: 768px) {
+		justify-content: flex-end;
+		right          : 40px;
+		transform      : translate(0, 0);
+	}
 
 }
 
 .seabed__go--otherSkills {
-	justify-content: flex-start;
-	left           : 40px;
+	left     : 50%;
+	transform: translate(-50%, 0);
 
+	@media all and (min-width: 768px) {
+		justify-content: flex-start;
+		left           : 40px;
+		transform      : translate(0, 0);
+
+	}
 }
 
 .seabed__go-text {
 	font-family: sans-serif;
-	font-size  : 3rem;
-	text-shadow: 0 0 3px white;
-	color      : rgba(255, 255, 255, 0.2);
+	font-size  : 2rem;
+	text-shadow: 0 0 3px rgb(70, 85, 136);
+	color      : white;
 	opacity    : 0.7;
 
 	&.seabed__go-textRight {
-		text-align: right;
+		transform : translate(-50%, 110px);
+		text-align: left;
 	}
 
 	&.seabed__go-textLeft {
-		text-align: left;
+		transform : translate(50%, 70px);
+		text-align: right;
+	}
+
+	@media all and (min-width: 768px) {
+		font-size  : 3rem;
+		color      : rgba(255, 255, 255, 0.2);
+		text-shadow: 0 0 3px white;
+
+		&.seabed__go-textRight {
+			transform : translate(0, 0);
+			text-align: right;
+		}
+
+		&.seabed__go-textLeft {
+			transform : translate(0, 0);
+			text-align: left;
+		}
 	}
 }
 
@@ -125,6 +160,7 @@ $font__subtitle: 'Corben', cursive;
 }
 
 #hero {
+	display   : none;
 	position  : absolute;
 	bottom    : 40%;
 	width     : 200px;
@@ -140,18 +176,22 @@ $font__subtitle: 'Corben', cursive;
 		transform : rotate(290deg);
 		transition: top 10s ease;
 	}
+
+	@media all and (min-width: 768px) {
+		display: block;
+	}
 }
 
 .seabed__anna {
 	position   : absolute;
 	bottom     : 20px;
-	left       : 25vw;
+	left       : 15vw;
 	width      : 80%;
 	font-family: $font__title;
 	line-height: 0.8;
 	font-weight: bold;
 	font-size  : 9rem;
-	transform  : perspective(7rem) rotateX(20deg) skewX(30deg);
+	transform  : perspective(7rem) rotateX(16deg) skewX(20deg);
 	text-shadow: 0 0 3px yellow;
 }
 

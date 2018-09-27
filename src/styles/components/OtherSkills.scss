@@ -12,10 +12,14 @@ $hover--color: yellow;
 
 	position: relative;
 	top     : 80vh;
-	left    : 40%;
+	left    : 60%;
 	height  : 50px;
 	width   : 70px;
 	opacity : 0.8;
+
+	@media all and (min-width: 768px) {
+		left: 40%;
+	}
 
 	&.opened {
 		top    : 0;
