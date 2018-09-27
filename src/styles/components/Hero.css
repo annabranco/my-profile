@@ -95,7 +95,7 @@
       font-size: 5rem; } }
 
 .hero__name--devices {
-  margin: 20px 0;
+  margin: 5px 0;
   display: block;
   text-align: center; }
   @media all and (min-width: 500px) {
@@ -125,15 +125,19 @@ background-size        : cover;
 */
 .hero__job {
   margin-top: -30px;
+  margin-left: -25px;
+  width: 42vw;
   text-align: center;
   font-family: "Corben", cursive;
-  font-size: 1.5rem; }
+  font-size: 1.3rem; }
   @media all and (min-width: 321px) {
     .hero__job {
       margin-top: 0;
       font-size: 1.5rem; } }
   @media all and (min-width: 500px) {
     .hero__job {
+      margin-left: 0;
+      width: auto;
       text-align: left;
       font-size: 2rem; } }
 
@@ -145,7 +149,7 @@ background-size        : cover;
   width: 100px;
   animation-name: navigating;
   animation-duration: 120s;
-  animation-iteration-count: 1;
+  animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-timing-function: linear; }
 
@@ -165,6 +169,7 @@ background-size        : cover;
     opacity: 0; } }
 
 .hero__aditional {
+  margin: -20px 0 0;
   width: 90%;
   text-align: center;
   font-family: "Corben", cursive;
@@ -180,7 +185,17 @@ background-size        : cover;
       height: 200px;
       text-align: left; } }
 
+.hero__advise {
+  margin-top: -20px;
+  background: rgba(212, 224, 68, 0.3);
+  width: 100%;
+  padding: 5px 15px;
+  font-family: "Corben", cursive;
+  font-size: 0.9rem;
+  text-align: center; }
+
 .hero__scrollDown {
+  z-index: 3;
   margin-top: 0;
   display: flex;
   flex-direction: column;
