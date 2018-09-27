@@ -22,23 +22,31 @@ class OtherSkills extends React.Component {
 					opened: true,
 					read: true
 				 });
+
+				if (!window.matchMedia("(min-width: 768px)").matches) {
+				 	document.querySelector('.section__experiences').classList.add('hidden');
+				}
+
 				document.querySelector('.section__otherSkills').classList.add('opened');
 				document.querySelector('.otherSkills__mac').classList.add('opened');
 				document.querySelector('.otherSkills__mac--screen').classList.add('opened');
 				document.querySelector('.otherSkills__mac--keyboard').classList.add('hidden');
 				document.querySelector('.otherSkills__mac--keyboard-keyArea').classList.add('hidden');
-				this.props.markAsRead();
-
 			}
 		}
 
 close = () => {
 	this.setState({ opened: false });
+
+	if (!window.matchMedia("(min-width: 768px)").matches) {
+		document.querySelector('.section__experiences').classList.remove('hidden');
+	}
 	document.querySelector('.section__otherSkills').classList.remove('opened');
 	document.querySelector('.otherSkills__mac').classList.remove('opened');
 	document.querySelector('.otherSkills__mac--screen').classList.remove('opened');
 	document.querySelector('.otherSkills__mac--keyboard').classList.remove('hidden');
 	document.querySelector('.otherSkills__mac--keyboard-keyArea').classList.remove('hidden');
+	this.props.markAsRead();
 }
 
 	showSample = url => {

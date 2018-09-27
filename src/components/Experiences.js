@@ -19,14 +19,24 @@ class Experiences extends React.Component {
 				opened: true,
 				read: true
 			 });
+
+			 if (!window.matchMedia("(min-width: 768px)").matches) {
+			 	document.querySelector('.otherSkills__mac').classList.add('hidden');
+			 }
+
 			document.querySelector('.section__experiences').classList.add('opened');
-			this.props.markAsRead();
 		}
 	}
 
 	close = () => {
 		this.setState({ opened: false });
+
+		if (!window.matchMedia("(min-width: 768px)").matches) {
+			document.querySelector('.otherSkills__mac').classList.remove('hidden');
+		}
+
 		document.querySelector('.section__experiences').classList.remove('opened');
+		this.props.markAsRead();
 	}
 
 	render () {

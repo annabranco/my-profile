@@ -48,6 +48,12 @@ class Hero extends React.Component {
 				</div>
 
 					<img className="hero__boat" src="http://www.animatedimages.org/data/media/271/animated-ship-image-0031.gif" alt="Navigating beautifully"/>
+
+					{!window.matchMedia("(min-width: 1024px)").matches ?
+						<div className="hero__advise">{text[language].advise}</div>
+					: null
+					}
+
 					<div className="hero__scrollDown">
 						<div className="hero__scrollDown-inner">
 							<i className="fas fa-angle-double-down scroll-icon anim1"></i>
