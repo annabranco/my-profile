@@ -1,11 +1,21 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
-$blue--dark: rgba(#054187, 0.9);
+$green-bright: #32d269;
+$green-pale: #c0d0c4;
+$blue--dark: #054187;
 $blue--normal: #157FFB;
-$blue--light: #5599d9;
-$green-bright: #10c737;
-$hover--color: yellow;
+$blue--light: #4681d0;
+$blue-water: #2fa4c3;
+$yellow--dark: #949632;
+$yellow--bright: #ebe101;
+$yellow--pale: #fdff9f;
+$red--dark: #630808;
+$red--bright: #c41717;
+$black: #212121;
+$gray-dark: #535353;
+$gray-normal: #868686;
+$white: #f6f6f6;
 
 .otherSkills__mac {
 	z-index : 2;
@@ -31,10 +41,10 @@ $hover--color: yellow;
 }
 
 .otherSkills__mac--screen {
-	border-left: 1px solid rgb(195, 195, 195);
+	border-left: 1px solid $gray-normal;
 	height     : 50px;
 	width      : 70px;
-	background : black;
+	background : $black;
 	opacity    : 0.9;
 	transform  : perspective(8em) rotateX(-5deg) skewX(-4deg);
 
@@ -45,7 +55,7 @@ $hover--color: yellow;
 		transform  : none;
 		overflow-y : scroll;
 		opacity    : 1;
-		background : white;
+		background : $white;
 	}
 }
 
@@ -53,15 +63,15 @@ $hover--color: yellow;
 	position     : absolute;
 	top          : 30px;
 	left         : 2px;
-	border-bottom: 3px solid black;
-	border-left  : 1px solid black;
+	border-bottom: 3px solid $black;
+	border-left  : 1px solid $black;
 
 	height       : 55px;
 	width        : 77px;
-	background   : rgb(195, 195, 195);
+	background   : $gray-normal;
 	opacity      : 0.6;
 	transform    : perspective(9em) rotateX(65deg) skewX(15deg);
-	box-shadow   : -2px 2px 10px 3px rgba(83, 83, 83, 0.8);
+	box-shadow   : -2px 2px 10px 3px rgba($gray-dark, 0.8);
 }
 
 .otherSkills__mac--keyboard-keyArea {
@@ -87,7 +97,7 @@ $hover--color: yellow;
 	left                     : 5px;
 	height                   : 40px;
 	width                    : 60px;
-	background-image         : linear-gradient(#7dbad4,white);
+	background-image         : linear-gradient($blue-water,$white);
 	overflow                 : hidden;
 	opacity                  : 0.9;
 	transform                : perspective(-1em) rotateX(-2deg) skewX(-1deg);
@@ -98,7 +108,7 @@ $hover--color: yellow;
 	animation-iteration-count: infinite;
 
 	&:hover {
-		border : 5px solid yellow;
+		border : 5px solid $yellow--bright;
 		opacity: 1;
 	}
 
@@ -106,8 +116,8 @@ $hover--color: yellow;
 		display              : grid;
 		grid-template-columns: 1fr;
 		grid-template-rows   : auto;
-		background-image     : linear-gradient(rgba(7, 39, 175, 0.3),rgba(255, 255, 255, 0.2));
-		border               : 2px solid black;
+		background-image     : linear-gradient(rgba(#0727af, 0.3),rgba($white, 0.2));
+		border               : 2px solid $black;
 		height               : 100vh;
 		width                : 100vw;
 		padding              : 10px 0 30px;
@@ -123,7 +133,7 @@ $hover--color: yellow;
 		}
 
 		&:hover {
-			border: 2px solid black;
+			border: 2px solid $black;
 		}
 
 		& .seabed__click2close-otherSkills {
@@ -142,11 +152,11 @@ $hover--color: yellow;
 
 @keyframes bright {
 	from {
-		box-shadow: 0 0 10px 3px rgb(185, 193, 164);
+		box-shadow: 0 0 10px 3px $green-pale;
 	}
 
 	to {
-		box-shadow: 0 0 30px 1px rgb(137, 226, 249);
+		box-shadow: 0 0 30px 1px $blue-water;
 	}
 }
 
@@ -169,7 +179,7 @@ $hover--color: yellow;
 .otherSkills__outer {
 	margin          : 30px auto 0;
 	border-radius   : 30px;
-	background-image: linear-gradient(rgba(19, 175, 7, 0.1),rgba(255, 255, 255, 0.2));
+	background-image: linear-gradient(rgba($green-bright, 0.1),rgba($white, 0.2));
 	width           : 100%;
 	padding         : 10px 15px 30px;
 }
@@ -209,7 +219,7 @@ $hover--color: yellow;
 		font-size     : 1rem;
 		letter-spacing: 0;
 		color         : $green-bright;
-		text-shadow   : 0 0 1px white;
+		text-shadow   : 0 0 1px $white;
 		line-height   : 1rem;
 		text-align    : center;
 
@@ -226,7 +236,7 @@ $hover--color: yellow;
 		font-weight   : bold;
 		font-size     : 0.9rem;
 		vertical-align: middle;
-		color         : #414579;
+		color         : $gray-dark;
 		width         : 35%;
 		padding       : 0 10px;
 	}
@@ -257,7 +267,7 @@ $hover--color: yellow;
 		padding-left   : 60px;
 
 		&:hover {
-			background: $hover--color;
+			background: rgba($yellow--pale,0.5);
 			font-size : 1.1rem;
 		}
 	}
@@ -271,7 +281,7 @@ $hover--color: yellow;
 		font-size     : 1.3rem;
 		letter-spacing: 1px;
 		color         : $green-bright;
-		text-shadow   : 0 0 1px white;
+		text-shadow   : 0 0 1px $white;
 
 		&:hover {
 			background: none;
@@ -279,10 +289,10 @@ $hover--color: yellow;
 	}
 
 	& td:nth-child(even) {
-		background-color: #eee;
+		background-color: rgba($white,0.5);
 
 		&:hover {
-			background: $hover--color;
+			background: rgba($yellow--pale,0.5);
 			font-size : 1.1rem;
 		}
 
@@ -296,9 +306,9 @@ $hover--color: yellow;
 	position     : absolute;
 	left         : -35px;
 	top          : 60px;
-	border       : 1px solid #c0d0c4;
+	border       : 1px solid $green-pale;
 	border-radius: 50%;
-	background   : rgba(255, 255, 255, 1);
+	background   : rgba($white, 1);
 	padding      : 5px;
 }
 
@@ -335,16 +345,16 @@ $hover--color: yellow;
 		line-height: 40px;
 
 		&:hover {
-			background: $hover--color;
+			background: rgba($yellow--pale,0.5);
 			font-size : 1rem;
 		}
 	}
 
 	& tr:nth-child(even) {
-		background-color: #eee;
+		background-color: rgba($white,0.5);
 
 		&:hover {
-			background: $hover--color;
+			background: rgba($yellow--pale,0.5);
 			font-size : 1rem;
 		}
 	}
@@ -374,11 +384,11 @@ $hover--color: yellow;
 .design__sample {
 	height: 120px;
 	width : 28vw;
-	border: 3px solid lightgray;
+	border: 3px solid rgba($white,0.5);
 	cursor: pointer;
 
 	&:hover {
-		border: 3px solid $hover--color;
+		border: 3px solid $yellow--bright;
 	}
 
 	@media all and (min-width: 768px) {

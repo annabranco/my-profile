@@ -5,7 +5,7 @@
   position: relative;
   display: fixed;
   overflow-x: hidden;
-  background-image: linear-gradient(rgba(189, 214, 246, 0.96), rgba(171, 204, 246, 0.95), rgba(236, 246, 189, 0.9)), url("https://data.whicdn.com/images/303133698/original.gif");
+  background-image: linear-gradient(rgba(189, 214, 246, 0.96), rgba(171, 204, 246, 0.95), rgba(236, 246, 189, 0.9)), url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -15,7 +15,7 @@
   bottom: 0;
   height: 50vh;
   width: 100vw;
-  background-image: url("https://www.publicdomainpictures.net/pictures/140000/velka/seabed-underwater-1443611129IMA.jpg");
+  background-image: url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/seabed.jpg");
   background-position: bottom;
   background-size: 100% 220%;
   opacity: 0.05; }
@@ -23,7 +23,7 @@
 .seabed__message--outer {
   margin: 60px auto 0;
   border-radius: 50px 0;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(246, 246, 246, 0.1);
   height: auto;
   width: 60vw;
   padding: 10px 30px;
@@ -97,7 +97,7 @@
 .seabed__go-text {
   font-family: sans-serif;
   font-size: 1.4rem;
-  text-shadow: 0 0 3px #465588;
+  text-shadow: 0 0 3px #054187;
   color: white;
   opacity: 0.9; }
   @media all and (min-width: 400px) {
@@ -106,15 +106,15 @@
   @media all and (min-width: 768px) {
     .seabed__go-text {
       font-size: 3rem;
-      color: rgba(255, 255, 255, 0.2);
-      text-shadow: 0 0 3px white;
+      color: rgba(246, 246, 246, 0.2);
+      text-shadow: 0 0 3px #f6f6f6;
       opacity: 0.7; } }
 
 @media all and (min-width: 768px) {
   .goThisWay {
     font-size: 3.2rem;
-    text-shadow: 0 0 3px white;
-    color: rgba(255, 245, 0, 0.73); } }
+    text-shadow: 0 0 3px #f6f6f6;
+    color: rgba(235, 225, 1, 0.73); } }
 
 #hero {
   display: none;
@@ -143,7 +143,7 @@
   font-weight: bold;
   font-size: 9rem;
   transform: perspective(7rem) rotateX(16deg) skewX(20deg);
-  text-shadow: 0 0 3px yellow; }
+  text-shadow: 0 0 3px #ebe101; }
 
 .seabed__findSomething {
   position: absolute;
@@ -154,8 +154,8 @@
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 2rem;
   text-align: center;
-  color: white;
-  text-shadow: 0 0 2px black; }
+  color: #f6f6f6;
+  text-shadow: 0 0 2px #212121; }
   .seabed__findSomething:nth-of-type(2) {
     top: 38vh; }
   @media all and (min-width: 768px) {
@@ -186,8 +186,8 @@
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 3rem;
   text-align: center;
-  color: white;
-  text-shadow: 0 0 2px black; }
+  color: #f6f6f6;
+  text-shadow: 0 0 2px #212121; }
 
 .seabed__click2close {
   z-index: 4;
@@ -195,20 +195,20 @@
   top: 10px;
   right: 5px;
   border-radius: 15px 0;
-  border: 1px solid white;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(193, 27, 27, 0.7));
-  box-shadow: 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
+  border: 1px solid #f6f6f6;
+  background-image: linear-gradient(rgba(246, 246, 246, 0.2), rgba(193, 27, 27, 0.7));
+  box-shadow: 0 4px 5px 0 rgba(33, 33, 33, 0.4), inset 0 1px 5px 1px rgba(246, 246, 246, 0.7);
   padding: 5px;
   font-family: "Acme", sans-serif;
   font-size: 0.7rem;
   letter-spacing: 1px;
   color: #630808;
-  text-shadow: 0 0 1px rgba(38, 33, 37, 0.51);
+  text-shadow: 0 0 1px rgba(83, 83, 83, 0.51);
   cursor: pointer; }
   .seabed__click2close:hover {
     text-decoration: none;
     transform: translate(0, 1px);
-    box-shadow: inset 0 2px 5px 1px rgba(0, 0, 0, 0.4); }
+    box-shadow: inset 0 2px 5px 1px rgba(33, 33, 33, 0.4); }
   @media all and (min-width: 321px) {
     .seabed__click2close {
       padding: 10px 20px; } }

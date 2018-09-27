@@ -1,6 +1,21 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
+$green-bright: #32d269;
+$green-pale: #c0d0c4;
+$blue--dark: #054187;
+$blue--normal: #157FFB;
+$blue--light: #4681d0;
+$blue-water: #2fa4c3;
+$yellow--dark: #949632;
+$yellow--bright: #ebe101;
+$yellow--pale: #fdff9f;
+$red--dark: #630808;
+$red--bright: #c41717;
+$black: #212121;
+$gray-dark: #535353;
+$gray-normal: #868686;
+$white: #f6f6f6;
 
 .section__seabed {
 	position           : relative;
@@ -10,9 +25,8 @@ $font__subtitle: 'Corben', cursive;
 	display            : fixed;
 	overflow-x         : hidden;
 
-	background-image   : linear-gradient(rgba(189, 214, 246, 0.96),rgba(171, 204, 246, 0.95),rgba(236, 246, 189, 0.9)), url('https://data.whicdn.com/images/303133698/original.gif');
+	background-image   : linear-gradient(rgba(#bdd6f6, 0.96),rgba(#abccf6, 0.95),rgba(#ecf6bd, 0.9)), url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
 	background-position: center;
-	//background-attachment: fixed;
 	background-repeat  : no-repeat;
 	background-size    : cover;
 }
@@ -22,7 +36,7 @@ $font__subtitle: 'Corben', cursive;
 	bottom             : 0;
 	height             : 50vh;
 	width              : 100vw;
-	background-image   : url('https://www.publicdomainpictures.net/pictures/140000/velka/seabed-underwater-1443611129IMA.jpg');
+	background-image   : url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/seabed.jpg');
 	background-position: bottom;
 	background-size    : 100% 220%;
 	opacity            : 0.05;
@@ -31,12 +45,11 @@ $font__subtitle: 'Corben', cursive;
 .seabed__message--outer {
 	margin          : 60px auto 0;
 	border-radius   : 50px 0;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: rgba($white, 0.1);
 	height          : auto;
 	width           : 60vw;
 	padding         : 10px 30px;
 	font-family     : sans-serif;
-
 }
 
 .floating {
@@ -76,8 +89,6 @@ $font__subtitle: 'Corben', cursive;
 	font-size  : 1.2rem;
 	line-height: 1.2;
 }
-
-.seabed__message-keyboard {}
 
 .seabed__message-devices {
 	display: none;
@@ -123,7 +134,7 @@ $font__subtitle: 'Corben', cursive;
 .seabed__go-text {
 	font-family: sans-serif;
 	font-size  : 1.4rem;
-	text-shadow: 0 0 3px rgb(70, 85, 136);
+	text-shadow: 0 0 3px $blue--dark;
 	color      : white;
 	opacity    : 0.9;
 
@@ -133,8 +144,8 @@ $font__subtitle: 'Corben', cursive;
 
 	@media all and (min-width: 768px) {
 		font-size  : 3rem;
-		color      : rgba(255, 255, 255, 0.2);
-		text-shadow: 0 0 3px white;
+		color      : rgba($white, 0.2);
+		text-shadow: 0 0 3px $white;
 		opacity    : 0.7;
 	}
 }
@@ -143,8 +154,8 @@ $font__subtitle: 'Corben', cursive;
 
 	@media all and (min-width: 768px) {
 		font-size  : 3.2rem;
-		text-shadow: 0 0 3px white;
-		color      : rgba(255, 245, 0, 0.73);
+		text-shadow: 0 0 3px $white;
+		color      : rgba($yellow--bright, 0.73);
 	}
 }
 
@@ -181,7 +192,7 @@ $font__subtitle: 'Corben', cursive;
 	font-weight: bold;
 	font-size  : 9rem;
 	transform  : perspective(7rem) rotateX(16deg) skewX(20deg);
-	text-shadow: 0 0 3px yellow;
+	text-shadow: 0 0 3px $yellow--bright;
 }
 
 .seabed__findSomething {
@@ -193,8 +204,8 @@ $font__subtitle: 'Corben', cursive;
 	font-family: $font__title;
 	font-size  : 2rem;
 	text-align : center;
-	color      : white;
-	text-shadow: 0 0 2px black;
+	color      : $white;
+	text-shadow: 0 0 2px $black;
 
 	&:nth-of-type(2) {
 		top: 38vh;
@@ -214,7 +225,6 @@ $font__subtitle: 'Corben', cursive;
 			top: 44vh;
 		}
 	}
-
 }
 
 .hero__thinks {
@@ -226,7 +236,7 @@ $font__subtitle: 'Corben', cursive;
 	text-align : center;
 	width      : 180px;
 	opacity    : 0.8;
-	color      : #fdff9f;
+	color      : $yellow--pale;
 	text-shadow: 0 0 1px black;
 }
 
@@ -235,8 +245,8 @@ $font__subtitle: 'Corben', cursive;
 	font-family: $font__title;
 	font-size  : 3rem;
 	text-align : center;
-	color      : white;
-	text-shadow: 0 0 2px black;
+	color      : $white;
+	text-shadow: 0 0 2px $black;
 }
 
 .seabed__click2close {
@@ -245,21 +255,21 @@ $font__subtitle: 'Corben', cursive;
 	top             : 10px;
 	right           : 5px;
 	border-radius   : 15px 0;
-	border          : 1px solid white;
-	background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(193, 27, 27, 0.7));
-	box-shadow      : 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
+	border          : 1px solid $white;
+	background-image: linear-gradient(rgba($white, 0.2),rgba(#c11b1b, 0.7));
+	box-shadow      : 0 4px 5px 0 rgba($black, 0.4), inset 0 1px 5px 1px rgba($white, 0.7);
 	padding         : 5px;
 	font-family     : $font__title-alt;
 	font-size       : 0.7rem;
 	letter-spacing  : 1px;
-	color           : #630808;
-	text-shadow     : 0 0 1px rgba(38, 33, 37, 0.51);
+	color           : $red--dark;
+	text-shadow     : 0 0 1px rgba($gray-dark, 0.51);
 	cursor          : pointer;
 
 	&:hover {
 		text-decoration: none;
 		transform      : translate(0,1px);
-		box-shadow     : inset 0 2px 5px 1px rgba(0, 0, 0, 0.4);
+		box-shadow     : inset 0 2px 5px 1px rgba($black, 0.4);
 	}
 
 	@media all and (min-width: 321px) {
@@ -270,7 +280,6 @@ $font__subtitle: 'Corben', cursive;
 		right        : 10px;
 		border-radius: 25px 0;
 		font-size    : 1.1rem;
-
 	}
 
 	&.seabed__click2close-otherSkills {
