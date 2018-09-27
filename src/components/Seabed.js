@@ -38,6 +38,13 @@ class Seabed extends React.Component {
 		Hero.style.left = (window.innerWidth * 0.40) + 'px';
 	}
 
+	componentDidUpdate() {
+		if ((this.state.readComponents.OtherSkills) && (this.state.readComponents.Experiences) && (!window.matchMedia("(min-width: 768px)").matches)) {
+			this.goBackUp();
+			this.props.userViewedAllComponents();
+		}
+	}
+
 	moveHero = e => {
 		if ( e.key === 'ArrowRight' ) {
 
@@ -86,57 +93,7 @@ class Seabed extends React.Component {
 
 //---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
 		if ((this.state.readComponents.OtherSkills) && (this.state.readComponents.Experiences) && (this.state.frame === 'center')) {
-			window.removeEventListener('keyup',this.moveHero);
-
-			document.querySelector('.seabed__go--experiences').classList.add('hidden');
-			document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
-
-			setTimeout(()=> {
-				clearTimeout(floatRight);
-				clearTimeout(floatLeft);
-				Hero.src = swimmingRight;
-				Hero.classList.remove('floating-soft');
-				Hero.classList.add('goingUp');
-				Hero.style.transition = 'all ease 10s'
-				Hero.style.top = '40%';
-
-			},2000);
-			setTimeout(()=> Hero.style.top = '-200px',2500);
-			setTimeout(()=> window.scrollTo(0, 0),8000);
-			setTimeout(()=> {
-
-				//-- Resets component to its initial state
-				this.setState({
-					hideInstructions: false,
-					showExperiences: false,
-					viewedExperiences: false,
-					showOtherSkills: false,
-					viewedOtherSkills: false,
-					frame: 'center',
-					heroThinks: undefined,
-					readComponents: {
-						Experiences: false,
-						OtherSkills: false
-					}
-				});
-				document.querySelector('.seabed__go--experiences').classList.remove('hidden');
-				document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
-				document.querySelector('.seabed__go-textRight').classList.remove('goThisWay');
-				document.querySelector('.seabed__go-textLeft').classList.remove('goThisWay');
-				window.addEventListener('keyup',this.moveHero);
-
-				//-- Triggers thank you message on first personagem
-				this.props.userViewedAllComponents();
-
-				//-- Puts Hero on its initial position
-				Hero.classList.add('floating-soft');
-				Hero.classList.remove('goingUp');
-				Hero.style.top = '40%';
-				Hero.style.left = (window.innerWidth * 0.40) + 'px';
-				Hero.src = floatingRight;
-				Hero.style.transition = 'all ease 1s';
-
-			},8050);
+			this.goBackUp();
 		}
 
 //---- Highlights the text "Previous Experiences" when hero swims over it
@@ -222,6 +179,67 @@ class Seabed extends React.Component {
 		}
 	}
 
+// ======== All page viewed. Reset all states and go back to first page
+
+	goBackUp = () => {
+		window.removeEventListener('keyup',this.moveHero);
+
+		document.querySelector('.seabed__go--experiences').classList.add('hidden');
+		document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
+
+		setTimeout(()=> {
+			clearTimeout(floatRight);
+			clearTimeout(floatLeft);
+			Hero.src = swimmingRight;
+			Hero.classList.remove('floating-soft');
+			Hero.classList.add('goingUp');
+			Hero.style.transition = 'all ease 10s'
+			Hero.style.top = '40%';
+
+		},2000);
+		setTimeout(()=> Hero.style.top = '-200px',2500);
+
+		if (!window.matchMedia("(min-width: 768px)").matches) {
+			setTimeout(()=> window.scrollTo(0, 0),2000);
+		} else {
+			setTimeout(()=> window.scrollTo(0, 0),8000);
+		}
+
+		setTimeout(()=> {
+
+			//-- Resets component to its initial state
+			this.setState({
+				hideInstructions: false,
+				showExperiences: false,
+				viewedExperiences: false,
+				showOtherSkills: false,
+				viewedOtherSkills: false,
+				frame: 'center',
+				heroThinks: undefined,
+				readComponents: {
+					Experiences: false,
+					OtherSkills: false
+				}
+			});
+			document.querySelector('.seabed__go--experiences').classList.remove('hidden');
+			document.querySelector('.seabed__go--otherSkills').classList.remove('hidden');
+			document.querySelector('.seabed__go-textRight').classList.remove('goThisWay');
+			document.querySelector('.seabed__go-textLeft').classList.remove('goThisWay');
+			window.addEventListener('keyup',this.moveHero);
+
+			//-- Triggers thank you message on first screen
+			this.props.userViewedAllComponents();
+
+			//-- Puts Hero on its initial position
+			Hero.classList.add('floating-soft');
+			Hero.classList.remove('goingUp');
+			Hero.style.top = '40%';
+			Hero.style.left = (window.innerWidth * 0.40) + 'px';
+			Hero.src = floatingRight;
+			Hero.style.transition = 'all ease 1s';
+
+		},8050);
+	}
 
 // ======== Triggers a random thought when the Hero reaches any border.
 	heroThinks = side => {
@@ -268,7 +286,7 @@ class Seabed extends React.Component {
 				</div>
 				}
 
-				{!window.matchMedia("(min-width: 768px)").matches ?
+				{!window.matchMedia("(min-width: 768px)").matches && !this.state.readComponents.Experiences && !this.state.readComponents.OtherSkills ?
 					<React.Fragment>
 						<p className="seabed__findSomething floating-soft">{text[language].find}</p>
 						<p className="seabed__findSomething floating-soft">{text[language].find2}</p>

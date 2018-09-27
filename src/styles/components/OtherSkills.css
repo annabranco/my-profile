@@ -101,11 +101,8 @@
     .section__otherSkills.opened .seabed__click2close-otherSkills {
       display: block;
       position: fixed;
-      top: 120px;
+      top: 30px;
       right: 10px; }
-      @media all and (min-width: 321px) {
-        .section__otherSkills.opened .seabed__click2close-otherSkills {
-          top: 60px; } }
       @media all and (min-width: 768px) {
         .section__otherSkills.opened .seabed__click2close-otherSkills {
           top: 100px;

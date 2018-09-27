@@ -129,12 +129,8 @@ $hover--color: yellow;
 		& .seabed__click2close-otherSkills {
 			display : block;
 			position: fixed;
-			top     : 120px;
+			top     : 30px;
 			right   : 10px;
-
-			@media all and (min-width: 321px) {
-				top: 60px;
-			}
 
 			@media all and (min-width: 768px) {
 				top  : 100px;

@@ -154,9 +154,12 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .goThisWay {
-	font-size  : 3.2rem;
-	text-shadow: 0 0 3px white;
-	color      : rgba(255, 245, 0, 0.73);
+
+	@media all and (min-width: 768px) {
+		font-size  : 3.2rem;
+		text-shadow: 0 0 3px white;
+		color      : rgba(255, 245, 0, 0.73);
+	}
 }
 
 #hero {
