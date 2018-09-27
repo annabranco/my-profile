@@ -149,19 +149,27 @@
 
 .seabed__findSomething {
   position: absolute;
-  top: 30vh;
-  left: 50%;
+  top: 20vh;
+  left: 0;
   transform: translate(-50%, 0);
   width: 100%;
   font-family: "Alegreya Sans SC", sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   text-align: center;
   color: white;
   text-shadow: 0 0 2px black; }
   .seabed__findSomething:nth-of-type(2) {
-    top: 37vh; }
-  .seabed__findSomething:nth-of-type(3) {
-    top: 44vh; }
+    top: 43vh; }
+  @media all and (min-width: 768px) {
+    .seabed__findSomething {
+      top: 30vh;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 2.5rem; }
+      .seabed__findSomething:nth-of-type(2) {
+        top: 37vh; }
+      .seabed__findSomething:nth-of-type(3) {
+        top: 44vh; } }
 
 .hero__thinks {
   position: absolute;

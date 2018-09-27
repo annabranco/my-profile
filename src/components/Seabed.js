@@ -268,6 +268,14 @@ class Seabed extends React.Component {
 				</div>
 				}
 
+				{!window.matchMedia("(min-width: 768px)").matches ?
+					<React.Fragment>
+						<p className="seabed__findSomething floating-soft">{text[language].find}</p>
+						<p className="seabed__findSomething floating-soft">{text[language].find2}</p>
+					</React.Fragment>
+				: null
+				}
+
 				<div className="seabed__go--experiences floating floating-delay">
 						<p className="seabed__go-text seabed__go-textRight">{text[language].experiences}</p>
 				</div>
