@@ -3,26 +3,26 @@
   position: absolute;
   bottom: 50px;
   left: 20%;
-  border: 1px solid black;
+  border: 1px solid #212121;
   border-radius: 10px 0;
-  background-image: linear-gradient(to top right, white, #e7f4f4, #779e9b);
+  background-image: linear-gradient(to top right, #f6f6f6, #e6f4f4, #4681d0);
   height: 40px;
   width: 60px;
-  box-shadow: 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 5px 0 rgba(33, 33, 33, 0.4), inset 0 1px 5px 1px rgba(246, 246, 246, 0.7);
   opacity: 0.5;
   transform: perspective(5em) rotateX(50deg);
   box-sizing: border-box;
   overflow: hidden;
   cursor: pointer; }
   .section__experiences:hover {
-    border: 3px solid yellow;
+    border: 3px solid #ebe101;
     opacity: 0.7; }
   @media all and (min-width: 768px) {
     .section__experiences {
       left: 40%; } }
   .section__experiences.opened {
     border-radius: 40px 0;
-    border: 2px solid black;
+    border: 2px solid #212121;
     top: 40px;
     left: 0;
     height: 90vh;
@@ -32,7 +32,7 @@
     opacity: 0.9;
     cursor: default; }
     .section__experiences.opened:hover {
-      border: 2px solid black; }
+      border: 2px solid #212121; }
     @media all and (min-width: 768px) {
       .section__experiences.opened {
         left: 20vw;
@@ -65,7 +65,7 @@
   text-align: center;
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 0.8em;
-  color: #4b0a62; }
+  color: #630808; }
   @media all and (min-width: 321px) {
     .experiences__inner--year {
       margin-right: 10px;
@@ -77,7 +77,7 @@
       margin-right: 15px; } }
 
 .experiences__verticalBar {
-  border-right: 5px solid #727594;
+  border-right: 5px solid rgba(70, 129, 208, 0.3);
   height: 80vh; }
   @media all and (min-width: 768px) {
     .experiences__verticalBar {
@@ -85,14 +85,14 @@
 
 .experiences__inner--horizontalBar,
 .experiences__inner--year {
-  margin-top: 40px;
+  margin-top: 50px;
   height: 25%; }
   .experiences__inner--horizontalBar:first-of-type,
   .experiences__inner--year:first-of-type {
-    margin-top: 40px; }
+    margin-top: 35px; }
   .experiences__inner--horizontalBar:last-of-type,
   .experiences__inner--year:last-of-type {
-    margin-top: 15px; }
+    margin-top: 10px; }
   @media all and (min-width: 321px) {
     .experiences__inner--horizontalBar,
     .experiences__inner--year {
@@ -113,7 +113,7 @@
 .experiences__horizontarBar-master,
 .experiences__horizontarBar-psy {
   display: inline-block;
-  border-top: 5px solid #727594; }
+  border-top: 5px solid rgba(70, 129, 208, 0.3); }
 
 .experiences__horizontarBar-psy {
   width: 10%; }
@@ -135,10 +135,10 @@
   display: inline;
   font-family: "Acme", sans-serif;
   font-size: 1rem;
-  color: #003e90; }
+  color: #054187; }
   .experiences__title:hover {
     letter-spacing: 0.1rem;
-    color: #535911; }
+    color: #949632; }
   @media all and (min-width: 321px) {
     .experiences__title {
       font-size: 1.4rem; } }

@@ -1,11 +1,25 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
-$blue--dark: rgba(#054187, 0.9);
+$green-bright: #32d269;
+$green-pale: #c0d0c4;
+$blue--dark: #054187;
+$blue--normal: #157FFB;
+$blue--light: #4681d0;
+$blue-water: #2fa4c3;
+$yellow--dark: #949632;
+$yellow--bright: #ebe101;
+$yellow--pale: #fdff9f;
+$red--dark: #630808;
+$red--bright: #c41717;
+$black: #212121;
+$gray-dark: #535353;
+$gray-normal: #868686;
+$white: #f6f6f6;
 
 .hero__social {
 	border-radius   : 30px;
-	background-image: linear-gradient(rgba(19, 175, 7, 0.1),rgba(255, 255, 255, 0.2));
+	background-image: linear-gradient(rgba($green-bright, 0.1),rgba($white, 0.2));
 	height          : 400px;
 	display         : flex;
 	padding         : 10px 0 30px;
@@ -36,18 +50,18 @@ $blue--dark: rgba(#054187, 0.9);
 }
 
 .hero__social--link {
-	border          : 1px solid white;
+	border          : 1px solid $white;
 	border-radius   : 25px 0;
-	background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(47, 195, 74, 0.5));
+	background-image: linear-gradient(rgba($white, 0.2),rgba($green-bright, 0.5));
 	width           : 120px;
 	padding         : 5px 0;
 	text-decoration : none;
-	box-shadow      : 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
+	box-shadow      : 0 4px 5px 0 rgba($black, 0.4), inset 0 1px 5px 1px rgba($white, 0.7);
 
 	&:hover {
 		text-decoration: none;
 		transform      : translate(0,1px);
-		box-shadow     : inset 0 2px 5px 1px rgba(0, 0, 0, 0.4);
+		box-shadow     : inset 0 2px 5px 1px rgba($black, 0.4);
 	}
 
 	@media all and (min-width: 321px) {
@@ -57,7 +71,6 @@ $blue--dark: rgba(#054187, 0.9);
 	@media all and (min-width: 500px) {
 		width: 200px;
 	}
-
 }
 
 .hero__social--inner + .hero__social--link {
@@ -112,7 +125,7 @@ $blue--dark: rgba(#054187, 0.9);
 	display       : inline;
 	vertical-align: middle;
 	font-size     : 2rem;
-	text-shadow   : 0 0 1px black;
+	text-shadow   : 0 0 1px $black;
 }
 
 .icon-call,
@@ -129,7 +142,7 @@ $blue--dark: rgba(#054187, 0.9);
 	display       : inline;
 	vertical-align: middle;
 	font-size     : 2rem;
-	text-shadow   : 0 0 1px black;
+	text-shadow   : 0 0 1px $black;
 
 	.hero__social--link:hover & {
 		color: $blue--dark;
@@ -140,7 +153,7 @@ $blue--dark: rgba(#054187, 0.9);
 	margin     : 4px 0 0 5px;
 	font-family: $font__title-alt;
 	font-size  : 1rem;
-	color      : black;
+	color      : $black;
 
 	.hero__social--link-mail &,
 	.hero__social--link-skype & {
@@ -159,6 +172,5 @@ $blue--dark: rgba(#054187, 0.9);
 		.hero__social--link-skype & {
 			margin: 4px 25px 0;
 		}
-
 	}
 }

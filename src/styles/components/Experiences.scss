@@ -1,18 +1,33 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
+$green-bright: #32d269;
+$green-pale: #c0d0c4;
+$blue--dark: #054187;
+$blue--normal: #157FFB;
+$blue--light: #4681d0;
+$blue-water: #2fa4c3;
+$yellow--dark: #949632;
+$yellow--bright: #ebe101;
+$yellow--pale: #fdff9f;
+$red--dark: #630808;
+$red--bright: #c41717;
+$black: #212121;
+$gray-dark: #535353;
+$gray-normal: #868686;
+$white: #f6f6f6;
 
 .section__experiences {
 	z-index         : 3;
 	position        : absolute;
 	bottom          : 50px;
 	left            : 20%;
-	border          : 1px solid black;
+	border          : 1px solid $black;
 	border-radius   : 10px 0;
-	background-image: linear-gradient(to top right, rgba(255, 255, 255, 1),rgba(231, 244, 244, 1),rgba(119, 158, 155, 1));
+	background-image: linear-gradient(to top right, $white,#e6f4f4,$blue--light);
 	height          : 40px;
 	width           : 60px;
-	box-shadow      : 0 4px 5px 0 rgba(17, 17, 17, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7);
+	box-shadow      : 0 4px 5px 0 rgba($black, 0.4), inset 0 1px 5px 1px rgba($white, 0.7);
 	opacity         : 0.5;
 	transform       : perspective(5em) rotateX(50deg);
 	box-sizing      : border-box;
@@ -20,7 +35,7 @@ $font__subtitle: 'Corben', cursive;
 	cursor          : pointer;
 
 	&:hover {
-		border : 3px solid yellow;
+		border : 3px solid $yellow--bright;
 		opacity: 0.7;
 	}
 
@@ -30,7 +45,7 @@ $font__subtitle: 'Corben', cursive;
 
 	&.opened {
 		border-radius: 40px 0;
-		border       : 2px solid black;
+		border       : 2px solid $black;
 
 		top          : 40px;
 		left         : 0;
@@ -42,7 +57,7 @@ $font__subtitle: 'Corben', cursive;
 		cursor       : default;
 
 		&:hover {
-			border: 2px solid black;
+			border: 2px solid $black;
 		}
 
 		@media all and (min-width: 768px) {
@@ -51,7 +66,6 @@ $font__subtitle: 'Corben', cursive;
 			width  : 75vw;
 			padding: 15px;
 		}
-
 	}
 }
 
@@ -85,7 +99,7 @@ $font__subtitle: 'Corben', cursive;
 	text-align  : center;
 	font-family : $font__title;
 	font-size   : 0.8em;
-	color       : #4b0a62;
+	color       : $red--dark;
 
 	@media all and (min-width: 321px) {
 		margin-right: 10px;
@@ -100,7 +114,7 @@ $font__subtitle: 'Corben', cursive;
 }
 
 .experiences__verticalBar {
-	border-right: 5px solid #727594;
+	border-right: 5px solid rgba($blue--light, 0.3);
 	height      : 80vh;
 
 	@media all and (min-width: 768px) {
@@ -110,15 +124,15 @@ $font__subtitle: 'Corben', cursive;
 
 .experiences__inner--horizontalBar,
 .experiences__inner--year {
-	margin-top: 40px;
+	margin-top: 50px;
 	height    : 25%;
 
 	&:first-of-type {
-		margin-top: 40px;
+		margin-top: 35px;
 	}
 
 	&:last-of-type {
-		margin-top: 15px;
+		margin-top: 10px;
 	}
 
 	@media all and (min-width: 321px) {
@@ -138,14 +152,12 @@ $font__subtitle: 'Corben', cursive;
 	}
 }
 
-.experiences__inner--horizontalBar {}
-
 .experiences__horizontarBar-adalab,
 .experiences__horizontarBar-ir,
 .experiences__horizontarBar-master,
 .experiences__horizontarBar-psy {
 	display   : inline-block;
-	border-top: 5px solid #727594;
+	border-top: 5px solid rgba($blue--light, 0.3);
 }
 
 .experiences__horizontarBar-psy {
@@ -173,11 +185,11 @@ $font__subtitle: 'Corben', cursive;
 	display    : inline;
 	font-family: $font__title-alt;
 	font-size  : 1rem;
-	color      : #003e90;
+	color      : $blue--dark;
 
 	&:hover {
 		letter-spacing: 0.1rem;
-		color         : #535911;
+		color         : $yellow--dark;
 	}
 
 	@media all and (min-width: 321px) {

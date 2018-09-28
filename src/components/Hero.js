@@ -49,7 +49,7 @@ class Hero extends React.Component {
 
 					<img className="hero__boat" src="http://www.animatedimages.org/data/media/271/animated-ship-image-0031.gif" alt="Navigating beautifully"/>
 
-					{!window.matchMedia("(min-width: 768px)").matches ?
+					{!window.matchMedia("(min-width: 1024px)").matches ?
 						<div className="hero__advise">{text[language].advise}</div>
 					: null
 					}

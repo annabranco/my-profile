@@ -2,7 +2,7 @@
   height: 100vh;
   position: relative;
   display: fixed;
-  background-image: linear-gradient(rgba(230, 239, 251, 0.98), rgba(230, 239, 251, 0.93), rgba(189, 214, 246, 0.98)), url("https://data.whicdn.com/images/303133698/original.gif");
+  background-image: linear-gradient(rgba(230, 239, 251, 0.98), rgba(230, 239, 251, 0.93), rgba(189, 214, 246, 0.98)), url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif");
   background-position: center; }
 
 .formation__outer {
@@ -22,10 +22,10 @@
   text-align: center;
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 1.2em;
-  color: #4b0a62; }
+  color: #630808; }
 
 .formation__verticalBar {
-  border-right: 5px solid #2b2f59;
+  border-right: 5px solid rgba(70, 129, 208, 0.3);
   height: 90vh; }
 
 .formation__inner--horizontalBar,
@@ -37,7 +37,7 @@
 .formation__horizontarBar-master,
 .formation__horizontarBar-psy {
   display: inline-block;
-  border-top: 5px solid #2b2f59; }
+  border-top: 5px solid rgba(70, 129, 208, 0.3); }
 
 .formation__horizontarBar-psy {
   width: 20px; }
@@ -80,10 +80,10 @@
   display: inline;
   font-family: "Acme", sans-serif;
   font-size: 1.4em;
-  color: #3e76c1; }
+  color: #054187; }
   .formation__title:hover {
     letter-spacing: 0.1rem;
-    color: #4681d0; }
+    color: #949632; }
 
 @media all and (min-width: 768px) {
   .formation__title-adalab,

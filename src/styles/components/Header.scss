@@ -1,6 +1,20 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
+$green-bright: #32d269;
+$green-pale: #c0d0c4;
+$blue--dark: #054187;
+$blue--normal: #157FFB;
+$blue--light: #4681d0;
+$yellow--dark: #949632;
+$yellow--bright: #ebe101;
+$yellow--pale: #fdff9f;
+$red--dark: #630808;
+$red--bright: #c41717;
+$black: #212121;
+$gray-dark: #535353;
+$gray-normal: #868686;
+$white: #f6f6f6;
 
 .header__outer {
 	z-index         : 2;
@@ -14,7 +28,7 @@ $font__subtitle: 'Corben', cursive;
 	height          : 40px;
 	width           : 100vw;
 	padding         : 0 80px;
-	background-image: linear-gradient(rgb(175, 165, 185),rgba(255, 255, 255, 0.8));
+	background-image: linear-gradient(#afa5b9,rgba(#ffffff, 0.8));
 
 	@media all and (min-width: 500px) {
 		flex-wrap: nowrap;
@@ -74,5 +88,4 @@ $font__subtitle: 'Corben', cursive;
 .header__text-contact {
 	font-family: $font__subtitle;
 	font-weight: bold;
-
 }

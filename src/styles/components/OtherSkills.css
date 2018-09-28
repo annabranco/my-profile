@@ -17,10 +17,10 @@
     opacity: 1; }
 
 .otherSkills__mac--screen {
-  border-left: 1px solid #c3c3c3;
+  border-left: 1px solid #868686;
   height: 50px;
   width: 70px;
-  background: black;
+  background: #212121;
   opacity: 0.9;
   transform: perspective(8em) rotateX(-5deg) skewX(-4deg); }
   .otherSkills__mac--screen.opened {
@@ -30,17 +30,17 @@
     transform: none;
     overflow-y: scroll;
     opacity: 1;
-    background: white; }
+    background: #f6f6f6; }
 
 .otherSkills__mac--keyboard {
   position: absolute;
   top: 30px;
   left: 2px;
-  border-bottom: 3px solid black;
-  border-left: 1px solid black;
+  border-bottom: 3px solid #212121;
+  border-left: 1px solid #212121;
   height: 55px;
   width: 77px;
-  background: #c3c3c3;
+  background: #868686;
   opacity: 0.6;
   transform: perspective(9em) rotateX(65deg) skewX(15deg);
   box-shadow: -2px 2px 10px 3px rgba(83, 83, 83, 0.8); }
@@ -66,7 +66,7 @@
   left: 5px;
   height: 40px;
   width: 60px;
-  background-image: linear-gradient(#7dbad4, white);
+  background-image: linear-gradient(#2fa4c3, #f6f6f6);
   overflow: hidden;
   opacity: 0.9;
   transform: perspective(-1em) rotateX(-2deg) skewX(-1deg);
@@ -76,14 +76,14 @@
   animation-duration: 2s;
   animation-iteration-count: infinite; }
   .section__otherSkills:hover {
-    border: 5px solid yellow;
+    border: 5px solid #ebe101;
     opacity: 1; }
   .section__otherSkills.opened {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    background-image: linear-gradient(rgba(7, 39, 175, 0.3), rgba(255, 255, 255, 0.2));
-    border: 2px solid black;
+    background-image: linear-gradient(rgba(7, 39, 175, 0.3), rgba(246, 246, 246, 0.2));
+    border: 2px solid #212121;
     height: 100vh;
     width: 100vw;
     padding: 10px 0 30px;
@@ -97,7 +97,7 @@
         grid-gap: 50px;
         padding: 100px 50px 30px; } }
     .section__otherSkills.opened:hover {
-      border: 2px solid black; }
+      border: 2px solid #212121; }
     .section__otherSkills.opened .seabed__click2close-otherSkills {
       display: block;
       position: fixed;
@@ -110,9 +110,9 @@
 
 @keyframes bright {
   from {
-    box-shadow: 0 0 10px 3px #b9c1a4; }
+    box-shadow: 0 0 10px 3px #c0d0c4; }
   to {
-    box-shadow: 0 0 30px 1px #89e2f9; } }
+    box-shadow: 0 0 30px 1px #2fa4c3; } }
 
 .skills--topBar {
   z-index: 3;
@@ -129,7 +129,7 @@
 .otherSkills__outer {
   margin: 30px auto 0;
   border-radius: 30px;
-  background-image: linear-gradient(rgba(19, 175, 7, 0.1), rgba(255, 255, 255, 0.2));
+  background-image: linear-gradient(rgba(50, 210, 105, 0.1), rgba(246, 246, 246, 0.2));
   width: 100%;
   padding: 10px 15px 30px; }
 
@@ -161,8 +161,8 @@
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 0;
-    color: #10c737;
-    text-shadow: 0 0 1px white;
+    color: #32d269;
+    text-shadow: 0 0 1px #f6f6f6;
     line-height: 1rem;
     text-align: center; }
     @media all and (min-width: 768px) {
@@ -175,7 +175,7 @@
     font-weight: bold;
     font-size: 0.9rem;
     vertical-align: middle;
-    color: #414579;
+    color: #535353;
     width: 35%;
     padding: 0 10px; }
   .skills__table td {
@@ -199,7 +199,7 @@
     width: 100%;
     padding-left: 60px; }
     .skills__table--languages td:hover {
-      background: yellow;
+      background: rgba(253, 255, 159, 0.5);
       font-size: 1.1rem; }
   .skills__table--languages td:first-of-type {
     margin-top: 15px;
@@ -209,14 +209,14 @@
     font-weight: bold;
     font-size: 1.3rem;
     letter-spacing: 1px;
-    color: #10c737;
-    text-shadow: 0 0 1px white; }
+    color: #32d269;
+    text-shadow: 0 0 1px #f6f6f6; }
     .skills__table--languages td:first-of-type:hover {
       background: none; }
   .skills__table--languages td:nth-child(even) {
-    background-color: #eee; }
+    background-color: rgba(246, 246, 246, 0.5); }
     .skills__table--languages td:nth-child(even):hover {
-      background: yellow;
+      background: rgba(253, 255, 159, 0.5);
       font-size: 1.1rem; }
     .skills__table--languages td:nth-child(even) .icon--languages {
       color: #157FFB; }
@@ -227,13 +227,13 @@
   top: 60px;
   border: 1px solid #c0d0c4;
   border-radius: 50%;
-  background: white;
+  background: #f6f6f6;
   padding: 5px; }
 
 .icon--languages {
   position: absolute;
   left: 10px;
-  color: #5599d9; }
+  color: #4681d0; }
 
 .otherSkills__outer--other {
   margin-bottom: 30px;
@@ -254,12 +254,12 @@
   .skills__table--other tr {
     line-height: 40px; }
     .skills__table--other tr:hover {
-      background: yellow;
+      background: rgba(253, 255, 159, 0.5);
       font-size: 1rem; }
   .skills__table--other tr:nth-child(even) {
-    background-color: #eee; }
+    background-color: rgba(246, 246, 246, 0.5); }
     .skills__table--other tr:nth-child(even):hover {
-      background: yellow;
+      background: rgba(253, 255, 159, 0.5);
       font-size: 1rem; }
   .skills__table--other thead tr:hover {
     background: none; }
@@ -279,10 +279,10 @@
 .design__sample {
   height: 120px;
   width: 28vw;
-  border: 3px solid lightgray;
+  border: 3px solid rgba(246, 246, 246, 0.5);
   cursor: pointer; }
   .design__sample:hover {
-    border: 3px solid yellow; }
+    border: 3px solid #ebe101; }
   @media all and (min-width: 768px) {
     .design__sample {
       width: 20vw; } }

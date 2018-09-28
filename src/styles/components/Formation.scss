@@ -1,12 +1,27 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
+$green-bright: #32d269;
+$green-pale: #c0d0c4;
+$blue--dark: #054187;
+$blue--normal: #157FFB;
+$blue--light: #4681d0;
+$blue-water: #2fa4c3;
+$yellow--dark: #949632;
+$yellow--bright: #ebe101;
+$yellow--pale: #fdff9f;
+$red--dark: #630808;
+$red--bright: #c41717;
+$black: #212121;
+$gray-dark: #535353;
+$gray-normal: #868686;
+$white: #f6f6f6;
 
 .section__formation {
 	height             : 100vh;
 	position           : relative;
 	display            : fixed;
-	background-image   : linear-gradient(rgba(230, 239, 251, 0.98),rgba(230, 239, 251, 0.93),rgba(189, 214, 246, 0.98)), url('https://data.whicdn.com/images/303133698/original.gif');
+	background-image   : linear-gradient(rgba(#e6effb, 0.98),rgba(#e6effb, 0.93),rgba(#bdd6f6, 0.98)), url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
 	background-position: center;
 }
 
@@ -29,11 +44,11 @@ $font__subtitle: 'Corben', cursive;
 	text-align  : center;
 	font-family : $font__title;
 	font-size   : 1.2em;
-	color       : #4b0a62;
+	color       : $red--dark;
 }
 
 .formation__verticalBar {
-	border-right: 5px solid #2b2f59;
+	border-right: 5px solid rgba($blue--light, 0.3);
 	height      : 90vh;
 }
 
@@ -47,7 +62,7 @@ $font__subtitle: 'Corben', cursive;
 .formation__horizontarBar-master,
 .formation__horizontarBar-psy {
 	display   : inline-block;
-	border-top: 5px solid #2b2f59;
+	border-top: 5px solid rgba($blue--light, 0.3);
 }
 
 .formation__horizontarBar-psy {
@@ -100,7 +115,6 @@ $font__subtitle: 'Corben', cursive;
 			width: 60vw;
 		}
 	}
-
 }
 
 .formation__title {
@@ -108,12 +122,11 @@ $font__subtitle: 'Corben', cursive;
 	display    : inline;
 	font-family: $font__title-alt;
 	font-size  : 1.4em;
-	color      : #3e76c1;
+	color      : $blue--dark;
 
 	&:hover {
 		letter-spacing: 0.1rem;
-		color         : #4681d0;
-
+		color         : $yellow--dark;
 	}
 }
 

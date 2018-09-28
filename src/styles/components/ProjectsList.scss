@@ -1,24 +1,29 @@
 $font__title: 'Alegreya Sans SC', sans-serif;
 $font__title-alt: 'Acme', sans-serif;
 $font__subtitle: 'Corben', cursive;
+$green-bright: #32d269;
+$green-pale: #c0d0c4;
+$blue--dark: #054187;
+$blue--normal: #157FFB;
+$blue--light: #4681d0;
+$blue-water: #2fa4c3;
+$yellow--dark: #949632;
+$yellow--bright: #ebe101;
+$yellow--pale: #fdff9f;
+$red--dark: #630808;
+$red--bright: #c41717;
+$black: #212121;
+$gray-dark: #535353;
+$gray-normal: #868686;
+$white: #f6f6f6;
 
 .developer__projects--thumbnails-checkbox {
 	text-align: center;
 	width     : 100%;
-	// display   : none;
-	//
-	// @media all and (min-width: 768px) {
-	// 	display: inline;
-	// }
 }
 
 .developer__projects-checkbox {
 	margin: 0 10px;
-	// display: none;
-	//
-	// @media all and (min-width: 768px) {
-	// 	display: inline;
-	// }
 }
 
 .projects__list {
@@ -32,7 +37,6 @@ $font__subtitle: 'Corben', cursive;
 
 	@media all and (min-width: 768px) {
 		grid-template-columns: 300px 300px;
-
 	}
 }
 
@@ -45,17 +49,17 @@ $font__subtitle: 'Corben', cursive;
 	font-family: $font__title;
 	font-weight: bold;
 	font-size  : 1.3rem;
-	color      : #3e76c1;
+	color      : $blue--dark;
 }
 
 .project__title-icon {
-	color  : black;
+	color  : $black;
 	opacity: 0.4;
 }
 
 .project__thumbnail {
 	margin-top: -60px;
-	border    : 1px solid black;
+	border    : 1px solid $black;
 	width     : 100%;
 
 	@media all and (min-width: 768px) {
@@ -81,7 +85,7 @@ $font__subtitle: 'Corben', cursive;
 	vertical-align: middle;
 	font-size     : 1.3rem;
 	margin-right  : 10px;
-	color         : black;
+	color         : $black;
 	opacity       : 0.4;
 }
 
@@ -94,7 +98,6 @@ $font__subtitle: 'Corben', cursive;
 .project__seeMore {
 	margin-bottom: 40px;
 	opacity      : 0.5;
-
 }
 
 .project__seeMore-text {

@@ -1,7 +1,7 @@
 .section__developer {
   position: relative;
   display: fixed;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(240, 241, 252, 0.93), rgba(230, 239, 251, 0.98)), url("https://data.whicdn.com/images/303133698/original.gif");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(240, 241, 252, 0.93), rgba(230, 239, 251, 0.98)), url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif");
   background-position: center;
   height: auto;
   padding-top: 50px;
@@ -20,7 +20,7 @@
 
 .developer__sidebar {
   border-radius: 30px;
-  background-image: linear-gradient(rgba(19, 175, 7, 0.1), rgba(255, 255, 255, 0.2));
+  background-image: linear-gradient(rgba(50, 210, 105, 0.1), rgba(246, 246, 246, 0.2));
   height: 600px;
   width: 90%;
   display: flex;
@@ -48,9 +48,9 @@
 
 .developer__skills--title {
   margin: 20px 0 15px;
-  border: 1px solid black;
+  border: 1px solid #212121;
   border-radius: 10px 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(47, 164, 195, 0.5));
+  background-image: linear-gradient(rgba(246, 246, 246, 0.2), rgba(47, 164, 195, 0.5));
   width: 100px;
   padding: 5px 0;
   font-family: "Acme", sans-serif;
@@ -80,13 +80,13 @@
   font-family: "Alegreya Sans SC", sans-serif;
   font-weight: bold;
   font-size: 1rem;
-  color: black; }
+  color: #212121; }
 
 .skills__text--others {
   font-family: "Alegreya Sans SC", sans-serif;
   font-weight: bold;
   font-size: 0.9rem;
-  color: black; }
+  color: #212121; }
 
 .skills__inner--icon {
   display: flex;
@@ -111,7 +111,7 @@
     height: auto;
     width: 100%;
     color: #c41717;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.53); }
+    text-shadow: 0 0 1px rgba(246, 246, 246, 0.53); }
 
 .skills__icon--others {
   font-size: 3rem; }
@@ -122,15 +122,15 @@
     height: auto;
     width: 60px;
     color: #c41717;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.53); }
+    text-shadow: 0 0 1px rgba(246, 246, 246, 0.53); }
   .skills__icon--others.icon--gulp {
     margin: 3px 0 -3px;
     color: #c41717;
-    text-shadow: 0 0 1px rgba(50, 50, 50, 0.3); }
+    text-shadow: 0 0 1px rgba(83, 83, 83, 0.3); }
   .skills__icon--others.icon--node {
     margin: 3px 0 -3px;
     color: #32d269;
-    text-shadow: 0 0 1px rgba(50, 50, 50, 0.3); }
+    text-shadow: 0 0 1px rgba(83, 83, 83, 0.3); }
   .skills__icon--others.icon--github {
     margin-top: 5px;
     height: 58px;
@@ -140,8 +140,8 @@
     width: 50px; }
 
 .icon--react {
-  color: #51b8cf;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.53);
+  color: #4681d0;
+  text-shadow: 0 0 1px rgba(246, 246, 246, 0.53);
   animation: App-logo-spin infinite 40s linear; }
 
 @keyframes App-logo-spin {
@@ -157,18 +157,18 @@
 
 .icon--star {
   border-radius: 50%;
-  box-shadow: 0 0 5px 2px white;
-  background: black;
+  box-shadow: 0 0 5px 2px #f6f6f6;
+  background: #212121;
   height: 20px;
   width: 20px;
   padding-top: 5px;
   text-align: center;
   font-size: 0.8rem;
-  text-shadow: 0 0 5px black;
-  color: #e8e781; }
+  text-shadow: 0 0 5px #212121;
+  color: #fdff9f; }
 
 .icon--star--others {
-  background: black;
+  background: #212121;
   height: 15px;
   width: 15px;
   font-size: 0.6rem;
@@ -204,9 +204,9 @@
 .developer__projects--title {
   position: relative;
   margin: 0 0 15px;
-  border: 1px solid white;
+  border: 1px solid #f6f6f6;
   border-radius: 20px 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(47, 164, 195, 0.5));
+  background-image: linear-gradient(rgba(246, 246, 246, 0.2), rgba(47, 164, 195, 0.5));
   height: 70px;
   width: 100%;
   padding: 12px 0 0 10px;
@@ -248,8 +248,8 @@
   font-size: 0.8rem;
   line-height: 1.1rem;
   letter-spacing: 1px;
-  color: #3e76c1;
-  text-shadow: 0 0 2px white;
+  color: #4681d0;
+  text-shadow: 0 0 2px #f6f6f6;
   cursor: default; }
   .developer--more:hover {
     color: #949632; }
