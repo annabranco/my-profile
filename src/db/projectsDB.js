@@ -14,7 +14,7 @@ export default [
 		repo: 'https://github.com/annabranco/my-profile',
 		description: {
 			en: 'This is the page you are currently visiting. It was created as a personal project developed with React.js as a digital presentation of my professional profile.',
-			es: 'Esta es la página donde está Usted. Ha sido creada como un proyecto personal desarrollado con React.js para presentación digital de mi perfil profesional.',
+			es: 'Esta es la página donde estás. Ha sido creada como un proyecto personal desarrollado con React.js para presentación digital de mi perfil profesional.',
 			pt: 'Esta é a página onde você está. Foi criada como um projeto pessoal desenvolvido com React.js para apresentação digital do meu perfil profissional.'
 		},
 	},
@@ -35,9 +35,9 @@ export default [
 		url: 'https://annabranco.github.io/an-adventure/',
 		repo: 'https://github.com/annabranco/an-adventure',
 		description: {
-			en: 'This is an original Role Playing Game. There is currently just one simple task to accomplish. The game assets are not mine.',
-			es: 'Una creacción original de un juego de rol. Actualmente hay solamente un objetivo por alcanzar. Los gráficos y sonidos del juego no son míos',
-			pt: 'Uma criação original de uma aventura de RPG. No momento só há um simples objetivo por alcançar. Os gráficos e sons do jogo não são meus.'
+			en: 'This is an original Role Playing Game. There is currently just one simple task to accomplish. The game assets were not created by me.',
+			es: 'Una creacción original de un juego de rol. Actualmente hay solamente un objetivo por alcanzar. Los gráficos y sonidos del juego no han sido creados por mí.',
+			pt: 'Uma criação original de uma aventura de RPG. No momento só há um simples objetivo por alcançar. Os gráficos e sons do jogo não foram criados por mim.'
 		},
 	},
 	{

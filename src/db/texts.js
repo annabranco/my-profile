@@ -9,10 +9,10 @@ export default {
 		},
 		es: {
 			language: 'Español',
-			readingLanguage: 'Usted está leyendo mi perfil profesional en español.',
-			changeDefault: 'Haga click abajo para cambiar su idioma predeterminado:',
-			changeUpperBar: 'Usted también puede cambiarlo en la barra superior',
-			chekboxText: 'No enseñar esta mensaje otra vez.'
+			readingLanguage: 'Estás leyendo mi perfil profesional en español.',
+			changeDefault: 'Haz click abajo para cambiar tu idioma predeterminado:',
+			changeUpperBar: 'También puedes cambiarlo en la barra superior',
+			chekboxText: 'No enseñar este mensaje otra vez.'
 		},
 		pt: {
 			language: 'Português',
@@ -174,8 +174,8 @@ export default {
 		es: {
 			title: 'Otras informaciones',
 			message: 'Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.',
-			messageKeyboard: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Mueve la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.',
-			messageDevices: 'Pues, ahora que Usted ya conoce mi perfil básico, qué le parece jugar un poco? Si quiere saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueve la buceadora para la dirección deseada haciendo click en las flechas direccionales en los cantos de la pantalla para la derecha o izquierda.',
+			messageKeyboard: 'Pues, ahora que ya conoces mi perfil básico, qué te parece jugar un poco? Mueva la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.',
+			messageDevices: 'Pues, ahora que ya conoces mi perfil básico, qué te parece jugar un poco? Si quieres saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueva la buceadora para la dirección deseada haciendo click en las flechas direccionales en los cantos de la pantalla para la derecha o izquierda.',
 			experiences: 'Experiencias anteriores',
 			skills: 'Otras habilidades',
 			time2go: 'Es hora de volver...',
@@ -186,7 +186,7 @@ export default {
 				'Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?',
 				'Que raro... podría jurar que he visto un gato disfrazado de pulpo',
 				'El mar... la frontera final...',
-					'hmm... quizás otro día',
+				'hmm... quizás otro día',
 				'Me acordé ahora de aquella peli antigua con una nave alienígena viviendo en un abismo en el mar...',
 				'Nadaremos, nadaremos... en el maaar...',
 				'Hay veces que se me olvida que soy solo una personaje dentro de un perfil profesional',
@@ -236,7 +236,7 @@ export default {
 			ict: 'Instructora de TIC',
 			ictDetails: 'He impartido clases sobre habilidades de Tecnología de la Información y Comunicación: ambiente windows, aplicaciones básicas y uso de internet, enseñando más de 210 niños y niñas de Educación Primaria, de los 6 a los 12 años de edad.',
 			eru: 'Delegada Internacional de Respuesta en Emergencias (ERU)',
-			eruDetails: 'he sido desplegada a Grecia un misión temporal (2 meses), brindando apoyo psicosocial a personas sirias y otros refugiados y refugiadas llegando a Europa.',
+			eruDetails: 'He sido desplegada a Grecia un misión temporal (2 meses), brindando apoyo psicosocial a personas sirias y otros refugiados y refugiadas llegando a Europa.',
 			tj: 'Funcionaria Pública',
 			tjDetails: 'Funcionaria con carrera ascendente, empezando como técnica administrativa y llegando a ser jefe de sector responsable por proyectos sociales.',
 			linkedin: 'Para más detalles y referencias, por favor visite ',
@@ -314,7 +314,7 @@ export default {
 			skill5: 'Flexibilidad',
 			skill5details: 'Excelente experiencia trabajando en ambientes multiculturales',
 			design: 'Diseño gráfico',
-			samples: 'Usted puede ver abajo algunos ejemplos de creacciones mías:'
+			samples: 'Puedes ver abajo algunos ejemplos de creacciones mías:'
 		},
 		pt: {
 			find: "Você encontrou... um computador?!",
