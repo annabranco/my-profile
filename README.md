@@ -1,8 +1,7 @@
 ## My Profile
 
-This is a beta version for my web profile.
-I'm currently working on it.
+This is a beta version for my web professional profile.
 
 Do you have any suggestions? Please do share it! :)
 
-For the moment it only works on desktop version, full window. Sorry!
+#### For an enhanced user experience, it is highly recommended to visit it on a desktop.
