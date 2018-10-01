@@ -3,28 +3,28 @@ export default {
 		en: {
 			language: 'English',
 		  	readingLanguage: 'You are reading my professional profile in English.',
-		  	changeDefault: 'Click below to change your default language:',
+		  	changeDefault: 'Click below to change the default language:',
 		   	changeUpperBar: 'You may also change it in the upper bar',
 		   	chekboxText: 'Do not show me this message again.'
 		},
 		es: {
 			language: 'Español',
 			readingLanguage: 'Estás leyendo mi perfil profesional en español.',
-			changeDefault: 'Haz click abajo para cambiar tu idioma predeterminado:',
+			changeDefault: 'Haz click abajo para cambiar el idioma predeterminado:',
 			changeUpperBar: 'También puedes cambiarlo en la barra superior',
 			chekboxText: 'No enseñar este mensaje otra vez.'
 		},
 		pt: {
 			language: 'Português',
 		  	readingLanguage: 'Você está lendo meu perfil profissional em português.',
-		  	changeDefault: 'Clique abaixo para mudar o seu idioma padrão:',
+		  	changeDefault: 'Clique abaixo para mudar o idioma padrão:',
 		   	changeUpperBar: 'Você também pode mudá-lo na barra superior',
 		   	chekboxText: 'Não mostrar essa mensagem outra vez.'
 		},
 		fr: {
 			language: 'Français',
 		  	readingLanguage: 'Vous lisez mon profil professionel en français.',
-		  	changeDefault: 'Cliquez ci-dessous pour changer votre langue par défaut:',
+		  	changeDefault: 'Cliquez ci-dessous pour changer le langue par défaut:',
 		   	changeUpperBar: 'Vous pouvez aussi le changer dans la barre supérieure',
 		   	chekboxText: 'Ne plus afficher ce message.'
 		}
@@ -54,7 +54,7 @@ export default {
 		 },
 		 es: {
 			 job: 'Desarrolladora Front end junior',
-			 aditional: 'Aprendiendo a desarrollar sitios por donde navegar sea un bonita experiencia',
+			 aditional: 'Aprendiendo a desarrollar webs por donde navegar sea una bonita experiencia',
 			 call: 'Llamar',
 			 chat: 'Mensaje',
  			 advise: 'Para una mejor experiencia de usuario, es aconsejable visitar esta página en un ordenador de mesa o notebook en pantalla completa.',
@@ -80,7 +80,7 @@ export default {
 			reduced: 'Reduce view',
 			projects: 'Projects',
 			adalabText: 'Adalab is an intensive formation program aiming the inclusion of women on the technology sector. In four months, with an average of 9 daily hours of studies (6 of them presential), we dive in deeply on the technical aspects of front-end and learn important skills for professional development. We also work with agile methodologies.',
-			adalabMore: 'To know more about Adalab, you may visit their website: ',
+			adalabMore: 'To get to know about Adalab, you may visit their website: ',
 			projectsText: 'In this section, you can see a few of my projects and creations:',
 			showThumbnails: 'Show thumbnails',
 			goUp: 'go up',
@@ -88,15 +88,15 @@ export default {
 		},
 		es: {
 			title: 'Competencias técnicas',
-			main: 'Principales habilidades',
+			main: 'Habilidades principales',
 			other: 'Otras habilidades',
 			formation: 'Formación por',
-			more: 'Sepa más',
+			more: 'Saber más',
 			expanded: 'Expandir visualización',
 			reduced: 'Reducir visualización',
 			projects: 'Proyectos',
-			adalabText: 'Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector tecnológico. En cuatro meses, con una media de 9 horas de estudios por día (6 presenciales), nos profundizamos en la parte técnica de front-end, bien como importantes temas de desarrollo profesional. Trabajamos también com metodologías ágiles.',
-			adalabMore: 'Para saber más informaciones sobre Adalab, puedes consultar su página web: ',
+			adalabText: 'Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector tecnológico. de estudio al día (6 presenciales), profundizamos en la parte técnica del desarrollo front-end, además de en temas relacionados con el desarrollo profesional. Trabajamos también com metodologías ágiles.',
+			adalabMore: 'Para saber sobre Adalab, puedes consultar su página web: ',
 			projectsText: 'En esta sección puede ver algunos de mis proyectos y creacciones:',
 			showThumbnails: 'Enseñar miniaturas',
 			goUp: 'subir',
@@ -112,7 +112,7 @@ export default {
 			reduced: 'Reduzir visualização',
 			projects: 'Projetos',
 			adalabText: 'Adalab é um programa de formação intensiva destinado à inclusão de mulheres no setor tecnológico. Em quatro meses, com uma média de 9 horas diárias de estudos (6 das quais presenciais), nos aprofundamos na parte técnica de front-end e também em importantes temas relacionados ao desenvolvimento profissional. Trabalhamos também com metologias ágeis.',
-			adalabMore: 'Para saber mais informações sobre Adalab, você pode consultar sua página web: ',
+			adalabMore: 'Para saber sobre Adalab, você pode consultar sua página web: ',
 			projectsText: 'Nesta seção você pode ser alguns de meus projetos e criações:',
 			showThumbnails: 'Mostrar miniaturas',
 			goUp: 'subir',
@@ -133,7 +133,7 @@ export default {
 			title: 'Formación',
 			psy: 'Psicología',
 			ir: 'Relaciones Internacionales',
-			master: 'Master en Relaciones Internacionales',
+			master: 'Máster en Relaciones Internacionales',
 			grade: 'Grado final: ',
 			brazil: 'Brasil',
 			spain: 'España'
@@ -152,8 +152,7 @@ export default {
 		en: {
 			title: 'Other informations',
 			message: 'Beyond developing webpages and applications, I love to experiment programming videogames, promoting interactivity with the user and lots of fun.',
-			messageKeyboard: 'Thus, now you know my basic profile, how about a little gaming experience? Move the diver to the desired direction using arrows keys right or left on your keyboard (◀︎ or ▶︎) to know more about my profile.',
-			messageDevices: 'Thus, now you know my basic profile, how about a little gaming experience? If you want more information about previous experiences or other skills, move the scuba diver to the desired direction clicking the directional keys right or left on the corners of the screen.',
+			messageKeyboard: 'Thus, now you know my basic profile, how about a little gaming experience? Move the diver to the desired direction using arrows keys on your keyboard (◀︎ or ▶︎) to know more about my profile.',
 			experiences: 'Previous experiences',
 			skills: 'Other skills',
 			time2go: 'Time to go back...',
@@ -172,10 +171,9 @@ export default {
 			]
 		},
 		es: {
-			title: 'Otras informaciones',
+			title: 'Otros datos de interés',
 			message: 'Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.',
-			messageKeyboard: 'Pues, ahora que ya conoces mi perfil básico, qué te parece jugar un poco? Mueva la buceadora para la dirección deseada usando las flechas para la derecha o izquierda del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.',
-			messageDevices: 'Pues, ahora que ya conoces mi perfil básico, qué te parece jugar un poco? Si quieres saber más informaciones acerca de mis experiencias anteriores u otras habilidades, mueva la buceadora para la dirección deseada haciendo click en las flechas direccionales en los cantos de la pantalla para la derecha o izquierda.',
+			messageKeyboard: 'Ahora que ya conoces mi perfil básico, ¿qué te parece jugar un poco? Mueve a la buceadora usando las flechas del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.',
 			experiences: 'Experiencias anteriores',
 			skills: 'Otras habilidades',
 			time2go: 'Es hora de volver...',
@@ -197,7 +195,6 @@ export default {
 			title: 'Outras informações',
 			message: 'Além de desenvolver páginas e aplicacões, adoro experimentar com programação de jogos, promovendo interatividade com o usuário de uma maneira bastante lúdica.',
 			messageKeyboard: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎) para saber mais sobre o meu perfil.',
-			messageDevices: 'Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Se você quiser saber mais informações sobre minhas experiências anteriores ou outras habilidades, mova a mergulhadora para a direção desejada clicando nas setas direcionais nos cantos da tela para direita ou esquerda.',
 			experiences: 'Experiências anteriores',
 			skills: 'Outras habilidades',
 			time2go: 'É hora de voltar...',
@@ -285,7 +282,7 @@ export default {
 			skill5: 'Flexibility',
 			skill5details: 'Very good experience working within multicultural environments',
 			design: 'Graphic design',
-			samples: 'Here are samples of some of my design creations:'
+			samples: 'Here are some of my design creations:'
 		},
 		es: {
 			find: "Has encontrado... un ordenador?!",
@@ -314,7 +311,7 @@ export default {
 			skill5: 'Flexibilidad',
 			skill5details: 'Excelente experiencia trabajando en ambientes multiculturales',
 			design: 'Diseño gráfico',
-			samples: 'Puedes ver abajo algunos ejemplos de creacciones mías:'
+			samples: 'Aquí puedes ver algunas creaciones mías:'
 		},
 		pt: {
 			find: "Você encontrou... um computador?!",
@@ -343,7 +340,7 @@ export default {
 			skill5: 'Flexibilidade',
 			skill5details: 'Excelente experiência trabalhando em ambientes multiculturais',
 			design: 'Desenho gráfico',
-			samples: 'Abaixo você pode ver alguns exemplos de criações minhas:'
+			samples: 'Você pode aqui algumas criações minhas:'
 		}
 	}
 }

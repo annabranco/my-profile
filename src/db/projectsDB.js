@@ -14,7 +14,7 @@ export default [
 		repo: 'https://github.com/annabranco/my-profile',
 		description: {
 			en: 'This is the page you are currently visiting. It was created as a personal project developed with React.js as a digital presentation of my professional profile.',
-			es: 'Esta es la página donde estás. Ha sido creada como un proyecto personal desarrollado con React.js para presentación digital de mi perfil profesional.',
+			es: 'Esta es la página donde estás navegando. Ha sido creada como un proyecto personal desarrollado con React.js para la presentación digital de mi perfil profesional.',
 			pt: 'Esta é a página onde você está. Foi criada como um projeto pessoal desenvolvido com React.js para apresentação digital do meu perfil profissional.'
 		},
 	},
@@ -25,7 +25,7 @@ export default [
 		repo: 'https://github.com/annabranco/toy-story-games',
 		description: {
 			en: 'This is a fun and beautiful memory card game themed on Disney’s Toy Story characters, for all ages. It is based on an evaluation exercise from Adalab.',
-			es: 'Un divertido y bonito juego de parejas, con tema de Toy Story (Disney). Foi basado en un ejercicio de evaluación de Adalab.',
+			es: 'Un divertido y bonito juego de parejas, con tema de Toy Story (Disney). Está basado en un ejercicio de evaluación de Adalab.',
 			pt: 'Um divertido e bonito jogo da memória, com temática de Toy Story (Disney). Foi inspirado por um exercício de avaliação de Adalab.'
 		},
 	},
@@ -59,7 +59,7 @@ export default [
 		repo: 'https://github.com/annabranco/tv-series-finder',
 		description: {
 			en: 'This is a TV series finder, where users can search on a huge database. Users can also see their summaries, ratings and add series to favorites.',
-			es: 'Un buscador de series de televisión, donde usuarios pueden buscar en un enorme banco de datos, bien como ver sinopsis, valoraciones y añadir a favoritos.',
+			es: 'Un buscador de series de televisión, donde los usuarios pueden buscar en una base  de datos y ver sinopsis, valoraciones y añadir a favoritos.',
 			pt: 'Um buscador de séries de TV, onde os usuários podem buscar en um enorme banco de dados, bem como ver sinopses, avaliações e adicionar a favoritos.'
 		},
 	},
@@ -81,8 +81,8 @@ export default [
 		repo: 'https://github.com/annabranco/harry-potter-database',
 		description: {
 			en: 'This is a beautiful visual database of Harry Potter characters, with filters and favorites function. I’m growing the database as my own API.',
-			es: 'Un bonito banco de datos visual de los personajes de Harry Potter, con filtros y gestión de favoritos. Estoy desarrollando los datos como una propia API mía.',
-			pt: 'Un bonito banco de dados visual dos personagens de Harry Potter, com filtros e gestão de favoritos. Estou desenvolvendo os dados como minha própria API.'
+			es: 'Un proyecto visual de los personajes de Harry Potter, con filtros y gestión de favoritos. Estoy desarrollando los datos en una API mía. ',
+			pt: 'Un bonito projeto visual dos personagens de Harry Potter, com filtros e gestão de favoritos. Estou desenvolvendo os dados em minha própria API.'
 		}
 	}
 ]
