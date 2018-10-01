@@ -22,12 +22,11 @@
 
 .seabed__message--outer {
   margin: 60px auto 0;
-  border-radius: 50px 0;
-  background-color: rgba(246, 246, 246, 0.1);
+  border-radius: 80px 0;
+  background-color: rgba(246, 246, 246, 0.05);
   height: auto;
   width: 60vw;
-  padding: 10px 30px;
-  font-family: sans-serif; }
+  padding: 10px 50px; }
 
 .floating {
   animation-name: float;
@@ -57,7 +56,10 @@
 .seabed__message {
   margin: 15px 0;
   font-size: 1.2rem;
-  line-height: 1.2; }
+  line-height: 1.8;
+  font-family: "Alegreya Sans SC", sans-serif;
+  text-align: justify;
+  color: #054187; }
 
 .seabed__message-devices {
   display: none; }
