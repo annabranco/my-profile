@@ -32,15 +32,15 @@ export default {
 	Header: {
 		en: {
 			title: "Anna Branco's professional profile",
-			contact: 'Contact me'
+			contact: 'Contact'
 		},
 		es: {
 			title: "Perfil profesional de Anna Branco",
-			contact: 'Contactarme'
+			contact: 'Contacto'
 		},
 		pt: {
 			title: "Perfil profissional de Anna Branco",
-			contact: 'Me contatar'
+			contact: 'Contato'
 		},
 	},
 	 Hero: {
@@ -203,7 +203,7 @@ export default {
 				'Que estranho... eu poderia jurar que acabei de ver um gato disfarçado de polvo',
 				'O mar... a fronteira final...',
 				'hmm... talvez outro dia',
-				'Me lembrei agora daquele filme antigo com uma nave alienígena vivendo em um abismo no mar...',
+				'Lembrei-me agora daquele filme antigo com uma nave alienígena vivendo em um abismo no mar...',
 				'Continue a nadar... continue a nadaaar...',
 				'Às vezes eu esqueço que sou só uma personagem dentro de um perfil profissional',
 				'Oh.. eu gostaria que tivéssemos tempo para nadar por aí...'
