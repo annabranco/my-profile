@@ -1,11 +1,8 @@
 import React from 'react';
 import Social from './Social';
-import '../styles/components/Hero.css';
 import Mugshot from '../images/annabranco.png';
 
-
 class Hero extends React.Component {
-
 
 	render () {
 

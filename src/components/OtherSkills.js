@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/components/OtherSkills.css';
 import MacBar from '../images/bg/bg-mac.jpg';
 
 class OtherSkills extends React.Component {
@@ -82,7 +81,7 @@ close = () => {
 						<section className="section__otherSkills" onClick={this.open}>
 
 							<img src={MacBar} alt="" className="skills--topBar"/>
-							<button className="seabed__click2close seabed__click2close-otherSkills" onClick={this.close}>{this.props.texts.Seabed[language].click2close}</button>
+							<button className="seabed__click2close seabed__click2close-otherSkills" onClick={this.close}>X</button>
 
 							<div className="otherSkills__outer otherSkills__outer--languages">
 								<h2 className="skills__table--title">{text[language].languages}</h2>

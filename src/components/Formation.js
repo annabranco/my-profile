@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/components/Formation.css';
 
 class Formation extends React.Component {
 
