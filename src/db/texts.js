@@ -156,7 +156,6 @@ export default {
 			experiences: 'Previous experiences',
 			skills: 'Other skills',
 			time2go: 'Time to go back...',
-			click2close: 'Click HERE to close this window',
 			find: "You've found two curious objects on the seabed.",
 			find2: "Click on any of them to investigate it.",
 			thoughts: [
@@ -177,7 +176,6 @@ export default {
 			experiences: 'Experiencias anteriores',
 			skills: 'Otras habilidades',
 			time2go: 'Es hora de volver...',
-			click2close: 'Haz click AQUÍ para cerrar esta ventana',
 			find: "Has encontrado dos objetos curiosos en el fondo del mar.",
 			find2: "Haz click en cualquier uno para investigarlo.",
 			thoughts: [
@@ -198,7 +196,6 @@ export default {
 			experiences: 'Experiências anteriores',
 			skills: 'Outras habilidades',
 			time2go: 'É hora de voltar...',
-			click2close: 'Clique AQUI para fechar essa janela',
 			find: "Você encontrou dois objetos curiosos no fundo do mar.",
 			find2: "Clique em qualquer um de eles para investigá-lo.",
 			thoughts: [

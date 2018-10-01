@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/components/Experiences.css';
 
 class Experiences extends React.Component {
 
@@ -66,7 +65,7 @@ class Experiences extends React.Component {
 						</React.Fragment>
 					:
 					<div className="experiences__outer">
-						<button className="seabed__click2close" onClick={this.close}>{this.props.texts.Seabed[language].click2close}</button>
+						<button className="seabed__click2close" onClick={this.close}>X</button>
 
 						<div className="experiences__inner">
 							<div className="experiences__inner--year">09/2017 - 05/2018</div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import ProjectsList from './ProjectsList';
-import '../styles/components/Developer.css';
 import LogoAdalab from '../images/logo-adalab.png';
 import html from '../images/skills/html5.png';
 import css from '../images/skills/css3.png';
