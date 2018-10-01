@@ -4,16 +4,12 @@ import Developer from './Developer';
 import Formation from './Formation';
 import Seabed from './Seabed';
 
-import '../styles/components/ScrollArea.css';
-
-
 class ScrollArea extends React.Component {
 
   render () {
 
     return (
       	<section className="main__images">
-
 
 			<InbetweenBar title={this.props.texts.Developer[this.props.language].title} />
 			<Developer
@@ -36,12 +32,9 @@ class ScrollArea extends React.Component {
 				  language={this.props.language}
 				  userViewedAllComponents={this.props.userViewedAllComponents}
 			/>
-
-
       	</section>
     );
   }
-
 }
 
 export default ScrollArea;

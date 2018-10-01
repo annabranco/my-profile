@@ -1,7 +1,5 @@
 import React from 'react';
-import '../styles/components/ProjectsList.css';
 import projectsDB from '../db/projectsDB';
-
 
 class ProjectsList extends React.Component {
 
@@ -11,7 +9,6 @@ class ProjectsList extends React.Component {
 		this.state = {
 			showThumbnails: false
 		}
-
 	}
 
 	handleThumbnails = e => {

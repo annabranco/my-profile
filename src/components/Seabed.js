@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/components/Seabed.css';
 import floatingRight from '../images/other/floatingRight.gif';
 import floatingLeft from '../images/other/floatingLeft.gif';
 import swimmingRight from '../images/other/swimmingRight.gif';
