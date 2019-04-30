@@ -45,8 +45,8 @@ export default {
 	},
 	 Hero: {
 		 en: {
-			 job: 'Junior Front End Developer',
-			 aditional: 'Learning to develop sites where navigating around is a beautiful journey',
+			 job: 'Front End Developer',
+			 aditional: 'Developing sites and apps where navigating around is a beautiful journey',
 			 call: 'Call',
 			 chat: 'Chat',
 			 advise: 'For an enhanced user experience, visiting this page on a full screen desktop is highly advised.',
@@ -54,7 +54,7 @@ export default {
 		 },
 		 es: {
 			 job: 'Desarrolladora Front end junior',
-			 aditional: 'Aprendiendo a desarrollar webs por donde navegar sea una bonita experiencia',
+			 aditional: 'Desarrollando sitios web y apps por donde navegar sea una bonita experiencia',
 			 call: 'Llamar',
 			 chat: 'Mensaje',
  			 advise: 'Para una mejor experiencia de usuario, es aconsejable visitar esta página en un ordenador de mesa o notebook en pantalla completa.',
@@ -62,7 +62,7 @@ export default {
 		 },
 		 pt: {
 			 job: 'Programadora Front end júnior',
-			 aditional: 'Aprendendo a desenvolver sites pelos quais navegar seja uma bonita experiência',
+			 aditional: 'Desenvolvendo sites e apps pelos quais navegar seja uma bonita experiência',
 			 call: 'Chamar',
 			 chat: 'Chat',
  			 advise: 'Para uma melhor experiência de usuário, recomenda-se visitar essa página em um computador de mesa ou notebook em tela cheia.',
