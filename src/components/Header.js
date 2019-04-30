@@ -20,7 +20,7 @@ class Header extends React.Component {
 	  			<p className="header__text">{text[language].title}</p>
 				</div>
 				<div className="header__inner header__inner--version">
-					<p className="header__text">v0.7.1</p>
+					<p className="header__text">v0.8.2</p>
 					<p className="header__text-contact hidden">{text[language].contact}</p>
 				</div>
   		</header>

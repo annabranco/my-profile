@@ -9,4 +9,4 @@ https://annabranco.github.io/my-profile/
 
 #### For an enhanced user experience, it is highly recommended to visit it on a desktop.
 
-v0.7.2
+v0.8.2

@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "./static/media/thumbnail-awesome-profile-cards.80379503.jpg"
   },
   {
-    "revision": "ca59333c5aae54fc598e",
+    "revision": "6b855b54f4ffb8c9df6c",
     "url": "./static/css/main.51ff8a66.chunk.css"
   },
   {
@@ -48,8 +48,8 @@ self.__precacheManifest = [
     "url": "./static/media/thumbnail-tv-series-finder.23b9a077.jpg"
   },
   {
-    "revision": "ca59333c5aae54fc598e",
-    "url": "./static/js/main.42f2c284.chunk.js"
+    "revision": "6b855b54f4ffb8c9df6c",
+    "url": "./static/js/main.53df7f94.chunk.js"
   },
   {
     "revision": "416c7dff8e2aec92372404f30620d69d",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "./static/media/bg-mac.3dc888b3.jpg"
   },
   {
-    "revision": "91ccd48dd0f7daa24d6a448c68966462",
+    "revision": "444867887d70306deb17bf8dc7cc4e0d",
     "url": "./index.html"
   }
 ];
