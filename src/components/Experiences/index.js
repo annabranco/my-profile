@@ -37,24 +37,21 @@ export class Experiences extends Component {
   };
 
   render() {
-    const text = this.props.texts.Experiences;
-    const language = this.props.language;
-
+    const { read, opened } = this.state;
+    const { texts, viewedExperiences } = this.props;
     return (
       <React.Fragment>
-        {!this.props.viewedExperiences &&
-        !this.state.read &&
+        {!viewedExperiences &&
+        !read &&
         window.matchMedia('(min-width: 768px)').matches ? (
           <React.Fragment>
-            <p className="seabed__findSomething">{text[language].find}</p>
-            <p className="seabed__findSomething">
-              {text[language].investigate}
-            </p>
+            <p className="seabed__findSomething">{texts.find}</p>
+            <p className="seabed__findSomething">{texts.investigate}</p>
           </React.Fragment>
         ) : null}
 
         <section className="section__experiences" onClick={this.open}>
-          {!this.state.opened ? (
+          {!opened ? (
             <React.Fragment>
               <p className="experiences__text-fake">- - --- - --</p>
               <p className="experiences__text-fake">- -- -- - --</p>
@@ -84,55 +81,49 @@ export class Experiences extends Component {
               <div className="experiences__inner">
                 <div className="experiences__inner--horizontalBar">
                   <div className="experiences__horizontarBar-psy"></div>
-                  <h2 className="experiences__title">{text[language].ict}</h2>
+                  <h2 className="experiences__title">{texts.ict}</h2>
                   <p className="experiences__details">
                     Servicios Profesionales Sociales, Madrid.
                     <img
                       className="experiences__flag"
                       src="https://www.countryflags.io/es/flat/16.png"
-                      alt={text[language].spain}
-                      title={text[language].spain}
+                      alt={texts.spain}
+                      title={texts.spain}
                     />
                   </p>
-                  <p className="experiences__details">
-                    {text[language].ictDetails}
-                  </p>
+                  <p className="experiences__details">{texts.ictDetails}</p>
                 </div>
                 <div className="experiences__inner--horizontalBar">
                   <div className="experiences__horizontarBar-ir"></div>
-                  <h2 className="experiences__title">{text[language].eru}</h2>
+                  <h2 className="experiences__title">{texts.eru}</h2>
                   <p className="experiences__details">
                     Cruz Roja Española
                     <img
                       className="experiences__flag"
                       src="https://www.countryflags.io/es/flat/16.png"
-                      alt={text[language].spain}
-                      title={text[language].spain}
+                      alt={texts.spain}
+                      title={texts.spain}
                     />
                   </p>
-                  <p className="experiences__details">
-                    {text[language].eruDetails}
-                  </p>
+                  <p className="experiences__details">{texts.eruDetails}</p>
                 </div>
                 <div className="experiences__inner--horizontalBar">
                   <div className="experiences__horizontarBar-master"></div>
-                  <h2 className="experiences__title">{text[language].tj}</h2>
+                  <h2 className="experiences__title">{texts.tj}</h2>
                   <p className="experiences__details">
                     Tribunal de Justiça do Estado do Rio de Janeiro{' '}
                     <img
                       className="experiences__flag"
                       src="https://www.countryflags.io/br/flat/16.png"
-                      alt={text[language].brazil}
-                      title={text[language].brazil}
+                      alt={texts.brazil}
+                      title={texts.brazil}
                     />
                   </p>
-                  <p className="experiences__details">
-                    {text[language].tjDetails}
-                  </p>
+                  <p className="experiences__details">{texts.tjDetails}</p>
                 </div>
               </div>
               <p className="experiences__more">
-                {text[language].linkedin}
+                {texts.linkedin}
                 <a
                   className="experiences__social--link"
                   href="https://www.linkedin.com/in/annabranco/"

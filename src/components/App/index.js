@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Header, MainArea } from '../';
-import texts from '../../db/texts.js';
+// import texts from '../../db/texts.js';
 
-const TEXTS_URL = '';
 const doc = document.documentElement;
 let adjustExpandedProjectsView = 0;
 
@@ -11,6 +10,7 @@ export class App extends Component {
     super(props);
 
     this.state = {
+      texts: this.props.texts,
       language: 'en',
       doNotShowLanguagePopupAgain: undefined,
       viewedAll: false
@@ -19,9 +19,10 @@ export class App extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    this.loadTexts();
+    // this.setTexts();
     this.loadDefaultLanguage();
     this.setState({ viewedAll: false });
+    console.log('$$$ this.props.texts', this.props.texts);
   }
 
   componentDidUpdate() {
@@ -32,14 +33,10 @@ export class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  loadTexts = () => {
-    fetch(TEXTS_URL)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => error);
-  };
+  // setTexts = () => {
+  //   const { texts } = this.props;
+  //   this.setState({ texts });
+  // };
 
   loadDefaultLanguage = () => {
     if (localStorage.getItem("Anna Branco's professional profile") !== null) {
@@ -189,18 +186,18 @@ export class App extends Component {
   userViewedAllComponents = () => this.setState({ viewedAll: true });
 
   render() {
+    const { language } = this.state;
+    const { texts } = this.props;
+
     return (
       <div className="App">
         <Header
-          texts={texts}
-          language={this.state.language}
+          texts={texts[language].header}
           changeLanguage={this.changeLanguage}
         />
         <MainArea
-          handleAnimation={this.handleAnimation}
-          language={this.state.language}
           changeLanguage={this.changeLanguage}
-          texts={texts}
+          texts={texts[language]}
           clearLanguagePopup={this.clearLanguagePopup}
           doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
           handleAdjustExpandedProjectsView={

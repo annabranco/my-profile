@@ -1,36 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { InbetweenBar, Developer, Formation, Seabed } from '../';
 
-export class ScrollArea extends Component {
-  render() {
-    return (
-      <section className="main__images">
-        <InbetweenBar
-          title={this.props.texts.Developer[this.props.language].title}
-        />
-        <Developer
-          texts={this.props.texts}
-          language={this.props.language}
-          handleAdjustExpandedProjectsView={
-            this.props.handleAdjustExpandedProjectsView
-          }
-        />
+export const ScrollArea = ({
+  texts,
+  handleAdjustExpandedProjectsView,
+  userViewedAllComponents
+}) => {
+  return (
+    <section className="main__images">
+      <InbetweenBar title={texts.developer.title} />
+      <Developer
+        texts={texts.developer}
+        handleAdjustExpandedProjectsView={handleAdjustExpandedProjectsView}
+      />
 
-        <InbetweenBar
-          title={this.props.texts.Formation[this.props.language].title}
-        />
-        <Formation texts={this.props.texts} language={this.props.language} />
+      <InbetweenBar title={texts.formation.title} />
+      <Formation
+        texts={texts.formation}
+        language={texts.languages.languageAbv}
+      />
 
-        <InbetweenBar
-          title={this.props.texts.Seabed[this.props.language].title}
-        />
-
-        <Seabed
-          texts={this.props.texts}
-          language={this.props.language}
-          userViewedAllComponents={this.props.userViewedAllComponents}
-        />
-      </section>
-    );
-  }
-}
+      <InbetweenBar title={texts.seabed.title} />
+      <Seabed
+        texts={texts.seabed}
+        textsExperiences={texts.experiences}
+        textsOtherSkills={texts.otherSkills}
+        userViewedAllComponents={userViewedAllComponents}
+      />
+    </section>
+  );
+};

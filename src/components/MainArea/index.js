@@ -1,39 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Hero, ScrollArea, Languages } from '../';
 
-export class MainArea extends Component {
-  render() {
-    return (
-      <main className="main__outer">
-        <div className="main__intro">
-          <Hero
-            texts={this.props.texts}
-            language={this.props.language}
-            viewedAll={this.props.viewedAll}
-          />
-        </div>
+export const MainArea = ({
+  changeLanguage,
+  clearLanguagePopup,
+  doNotShowLanguagePopupAgain,
+  handleAdjustExpandedProjectsView,
+  handleAnimation,
+  texts,
+  userViewedAllComponents,
+  viewedAll
+}) => {
+  return (
+    <main className="main__outer">
+      <div className="main__intro">
+        <Hero texts={texts.hero} viewedAll={viewedAll} />
+      </div>
 
-        <ScrollArea
-          handleAnimation={this.props.handleAnimation}
-          texts={this.props.texts}
-          language={this.props.language}
-          handleAdjustExpandedProjectsView={
-            this.props.handleAdjustExpandedProjectsView
-          }
-          userViewedAllComponents={this.props.userViewedAllComponents}
+      <ScrollArea
+        texts={texts}
+        handleAdjustExpandedProjectsView={handleAdjustExpandedProjectsView}
+        userViewedAllComponents={userViewedAllComponents}
+      />
+
+      {!doNotShowLanguagePopupAgain ? (
+        <Languages
+          texts={texts.languages}
+          language={texts.languages.language}
+          changeLanguage={changeLanguage}
+          clearLanguagePopup={clearLanguagePopup}
         />
-
-        {!this.props.doNotShowLanguagePopupAgain ? (
-          <Languages
-            language={this.props.language}
-            texts={this.props.texts}
-            changeLanguage={this.props.changeLanguage}
-            clearLanguagePopup={this.props.clearLanguagePopup}
-          />
-        ) : null}
-      </main>
-    );
-  }
-}
-
-export default MainArea;
+      ) : null}
+    </main>
+  );
+};

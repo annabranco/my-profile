@@ -125,9 +125,7 @@ export class ProjectsList extends Component {
   };
 
   render() {
-    const text = this.props.text;
-    const language = this.props.language;
-
+    const { texts, language } = this.props;
     return (
       <React.Fragment>
         <div className="developer__projects--thumbnails-checkbox">
@@ -138,7 +136,7 @@ export class ProjectsList extends Component {
             onClick={this.handleThumbnails}
           />
           <label htmlFor="developer__projects-checkbox">
-            {text[language].showThumbnails}
+            {texts.showThumbnails}
           </label>
         </div>
         <ul className="projects__list">
@@ -192,7 +190,7 @@ export class ProjectsList extends Component {
         {this.props.seeAll ? null : (
           <div className="project__seeMore">
             <span className="project__seeMore-text project__seeMore-up invisible">
-              {text[language].goUp}
+              {texts.goUp}
             </span>
             <i
               className="far fa-arrow-alt-circle-up icon--more invisible"
@@ -203,7 +201,7 @@ export class ProjectsList extends Component {
               onClick={this.nextProjects}
             ></i>
             <span className="project__seeMore-text project__seeMore-down">
-              {text[language].showMore}
+              {texts.showMore}
             </span>
           </div>
         )}

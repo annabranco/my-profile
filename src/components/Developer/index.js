@@ -24,23 +24,6 @@ export class Developer extends Component {
     };
   }
 
-  knowMore = () =>
-    this.setState(prevState => ({ knowMore: !prevState.knowMore }));
-
-  seeAll = () => {
-    this.setState(prevState => ({ seeAll: !prevState.seeAll }));
-
-    if (this.state.seeAll) {
-      document.querySelector('.projects__list').style.height = '210px';
-    } else {
-      document.querySelector('.projects__list').style.height = 'auto';
-    }
-  };
-
-  handleAdjustThumbnailsView = thumbnails => {
-    this.setState({ seeThumbnails: thumbnails });
-  };
-
   componentDidUpdate() {
     adjust = 0;
 
@@ -57,15 +40,31 @@ export class Developer extends Component {
     this.props.handleAdjustExpandedProjectsView(adjust);
   }
 
-  render() {
-    const text = this.props.texts.Developer;
-    const language = this.props.language;
+  onClickKnowMore = () =>
+    this.setState(prevState => ({ knowMore: !prevState.knowMore }));
 
+  onClickSeeAll = () => {
+    this.setState(prevState => ({ seeAll: !prevState.seeAll }));
+
+    if (this.state.seeAll) {
+      document.querySelector('.projects__list').style.height = '210px';
+    } else {
+      document.querySelector('.projects__list').style.height = 'auto';
+    }
+  };
+
+  handleAdjustThumbnailsView = thumbnails => {
+    this.setState({ seeThumbnails: thumbnails });
+  };
+
+  render() {
+    const { knowMore, seeAll } = this.state;
+    const { texts } = this.props;
     return (
       <section className="section__developer">
         <div className="developer__outer">
           <div className="developer__sidebar">
-            <h3 className="developer__skills--title">{text[language].main}</h3>
+            <h3 className="developer__skills--title">{texts.main}</h3>
 
             <div className="developer__inner--skills">
               <div className="skills__outer">
@@ -144,7 +143,7 @@ export class Developer extends Component {
                 </div>
               </div>
             </div>
-            <h3 className="developer__skills--title">{text[language].other}</h3>
+            <h3 className="developer__skills--title">{texts.other}</h3>
             <div className="developer__inner--skills developer__inner--skills-others">
               <div className="skills__outer">
                 <h4 className="skills__text--others">GitHub</h4>
@@ -262,25 +261,26 @@ export class Developer extends Component {
           <div className="developer__main">
             <div className="developer__formation">
               <h2 className="developer__adalab--title">
-                {text[language].formation}{' '}
+                {texts.formation}{' '}
                 <img
                   src={LogoAdalab}
                   alt="Adalab"
                   className="developer__adalab--logo"
                 />
-                <span className="developer--more" onClick={this.knowMore}>
-                  {text[language].more}
+                <span
+                  className="developer--more"
+                  onClick={this.onClickKnowMore}
+                >
+                  {texts.more}
                 </span>
               </h2>
 
-              {this.state.knowMore ? (
-                <p className="developer__adalab--text">
-                  {text[language].adalabText}
-                </p>
+              {knowMore ? (
+                <p className="developer__adalab--text">{texts.adalabText}</p>
               ) : null}
-              {this.state.knowMore ? (
+              {knowMore ? (
                 <p className="developer__adalab--text">
-                  {text[language].adalabMore}
+                  {texts.adalabMore}
                   <a
                     href="https://www.adalab.es"
                     target="_Blank"
@@ -294,21 +294,16 @@ export class Developer extends Component {
             </div>
             <div className="developer__projects">
               <h2 className="developer__projects--title">
-                {text[language].projects}
-                <span className="developer--more" onClick={this.seeAll}>
-                  {this.state.seeAll
-                    ? text[language].reduced
-                    : text[language].expanded}
+                {texts.projects}
+                <span className="developer--more" onClick={this.onClickSeeAll}>
+                  {seeAll ? texts.reduced : texts.expanded}
                 </span>
               </h2>
-              <p className="developer__projects--text">
-                {text[language].projectsText}
-              </p>
+              <p className="developer__projects--text">{texts.projectsText}</p>
 
               <ProjectsList
-                seeAll={this.state.seeAll}
-                text={text}
-                language={language}
+                seeAll={seeAll}
+                texts={texts}
                 handleAdjustThumbnailsView={this.handleAdjustThumbnailsView}
               />
             </div>

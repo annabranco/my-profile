@@ -298,46 +298,47 @@ export class Seabed extends Component {
   };
 
   render() {
-    const text = this.props.texts.Seabed;
-    const language = this.props.language;
-
+    const {
+      hideInstructions,
+      readComponents,
+      showExperiences,
+      viewedExperiences,
+      showOtherSkills,
+      viewedOtherSkills,
+      heroThinks
+    } = this.state;
+    const { texts, textsExperiences, textsOtherSkills } = this.props;
     return (
       <section className="section__seabed">
-        {this.state.hideInstructions ||
+        {hideInstructions ||
         !window.matchMedia('(min-width: 768px)').matches ? null : (
           <div className="seabed__message--outer floating-soft">
-            <p className="seabed__message">{text[language].message}</p>
+            <p className="seabed__message">{texts.message}</p>
             <p className="seabed__message seabed__message-keyboard">
-              {text[language].messageKeyboard}
+              {texts.messageKeyboard}
             </p>
             <p className="seabed__message seabed__message-devices">
-              {text[language].messageDevices}
+              {texts.messageDevices}
             </p>
           </div>
         )}
 
         {!window.matchMedia('(min-width: 768px)').matches &&
-        !this.state.readComponents.Experiences &&
-        !this.state.readComponents.OtherSkills ? (
+        !readComponents.Experiences &&
+        !readComponents.OtherSkills ? (
           <React.Fragment>
-            <p className="seabed__findSomething floating-soft">
-              {text[language].find}
-            </p>
-            <p className="seabed__findSomething floating-soft">
-              {text[language].find2}
-            </p>
+            <p className="seabed__findSomething floating-soft">{texts.find}</p>
+            <p className="seabed__findSomething floating-soft">{texts.find2}</p>
           </React.Fragment>
         ) : null}
 
         <div className="seabed__go--experiences floating floating-delay">
           <p className="seabed__go-text seabed__go-textRight">
-            {text[language].experiences}
+            {texts.experiences}
           </p>
         </div>
         <div className="seabed__go--otherSkills floating">
-          <p className="seabed__go-text seabed__go-textLeft">
-            {text[language].skills}
-          </p>
+          <p className="seabed__go-text seabed__go-textLeft">{texts.skills}</p>
         </div>
 
         <img
@@ -351,35 +352,28 @@ export class Seabed extends Component {
           <p className="seabed__anna">Anna Branco</p>
         </div>
 
-        {this.state.showExperiences ||
-        !window.matchMedia('(min-width: 768px)').matches ? (
+        {showExperiences || !window.matchMedia('(min-width: 768px)').matches ? (
           <Experiences
-            texts={this.props.texts}
-            language={this.props.language}
-            viewedExperiences={this.state.viewedExperiences}
+            texts={textsExperiences}
+            viewedExperiences={viewedExperiences}
             markAsRead={this.markExperiencesAsRead}
           />
         ) : null}
 
-        {this.state.showOtherSkills ||
-        !window.matchMedia('(min-width: 768px)').matches ? (
+        {showOtherSkills || !window.matchMedia('(min-width: 768px)').matches ? (
           <OtherSkills
-            texts={this.props.texts}
-            language={this.props.language}
-            viewedOtherSkills={this.state.viewedOtherSkills}
+            texts={textsOtherSkills}
+            viewedOtherSkills={viewedOtherSkills}
             markAsRead={this.markOtherSkillsAsRead}
           />
         ) : null}
 
-        {this.state.readComponents.OtherSkills &&
-        this.state.readComponents.Experiences ? (
-          <p className="seabed__back">{text[language].time2go}</p>
+        {readComponents.OtherSkills && readComponents.Experiences ? (
+          <p className="seabed__back">{texts.time2go}</p>
         ) : null}
 
-        {this.state.heroThinks !== undefined ? (
-          <p className="hero__thinks">
-            {text[language].thoughts[this.state.heroThinks]}
-          </p>
+        {heroThinks !== undefined ? (
+          <p className="hero__thinks">{texts.thoughts[heroThinks]}</p>
         ) : null}
       </section>
     );

@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class InbetweenBar extends Component {
-  render() {
-    return <div className="innertext--between">{this.props.title}</div>;
-  }
-}
+export const InbetweenBar = ({ title }) => (
+  <div className="innertext--between">{title}</div>
+);

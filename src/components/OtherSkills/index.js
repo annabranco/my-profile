@@ -68,20 +68,18 @@ export class OtherSkills extends Component {
   };
 
   render() {
-    const text = this.props.texts.OtherSkills;
-    const language = this.props.language;
+    const { read } = this.state;
+    const { texts, viewedOtherSkills } = this.props;
 
     return (
       <React.Fragment>
-        {!this.props.viewedOtherSkills &&
-        !this.state.read &&
+        {!viewedOtherSkills &&
+        !read &&
         window.matchMedia('(min-width: 768px)').matches ? (
           <React.Fragment>
-            <p className="seabed__findSomething">{text[language].find}</p>
-            <p className="seabed__findSomething">{text[language].find2}</p>
-            <p className="seabed__findSomething">
-              {text[language].investigate}
-            </p>
+            <p className="seabed__findSomething">{texts.find}</p>
+            <p className="seabed__findSomething">{texts.find2}</p>
+            <p className="seabed__findSomething">{texts.investigate}</p>
           </React.Fragment>
         ) : null}
 
@@ -97,14 +95,12 @@ export class OtherSkills extends Component {
               </button>
 
               <div className="otherSkills__outer otherSkills__outer--languages">
-                <h2 className="skills__table--title">
-                  {text[language].languages}
-                </h2>
+                <h2 className="skills__table--title">{texts.languages}</h2>
                 <table className="skills__table skills__table--languages">
                   <tbody>
                     <tr>
                       <td>
-                        {text[language].english}
+                        {texts.english}
                         <img
                           src="https://www.countryflags.io/us/flat/16.png"
                           alt=""
@@ -116,26 +112,26 @@ export class OtherSkills extends Component {
                           className="fas fa-comments icon--languages"
                           title="Speaking"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                       <td>
                         <i
                           className="fas fa-book-open icon--languages"
                           title="Reading"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                       <td>
                         <i
                           className="fas fa-pen icon--languages"
                           title="Writing"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        {text[language].spanish}
+                        {texts.spanish}
                         <img
                           src="https://www.countryflags.io/es/flat/16.png"
                           alt=""
@@ -147,26 +143,26 @@ export class OtherSkills extends Component {
                           className="fas fa-comments icon--languages"
                           title="Speaking"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                       <td>
                         <i
                           className="fas fa-book-open icon--languages"
                           title="Reading"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                       <td>
                         <i
                           className="fas fa-pen icon--languages"
                           title="Writing"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        {text[language].portuguese}
+                        {texts.portuguese}
                         <img
                           src="https://www.countryflags.io/br/flat/16.png"
                           alt=""
@@ -178,26 +174,26 @@ export class OtherSkills extends Component {
                           className="fas fa-comments icon--languages"
                           title="Speaking"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                       <td>
                         <i
                           className="fas fa-book-open icon--languages"
                           title="Reading"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                       <td>
                         <i
                           className="fas fa-pen icon--languages"
                           title="Writing"
                         ></i>
-                        {text[language].fluent}
+                        {texts.fluent}
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        {text[language].french}
+                        {texts.french}
                         <img
                           src="https://www.countryflags.io/fr/flat/16.png"
                           alt=""
@@ -209,26 +205,26 @@ export class OtherSkills extends Component {
                           className="fas fa-comments icon--languages"
                           title="Speaking"
                         ></i>
-                        {text[language].intermediate}
+                        {texts.intermediate}
                       </td>
                       <td>
                         <i
                           className="fas fa-book-open icon--languages"
                           title="Reading"
                         ></i>
-                        {text[language].intermediate}
+                        {texts.intermediate}
                       </td>
                       <td>
                         <i
                           className="fas fa-pen icon--languages"
                           title="Writing"
                         ></i>
-                        {text[language].basic}
+                        {texts.basic}
                       </td>
                     </tr>
                     <tr>
                       <td>
-                        {text[language].russian}
+                        {texts.russian}
                         <img
                           src="https://www.countryflags.io/ru/flat/16.png"
                           alt=""
@@ -240,21 +236,21 @@ export class OtherSkills extends Component {
                           className="fas fa-comments icon--languages"
                           title="Speaking"
                         ></i>
-                        {text[language].basic}
+                        {texts.basic}
                       </td>
                       <td>
                         <i
                           className="fas fa-book-open icon--languages"
                           title="Reading"
                         ></i>
-                        {text[language].basic}
+                        {texts.basic}
                       </td>
                       <td>
                         <i
                           className="fas fa-pen icon--languages"
                           title="Writing"
                         ></i>
-                        {text[language].basic}
+                        {texts.basic}
                       </td>
                     </tr>
                   </tbody>
@@ -262,43 +258,41 @@ export class OtherSkills extends Component {
               </div>
 
               <div className="otherSkills__outer otherSkills__outer--other">
-                <h2 className="skills__table--title">{text[language].other}</h2>
+                <h2 className="skills__table--title">{texts.other}</h2>
                 <table className="skills__table skills__table--other">
                   <thead>
                     <tr>
-                      <th>{text[language].skill}</th>
-                      <th>{text[language].how}</th>
+                      <th>{texts.skill}</th>
+                      <th>{texts.how}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{text[language].skill1}</td>
-                      <td>{text[language].skill1details}</td>
+                      <td>{texts.skill1}</td>
+                      <td>{texts.skill1details}</td>
                     </tr>
                     <tr>
-                      <td>{text[language].skill2}</td>
-                      <td>{text[language].skill2details}</td>
+                      <td>{texts.skill2}</td>
+                      <td>{texts.skill2details}</td>
                     </tr>
                     <tr>
-                      <td>{text[language].skill3}</td>
-                      <td>{text[language].skill3details}</td>
+                      <td>{texts.skill3}</td>
+                      <td>{texts.skill3details}</td>
                     </tr>
                     <tr>
-                      <td>{text[language].skill4}</td>
-                      <td>{text[language].skill4details}</td>
+                      <td>{texts.skill4}</td>
+                      <td>{texts.skill4details}</td>
                     </tr>
                     <tr>
-                      <td>{text[language].skill5}</td>
-                      <td>{text[language].skill5details}</td>
+                      <td>{texts.skill5}</td>
+                      <td>{texts.skill5details}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div className="otherSkills__outer otherSkills__outer--design">
-                <h2 className="skills__table--title">
-                  {text[language].design}
-                </h2>
-                <p className="skills__design">{text[language].samples}</p>
+                <h2 className="skills__table--title">{texts.design}</h2>
+                <p className="skills__design">{texts.samples}</p>
                 <div className="skills__design--samples">
                   <a
                     href="https://pre00.deviantart.net/f5fe/th/pre/f/2018/065/a/2/rio_de_janeiro__um_retrato_da_violencia_by_annabranco-dc53j1i.jpg"

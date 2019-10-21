@@ -32,32 +32,32 @@ export class Languages extends Component {
   };
 
   render() {
-    const text = this.props.texts.Languages;
-    const language = this.props.language;
+    const { frenchClicked, display } = this.state;
+    const { texts, changeLanguage, language } = this.props;
 
     return (
       <React.Fragment>
-        {this.state.display && (
+        {display && (
           <div className="languages__outer">
             <p className="languages__text">
-              {this.state.frenchClicked ? '' : text[language].readingLanguage}
+              {frenchClicked ? '' : texts.readingLanguage}
             </p>
             <p className="languages__text languages__text-warning">
-              {this.state.frenchClicked
+              {frenchClicked
                 ? "Je suis désolée mais le français n'est pas encore implementé."
-                : text[language].changeDefault}
+                : texts.changeDefault}
             </p>
 
             <div className="languages__flags--outer">
               <div
                 className="languages__flags--inner"
                 lang="en"
-                onClick={this.props.changeLanguage}
+                onClick={changeLanguage}
               >
-                <p className="languages__label">{text.en.language}</p>
+                <p className="languages__label">English</p>
                 <img
                   className={`languages__flag ${
-                    language === 'en' ? 'languages__flag--active' : ''
+                    language === 'English' ? 'languages__flag--active' : ''
                   }`}
                   src="https://www.countryflags.io/us/shiny/64.png"
                   alt=""
@@ -67,12 +67,12 @@ export class Languages extends Component {
               <div
                 className="languages__flags--inner"
                 lang="es"
-                onClick={this.props.changeLanguage}
+                onClick={changeLanguage}
               >
-                <p className="languages__label">{text.es.language}</p>
+                <p className="languages__label">Español</p>
                 <img
                   className={`languages__flag ${
-                    language === 'es' ? 'languages__flag--active' : ''
+                    language === 'Español' ? 'languages__flag--active' : ''
                   }`}
                   src="https://www.countryflags.io/es/shiny/64.png"
                   alt=""
@@ -82,12 +82,12 @@ export class Languages extends Component {
               <div
                 className="languages__flags--inner"
                 lang="pt"
-                onClick={this.props.changeLanguage}
+                onClick={changeLanguage}
               >
-                <p className="languages__label">{text.pt.language}</p>
+                <p className="languages__label">Português</p>
                 <img
                   className={`languages__flag ${
-                    language === 'pt' ? 'languages__flag--active' : ''
+                    language === 'Português' ? 'languages__flag--active' : ''
                   }`}
                   src="https://www.countryflags.io/br/shiny/64.png"
                   alt=""
@@ -99,10 +99,10 @@ export class Languages extends Component {
                 lang="fr"
                 onClick={this.frenchSelected}
               >
-                <p className="languages__label notYet">{text.fr.language}</p>
+                <p className="languages__label notYet">Français</p>
                 <img
                   className={`languages__flag notYet ${
-                    language === 'en' ? 'languages__flag--active' : ''
+                    language === 'Français' ? 'languages__flag--active' : ''
                   }`}
                   src="https://www.countryflags.io/fr/shiny/64.png"
                   alt=""
@@ -110,7 +110,7 @@ export class Languages extends Component {
               </div>
             </div>
 
-            <p className="languages__text">{text[language].changeUpperBar}</p>
+            <p className="languages__text">{texts.changeUpperBar}</p>
             <p className="languages__text languages__text--checkbox">
               <input
                 type="checkbox"
@@ -118,7 +118,7 @@ export class Languages extends Component {
                 onClick={this.handleShowLanguagePopupAgain}
                 defaultChecked
               />
-              {text[language].chekboxText}
+              {texts.chekboxText}
             </p>
             <button className="languages__close" onClick={this.closeDisplay}>
               ok
