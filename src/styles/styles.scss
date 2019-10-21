@@ -1,9 +1,9 @@
-@import 'scss/core/reset';
-@import 'scss/core/variables';
+@import 'core/reset';
+@import 'core/variables';
 @import '../components/App/styles';
 @import '../components/Header/styles';
 @import '../components/Languages/styles';
-@import '../components/Hero/Hero';
+@import '../components/Hero/styles';
 @import '../components/Social/styles';
 @import '../components/ScrollArea/styles';
 @import '../components/InbetweenBar/styles';
@@ -13,4 +13,4 @@
 @import '../components/Seabed/styles';
 @import '../components/Experiences/styles';
 @import '../components/OtherSkills/styles';
-@import 'scss/core/helpers';
+@import 'core/helpers';
