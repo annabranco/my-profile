@@ -1,50 +1,17 @@
 {
-  "languages": {
-    "en": {
+  "en": {
+    "languages": {
       "language"        : "English",
       "readingLanguage" : "You are reading my professional profile in English.",
       "changeDefault"   : "Click below to change the default language:",
       "changeUpperBar"  : "You may also change it in the upper bar",
       "chekboxText"     : "Do not show me this message again."
     },
-    "es": {
-      "language"        : "Español",
-      "readingLanguage" : "Estás leyendo mi perfil profesional en español.",
-      "changeDefault"   : "Haz click abajo para cambiar el idioma predeterminado:",
-      "changeUpperBar"  : "También puedes cambiarlo en la barra superior",
-      "chekboxText"     : "No enseñar este mensaje otra vez."
-    },
-    "pt": {
-      "language"        : "Português",
-      "readingLanguage" : "Você está lendo meu perfil profissional em português.",
-      "changeDefault"   : "Clique abaixo para mudar o idioma padrão:",
-      "changeUpperBar"  : "Você também pode mudá-lo na barra superior",
-      "chekboxText"     : "Não mostrar essa mensagem outra vez."
-    },
-    "fr": {
-      "language"        : "Français",
-      "readingLanguage" : "Vous lisez mon profil professionel en français.",
-      "changeDefault"   : "Cliquez ci-dessous pour changer le langue par défaut:",
-      "changeUpperBar"  : "Vous pouvez aussi le changer dans la barre supérieure",
-      "chekboxText"     : "Ne plus afficher ce message."
-    }
-  },
-  "header": {
-    "en": {
+    "header": {
       "title"   : "Anna Branco's professional profile",
       "contact" : "Contact"
     },
-    "es": {
-      "title"   : "Perfil profesional de Anna Branco",
-      "contact" : "Contacto"
-    },
-    "pt": {
-      "title"   : "Perfil profissional de Anna Branco",
-      "contact" : "Contato"
-    }
-  },
-  "hero": {
-    "en": {
+    "hero": {
       "job"       : "Front End Developer",
       "aditional" : "Developing sites and apps where navigating around is a beautiful journey",
       "call"      : "Call",
@@ -52,25 +19,7 @@
       "advise"    : "For an enhanced user experience, visiting this page on a full screen desktop is highly advised.",
       "thankyou"  : "Thank you very much for navigating trough all my profile!"
     },
-    "es": {
-      "job"       : "Desarrolladora Front end junior",
-      "aditional" : "Desarrollando sitios web y apps por donde navegar sea una bonita experiencia",
-      "call"      : "Llamar",
-      "chat"      : "Mensaje",
-      "advise"    : "Para una mejor experiencia de usuario, es aconsejable visitar esta página en un ordenador de mesa o notebook en pantalla completa.",
-      "thankyou"  : "Muchas gracias por navegar por todo mi perfil!"
-    },
-    "pt": {
-      "job"       : "Programadora Front end júnior",
-      "aditional" : "Desenvolvendo sites e apps pelos quais navegar seja uma bonita experiência",
-      "call"      : "Chamar",
-      "chat"      : "Chat",
-      "advise"    : "Para uma melhor experiência de usuário, recomenda-se visitar essa página em um computador de mesa ou notebook em tela cheia.",
-      "thankyou"  : "Muito obrigada por navegar por todo o meu perfil!"
-    }
-  },
-  "developer": {
-    "en": {
+    "developer": {
       "title"          : "Technical competences",
       "main"           : "Main skills",
       "other"          : "Other skills",
@@ -86,41 +35,7 @@
       "goUp"           : "go up",
       "showMore"       : "show more"
     },
-    "es": {
-      "title"          : "Competencias técnicas",
-      "main"           : "Habilidades principales",
-      "other"          : "Otras habilidades",
-      "formation"      : "Formación por",
-      "more"           : "Saber más",
-      "expanded"       : "Expandir visualización",
-      "reduced"        : "Reducir visualización",
-      "projects"       : "Proyectos",
-      "adalabText"     : "Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector tecnológico. de estudio al día (6 presenciales), profundizamos en la parte técnica del desarrollo front-end, además de en temas relacionados con el desarrollo profesional. Trabajamos también com metodologías ágiles.",
-      "adalabMore"     : "Para saber sobre Adalab, puedes consultar su página web: ",
-      "projectsText"   : "En esta sección puede ver algunos de mis proyectos y creacciones:",
-      "showThumbnails" : "Enseñar miniaturas",
-      "goUp"           : "subir",
-      "showMore"       : "ver más"
-    },
-    "pt": {
-      "title"          : "Competências técnicas",
-      "main"           : "Principais habilidades",
-      "other"          : "Outras habilidades",
-      "formation"      : "Formação por",
-      "more"           : "Saiba mais",
-      "expanded"       : "Expandir visualização",
-      "reduced"        : "Reduzir visualização",
-      "projects"       : "Projetos",
-      "adalabText"     : "Adalab é um programa de formação intensiva destinado à inclusão de mulheres no setor tecnológico. Em quatro meses, com uma média de 9 horas diárias de estudos (6 das quais presenciais), nos aprofundamos na parte técnica de front-end e também em importantes temas relacionados ao desenvolvimento profissional. Trabalhamos também com metologias ágeis.",
-      "adalabMore"     : "Para saber sobre Adalab, você pode consultar sua página web: ",
-      "projectsText"   : "Nesta seção você pode ser alguns de meus projetos e criações:",
-      "showThumbnails" : "Mostrar miniaturas",
-      "goUp"           : "subir",
-      "showMore"       : "ver mais"
-    }
-  },
-  "formation": {
-    "en": {
+    "formation": {
       "title"  : "Formation",
       "psy"    : "Psychology",
       "ir"     : "International Relations",
@@ -129,27 +44,7 @@
       "brazil" : "Brazil",
       "spain"  : "Spain"
     },
-    "es": {
-      "title"  : "Formación",
-      "psy"    : "Psicología",
-      "ir"     : "Relaciones Internacionales",
-      "master" : "Máster en Relaciones Internacionales",
-      "grade"  : "Grado final: ",
-      "brazil" : "Brasil",
-      "spain"  : "España"
-    },
-    "pt": {
-      "title"  : "Formação",
-      "psy"    : "Psicologia",
-      "ir"     : "Relações Internacionais",
-      "master" : "Mestrado em Relações Internacionais",
-      "grade"  : "Média final: ",
-      "brazil" : "Brasil",
-      "spain"  : "Espanha"
-    }
-  },
-  "seabed": {
-    "en": {
+    "seabed": {
       "title"           : "Other informations",
       "message"         : "Beyond developing webpages and applications, I love to experiment programming videogames, promoting interactivity with the user and lots of fun.",
       "messageKeyboard" : "Thus, now you know my basic profile, how about a little gaming experience? Move the diver to the desired direction using arrows keys on your keyboard (◀︎ or ▶︎) to know more about my profile.",
@@ -169,49 +64,7 @@
         "Oh.. I wish we had time to swimm around..."
       ]
     },
-    "es": {
-      "title"           : "Otros datos de interés",
-      "message"         : "Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.",
-      "messageKeyboard" : "Ahora que ya conoces mi perfil básico, ¿qué te parece jugar un poco? Mueve a la buceadora usando las flechas del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.",
-      "experiences"     : "Experiencias anteriores",
-      "skills"          : "Otras habilidades",
-      "time2go"         : "Es hora de volver...",
-      "find"            : "Has encontrado dos objetos curiosos en el fondo del mar.",
-      "find2"           : "Haz click en cualquier uno para investigarlo.",
-      "thoughts"        : [
-        "Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?",
-        "Que raro... podría jurar que he visto un gato disfrazado de pulpo",
-        "El mar... la frontera final...",
-        "hmm... quizás otro día",
-        "Me acordé ahora de aquella peli antigua con una nave alienígena viviendo en un abismo en el mar...",
-        "Nadaremos, nadaremos... en el maaar...",
-        "Hay veces que se me olvida que soy solo una personaje dentro de un perfil profesional",
-        "Oh.. me gustaría que tuviesemos tiempo para nadar por allí..."
-      ]
-    },
-    "pt": {
-      "title"           : "Outras informações",
-      "message"         : "Além de desenvolver páginas e aplicacões, adoro experimentar com programação de jogos, promovendo interatividade com o usuário de uma maneira bastante lúdica.",
-      "messageKeyboard" : "Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎) para saber mais sobre o meu perfil.",
-      "experiences"     : "Experiências anteriores",
-      "skills"          : "Outras habilidades",
-      "time2go"         : "É hora de voltar...",
-      "find"            : "Você encontrou dois objetos curiosos no fundo do mar.",
-      "find2"           : "Clique em qualquer um de eles para investigá-lo.",
-      "thoughts"        : [
-        "Pois é... eu também adoraria explorar mais, mas temos que nos focar no perfil profissional, não é?",
-        "Que estranho... eu poderia jurar que acabei de ver um gato disfarçado de polvo",
-        "O mar... a fronteira final...",
-        "hmm... talvez outro dia",
-        "Lembrei-me agora daquele filme antigo com uma nave alienígena vivendo em um abismo no mar...",
-        "Continue a nadar... continue a nadaaar...",
-        "Às vezes eu esqueço que sou só uma personagem dentro de um perfil profissional",
-        "Oh.. eu gostaria que tivéssemos tempo para nadar por aí..."
-      ]
-    }
-  },
-  "experiences": {
-    "en": {
+    "experiences": {
       "find"        : "You've found a curious object laying on the sea bed.",
       "investigate" : "Click on in to investigate it.",
       "ict"         : "ICT Instructor",
@@ -224,35 +77,7 @@
       "brazil"      : "Brazil",
       "spain"       : "Spain"
     },
-    "es": {
-      "find"        : "Has encontrado un objecto curioso en el fondo del mar.",
-      "investigate" : "Haz click en ello para investigarlo.",
-      "ict"         : "Instructora de TIC",
-      "ictDetails"  : "He impartido clases sobre habilidades de Tecnología de la Información y Comunicación: ambiente windows, aplicaciones básicas y uso de internet, enseñando más de 210 niños y niñas de Educación Primaria, de los 6 a los 12 años de edad.",
-      "eru"         : "Delegada Internacional de Respuesta en Emergencias (ERU)",
-      "eruDetails"  : "He sido desplegada a Grecia un misión temporal (2 meses), brindando apoyo psicosocial a personas sirias y otros refugiados y refugiadas llegando a Europa.",
-      "tj"          : "Funcionaria Pública",
-      "tjDetails"   : "Funcionaria con carrera ascendente, empezando como técnica administrativa y llegando a ser jefe de sector responsable por proyectos sociales.",
-      "linkedin"    : "Para más detalles y referencias, por favor visite ",
-      "brazil"      : "Brasil",
-      "spain"       : "España"
-    },
-    "pt": {
-      "find"        : "Você encontrou um objeto curioso no fundo do mar.",
-      "investigate" : "Clique nele para investigá-lo.",
-      "ict"         : "Instructora de TIC",
-      "ictDetails"  : "Dei aulas sobre habilidades de Tecnologia de Informação e Comunicação: ambiente windows, softwares básicos e uso de internet, ensinando mais de 210 crianças de Educação Primária, de 6 a 12 anos de idade.",
-      "eru"         : "Delegada Internacional de Resposta em Emergências (ERU)",
-      "eruDetails"  : "Trabalhei na Grécia em uma missão temporária (2 meses), propiciando apoio psicossocial para pessoas sírias e outros refugiados e refugiadas chegando à Europa.",
-      "tj"          : "Servidora Pública",
-      "tjDetails"   : "Servidora pública com uma carreira ascendente, começando como técnica administrativa e chegando a ser chefe de setor responsável por projetos sociais.",
-      "linkedin"    : "Para mais informações e referências, por favor visite ",
-      "brazil"      : "Brasil",
-      "spain"       : "Espanha"
-    }
-  },
-  "otherSkills": {
-    "en": {
+    "otherSkills": {
       "find"          : "You've found... a computer?!",
       "find2"         : "And it is oddly on",
       "investigate"   : "Click on the screen to investigate it.",
@@ -280,8 +105,88 @@
       "skill5details" : "Very good experience working within multicultural environments",
       "design"        : "Graphic design",
       "samples"       : "Here are some of my design creations:"
+    }
+  },
+
+  "es": {
+    "languages": {
+      "language"        : "Español",
+      "readingLanguage" : "Estás leyendo mi perfil profesional en español.",
+      "changeDefault"   : "Haz click abajo para cambiar el idioma predeterminado:",
+      "changeUpperBar"  : "También puedes cambiarlo en la barra superior",
+      "chekboxText"     : "No enseñar este mensaje otra vez."
     },
-    "es": {
+    "header": {
+      "title"   : "Perfil profesional de Anna Branco",
+      "contact" : "Contacto"
+    },
+    "hero": {
+      "job"       : "Desarrolladora Front end junior",
+      "aditional" : "Desarrollando sitios web y apps por donde navegar sea una bonita experiencia",
+      "call"      : "Llamar",
+      "chat"      : "Mensaje",
+      "advise"    : "Para una mejor experiencia de usuario, es aconsejable visitar esta página en un ordenador de mesa o notebook en pantalla completa.",
+      "thankyou"  : "Muchas gracias por navegar por todo mi perfil!"
+    },
+    "developer": {
+      "title"          : "Competencias técnicas",
+      "main"           : "Habilidades principales",
+      "other"          : "Otras habilidades",
+      "formation"      : "Formación por",
+      "more"           : "Saber más",
+      "expanded"       : "Expandir visualización",
+      "reduced"        : "Reducir visualización",
+      "projects"       : "Proyectos",
+      "adalabText"     : "Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector tecnológico. de estudio al día (6 presenciales), profundizamos en la parte técnica del desarrollo front-end, además de en temas relacionados con el desarrollo profesional. Trabajamos también com metodologías ágiles.",
+      "adalabMore"     : "Para saber sobre Adalab, puedes consultar su página web: ",
+      "projectsText"   : "En esta sección puede ver algunos de mis proyectos y creacciones:",
+      "showThumbnails" : "Enseñar miniaturas",
+      "goUp"           : "subir",
+      "showMore"       : "ver más"
+    },
+    "formation": {
+      "title"  : "Formación",
+      "psy"    : "Psicología",
+      "ir"     : "Relaciones Internacionales",
+      "master" : "Máster en Relaciones Internacionales",
+      "grade"  : "Grado final: ",
+      "brazil" : "Brasil",
+      "spain"  : "España"
+    },
+    "seabed": {
+      "title"           : "Otros datos de interés",
+      "message"         : "Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.",
+      "messageKeyboard" : "Ahora que ya conoces mi perfil básico, ¿qué te parece jugar un poco? Mueve a la buceadora usando las flechas del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.",
+      "experiences"     : "Experiencias anteriores",
+      "skills"          : "Otras habilidades",
+      "time2go"         : "Es hora de volver...",
+      "find"            : "Has encontrado dos objetos curiosos en el fondo del mar.",
+      "find2"           : "Haz click en cualquier uno para investigarlo.",
+      "thoughts"        : [
+        "Ya... a mí también me encantaría explorar más, pero tenemos que focarnos en el perfil profesional, ¿verdad?",
+        "Que raro... podría jurar que he visto un gato disfrazado de pulpo",
+        "El mar... la frontera final...",
+        "hmm... quizás otro día",
+        "Me acordé ahora de aquella peli antigua con una nave alienígena viviendo en un abismo en el mar...",
+        "Nadaremos, nadaremos... en el maaar...",
+        "Hay veces que se me olvida que soy solo una personaje dentro de un perfil profesional",
+        "Oh.. me gustaría que tuviesemos tiempo para nadar por allí..."
+      ]
+    },
+    "experiences": {
+      "find"        : "Has encontrado un objecto curioso en el fondo del mar.",
+      "investigate" : "Haz click en ello para investigarlo.",
+      "ict"         : "Instructora de TIC",
+      "ictDetails"  : "He impartido clases sobre habilidades de Tecnología de la Información y Comunicación: ambiente windows, aplicaciones básicas y uso de internet, enseñando más de 210 niños y niñas de Educación Primaria, de los 6 a los 12 años de edad.",
+      "eru"         : "Delegada Internacional de Respuesta en Emergencias (ERU)",
+      "eruDetails"  : "He sido desplegada a Grecia un misión temporal (2 meses), brindando apoyo psicosocial a personas sirias y otros refugiados y refugiadas llegando a Europa.",
+      "tj"          : "Funcionaria Pública",
+      "tjDetails"   : "Funcionaria con carrera ascendente, empezando como técnica administrativa y llegando a ser jefe de sector responsable por proyectos sociales.",
+      "linkedin"    : "Para más detalles y referencias, por favor visite ",
+      "brazil"      : "Brasil",
+      "spain"       : "España"
+    },
+    "otherSkills": {
       "find"          : "Has encontrado... un ordenador?!",
       "find2"         : "Y curiosamente está funcionando...",
       "investigate"   : "Haz click en la pantalla para investigarlo.",
@@ -309,8 +214,87 @@
       "skill5details" : "Excelente experiencia trabajando en ambientes multiculturales",
       "design"        : "Diseño gráfico",
       "samples"       : "Aquí puedes ver algunas creaciones mías:"
+    }
+  },
+  "pt": {
+    "languages": {
+      "language"        : "Português",
+      "readingLanguage" : "Você está lendo meu perfil profissional em português.",
+      "changeDefault"   : "Clique abaixo para mudar o idioma padrão:",
+      "changeUpperBar"  : "Você também pode mudá-lo na barra superior",
+      "chekboxText"     : "Não mostrar essa mensagem outra vez."
     },
-    "pt": {
+    "header": {
+      "title"   : "Perfil profissional de Anna Branco",
+      "contact" : "Contato"
+    },
+    "hero": {
+      "job"       : "Programadora Front end júnior",
+      "aditional" : "Desenvolvendo sites e apps pelos quais navegar seja uma bonita experiência",
+      "call"      : "Chamar",
+      "chat"      : "Chat",
+      "advise"    : "Para uma melhor experiência de usuário, recomenda-se visitar essa página em um computador de mesa ou notebook em tela cheia.",
+      "thankyou"  : "Muito obrigada por navegar por todo o meu perfil!"
+    },
+    "developer": {
+      "title"          : "Competências técnicas",
+      "main"           : "Principais habilidades",
+      "other"          : "Outras habilidades",
+      "formation"      : "Formação por",
+      "more"           : "Saiba mais",
+      "expanded"       : "Expandir visualização",
+      "reduced"        : "Reduzir visualização",
+      "projects"       : "Projetos",
+      "adalabText"     : "Adalab é um programa de formação intensiva destinado à inclusão de mulheres no setor tecnológico. Em quatro meses, com uma média de 9 horas diárias de estudos (6 das quais presenciais), nos aprofundamos na parte técnica de front-end e também em importantes temas relacionados ao desenvolvimento profissional. Trabalhamos também com metologias ágeis.",
+      "adalabMore"     : "Para saber sobre Adalab, você pode consultar sua página web: ",
+      "projectsText"   : "Nesta seção você pode ser alguns de meus projetos e criações:",
+      "showThumbnails" : "Mostrar miniaturas",
+      "goUp"           : "subir",
+      "showMore"       : "ver mais"
+    },
+    "formation": {
+      "title"  : "Formação",
+      "psy"    : "Psicologia",
+      "ir"     : "Relações Internacionais",
+      "master" : "Mestrado em Relações Internacionais",
+      "grade"  : "Média final: ",
+      "brazil" : "Brasil",
+      "spain"  : "Espanha"
+    },
+    "seabed": {
+      "title"           : "Outras informações",
+      "message"         : "Além de desenvolver páginas e aplicacões, adoro experimentar com programação de jogos, promovendo interatividade com o usuário de uma maneira bastante lúdica.",
+      "messageKeyboard" : "Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎) para saber mais sobre o meu perfil.",
+      "experiences"     : "Experiências anteriores",
+      "skills"          : "Outras habilidades",
+      "time2go"         : "É hora de voltar...",
+      "find"            : "Você encontrou dois objetos curiosos no fundo do mar.",
+      "find2"           : "Clique em qualquer um de eles para investigá-lo.",
+      "thoughts"        : [
+        "Pois é... eu também adoraria explorar mais, mas temos que nos focar no perfil profissional, não é?",
+        "Que estranho... eu poderia jurar que acabei de ver um gato disfarçado de polvo",
+        "O mar... a fronteira final...",
+        "hmm... talvez outro dia",
+        "Lembrei-me agora daquele filme antigo com uma nave alienígena vivendo em um abismo no mar...",
+        "Continue a nadar... continue a nadaaar...",
+        "Às vezes eu esqueço que sou só uma personagem dentro de um perfil profissional",
+        "Oh.. eu gostaria que tivéssemos tempo para nadar por aí..."
+      ]
+    },
+    "experiences": {
+      "find"        : "Você encontrou um objeto curioso no fundo do mar.",
+      "investigate" : "Clique nele para investigá-lo.",
+      "ict"         : "Instructora de TIC",
+      "ictDetails"  : "Dei aulas sobre habilidades de Tecnologia de Informação e Comunicação: ambiente windows, softwares básicos e uso de internet, ensinando mais de 210 crianças de Educação Primária, de 6 a 12 anos de idade.",
+      "eru"         : "Delegada Internacional de Resposta em Emergências (ERU)",
+      "eruDetails"  : "Trabalhei na Grécia em uma missão temporária (2 meses), propiciando apoio psicossocial para pessoas sírias e outros refugiados e refugiadas chegando à Europa.",
+      "tj"          : "Servidora Pública",
+      "tjDetails"   : "Servidora pública com uma carreira ascendente, começando como técnica administrativa e chegando a ser chefe de setor responsável por projetos sociais.",
+      "linkedin"    : "Para mais informações e referências, por favor visite ",
+      "brazil"      : "Brasil",
+      "spain"       : "Espanha"
+    },
+    "otherSkills": {
       "find"          : "Você encontrou... um computador?!",
       "find2"         : "E estranhamente está funcionando...",
       "investigate"   : "Clique na tela para investigá-lo.",
@@ -338,6 +322,15 @@
       "skill5details" : "Excelente experiência trabalhando em ambientes multiculturais",
       "design"        : "Desenho gráfico",
       "samples"       : "Você pode aqui algumas criações minhas:"
+    }
+  },
+  "fr": {
+    "languages": {
+      "language"        : "Français",
+      "readingLanguage" : "Vous lisez mon profil professionel en français.",
+      "changeDefault"   : "Cliquez ci-dessous pour changer le langue par défaut:",
+      "changeUpperBar"  : "Vous pouvez aussi le changer dans la barre supérieure",
+      "chekboxText"     : "Ne plus afficher ce message."
     }
   }
 }
