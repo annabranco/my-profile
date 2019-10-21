@@ -1,0 +1,14 @@
+export const Bootstrap = require('./skills/bootstrap.png');
+export const Css = require('./skills/css3.png');
+export const FloatingLeft = require('./other/floatingLeft.gif');
+export const FloatingRight = require('./other/floatingRight.gif');
+export const Git = require('./skills/git.png');
+export const Github = require('./skills/github.png');
+export const Html = require('./skills/html5.png');
+export const Javascript = require('./skills/js.png');
+export const LogoAdalab = require('./logo-adalab.png');
+export const MacNotebook = require('./bg/bg-mac.jpg');
+export const Mugshot = require('./annabranco.png');
+export const SwimmingRight = require('./other/swimmingRight.gif');
+export const SwimmingLeft = require('./other/swimmingLeft.gif');
+export const Zeplin = require('./skills/zeplin.png');

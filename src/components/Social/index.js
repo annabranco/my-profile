@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Social extends React.Component {
+export class Social extends Component {
   render() {
     const text = this.props.text;
     const language = this.props.language;
@@ -69,5 +69,3 @@ class Social extends React.Component {
     );
   }
 }
-
-export default Social;

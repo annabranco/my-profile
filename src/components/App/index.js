@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import MainArea from './components/MainArea';
-import texts from './db/texts.js';
+import { Header, MainArea } from '../';
+import texts from '../../db/texts.js';
 
 const doc = document.documentElement;
 let adjustExpandedProjectsView = 0;
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 
@@ -203,5 +202,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

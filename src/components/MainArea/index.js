@@ -1,9 +1,7 @@
-import React from 'react';
-import Hero from './Hero';
-import ScrollArea from './ScrollArea';
-import Languages from './Languages';
+import React, { Component } from 'react';
+import { Hero, ScrollArea, Languages } from '../';
 
-class MainArea extends React.Component {
+export class MainArea extends Component {
   render() {
     return (
       <main className="main__outer">

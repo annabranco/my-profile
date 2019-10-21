@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Languages extends React.Component {
+export class Languages extends Component {
   constructor(props) {
     super(props);
 
@@ -129,5 +129,3 @@ class Languages extends React.Component {
     );
   }
 }
-
-export default Languages;

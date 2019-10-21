@@ -1,17 +1,19 @@
-import React from 'react';
-import ProjectsList from './ProjectsList';
-import LogoAdalab from '../images/logo-adalab.png';
-import html from '../images/skills/html5.png';
-import css from '../images/skills/css3.png';
-import javascript from '../images/skills/js.png';
-import git from '../images/skills/git.png';
-import github from '../images/skills/github.png';
-import bootstrap from '../images/skills/bootstrap.png';
-import zeplin from '../images/skills/zeplin.png';
+import React, { Component } from 'react';
+import { ProjectsList } from '../';
+import {
+  LogoAdalab,
+  Html,
+  Css,
+  Javascript,
+  Git,
+  Github,
+  Bootstrap,
+  Zeplin
+} from '../../images';
 
 let adjust = 0;
 
-class Developer extends React.Component {
+export class Developer extends Component {
   constructor(props) {
     super(props);
 
@@ -69,7 +71,7 @@ class Developer extends React.Component {
               <div className="skills__outer">
                 <h4 className="skills__text">CSS</h4>
                 <div className="skills__inner--icon">
-                  <img src={css} alt="" className="skills__icon" />
+                  <img src={Css} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
                   <i className="fas fa-star icon--star" aria-hidden></i>
@@ -81,7 +83,7 @@ class Developer extends React.Component {
               <div className="skills__outer">
                 <h4 className="skills__text">HTML</h4>
                 <div className="skills__inner--icon">
-                  <img src={html} alt="" className="skills__icon" />
+                  <img src={Html} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
                   <i className="fas fa-star icon--star" aria-hidden></i>
@@ -93,7 +95,7 @@ class Developer extends React.Component {
               <div className="skills__outer">
                 <h4 className="skills__text">JavaScript</h4>
                 <div className="skills__inner--icon">
-                  <img src={javascript} alt="" className="skills__icon" />
+                  <img src={Javascript} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
                   <i className="fas fa-star icon--star" aria-hidden></i>
@@ -134,7 +136,7 @@ class Developer extends React.Component {
               <div className="skills__outer">
                 <h4 className="skills__text">git</h4>
                 <div className="skills__inner--icon">
-                  <img src={git} alt="" className="skills__icon" />
+                  <img src={Git} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
                   <i className="fas fa-star icon--star" aria-hidden></i>
@@ -148,7 +150,7 @@ class Developer extends React.Component {
                 <h4 className="skills__text--others">GitHub</h4>
                 <div className="skills__inner--icon-others">
                   <img
-                    src={github}
+                    src={Github}
                     alt=""
                     className="skills__icon--others icon--github"
                   />
@@ -221,7 +223,7 @@ class Developer extends React.Component {
                 <h4 className="skills__text--others">Bootstrap</h4>
                 <div className="skills__inner--icon-others">
                   <img
-                    src={bootstrap}
+                    src={Bootstrap}
                     alt=""
                     className="skills__icon--others icon--bootstrap"
                   />
@@ -238,7 +240,7 @@ class Developer extends React.Component {
                 <h4 className="skills__text--others">Zeplin</h4>
                 <div className="skills__inner--icon-others">
                   <img
-                    src={zeplin}
+                    src={Zeplin}
                     alt=""
                     className="skills__icon--others icon--zeplin"
                   />
@@ -316,5 +318,3 @@ class Developer extends React.Component {
     );
   }
 }
-
-export default Developer;

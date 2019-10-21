@@ -1,7 +1,7 @@
-import React from 'react';
-import projectsDB from '../db/projectsDB';
+import React, { Component } from 'react';
+import projectsDB from '../../db/projectsDB';
 
-class ProjectsList extends React.Component {
+export class ProjectsList extends Component {
   constructor(props) {
     super(props);
 
@@ -211,5 +211,3 @@ class ProjectsList extends React.Component {
     );
   }
 }
-
-export default ProjectsList;

@@ -1,17 +1,18 @@
-import React from 'react';
-import floatingRight from '../images/other/floatingRight.gif';
-import floatingLeft from '../images/other/floatingLeft.gif';
-import swimmingRight from '../images/other/swimmingRight.gif';
-import swimmingLeft from '../images/other/swimmingLeft.gif';
-import Experiences from './Experiences';
-import OtherSkills from './OtherSkills';
+import React, { Component } from 'react';
+import { Experiences, OtherSkills } from '../';
+import {
+  FloatingRight,
+  FloatingLeft,
+  SwimmingRight,
+  SwimmingLeft
+} from '../../images';
 
 let floatLeft;
 let floatRight;
 let Hero;
 let thoughts = 0;
 
-class Seabed extends React.Component {
+export class Seabed extends Component {
   constructor(props) {
     super(props);
 
@@ -66,11 +67,11 @@ class Seabed extends React.Component {
         this.setState({ heroThinks: undefined });
         clearTimeout(floatRight);
         clearTimeout(floatLeft);
-        Hero.src = swimmingRight;
+        Hero.src = SwimmingRight;
         Hero.style.left = Number(Hero.style.left.slice(0, -2)) + 250 + 'px';
         Hero.classList.add('swim');
         floatRight = setTimeout(() => {
-          Hero.src = floatingRight;
+          Hero.src = FloatingRight;
           Hero.classList.remove('swim');
         }, 3000);
       }
@@ -86,11 +87,11 @@ class Seabed extends React.Component {
         this.setState({ heroThinks: undefined });
         clearTimeout(floatRight);
         clearTimeout(floatLeft);
-        Hero.src = swimmingLeft;
+        Hero.src = SwimmingLeft;
         Hero.style.left = Number(Hero.style.left.slice(0, -2)) - 250 + 'px';
         Hero.classList.add('swim');
         floatLeft = setTimeout(() => {
-          Hero.src = floatingLeft;
+          Hero.src = FloatingLeft;
           Hero.classList.remove('swim');
         }, 3000);
       }
@@ -219,7 +220,7 @@ class Seabed extends React.Component {
     setTimeout(() => {
       clearTimeout(floatRight);
       clearTimeout(floatLeft);
-      Hero.src = swimmingRight;
+      Hero.src = SwimmingRight;
       Hero.classList.remove('floating-soft');
       Hero.classList.add('goingUp');
       Hero.style.transition = 'all ease 10s';
@@ -270,7 +271,7 @@ class Seabed extends React.Component {
       Hero.classList.remove('goingUp');
       Hero.style.top = '40%';
       Hero.style.left = window.innerWidth * 0.4 + 'px';
-      Hero.src = floatingRight;
+      Hero.src = FloatingRight;
       Hero.style.transition = 'all ease 1s';
     }, 8050);
   };
@@ -340,7 +341,7 @@ class Seabed extends React.Component {
         </div>
 
         <img
-          src={floatingRight}
+          src={FloatingRight}
           id="hero"
           className="seabed__hero floating-soft"
           alt=""
@@ -384,5 +385,3 @@ class Seabed extends React.Component {
     );
   }
 }
-
-export default Seabed;

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Formation extends React.Component {
+export class Formation extends Component {
   render() {
     const text = this.props.texts.Formation;
     const language = this.props.language;
@@ -86,5 +86,3 @@ class Formation extends React.Component {
     );
   }
 }
-
-export default Formation;

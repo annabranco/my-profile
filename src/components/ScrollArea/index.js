@@ -1,10 +1,7 @@
-import React from 'react';
-import InbetweenBar from './InbetweenBar';
-import Developer from './Developer';
-import Formation from './Formation';
-import Seabed from './Seabed';
+import React, { Component } from 'react';
+import { InbetweenBar, Developer, Formation, Seabed } from '../';
 
-class ScrollArea extends React.Component {
+export class ScrollArea extends Component {
   render() {
     return (
       <section className="main__images">
@@ -37,5 +34,3 @@ class ScrollArea extends React.Component {
     );
   }
 }
-
-export default ScrollArea;

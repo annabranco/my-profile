@@ -1,8 +1,8 @@
-import React from 'react';
-import Social from './Social';
-import Mugshot from '../images/annabranco.png';
+import React, { Component } from 'react';
+import { Social } from '../';
+import { Mugshot } from '../../images';
 
-class Hero extends React.Component {
+export class Hero extends Component {
   render() {
     const text = this.props.texts.Hero;
     const language = this.props.language;
@@ -70,5 +70,3 @@ class Hero extends React.Component {
     );
   }
 }
-
-export default Hero;

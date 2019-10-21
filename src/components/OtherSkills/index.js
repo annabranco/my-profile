@@ -1,7 +1,7 @@
-import React from 'react';
-import MacBar from '../images/bg/bg-mac.jpg';
+import React, { Component } from 'react';
+import { MacNotebook } from '../../images';
 
-class OtherSkills extends React.Component {
+export class OtherSkills extends Component {
   constructor(props) {
     super(props);
 
@@ -88,7 +88,7 @@ class OtherSkills extends React.Component {
         <div className="otherSkills__mac">
           <div className="otherSkills__mac--screen">
             <section className="section__otherSkills" onClick={this.open}>
-              <img src={MacBar} alt="" className="skills--topBar" />
+              <img src={MacNotebook} alt="" className="skills--topBar" />
               <button
                 className="seabed__click2close seabed__click2close-otherSkills"
                 onClick={this.close}
@@ -362,5 +362,3 @@ class OtherSkills extends React.Component {
     );
   }
 }
-
-export default OtherSkills;

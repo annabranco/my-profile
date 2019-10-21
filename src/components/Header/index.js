@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Header extends React.Component {
+export class Header extends Component {
   render() {
     const text = this.props.texts.Header;
     const language = this.props.language;
@@ -58,5 +58,3 @@ class Header extends React.Component {
     );
   }
 }
-
-export default Header;
