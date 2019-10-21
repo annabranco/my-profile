@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Header, MainArea } from '../';
 import texts from '../../db/texts.js';
 
+const TEXTS_URL = '';
 const doc = document.documentElement;
 let adjustExpandedProjectsView = 0;
 
@@ -18,6 +19,7 @@ export class App extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    this.loadTexts();
     this.loadDefaultLanguage();
     this.setState({ viewedAll: false });
   }
@@ -29,6 +31,15 @@ export class App extends Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
+
+  loadTexts = () => {
+    fetch(TEXTS_URL)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => error);
+  };
 
   loadDefaultLanguage = () => {
     if (localStorage.getItem("Anna Branco's professional profile") !== null) {
