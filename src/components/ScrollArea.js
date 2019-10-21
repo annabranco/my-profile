@@ -5,34 +5,35 @@ import Formation from './Formation';
 import Seabed from './Seabed';
 
 class ScrollArea extends React.Component {
-
-  render () {
-
+  render() {
     return (
-      	<section className="main__images">
+      <section className="main__images">
+        <InbetweenBar
+          title={this.props.texts.Developer[this.props.language].title}
+        />
+        <Developer
+          texts={this.props.texts}
+          language={this.props.language}
+          handleAdjustExpandedProjectsView={
+            this.props.handleAdjustExpandedProjectsView
+          }
+        />
 
-			<InbetweenBar title={this.props.texts.Developer[this.props.language].title} />
-			<Developer
-				  texts={this.props.texts}
-				  language={this.props.language}
-				  handleAdjustExpandedProjectsView={this.props.handleAdjustExpandedProjectsView}
-			/>
+        <InbetweenBar
+          title={this.props.texts.Formation[this.props.language].title}
+        />
+        <Formation texts={this.props.texts} language={this.props.language} />
 
-			<InbetweenBar title={this.props.texts.Formation[this.props.language].title}  />
-			<Formation
-				  texts={this.props.texts}
-				  language={this.props.language}
-			/>
+        <InbetweenBar
+          title={this.props.texts.Seabed[this.props.language].title}
+        />
 
-			<InbetweenBar title={this.props.texts.Seabed[this.props.language].title}  />
-
-
-			<Seabed
-				  texts={this.props.texts}
-				  language={this.props.language}
-				  userViewedAllComponents={this.props.userViewedAllComponents}
-			/>
-      	</section>
+        <Seabed
+          texts={this.props.texts}
+          language={this.props.language}
+          userViewedAllComponents={this.props.userViewedAllComponents}
+        />
+      </section>
     );
   }
 }
