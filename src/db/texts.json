@@ -42,7 +42,7 @@
       "contact" : "Contact",
       "title"   : "Anna Branco's professional profile"
     },
-    "hero": {
+    "infoPage": {
       "aditional" : "Developing sites and apps where navigating around is a beautiful journey",
       "advise"    : "For an enhanced user experience, visiting this page on a full screen desktop is highly advised.",
       "call"      : "Call",
@@ -151,7 +151,7 @@
       "contact" : "Contacto",
       "title"   : "Perfil profesional de Anna Branco"
     },
-    "hero": {
+    "infoPage": {
       "aditional" : "Desarrollando sitios web y apps por donde navegar sea una bonita experiencia",
       "advise"    : "Para una mejor experiencia de usuario, es aconsejable visitar esta página en un ordenador de mesa o notebook en pantalla completa.",
       "call"      : "Llamar",
@@ -270,7 +270,7 @@
       "contact" : "Contato",
       "title"   : "Perfil profissional de Anna Branco"
     },
-    "hero": {
+    "infoPage": {
       "aditional" : "Desenvolvendo sites e apps pelos quais navegar seja uma bonita experiência",
       "advise"    : "Para uma melhor experiência de usuário, recomenda-se visitar essa página em um computador de mesa ou notebook em tela cheia.",
       "call"      : "Chamar",
