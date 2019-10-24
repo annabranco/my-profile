@@ -13,6 +13,7 @@ export const ScrollArea = ({
       <DeveloperProfile
         texts={texts.developer}
         handleAdjustExpandedProjectsView={handleAdjustExpandedProjectsView}
+        language={texts.languages.languageCode}
       />
 
       <InbetweenBar title={texts.formation.title} />

@@ -3,18 +3,18 @@ import { MainArea } from '../';
 import { Header } from '../../views';
 import { getLanguageCodeByName } from '../../../utils/languages';
 
+const DEFAULT_PAGE_LANGUAGE = 'English';
 const doc = document.documentElement;
 let adjustExpandedProjectsView = 0;
-const DEFAULT_PAGE_LANGUAGE = 'English';
 
 export class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      texts: this.props.texts,
+      texts: props.texts,
       language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
-      doNotShowLanguagePopupAgain: undefined,
+      doNotShowLanguageModalAgain: undefined,
       viewedAll: false
     };
   }
@@ -31,33 +31,32 @@ export class App extends Component {
   }
 
   saveLanguageSettings = () => {
-    const { language, doNotShowLanguagePopupAgain } = this.state;
+    const { language, doNotShowLanguageModalAgain } = this.state;
     localStorage.setItem(
       "Anna Branco's professional profile",
       JSON.stringify({
         language,
-        doNotShowLanguagePopupAgain
+        doNotShowLanguageModalAgain
       })
     );
   };
 
   loadLanguageSettings = () => {
     if (localStorage.getItem("Anna Branco's professional profile") !== null) {
-      const { language, doNotShowLanguagePopupAgain } = JSON.parse(
+      const { language, doNotShowLanguageModalAgain } = JSON.parse(
         localStorage.getItem("Anna Branco's professional profile")
       );
-      this.setState({ language, doNotShowLanguagePopupAgain });
+      this.setState({ language, doNotShowLanguageModalAgain });
     }
   };
 
   onChangeLanguage = event =>
-    this.setState({ language: event.currentTarget.lang }, () =>
-      this.saveLanguageSettings()
-    );
+    this.setState({ language: event.currentTarget.lang });
 
-  closeLanguagePopup = doNotShowAgain =>
-    this.setState({ doNotShowLanguagePopupAgain: doNotShowAgain }, () =>
-      this.saveLanguageSettings()
+  closeLanguageModal = willModalBeDisplayedAgain =>
+    this.setState(
+      { doNotShowLanguageModalAgain: willModalBeDisplayedAgain },
+      () => this.saveLanguageSettings()
     );
 
   userViewedAllComponents = () => this.setState({ viewedAll: true });
@@ -189,19 +188,21 @@ export class App extends Component {
 
   render() {
     const { language } = this.state;
-    const { texts } = this.props;
+    const { texts, APP_VERSION } = this.props;
 
     return (
       <div className="App">
         <Header
           texts={texts[language].header}
+          language={language}
           onChangeLanguage={this.onChangeLanguage}
+          APP_VERSION={APP_VERSION}
         />
         <MainArea
           onChangeLanguage={this.onChangeLanguage}
           texts={texts[language]}
-          closeLanguagePopup={this.closeLanguagePopup}
-          doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
+          closeLanguageModal={this.closeLanguageModal}
+          doNotShowLanguageModalAgain={this.state.doNotShowLanguageModalAgain}
           handleAdjustExpandedProjectsView={
             this.handleAdjustExpandedProjectsView
           }

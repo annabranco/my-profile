@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/styles.css';
 import { App } from './components/containers';
 
+const APP_VERSION = 'v0.8.2';
+
 const TEXTS_URL =
   'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db/texts.json';
 
@@ -18,7 +20,7 @@ Promise.all([loadTexts])
   .then(textsArray => {
     console.log('$$$ textsArray', textsArray);
     ReactDOM.hydrate(
-      <App texts={textsArray[0]} />,
+      <App texts={textsArray[0]} APP_VERSION={APP_VERSION} />,
       document.getElementById('root')
     );
   })

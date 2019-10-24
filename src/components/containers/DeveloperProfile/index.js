@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { ProjectsList } from '../../views';
 import {
   LogoAdalab,
@@ -14,22 +14,18 @@ import {
 let adjust = 0;
 
 export class DeveloperProfile extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      knowMore: false,
-      seeAll: false,
-      seeThumbnails: false
-    };
-  }
+  state = {
+    knowMore: false,
+    seeAllProjects: false,
+    displayThumbnails: false
+  };
 
   componentDidUpdate() {
     adjust = 0;
 
-    if (this.state.seeThumbnails && this.state.seeAll) {
+    if (this.state.displayThumbnails && this.state.seeAllProjects) {
       adjust = 1300;
-    } else if (this.state.seeAll) {
+    } else if (this.state.seeAllProjects) {
       adjust = 650;
     } else {
       adjust = 0;
@@ -43,23 +39,125 @@ export class DeveloperProfile extends Component {
   onClickKnowMore = () =>
     this.setState(prevState => ({ knowMore: !prevState.knowMore }));
 
-  onClickSeeAll = () => {
-    this.setState(prevState => ({ seeAll: !prevState.seeAll }));
+  onClickSeeAllProjects = () => {
+    this.setState(prevState => ({ seeAllProjects: !prevState.seeAllProjects }));
 
-    if (this.state.seeAll) {
+    if (this.state.seeAllProjects) {
       document.querySelector('.projects__list').style.height = '210px';
     } else {
       document.querySelector('.projects__list').style.height = 'auto';
     }
   };
 
-  handleAdjustThumbnailsView = thumbnails => {
-    this.setState({ seeThumbnails: thumbnails });
+  toggleProjectsThumbNails = isVisible => {
+    this.setState({ displayThumbnails: isVisible });
+
+    if (!window.matchMedia('(min-width: 768px)').matches) {
+      if (!this.state.seeAllProjects) {
+        if (isVisible) {
+          document.querySelector('.projects__list').style.height = '400px';
+        } else {
+          document.querySelector('.projects__list').style.height = '210px';
+        }
+      }
+    }
+  };
+
+  onClickNextProjects = () => {
+    const { displayThumbnails } = this.state;
+    const adjustments = displayThumbnails ? 2 : 1;
+
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      document.querySelector('.projects__list').scrollTop += 248;
+    } else {
+      if (displayThumbnails) {
+        document.querySelector('.projects__list').scrollTop +=
+          195 * adjustments;
+      } else {
+        document.querySelector('.projects__list').scrollTop +=
+          248 * adjustments;
+      }
+    }
+
+    document
+      .querySelector('.fa-arrow-alt-circle-up')
+      .classList.remove('invisible');
+    document
+      .querySelector('.project__seeMore-up')
+      .classList.remove('invisible');
+
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      if (
+        document.querySelector('.projects__list').scrollTop >=
+        744 * adjustments
+      ) {
+        document
+          .querySelector('.fa-arrow-alt-circle-down')
+          .classList.add('invisible');
+        document
+          .querySelector('.project__seeMore-down')
+          .classList.add('invisible');
+      }
+    } else {
+      if (displayThumbnails) {
+        if (document.querySelector('.projects__list').scrollTop >= 2000) {
+          document
+            .querySelector('.fa-arrow-alt-circle-down')
+            .classList.add('invisible');
+          document
+            .querySelector('.project__seeMore-down')
+            .classList.add('invisible');
+        }
+      } else {
+        if (
+          document.querySelector('.projects__list').scrollTop >=
+          1488 * adjustments
+        ) {
+          document
+            .querySelector('.fa-arrow-alt-circle-down')
+            .classList.add('invisible');
+          document
+            .querySelector('.project__seeMore-down')
+            .classList.add('invisible');
+        }
+      }
+    }
+  };
+
+  onClickPreviousProjects = () => {
+    const { displayThumbnails } = this.state;
+    const adjustments = displayThumbnails ? 2 : 1;
+
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      document.querySelector('.projects__list').scrollTop -= 252;
+    } else {
+      if (displayThumbnails) {
+        document.querySelector('.projects__list').scrollTop -=
+          195 * adjustments;
+      } else {
+        document.querySelector('.projects__list').scrollTop -=
+          248 * adjustments;
+      }
+    }
+
+    document
+      .querySelector('.fa-arrow-alt-circle-down')
+      .classList.remove('invisible');
+    document
+      .querySelector('.project__seeMore-down')
+      .classList.remove('invisible');
+
+    if (document.querySelector('.projects__list').scrollTop === 0) {
+      document
+        .querySelector('.fa-arrow-alt-circle-up')
+        .classList.add('invisible');
+      document.querySelector('.project__seeMore-up').classList.add('invisible');
+    }
   };
 
   render() {
-    const { knowMore, seeAll } = this.state;
-    const { texts } = this.props;
+    const { knowMore, seeAllProjects, displayThumbnails } = this.state;
+    const { texts, language } = this.props;
     return (
       <section className="section__developer">
         <div className="developer__outer">
@@ -275,36 +373,43 @@ export class DeveloperProfile extends Component {
                 </span>
               </h2>
 
-              {knowMore ? (
-                <p className="developer__adalab--text">{texts.adalabText}</p>
-              ) : null}
-              {knowMore ? (
-                <p className="developer__adalab--text">
-                  {texts.adalabMore}
-                  <a
-                    href="https://www.adalab.es"
-                    target="_Blank"
-                    rel="noopener noreferrer"
-                    className="project__url-a"
-                  >
-                    Adalab
-                  </a>
-                </p>
-              ) : null}
+              {knowMore && (
+                <Fragment>
+                  <p className="developer__adalab--text">{texts.adalabText}</p>
+                  <p className="developer__adalab--text">
+                    {texts.adalabMore}
+                    <a
+                      href="https://www.adalab.es"
+                      target="_Blank"
+                      rel="noopener noreferrer"
+                      className="project__url-a"
+                    >
+                      Adalab
+                    </a>
+                  </p>
+                </Fragment>
+              )}
             </div>
             <div className="developer__projects">
               <h2 className="developer__projects--title">
                 {texts.projects}
-                <span className="developer--more" onClick={this.onClickSeeAll}>
-                  {seeAll ? texts.reduced : texts.expanded}
+                <span
+                  className="developer--more"
+                  onClick={this.onClickSeeAllProjects}
+                >
+                  {seeAllProjects ? texts.reduced : texts.expanded}
                 </span>
               </h2>
               <p className="developer__projects--text">{texts.projectsText}</p>
 
               <ProjectsList
-                seeAll={seeAll}
+                seeAllProjects={seeAllProjects}
                 texts={texts}
-                handleAdjustThumbnailsView={this.handleAdjustThumbnailsView}
+                language={language}
+                toggleProjectsThumbNails={this.toggleProjectsThumbNails}
+                displayThumbnails={displayThumbnails}
+                onClickNextProjects={this.onClickNextProjects}
+                onClickPreviousProjects={this.onClickPreviousProjects}
               />
             </div>
           </div>

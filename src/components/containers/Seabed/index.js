@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Experiences, OtherSkills } from '../../views';
 import {
   FloatingRight,
@@ -12,24 +12,28 @@ let floatRight;
 let Hero;
 let thoughts = 0;
 
-export class Seabed extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hideInstructions: false,
-      showExperiences: false,
-      viewedExperiences: false,
-      showOtherSkills: false,
-      viewedOtherSkills: false,
-      frame: 'center',
-      heroThinks: undefined,
-      readComponents: {
-        Experiences: false,
-        OtherSkills: false
-      }
-    };
+const INITIAL_STATE = {
+  hideInstructions: false,
+  experiences: {
+    active: false,
+    visible: false,
+    read: false
+  },
+  otherSkills: {
+    active: false,
+    visible: false,
+    read: false
+  },
+  frame: 'center',
+  heroThinks: undefined,
+  readComponents: {
+    Experiences: false,
+    OtherSkills: false
   }
+};
+
+export class Seabed extends Component {
+  state = INITIAL_STATE;
 
   componentDidMount() {
     window.addEventListener('keyup', this.moveHero);
@@ -38,21 +42,148 @@ export class Seabed extends Component {
   }
 
   componentDidUpdate() {
+    const { experiences, otherSkills } = this.state;
     if (
-      this.state.readComponents.OtherSkills &&
-      this.state.readComponents.Experiences &&
+      experiences.read &&
+      !experiences.active &&
+      otherSkills.read &&
+      !otherSkills.active &&
       !window.matchMedia('(min-width: 768px)').matches
     ) {
-      this.setState({
-        readComponents: {
-          Experiences: false,
-          OtherSkills: false
-        }
-      });
+      console.log('$$$ UP WE GO');
+      this.setState(INITIAL_STATE);
       this.goBackUp();
       this.props.userViewedAllComponents();
     }
   }
+
+  // ======== Triggers a random thought when the Hero reaches any outer border.
+  heroThinks = side => {
+    this.setState({ heroThinks: thoughts });
+    thoughts++;
+
+    document.querySelector('.hero__thinks').style[side] = '40px';
+  };
+
+  // ======== Marks components as read, so when both were read the Hero can go up
+  markExperiencesAsRead = () => {
+    this.setState({
+      readComponents: { ...this.state.readComponents, Experiences: true }
+    });
+  };
+
+  markOtherSkillsAsRead = () => {
+    this.setState({
+      readComponents: { ...this.state.readComponents, OtherSkills: true }
+    });
+  };
+
+  // ======== Handle view components (Experience and Other Skills)
+
+  onClickOpen = type => {
+    if (!this.state[type].visible) {
+      this.setState(prevState => ({
+        [type]: {
+          ...prevState[type],
+          visible: true,
+          read: true
+        }
+      }));
+
+      switch (type) {
+        case 'experiences':
+          if (!window.matchMedia('(min-width: 768px)').matches) {
+            document.querySelector('.otherSkills__mac').classList.add('hidden');
+          }
+          document
+            .querySelector('.section__experiences')
+            .classList.add('opened');
+
+          break;
+        case 'otherSkills':
+          if (!window.matchMedia('(min-width: 768px)').matches) {
+            document
+              .querySelector('.section__experiences')
+              .classList.add('hidden');
+          }
+
+          document
+            .querySelector('.section__otherSkills')
+            .classList.add('opened');
+          document.querySelector('.otherSkills__mac').classList.add('opened');
+          document
+            .querySelector('.otherSkills__mac--screen')
+            .classList.add('opened');
+          document
+            .querySelector('.otherSkills__mac--keyboard')
+            .classList.add('hidden');
+          document
+            .querySelector('.otherSkills__mac--keyboard-keyArea')
+            .classList.add('hidden');
+          break;
+        default:
+          break;
+      }
+    }
+  };
+
+  onClickClose = type => {
+    this.setState(prevState => ({
+      [type]: {
+        ...prevState[type],
+        visible: false
+      }
+    }));
+
+    switch (type) {
+      case 'experiences':
+        if (!window.matchMedia('(min-width: 768px)').matches) {
+          document
+            .querySelector('.otherSkills__mac')
+            .classList.remove('hidden');
+        }
+
+        document
+          .querySelector('.section__experiences')
+          .classList.remove('opened');
+
+        break;
+      case 'otherSkills':
+        if (!window.matchMedia('(min-width: 768px)').matches) {
+          document
+            .querySelector('.section__experiences')
+            .classList.remove('hidden');
+        }
+        document
+          .querySelector('.section__otherSkills')
+          .classList.remove('opened');
+        document.querySelector('.otherSkills__mac').classList.remove('opened');
+        document
+          .querySelector('.otherSkills__mac--screen')
+          .classList.remove('opened');
+        document
+          .querySelector('.otherSkills__mac--keyboard')
+          .classList.remove('hidden');
+        document
+          .querySelector('.otherSkills__mac--keyboard-keyArea')
+          .classList.remove('hidden');
+        break;
+      default:
+        break;
+    }
+  };
+
+  // ======== Show sample of design creations (in Other Skills)
+  onClickShowSample = sampleURL => {
+    this.setState(prevState => ({
+      otherSkills: {
+        ...prevState.otherSkills,
+        sampleURL
+      }
+    }));
+  };
+
+  // ======== Handle diver movements
 
   moveHero = e => {
     if (e.key === 'ArrowRight') {
@@ -147,11 +278,13 @@ export class Seabed extends Component {
           .querySelector('.seabed__go--otherSkills')
           .classList.remove('hidden');
         document.querySelector('.seabed__anna').classList.remove('hidden');
-        this.setState({
-          showOtherSkills: false,
-          frame: 'center',
-          viewedOtherSkills: true
-        });
+        this.setState(prevState => ({
+          otherSkills: {
+            ...prevState.otherSkills,
+            active: false
+          },
+          frame: 'center'
+        }));
 
         //---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "right" (Experiences)
       } else if (this.state.frame === 'center') {
@@ -162,10 +295,13 @@ export class Seabed extends Component {
           .querySelector('.seabed__go--otherSkills')
           .classList.add('hidden');
         document.querySelector('.seabed__anna').classList.add('hidden');
-        this.setState({
-          showExperiences: true,
+        this.setState(prevState => ({
+          experiences: {
+            ...prevState.experiences,
+            active: true
+          },
           frame: 'right'
-        });
+        }));
       }
     }
 
@@ -186,11 +322,13 @@ export class Seabed extends Component {
           .querySelector('.seabed__go--otherSkills')
           .classList.remove('hidden');
         document.querySelector('.seabed__anna').classList.remove('hidden');
-        this.setState({
-          showExperiences: false,
-          frame: 'center',
-          viewedExperiences: true
-        });
+        this.setState(prevState => ({
+          experiences: {
+            ...prevState.experiences,
+            active: false
+          },
+          frame: 'center'
+        }));
 
         //---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkills)
       } else if (this.state.frame === 'center') {
@@ -201,10 +339,13 @@ export class Seabed extends Component {
           .querySelector('.seabed__go--otherSkills')
           .classList.add('hidden');
         document.querySelector('.seabed__anna').classList.add('hidden');
-        this.setState({
-          showOtherSkills: true,
+        this.setState(prevState => ({
+          otherSkills: {
+            ...prevState.otherSkills,
+            active: true
+          },
           frame: 'left'
-        });
+        }));
       }
     }
   };
@@ -236,19 +377,7 @@ export class Seabed extends Component {
 
     setTimeout(() => {
       //-- Resets component to its initial state
-      this.setState({
-        hideInstructions: false,
-        showExperiences: false,
-        viewedExperiences: false,
-        showOtherSkills: false,
-        viewedOtherSkills: false,
-        frame: 'center',
-        heroThinks: undefined,
-        readComponents: {
-          Experiences: false,
-          OtherSkills: false
-        }
-      });
+      this.setState(INITIAL_STATE);
       document
         .querySelector('.seabed__go--experiences')
         .classList.remove('hidden');
@@ -276,61 +405,42 @@ export class Seabed extends Component {
     }, 8050);
   };
 
-  // ======== Triggers a random thought when the Hero reaches any border.
-  heroThinks = side => {
-    this.setState({ heroThinks: thoughts });
-    thoughts++;
-
-    document.querySelector('.hero__thinks').style[side] = '40px';
-  };
-
-  // ======== Marks components as read, so when both were read the Hero can go up
-  markExperiencesAsRead = () => {
-    this.setState({
-      readComponents: { ...this.state.readComponents, Experiences: true }
-    });
-  };
-
-  markOtherSkillsAsRead = () => {
-    this.setState({
-      readComponents: { ...this.state.readComponents, OtherSkills: true }
-    });
-  };
-
   render() {
     const {
       hideInstructions,
       readComponents,
-      showExperiences,
-      viewedExperiences,
-      showOtherSkills,
-      viewedOtherSkills,
+      experiences,
+      otherSkills,
       heroThinks
     } = this.state;
     const { texts, textsExperiences, textsOtherSkills } = this.props;
     return (
       <section className="section__seabed">
-        {hideInstructions ||
-        !window.matchMedia('(min-width: 768px)').matches ? null : (
-          <div className="seabed__message--outer floating-soft">
-            <p className="seabed__message">{texts.message}</p>
-            <p className="seabed__message seabed__message-keyboard">
-              {texts.messageKeyboard}
-            </p>
-            <p className="seabed__message seabed__message-devices">
-              {texts.messageDevices}
-            </p>
-          </div>
-        )}
+        {!hideInstructions ||
+          (window.matchMedia('(min-width: 768px)').matches && (
+            <div className="seabed__message--outer floating-soft">
+              <p className="seabed__message">{texts.message}</p>
+              <p className="seabed__message seabed__message-keyboard">
+                {texts.messageKeyboard}
+              </p>
+              <p className="seabed__message seabed__message-devices">
+                {texts.messageDevices}
+              </p>
+            </div>
+          ))}
 
-        {!window.matchMedia('(min-width: 768px)').matches &&
-        !readComponents.Experiences &&
-        !readComponents.OtherSkills ? (
-          <React.Fragment>
-            <p className="seabed__findSomething floating-soft">{texts.find}</p>
-            <p className="seabed__findSomething floating-soft">{texts.find2}</p>
-          </React.Fragment>
-        ) : null}
+        {window.matchMedia('(max-width: 768px)').matches &&
+          !readComponents.Experiences &&
+          !readComponents.OtherSkills && (
+            <Fragment>
+              <p className="seabed__findSomething floating-soft">
+                {texts.find}
+              </p>
+              <p className="seabed__findSomething floating-soft">
+                {texts.find2}
+              </p>
+            </Fragment>
+          )}
 
         <div className="seabed__go--experiences floating floating-delay">
           <p className="seabed__go-text seabed__go-textRight">
@@ -352,29 +462,33 @@ export class Seabed extends Component {
           <p className="seabed__anna">Anna Branco</p>
         </div>
 
-        {showExperiences || !window.matchMedia('(min-width: 768px)').matches ? (
-          <Experiences
-            texts={textsExperiences}
-            viewedExperiences={viewedExperiences}
-            markAsRead={this.markExperiencesAsRead}
-          />
-        ) : null}
+        {experiences.active ||
+          (!window.matchMedia('(min-width: 768px)').matches && (
+            <Experiences
+              texts={textsExperiences}
+              status={experiences}
+              onClickOpen={this.onClickOpen}
+              onClickClose={this.onClickClose}
+            />
+          ))}
 
-        {showOtherSkills || !window.matchMedia('(min-width: 768px)').matches ? (
-          <OtherSkills
-            texts={textsOtherSkills}
-            viewedOtherSkills={viewedOtherSkills}
-            markAsRead={this.markOtherSkillsAsRead}
-          />
-        ) : null}
+        {otherSkills.active ||
+          (!window.matchMedia('(min-width: 768px)').matches && (
+            <OtherSkills
+              texts={textsOtherSkills}
+              status={otherSkills}
+              onClickOpen={this.onClickOpen}
+              onClickClose={this.onClickClose}
+            />
+          ))}
 
-        {readComponents.OtherSkills && readComponents.Experiences ? (
+        {experiences.read && otherSkills.read && (
           <p className="seabed__back">{texts.time2go}</p>
-        ) : null}
+        )}
 
-        {heroThinks !== undefined ? (
+        {heroThinks !== undefined && (
           <p className="hero__thinks">{texts.thoughts[heroThinks]}</p>
-        ) : null}
+        )}
       </section>
     );
   }
