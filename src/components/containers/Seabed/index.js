@@ -25,11 +25,7 @@ const INITIAL_STATE = {
     read: false
   },
   frame: 'center',
-  heroThinks: undefined,
-  readComponents: {
-    Experiences: false,
-    OtherSkills: false
-  }
+  heroThinks: undefined
 };
 
 export class Seabed extends Component {
@@ -41,41 +37,12 @@ export class Seabed extends Component {
     Hero.style.left = window.innerWidth * 0.4 + 'px';
   }
 
-  componentDidUpdate() {
-    const { experiences, otherSkills } = this.state;
-    if (
-      experiences.read &&
-      !experiences.active &&
-      otherSkills.read &&
-      !otherSkills.active &&
-      !window.matchMedia('(min-width: 768px)').matches
-    ) {
-      console.log('$$$ UP WE GO');
-      this.setState(INITIAL_STATE);
-      this.goBackUp();
-      this.props.userViewedAllComponents();
-    }
-  }
-
   // ======== Triggers a random thought when the Hero reaches any outer border.
   heroThinks = side => {
     this.setState({ heroThinks: thoughts });
     thoughts++;
 
     document.querySelector('.hero__thinks').style[side] = '40px';
-  };
-
-  // ======== Marks components as read, so when both were read the Hero can go up
-  markExperiencesAsRead = () => {
-    this.setState({
-      readComponents: { ...this.state.readComponents, Experiences: true }
-    });
-  };
-
-  markOtherSkillsAsRead = () => {
-    this.setState({
-      readComponents: { ...this.state.readComponents, OtherSkills: true }
-    });
   };
 
   // ======== Handle view components (Experience and Other Skills)
@@ -142,7 +109,6 @@ export class Seabed extends Component {
             .querySelector('.otherSkills__mac')
             .classList.remove('hidden');
         }
-
         document
           .querySelector('.section__experiences')
           .classList.remove('opened');
@@ -173,20 +139,10 @@ export class Seabed extends Component {
     }
   };
 
-  // ======== Show sample of design creations (in Other Skills)
-  onClickShowSample = sampleURL => {
-    this.setState(prevState => ({
-      otherSkills: {
-        ...prevState.otherSkills,
-        sampleURL
-      }
-    }));
-  };
-
   // ======== Handle diver movements
 
-  moveHero = e => {
-    if (e.key === 'ArrowRight') {
+  moveHero = event => {
+    if (event.key === 'ArrowRight') {
       //---- Prevents movement beyond right margin on frame 'right'
       if (
         Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300 &&
@@ -206,7 +162,7 @@ export class Seabed extends Component {
           Hero.classList.remove('swim');
         }, 3000);
       }
-    } else if (e.key === 'ArrowLeft') {
+    } else if (event.key === 'ArrowLeft') {
       //---- Prevents movement beyond left margin on frame 'left'
       if (
         Number(Hero.style.left.slice(0, -2)) <= 200 &&
@@ -233,10 +189,13 @@ export class Seabed extends Component {
   //======== Function that fires events when Hero reaches some specific places
   moveToSomewhere = () => {
     //---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
+    const { experiences, otherSkills, frame } = this.state;
     if (
-      this.state.readComponents.OtherSkills &&
-      this.state.readComponents.Experiences &&
-      this.state.frame === 'center'
+      experiences.read &&
+      !experiences.active &&
+      otherSkills.read &&
+      !otherSkills.active &&
+      frame === 'center'
     ) {
       this.goBackUp();
     }
@@ -370,9 +329,9 @@ export class Seabed extends Component {
     setTimeout(() => (Hero.style.top = '-200px'), 2500);
 
     if (!window.matchMedia('(min-width: 768px)').matches) {
-      setTimeout(() => window.scrollTo(0, 0), 2000);
+      this.props.resetScrollPosition(2000);
     } else {
-      setTimeout(() => window.scrollTo(0, 0), 8000);
+      this.props.resetScrollPosition(8000);
     }
 
     setTimeout(() => {
@@ -393,7 +352,7 @@ export class Seabed extends Component {
       window.addEventListener('keyup', this.moveHero);
 
       //-- Triggers thank you message on first screen
-      this.props.userViewedAllComponents();
+      this.props.triggerThankYouMessage();
 
       //-- Puts Hero on its initial position
       Hero.classList.add('floating-soft');
@@ -408,30 +367,29 @@ export class Seabed extends Component {
   render() {
     const {
       hideInstructions,
-      readComponents,
       experiences,
       otherSkills,
       heroThinks
     } = this.state;
     const { texts, textsExperiences, textsOtherSkills } = this.props;
+
     return (
       <section className="section__seabed">
-        {!hideInstructions ||
-          (window.matchMedia('(min-width: 768px)').matches && (
-            <div className="seabed__message--outer floating-soft">
-              <p className="seabed__message">{texts.message}</p>
-              <p className="seabed__message seabed__message-keyboard">
-                {texts.messageKeyboard}
-              </p>
-              <p className="seabed__message seabed__message-devices">
-                {texts.messageDevices}
-              </p>
-            </div>
-          ))}
+        {window.matchMedia('(min-width: 768px)').matches && !hideInstructions && (
+          <div className="seabed__message--outer floating-soft">
+            <p className="seabed__message">{texts.message}</p>
+            <p className="seabed__message seabed__message-keyboard">
+              {texts.messageKeyboard}
+            </p>
+            <p className="seabed__message seabed__message-devices">
+              {texts.messageDevices}
+            </p>
+          </div>
+        )}
 
         {window.matchMedia('(max-width: 768px)').matches &&
-          !readComponents.Experiences &&
-          !readComponents.OtherSkills && (
+          !experiences.read &&
+          !otherSkills.red && (
             <Fragment>
               <p className="seabed__findSomething floating-soft">
                 {texts.find}
@@ -462,25 +420,25 @@ export class Seabed extends Component {
           <p className="seabed__anna">Anna Branco</p>
         </div>
 
-        {experiences.active ||
-          (!window.matchMedia('(min-width: 768px)').matches && (
+        {experiences.active &&
+          window.matchMedia('(min-width: 768px)').matches && (
             <Experiences
               texts={textsExperiences}
               status={experiences}
               onClickOpen={this.onClickOpen}
               onClickClose={this.onClickClose}
             />
-          ))}
+          )}
 
-        {otherSkills.active ||
-          (!window.matchMedia('(min-width: 768px)').matches && (
+        {otherSkills.active &&
+          window.matchMedia('(min-width: 768px)').matches && (
             <OtherSkills
               texts={textsOtherSkills}
               status={otherSkills}
               onClickOpen={this.onClickOpen}
               onClickClose={this.onClickClose}
             />
-          ))}
+          )}
 
         {experiences.read && otherSkills.read && (
           <p className="seabed__back">{texts.time2go}</p>

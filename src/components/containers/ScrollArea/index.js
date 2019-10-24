@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Component, createRef } from 'react';
 import { DeveloperProfile, Seabed } from '../';
 import { InbetweenBar, Formation, MyInfoPage } from '../../views';
 import { SHOW_ACTION, HIDE_ACTION } from '../../../constants';
 
-export class ScrollArea extends React.Component {
+export class ScrollArea extends Component {
+  constructor(props) {
+    super(props);
+    this.scrollAreaRef = createRef();
+  }
+
   state = {
     adjustedSize: 0,
     developerActivation: {
@@ -90,17 +95,26 @@ export class ScrollArea extends React.Component {
       } else {
         this.toggleDynamicElements('formation', 'programming', HIDE_ACTION);
       }
-      console.log(scrollPosition);
     }
   };
 
+  resetScrollPosition = delay =>
+    setTimeout(() => this.scrollAreaRef.current.scrollTo(0, 0), delay);
+
   render() {
     const { developerActivation, formationActivation } = this.state;
-    const { texts, userViewedAllComponents, viewedAll } = this.props;
+    const { texts, triggerThankYouMessage, displayThanksMessage } = this.props;
     return (
-      <section className="scrollArea__container" onScroll={this.handleScroll}>
+      <section
+        className="scrollArea__container"
+        onScroll={this.handleScroll}
+        ref={this.scrollAreaRef}
+      >
         <div className="main__intro">
-          <MyInfoPage texts={texts.infoPage} viewedAll={viewedAll} />
+          <MyInfoPage
+            texts={texts.infoPage}
+            displayThanksMessage={displayThanksMessage}
+          />
         </div>
         <InbetweenBar title={texts.developer.title} />
         <DeveloperProfile
@@ -124,7 +138,8 @@ export class ScrollArea extends React.Component {
           texts={texts.seabed}
           textsExperiences={texts.experiences}
           textsOtherSkills={texts.otherSkills}
-          userViewedAllComponents={userViewedAllComponents}
+          triggerThankYouMessage={triggerThankYouMessage}
+          resetScrollPosition={this.resetScrollPosition}
         />
       </section>
     );

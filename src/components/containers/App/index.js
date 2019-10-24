@@ -13,14 +13,12 @@ export class App extends Component {
       texts: props.texts,
       language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
       doNotShowLanguageModalAgain: undefined,
-      viewedAll: false
+      displayThanksMessage: false
     };
   }
 
   componentDidMount() {
     this.loadLanguageSettings();
-    this.setState({ viewedAll: false });
-    console.log('$$$ this.props.texts', this.props.texts);
   }
 
   saveLanguageSettings = () => {
@@ -52,7 +50,7 @@ export class App extends Component {
       () => this.saveLanguageSettings()
     );
 
-  userViewedAllComponents = () => this.setState({ viewedAll: true });
+  triggerThankYouMessage = () => this.setState({ displayThanksMessage: true });
 
   render() {
     const { language } = this.state;
@@ -74,8 +72,8 @@ export class App extends Component {
           handleAdjustExpandedProjectsView={
             this.handleAdjustExpandedProjectsView
           }
-          userViewedAllComponents={this.userViewedAllComponents}
-          viewedAll={this.state.viewedAll}
+          triggerThankYouMessage={this.triggerThankYouMessage}
+          displayThanksMessage={this.state.displayThanksMessage}
         />
       </Fragment>
     );

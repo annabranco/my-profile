@@ -32,16 +32,16 @@ export class MainArea extends Component {
       onChangeLanguage,
       doNotShowLanguageModalAgain,
       texts,
-      userViewedAllComponents,
-      viewedAll
+      triggerThankYouMessage,
+      displayThanksMessage
     } = this.props;
 
     return (
       <main>
         <ScrollArea
           texts={texts}
-          userViewedAllComponents={userViewedAllComponents}
-          viewedAll={viewedAll}
+          triggerThankYouMessage={triggerThankYouMessage}
+          displayThanksMessage={displayThanksMessage}
         />
 
         {!doNotShowLanguageModalAgain && languageModalIsVisible && (

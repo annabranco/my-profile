@@ -2,7 +2,7 @@ import React from 'react';
 import { Social } from '../';
 import { Mugshot } from '../../../images';
 
-export const MyInfoPage = ({ texts, viewedAll }) => (
+export const MyInfoPage = ({ texts, displayThanksMessage }) => (
   <section className="section__infoPage">
     <div className="infoPage__outerWrapper">
       <h1 className="infoPage__name infoPage__name--devices">Anna Branco</h1>
@@ -26,7 +26,7 @@ export const MyInfoPage = ({ texts, viewedAll }) => (
               <h2 className="infoPage__job">{texts.job}</h2>
             </div>
             <div className="infoPage__aditional">
-              {!viewedAll ? texts.aditional : texts.thankyou}
+              {!displayThanksMessage ? texts.aditional : texts.thankyou}
             </div>
           </div>
         </div>

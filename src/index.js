@@ -18,7 +18,6 @@ const loadTexts = fetch(TEXTS_URL)
 
 Promise.all([loadTexts])
   .then(textsArray => {
-    console.log('$$$ textsArray', textsArray);
     ReactDOM.hydrate(
       <App texts={textsArray[0]} APP_VERSION={APP_VERSION} />,
       document.getElementById('root')
