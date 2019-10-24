@@ -11,8 +11,6 @@ import {
   Zeplin
 } from '../../../images';
 
-let adjust = 0;
-
 export class DeveloperProfile extends Component {
   state = {
     knowMore: false,
@@ -20,20 +18,24 @@ export class DeveloperProfile extends Component {
     displayThumbnails: false
   };
 
-  componentDidUpdate() {
-    adjust = 0;
-
-    if (this.state.displayThumbnails && this.state.seeAllProjects) {
-      adjust = 1300;
-    } else if (this.state.seeAllProjects) {
-      adjust = 650;
-    } else {
-      adjust = 0;
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.knowMore !== this.state.knowMore ||
+      prevState.seeAllProjects !== this.state.seeAllProjects ||
+      prevState.displayThumbnails !== this.state.displayThumbnails
+    ) {
+      let adjust = 0;
+      if (this.state.displayThumbnails) {
+        adjust += 650;
+      }
+      if (this.state.seeAllProjects) {
+        adjust += 650;
+      }
+      if (this.state.knowMore) {
+        adjust += 200;
+      }
+      this.props.handleAdjustExpandedProjectsView(adjust);
     }
-    if (this.state.knowMore) {
-      adjust += 200;
-    }
-    this.props.handleAdjustExpandedProjectsView(adjust);
   }
 
   onClickKnowMore = () =>

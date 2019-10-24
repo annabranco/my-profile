@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollArea } from '../';
-import { MyInfoPage, LanguagesModal } from '../../views';
+import { LanguagesModal } from '../../views';
 
 export class MainArea extends Component {
   state = {
@@ -31,22 +31,17 @@ export class MainArea extends Component {
     const {
       onChangeLanguage,
       doNotShowLanguageModalAgain,
-      handleAdjustExpandedProjectsView,
       texts,
       userViewedAllComponents,
       viewedAll
     } = this.props;
 
     return (
-      <main className="main__outer">
-        <div className="main__intro">
-          <MyInfoPage texts={texts.infoPage} viewedAll={viewedAll} />
-        </div>
-
+      <main>
         <ScrollArea
           texts={texts}
-          handleAdjustExpandedProjectsView={handleAdjustExpandedProjectsView}
           userViewedAllComponents={userViewedAllComponents}
+          viewedAll={viewedAll}
         />
 
         {!doNotShowLanguageModalAgain && languageModalIsVisible && (
