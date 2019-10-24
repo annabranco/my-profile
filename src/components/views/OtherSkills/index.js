@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MacNotebook } from '../../images';
+import { MacNotebook } from '../../../images';
 
 export class OtherSkills extends Component {
   constructor(props) {

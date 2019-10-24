@@ -1,5 +1,6 @@
 import React from 'react';
-import { InbetweenBar, Developer, Formation, Seabed } from '../';
+import { DeveloperProfile, Seabed } from '../';
+import { InbetweenBar, Formation } from '../../views';
 
 export const ScrollArea = ({
   texts,
@@ -9,7 +10,7 @@ export const ScrollArea = ({
   return (
     <section className="main__images">
       <InbetweenBar title={texts.developer.title} />
-      <Developer
+      <DeveloperProfile
         texts={texts.developer}
         handleAdjustExpandedProjectsView={handleAdjustExpandedProjectsView}
       />
@@ -17,7 +18,7 @@ export const ScrollArea = ({
       <InbetweenBar title={texts.formation.title} />
       <Formation
         texts={texts.formation}
-        language={texts.languages.languageAbv}
+        language={texts.languages.languageCode}
       />
 
       <InbetweenBar title={texts.seabed.title} />

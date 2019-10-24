@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ProjectsList } from '../';
+import { ProjectsList } from '../../views';
 import {
   LogoAdalab,
   Html,
@@ -9,11 +9,11 @@ import {
   Github,
   Bootstrap,
   Zeplin
-} from '../../images';
+} from '../../../images';
 
 let adjust = 0;
 
-export class Developer extends Component {
+export class DeveloperProfile extends Component {
   constructor(props) {
     super(props);
 

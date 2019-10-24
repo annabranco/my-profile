@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/styles.css';
-import { App } from './components';
+import { App } from './components/containers';
 
 const TEXTS_URL =
   'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db/texts.json';

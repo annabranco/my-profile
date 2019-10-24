@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Experiences, OtherSkills } from '../';
+import { Experiences, OtherSkills } from '../../views';
 import {
   FloatingRight,
   FloatingLeft,
   SwimmingRight,
   SwimmingLeft
-} from '../../images';
+} from '../../../images';
 
 let floatLeft;
 let floatRight;

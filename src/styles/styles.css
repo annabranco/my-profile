@@ -282,15 +282,15 @@ body {
     transform: translate(0, 1px);
     box-shadow: inset 0 2px 5px 1px rgba(33, 33, 33, 0.4); }
 
-.section__hero {
+.section__infoPage {
   margin-top: 50px;
   height: 100vh;
   width: 100vw; }
   @media all and (min-width: 500px) {
-    .section__hero {
+    .section__infoPage {
       margin-top: 100px; } }
 
-.hero__container {
+.infoPage__container {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -298,17 +298,17 @@ body {
   width: 95%;
   margin: 0 auto; }
   @media all and (min-width: 500px) {
-    .hero__container {
+    .infoPage__container {
       width: 90%; } }
 
-.hero__photoAndName {
+.infoPage__photoAndName {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   width: 45%; }
   @media all and (min-width: 500px) {
-    .hero__photoAndName {
+    .infoPage__photoAndName {
       width: 75%; } }
 
 .main__intro {
@@ -324,47 +324,47 @@ body {
     .main__intro {
       background-image: linear-gradient(white, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif"); } }
 
-.hero__photo--container {
+.infoPage__photo--container {
   height: 170px;
   width: 100%;
   padding-right: 5px; }
   @media all and (min-width: 500px) {
-    .hero__photo--container {
+    .infoPage__photo--container {
       height: 400px;
       width: 30%; } }
 
-.hero__id--container {
+.infoPage__id--container {
   height: 230px;
   width: 100%;
   padding: 10px 20px; }
   @media all and (min-width: 500px) {
-    .hero__id--container {
+    .infoPage__id--container {
       height: 400px;
       width: 70%; } }
 
-.hero__social--container {
+.infoPage__social--container {
   height: 400px;
   width: 55%; }
   @media all and (min-width: 321px) {
-    .hero__social--container {
+    .infoPage__social--container {
       width: 50%; } }
   @media all and (min-width: 500px) {
-    .hero__social--container {
+    .infoPage__social--container {
       width: 25%; } }
 
-.hero__photo {
+.infoPage__photo {
   height: 500px; }
 
-.hero__mugshot {
+.infoPage__mugshot {
   width: 100%; }
 
-.hero__id {
+.infoPage__id {
   height: 100px; }
   @media all and (min-width: 500px) {
-    .hero__id {
+    .infoPage__id {
       height: 200px; } }
 
-.hero__name {
+.infoPage__name {
   background-image: url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/other/bg-binary.jpg");
   background-size: contain;
   background-position: center;
@@ -375,42 +375,42 @@ body {
   font-size: 3rem;
   font-weight: 900; }
   @media all and (min-width: 768px) {
-    .hero__name {
+    .infoPage__name {
       font-size: 4rem; } }
   @media all and (min-width: 1024px) {
-    .hero__name {
+    .infoPage__name {
       font-size: 5rem; } }
 
-.hero__name--devices {
+.infoPage__name--devices {
   margin: 5px 0;
   display: block;
   text-align: center; }
   @media all and (min-width: 500px) {
-    .hero__name--devices {
+    .infoPage__name--devices {
       display: none; } }
 
-.hero__name--desktop {
+.infoPage__name--desktop {
   display: none; }
   @media all and (min-width: 500px) {
-    .hero__name--desktop {
+    .infoPage__name--desktop {
       display: block; } }
 
 /* OPTIONS OF BG
 
-background-image       : url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-abstract-matrix-background-binary-computer-code-coding-and-hacker-concept-tech-background-4k-animation_btu47n5jb_thumbnail-full06.png');
-background-size        : contain;
+background-image : url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-abstract-matrix-background-binary-computer-code-coding-and-hacker-concept-tech-background-4k-animation_btu47n5jb_thumbnail-full06.png');
+background-size  : contain;
 
-background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
-background-size        : contain;
+background-image : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size  : contain;
 
-background-image       : url('https://images3.alphacoders.com/279/279465.jpg');
-background-size        : cover;
-background-position    : center;
+background-image    : url('https://images3.alphacoders.com/279/279465.jpg');
+background-size     : cover;
+background-position : center;
 
-background-image       : url('https://images.pond5.com/green-loopable-it-background-glowing-footage-000878726_prevstill.jpeg');
-background-size        : cover;
+background-image : url('https://images.pond5.com/green-loopable-it-background-glowing-footage-000878726_prevstill.jpeg');
+background-size  : cover;
 */
-.hero__job {
+.infoPage__job {
   margin-top: -30px;
   margin-left: -25px;
   width: 42vw;
@@ -418,17 +418,17 @@ background-size        : cover;
   font-family: "Corben", cursive;
   font-size: 1.3rem; }
   @media all and (min-width: 321px) {
-    .hero__job {
+    .infoPage__job {
       margin-top: 0;
       font-size: 1.5rem; } }
   @media all and (min-width: 500px) {
-    .hero__job {
+    .infoPage__job {
       margin-left: 0;
       width: auto;
       text-align: left;
       font-size: 2rem; } }
 
-.hero__boat {
+.infoPage__boat {
   position: absolute;
   top: 40%;
   transform: translate(-50%, 0);
@@ -440,7 +440,7 @@ background-size        : cover;
   animation-fill-mode: forwards;
   animation-timing-function: linear; }
   @media all and (min-width: 768px) {
-    .hero__boat {
+    .infoPage__boat {
       top: 30%;
       filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2); } }
 
@@ -459,7 +459,7 @@ background-size        : cover;
     right: 110vw;
     opacity: 0; } }
 
-.hero__aditional {
+.infoPage__aditional {
   margin: -20px 0 0;
   width: 90%;
   text-align: center;
@@ -469,14 +469,14 @@ background-size        : cover;
   line-height: 1.5;
   color: #4681d0; }
   @media all and (min-width: 500px) {
-    .hero__aditional {
+    .infoPage__aditional {
       margin: -40px 0 0 20px;
       width: 80%;
       font-size: 1.2rem;
       height: 200px;
       text-align: left; } }
 
-.hero__advise {
+.infoPage__advise {
   margin-top: -20px;
   background: rgba(235, 225, 1, 0.3);
   width: 100%;
@@ -485,13 +485,13 @@ background-size        : cover;
   font-size: 0.9rem;
   text-align: center; }
   @media all and (min-width: 768px) {
-    .hero__advise {
+    .infoPage__advise {
       margin-top: 40px; } }
   @media all and (min-width: 1200px) {
-    .hero__advise {
+    .infoPage__advise {
       display: none; } }
 
-.hero__scrollDown {
+.infoPage__scrollDown {
   z-index: 3;
   margin-top: 0;
   display: flex;
@@ -499,10 +499,10 @@ background-size        : cover;
   align-items: center;
   justify-content: center; }
   @media all and (min-width: 768px) {
-    .hero__scrollDown {
+    .infoPage__scrollDown {
       margin-top: 80px; } }
 
-.hero__scrollDown-inner {
+.infoPage__scrollDown-inner {
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -546,7 +546,7 @@ background-size        : cover;
   95% {
     opacity: 1; } }
 
-.hero__social {
+.infoPage__social {
   border-radius: 30px;
   background-image: linear-gradient(rgba(50, 210, 105, 0.1), rgba(255, 255, 255, 0.2));
   height: 400px;
@@ -556,24 +556,24 @@ background-size        : cover;
   align-items: center;
   justify-content: space-around; }
   @media all and (min-width: 500px) {
-    .hero__social {
+    .infoPage__social {
       height: 500px;
       padding: 10px 0 80px; } }
 
-.hero__social--inner {
+.infoPage__social--inner {
   margin: 5px 0; }
   @media all and (min-width: 500px) {
-    .hero__social--inner {
+    .infoPage__social--inner {
       margin: 15px 0; } }
 
-.hero__social--link,
-.hero__social--link-mail,
-.hero__social--link-skype {
+.infoPage__social--link,
+.infoPage__social--link-mail,
+.infoPage__social--link-skype {
   display: flex;
   align-items: center;
   justify-content: center; }
 
-.hero__social--link {
+.infoPage__social--link {
   border: 1px solid #ffffff;
   border-radius: 25px 0;
   background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(50, 210, 105, 0.5));
@@ -581,18 +581,18 @@ background-size        : cover;
   padding: 5px 0;
   text-decoration: none;
   box-shadow: 0 4px 5px 0 rgba(33, 33, 33, 0.4), inset 0 1px 5px 1px rgba(255, 255, 255, 0.7); }
-  .hero__social--link:hover {
+  .infoPage__social--link:hover {
     text-decoration: none;
     transform: translate(0, 1px);
     box-shadow: inset 0 2px 5px 1px rgba(33, 33, 33, 0.4); }
   @media all and (min-width: 321px) {
-    .hero__social--link {
+    .infoPage__social--link {
       width: 150px; } }
   @media all and (min-width: 500px) {
-    .hero__social--link {
+    .infoPage__social--link {
       width: 200px; } }
 
-.hero__social--inner + .hero__social--link {
+.infoPage__social--inner + .infoPage__social--link {
   border: 0;
   border-radius: 0;
   background-image: none;
@@ -600,28 +600,28 @@ background-size        : cover;
   padding: 0;
   text-decoration: none;
   box-shadow: none; }
-  .hero__social--inner + .hero__social--link:hover {
+  .infoPage__social--inner + .infoPage__social--link:hover {
     text-decoration: none;
     transform: none;
     box-shadow: none; }
 
-.hero__social--link-mail,
-.hero__social--link-skype {
+.infoPage__social--link-mail,
+.infoPage__social--link-skype {
   flex-direction: column;
   width: 100%;
   text-decoration: none; }
-  .hero__social--link-mail:hover,
-  .hero__social--link-skype:hover {
+  .infoPage__social--link-mail:hover,
+  .infoPage__social--link-skype:hover {
     text-decoration: none; }
 
-.hero__social--link-skype {
+.infoPage__social--link-skype {
   width: 75px; }
-  .hero__social--link-skype:first-of-type {
+  .infoPage__social--link-skype:first-of-type {
     border-radius: 25px 0 0 0; }
-  .hero__social--link-skype:last-of-type {
+  .infoPage__social--link-skype:last-of-type {
     border-radius: 0 0 25px 0; }
   @media all and (min-width: 500px) {
-    .hero__social--link-skype {
+    .infoPage__social--link-skype {
       width: 50%; } }
 
 .icon-call,
@@ -635,7 +635,7 @@ background-size        : cover;
   font-size: 2rem;
   text-shadow: 0 0 1px #212121; }
 
-.hero__social--link-skype:hover .icon-call, .hero__social--link-skype:hover
+.infoPage__social--link-skype:hover .icon-call, .infoPage__social--link-skype:hover
 .icon-chat {
   color: #054187; }
 
@@ -647,29 +647,29 @@ background-size        : cover;
   vertical-align: middle;
   font-size: 2rem;
   text-shadow: 0 0 1px #212121; }
-  .hero__social--link:hover .icon-github, .hero__social--link:hover
-  .icon-linkedin, .hero__social--link:hover
-  .icon-mail, .hero__social--link:hover
+  .infoPage__social--link:hover .icon-github, .infoPage__social--link:hover
+  .icon-linkedin, .infoPage__social--link:hover
+  .icon-mail, .infoPage__social--link:hover
   .icon-twitter {
     color: #054187; }
 
-.hero__social-text {
+.infoPage__social-text {
   margin: 4px 0 0 5px;
   font-family: "Acme", sans-serif;
   font-size: 1rem;
   color: #212121; }
-  .hero__social--link-mail .hero__social-text,
-  .hero__social--link-skype .hero__social-text {
+  .infoPage__social--link-mail .infoPage__social-text,
+  .infoPage__social--link-skype .infoPage__social-text {
     margin: 4px 0 0; }
   @media all and (min-width: 321px) {
-    .hero__social-text {
+    .infoPage__social-text {
       margin: 4px 0 0 15px; } }
   @media all and (min-width: 500px) {
-    .hero__social-text {
+    .infoPage__social-text {
       margin: 4px 0 0 25px;
       font-size: 1.3rem; }
-      .hero__social--link-mail .hero__social-text,
-      .hero__social--link-skype .hero__social-text {
+      .infoPage__social--link-mail .infoPage__social-text,
+      .infoPage__social--link-skype .infoPage__social-text {
         margin: 4px 25px 0; } }
 
 .images {

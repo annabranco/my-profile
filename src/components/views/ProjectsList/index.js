@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import projectsDB from '../../db/projectsDB';
+import projectsDB from '../../../db/projectsDB';
 
 export class ProjectsList extends Component {
   constructor(props) {

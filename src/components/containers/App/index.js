@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Header, MainArea } from '../';
-// import texts from '../../db/texts.js';
+import { MainArea } from '../';
+import { Header } from '../../views';
+import { getLanguageCodeByName } from '../../../utils/languages';
 
 const doc = document.documentElement;
 let adjustExpandedProjectsView = 0;
+const DEFAULT_PAGE_LANGUAGE = 'English';
 
 export class App extends Component {
   constructor(props) {
@@ -11,7 +13,7 @@ export class App extends Component {
 
     this.state = {
       texts: this.props.texts,
-      language: 'en',
+      language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
       doNotShowLanguagePopupAgain: undefined,
       viewedAll: false
     };
@@ -19,32 +21,46 @@ export class App extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    // this.setTexts();
-    this.loadDefaultLanguage();
+    this.loadLanguageSettings();
     this.setState({ viewedAll: false });
     console.log('$$$ this.props.texts', this.props.texts);
-  }
-
-  componentDidUpdate() {
-    this.saveToLocalStorage();
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  // setTexts = () => {
-  //   const { texts } = this.props;
-  //   this.setState({ texts });
-  // };
+  saveLanguageSettings = () => {
+    const { language, doNotShowLanguagePopupAgain } = this.state;
+    localStorage.setItem(
+      "Anna Branco's professional profile",
+      JSON.stringify({
+        language,
+        doNotShowLanguagePopupAgain
+      })
+    );
+  };
 
-  loadDefaultLanguage = () => {
+  loadLanguageSettings = () => {
     if (localStorage.getItem("Anna Branco's professional profile") !== null) {
-      this.setState(
-        JSON.parse(localStorage.getItem("Anna Branco's professional profile"))
+      const { language, doNotShowLanguagePopupAgain } = JSON.parse(
+        localStorage.getItem("Anna Branco's professional profile")
       );
+      this.setState({ language, doNotShowLanguagePopupAgain });
     }
   };
+
+  onChangeLanguage = event =>
+    this.setState({ language: event.currentTarget.lang }, () =>
+      this.saveLanguageSettings()
+    );
+
+  closeLanguagePopup = doNotShowAgain =>
+    this.setState({ doNotShowLanguagePopupAgain: doNotShowAgain }, () =>
+      this.saveLanguageSettings()
+    );
+
+  userViewedAllComponents = () => this.setState({ viewedAll: true });
 
   handleAdjustExpandedProjectsView = adjust => {
     adjustExpandedProjectsView = adjust;
@@ -171,20 +187,6 @@ export class App extends Component {
     console.log(doc.scrollTop);
   };
 
-  changeLanguage = event =>
-    this.setState({ language: event.currentTarget.lang });
-
-  clearLanguagePopup = doNotShowAgain =>
-    this.setState({ doNotShowLanguagePopupAgain: doNotShowAgain });
-
-  saveToLocalStorage = () =>
-    localStorage.setItem(
-      "Anna Branco's professional profile",
-      JSON.stringify(this.state)
-    );
-
-  userViewedAllComponents = () => this.setState({ viewedAll: true });
-
   render() {
     const { language } = this.state;
     const { texts } = this.props;
@@ -193,12 +195,12 @@ export class App extends Component {
       <div className="App">
         <Header
           texts={texts[language].header}
-          changeLanguage={this.changeLanguage}
+          onChangeLanguage={this.onChangeLanguage}
         />
         <MainArea
-          changeLanguage={this.changeLanguage}
+          onChangeLanguage={this.onChangeLanguage}
           texts={texts[language]}
-          clearLanguagePopup={this.clearLanguagePopup}
+          closeLanguagePopup={this.closeLanguagePopup}
           doNotShowLanguagePopupAgain={this.state.doNotShowLanguagePopupAgain}
           handleAdjustExpandedProjectsView={
             this.handleAdjustExpandedProjectsView

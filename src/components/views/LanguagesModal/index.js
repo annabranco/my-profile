@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Languages extends Component {
+export class LanguagesModal extends Component {
   constructor(props) {
     super(props);
 
@@ -21,7 +21,7 @@ export class Languages extends Component {
 
   closeDisplay = () => {
     this.setState({ display: false });
-    this.props.clearLanguagePopup(this.state.doNotShowLanguagePopupAgain);
+    this.props.closeLanguagePopup(this.state.doNotShowLanguagePopupAgain);
   };
 
   frenchSelected = () => {
@@ -33,7 +33,7 @@ export class Languages extends Component {
 
   render() {
     const { frenchClicked, display } = this.state;
-    const { texts, changeLanguage, language } = this.props;
+    const { texts, onChangeLanguage, language } = this.props;
 
     return (
       <React.Fragment>
@@ -52,7 +52,7 @@ export class Languages extends Component {
               <div
                 className="languages__flags--inner"
                 lang="en"
-                onClick={changeLanguage}
+                onClick={onChangeLanguage}
               >
                 <p className="languages__label">English</p>
                 <img
@@ -67,7 +67,7 @@ export class Languages extends Component {
               <div
                 className="languages__flags--inner"
                 lang="es"
-                onClick={changeLanguage}
+                onClick={onChangeLanguage}
               >
                 <p className="languages__label">Español</p>
                 <img
@@ -82,7 +82,7 @@ export class Languages extends Component {
               <div
                 className="languages__flags--inner"
                 lang="pt"
-                onClick={changeLanguage}
+                onClick={onChangeLanguage}
               >
                 <p className="languages__label">Português</p>
                 <img

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Hero, ScrollArea, Languages } from '../';
+import { ScrollArea } from '../';
+import { MyInfoPage, LanguagesModal } from '../../views';
 
 export const MainArea = ({
-  changeLanguage,
-  clearLanguagePopup,
+  onChangeLanguage,
+  closeLanguagePopup,
   doNotShowLanguagePopupAgain,
   handleAdjustExpandedProjectsView,
-  handleAnimation,
   texts,
   userViewedAllComponents,
   viewedAll
@@ -14,7 +14,7 @@ export const MainArea = ({
   return (
     <main className="main__outer">
       <div className="main__intro">
-        <Hero texts={texts.hero} viewedAll={viewedAll} />
+        <MyInfoPage texts={texts.infoPage} viewedAll={viewedAll} />
       </div>
 
       <ScrollArea
@@ -24,11 +24,11 @@ export const MainArea = ({
       />
 
       {!doNotShowLanguagePopupAgain ? (
-        <Languages
+        <LanguagesModal
           texts={texts.languages}
           language={texts.languages.language}
-          changeLanguage={changeLanguage}
-          clearLanguagePopup={clearLanguagePopup}
+          onChangeLanguage={onChangeLanguage}
+          closeLanguagePopup={closeLanguagePopup}
         />
       ) : null}
     </main>

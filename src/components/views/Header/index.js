@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Header = ({ texts, changeLanguage }) => {
+export const Header = ({ texts, onChangeLanguage }) => {
   let languageSelected;
   switch (texts.language) {
     case 'Español':
@@ -26,7 +26,7 @@ export const Header = ({ texts, changeLanguage }) => {
           }`}
           src="https://www.countryflags.io/us/flat/16.png"
           lang="en"
-          onClick={changeLanguage}
+          onClick={onChangeLanguage}
           alt="English"
         />
         <img
@@ -35,7 +35,7 @@ export const Header = ({ texts, changeLanguage }) => {
           }`}
           src="https://www.countryflags.io/es/flat/16.png"
           lang="es"
-          onClick={changeLanguage}
+          onClick={onChangeLanguage}
           alt="Español"
         />
         <img
@@ -44,7 +44,7 @@ export const Header = ({ texts, changeLanguage }) => {
           }`}
           src="https://www.countryflags.io/br/flat/16.png"
           lang="pt"
-          onClick={changeLanguage}
+          onClick={onChangeLanguage}
           alt="Português"
         />
         <img
@@ -53,7 +53,7 @@ export const Header = ({ texts, changeLanguage }) => {
           }`}
           src="https://www.countryflags.io/fr/flat/16.png"
           lang="fr"
-          onClick={changeLanguage}
+          onClick={onChangeLanguage}
           alt="Français"
         />
       </div>

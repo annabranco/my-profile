@@ -1,4 +1,4 @@
-.hero__social {
+.infoPage__social {
 	border-radius   : 30px;
 	background-image: linear-gradient(rgba($green-bright, 0.1),rgba($white, 0.2));
 	height          : 400px;
@@ -14,7 +14,7 @@
 	}
 }
 
-.hero__social--inner {
+.infoPage__social--inner {
 	margin: 5px 0;
 
 	@media all and (min-width: 500px) {
@@ -22,15 +22,15 @@
 	}
 }
 
-.hero__social--link,
-.hero__social--link-mail,
-.hero__social--link-skype {
+.infoPage__social--link,
+.infoPage__social--link-mail,
+.infoPage__social--link-skype {
 	display        : flex;
 	align-items    : center;
 	justify-content: center;
 }
 
-.hero__social--link {
+.infoPage__social--link {
 	border          : 1px solid $white;
 	border-radius   : 25px 0;
 	background-image: linear-gradient(rgba($white, 0.2),rgba($green-bright, 0.5));
@@ -54,7 +54,7 @@
 	}
 }
 
-.hero__social--inner + .hero__social--link {
+.infoPage__social--inner + .infoPage__social--link {
 	border          : 0;
 	border-radius   : 0;
 	background-image: none;
@@ -70,8 +70,8 @@
 	}
 }
 
-.hero__social--link-mail,
-.hero__social--link-skype {
+.infoPage__social--link-mail,
+.infoPage__social--link-skype {
 	flex-direction : column;
 	width          : 100%;
 	text-decoration: none;
@@ -81,7 +81,7 @@
 	}
 }
 
-.hero__social--link-skype {
+.infoPage__social--link-skype {
 	width: 75px;
 
 	&:first-of-type {
@@ -111,7 +111,7 @@
 
 .icon-call,
 .icon-chat {
-	.hero__social--link-skype:hover & {
+	.infoPage__social--link-skype:hover & {
 		color: $blue--dark;
 	}
 }
@@ -125,19 +125,19 @@
 	font-size     : 2rem;
 	text-shadow   : 0 0 1px $black;
 
-	.hero__social--link:hover & {
+	.infoPage__social--link:hover & {
 		color: $blue--dark;
 	}
 }
 
-.hero__social-text {
+.infoPage__social-text {
 	margin     : 4px 0 0 5px;
 	font-family: $font__title-alt;
 	font-size  : 1rem;
 	color      : $black;
 
-	.hero__social--link-mail &,
-	.hero__social--link-skype & {
+	.infoPage__social--link-mail &,
+	.infoPage__social--link-skype & {
 		margin: 4px 0 0;
 	}
 
@@ -149,8 +149,8 @@
 		margin   : 4px 0 0 25px;
 		font-size: 1.3rem;
 
-		.hero__social--link-mail &,
-		.hero__social--link-skype & {
+		.infoPage__social--link-mail &,
+		.infoPage__social--link-skype & {
 			margin: 4px 25px 0;
 		}
 	}
