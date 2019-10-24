@@ -1,10 +1,22 @@
 import React from 'react';
 import { DeveloperProfile, Seabed } from '../';
 import { InbetweenBar, Formation, MyInfoPage } from '../../views';
+import { SHOW_ACTION, HIDE_ACTION } from '../../../constants';
 
 export class ScrollArea extends React.Component {
   state = {
-    adjustedSize: 0
+    adjustedSize: 0,
+    developerActivation: {
+      adalab: false,
+      projects: false,
+      skills: false
+    },
+    formationActivation: {
+      psychology: false,
+      ir: false,
+      master: false,
+      programming: false
+    }
   };
 
   handleAdjustExpandedProjectsView = adjust =>
@@ -12,141 +24,78 @@ export class ScrollArea extends React.Component {
       adjustedSize: adjust
     });
 
+  toggleDynamicElements = (section, element, action) => {
+    const key = `${section}Activation`;
+    const result = action === SHOW_ACTION ? true : false;
+    this.setState(prevState => ({
+      [key]: {
+        ...prevState[key],
+        [element]: result
+      }
+    }));
+  };
+
   handleScroll = event => {
     const { adjustedSize } = this.state;
     const scrollPosition = event.target.scrollTop;
 
     if (scrollPosition) {
+      // Toggle Developer section
       if (scrollPosition >= 350 && scrollPosition <= 1540) {
-        document.querySelector('.developer__formation').classList.add('comeIn');
+        this.toggleDynamicElements('developer', 'adalab', SHOW_ACTION);
       } else {
-        document
-          .querySelector('.developer__formation')
-          .classList.remove('comeIn');
+        this.toggleDynamicElements('developer', 'adalab', HIDE_ACTION);
       }
-
       if (scrollPosition >= 500 && scrollPosition <= 1540 + adjustedSize) {
-        document.querySelector('.developer__projects').classList.add('comeIn');
+        this.toggleDynamicElements('developer', 'projects', SHOW_ACTION);
       } else {
-        document
-          .querySelector('.developer__projects')
-          .classList.remove('comeIn');
+        this.toggleDynamicElements('developer', 'projects', HIDE_ACTION);
       }
-
       if (scrollPosition >= 450 && scrollPosition <= 1540 + adjustedSize) {
-        document.querySelector('.developer__sidebar').classList.add('comeIn');
+        this.toggleDynamicElements('developer', 'skills', SHOW_ACTION);
       } else {
-        document
-          .querySelector('.developer__sidebar')
-          .classList.remove('comeIn');
+        this.toggleDynamicElements('developer', 'skills', HIDE_ACTION);
       }
 
+      // Toggle Formation section
       if (
         scrollPosition >= 1050 + adjustedSize &&
         scrollPosition <= 2000 + adjustedSize
       ) {
-        document
-          .querySelector('.formation__horizontarBar-psy')
-          .classList.add('comeIn');
-        document.querySelector('.formation__title-psy').classList.add('comeIn');
-        for (const each of document.querySelectorAll(
-          '.formation__details-psy'
-        )) {
-          each.classList.add('comeIn');
-        }
+        this.toggleDynamicElements('formation', 'psychology', SHOW_ACTION);
       } else {
-        document
-          .querySelector('.formation__horizontarBar-psy')
-          .classList.remove('comeIn');
-        document
-          .querySelector('.formation__title-psy')
-          .classList.remove('comeIn');
-        for (const each of document.querySelectorAll(
-          '.formation__details-psy'
-        )) {
-          each.classList.remove('comeIn');
-        }
+        this.toggleDynamicElements('formation', 'psychology', HIDE_ACTION);
       }
-
       if (
         scrollPosition >= 1200 + adjustedSize &&
         scrollPosition <= 2000 + adjustedSize
       ) {
-        document
-          .querySelector('.formation__horizontarBar-ir')
-          .classList.add('comeIn');
-        document.querySelector('.formation__title-ir').classList.add('comeIn');
-        for (const each of document.querySelectorAll(
-          '.formation__details-ir'
-        )) {
-          each.classList.add('comeIn');
-        }
+        this.toggleDynamicElements('formation', 'ir', SHOW_ACTION);
       } else {
-        document
-          .querySelector('.formation__horizontarBar-ir')
-          .classList.remove('comeIn');
-        document
-          .querySelector('.formation__title-ir')
-          .classList.remove('comeIn');
-        for (const each of document.querySelectorAll(
-          '.formation__details-ir'
-        )) {
-          each.classList.remove('comeIn');
-        }
+        this.toggleDynamicElements('formation', 'ir', HIDE_ACTION);
       }
-
       if (
         scrollPosition >= 1320 + adjustedSize &&
         scrollPosition <= 2000 + adjustedSize
       ) {
-        document
-          .querySelector('.formation__horizontarBar-master')
-          .classList.add('comeIn');
-        document
-          .querySelector('.formation__title-master')
-          .classList.add('comeIn');
-        for (const each of document.querySelectorAll(
-          '.formation__details-master'
-        )) {
-          each.classList.add('comeIn');
-        }
+        this.toggleDynamicElements('formation', 'master', SHOW_ACTION);
       } else {
-        document
-          .querySelector('.formation__horizontarBar-master')
-          .classList.remove('comeIn');
-        document
-          .querySelector('.formation__title-master')
-          .classList.remove('comeIn');
-        for (const each of document.querySelectorAll(
-          '.formation__details-master'
-        )) {
-          each.classList.remove('comeIn');
-        }
+        this.toggleDynamicElements('formation', 'master', HIDE_ACTION);
       }
-
       if (
         scrollPosition >= 1420 + adjustedSize &&
         scrollPosition <= 2000 + adjustedSize
       ) {
-        document
-          .querySelector('.formation__horizontarBar-adalab')
-          .classList.add('comeIn');
-        document
-          .querySelector('.formation__title-adalab')
-          .classList.add('comeIn');
+        this.toggleDynamicElements('formation', 'programming', SHOW_ACTION);
       } else {
-        document
-          .querySelector('.formation__horizontarBar-adalab')
-          .classList.remove('comeIn');
-        document
-          .querySelector('.formation__title-adalab')
-          .classList.remove('comeIn');
+        this.toggleDynamicElements('formation', 'programming', HIDE_ACTION);
       }
       console.log(scrollPosition);
     }
   };
 
   render() {
+    const { developerActivation, formationActivation } = this.state;
     const { texts, userViewedAllComponents, viewedAll } = this.props;
     return (
       <section className="scrollArea__container" onScroll={this.handleScroll}>
@@ -160,12 +109,14 @@ export class ScrollArea extends React.Component {
             this.handleAdjustExpandedProjectsView
           }
           language={texts.languages.languageCode}
+          developerActivation={developerActivation}
         />
 
         <InbetweenBar title={texts.formation.title} />
         <Formation
           texts={texts.formation}
           language={texts.languages.languageCode}
+          formationActivation={formationActivation}
         />
 
         <InbetweenBar title={texts.seabed.title} />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Formation = ({ texts }) => {
+export const Formation = ({ texts, formationActivation }) => {
   return (
     <section className="section__formation">
       <div className="formation__outer">
@@ -17,11 +17,20 @@ export const Formation = ({ texts }) => {
         </div>
         <div className="formation__inner">
           <div className="formation__inner--horizontalBar">
-            <div className="formation__horizontarBar-psy"></div>
-            <h2 className="formation__title formation__title-psy">
+            <div
+              className={`formation__horizontarBar-psy ${formationActivation.psychology &&
+                'comeIn'}`}
+            ></div>
+            <h2
+              className={`formation__title formation__title-psy ${formationActivation.psychology &&
+                'comeIn'}`}
+            >
               {texts.psy}
             </h2>
-            <p className="formation__details formation__details-psy">
+            <p
+              className={`formation__details formation__details-psy ${formationActivation.psychology &&
+                'comeIn'}`}
+            >
               Universidade Gama Filho
               <img
                 className="formation__flag"
@@ -30,14 +39,28 @@ export const Formation = ({ texts }) => {
                 title={texts.brazil}
               />
             </p>
-            <p className="formation__details formation__details-psy">
+            <p
+              className={`formation__details formation__details-psy ${formationActivation.psychology &&
+                'comeIn'}`}
+            >
               {texts.grade}8,46
             </p>
           </div>
           <div className="formation__inner--horizontalBar">
-            <div className="formation__horizontarBar-ir"></div>
-            <h2 className="formation__title formation__title-ir">{texts.ir}</h2>
-            <p className="formation__details formation__details-ir">
+            <div
+              className={`formation__horizontarBar-ir ${formationActivation.ir &&
+                'comeIn'}`}
+            ></div>
+            <h2
+              className={`formation__title formation__title-ir ${formationActivation.ir &&
+                'comeIn'}`}
+            >
+              {texts.ir}
+            </h2>
+            <p
+              className={`formation__details formation__details-ir ${formationActivation.ir &&
+                'comeIn'}`}
+            >
               Universidade Estácio de Sá
               <img
                 className="formation__flag"
@@ -46,16 +69,28 @@ export const Formation = ({ texts }) => {
                 title={texts.brazil}
               />
             </p>
-            <p className="formation__details formation__details-ir">
+            <p
+              className={`formation__details formation__details-ir ${formationActivation.ir &&
+                'comeIn'}`}
+            >
               {texts.grade}9,15
             </p>
           </div>
           <div className="formation__inner--horizontalBar">
-            <div className="formation__horizontarBar-master"></div>
-            <h2 className="formation__title formation__title-master">
+            <div
+              className={`formation__horizontarBar-master ${formationActivation.master &&
+                'comeIn'}`}
+            ></div>
+            <h2
+              className={`formation__title formation__title-master ${formationActivation.master &&
+                'comeIn'}`}
+            >
               {texts.master}
             </h2>
-            <p className="formation__details formation__details-master">
+            <p
+              className={`formation__details formation__details-master ${formationActivation.master &&
+                'comeIn'}`}
+            >
               Universitat Autònoma de Barcelona{' '}
               <img
                 className="formation__flag"
@@ -64,13 +99,24 @@ export const Formation = ({ texts }) => {
                 title={texts.spain}
               />
             </p>
-            <p className="formation__details formation__details-master">
+            <p
+              className={`formation__details formation__details-master ${formationActivation.master &&
+                'comeIn'}`}
+            >
               {texts.grade}8,00
             </p>
           </div>
           <div className="formation__inner--horizontalBar">
-            <div className="formation__horizontarBar-adalab"></div>
-            <h2 className="formation__title formation__title-adalab">Adalab</h2>
+            <div
+              className={`formation__horizontarBar-adalab ${formationActivation.programming &&
+                'comeIn'}`}
+            ></div>
+            <h2
+              className={`formation__title formation__title-adalab ${formationActivation.programming &&
+                'comeIn'}`}
+            >
+              Adalab
+            </h2>
           </div>
         </div>
       </div>

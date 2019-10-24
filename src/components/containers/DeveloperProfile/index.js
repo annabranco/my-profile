@@ -159,11 +159,14 @@ export class DeveloperProfile extends Component {
 
   render() {
     const { knowMore, seeAllProjects, displayThumbnails } = this.state;
-    const { texts, language } = this.props;
+    const { texts, language, developerActivation } = this.props;
     return (
       <section className="section__developer">
         <div className="developer__outer">
-          <div className="developer__sidebar">
+          <div
+            className={`developer__sidebar ${developerActivation.skills &&
+              'comeIn'}`}
+          >
             <h3 className="developer__skills--title">{texts.main}</h3>
 
             <div className="developer__inner--skills">
@@ -359,7 +362,10 @@ export class DeveloperProfile extends Component {
           </div>
 
           <div className="developer__main">
-            <div className="developer__formation">
+            <div
+              className={`developer__formation ${developerActivation.adalab &&
+                'comeIn'}`}
+            >
               <h2 className="developer__adalab--title">
                 {texts.formation}{' '}
                 <img
@@ -392,7 +398,10 @@ export class DeveloperProfile extends Component {
                 </Fragment>
               )}
             </div>
-            <div className="developer__projects">
+            <div
+              className={`developer__projects ${developerActivation.projects &&
+                'comeIn'}`}
+            >
               <h2 className="developer__projects--title">
                 {texts.projects}
                 <span
