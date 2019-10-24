@@ -1,6 +1,10 @@
 .scrollArea__container {
   height   : 100vh;
   overflow : scroll;
+
+  & .languageModalIsVisible {
+    overflow-y : hidden;
+  }
 }
 
 .images {

@@ -103,10 +103,16 @@ export class ScrollArea extends Component {
 
   render() {
     const { developerActivation, formationActivation } = this.state;
-    const { texts, triggerThankYouMessage, displayThanksMessage } = this.props;
+    const {
+      texts,
+      triggerThankYouMessage,
+      displayThanksMessage,
+      languageModalIsVisible
+    } = this.props;
     return (
       <section
-        className="scrollArea__container"
+        className={`scrollArea__container ${languageModalIsVisible &&
+          'languageModalIsVisible'}`}
         onScroll={this.handleScroll}
         ref={this.scrollAreaRef}
       >

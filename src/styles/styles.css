@@ -190,15 +190,20 @@ table {
   font-family: "Corben", cursive;
   font-weight: bold; }
 
-.languages__outer {
+.background__overlay {
   z-index: 3;
-  position: fixed;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(5, 65, 135, 0.4), rgba(5, 65, 135, 0.6), rgba(33, 33, 33, 0.9));
+  height: 100vh;
+  width: 100vw; }
+
+.languages__outer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  bottom: 30%;
-  left: 50%;
-  transform: translate(-50%, 0);
   border: 1px solid;
   border-radius: 40px 0;
   width: 320px;
@@ -670,6 +675,8 @@ background-size  : cover;
 .scrollArea__container {
   height: 100vh;
   overflow: scroll; }
+  .scrollArea__container .languageModalIsVisible {
+    overflow-y: hidden; }
 
 .images {
   position: relative;

@@ -38,12 +38,6 @@ export class MainArea extends Component {
 
     return (
       <main>
-        <ScrollArea
-          texts={texts}
-          triggerThankYouMessage={triggerThankYouMessage}
-          displayThanksMessage={displayThanksMessage}
-        />
-
         {!doNotShowLanguageModalAgain && languageModalIsVisible && (
           <LanguagesModal
             texts={texts.languages}
@@ -55,6 +49,12 @@ export class MainArea extends Component {
             handleShowLanguageModalAgain={this.handleShowLanguageModalAgain}
           />
         )}
+        <ScrollArea
+          texts={texts}
+          triggerThankYouMessage={triggerThankYouMessage}
+          displayThanksMessage={displayThanksMessage}
+          languageModalIsVisible={languageModalIsVisible}
+        />
       </main>
     );
   }
