@@ -2,11 +2,13 @@
 
 <img src="https://annabranco.github.io/my-profile/static/media/annabranco.dbce0765.png" width="10%">
 
-Hi, I'm **Anna Branco**, a Front End developer from Atresmedia, a huge Spanish media company. This is a beta version of my web professional profile.
-<br>Thank you very much for your interest on visiting me.
+Hi, I'm **Anna Branco**, Frontend developer. This is a beta version of my web
+professional profile. <br> Thank you very much for your interest on visiting me.
 
 https://annabranco.github.io/my-profile/
 
-#### For an enhanced user experience, it is highly recommended to visit it on a desktop.
+#### For an enhanced user experience, I recommended it be visited on a full-screen a desktop.
 
-v0.8.2
+v0.9.0
+
+# React, Redux, create-react-app, SCSS (node-sass-chokidar)

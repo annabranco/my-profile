@@ -4,10 +4,7 @@ import { InbetweenBar, Formation, MyInfoPage } from '../../views';
 import { SHOW_ACTION, HIDE_ACTION } from '../../../constants';
 
 export class ScrollArea extends Component {
-  constructor(props) {
-    super(props);
-    this.scrollAreaRef = createRef();
-  }
+  scrollAreaRef = createRef();
 
   state = {
     adjustedSize: 0,
@@ -107,7 +104,8 @@ export class ScrollArea extends Component {
       texts,
       triggerThankYouMessage,
       displayThanksMessage,
-      languageModalIsVisible
+      languageModalIsVisible,
+      projects
     } = this.props;
     return (
       <section
@@ -125,6 +123,7 @@ export class ScrollArea extends Component {
         <InbetweenBar title={texts.developer.title} />
         <DeveloperProfile
           texts={texts.developer}
+          projects={projects}
           handleAdjustExpandedProjectsView={
             this.handleAdjustExpandedProjectsView
           }

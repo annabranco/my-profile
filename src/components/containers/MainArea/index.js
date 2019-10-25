@@ -33,7 +33,8 @@ export class MainArea extends Component {
       doNotShowLanguageModalAgain,
       texts,
       triggerThankYouMessage,
-      displayThanksMessage
+      displayThanksMessage,
+      projects
     } = this.props;
 
     return (
@@ -51,6 +52,7 @@ export class MainArea extends Component {
         )}
         <ScrollArea
           texts={texts}
+          projects={projects}
           triggerThankYouMessage={triggerThankYouMessage}
           displayThanksMessage={displayThanksMessage}
           languageModalIsVisible={languageModalIsVisible}

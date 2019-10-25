@@ -3,23 +3,31 @@ import ReactDOM from 'react-dom';
 import './styles/styles.css';
 import { App } from './components/containers';
 
-const APP_VERSION = 'v0.8.2';
+const APP_VERSION = 'v0.9.0';
 
 const TEXTS_URL =
   'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db/texts.json';
 
-const loadTexts = fetch(TEXTS_URL)
-  .then(response => response.json())
-  .then(loadedTexts => {
-    console.log('$$$ loadedTexts', loadedTexts);
-    return loadedTexts;
-  })
-  .catch(error => console.error('Failed to fetch texts:', error));
+const PROJECTS_URL =
+  'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db/projectsDB.json';
 
-Promise.all([loadTexts])
-  .then(textsArray => {
+const fetchJson = URL => {
+  return fetch(URL)
+    .then(response => response.json())
+    .then(data => {
+      console.log('$$$ data', data);
+      return data;
+    })
+    .catch(error => console.error('Failed to fetch:', URL, error));
+};
+
+const loadTexts = fetchJson(TEXTS_URL);
+const loadProjects = fetchJson(PROJECTS_URL);
+
+Promise.all([loadTexts, loadProjects])
+  .then(([texts, projects]) => {
     ReactDOM.hydrate(
-      <App texts={textsArray[0]} APP_VERSION={APP_VERSION} />,
+      <App texts={texts} projects={projects} APP_VERSION={APP_VERSION} />,
       document.getElementById('root')
     );
   })

@@ -6,16 +6,11 @@ import { getLanguageCodeByName } from '../../../utils/languages';
 const DEFAULT_PAGE_LANGUAGE = 'English';
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      texts: props.texts,
-      language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
-      doNotShowLanguageModalAgain: undefined,
-      displayThanksMessage: false
-    };
-  }
+  state = {
+    language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
+    doNotShowLanguageModalAgain: undefined,
+    displayThanksMessage: false
+  };
 
   componentDidMount() {
     this.loadLanguageSettings();
@@ -54,7 +49,7 @@ export class App extends Component {
 
   render() {
     const { language } = this.state;
-    const { texts, APP_VERSION } = this.props;
+    const { texts, APP_VERSION, projects } = this.props;
 
     return (
       <Fragment>
@@ -67,6 +62,7 @@ export class App extends Component {
         <MainArea
           onChangeLanguage={this.onChangeLanguage}
           texts={texts[language]}
+          projects={projects}
           closeLanguageModal={this.closeLanguageModal}
           doNotShowLanguageModalAgain={this.state.doNotShowLanguageModalAgain}
           handleAdjustExpandedProjectsView={

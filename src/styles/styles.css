@@ -1044,6 +1044,10 @@ background-size  : cover;
   @media all and (min-width: 768px) {
     .projects__list {
       grid-template-columns: 300px 300px; } }
+  .projects__list.show {
+    height: auto; }
+  .projects__list.show-thumbnails {
+    height: 400px; }
 
 .project__item {
   height: auto; }

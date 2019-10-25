@@ -41,29 +41,11 @@ export class DeveloperProfile extends Component {
   onClickKnowMore = () =>
     this.setState(prevState => ({ knowMore: !prevState.knowMore }));
 
-  onClickSeeAllProjects = () => {
+  onClickSeeAllProjects = () =>
     this.setState(prevState => ({ seeAllProjects: !prevState.seeAllProjects }));
 
-    if (this.state.seeAllProjects) {
-      document.querySelector('.projects__list').style.height = '210px';
-    } else {
-      document.querySelector('.projects__list').style.height = 'auto';
-    }
-  };
-
-  toggleProjectsThumbNails = isVisible => {
+  toggleProjectsThumbNails = isVisible =>
     this.setState({ displayThumbnails: isVisible });
-
-    if (!window.matchMedia('(min-width: 768px)').matches) {
-      if (!this.state.seeAllProjects) {
-        if (isVisible) {
-          document.querySelector('.projects__list').style.height = '400px';
-        } else {
-          document.querySelector('.projects__list').style.height = '210px';
-        }
-      }
-    }
-  };
 
   onClickNextProjects = () => {
     const { displayThumbnails } = this.state;
@@ -159,7 +141,7 @@ export class DeveloperProfile extends Component {
 
   render() {
     const { knowMore, seeAllProjects, displayThumbnails } = this.state;
-    const { texts, language, developerActivation } = this.props;
+    const { texts, language, developerActivation, projects } = this.props;
     return (
       <section className="section__developer">
         <div className="developer__outer">
@@ -416,6 +398,7 @@ export class DeveloperProfile extends Component {
               <ProjectsList
                 seeAllProjects={seeAllProjects}
                 texts={texts}
+                projects={projects}
                 language={language}
                 toggleProjectsThumbNails={this.toggleProjectsThumbNails}
                 displayThumbnails={displayThumbnails}
