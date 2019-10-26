@@ -25,9 +25,9 @@
   },
   {
     "description": {
-      "en" : "An original Role Playing Game. There is currently just one simple task to accomplish. The game assets were not created by me.",
-      "es" : "Una creacción original de un juego de rol. Actualmente hay solamente un objetivo por alcanzar. Los gráficos y sonidos del juego no han sido creados por mí.",
-      "pt" : "Uma criação original de uma aventura de RPG. No momento só há um simples objetivo por alcançar. Os gráficos e sons do jogo não foram criados por mim."
+      "en" : "The protptype of an own Role Playing Game built in vanilla JavaScript. There is currently just one simple task to accomplish. The assets were not created by me.",
+      "es" : "El prototipo de un juego de rol mío desarrollado en JavaScript vanilla. Actualmente hay solamente un objetivo por alcanzar. Los assets no fueron creados por mí.",
+      "pt" : "O protótipo de um jogo de RPG meu programado en JavaScript vanilla. No momento só há um simples objetivo por alcançar. Os assets não foram criados por mim."
     },
     "order"     : 3,
     "repo"      : "https://github.com/annabranco/an-adventure",
@@ -49,7 +49,7 @@
   },
   {
     "description": {
-      "en" : "A TV series finder, where users can search on a huge database, where users can also see their summaries, ratings and add series to favorites.",
+      "en" : "A beautiful TV series finder, where users can search on a huge database, also see all the series summaries, ratings and add them to favorites.",
       "es" : "Un buscador de series de televisión, donde los usuarios pueden buscar en una grande base de datos y ver sinopsis, valoraciones y añadir a favoritos.",
       "pt" : "Um buscador de séries de TV, onde os usuários podem buscar en um enorme banco de dados, bem como ver sinopses, avaliações e adicionar a favoritos."
     },
