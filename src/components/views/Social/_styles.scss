@@ -107,25 +107,8 @@
 	vertical-align: middle;
 	font-size     : 2rem;
 	text-shadow   : 0 0 1px $black;
-}
 
-.icon-call,
-.icon-chat {
 	.infoPage__social--link-skype:hover & {
-		color: $blue--dark;
-	}
-}
-
-.icon-github,
-.icon-linkedin,
-.icon-mail,
-.icon-twitter {
-	display       : inline;
-	vertical-align: middle;
-	font-size     : 2rem;
-	text-shadow   : 0 0 1px $black;
-
-	.infoPage__social--link:hover & {
 		color: $blue--dark;
 	}
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import Social from '../Social';
-import { Mugshot } from '../../../images';
+import { Mugshot, Barquinho } from '../../../images';
 import { infoPageTextPropType } from '../../../types';
 
 const MyInfoPage = ({ texts, displayThanksMessage }) => (
@@ -39,7 +39,7 @@ const MyInfoPage = ({ texts, displayThanksMessage }) => (
 
       <img
         className="infoPage__boat"
-        src="http://www.animatedimages.org/data/media/271/animated-ship-image-0031.gif"
+        src={Barquinho}
         alt="Navigating beautifully"
       />
 

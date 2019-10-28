@@ -16,6 +16,12 @@
       "showThumbnails": "Show thumbnails",
       "title": "Technical competences"
     },
+    "error": {
+      "errorLine1": "I'm awfully sorry but something unexpected had happened. :(",
+      "errorLine2": "I'd really appreciate if you could notify me of this error on my issues page.",
+      "notifyMe": "Notify me",
+      "title": "That's embarassing..."
+    },
     "experiences": {
       "brazil": "Brazil",
       "eru": "International Emergencies Response Delegate (ERU)",
@@ -48,7 +54,7 @@
     },
     "infoPage": {
       "aditional": "Developing sites and apps where navigating around is a beautiful journey",
-      "advise": "For an enhanced user experience, visiting this page on a full screen desktop is highly advised.",
+      "advise": "For an enhanced user experience, visiting this page on a full screen desktop is advised.",
       "call": "Call",
       "chat": "Chat",
       "job": "Front End Developer",
@@ -128,6 +134,12 @@
       "showMore": "ver más",
       "showThumbnails": "Enseñar miniaturas",
       "title": "Competencias técnicas"
+    },
+    "error": {
+      "errorLine1": "Lo siento mucho, pero algo inesperado ha pasado. :(",
+      "errorLine2": "Te agradecería mucho si pudieras notificarme en mi páginas de incidencias.",
+      "notifyMe": "Notificármelo",
+      "title": "Es vergonzoso..."
     },
     "experiences": {
       "brazil": "Brasil",
@@ -251,6 +263,12 @@
       "showMore": "ver mais",
       "showThumbnails": "Mostrar miniaturas",
       "title": "Competências técnicas"
+    },
+    "error": {
+      "errorLine1": "Desculpa, mas alguma coisa inesperada aconteceu. :(",
+      "errorLine2": "Agradeceria muito se você pudesse me notificar em minha página de incidências.",
+      "notifyMe": "Me notificar",
+      "title": "É constrangedor..."
     },
     "experiences": {
       "brazil": "Brasil",

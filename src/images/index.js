@@ -2,6 +2,7 @@ export const Bootstrap = require('./skills/bootstrap.png');
 export const Css = require('./skills/css3.png');
 export const FloatingLeft = require('./other/floatingLeft.gif');
 export const FloatingRight = require('./other/floatingRight.gif');
+export const Barquinho = require('./other/barquinho.gif');
 export const Git = require('./skills/git.png');
 export const Github = require('./skills/github.png');
 export const Html = require('./skills/html5.png');

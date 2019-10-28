@@ -124,16 +124,31 @@ export const globalTextsPropType = PropTypes.shape({
   close: PropTypes.string.isRequired
 });
 
+export const errorTextsPropType = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  errorLine1: PropTypes.string.isRequired,
+  errorLine2: PropTypes.string.isRequired,
+  notifyMe: PropTypes.string.isRequired
+});
+
 export const textsPropType = PropTypes.shape({
-  developer: developerTextPropType.isRequired,
-  experiences: experiencesTextPropType.isRequired,
-  formation: formationTextPropType.isRequired,
-  global: globalTextsPropType.isRequired,
-  header: headerTextPropType.isRequired,
-  infoPage: infoPageTextPropType.isRequired,
+  developer: developerTextPropType,
+  experiences: experiencesTextPropType,
+  error: errorTextsPropType,
+  formation: formationTextPropType,
+  global: globalTextsPropType,
+  header: headerTextPropType,
+  infoPage: infoPageTextPropType,
   languages: languagesTextPropType.isRequired,
-  otherSkills: otherSkillsTextPropType.isRequired,
-  seabed: seabedTextPropType.isRequired
+  otherSkills: otherSkillsTextPropType,
+  seabed: seabedTextPropType
+});
+
+export const allLanguagesTextsPropType = PropTypes.shape({
+  en: textsPropType,
+  es: textsPropType,
+  fr: textsPropType,
+  pt: textsPropType
 });
 
 export const developerActivationPropType = PropTypes.shape({
