@@ -8,11 +8,11 @@ class MainArea extends Component {
   static propTypes = {
     onChangeLanguage: PropTypes.func.isRequired,
     texts: textsPropType.isRequired,
-    projects: projectsPropType.isRequired,
+    projects: PropTypes.arrayOf(projectsPropType).isRequired,
     closeLanguageModal: PropTypes.func.isRequired,
     doNotShowLanguageModalAgain: PropTypes.bool.isRequired,
     triggerThankYouMessage: PropTypes.func.isRequired,
-    displayThanksMessage: PropTypes.func.isRequired
+    displayThanksMessage: PropTypes.bool.isRequired
   };
 
   state = {

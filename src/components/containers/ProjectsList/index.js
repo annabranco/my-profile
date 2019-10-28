@@ -11,12 +11,12 @@ import {
   SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../constants';
 import { ProjectDetails } from '../../views';
-import { textsPropType, projectsPropType } from '../../../types';
+import { developerTextPropType, projectsPropType } from '../../../types';
 
 class ProjectsList extends Component {
   static propTypes = {
-    texts: textsPropType.isRequired,
-    projects: projectsPropType.isRequired,
+    texts: developerTextPropType.isRequired,
+    projects: PropTypes.arrayOf(projectsPropType).isRequired,
     language: PropTypes.string.isRequired,
     seeAllProjects: PropTypes.bool.isRequired,
     handleAdjustExpandedProjectsView: PropTypes.func.isRequired

@@ -9,7 +9,7 @@ import { textsPropType, projectsPropType } from '../../../types';
 class ScrollArea extends Component {
   static propTypes = {
     texts: textsPropType.isRequired,
-    projects: projectsPropType.isRequired,
+    projects: PropTypes.arrayOf(projectsPropType).isRequired,
     triggerThankYouMessage: PropTypes.func.isRequired,
     displayThanksMessage: PropTypes.bool.isRequired,
     languageModalIsVisible: PropTypes.bool.isRequired

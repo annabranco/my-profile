@@ -20,7 +20,7 @@ import {
 class DeveloperProfile extends Component {
   static propTypes = {
     texts: developerTextPropType.isRequired,
-    projects: projectsPropType.isRequired,
+    projects: PropTypes.arrayOf(projectsPropType).isRequired,
     handleAdjustExpandedProjectsView: PropTypes.func.isRequired,
     language: PropTypes.string.isRequired,
     developerActivation: developerActivationPropType.isRequired

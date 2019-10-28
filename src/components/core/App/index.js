@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ErrorBoundary from '../ErrorBoundary';
 import { MainArea } from '../../containers';
 import { Header } from '../../views';
 import { getLanguageCodeByName } from '../../../utils/languages';
-import { ErrorBoundary } from '../ErrorBoundary';
-import { projectsPropType, textsPropType } from '../../../types';
+import { projectsPropType, allLanguagesTextsPropType } from '../../../types';
 
 const DEFAULT_PAGE_LANGUAGE = 'English';
 
 class App extends Component {
   static propTypes = {
-    texts: textsPropType.isRequired,
+    texts: allLanguagesTextsPropType.isRequired,
     APP_VERSION: PropTypes.string.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired
   };
 
   state = {
     language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
-    doNotShowLanguageModalAgain: undefined,
+    doNotShowLanguageModalAgain: false,
     displayThanksMessage: false
   };
 
   componentDidMount() {
     this.loadLanguageSettings();
+    console.log('$$$ this.props.projects', this.props.projects);
   }
 
   saveLanguageSettings = () => {
@@ -61,7 +62,7 @@ class App extends Component {
     const { texts, APP_VERSION, projects } = this.props;
 
     return (
-      <ErrorBoundary>
+      <ErrorBoundary texts={texts[language].error}>
         <Header
           texts={texts[language].header}
           language={language}
