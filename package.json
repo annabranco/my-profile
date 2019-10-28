@@ -16,8 +16,9 @@
     "watch-css"   : "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "fake-server" : "nodemon fake-server",
     "start-js"    : "react-scripts start",
-    "start"       : "npm-run-all -p fake-server watch-css start-js",
-    "start:pro"   : "npm-run-all -p watch-css start-js",
+    "start:fake-server"       : "npm-run-all -p fake-server watch-css start-js",
+    "start:pre" :"REACT_APP_FAKE_SERVER=true npm run start:fake-server",
+    "start"   : "npm-run-all -p watch-css start-js",
     "build-js"    : "react-scripts build",
     "build"       : "npm-run-all build-css build-js"
   },
