@@ -175,6 +175,7 @@ table {
       font-size: 1rem; } }
 
 .header__flags {
+  display: inline;
   margin: 0 10px;
   opacity: 0.3;
   cursor: pointer; }
@@ -1038,16 +1039,34 @@ background-size  : cover;
   grid-template-columns: 300px;
   grid-template-rows: 225px;
   grid-gap: 30px 20px;
-  margin: 30px 20px 20px;
+  margin-top: 30px;
   height: 210px;
   overflow: hidden; }
   @media all and (min-width: 768px) {
     .projects__list {
-      grid-template-columns: 300px 300px; } }
+      grid-template-columns: 300px 300px;
+      grid-template-rows: 360px; } }
   .projects__list.show {
     height: auto; }
   .projects__list.show-thumbnails {
-    height: 400px; }
+    height: 390px; }
+  .projects__list.show-thumbnails-mobile {
+    height: 380px;
+    grid-template-rows: 360px; }
+
+.project__seeMore {
+  margin-bottom: 40px;
+  opacity: 0.5;
+  text-align: center; }
+
+.project__seeMore-text {
+  vertical-align: super;
+  text-align: center;
+  font-size: 0.8rem; }
+
+.icon--more {
+  margin: 0 5px;
+  font-size: 2rem; }
 
 .project__item {
   height: auto; }
@@ -1064,12 +1083,11 @@ background-size  : cover;
   opacity: 0.4; }
 
 .project__thumbnail {
-  margin-top: -60px;
   border: 1px solid #212121;
-  width: 100%; }
-  @media all and (min-width: 768px) {
-    .project__thumbnail {
-      margin-top: 10px; } }
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 0 3px 7px 0 rgba(83, 83, 83, 0.8);
+  margin-top: 10px; }
 
 .project__description {
   margin-bottom: 20px;
@@ -1084,25 +1102,9 @@ background-size  : cover;
 .project__repo--icon {
   vertical-align: middle;
   font-size: 1.3rem;
-  margin-right: 10px;
+  margin-right: 4px;
   color: #212121;
   opacity: 0.4; }
-
-.project__repo:last-of-type {
-  margin-bottom: 40px; }
-
-.project__seeMore {
-  margin-bottom: 40px;
-  opacity: 0.5; }
-
-.project__seeMore-text {
-  vertical-align: super;
-  text-align: center;
-  font-size: 0.8rem; }
-
-.icon--more {
-  margin: -20px 5px 0;
-  font-size: 2rem; }
 
 .section__formation {
   height: 100vh;
@@ -1297,25 +1299,27 @@ background-size  : cover;
   width: 120px; }
 
 .seabed__go--experiences {
-  bottom: 90px;
-  left: 40px;
+  bottom: 150px;
+  left: 22vw;
   justify-content: flex-start;
-  text-align: left; }
+  text-align: center; }
   @media all and (min-width: 768px) {
     .seabed__go--experiences {
       bottom: 33vh;
       left: auto;
-      right: 40px;
+      right: 30px;
       justify-content: flex-end;
       text-align: right; } }
 
 .seabed__go--otherSkills {
-  bottom: 130px;
-  right: 40px;
+  bottom: initial;
+  top: 170px;
+  right: 35vw;
   justify-content: flex-end;
-  text-align: right; }
+  text-align: center; }
   @media all and (min-width: 768px) {
     .seabed__go--otherSkills {
+      top: initial;
       bottom: 33vh;
       right: auto;
       left: 40px;
@@ -1330,7 +1334,7 @@ background-size  : cover;
   opacity: 0.9; }
   @media all and (min-width: 400px) {
     .seabed__go-text {
-      font-size: 2.2rem; } }
+      font-size: 2.8rem; } }
   @media all and (min-width: 768px) {
     .seabed__go-text {
       font-size: 3rem;
@@ -1939,5 +1943,5 @@ background-size  : cover;
 .hidden {
   display: none; }
 
-.invisible {
+.hide {
   visibility: hidden; }

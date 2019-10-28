@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { ScrollArea } from '../';
+import PropTypes from 'prop-types';
+import ScrollArea from '../ScrollArea';
 import { LanguagesModal } from '../../views';
+import { textsPropType, projectsPropType } from '../../../types';
 
-export class MainArea extends Component {
+class MainArea extends Component {
+  static propTypes = {
+    onChangeLanguage: PropTypes.func.isRequired,
+    texts: textsPropType.isRequired,
+    projects: projectsPropType.isRequired,
+    closeLanguageModal: PropTypes.func.isRequired,
+    doNotShowLanguageModalAgain: PropTypes.bool.isRequired,
+    triggerThankYouMessage: PropTypes.func.isRequired,
+    displayThanksMessage: PropTypes.func.isRequired
+  };
+
   state = {
     languageModalIsVisible: true,
     frenchClicked: false,
@@ -61,3 +73,5 @@ export class MainArea extends Component {
     );
   }
 }
+
+export default MainArea;

@@ -2,12 +2,13 @@
 @import 'core/variables';
 @import '../components/views/Header/styles';
 @import '../components/views/LanguagesModal/styles';
-@import '../components/views/MyInfoPage/styles';
-@import '../components/views/Social/styles';
 @import '../components/containers/ScrollArea/styles';
 @import '../components/views/InbetweenBar/styles';
+@import '../components/views/MyInfoPage/styles';
+@import '../components/views/Social/styles';
 @import '../components/containers/DeveloperProfile/styles';
-@import '../components/views/ProjectsList/styles';
+@import '../components/containers/ProjectsList/styles';
+@import '../components/views/ProjectDetails/styles';
 @import '../components/views/Formation/styles';
 @import '../components/containers/Seabed/styles';
 @import '../components/views/Experiences/styles';

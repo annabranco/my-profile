@@ -1,8 +1,10 @@
 import React from 'react';
-import { Social } from '../';
+import { PropTypes } from 'prop-types';
+import Social from '../Social';
 import { Mugshot } from '../../../images';
+import { infoPageTextPropType } from '../../../types';
 
-export const MyInfoPage = ({ texts, displayThanksMessage }) => (
+const MyInfoPage = ({ texts, displayThanksMessage }) => (
   <section className="section__infoPage">
     <div className="infoPage__outerWrapper">
       <h1 className="infoPage__name infoPage__name--devices">Anna Branco</h1>
@@ -47,21 +49,32 @@ export const MyInfoPage = ({ texts, displayThanksMessage }) => (
 
       <div className="infoPage__scrollDown">
         <div className="infoPage__scrollDown-inner">
-          <i className="fas fa-angle-double-down scroll-icon anim1"></i>
-          <i className="fas fa-angle-double-down scroll-icon anim1"></i>
-          <i className="fas fa-angle-double-down scroll-icon anim1"></i>
+          <i className="fas fa-angle-double-down scroll-icon anim1" />
+          <i className="fas fa-angle-double-down scroll-icon anim1" />
+          <i className="fas fa-angle-double-down scroll-icon anim1" />
         </div>
         <div className="infoPage__scrollDown-inner">
-          <i className="fas fa-angle-double-down scroll-icon anim2"></i>
-          <i className="fas fa-angle-double-down scroll-icon anim2"></i>
-          <i className="fas fa-angle-double-down scroll-icon anim2"></i>
+          <i className="fas fa-angle-double-down scroll-icon anim2" />
+          <i className="fas fa-angle-double-down scroll-icon anim2" />
+          <i className="fas fa-angle-double-down scroll-icon anim2" />
         </div>
         <div className="infoPage__scrollDown-inner">
-          <i className="fas fa-angle-double-down scroll-icon anim3"></i>
-          <i className="fas fa-angle-double-down scroll-icon anim3"></i>
-          <i className="fas fa-angle-double-down scroll-icon anim3"></i>
+          <i className="fas fa-angle-double-down scroll-icon anim3" />
+          <i className="fas fa-angle-double-down scroll-icon anim3" />
+          <i className="fas fa-angle-double-down scroll-icon anim3" />
         </div>
       </div>
     </div>
   </section>
 );
+
+MyInfoPage.propTypes = {
+  texts: infoPageTextPropType.isRequired,
+  displayThanksMessage: PropTypes.bool
+};
+
+MyInfoPage.defaultProps = {
+  displayThanksMessage: false
+};
+
+export default MyInfoPage;

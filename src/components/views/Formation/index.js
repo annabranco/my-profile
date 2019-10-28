@@ -1,6 +1,10 @@
 import React from 'react';
+import {
+  formationTextPropType,
+  formationActivationPropType
+} from '../../../types';
 
-export const Formation = ({ texts, formationActivation }) => {
+const Formation = ({ texts, formationActivation }) => {
   return (
     <section className="section__formation">
       <div className="formation__outer">
@@ -13,14 +17,14 @@ export const Formation = ({ texts, formationActivation }) => {
           <div className="formation__inner--year">2018</div>
         </div>
         <div className="formation__inner">
-          <div className="formation__verticalBar"></div>
+          <div className="formation__verticalBar" />
         </div>
         <div className="formation__inner">
           <div className="formation__inner--horizontalBar">
             <div
               className={`formation__horizontarBar-psy ${formationActivation.psychology &&
                 'comeIn'}`}
-            ></div>
+            />
             <h2
               className={`formation__title formation__title-psy ${formationActivation.psychology &&
                 'comeIn'}`}
@@ -50,7 +54,7 @@ export const Formation = ({ texts, formationActivation }) => {
             <div
               className={`formation__horizontarBar-ir ${formationActivation.ir &&
                 'comeIn'}`}
-            ></div>
+            />
             <h2
               className={`formation__title formation__title-ir ${formationActivation.ir &&
                 'comeIn'}`}
@@ -80,7 +84,7 @@ export const Formation = ({ texts, formationActivation }) => {
             <div
               className={`formation__horizontarBar-master ${formationActivation.master &&
                 'comeIn'}`}
-            ></div>
+            />
             <h2
               className={`formation__title formation__title-master ${formationActivation.master &&
                 'comeIn'}`}
@@ -110,7 +114,7 @@ export const Formation = ({ texts, formationActivation }) => {
             <div
               className={`formation__horizontarBar-adalab ${formationActivation.programming &&
                 'comeIn'}`}
-            ></div>
+            />
             <h2
               className={`formation__title formation__title-adalab ${formationActivation.programming &&
                 'comeIn'}`}
@@ -123,3 +127,10 @@ export const Formation = ({ texts, formationActivation }) => {
     </section>
   );
 };
+
+Formation.propTypes = {
+  texts: formationTextPropType.isRequired,
+  formationActivation: formationActivationPropType.isRequired
+};
+
+export default Formation;

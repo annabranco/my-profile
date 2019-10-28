@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import { ProjectsList } from '../../views';
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import ProjectsList from '../ProjectsList';
 import {
   LogoAdalab,
   Html,
@@ -10,138 +11,43 @@ import {
   Bootstrap,
   Zeplin
 } from '../../../images';
+import {
+  developerTextPropType,
+  projectsPropType,
+  developerActivationPropType
+} from '../../../types';
 
-export class DeveloperProfile extends Component {
-  state = {
-    knowMore: false,
-    seeAllProjects: false,
-    displayThumbnails: false
+class DeveloperProfile extends Component {
+  static propTypes = {
+    texts: developerTextPropType.isRequired,
+    projects: projectsPropType.isRequired,
+    handleAdjustExpandedProjectsView: PropTypes.func.isRequired,
+    language: PropTypes.string.isRequired,
+    developerActivation: developerActivationPropType.isRequired
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.knowMore !== this.state.knowMore ||
-      prevState.seeAllProjects !== this.state.seeAllProjects ||
-      prevState.displayThumbnails !== this.state.displayThumbnails
-    ) {
-      let adjust = 0;
-      if (this.state.displayThumbnails) {
-        adjust += 650;
-      }
-      if (this.state.seeAllProjects) {
-        adjust += 650;
-      }
-      if (this.state.knowMore) {
-        adjust += 200;
-      }
-      this.props.handleAdjustExpandedProjectsView(adjust);
-    }
-  }
+  state = {
+    knowMore: false,
+    seeAllProjects: false
+  };
 
   onClickKnowMore = () =>
     this.setState(prevState => ({ knowMore: !prevState.knowMore }));
 
   onClickSeeAllProjects = () =>
-    this.setState(prevState => ({ seeAllProjects: !prevState.seeAllProjects }));
-
-  toggleProjectsThumbNails = isVisible =>
-    this.setState({ displayThumbnails: isVisible });
-
-  onClickNextProjects = () => {
-    const { displayThumbnails } = this.state;
-    const adjustments = displayThumbnails ? 2 : 1;
-
-    if (window.matchMedia('(min-width: 768px)').matches) {
-      document.querySelector('.projects__list').scrollTop += 248;
-    } else {
-      if (displayThumbnails) {
-        document.querySelector('.projects__list').scrollTop +=
-          195 * adjustments;
-      } else {
-        document.querySelector('.projects__list').scrollTop +=
-          248 * adjustments;
-      }
-    }
-
-    document
-      .querySelector('.fa-arrow-alt-circle-up')
-      .classList.remove('invisible');
-    document
-      .querySelector('.project__seeMore-up')
-      .classList.remove('invisible');
-
-    if (window.matchMedia('(min-width: 768px)').matches) {
-      if (
-        document.querySelector('.projects__list').scrollTop >=
-        744 * adjustments
-      ) {
-        document
-          .querySelector('.fa-arrow-alt-circle-down')
-          .classList.add('invisible');
-        document
-          .querySelector('.project__seeMore-down')
-          .classList.add('invisible');
-      }
-    } else {
-      if (displayThumbnails) {
-        if (document.querySelector('.projects__list').scrollTop >= 2000) {
-          document
-            .querySelector('.fa-arrow-alt-circle-down')
-            .classList.add('invisible');
-          document
-            .querySelector('.project__seeMore-down')
-            .classList.add('invisible');
-        }
-      } else {
-        if (
-          document.querySelector('.projects__list').scrollTop >=
-          1488 * adjustments
-        ) {
-          document
-            .querySelector('.fa-arrow-alt-circle-down')
-            .classList.add('invisible');
-          document
-            .querySelector('.project__seeMore-down')
-            .classList.add('invisible');
-        }
-      }
-    }
-  };
-
-  onClickPreviousProjects = () => {
-    const { displayThumbnails } = this.state;
-    const adjustments = displayThumbnails ? 2 : 1;
-
-    if (window.matchMedia('(min-width: 768px)').matches) {
-      document.querySelector('.projects__list').scrollTop -= 252;
-    } else {
-      if (displayThumbnails) {
-        document.querySelector('.projects__list').scrollTop -=
-          195 * adjustments;
-      } else {
-        document.querySelector('.projects__list').scrollTop -=
-          248 * adjustments;
-      }
-    }
-
-    document
-      .querySelector('.fa-arrow-alt-circle-down')
-      .classList.remove('invisible');
-    document
-      .querySelector('.project__seeMore-down')
-      .classList.remove('invisible');
-
-    if (document.querySelector('.projects__list').scrollTop === 0) {
-      document
-        .querySelector('.fa-arrow-alt-circle-up')
-        .classList.add('invisible');
-      document.querySelector('.project__seeMore-up').classList.add('invisible');
-    }
-  };
+    this.setState(prevState => ({
+      seeAllProjects: !prevState.seeAllProjects
+    }));
 
   render() {
-    const { knowMore, seeAllProjects, displayThumbnails } = this.state;
-    const { texts, language, developerActivation, projects } = this.props;
+    const { knowMore, seeAllProjects } = this.state;
+    const {
+      texts,
+      language,
+      developerActivation,
+      projects,
+      handleAdjustExpandedProjectsView
+    } = this.props;
     return (
       <section className="section__developer">
         <div className="developer__outer">
@@ -158,9 +64,9 @@ export class DeveloperProfile extends Component {
                   <img src={Css} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star icon--star" aria-hidden></i>
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star icon--star" aria-hidden />
                 </div>
               </div>
 
@@ -170,9 +76,9 @@ export class DeveloperProfile extends Component {
                   <img src={Html} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star-half icon--star" aria-hidden></i>
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star-half icon--star" aria-hidden />
                 </div>
               </div>
 
@@ -182,9 +88,9 @@ export class DeveloperProfile extends Component {
                   <img src={Javascript} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star-half icon--star" aria-hidden></i>
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star-half icon--star" aria-hidden />
                 </div>
               </div>
 
@@ -194,12 +100,12 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fab fa-sass skills__icon icon--sass"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
                 <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star-half icon--star" aria-hidden></i>
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star-half icon--star" aria-hidden />
                 </div>
               </div>
 
@@ -209,11 +115,11 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fab fa-react skills__icon icon--react"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
                 <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star icon--star" aria-hidden></i>
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star icon--star" aria-hidden />
                 </div>
               </div>
 
@@ -223,8 +129,8 @@ export class DeveloperProfile extends Component {
                   <img src={Git} alt="" className="skills__icon" />
                 </div>
                 <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden></i>
-                  <i className="fas fa-star icon--star" aria-hidden></i>
+                  <i className="fas fa-star icon--star" aria-hidden />
+                  <i className="fas fa-star icon--star" aria-hidden />
                 </div>
               </div>
             </div>
@@ -243,15 +149,15 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fas fa-star icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                   <i
                     className="fas fa-star icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                   <i
                     className="fas fa-star icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
               </div>
 
@@ -261,13 +167,13 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fab fa-node-js skills__icon--others icon--node"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
                 <div className="skills__inner--stars">
                   <i
                     className="fas fa-star-half icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
               </div>
 
@@ -277,13 +183,13 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fab fa-gulp skills__icon--others icon--gulp"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
                 <div className="skills__inner--stars">
                   <i
                     className="fas fa-star-half icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
               </div>
 
@@ -293,13 +199,13 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fab fa-npm skills__icon--others icon--npm"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
                 <div className="skills__inner--stars">
                   <i
                     className="fas fa-star-half icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
               </div>
 
@@ -316,7 +222,7 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fas fa-star-half icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
               </div>
 
@@ -333,11 +239,11 @@ export class DeveloperProfile extends Component {
                   <i
                     className="fas fa-star icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                   <i
                     className="fas fa-star icon--star icon--star--others"
                     aria-hidden
-                  ></i>
+                  />
                 </div>
               </div>
             </div>
@@ -358,13 +264,16 @@ export class DeveloperProfile extends Component {
                 <span
                   className="developer--more"
                   onClick={this.onClickKnowMore}
+                  role="button"
+                  aria-label={texts.more}
+                  tabIndex={0}
                 >
                   {texts.more}
                 </span>
               </h2>
 
               {knowMore && (
-                <Fragment>
+                <>
                   <p className="developer__adalab--text">{texts.adalabText}</p>
                   <p className="developer__adalab--text">
                     {texts.adalabMore}
@@ -377,7 +286,7 @@ export class DeveloperProfile extends Component {
                       Adalab
                     </a>
                   </p>
-                </Fragment>
+                </>
               )}
             </div>
             <div
@@ -389,6 +298,9 @@ export class DeveloperProfile extends Component {
                 <span
                   className="developer--more"
                   onClick={this.onClickSeeAllProjects}
+                  role="button"
+                  aria-label={seeAllProjects ? texts.reduced : texts.expanded}
+                  tabIndex={0}
                 >
                   {seeAllProjects ? texts.reduced : texts.expanded}
                 </span>
@@ -396,14 +308,13 @@ export class DeveloperProfile extends Component {
               <p className="developer__projects--text">{texts.projectsText}</p>
 
               <ProjectsList
-                seeAllProjects={seeAllProjects}
                 texts={texts}
                 projects={projects}
                 language={language}
-                toggleProjectsThumbNails={this.toggleProjectsThumbNails}
-                displayThumbnails={displayThumbnails}
-                onClickNextProjects={this.onClickNextProjects}
-                onClickPreviousProjects={this.onClickPreviousProjects}
+                seeAllProjects={seeAllProjects}
+                handleAdjustExpandedProjectsView={
+                  handleAdjustExpandedProjectsView
+                }
               />
             </div>
           </div>
@@ -412,3 +323,5 @@ export class DeveloperProfile extends Component {
     );
   }
 }
+
+export default DeveloperProfile;

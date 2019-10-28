@@ -1,9 +1,20 @@
 import React, { Component, createRef } from 'react';
-import { DeveloperProfile, Seabed } from '../';
+import { PropTypes } from 'prop-types';
+import DeveloperProfile from '../DeveloperProfile';
+import Seabed from '../Seabed';
 import { InbetweenBar, Formation, MyInfoPage } from '../../views';
 import { SHOW_ACTION, HIDE_ACTION } from '../../../constants';
+import { textsPropType, projectsPropType } from '../../../types';
 
-export class ScrollArea extends Component {
+class ScrollArea extends Component {
+  static propTypes = {
+    texts: textsPropType.isRequired,
+    projects: projectsPropType.isRequired,
+    triggerThankYouMessage: PropTypes.func.isRequired,
+    displayThanksMessage: PropTypes.bool.isRequired,
+    languageModalIsVisible: PropTypes.bool.isRequired
+  };
+
   scrollAreaRef = createRef();
 
   state = {
@@ -28,7 +39,7 @@ export class ScrollArea extends Component {
 
   toggleDynamicElements = (section, element, action) => {
     const key = `${section}Activation`;
-    const result = action === SHOW_ACTION ? true : false;
+    const result = action === SHOW_ACTION;
     this.setState(prevState => ({
       [key]: {
         ...prevState[key],
@@ -134,13 +145,13 @@ export class ScrollArea extends Component {
         <InbetweenBar title={texts.formation.title} />
         <Formation
           texts={texts.formation}
-          language={texts.languages.languageCode}
           formationActivation={formationActivation}
         />
 
         <InbetweenBar title={texts.seabed.title} />
         <Seabed
           texts={texts.seabed}
+          globalTexts={texts.global}
           textsExperiences={texts.experiences}
           textsOtherSkills={texts.otherSkills}
           triggerThankYouMessage={triggerThankYouMessage}
@@ -150,3 +161,5 @@ export class ScrollArea extends Component {
     );
   }
 }
+
+export default ScrollArea;

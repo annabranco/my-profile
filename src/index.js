@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  TEXTS_PATH_PRE,
+  TEXTS_PATH_PRO,
+  PROJECTS_PATH_PRE,
+  PROJECTS_PATH_PRO
+} from './constants';
+import { App } from './components/core/App';
 import './styles/styles.css';
-import { App } from './components/containers';
 
-const APP_VERSION = 'v0.9.0';
+const APP_VERSION = 'v0.10.0';
 
-const TEXTS_URL =
-  'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db/texts.json';
-
-const PROJECTS_URL =
-  'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db/projectsDB.json';
+const envIsDev = process.env.NODE_ENV === 'development';
+const TEXTS_PATH = envIsDev ? TEXTS_PATH_PRE : TEXTS_PATH_PRO;
+const PROJECTS_PATH = envIsDev ? PROJECTS_PATH_PRE : PROJECTS_PATH_PRO;
 
 const fetchJson = URL => {
   return fetch(URL)
@@ -18,16 +22,16 @@ const fetchJson = URL => {
       console.log('$$$ data', data);
       return data;
     })
-    .catch(error => console.error('Failed to fetch:', URL, error));
+    .catch(error => console.error(`Failed to get data from ${URL}. ${error}.`));
 };
 
-const loadTexts = fetchJson(TEXTS_URL);
-const loadProjects = fetchJson(PROJECTS_URL);
+const loadTexts = fetchJson(TEXTS_PATH);
+const loadProjects = fetchJson(PROJECTS_PATH);
 
 Promise.all([loadTexts, loadProjects])
-  .then(([texts, projects]) => {
-    ReactDOM.hydrate(
-      <App texts={texts} projects={projects} APP_VERSION={APP_VERSION} />,
+  .then(([texts, data]) => {
+    ReactDOM.render(
+      <App texts={texts} projects={data.projects} APP_VERSION={APP_VERSION} />,
       document.getElementById('root')
     );
   })

@@ -1,31 +1,43 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { PropTypes } from 'prop-types';
 import { MacNotebook } from '../../../images';
+import {
+  seabedElementsPropType,
+  otherSkillsTextPropType,
+  globalTextsPropType
+} from '../../../types';
 
-export const OtherSkills = ({
+const OtherSkills = ({
   texts,
+  globalTexts,
   status: { read },
   onClickOpen,
   onClickClose
 }) => (
-  <Fragment>
+  <>
     {!read && window.matchMedia('(min-width: 768px)').matches ? (
-      <React.Fragment>
+      <>
         <p className="seabed__findSomething">{texts.find}</p>
         <p className="seabed__findSomething">{texts.find2}</p>
         <p className="seabed__findSomething">{texts.investigate}</p>
-      </React.Fragment>
+      </>
     ) : null}
 
-    <div className="otherSkills__mac">
+    <section className="otherSkills__mac">
       <div className="otherSkills__mac--screen">
-        <section
+        <div
           className="section__otherSkills"
           onClick={() => onClickOpen('otherSkills')}
+          role="button"
+          aria-label={globalTexts.open}
+          tabIndex={0}
         >
           <img src={MacNotebook} alt="" className="skills--topBar" />
           <button
             className="seabed__click2close seabed__click2close-otherSkills"
             onClick={() => onClickClose('otherSkills')}
+            type="button"
+            aria-label={globalTexts.close}
           >
             X
           </button>
@@ -47,21 +59,18 @@ export const OtherSkills = ({
                     <i
                       className="fas fa-comments icon--languages"
                       title="Speaking"
-                    ></i>
+                    />
                     {texts.fluent}
                   </td>
                   <td>
                     <i
                       className="fas fa-book-open icon--languages"
                       title="Reading"
-                    ></i>
+                    />
                     {texts.fluent}
                   </td>
                   <td>
-                    <i
-                      className="fas fa-pen icon--languages"
-                      title="Writing"
-                    ></i>
+                    <i className="fas fa-pen icon--languages" title="Writing" />
                     {texts.fluent}
                   </td>
                 </tr>
@@ -78,21 +87,18 @@ export const OtherSkills = ({
                     <i
                       className="fas fa-comments icon--languages"
                       title="Speaking"
-                    ></i>
+                    />
                     {texts.fluent}
                   </td>
                   <td>
                     <i
                       className="fas fa-book-open icon--languages"
                       title="Reading"
-                    ></i>
+                    />
                     {texts.fluent}
                   </td>
                   <td>
-                    <i
-                      className="fas fa-pen icon--languages"
-                      title="Writing"
-                    ></i>
+                    <i className="fas fa-pen icon--languages" title="Writing" />
                     {texts.fluent}
                   </td>
                 </tr>
@@ -109,21 +115,18 @@ export const OtherSkills = ({
                     <i
                       className="fas fa-comments icon--languages"
                       title="Speaking"
-                    ></i>
+                    />
                     {texts.fluent}
                   </td>
                   <td>
                     <i
                       className="fas fa-book-open icon--languages"
                       title="Reading"
-                    ></i>
+                    />
                     {texts.fluent}
                   </td>
                   <td>
-                    <i
-                      className="fas fa-pen icon--languages"
-                      title="Writing"
-                    ></i>
+                    <i className="fas fa-pen icon--languages" title="Writing" />
                     {texts.fluent}
                   </td>
                 </tr>
@@ -140,21 +143,18 @@ export const OtherSkills = ({
                     <i
                       className="fas fa-comments icon--languages"
                       title="Speaking"
-                    ></i>
+                    />
                     {texts.intermediate}
                   </td>
                   <td>
                     <i
                       className="fas fa-book-open icon--languages"
                       title="Reading"
-                    ></i>
+                    />
                     {texts.intermediate}
                   </td>
                   <td>
-                    <i
-                      className="fas fa-pen icon--languages"
-                      title="Writing"
-                    ></i>
+                    <i className="fas fa-pen icon--languages" title="Writing" />
                     {texts.basic}
                   </td>
                 </tr>
@@ -171,21 +171,18 @@ export const OtherSkills = ({
                     <i
                       className="fas fa-comments icon--languages"
                       title="Speaking"
-                    ></i>
+                    />
                     {texts.basic}
                   </td>
                   <td>
                     <i
                       className="fas fa-book-open icon--languages"
                       title="Reading"
-                    ></i>
+                    />
                     {texts.basic}
                   </td>
                   <td>
-                    <i
-                      className="fas fa-pen icon--languages"
-                      title="Writing"
-                    ></i>
+                    <i className="fas fa-pen icon--languages" title="Writing" />
                     {texts.basic}
                   </td>
                 </tr>
@@ -233,44 +230,50 @@ export const OtherSkills = ({
               <a
                 href="https://pre00.deviantart.net/f5fe/th/pre/f/2018/065/a/2/rio_de_janeiro__um_retrato_da_violencia_by_annabranco-dc53j1i.jpg"
                 target="_Blank"
+                rel="noopener noreferrer"
               >
-                <div className="design__sample sample01"></div>
+                <div className="design__sample sample01" />
               </a>
               <a
                 href="https://img00.deviantart.net/9fb7/i/2018/069/2/c/recuerda_siempre_mirar_el_color_de_las_banderas_by_annabranco-dc5gv8e.jpg"
                 target="_Blank"
+                rel="noopener noreferrer"
               >
-                <div className="design__sample sample02"></div>
+                <div className="design__sample sample02" />
               </a>
               <a
                 href="https://pre00.deviantart.net/3afa/th/pre/i/2018/069/e/3/basic_english_by_annabranco-dc5go6q.jpg"
                 target="_Blank"
+                rel="noopener noreferrer"
               >
-                <div className="design__sample sample03"></div>
+                <div className="design__sample sample03" />
               </a>
               <a
                 href="https://pre00.deviantart.net/6e8f/th/pre/f/2018/245/e/8/violencia1_en_by_annabranco-dclta8q.jpg"
                 target="_Blank"
+                rel="noopener noreferrer"
               >
-                <div className="design__sample sample04"></div>
+                <div className="design__sample sample04" />
               </a>
               <a
                 href="https://pre00.deviantart.net/9f40/th/pre/f/2018/065/1/7/terremoto_en_mexico_19_09_17_by_alvarobranco_dbo6p_by_annabranco-dc53k8f.jpg"
                 target="_Blank"
+                rel="noopener noreferrer"
               >
-                <div className="design__sample sample05"></div>
+                <div className="design__sample sample05" />
               </a>
               <a
                 href="https://pre00.deviantart.net/d51e/th/pre/i/2018/069/5/b/european_map__arabic__by_annabranco-dc5gve5.jpg"
                 target="_Blank"
+                rel="noopener noreferrer"
               >
-                <div className="design__sample sample06"></div>
+                <div className="design__sample sample06" />
               </a>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-      <div className="otherSkills__mac--keyboard"></div>
+      <div className="otherSkills__mac--keyboard" />
       <div className="otherSkills__mac--keyboard-keyArea">
         <p className="otherSkills__mac--keyboard-keys"> . . . . . . . ...</p>
         <p className="otherSkills__mac--keyboard-keys">... . . . . . . ..</p>
@@ -278,6 +281,16 @@ export const OtherSkills = ({
         <p className="otherSkills__mac--keyboard-keys">. . . . . . . . . .</p>
         <p className="otherSkills__mac--keyboard-keys">--------- ......</p>
       </div>
-    </div>
-  </Fragment>
+    </section>
+  </>
 );
+
+OtherSkills.propTypes = {
+  texts: otherSkillsTextPropType.isRequired,
+  globalTexts: globalTextsPropType.isRequired,
+  status: seabedElementsPropType.isRequired,
+  onClickOpen: PropTypes.func.isRequired,
+  onClickClose: PropTypes.func.isRequired
+};
+
+export default OtherSkills;

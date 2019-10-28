@@ -1,6 +1,8 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
+import { languagesTextPropType } from '../../../types/index';
 
-export const LanguagesModal = ({
+const LanguagesModal = ({
   frenchClicked,
   texts,
   language,
@@ -25,6 +27,9 @@ export const LanguagesModal = ({
           className="languages__flags--inner"
           lang="en"
           onClick={onChangeLanguage}
+          role="button"
+          aria-label="English"
+          tabIndex={0}
         >
           <p className="languages__label">English</p>
           <img
@@ -32,7 +37,7 @@ export const LanguagesModal = ({
               language === 'English' ? 'languages__flag--active' : ''
             }`}
             src="https://www.countryflags.io/us/shiny/64.png"
-            alt=""
+            alt="en-us"
           />
         </div>
 
@@ -40,6 +45,9 @@ export const LanguagesModal = ({
           className="languages__flags--inner"
           lang="es"
           onClick={onChangeLanguage}
+          role="button"
+          aria-label="Español"
+          tabIndex={0}
         >
           <p className="languages__label">Español</p>
           <img
@@ -47,7 +55,7 @@ export const LanguagesModal = ({
               language === 'Español' ? 'languages__flag--active' : ''
             }`}
             src="https://www.countryflags.io/es/shiny/64.png"
-            alt=""
+            alt="es-es"
           />
         </div>
 
@@ -55,6 +63,9 @@ export const LanguagesModal = ({
           className="languages__flags--inner"
           lang="pt"
           onClick={onChangeLanguage}
+          role="button"
+          aria-label="Português"
+          tabIndex={0}
         >
           <p className="languages__label">Português</p>
           <img
@@ -62,7 +73,7 @@ export const LanguagesModal = ({
               language === 'Português' ? 'languages__flag--active' : ''
             }`}
             src="https://www.countryflags.io/br/shiny/64.png"
-            alt=""
+            alt="pt-br"
           />
         </div>
 
@@ -70,6 +81,9 @@ export const LanguagesModal = ({
           className="languages__flags--inner"
           lang="fr"
           onClick={onClickFrench}
+          role="button"
+          aria-label="Français"
+          tabIndex={0}
         >
           <p className="languages__label notYet">Français</p>
           <img
@@ -77,7 +91,7 @@ export const LanguagesModal = ({
               language === 'Français' ? 'languages__flag--active' : ''
             }`}
             src="https://www.countryflags.io/fr/shiny/64.png"
-            alt=""
+            alt="fr-fr"
           />
         </div>
       </div>
@@ -92,9 +106,25 @@ export const LanguagesModal = ({
         />
         {texts.chekboxText}
       </p>
-      <button className="languages__close" onClick={onCloseLanguageModal}>
+      <button
+        className="languages__close"
+        onClick={onCloseLanguageModal}
+        type="button"
+      >
         ok
       </button>
     </div>
   </div>
 );
+
+LanguagesModal.propTypes = {
+  texts: languagesTextPropType.isRequired,
+  language: PropTypes.string.isRequired,
+  onChangeLanguage: PropTypes.func.isRequired,
+  onCloseLanguageModal: PropTypes.func.isRequired,
+  frenchClicked: PropTypes.bool.isRequired,
+  onClickFrench: PropTypes.func.isRequired,
+  handleShowLanguageModalAgain: PropTypes.func.isRequired
+};
+
+export default LanguagesModal;
