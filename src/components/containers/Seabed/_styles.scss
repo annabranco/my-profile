@@ -152,6 +152,7 @@
   display    : none;
   position   : absolute;
   bottom     : 40%;
+  left       : 40%;
   width      : 200px;
   transition : all ease 1s;
   opacity    : 0.6;
@@ -227,6 +228,16 @@
   opacity     : 0.8;
   color       : $yellow--pale;
   text-shadow : 0 0 1px black;
+
+  &.on-left {
+    right: initial;
+    left: 40px;
+  }
+
+  &.on-right {
+    left: initial;
+    right: 40px;
+  }
 }
 
 .seabed__back {

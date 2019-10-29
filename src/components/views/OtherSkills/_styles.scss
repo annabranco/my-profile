@@ -12,7 +12,7 @@
 		left: 40%;
 	}
 
-	&.opened {
+	&.show {
 		top    : 0;
 		left   : -8px;
 		height : 100vh;
@@ -29,7 +29,7 @@
 	opacity    : 0.9;
 	transform  : perspective(8em) rotateX(-5deg) skewX(-4deg);
 
-	&.opened {
+	&.show {
 		border-left: 0;
 		height     : 100vh;
 		width      : 100%;
@@ -93,7 +93,7 @@
 		opacity: 1;
 	}
 
-	&.opened {
+	&.show {
 		display              : grid;
 		grid-template-columns: 1fr;
 		grid-template-rows   : auto;
@@ -147,7 +147,7 @@
 	top     : 0;
 	width   : 60px;
 
-	.opened & {
+	.show & {
 		z-index : 4;
 		position: fixed;
 		top     : 0;

@@ -1402,9 +1402,11 @@ background-size  : cover;
   opacity: 0.8;
   color: #fdff9f;
   text-shadow: 0 0 1px black; }
-  .hero__thinks .on-left {
+  .hero__thinks.on-left {
+    right: initial;
     left: 40px; }
-  .hero__thinks .on-right {
+  .hero__thinks.on-right {
+    left: initial;
     right: 40px; }
 
 .seabed__back {
@@ -1463,14 +1465,15 @@ background-size  : cover;
   transform: perspective(5em) rotateX(50deg);
   box-sizing: border-box;
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
   .section__experiences:hover {
     border: 3px solid #ebe101;
     opacity: 0.7; }
   @media all and (min-width: 768px) {
     .section__experiences {
       left: 40%; } }
-  .section__experiences.opened {
+  .section__experiences.show {
     border-radius: 40px 0;
     border: 2px solid #212121;
     top: 40px;
@@ -1481,10 +1484,10 @@ background-size  : cover;
     transform: none;
     opacity: 0.9;
     cursor: default; }
-    .section__experiences.opened:hover {
+    .section__experiences.show:hover {
       border: 2px solid #212121; }
     @media all and (min-width: 768px) {
-      .section__experiences.opened {
+      .section__experiences.show {
         left: 20vw;
         height: 90vh;
         width: 75vw;
@@ -1632,7 +1635,7 @@ background-size  : cover;
   @media all and (min-width: 768px) {
     .otherSkills__mac {
       left: 40%; } }
-  .otherSkills__mac.opened {
+  .otherSkills__mac.show {
     top: 0;
     left: -8px;
     height: 100vh;
@@ -1646,7 +1649,7 @@ background-size  : cover;
   background: #212121;
   opacity: 0.9;
   transform: perspective(8em) rotateX(-5deg) skewX(-4deg); }
-  .otherSkills__mac--screen.opened {
+  .otherSkills__mac--screen.show {
     border-left: 0;
     height: 100vh;
     width: 100%;
@@ -1701,7 +1704,7 @@ background-size  : cover;
   .section__otherSkills:hover {
     border: 5px solid #ebe101;
     opacity: 1; }
-  .section__otherSkills.opened {
+  .section__otherSkills.show {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -1715,19 +1718,19 @@ background-size  : cover;
     opacity: 1;
     cursor: default; }
     @media all and (min-width: 768px) {
-      .section__otherSkills.opened {
+      .section__otherSkills.show {
         grid-template-columns: 1fr 3fr;
         grid-gap: 50px;
         padding: 100px 50px 30px; } }
-    .section__otherSkills.opened:hover {
+    .section__otherSkills.show:hover {
       border: 2px solid #212121; }
-    .section__otherSkills.opened .seabed__click2close-otherSkills {
+    .section__otherSkills.show .seabed__click2close-otherSkills {
       display: block;
       position: fixed;
       top: 30px;
       right: 10px; }
       @media all and (min-width: 768px) {
-        .section__otherSkills.opened .seabed__click2close-otherSkills {
+        .section__otherSkills.show .seabed__click2close-otherSkills {
           top: 100px;
           right: 50px; } }
 
@@ -1742,7 +1745,7 @@ background-size  : cover;
   position: absolute;
   top: 0;
   width: 60px; }
-  .opened .skills--topBar {
+  .show .skills--topBar {
     z-index: 4;
     position: fixed;
     top: 0;

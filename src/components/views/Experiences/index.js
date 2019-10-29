@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { SHOW_ACTION } from '../../../constants/actions';
 import {
   experiencesTextPropType,
   seabedElementsPropType,
@@ -22,7 +23,7 @@ const Experiences = ({
     ) : null}
     <section>
       <div
-        className="section__experiences"
+        className={`section__experiences ${visible && SHOW_ACTION}`}
         onClick={() => onClickOpen('experiences')}
         role="button"
         aria-label={globalTexts.open}

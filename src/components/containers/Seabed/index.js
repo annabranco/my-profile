@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { PropTypes } from 'prop-types';
 import { Experiences, OtherSkills } from '../../views';
 import {
@@ -16,8 +16,6 @@ import {
 
 let floatLeft;
 let floatRight;
-let Hero;
-let thoughts = 0;
 
 const INITIAL_STATE = {
   hideInstructions: false,
@@ -32,7 +30,12 @@ const INITIAL_STATE = {
     read: false
   },
   frame: 'center',
-  heroThinks: undefined
+  position: 'initial',
+  heroThinks: {
+    side: undefined,
+    thoughts: -1
+  },
+  finishedScenario: false
 };
 
 class Seabed extends Component {
@@ -47,18 +50,24 @@ class Seabed extends Component {
 
   state = INITIAL_STATE;
 
+  HeroRef = createRef();
+
+  Hero = undefined;
+
   componentDidMount() {
     window.addEventListener('keyup', this.moveHero);
-    Hero = document.querySelector('#hero');
-    Hero.style.left = `${window.innerWidth * 0.4}px`;
+    this.Hero = this.HeroRef.current;
+    console.log('$$$ this.props.texts', this.props.texts);
   }
 
   // ======== Triggers a random thought when the Hero reaches any outer border.
-  heroThinks = side => {
-    this.setState({ heroThinks: thoughts });
-    thoughts += 1;
-
-    document.querySelector('.hero__thinks').style[side] = '40px';
+  onReachBorder = side => {
+    this.setState(prevState => ({
+      heroThinks: {
+        side,
+        thoughts: prevState.heroThinks.thoughts + 1
+      }
+    }));
   };
 
   // ======== Handle view components (Experience and Other Skills)
@@ -72,41 +81,6 @@ class Seabed extends Component {
           read: true
         }
       }));
-
-      switch (type) {
-        case 'experiences':
-          if (!window.matchMedia('(min-width: 768px)').matches) {
-            document.querySelector('.otherSkills__mac').classList.add('hidden');
-          }
-          document
-            .querySelector('.section__experiences')
-            .classList.add('opened');
-
-          break;
-        case 'otherSkills':
-          if (!window.matchMedia('(min-width: 768px)').matches) {
-            document
-              .querySelector('.section__experiences')
-              .classList.add('hidden');
-          }
-
-          document
-            .querySelector('.section__otherSkills')
-            .classList.add('opened');
-          document.querySelector('.otherSkills__mac').classList.add('opened');
-          document
-            .querySelector('.otherSkills__mac--screen')
-            .classList.add('opened');
-          document
-            .querySelector('.otherSkills__mac--keyboard')
-            .classList.add('hidden');
-          document
-            .querySelector('.otherSkills__mac--keyboard-keyArea')
-            .classList.add('hidden');
-          break;
-        default:
-          break;
-      }
     }
   };
 
@@ -117,57 +91,30 @@ class Seabed extends Component {
         visible: false
       }
     }));
-
-    switch (type) {
-      case 'experiences':
-        if (!window.matchMedia('(min-width: 768px)').matches) {
-          document
-            .querySelector('.otherSkills__mac')
-            .classList.remove('hidden');
-        }
-        document
-          .querySelector('.section__experiences')
-          .classList.remove('opened');
-
-        break;
-      case 'otherSkills':
-        if (!window.matchMedia('(min-width: 768px)').matches) {
-          document
-            .querySelector('.section__experiences')
-            .classList.remove('hidden');
-        }
-        document
-          .querySelector('.section__otherSkills')
-          .classList.remove('opened');
-        document.querySelector('.otherSkills__mac').classList.remove('opened');
-        document
-          .querySelector('.otherSkills__mac--screen')
-          .classList.remove('opened');
-        document
-          .querySelector('.otherSkills__mac--keyboard')
-          .classList.remove('hidden');
-        document
-          .querySelector('.otherSkills__mac--keyboard-keyArea')
-          .classList.remove('hidden');
-        break;
-      default:
-        break;
+    if (this.state.experiences.read && this.state.otherSkills.read) {
+      this.setState({ finishedScenario: true });
     }
   };
 
   // ======== Handle diver movements
 
   moveHero = event => {
+    const { Hero } = this;
     if (event.key === 'ArrowRight') {
       // ---- Prevents movement beyond right margin on frame 'right'
       if (
         Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300 &&
         this.state.frame === 'right'
       ) {
-        this.heroThinks('right');
+        this.onReachBorder('on-right');
         return;
       }
-      this.setState({ heroThinks: undefined });
+      this.setState(prevState => ({
+        heroThinks: {
+          ...prevState.heroThinks,
+          side: undefined
+        }
+      }));
       clearTimeout(floatRight);
       clearTimeout(floatLeft);
       Hero.src = SwimmingRight;
@@ -183,10 +130,15 @@ class Seabed extends Component {
         Number(Hero.style.left.slice(0, -2)) <= 200 &&
         this.state.frame === 'left'
       ) {
-        this.heroThinks('left');
+        this.onReachBorder('on-left');
         return;
       }
-      this.setState({ heroThinks: undefined });
+      this.setState(prevState => ({
+        heroThinks: {
+          ...prevState.heroThinks,
+          side: undefined
+        }
+      }));
       clearTimeout(floatRight);
       clearTimeout(floatLeft);
       Hero.src = SwimmingLeft;
@@ -202,6 +154,8 @@ class Seabed extends Component {
 
   // ======= Function that fires events when Hero reaches some specific places
   moveToSomewhere = () => {
+    const { Hero } = this;
+
     // ---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
     const { experiences, otherSkills, frame } = this.state;
     if (
@@ -216,22 +170,15 @@ class Seabed extends Component {
 
     // ---- Highlights the text "Previous Experiences" when hero swims over it
     if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 400) {
-      document
-        .querySelector('.seabed__go-textRight')
-        .classList.add('goThisWay');
+      this.setState({ position: 'on-the-right' });
 
       // ---- Highlights the text "Other Skills" when hero swims over it
     } else if (Number(Hero.style.left.slice(0, -2)) <= 200) {
-      document.querySelector('.seabed__go-textLeft').classList.add('goThisWay');
+      this.setState({ position: 'on-the-left' });
 
-      // ---- Erases both highlights when hero swims anywhere else
-    } else {
-      document
-        .querySelector('.seabed__go-textRight')
-        .classList.remove('goThisWay');
-      document
-        .querySelector('.seabed__go-textLeft')
-        .classList.remove('goThisWay');
+      // ---- Clear highlights
+    } else if (this.state.position !== 'center') {
+      this.setState({ position: 'center' });
     }
 
     // ======== WHEN the Hero crosses the RIGHT border of the screen
@@ -240,34 +187,23 @@ class Seabed extends Component {
 
       Hero.style.transition = 'none';
       Hero.style.left = '-30px';
-      setTimeout(() => (Hero.style.transition = 'all ease 1s'), 10);
+      setTimeout(() => {
+        Hero.style.transition = 'all ease 1s';
+      }, 10);
 
       // ---- If Hero is coming from frame "left" (OtherSkills) sets scenario to "center"
       if (this.state.frame === 'left') {
-        document
-          .querySelector('.seabed__go--experiences')
-          .classList.remove('hidden');
-        document
-          .querySelector('.seabed__go--otherSkills')
-          .classList.remove('hidden');
-        document.querySelector('.seabed__anna').classList.remove('hidden');
         this.setState(prevState => ({
           otherSkills: {
             ...prevState.otherSkills,
             active: false
           },
-          frame: 'center'
+          frame: 'center',
+          position: 'on-the-left'
         }));
 
         // ---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "right" (Experiences)
       } else if (this.state.frame === 'center') {
-        document
-          .querySelector('.seabed__go--experiences')
-          .classList.add('hidden');
-        document
-          .querySelector('.seabed__go--otherSkills')
-          .classList.add('hidden');
-        document.querySelector('.seabed__anna').classList.add('hidden');
         this.setState(prevState => ({
           experiences: {
             ...prevState.experiences,
@@ -284,34 +220,23 @@ class Seabed extends Component {
 
       Hero.style.transition = 'none';
       Hero.style.left = `${window.innerWidth - 200}px`;
-      setTimeout(() => (Hero.style.transition = 'all ease 1s'), 10);
+      setTimeout(() => {
+        Hero.style.transition = 'all ease 1s';
+      }, 10);
 
       // ---- If Hero is coming from frame "right" (Experiences) sets scenario to "center"
       if (this.state.frame === 'right') {
-        document
-          .querySelector('.seabed__go--experiences')
-          .classList.remove('hidden');
-        document
-          .querySelector('.seabed__go--otherSkills')
-          .classList.remove('hidden');
-        document.querySelector('.seabed__anna').classList.remove('hidden');
         this.setState(prevState => ({
           experiences: {
             ...prevState.experiences,
             active: false
           },
-          frame: 'center'
+          frame: 'center',
+          position: 'on-the-right'
         }));
 
         // ---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkills)
       } else if (this.state.frame === 'center') {
-        document
-          .querySelector('.seabed__go--experiences')
-          .classList.add('hidden');
-        document
-          .querySelector('.seabed__go--otherSkills')
-          .classList.add('hidden');
-        document.querySelector('.seabed__anna').classList.add('hidden');
         this.setState(prevState => ({
           otherSkills: {
             ...prevState.otherSkills,
@@ -324,13 +249,10 @@ class Seabed extends Component {
   };
 
   // ======== All page viewed. Reset all states and go back to first page
-
   goBackUp = () => {
+    const { Hero } = this;
+
     window.removeEventListener('keyup', this.moveHero);
-
-    document.querySelector('.seabed__go--experiences').classList.add('hidden');
-    document.querySelector('.seabed__go--otherSkills').classList.add('hidden');
-
     setTimeout(() => {
       clearTimeout(floatRight);
       clearTimeout(floatLeft);
@@ -340,7 +262,9 @@ class Seabed extends Component {
       Hero.style.transition = 'all ease 10s';
       Hero.style.top = '40%';
     }, 2000);
-    setTimeout(() => (Hero.style.top = '-200px'), 2500);
+    setTimeout(() => {
+      Hero.style.top = '-200px';
+    }, 2500);
 
     if (!window.matchMedia('(min-width: 768px)').matches) {
       this.props.resetScrollPosition(2000);
@@ -351,18 +275,6 @@ class Seabed extends Component {
     setTimeout(() => {
       // -- Resets component to its initial state
       this.setState(INITIAL_STATE);
-      document
-        .querySelector('.seabed__go--experiences')
-        .classList.remove('hidden');
-      document
-        .querySelector('.seabed__go--otherSkills')
-        .classList.remove('hidden');
-      document
-        .querySelector('.seabed__go-textRight')
-        .classList.remove('goThisWay');
-      document
-        .querySelector('.seabed__go-textLeft')
-        .classList.remove('goThisWay');
       window.addEventListener('keyup', this.moveHero);
 
       // -- Triggers thank you message on first screen
@@ -383,7 +295,10 @@ class Seabed extends Component {
       hideInstructions,
       experiences,
       otherSkills,
-      heroThinks
+      heroThinks,
+      position,
+      frame,
+      finishedScenario
     } = this.state;
     const {
       texts,
@@ -406,24 +321,48 @@ class Seabed extends Component {
           </div>
         )}
 
-        <div className="seabed__go--experiences floating floating-delay">
-          <p className="seabed__go-text seabed__go-textRight">
+        <div
+          className={`seabed__go--experiences floating floating-delay ${(frame !==
+            'center' ||
+            finishedScenario) &&
+            'hidden'}`}
+        >
+          <p
+            className={`seabed__go-text seabed__go-textRight ${position ===
+              'on-the-right' && 'goThisWay'}`}
+          >
             {texts.experiences}
           </p>
         </div>
-        <div className="seabed__go--otherSkills floating">
-          <p className="seabed__go-text seabed__go-textLeft">{texts.skills}</p>
+        <div
+          className={`seabed__go--otherSkills floating ${(frame !== 'center' ||
+            finishedScenario) &&
+            'hidden'}`}
+        >
+          <p
+            className={`seabed__go-text seabed__go-textLeft ${position ===
+              'on-the-left' && 'goThisWay'}`}
+          >
+            {texts.skills}
+          </p>
         </div>
 
         <img
           src={FloatingRight}
           id="hero"
           className="seabed__hero floating-soft"
-          alt=""
+          alt="A scuba diver swimming smoothly"
+          ref={this.HeroRef}
         />
 
         <div className="seabed__image">
-          <p className="seabed__anna">Anna Branco</p>
+          <p
+            className={`seabed__anna ${(frame !== 'center' ||
+              finishedScenario) &&
+              'hidden'}`}
+          >
+            Anna Branco
+          </p>
         </div>
 
         {experiences.active &&
@@ -448,12 +387,12 @@ class Seabed extends Component {
             />
           )}
 
-        {experiences.read && otherSkills.read && (
-          <p className="seabed__back">{texts.time2go}</p>
-        )}
+        {finishedScenario && <p className="seabed__back">{texts.time2go}</p>}
 
-        {heroThinks !== undefined && (
-          <p className="hero__thinks">{texts.thoughts[heroThinks]}</p>
+        {heroThinks.side && (
+          <p className={`hero__thinks ${heroThinks.side}`}>
+            {texts.thoughts[heroThinks.thoughts]}
+          </p>
         )}
       </section>
     );

@@ -14,6 +14,7 @@
 	box-sizing      : border-box;
 	overflow        : hidden;
 	cursor          : pointer;
+	outline: none;
 
 	&:hover {
 		border : 3px solid $yellow--bright;
@@ -24,7 +25,7 @@
 		left: 40%;
 	}
 
-	&.opened {
+	&.show {
 		border-radius: 40px 0;
 		border       : 2px solid $black;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { SHOW_ACTION, HIDE_ACTION } from '../../../constants/actions';
 import { MacNotebook } from '../../../images';
 import {
   seabedElementsPropType,
@@ -10,7 +11,7 @@ import {
 const OtherSkills = ({
   texts,
   globalTexts,
-  status: { read },
+  status: { read, visible },
   onClickOpen,
   onClickClose
 }) => (
@@ -23,10 +24,10 @@ const OtherSkills = ({
       </>
     ) : null}
 
-    <section className="otherSkills__mac">
-      <div className="otherSkills__mac--screen">
+    <section className={`otherSkills__mac ${visible && SHOW_ACTION}`}>
+      <div className={`otherSkills__mac--screen ${visible && SHOW_ACTION}`}>
         <div
-          className="section__otherSkills"
+          className={`section__otherSkills ${visible && SHOW_ACTION}`}
           onClick={() => onClickOpen('otherSkills')}
           role="button"
           aria-label={globalTexts.open}
@@ -273,8 +274,11 @@ const OtherSkills = ({
           </div>
         </div>
       </div>
-      <div className="otherSkills__mac--keyboard" />
-      <div className="otherSkills__mac--keyboard-keyArea">
+      <div className={`otherSkills__mac--keyboard ${visible && HIDE_ACTION}`} />
+      <div
+        className={`otherSkills__mac--keyboard-keyArea ${visible &&
+          HIDE_ACTION}`}
+      >
         <p className="otherSkills__mac--keyboard-keys"> . . . . . . . ...</p>
         <p className="otherSkills__mac--keyboard-keys">... . . . . . . ..</p>
         <p className="otherSkills__mac--keyboard-keys">. . . . . . . . . .</p>
