@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
+import { ProjectDetails } from '../../views';
 import {
   SHOW_THUMBNAILS_ACTION,
   SHOW_ACTION,
@@ -10,7 +11,6 @@ import {
   BACK_ACTION,
   SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../constants';
-import { ProjectDetails } from '../../views';
 import { developerTextPropType, projectsPropType } from '../../../types';
 
 class ProjectsList extends Component {

@@ -2,49 +2,47 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { projectsPropType } from '../../../types';
 
-const ProjectDetails = ({ project, language, displayThumbnails }) => {
-  return (
-    <li className="project__item" key={project.title}>
+const ProjectDetails = ({ project, language, displayThumbnails }) => (
+  <li className="project__item" key={project.title}>
+    <a
+      href={project.url}
+      className="project__url-a"
+      target="_Blank"
+      rel="noopener noreferrer"
+    >
+      <h3 className="project__title">
+        {project.title} <i className="far fa-eye project__title-icon" />
+      </h3>
+    </a>
+    <p className="project__description">{project.description[language]}</p>
+
+    <a
+      href={project.repo}
+      className="project__url-a"
+      target="_Blank"
+      rel="noopener noreferrer"
+    >
+      <p className="project__repo">
+        <i className="fab fa-github-alt project__repo--icon" />
+        {project.repo.replace('https://github.com', '')}
+      </p>
+    </a>
+    {displayThumbnails && (
       <a
         href={project.url}
         className="project__url-a"
         target="_Blank"
         rel="noopener noreferrer"
       >
-        <h3 className="project__title">
-          {project.title} <i className="far fa-eye project__title-icon" />
-        </h3>
+        <img
+          src={project.thumbnail}
+          alt={project.title}
+          className="project__thumbnail"
+        />
       </a>
-      <p className="project__description">{project.description[language]}</p>
-
-      <a
-        href={project.repo}
-        className="project__url-a"
-        target="_Blank"
-        rel="noopener noreferrer"
-      >
-        <p className="project__repo">
-          <i className="fab fa-github-alt project__repo--icon" />
-          {project.repo.replace('https://github.com', '')}
-        </p>
-      </a>
-      {displayThumbnails && (
-        <a
-          href={project.url}
-          className="project__url-a"
-          target="_Blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src={project.thumbnail}
-            alt={project.title}
-            className="project__thumbnail"
-          />
-        </a>
-      )}
-    </li>
-  );
-};
+    )}
+  </li>
+);
 
 ProjectDetails.propTypes = {
   project: projectsPropType.isRequired,

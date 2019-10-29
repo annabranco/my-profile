@@ -118,6 +118,7 @@ class ScrollArea extends Component {
       languageModalIsVisible,
       projects
     } = this.props;
+
     return (
       <section
         className={`scrollArea__container ${languageModalIsVisible &&

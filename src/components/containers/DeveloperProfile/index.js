@@ -48,6 +48,7 @@ class DeveloperProfile extends Component {
       projects,
       handleAdjustExpandedProjectsView
     } = this.props;
+
     return (
       <section className="section__developer">
         <div className="developer__outer">
