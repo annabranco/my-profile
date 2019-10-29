@@ -14,9 +14,6 @@ import {
   globalTextsPropType
 } from '../../../types';
 
-let floatLeft;
-let floatRight;
-
 const INITIAL_STATE = {
   hideInstructions: false,
   experiences: {
@@ -54,10 +51,14 @@ class Seabed extends Component {
 
   Hero = undefined;
 
+  floatLeft;
+
+  floatRight;
+
   componentDidMount() {
     window.addEventListener('keyup', this.moveHero);
     this.Hero = this.HeroRef.current;
-    console.log('$$$ this.props.texts', this.props.texts);
+    this.Hero.style.left = `${window.innerWidth * 0.4}px`;
   }
 
   // ======== Triggers a random thought when the Hero reaches any outer border.
@@ -96,14 +97,17 @@ class Seabed extends Component {
     }
   };
 
-  // ======== Handle diver movements
+  // ======== Handle Hero movements
 
   moveHero = event => {
     const { Hero } = this;
+    const DISPLACEMENT = 250;
+
     if (event.key === 'ArrowRight') {
       // ---- Prevents movement beyond right margin on frame 'right'
       if (
-        Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 300 &&
+        Number(Hero.style.left.slice(0, -2)) >=
+          window.innerWidth - (DISPLACEMENT + 50) &&
         this.state.frame === 'right'
       ) {
         this.onReachBorder('on-right');
@@ -115,19 +119,20 @@ class Seabed extends Component {
           side: undefined
         }
       }));
-      clearTimeout(floatRight);
-      clearTimeout(floatLeft);
+      clearTimeout(this.floatRight);
+      clearTimeout(this.floatLeft);
       Hero.src = SwimmingRight;
-      Hero.style.left = `${Number(Hero.style.left.slice(0, -2)) + 250}px`;
+      Hero.style.left = `${Number(Hero.style.left.slice(0, -2)) +
+        DISPLACEMENT}px`;
       Hero.classList.add('swim');
-      floatRight = setTimeout(() => {
+      this.floatRight = setTimeout(() => {
         Hero.src = FloatingRight;
         Hero.classList.remove('swim');
       }, 3000);
     } else if (event.key === 'ArrowLeft') {
       // ---- Prevents movement beyond left margin on frame 'left'
       if (
-        Number(Hero.style.left.slice(0, -2)) <= 200 &&
+        Number(Hero.style.left.slice(0, -2)) <= DISPLACEMENT - 50 &&
         this.state.frame === 'left'
       ) {
         this.onReachBorder('on-left');
@@ -139,12 +144,13 @@ class Seabed extends Component {
           side: undefined
         }
       }));
-      clearTimeout(floatRight);
-      clearTimeout(floatLeft);
+      clearTimeout(this.floatRight);
+      clearTimeout(this.floatLeft);
       Hero.src = SwimmingLeft;
-      Hero.style.left = `${Number(Hero.style.left.slice(0, -2)) - 250}px`;
+      Hero.style.left = `${Number(Hero.style.left.slice(0, -2)) -
+        DISPLACEMENT}px`;
       Hero.classList.add('swim');
-      floatLeft = setTimeout(() => {
+      this.floatLeft = setTimeout(() => {
         Hero.src = FloatingLeft;
         Hero.classList.remove('swim');
       }, 3000);
@@ -254,8 +260,8 @@ class Seabed extends Component {
 
     window.removeEventListener('keyup', this.moveHero);
     setTimeout(() => {
-      clearTimeout(floatRight);
-      clearTimeout(floatLeft);
+      clearTimeout(this.floatRight);
+      clearTimeout(this.floatLeft);
       Hero.src = SwimmingRight;
       Hero.classList.remove('floating-soft');
       Hero.classList.add('goingUp');
