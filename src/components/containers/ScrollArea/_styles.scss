@@ -1,6 +1,6 @@
 .scrollArea__container {
   height   : 100vh;
-  overflow : scroll;
+  overflow  : scroll;
 
   & .languageModalIsVisible {
     overflow-y : hidden;
@@ -9,11 +9,11 @@
 
 .images {
   position              : relative;
-  height                : 100vh;
-  background-attachment : fixed;
   background-position   : center;
-  background-repeat     : no-repeat;
   background-size       : cover;
+  background-repeat     : no-repeat;
+  background-attachment : fixed;
+  height                : 100vh;
 
   &:last-child {
     margin : 0;
@@ -24,20 +24,20 @@
   position        : absolute;
   top             : 40%;
   left            : 35%;
+  opacity         : 0;
+  transform       : translate(-50%, -50%);
   display         : flex;
-  align-items     : center;
   justify-content : center;
+  align-items     : center;
   border-radius   : 20px;
+  background      : rgba($blue--dark, 0.7);
   min-height      : 60px;
   height          : auto;
   width           : 400px;
-  background      : rgba($blue--dark, 0.7);
   font-family     : $font__subtitle;
   font-size       : 1.6rem;
-  color           : white;
   line-height     : 60px;
-  transform       : translate(-50%, -50%);
-  opacity         : 0;
+  color           : $white;
 }
 
 .innertext--p {
@@ -45,50 +45,50 @@
 }
 
 .animateIn {
+  transform                 : scale(0);
   animation-name            : comeIn;
   animation-duration        : 0.5s;
-  animation-iteration-count : 1;
   animation-timing-function : ease-in;
-  transform                 : scale(0);
-  animation-fill-mode       : forwards;
+  animation-iteration-count : 1;
+  animation-fill-mode        : forwards;
 }
 
 .animateOut {
+  transform                 : scale(1);
   animation-name            : comeOut;
   animation-duration        : 0.2s;
-  animation-iteration-count : 1;
   animation-timing-function : ease-in;
-  transform                 : scale(1);
-  animation-fill-mode       : forwards;
+  animation-iteration-count : 1;
+  animation-fill-mode        : forwards;
 }
 
 @keyframes comeIn {
   from {
-    transform : scale(0.6);
     opacity   : 0;
+    transform : scale(0.6);
   }
 
   to {
-    transform : scale(1);
     opacity   : 1;
+    transform : scale(1);
   }
 }
 
 @keyframes comeOut {
   from {
-    transform : scale(1);
     opacity   : 1;
+    transform : scale(1);
   }
 
   to {
-    transform : scale(0.6);
     opacity   : 0;
+    transform : scale(0.6);
   }
 }
 
 .scrollArea__horizontal {
   display         : flex;
-  align-items     : center;
   justify-content : center;
+  align-items     : center;
   width           : 300vw;
 }

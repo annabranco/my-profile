@@ -5,28 +5,28 @@
 .project__title {
   margin      : 10px 0;
   font-family : $font__title;
-  font-weight : bold;
   font-size   : 1.3rem;
+  font-weight : bold;
   color       : $blue--dark;
 }
 
 .project__title-icon {
-  color   : $black;
   opacity : 0.4;
+  color   : $black;
 }
 
 .project__thumbnail {
   border        : 1px solid $black;
   border-radius : 5px;
+  margin-top    : 10px;
   width         : 100%;
   box-shadow    : 0 3px 7px 0 rgba($gray-dark, 0.8);
-  margin-top    : 10px;
 }
 
 .project__description {
   margin-bottom : 20px;
-  text-align    : justify;
   line-height   : 1.4;
+  text-align    : justify;
 }
 
 .project__url-a {
@@ -38,9 +38,9 @@
 }
 
 .project__repo--icon {
+  opacity        : 0.4;
+  margin-right   : 4px;
   vertical-align : middle;
   font-size      : 1.3rem;
-  margin-right   : 4px;
   color          : $black;
-  opacity        : 0.4;
 }

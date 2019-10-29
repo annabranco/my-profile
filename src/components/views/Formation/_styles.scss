@@ -1,113 +1,118 @@
 .section__formation {
-	height             : 100vh;
-	position           : relative;
-	display            : fixed;
-	background-image   : linear-gradient(rgba(#e6effb, 0.98),rgba(#e6effb, 0.93),rgba(#bdd6f6, 0.98)), url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
-	background-position: center;
+	position            : relative;
+	display             : fixed;
+	background-image    : linear-gradient(
+		rgba(#e6effb, 0.98),
+		rgba(#e6effb, 0.93),
+		rgba(#bdd6f6, 0.98)
+		),
+		url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
+	background-position : center;
+	height              : 100vh;
 }
 
 .formation__outer {
-	display        : flex;
-	align-items    : flex-end;
-	justify-content: flex-start;
-	margin         : 0 auto;
-	height         : auto;
-	width          : 80vw;
+	display         : flex;
+	justify-content : flex-start;
+	align-items     : flex-end;
+	margin          : 0 auto;
+	height          : auto;
+	width           : 80vw;
 }
 
 .formation__inner {
-	height: auto;
+	height : auto;
 }
 
 .formation__inner--year {
-	margin-right: 15px;
-	width       : 40px;
-	text-align  : center;
-	font-family : $font__title;
-	font-size   : 1.2em;
-	color       : $red--dark;
+	margin-right : 15px;
+	width        : 40px;
+	font-family  : $font__title;
+	font-size    : 1.2em;
+	color        : $red--dark;
+	text-align   : center;
 }
 
 .formation__verticalBar {
-	border-right: 5px solid rgba($blue--light, 0.3);
-	height      : 90vh;
+	border-right : 5px solid rgba($blue--light, 0.3);
+	height       : 90vh;
 }
 
 .formation__inner--horizontalBar,
 .formation__inner--year {
-	height: 130px;
+	height : 130px;
 }
 
 .formation__horizontarBar-adalab,
 .formation__horizontarBar-ir,
 .formation__horizontarBar-master,
 .formation__horizontarBar-psy {
-	display   : inline-block;
-	border-top: 5px solid rgba($blue--light, 0.3);
+	display    : inline-block;
+	border-top : 5px solid rgba($blue--light, 0.3);
 }
 
 .formation__horizontarBar-psy {
-	width: 20px;
+	width : 20px;
 
 	@media all and (min-width: 768px) {
-		width     : 0;
-		transition: width ease 2s;
+		width      : 0;
+		transition : width ease 2s;
 
 		&.comeIn {
-			width: 15vw;
+			width : 15vw;
 		}
 	}
 }
 
 .formation__horizontarBar-ir {
-	width: 20px;
+	width : 20px;
 
 	@media all and (min-width: 768px) {
-		width     : 0;
-		transition: width ease 2s;
+		width      : 0;
+		transition : width ease 2s;
 
 		&.comeIn {
-			width: 30vw;
+			width : 30vw;
 		}
 	}
 }
 
 .formation__horizontarBar-master {
-	width: 20px;
+	width : 20px;
 
 	@media all and (min-width: 768px) {
-		width     : 0;
-		transition: width ease 2s;
+		width      : 0;
+		transition : width ease 2s;
 
 		&.comeIn {
-			width: 45vw;
+			width : 45vw;
 		}
 	}
 }
 
 .formation__horizontarBar-adalab {
-	width: 20px;
+	width : 20px;
 
 	@media all and (min-width: 768px) {
-		width     : 0;
-		transition: width ease 2s;
+		width      : 0;
+		transition : width ease 2s;
 
 		&.comeIn {
-			width: 60vw;
+			width : 60vw;
 		}
 	}
 }
 
 .formation__title {
-	margin-left: 20px;
-	display    : inline;
-	font-family: $font__title-alt;
-	font-size  : 1.4em;
-	color      : $blue--dark;
+	display     : inline;
+	margin-left : 20px;
+	font-family : $font__title-alt;
+	font-size   : 1.4em;
+	color       : $blue--dark;
 
 	&:hover {
-		letter-spacing: 0.1rem;
-		color         : $yellow--dark;
+		letter-spacing : 0.1rem;
+		color          : $yellow--dark;
 	}
 }
 
@@ -117,20 +122,20 @@
 .formation__title-psy {
 
 	@media all and (min-width: 768px) {
-		opacity   : 0;
-		transition: opacity ease 2s;
+		opacity    : 0;
+		transition : opacity ease 2s;
 
 		&.comeIn {
-			opacity: 1;
+			opacity : 1;
 		}
 	}
 }
 
 .formation__details {
 	//visibility : hidden;
-	margin-left: 10px;
-	font-family: $font__subtitle;
-	font-size  : 1rem;
+	margin-left : 10px;
+	font-family : $font__subtitle;
+	font-size   : 1rem;
 }
 
 .formation__details-ir,
@@ -138,16 +143,16 @@
 .formation__details-psy {
 
 	@media all and (min-width: 768px) {
-		opacity   : 0;
-		transition: opacity ease 2s;
+		opacity    : 0;
+		transition : opacity ease 2s;
 
 		&.comeIn {
-			opacity: 1;
+			opacity : 1;
 		}
 	}
 }
 
 .formation__flag {
-	margin-left   : 5px;
-	vertical-align: middle;
+	margin-left    : 5px;
+	vertical-align : middle;
 }

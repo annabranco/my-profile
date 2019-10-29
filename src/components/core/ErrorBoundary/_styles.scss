@@ -8,39 +8,39 @@
 }
 
 .error-boundary__notify--wrapper {
-	position: relative;
-	top: 50%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 80vw;
+	position        : relative;
+	top             : 50%;
+	display         : flex;
+	flex-direction   : column;
+	justify-content : center;
+	align-items     : center;
+	width           : 80vw;
 }
 
 .error-boundary__sorry-msg {
-  margin: 0 0 20px;
-  width      : 80%;
+  margin      : 0 0 20px;
+  width       : 80%;
   font-style  : italic;
   font-family : $font__subtitle;
   font-size   : 1.3rem;
   line-height : 1.5;
-	color       : $blue--light;
-  text-align : left;
+  color       : $blue--light;
+  text-align  : left;
 }
 
 .error-boundary__notify-button {
-  position: relative;
-  right: 0;
-	margin     : 4px 0 0 5px;
-	font-family: $font__title-alt;
-  font-size: 1.3rem;
-	color      : $black;
+  position    : relative;
+  right       : 0;
+  margin      : 4px 0 0 5px;
+  font-family : $font__title-alt;
+  font-size   : 1.3rem;
+  color       : $black;
 	}
 
 .error-boundary__notify-button--text {
-  display       : inline;
-	margin-left: 15px;
-	vertical-align: middle;
-	text-shadow   : 0 0 1px $black;
-	font-size     : 2rem;
+  display        : inline;
+  margin-left    : 15px;
+  vertical-align : middle;
+  text-shadow    : 0 0 1px $black;
+  font-size      : 2rem;
 }

@@ -2,7 +2,7 @@
   position         : relative;
   margin           : 20px 0 0;
   background-image : linear-gradient(
-      white,
+      $white,
       rgba(#ffffff, 0.9),
       rgba(#ffffff, 0.7),
       rgba(#ffffff, 0.3)
@@ -12,11 +12,10 @@
   background-size       : cover;
   background-repeat     : no-repeat;
   background-attachment : fixed;
-  // height                : 100vh;
 
   @media all and (min-width: 500px) {
     background-image: linear-gradient(
-        white,
+        $white,
         rgba(#ffffff, 0.98),
         rgba(#ffffff, 0.8),
         rgba(#ffffff, 0.7)
@@ -27,7 +26,6 @@
 
 .infoPage__outerWrapper {
   margin-top : 50px;
-  // height     : 100vh;
   width : 100vw;
   @media all and (min-width: 500px) {
     margin-top : 100px;
@@ -36,11 +34,11 @@
 
 .infoPage__container {
   display         : flex;
-  align-items     : flex-start;
   justify-content : center;
+  align-items     : flex-start;
   flex-wrap       : wrap;
-  width           : 95%;
   margin          : 0 auto;
+  width           : 95%;
 
   @media all and (min-width: 500px) {
     width : 90%;
@@ -49,8 +47,8 @@
 
 .infoPage__photoAndName {
   display         : flex;
-  align-items     : flex-start;
   justify-content : center;
+  align-items     : flex-start;
   flex-wrap       : wrap;
   width           : 45%;
 
@@ -112,14 +110,14 @@
 
 .infoPage__name {
   background-image        : url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/other/bg-binary.jpg');
-  background-size         : contain;
   background-position     : center;
-  background-clip         : text;
+  background-size         : contain;
   -webkit-background-clip : text;
-  color                   : transparent;
+  background-clip         : text;
   font-family             : $font__title;
   font-size               : 3rem;
   font-weight             : 900;
+  color                   : transparent;
 
   @media all and (min-width: 768px) {
     font-size : 4rem;
@@ -131,8 +129,8 @@
 }
 
 .infoPage__name--devices {
-  margin     : 5px 0;
   display    : block;
+  margin     : 5px 0;
   text-align : center;
   @media all and (min-width: 500px) {
     display : none;
@@ -146,29 +144,13 @@
   }
 }
 
-/* OPTIONS OF BG
-
-background-image : url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ruoEhTkNeiwq2lefr/videoblocks-abstract-matrix-background-binary-computer-code-coding-and-hacker-concept-tech-background-4k-animation_btu47n5jb_thumbnail-full06.png');
-background-size  : contain;
-
-background-image : url('https://images3.alphacoders.com/279/279465.jpg');
-background-size  : contain;
-
-background-image    : url('https://images3.alphacoders.com/279/279465.jpg');
-background-size     : cover;
-background-position : center;
-
-background-image : url('https://images.pond5.com/green-loopable-it-background-glowing-footage-000878726_prevstill.jpeg');
-background-size  : cover;
-*/
-
 .infoPage__job {
   margin-top  : -30px;
   margin-left : -25px;
   width       : 42vw;
-  text-align  : center;
   font-family : $font__subtitle;
   font-size   : 1.3rem;
+  text-align  : center;
 
   @media all and (min-width: 321px) {
     margin-top : 0;
@@ -178,26 +160,25 @@ background-size  : cover;
   @media all and (min-width: 500px) {
     margin-left : 0;
     width       : auto;
-    text-align  : left;
     font-size   : 2rem;
+    text-align  : left;
   }
 }
 
 .infoPage__boat {
   position                  : absolute;
   top                       : 40%;
+  filter                     : saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
   transform                 : translate(-50%, 0);
-  filter                    : saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
   width                     : 100px;
   animation-name            : navigating;
   animation-duration        : 120s;
-  animation-iteration-count : infinite;
-  animation-fill-mode       : forwards;
   animation-timing-function : linear;
+  animation-iteration-count : infinite;
+  animation-fill-mode        : forwards;
 
   @media all and (min-width: 768px) {
     top : 30%;
-
     filter : saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
   }
 }
@@ -230,18 +211,18 @@ background-size  : cover;
 .infoPage__aditional {
   margin      : -20px 0 0;
   width       : 90%;
-  text-align  : center;
+  font-style  : italic;
   font-family : $font__subtitle;
   font-size   : 0.8rem;
-  font-style  : italic;
   line-height : 1.5;
   color       : $blue--light;
+  text-align  : center;
 
   @media all and (min-width: 500px) {
     margin     : -40px 0 0 20px;
+    height     : 200px;
     width      : 80%;
     font-size  : 1.2rem;
-    height     : 200px;
     text-align : left;
   }
 }
@@ -266,11 +247,11 @@ background-size  : cover;
 
 .infoPage__scrollDown {
   z-index         : 3;
-  margin-top      : 0;
   display         : flex;
-  flex-direction  : column;
-  align-items     : center;
+  flex-direction   : column;
   justify-content : center;
+  align-items     : center;
+  margin-top      : 0;
 
   @media all and (min-width: 768px) {
     margin-top : 80px;
@@ -279,18 +260,18 @@ background-size  : cover;
 
 .infoPage__scrollDown-inner {
   display         : flex;
-  align-items     : center;
   justify-content : center;
+  align-items     : center;
 }
 
 .scroll-icon {
+  opacity                   : 0;
   margin                    : 0 20px;
   font-size                 : 3rem;
   color                     : rgba($blue--light, 0.55);
   animation-duration        : 3s;
   animation-iteration-count : infinite;
-  opacity                   : 0;
-  animation-fill-mode       : forwards;
+  animation-fill-mode        : forwards;
 
   @media all and (min-width: 768px) {
     margin : 0 100px;
