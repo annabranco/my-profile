@@ -27,20 +27,14 @@ class DeveloperProfile extends Component {
   };
 
   state = {
-    knowMore: false,
-    seeAllProjects: false
+    knowMore: false
   };
 
   onClickKnowMore = () =>
     this.setState(prevState => ({ knowMore: !prevState.knowMore }));
 
-  onClickSeeAllProjects = () =>
-    this.setState(prevState => ({
-      seeAllProjects: !prevState.seeAllProjects
-    }));
-
   render() {
-    const { knowMore, seeAllProjects } = this.state;
+    const { knowMore } = this.state;
     const {
       texts,
       language,
@@ -294,25 +288,13 @@ class DeveloperProfile extends Component {
               className={`developer__projects ${developerActivation.projects &&
                 'comeIn'}`}
             >
-              <h2 className="developer__projects--title">
-                {texts.projects}
-                <span
-                  className="developer--more"
-                  onClick={this.onClickSeeAllProjects}
-                  role="button"
-                  aria-label={seeAllProjects ? texts.reduced : texts.expanded}
-                  tabIndex={0}
-                >
-                  {seeAllProjects ? texts.reduced : texts.expanded}
-                </span>
-              </h2>
+              <h2 className="developer__projects--title">{texts.projects}</h2>
               <p className="developer__projects--text">{texts.projectsText}</p>
 
               <ProjectsList
                 texts={texts}
                 projects={projects}
                 language={language}
-                seeAllProjects={seeAllProjects}
                 handleAdjustExpandedProjectsView={
                   handleAdjustExpandedProjectsView
                 }

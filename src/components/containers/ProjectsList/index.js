@@ -5,7 +5,6 @@ import sortBy from 'lodash/sortBy';
 import { ProjectDetails } from '../../views';
 import {
   SHOW_THUMBNAILS_ACTION,
-  SHOW_ACTION,
   HIDE_ACTION,
   ADVANCE_ACTION,
   BACK_ACTION,
@@ -19,7 +18,6 @@ class ProjectsList extends Component {
     texts: developerTextPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
     language: PropTypes.string.isRequired,
-    seeAllProjects: PropTypes.bool.isRequired,
     handleAdjustExpandedProjectsView: PropTypes.func.isRequired
   };
 
@@ -37,17 +35,11 @@ class ProjectsList extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.knowMore !== this.state.knowMore ||
-      prevState.displayThumbnails !== this.state.displayThumbnails ||
-      prevProps.seeAllProjects !== this.props.seeAllProjects
+      prevState.displayThumbnails !== this.state.displayThumbnails
     ) {
       let adjust = 0;
       if (this.state.displayThumbnails) {
-        adjust += 650;
-      }
-      if (this.props.seeAllProjects) {
-        console.log('$$$ CHANGED');
-        adjust += 650;
-        this.organizeProjectsList(this.props.projects.length);
+        adjust += 150;
       }
       if (this.state.knowMore) {
         adjust += 200;
@@ -65,7 +57,6 @@ class ProjectsList extends Component {
       projectsList: organizedProjects,
       totalPages: organizedProjects.length
     });
-    console.log('$$$ organizedProjects', organizedProjects);
   };
 
   toggleProjectsThumbNails = isVisible =>
@@ -92,11 +83,7 @@ class ProjectsList extends Component {
 
   setProjectsListClasses = () => {
     const { displayThumbnails } = this.state;
-    const { seeAllProjects } = this.props;
 
-    if (seeAllProjects) {
-      return ` ${SHOW_ACTION}`;
-    }
     if (displayThumbnails && isDesktop) {
       return ` ${SHOW_THUMBNAILS_ACTION}`;
     }
@@ -113,7 +100,7 @@ class ProjectsList extends Component {
       actualPage,
       totalPages
     } = this.state;
-    const { texts, language, seeAllProjects } = this.props;
+    const { texts, language } = this.props;
 
     return (
       <section>
@@ -140,38 +127,36 @@ class ProjectsList extends Component {
             />
           ))}
         </ul>
-        {!seeAllProjects && (
-          <div className="project__seeMore">
-            <span
-              className={`project__seeMore-text project__seeMore-up ${actualPage ===
-                1 && HIDE_ACTION}`}
-            >
-              {texts.goUp}
-            </span>
-            <i
-              className={`far fa-arrow-alt-circle-up icon--more ${actualPage ===
-                1 && HIDE_ACTION}`}
-              onClick={() => this.onClickChangePage(BACK_ACTION)}
-              role="button"
-              aria-label={texts.goUp}
-              tabIndex={0}
-            />
-            <i
-              className={`far fa-arrow-alt-circle-down icon--more ${actualPage ===
-                totalPages && HIDE_ACTION}`}
-              onClick={() => this.onClickChangePage(ADVANCE_ACTION)}
-              role="button"
-              aria-label={texts.showMore}
-              tabIndex={0}
-            />
-            <span
-              className={`project__seeMore-text project__seeMore-down ${actualPage ===
-                totalPages && HIDE_ACTION}`}
-            >
-              {texts.showMore}
-            </span>
-          </div>
-        )}
+        <div className="project__seeMore">
+          <span
+            className={`project__seeMore-text project__seeMore-up ${actualPage ===
+              1 && HIDE_ACTION}`}
+          >
+            {texts.goUp}
+          </span>
+          <i
+            className={`far fa-arrow-alt-circle-up icon--more ${actualPage ===
+              1 && HIDE_ACTION}`}
+            onClick={() => this.onClickChangePage(BACK_ACTION)}
+            role="button"
+            aria-label={texts.goUp}
+            tabIndex={0}
+          />
+          <i
+            className={`far fa-arrow-alt-circle-down icon--more ${actualPage ===
+              totalPages && HIDE_ACTION}`}
+            onClick={() => this.onClickChangePage(ADVANCE_ACTION)}
+            role="button"
+            aria-label={texts.showMore}
+            tabIndex={0}
+          />
+          <span
+            className={`project__seeMore-text project__seeMore-down ${actualPage ===
+              totalPages && HIDE_ACTION}`}
+          >
+            {texts.showMore}
+          </span>
+        </div>
       </section>
     );
   }
