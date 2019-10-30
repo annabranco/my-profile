@@ -35,7 +35,7 @@ class MainArea extends Component {
     this.setState({ frenchClicked: true });
     setTimeout(() => {
       this.setState({ frenchClicked: false });
-    }, 5000);
+    }, 3000);
   };
 
   render() {
