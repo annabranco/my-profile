@@ -208,14 +208,15 @@ table {
   border: 1px solid;
   border-radius: 40px 0;
   background-image: linear-gradient(to bottom left, #ffffff, #e6f4f4, #4681d0);
-  height: auto;
-  width: 320px;
+  height: 280px;
+  width: 340px;
   padding: 20px;
   box-shadow: 2px 2px 10px 2px rgba(134, 134, 134, 0.7); }
   @media all and (min-width: 560px) {
     .languages__outer {
-      border-radius: 80px 0;
-      width: 560px; } }
+      border-radius: 50px 0;
+      height: 300px;
+      width: 480px; } }
 
 .languages__text {
   margin: 5px 0;
