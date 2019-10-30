@@ -1275,7 +1275,7 @@ table {
 
 .seabed__go--experiences {
   bottom: 150px;
-  left: 22vw;
+  left: 20vw;
   justify-content: flex-start;
   text-align: center; }
   @media all and (min-width: 768px) {
@@ -1289,7 +1289,7 @@ table {
 .seabed__go--otherSkills {
   top: 170px;
   bottom: initial;
-  right: 35vw;
+  right: 33vw;
   justify-content: flex-end;
   text-align: center; }
   @media all and (min-width: 768px) {
@@ -1305,11 +1305,8 @@ table {
   opacity: 0.9;
   text-shadow: 0 0 3px #054187;
   font-family: sans-serif;
-  font-size: 1.4rem;
+  font-size: 2.8rem;
   color: #ffffff; }
-  @media all and (min-width: 400px) {
-    .seabed__go-text {
-      font-size: 2.8rem; } }
   @media all and (min-width: 768px) {
     .seabed__go-text {
       opacity: 0.7;

@@ -106,9 +106,15 @@ class Seabed extends Component {
         visible: false
       }
     }));
-    if (this.state.experiences.read && this.state.otherSkills.read) {
+    if (
+      this.state.experiences.read &&
+      this.state.otherSkills.read &&
+      isDesktop
+    ) {
       this.setState({ finishedScenario: true });
     }
+    // -- Triggers thank you message on first screen
+    this.props.triggerThankYouMessage();
   };
 
   // ======== Handle Hero movements
@@ -296,9 +302,6 @@ class Seabed extends Component {
       // -- Resets component to its initial state
       this.setState(INITIAL_STATE);
       window.addEventListener('keyup', this.moveHero);
-
-      // -- Triggers thank you message on first screen
-      this.props.triggerThankYouMessage();
 
       // -- Puts Hero on its initial position
       Hero.classList.add('floating-soft');
