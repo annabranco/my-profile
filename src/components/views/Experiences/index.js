@@ -6,6 +6,7 @@ import {
   seabedElementsPropType,
   globalTextsPropType
 } from '../../../types';
+import { isDesktop } from '../../../utils/device';
 
 const Experiences = ({
   texts,
@@ -15,7 +16,7 @@ const Experiences = ({
   onClickClose
 }) => (
   <>
-    {!read && window.matchMedia('(min-width: 768px)').matches ? (
+    {!read && isDesktop ? (
       <>
         <p className="seabed__findSomething">{texts.find}</p>
         <p className="seabed__findSomething">{texts.investigate}</p>

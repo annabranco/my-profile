@@ -7,6 +7,7 @@ import {
   otherSkillsTextPropType,
   globalTextsPropType
 } from '../../../types';
+import { isDesktop } from '../../../utils/device';
 
 const OtherSkills = ({
   texts,
@@ -16,7 +17,7 @@ const OtherSkills = ({
   onClickClose
 }) => (
   <>
-    {!read && window.matchMedia('(min-width: 768px)').matches ? (
+    {!read && isDesktop ? (
       <>
         <p className="seabed__findSomething">{texts.find}</p>
         <p className="seabed__findSomething">{texts.find2}</p>
@@ -33,7 +34,9 @@ const OtherSkills = ({
           aria-label={globalTexts.open}
           tabIndex={0}
         >
-          <img src={MacNotebook} alt="" className="skills--topBar" />
+          {isDesktop && (
+            <img src={MacNotebook} alt="" className="skills--topBar" />
+          )}
           <button
             className="seabed__click2close seabed__click2close-otherSkills"
             onClick={() => onClickClose('otherSkills')}

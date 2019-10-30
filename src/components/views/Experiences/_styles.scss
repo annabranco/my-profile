@@ -1,6 +1,7 @@
 .section__experiences {
-	z-index          : 3;
+	z-index          : 6;
 	position         : absolute;
+	top              : initial;
 	bottom           : 50px;
 	left             : 20%;
 	opacity          : 0.5;
@@ -28,22 +29,28 @@
 
 	&.show {
 
-		top           : 40px;
+		bottom        : 0;
 		left          : 0;
 		opacity       : 0.9;
 		transform     : none;
 		border        : 2px solid $black;
-		border-radius : 40px 0;
+		border-radius : 0;
 		height        : 90vh;
 		width         : 100vw;
 		padding       : 5px;
 		cursor        : default;
 
 		@media all and (min-width: 768px) {
-			left    : 20vw;
-			height  : 90vh;
-			width   : 75vw;
-			padding : 15px;
+					top           : 40px;
+					bottom        : initial;
+					left          : 20vw;
+					opacity       : 0.9;
+					transform     : none;
+					border        : 2px solid $black;
+					border-radius : 40px 0;
+					height        : 90vh;
+					width         : 75vw;
+					padding       : 15px;
 		}
 
 		&:hover {

@@ -38,6 +38,7 @@
 }
 
 .floating {
+  z-index                   : 5;
   animation-name            : float;
   animation-duration        : 3s;
   animation-timing-function : ease;

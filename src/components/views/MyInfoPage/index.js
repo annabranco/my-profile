@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import Social from '../Social';
 import { Mugshot, Barquinho } from '../../../images';
 import { infoPageTextPropType } from '../../../types';
+import { isFullWindowDesktop } from '../../../utils/device';
 
 const MyInfoPage = ({ texts, displayThanksMessage }) => (
   <section className="section__infoPage">
@@ -43,7 +44,7 @@ const MyInfoPage = ({ texts, displayThanksMessage }) => (
         alt="Navigating beautifully"
       />
 
-      {!window.matchMedia('(min-width: 1024px)').matches && (
+      {!isFullWindowDesktop && (
         <div className="infoPage__advise">{texts.advise}</div>
       )}
 

@@ -13,6 +13,7 @@ import {
   otherSkillsTextPropType,
   globalTextsPropType
 } from '../../../types';
+import { isDesktop } from '../../../utils/device';
 
 const INITIAL_STATE = {
   hideInstructions: false,
@@ -32,6 +33,7 @@ const INITIAL_STATE = {
     side: undefined,
     thoughts: -1
   },
+  clickedLinkOnMobile: undefined,
   finishedScenario: false
 };
 
@@ -73,22 +75,34 @@ class Seabed extends Component {
 
   // ======== Handle view components (Experience and Other Skills)
 
+  onClickLinkOnMobile = link => {
+    console.log('$$$ link', link);
+    this.setState({
+      [link]: {
+        active: true,
+        visible: true,
+        read: true
+      }
+    });
+  };
+
   onClickOpen = type => {
     if (!this.state[type].visible) {
-      this.setState(prevState => ({
+      this.setState({
         [type]: {
-          ...prevState[type],
+          active: true,
           visible: true,
           read: true
         }
-      }));
+      });
     }
   };
 
   onClickClose = type => {
     this.setState(prevState => ({
       [type]: {
-        ...prevState[type],
+        active: isDesktop ? prevState[type].active : false,
+        read: true,
         visible: false
       }
     }));
@@ -272,7 +286,7 @@ class Seabed extends Component {
       Hero.style.top = '-200px';
     }, 2500);
 
-    if (!window.matchMedia('(min-width: 768px)').matches) {
+    if (!isDesktop) {
       this.props.resetScrollPosition(2000);
     } else {
       this.props.resetScrollPosition(8000);
@@ -315,7 +329,7 @@ class Seabed extends Component {
 
     return (
       <section className="section__seabed">
-        {window.matchMedia('(min-width: 768px)').matches && !hideInstructions && (
+        {isDesktop && !hideInstructions && (
           <div className="seabed__message--outer floating-soft">
             <p className="seabed__message">{texts.message}</p>
             <p className="seabed__message seabed__message-keyboard">
@@ -332,6 +346,9 @@ class Seabed extends Component {
             'center' ||
             finishedScenario) &&
             'hidden'}`}
+          onClick={() => this.onClickLinkOnMobile(!isDesktop && 'experiences')}
+          role="button"
+          tabIndex={0}
         >
           <p
             className={`seabed__go-text seabed__go-textRight ${position ===
@@ -344,6 +361,9 @@ class Seabed extends Component {
           className={`seabed__go--otherSkills floating ${(frame !== 'center' ||
             finishedScenario) &&
             'hidden'}`}
+          onClick={() => this.onClickLinkOnMobile(!isDesktop && 'otherSkills')}
+          role="button"
+          tabIndex={0}
         >
           <p
             className={`seabed__go-text seabed__go-textLeft ${position ===
@@ -371,27 +391,25 @@ class Seabed extends Component {
           </p>
         </div>
 
-        {experiences.active &&
-          window.matchMedia('(min-width: 768px)').matches && (
-            <Experiences
-              texts={textsExperiences}
-              globalTexts={globalTexts}
-              status={experiences}
-              onClickOpen={this.onClickOpen}
-              onClickClose={this.onClickClose}
-            />
-          )}
+        {experiences.active && (
+          <Experiences
+            texts={textsExperiences}
+            globalTexts={globalTexts}
+            status={experiences}
+            onClickOpen={this.onClickOpen}
+            onClickClose={this.onClickClose}
+          />
+        )}
 
-        {otherSkills.active &&
-          window.matchMedia('(min-width: 768px)').matches && (
-            <OtherSkills
-              texts={textsOtherSkills}
-              globalTexts={globalTexts}
-              status={otherSkills}
-              onClickOpen={this.onClickOpen}
-              onClickClose={this.onClickClose}
-            />
-          )}
+        {otherSkills.active && (
+          <OtherSkills
+            texts={textsOtherSkills}
+            globalTexts={globalTexts}
+            status={otherSkills}
+            onClickOpen={this.onClickOpen}
+            onClickClose={this.onClickClose}
+          />
+        )}
 
         {finishedScenario && <p className="seabed__back">{texts.time2go}</p>}
 

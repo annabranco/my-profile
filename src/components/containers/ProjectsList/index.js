@@ -12,6 +12,7 @@ import {
   SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../constants';
 import { developerTextPropType, projectsPropType } from '../../../types';
+import { isDesktop } from '../../../utils/device';
 
 class ProjectsList extends Component {
   static propTypes = {
@@ -30,9 +31,7 @@ class ProjectsList extends Component {
   };
 
   componentDidMount() {
-    this.organizeProjectsList(
-      window.matchMedia('(min-width: 768px)').matches ? 2 : 1
-    );
+    this.organizeProjectsList(isDesktop ? 2 : 1);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -98,7 +97,7 @@ class ProjectsList extends Component {
     if (seeAllProjects) {
       return ` ${SHOW_ACTION}`;
     }
-    if (displayThumbnails && window.matchMedia('(min-width: 768px)').matches) {
+    if (displayThumbnails && isDesktop) {
       return ` ${SHOW_THUMBNAILS_ACTION}`;
     }
     if (displayThumbnails) {
