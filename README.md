@@ -7,8 +7,8 @@ professional profile. <br> Thank you very much for your interest on visiting me.
 
 https://annabranco.github.io/my-profile/
 
-#### For an enhanced user experience, I recommended it be visited on a full-screen a desktop.
+#### For an enhanced user experience, I recommended visiting it on a full-screen desktop.
 
-v0.10.0
+_pre-release_ v0.10.0
 
 # React, Redux, create-react-app, SCSS (node-sass-chokidar)
