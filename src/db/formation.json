@@ -1,0 +1,102 @@
+{
+  "1999 - 2005":
+    {
+      "id": "psy",
+      "order": 1,
+      "university": "Universidade Gama Filho",
+      "place": "Rio de Janeiro",
+      "country": {
+        "en": "Brazil",
+        "es": "Brasil",
+        "pt": "Brasil"
+        },
+      "countryCode": "br",
+      "title": {
+        "en": "Psychology",
+        "es": "",
+        "pt": ""
+        },
+      "gradeText": {
+        "en": "Grade:",
+        "es": "",
+        "pt": ""
+        },
+      "grade": 8.46,
+      "visible": true
+    },
+    "2007 - 2011":
+    {
+      "id": "ir",
+      "order": 2,
+      "university": "Universidade Estácio de Sá",
+      "place": "Rio de Janeiro",
+      "country": {
+        "en": "Brazil",
+        "es": "Brasil",
+        "pt": "Brasil"
+        },
+      "countryCode": "br",
+      "title": {
+        "en": "International Relations",
+        "es": "",
+        "pt": ""
+        },
+      "gradeText": {
+        "en": "Grade:",
+        "es": "",
+        "pt": ""
+        },
+      "grade": 9.15,
+      "visible": true
+    },
+    "2012 - 2013":
+    {
+      "id": "master-uab",
+      "order": 3,
+      "university": "Universitat Autònoma de Barcelona",
+      "place": "Barcelona",
+      "country": {
+        "en": "Spain",
+        "es": "España",
+        "pt": "Espanha"
+        },
+      "countryCode": "es",
+      "title": {
+        "en": "International Relations, Security and Development",
+        "es": "",
+        "pt": ""
+        },
+      "gradeText": {
+        "en": "Grade:",
+        "es": "",
+        "pt": ""
+        },
+      "grade": 8.00,
+      "visible": true
+    },
+    "2018":
+        {
+      "id": "adalab",
+      "order": 4,
+      "university": "Adalab",
+      "place": "Madrid",
+      "country": {
+        "en": "Spain",
+        "es": "España",
+        "pt": "Espanha"
+        },
+      "countryCode": "es",
+      "title": {
+        "en": "Programadora Frontend",
+        "es": "",
+        "pt": ""
+        },
+      "gradeText": {
+        "en": null,
+        "es": null,
+        "pt": null
+        },
+      "grade": null,
+      "visible": true
+    }
+  }
