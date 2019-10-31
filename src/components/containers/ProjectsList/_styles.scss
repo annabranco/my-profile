@@ -1,0 +1,53 @@
+.developer__projects--thumbnails-checkbox {
+  width      : 100%;
+  text-align : center;
+}
+
+.developer__projects-checkbox {
+  margin : 0 10px;
+}
+
+.projects__list {
+  display               : grid;
+  grid-template-columns : 300px;
+  grid-template-rows    : 225px;
+  grid-gap              : 30px 20px;
+  margin-top            : 30px;
+  height                : 210px;
+  overflow               : hidden;
+
+  @media all and (min-width: 768px) {
+    grid-template-columns : 300px 300px;
+    grid-template-rows    : 360px;
+  }
+
+  &.show {
+    height : auto;
+  }
+
+  &.show-thumbnails {
+    height : 390px;
+  }
+
+  &.show-thumbnails-mobile {
+    grid-template-rows : 360px;
+    height             : 380px;
+  }
+}
+
+.project__seeMore {
+  opacity       : 0.5;
+  margin-bottom : 40px;
+  text-align    : center;
+}
+
+.project__seeMore-text {
+  vertical-align : super;
+  font-size      : 0.8rem;
+  text-align     : center;
+}
+
+.icon--more {
+  margin    : 0 5px;
+  font-size : 2rem;
+}
