@@ -14,13 +14,15 @@ import {
 import {
   developerTextPropType,
   projectsPropType,
-  developerActivationPropType
+  developerActivationPropType,
+  skillGroupsPropType
 } from '../../../types';
 
 class DeveloperProfile extends Component {
   static propTypes = {
     texts: developerTextPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
+    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
     handleAdjustExpandedProjectsView: PropTypes.func.isRequired,
     language: PropTypes.string.isRequired,
     developerActivation: developerActivationPropType.isRequired

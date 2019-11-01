@@ -1,12 +1,15 @@
 /* eslint-disable */
 import PropTypes from 'prop-types';
 
+const textInAllLanguagesPropType = PropTypes.shape({
+  en : PropTypes.string.isRequired,
+  es : PropTypes.string.isRequired,
+  pt : PropTypes.string.isRequired
+});
+
+
 export const projectsPropType = PropTypes.shape({
-  description: PropTypes.shape({
-    en : PropTypes.string.isRequired,
-    es : PropTypes.string.isRequired,
-    pt : PropTypes.string.isRequired
-  }).isRequired,
+  description: textInAllLanguagesPropType.isRequired,
   order     : PropTypes.number.isRequired,
   repo      : PropTypes.string.isRequired,
   thumbnail : PropTypes.string.isRequired,
@@ -126,10 +129,10 @@ export const globalTextsPropType = PropTypes.shape({
 });
 
 export const errorTextsPropType = PropTypes.shape({
-  title      : PropTypes.string.isRequired,
   errorLine1 : PropTypes.string.isRequired,
   errorLine2 : PropTypes.string.isRequired,
-  notifyMe   : PropTypes.string.isRequired
+  notifyMe   : PropTypes.string.isRequired,
+  title      : PropTypes.string.isRequired
 });
 
 export const textsPropType = PropTypes.shape({
@@ -159,14 +162,58 @@ export const developerActivationPropType = PropTypes.shape({
 });
 
 export const formationActivationPropType = PropTypes.shape({
-  psychology  : PropTypes.bool.isRequired,
   ir          : PropTypes.bool.isRequired,
   master      : PropTypes.bool.isRequired,
-  programming : PropTypes.bool.isRequired
+  programming : PropTypes.bool.isRequired,
+  psychology  : PropTypes.bool.isRequired
 });
 
 export const seabedElementsPropType = PropTypes.shape({
   active  : PropTypes.bool.isRequired,
-  visible : PropTypes.bool.isRequired,
-  read    : PropTypes.bool.isRequired
+  read    : PropTypes.bool.isRequired,
+  visible : PropTypes.bool.isRequired
+});
+
+export const skillPropType = PropTypes.shape({
+  "order": PropTypes.number.isRequired,
+  "level": PropTypes.number.isRequired,
+  "skill": PropTypes.string.isRequired
+});
+
+export const skillGroupsPropType = PropTypes.shape({
+  "order": PropTypes.number.isRequired,
+  "globalLevel": PropTypes.number.isRequired,
+  "logo": PropTypes.string.isRequired,
+  "name": PropTypes.string.isRequired,
+  "skills": PropTypes.arrayOf(skillPropType).isRequired
+});
+
+export const experiencesPropType = PropTypes.shape({
+  "company": PropTypes.string.isRequired,
+  "country": textInAllLanguagesPropType.isRequired,
+  "dateBegin": PropTypes.string.isRequired,
+  "dateBeginValue": PropTypes.number.isRequired,
+  "dateEnd": PropTypes.string,
+  "dateEndValue": PropTypes.number,
+  "details": textInAllLanguagesPropType.isRequired,
+  "id": PropTypes.string.isRequired,
+  "place": PropTypes.string.isRequired,
+  "title": textInAllLanguagesPropType.isRequired,
+  "visible": PropTypes.bool.isRequired
+});
+
+export const formationPropType = PropTypes.shape({
+  "country": textInAllLanguagesPropType.isRequired,
+  "countryCode": PropTypes.string.isRequired,
+  "dateBegin": PropTypes.string.isRequired,
+  "dateBeginValue": PropTypes.number.isRequired,
+  "dateEnd": PropTypes.string,
+  "dateEndValue": PropTypes.number,
+  "grade": PropTypes.number,
+  "gradeText": textInAllLanguagesPropType,
+  "id": PropTypes.string.isRequired,
+  "place": PropTypes.string.isRequired,
+  "title": textInAllLanguagesPropType.isRequired,
+  "university": PropTypes.string.isRequired,
+  "visible": PropTypes.bool.isRequired,
 });

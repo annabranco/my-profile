@@ -4,13 +4,15 @@ import { SHOW_ACTION } from '../../../constants/actions';
 import {
   experiencesTextPropType,
   seabedElementsPropType,
-  globalTextsPropType
+  globalTextsPropType,
+  formationPropType
 } from '../../../types';
 import { isDesktop } from '../../../utils/device';
 
 const Experiences = ({
   texts,
   globalTexts,
+  formation,
   status: { read, visible },
   onClickOpen,
   onClickClose
@@ -121,6 +123,7 @@ const Experiences = ({
 Experiences.propTypes = {
   texts: experiencesTextPropType.isRequired,
   globalTexts: globalTextsPropType.isRequired,
+  formation: PropTypes.arrayOf(formationPropType).isRequired,
   status: seabedElementsPropType.isRequired,
   onClickOpen: PropTypes.func.isRequired,
   onClickClose: PropTypes.func.isRequired
