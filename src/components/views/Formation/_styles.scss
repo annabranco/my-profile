@@ -11,8 +11,17 @@
 	height              : 100vh;
 }
 
+.formation__verticalBar {
+	position: absolute;
+	left: 10%;
+	border-right : 5px solid rgba($blue--light, 0.3);
+	height       : 90vh;
+	width           : 0;
+}
+
 .formation__outer {
 	display         : flex;
+	flex-direction: column;
 	justify-content : flex-start;
 	align-items     : flex-end;
 	margin          : 0 auto;
@@ -22,21 +31,22 @@
 
 .formation__inner {
 	height : auto;
+	width: 100%;
+}
+
+.formation__date-wrapper {
+	margin-left : -80px;
+	width        : 80px;
 }
 
 .formation__inner--year {
-	margin-right : 15px;
-	width        : 40px;
 	font-family  : $font__title;
 	font-size    : 1.2em;
 	color        : $red--dark;
 	text-align   : center;
 }
 
-.formation__verticalBar {
-	border-right : 5px solid rgba($blue--light, 0.3);
-	height       : 90vh;
-}
+
 
 .formation__inner--horizontalBar,
 .formation__inner--year {
