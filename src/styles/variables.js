@@ -14,19 +14,19 @@ export const StylesSetter = styled.div`
   --green-pale   : #c0d0c4;
 
   /* Blues */
-  --blue--dark   : #054187;
-  --blue--normal : #157ffb;
-  --blue--light  : #4681d0;
+  --blue-dark   : #054187;
+  --blue-normal : #157ffb;
+  --blue-light  : #4681d0;
   --blue-water   : #2fa4c3;
 
   /* Yellows */
-  --yellow--dark   : #949632;
-  --yellow--bright : #ebe101;
-  --yellow--pale   : #fdff9f;
+  --yellow-dark   : #949632;
+  --yellow-bright : #ebe101;
+  --yellow-pale   : #fdff9f;
 
   /* Reds */
-  --red--dark   : #630808;
-  --red--bright : #c41717;
+  --red-dark   : #630808;
+  --red-bright : #c41717;
 
   /* B&W */
   --black       : #212121;
