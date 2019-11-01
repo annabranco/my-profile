@@ -4,12 +4,21 @@ import DeveloperProfile from '../DeveloperProfile';
 import Seabed from '../Seabed';
 import { InbetweenBar, Formation, MyInfoPage } from '../../views';
 import { SHOW_ACTION, HIDE_ACTION } from '../../../constants';
-import { textsPropType, projectsPropType } from '../../../types';
+import {
+  textsPropType,
+  projectsPropType,
+  skillGroupsPropType,
+  formationPropType,
+  experiencesPropType
+} from '../../../types';
 
 class ScrollArea extends Component {
   static propTypes = {
     texts: textsPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
+    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
+    experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
+    formation: PropTypes.arrayOf(formationPropType).isRequired,
     triggerThankYouMessage: PropTypes.func.isRequired,
     displayThanksMessage: PropTypes.bool.isRequired,
     languageModalIsVisible: PropTypes.bool.isRequired
@@ -116,26 +125,28 @@ class ScrollArea extends Component {
       triggerThankYouMessage,
       displayThanksMessage,
       languageModalIsVisible,
-      projects
+      projects,
+      skills,
+      formation,
+      experiences
     } = this.props;
 
     return (
-      <section
+      <div
         className={`scrollArea__container ${languageModalIsVisible &&
           'languageModalIsVisible'}`}
         onScroll={this.handleScroll}
         ref={this.scrollAreaRef}
       >
-        <div className="main__intro">
-          <MyInfoPage
-            texts={texts.infoPage}
-            displayThanksMessage={displayThanksMessage}
-          />
-        </div>
+        <MyInfoPage
+          texts={texts.infoPage}
+          displayThanksMessage={displayThanksMessage}
+        />
         <InbetweenBar title={texts.developer.title} />
         <DeveloperProfile
           texts={texts.developer}
           projects={projects}
+          skills={skills}
           handleAdjustExpandedProjectsView={
             this.handleAdjustExpandedProjectsView
           }
@@ -146,19 +157,22 @@ class ScrollArea extends Component {
         <InbetweenBar title={texts.formation.title} />
         <Formation
           texts={texts.formation}
+          experiences={experiences}
           formationActivation={formationActivation}
+          language={texts.languages.languageCode}
         />
 
         <InbetweenBar title={texts.seabed.title} />
         <Seabed
           texts={texts.seabed}
           globalTexts={texts.global}
+          formation={formation}
           textsExperiences={texts.experiences}
           textsOtherSkills={texts.otherSkills}
           triggerThankYouMessage={triggerThankYouMessage}
           resetScrollPosition={this.resetScrollPosition}
         />
-      </section>
+      </div>
     );
   }
 }

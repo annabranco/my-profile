@@ -4,7 +4,13 @@ import ErrorBoundary from '../ErrorBoundary';
 import { MainArea } from '../../containers';
 import { Header } from '../../views';
 import { getLanguageCodeByName } from '../../../utils/languages';
-import { projectsPropType, allLanguagesTextsPropType } from '../../../types';
+import {
+  projectsPropType,
+  allLanguagesTextsPropType,
+  skillGroupsPropType,
+  experiencesPropType,
+  formationPropType
+} from '../../../types';
 
 const DEFAULT_PAGE_LANGUAGE = 'English';
 
@@ -12,7 +18,10 @@ class App extends Component {
   static propTypes = {
     texts: allLanguagesTextsPropType.isRequired,
     APP_VERSION: PropTypes.string.isRequired,
-    projects: PropTypes.arrayOf(projectsPropType).isRequired
+    projects: PropTypes.arrayOf(projectsPropType).isRequired,
+    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
+    experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
+    formation: PropTypes.arrayOf(formationPropType).isRequired
   };
 
   state = {
@@ -23,7 +32,7 @@ class App extends Component {
 
   componentDidMount() {
     this.loadLanguageSettings();
-    console.log('$$$ this.props.projects', this.props.projects);
+    console.log('$$$ this.props', this.props);
   }
 
   saveLanguageSettings = () => {
@@ -59,7 +68,14 @@ class App extends Component {
 
   render() {
     const { language } = this.state;
-    const { texts, APP_VERSION, projects } = this.props;
+    const {
+      texts,
+      APP_VERSION,
+      projects,
+      skills,
+      formation,
+      experiences
+    } = this.props;
 
     return (
       <ErrorBoundary texts={texts[language].error}>
@@ -73,6 +89,9 @@ class App extends Component {
           onChangeLanguage={this.onChangeLanguage}
           texts={texts[language]}
           projects={projects}
+          skills={skills}
+          formation={formation}
+          experiences={experiences}
           closeLanguageModal={this.closeLanguageModal}
           doNotShowLanguageModalAgain={this.state.doNotShowLanguageModalAgain}
           triggerThankYouMessage={this.triggerThankYouMessage}
