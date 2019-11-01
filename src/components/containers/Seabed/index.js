@@ -11,7 +11,8 @@ import {
   seabedTextPropType,
   experiencesTextPropType,
   otherSkillsTextPropType,
-  globalTextsPropType
+  globalTextsPropType,
+  formationPropType
 } from '../../../types';
 import { isDesktop } from '../../../utils/device';
 
@@ -41,6 +42,7 @@ class Seabed extends Component {
   static propTypes = {
     texts: seabedTextPropType.isRequired,
     globalTexts: globalTextsPropType.isRequired,
+    formation: PropTypes.arrayOf(formationPropType).isRequired,
     textsExperiences: experiencesTextPropType.isRequired,
     textsOtherSkills: otherSkillsTextPropType.isRequired,
     triggerThankYouMessage: PropTypes.func.isRequired,
@@ -327,7 +329,8 @@ class Seabed extends Component {
       texts,
       textsExperiences,
       textsOtherSkills,
-      globalTexts
+      globalTexts,
+      formation
     } = this.props;
 
     return (
@@ -398,6 +401,7 @@ class Seabed extends Component {
           <Experiences
             texts={textsExperiences}
             globalTexts={globalTexts}
+            formation={formation}
             status={experiences}
             onClickOpen={this.onClickOpen}
             onClickClose={this.onClickClose}

@@ -1,0 +1,291 @@
+{
+  "skillGroups": [
+    {
+      "globalLevel": 3,
+      "logo": 0,
+      "name": "Frontend",
+      "order": 1,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "JavaScript"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "React"
+        },
+        {
+          "level": 2,
+          "order": 3,
+          "skill": "Redux"
+        },
+        {
+          "level": 2,
+          "order": 4,
+          "skill": "Angular"
+        },
+        {
+          "level": 3,
+          "order": 5,
+          "skill": "TypeScript"
+        },
+        {
+          "level": 3,
+          "order": 6,
+          "skill": "HTML5"
+        },
+        {
+          "level": 3,
+          "order": 7,
+          "skill": "CSS3"
+        },
+        {
+          "level": 3,
+          "order": 8,
+          "skill": "SASS"
+        },
+        {
+          "level": 3,
+          "order": 9,
+          "skill": "Styled Components"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": 0,
+      "name": "Version Control",
+      "order": 2,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Git"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "GitLab"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "GitHub"
+        },
+        {
+          "level": 3,
+          "order": 4,
+          "skill": "GitKraken"
+        }
+      ]
+    },
+    {
+      "globalLevel": 2,
+      "logo": 0,
+      "name": "Testing & Analytics",
+      "order": 3,
+      "skills": [
+        {
+          "level": 2,
+          "order": 1,
+          "skill": "Karma"
+        },
+        {
+          "level": 2,
+          "order": 2,
+          "skill": "Jasmine"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "Applause"
+        },
+        {
+          "level": 1,
+          "order": 4,
+          "skill": "Youbora"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": 0,
+      "name": "UI & Design Tools",
+      "order": 4,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Photoshop"
+        },
+        {
+          "level": 2,
+          "order": 2,
+          "skill": "Illustrator"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "Zeplin"
+        }
+      ]
+    },
+    {
+      "globalLevel": 1,
+      "logo": 0,
+      "name": "Bundlers and Task Runners",
+      "order": 5,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Yarn"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "Npm"
+        },
+        {
+          "level": 1,
+          "order": 3,
+          "skill": "Webpack"
+        },
+        {
+          "level": 1,
+          "order": 4,
+          "skill": "Gulp"
+        }
+      ]
+    },
+    {
+      "globalLevel": 2,
+      "logo": 0,
+      "name": "Multimedia & Ad-services",
+      "order": 6,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Tizen"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "WebOS"
+        },
+        {
+          "level": 1,
+          "order": 3,
+          "skill": "Dash"
+        },
+        {
+          "level": 1,
+          "order": 4,
+          "skill": "HLS"
+        },
+        {
+          "level": 1,
+          "order": 5,
+          "skill": "Shaka"
+        },
+        {
+          "level": 3,
+          "order": 6,
+          "skill": "AVPlay"
+        },
+        {
+          "level": 1,
+          "order": 7,
+          "skill": "Freewheek"
+        },
+        {
+          "level": 1,
+          "order": 8,
+          "skill": "Smart Ad-Server"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": 0,
+      "name": "Server-side processes",
+      "order": 7,
+      "skills": [
+        {
+          "level": 1,
+          "order": 1,
+          "skill": "Docker"
+        },
+        {
+          "level": 1,
+          "order": 2,
+          "skill": "Jenkins"
+        },
+        {
+          "level": 1,
+          "order": 3,
+          "skill": "Akamai"
+        }
+      ]
+    },
+    {
+      "globalLevel": 1,
+      "logo": 0,
+      "name": "Backend Development",
+      "order": 8,
+      "skills": [
+        {
+          "level": 1,
+          "order": 1,
+          "skill": "Python"
+        },
+        {
+          "level": 1,
+          "order": 2,
+          "skill": "Django"
+        },
+        {
+          "level": 1,
+          "order": 3,
+          "skill": "Node"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": 0,
+      "name": "Team work & Management Tools",
+      "order": 9,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Scrum"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "Agile"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "Jira"
+        },
+        {
+          "level": 3,
+          "order": 4,
+          "skill": "Confluence"
+        },
+        {
+          "level": 3,
+          "order": 5,
+          "skill": "Trello"
+        }
+      ]
+    }
+  ]
+}

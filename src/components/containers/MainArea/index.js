@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ScrollArea from '../ScrollArea';
 import { LanguagesModal } from '../../views';
-import { textsPropType, projectsPropType } from '../../../types';
+import {
+  textsPropType,
+  projectsPropType,
+  skillGroupsPropType,
+  formationPropType,
+  experiencesPropType
+} from '../../../types';
 
 class MainArea extends Component {
   static propTypes = {
     onChangeLanguage: PropTypes.func.isRequired,
     texts: textsPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
+    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
+    experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
+    formation: PropTypes.arrayOf(formationPropType).isRequired,
     closeLanguageModal: PropTypes.func.isRequired,
     doNotShowLanguageModalAgain: PropTypes.bool.isRequired,
     triggerThankYouMessage: PropTypes.func.isRequired,
@@ -46,7 +55,10 @@ class MainArea extends Component {
       texts,
       triggerThankYouMessage,
       displayThanksMessage,
-      projects
+      projects,
+      skills,
+      formation,
+      experiences
     } = this.props;
 
     return (
@@ -65,6 +77,9 @@ class MainArea extends Component {
         <ScrollArea
           texts={texts}
           projects={projects}
+          skills={skills}
+          formation={formation}
+          experiences={experiences}
           triggerThankYouMessage={triggerThankYouMessage}
           displayThanksMessage={displayThanksMessage}
           languageModalIsVisible={languageModalIsVisible}

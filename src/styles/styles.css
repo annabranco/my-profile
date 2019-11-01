@@ -371,12 +371,14 @@ table {
   height: 60px;
   width: 100vw;
   padding-top: 15px;
-  font-family: "Alegreya Sans SC", sans-serif;
-  font-size: 2rem;
-  color: #212121;
   box-shadow: 0 5px 30px 0 rgba(83, 83, 83, 0.8); }
   .innertext--between:last-child {
     height: 100px; }
+
+.innertext--title {
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 2rem;
+  color: #212121; }
 
 .section__infoPage {
   position: relative;
@@ -1088,8 +1090,16 @@ table {
   background-position: center;
   height: 100vh; }
 
+.formation__verticalBar {
+  position: absolute;
+  left: 10%;
+  border-right: 5px solid rgba(70, 129, 208, 0.3);
+  height: 90vh;
+  width: 0; }
+
 .formation__outer {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
   margin: 0 auto;
@@ -1097,19 +1107,18 @@ table {
   width: 80vw; }
 
 .formation__inner {
-  height: auto; }
+  height: auto;
+  width: 100%; }
+
+.formation__date-wrapper {
+  margin-left: -80px;
+  width: 80px; }
 
 .formation__inner--year {
-  margin-right: 15px;
-  width: 40px;
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 1.2em;
   color: #630808;
   text-align: center; }
-
-.formation__verticalBar {
-  border-right: 5px solid rgba(70, 129, 208, 0.3);
-  height: 90vh; }
 
 .formation__inner--horizontalBar,
 .formation__inner--year {
