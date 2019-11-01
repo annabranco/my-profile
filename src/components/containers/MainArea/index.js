@@ -7,7 +7,8 @@ import {
   projectsPropType,
   skillGroupsPropType,
   formationPropType,
-  experiencesPropType
+  experiencesPropType,
+  languagesPropType
 } from '../../../types';
 
 class MainArea extends Component {
@@ -18,6 +19,8 @@ class MainArea extends Component {
     skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
     experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
     formation: PropTypes.arrayOf(formationPropType).isRequired,
+    languages: PropTypes.arrayOf(languagesPropType).isRequired,
+    language: PropTypes.string.isRequired,
     closeLanguageModal: PropTypes.func.isRequired,
     doNotShowLanguageModalAgain: PropTypes.bool.isRequired,
     triggerThankYouMessage: PropTypes.func.isRequired,
@@ -26,7 +29,6 @@ class MainArea extends Component {
 
   state = {
     languageModalIsVisible: true,
-    frenchClicked: false,
     doNotShowLanguageModalAgain: true
   };
 
@@ -40,15 +42,8 @@ class MainArea extends Component {
     this.props.closeLanguageModal(this.state.doNotShowLanguageModalAgain);
   };
 
-  onClickFrench = () => {
-    this.setState({ frenchClicked: true });
-    setTimeout(() => {
-      this.setState({ frenchClicked: false });
-    }, 3000);
-  };
-
   render() {
-    const { frenchClicked, languageModalIsVisible } = this.state;
+    const { languageModalIsVisible } = this.state;
     const {
       onChangeLanguage,
       doNotShowLanguageModalAgain,
@@ -58,19 +53,20 @@ class MainArea extends Component {
       projects,
       skills,
       formation,
-      experiences
+      experiences,
+      languages,
+      language
     } = this.props;
 
     return (
       <main>
         {!doNotShowLanguageModalAgain && languageModalIsVisible && (
           <LanguagesModal
+            languages={languages}
             texts={texts.languages}
-            language={texts.languages.language}
+            languageSelected={language}
             onChangeLanguage={onChangeLanguage}
             onCloseLanguageModal={this.onCloseLanguageModal}
-            frenchClicked={frenchClicked}
-            onClickFrench={this.onClickFrench}
             handleShowLanguageModalAgain={this.handleShowLanguageModalAgain}
           />
         )}
