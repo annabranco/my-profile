@@ -93,6 +93,7 @@ class App extends Component {
           />
           <MainArea
             languages={languages}
+            language={language}
             onChangeLanguage={this.onChangeLanguage}
             texts={texts[language]}
             projects={projects}
