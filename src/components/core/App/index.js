@@ -9,8 +9,10 @@ import {
   allLanguagesTextsPropType,
   skillGroupsPropType,
   experiencesPropType,
-  formationPropType
+  formationPropType,
+  languagesPropType
 } from '../../../types';
+import { StylesSetter } from '../../../styles/variables';
 
 const DEFAULT_PAGE_LANGUAGE = 'English';
 
@@ -21,7 +23,8 @@ class App extends Component {
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
     skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
     experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
-    formation: PropTypes.arrayOf(formationPropType).isRequired
+    formation: PropTypes.arrayOf(formationPropType).isRequired,
+    languages: PropTypes.arrayOf(languagesPropType).isRequired
   };
 
   state = {
@@ -74,30 +77,35 @@ class App extends Component {
       projects,
       skills,
       formation,
-      experiences
+      experiences,
+      languages
     } = this.props;
 
     return (
-      <ErrorBoundary texts={texts[language].error}>
-        <Header
-          texts={texts[language].header}
-          language={language}
-          onChangeLanguage={this.onChangeLanguage}
-          APP_VERSION={APP_VERSION}
-        />
-        <MainArea
-          onChangeLanguage={this.onChangeLanguage}
-          texts={texts[language]}
-          projects={projects}
-          skills={skills}
-          formation={formation}
-          experiences={experiences}
-          closeLanguageModal={this.closeLanguageModal}
-          doNotShowLanguageModalAgain={this.state.doNotShowLanguageModalAgain}
-          triggerThankYouMessage={this.triggerThankYouMessage}
-          displayThanksMessage={this.state.displayThanksMessage}
-        />
-      </ErrorBoundary>
+      <StylesSetter>
+        <ErrorBoundary texts={texts[language].error}>
+          <Header
+            languages={languages}
+            texts={texts[language].header}
+            language={language}
+            onChangeLanguage={this.onChangeLanguage}
+            APP_VERSION={APP_VERSION}
+          />
+          <MainArea
+            languages={languages}
+            onChangeLanguage={this.onChangeLanguage}
+            texts={texts[language]}
+            projects={projects}
+            skills={skills}
+            formation={formation}
+            experiences={experiences}
+            closeLanguageModal={this.closeLanguageModal}
+            doNotShowLanguageModalAgain={this.state.doNotShowLanguageModalAgain}
+            triggerThankYouMessage={this.triggerThankYouMessage}
+            displayThanksMessage={this.state.displayThanksMessage}
+          />
+        </ErrorBoundary>
+      </StylesSetter>
     );
   }
 }
