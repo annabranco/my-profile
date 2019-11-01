@@ -11,7 +11,9 @@ import {
   EXPERIENCES_PATH_PRO,
   SKILLS_PATH_PRE,
   FORMATION_PATH_PRE,
-  EXPERIENCES_PATH_PRE
+  EXPERIENCES_PATH_PRE,
+  LANGUAGES_PATH_PRO,
+  LANGUAGES_PATH_PRE
 } from './constants';
 import './styles/styles.css';
 
@@ -26,6 +28,8 @@ const FORMATION_PATH = fakeServer ? FORMATION_PATH_PRE : FORMATION_PATH_PRO;
 const EXPERIENCES_PATH = fakeServer
   ? EXPERIENCES_PATH_PRE
   : EXPERIENCES_PATH_PRO;
+
+const LANGUAGES_PATH = fakeServer ? LANGUAGES_PATH_PRE : LANGUAGES_PATH_PRO;
 
 const fetchJson = URL => {
   return fetch(URL)
@@ -42,27 +46,39 @@ const loadProjects = fetchJson(PROJECTS_PATH);
 const loadSkills = fetchJson(SKILLS_PATH);
 const loadFormation = fetchJson(FORMATION_PATH);
 const loadExperiences = fetchJson(EXPERIENCES_PATH);
+const loadLanguages = fetchJson(LANGUAGES_PATH);
 
 Promise.all([
   loadTexts,
   loadProjects,
   loadSkills,
   loadFormation,
-  loadExperiences
+  loadExperiences,
+  loadLanguages
 ])
-  .then(([texts, dataProjects, dataSkills, dataFormation, dataExperiences]) => {
-    ReactDOM.render(
-      <App
-        texts={texts}
-        projects={dataProjects.projects}
-        skills={dataSkills.skillGroups}
-        formation={dataFormation.formation}
-        experiences={dataExperiences.experiences}
-        APP_VERSION={APP_VERSION}
-      />,
-      document.getElementById('root')
-    );
-  })
+  .then(
+    ([
+      texts,
+      dataProjects,
+      dataSkills,
+      dataFormation,
+      dataExperiences,
+      dataLanguages
+    ]) => {
+      ReactDOM.render(
+        <App
+          texts={texts}
+          projects={dataProjects.projects}
+          skills={dataSkills.skillGroups}
+          formation={dataFormation.formation}
+          experiences={dataExperiences.experiences}
+          languages={dataLanguages.languages}
+          APP_VERSION={APP_VERSION}
+        />,
+        document.getElementById('root')
+      );
+    }
+  )
   .catch(error => {
     console.error(error);
     ReactDOM.render(<div>Sorry</div>, document.getElementById('root'));

@@ -9,12 +9,12 @@ const textInAllLanguagesPropType = PropTypes.shape({
 
 
 export const projectsPropType = PropTypes.shape({
-  description: textInAllLanguagesPropType.isRequired,
-  order     : PropTypes.number.isRequired,
-  repo      : PropTypes.string.isRequired,
-  thumbnail : PropTypes.string.isRequired,
-  title     : PropTypes.string.isRequired,
-  url       : PropTypes.string.isRequired
+  description : textInAllLanguagesPropType.isRequired,
+  order       : PropTypes.number.isRequired,
+  repo        : PropTypes.string.isRequired,
+  thumbnail   : PropTypes.string.isRequired,
+  title       : PropTypes.string.isRequired,
+  url         : PropTypes.string.isRequired
 });
 
 export const developerTextPropType = PropTypes.shape({
@@ -175,45 +175,54 @@ export const seabedElementsPropType = PropTypes.shape({
 });
 
 export const skillPropType = PropTypes.shape({
-  "order": PropTypes.number.isRequired,
-  "level": PropTypes.number.isRequired,
-  "skill": PropTypes.string.isRequired
+  "order" : PropTypes.number.isRequired,
+  "level" : PropTypes.number.isRequired,
+  "skill" : PropTypes.string.isRequired
 });
 
 export const skillGroupsPropType = PropTypes.shape({
-  "order": PropTypes.number.isRequired,
-  "globalLevel": PropTypes.number.isRequired,
-  "logo": PropTypes.string.isRequired,
-  "name": PropTypes.string.isRequired,
-  "skills": PropTypes.arrayOf(skillPropType).isRequired
+  "order"       : PropTypes.number.isRequired,
+  "globalLevel" : PropTypes.number.isRequired,
+  "logo"        : PropTypes.string.isRequired,
+  "name"        : PropTypes.string.isRequired,
+  "skills"      : PropTypes.arrayOf(skillPropType).isRequired
 });
 
 export const experiencesPropType = PropTypes.shape({
-  "company": PropTypes.string.isRequired,
-  "country": textInAllLanguagesPropType.isRequired,
-  "dateBegin": PropTypes.string.isRequired,
-  "dateBeginValue": PropTypes.number.isRequired,
-  "dateEnd": PropTypes.string,
-  "dateEndValue": PropTypes.number,
-  "details": textInAllLanguagesPropType.isRequired,
-  "id": PropTypes.string.isRequired,
-  "place": PropTypes.string.isRequired,
-  "title": textInAllLanguagesPropType.isRequired,
-  "visible": PropTypes.bool.isRequired
+  "company"        : PropTypes.string.isRequired,
+  "country"        : textInAllLanguagesPropType.isRequired,
+  "dateBegin"      : PropTypes.string.isRequired,
+  "dateBeginValue" : PropTypes.number.isRequired,
+  "dateEnd"        : PropTypes.string,
+  "dateEndValue"   : PropTypes.number,
+  "details"        : textInAllLanguagesPropType.isRequired,
+  "id"             : PropTypes.string.isRequired,
+  "place"          : PropTypes.string.isRequired,
+  "title"          : textInAllLanguagesPropType.isRequired,
+  "visible"        : PropTypes.bool.isRequired
 });
 
 export const formationPropType = PropTypes.shape({
-  "country": textInAllLanguagesPropType.isRequired,
-  "countryCode": PropTypes.string.isRequired,
-  "dateBegin": PropTypes.string.isRequired,
-  "dateBeginValue": PropTypes.number.isRequired,
-  "dateEnd": PropTypes.string,
-  "dateEndValue": PropTypes.number,
-  "grade": PropTypes.number,
-  "gradeText": textInAllLanguagesPropType,
-  "id": PropTypes.string.isRequired,
-  "place": PropTypes.string.isRequired,
-  "title": textInAllLanguagesPropType.isRequired,
-  "university": PropTypes.string.isRequired,
-  "visible": PropTypes.bool.isRequired,
+  "country"        : textInAllLanguagesPropType.isRequired,
+  "countryCode"    : PropTypes.string.isRequired,
+  "dateBegin"      : PropTypes.string.isRequired,
+  "dateBeginValue" : PropTypes.number.isRequired,
+  "dateEnd"        : PropTypes.string,
+  "dateEndValue"   : PropTypes.number,
+  "grade"          : PropTypes.number,
+  "gradeText"      : textInAllLanguagesPropType,
+  "id"             : PropTypes.string.isRequired,
+  "place"          : PropTypes.string.isRequired,
+  "title"          : textInAllLanguagesPropType.isRequired,
+  "university"     : PropTypes.string.isRequired,
+  "visible"        : PropTypes.bool.isRequired,
+});
+
+export const languagesPropType = PropTypes.shape({
+  "active"       : PropTypes.bool.isRequired,
+  "flagCode"      : PropTypes.string.isRequired,
+  "language"     : PropTypes.string.isRequired,
+  "languageCode" : PropTypes.string.isRequired,
+  "languageEn"   : PropTypes.string.isRequired,
+  "order"        : PropTypes.number.isRequired,
 });

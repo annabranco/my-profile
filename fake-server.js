@@ -1,7 +1,14 @@
 const jsonServer = require('json-server');
 const path = require('path');
 
-const DATABASES = ['texts', 'projectsDB', 'skills', 'formation', 'experiences'];
+const DATABASES = [
+  'texts',
+  'projectsDB',
+  'skills',
+  'formation',
+  'experiences',
+  'languages'
+];
 
 DATABASES.forEach((fileName, index) => {
   const port = Number(`303${index}`);
