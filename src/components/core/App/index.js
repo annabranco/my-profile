@@ -12,7 +12,6 @@ import {
   formationPropType,
   languagesPropType
 } from '../../../types';
-import { StylesSetter } from '../../../styles/variables';
 
 const DEFAULT_PAGE_LANGUAGE = 'English';
 
@@ -30,12 +29,12 @@ class App extends Component {
   state = {
     language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
     doNotShowLanguageModalAgain: false,
-    displayThanksMessage: false
+    displayThanksMessage: false,
+    languageSettingsAreLoaded: false
   };
 
   componentDidMount() {
     this.loadLanguageSettings();
-    console.log('$$$ this.props', this.props);
   }
 
   saveLanguageSettings = () => {
@@ -54,7 +53,11 @@ class App extends Component {
       const { language, doNotShowLanguageModalAgain } = JSON.parse(
         localStorage.getItem("Anna Branco's professional profile")
       );
-      this.setState({ language, doNotShowLanguageModalAgain });
+      this.setState({
+        language,
+        doNotShowLanguageModalAgain,
+        languageSettingsAreLoaded: true
+      });
     }
   };
 
@@ -70,7 +73,7 @@ class App extends Component {
   triggerThankYouMessage = () => this.setState({ displayThanksMessage: true });
 
   render() {
-    const { language } = this.state;
+    const { language, languageSettingsAreLoaded } = this.state;
     const {
       texts,
       APP_VERSION,
@@ -82,15 +85,15 @@ class App extends Component {
     } = this.props;
 
     return (
-      <StylesSetter>
-        <ErrorBoundary texts={texts[language].error}>
-          <Header
-            languages={languages}
-            texts={texts[language].header}
-            language={language}
-            onChangeLanguage={this.onChangeLanguage}
-            APP_VERSION={APP_VERSION}
-          />
+      <ErrorBoundary texts={texts[language].error}>
+        <Header
+          languages={languages}
+          texts={texts[language].header}
+          language={language}
+          onChangeLanguage={this.onChangeLanguage}
+          APP_VERSION={APP_VERSION}
+        />
+        {languageSettingsAreLoaded && (
           <MainArea
             languages={languages}
             language={language}
@@ -105,8 +108,8 @@ class App extends Component {
             triggerThankYouMessage={this.triggerThankYouMessage}
             displayThanksMessage={this.state.displayThanksMessage}
           />
-        </ErrorBoundary>
-      </StylesSetter>
+        )}
+      </ErrorBoundary>
     );
   }
 }
