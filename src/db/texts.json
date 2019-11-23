@@ -23,7 +23,8 @@
     },
     "global": {
       "close": "Close",
-      "open": "Open"
+      "open": "Open",
+      "since": "Since"
     },
     "header": {
       "contact": "Contact",
@@ -126,7 +127,8 @@
     },
     "global": {
       "close": "Cerrar",
-      "open": "Abrir"
+      "open": "Abrir",
+      "since": "Desde"
     },
     "header": {
       "contact": "Contacto",
@@ -239,7 +241,8 @@
     },
     "global": {
       "close": "Fechar",
-      "open": "Abrir"
+      "open": "Abrir",
+      "since": "Desde"
     },
     "header": {
       "contact": "Contato",

@@ -39,9 +39,9 @@
       "dateEnd": "12-2015",
       "dateEndValue": 1448924400000,
       "details": {
-        "en": "I was deployed in Greece on a temporary mission (2 months), providing psychosocial support for Syrian people and other refugees arriving in Europe.",
-        "es": "He sido desplegada a Grecia un misión temporal (2 meses), brindando apoyo psicosocial a personas sirias y otros refugiados y refugiadas llegando a Europa.",
-        "pt": "Trabalhei na Grécia em uma missão temporária (2 meses), propiciando apoio psicossocial para pessoas sírias e outros refugiados e refugiadas chegando à Europa."
+        "en": "Deployed in Greece on a temporary mission (2 months), providing emergency psychosocial support for Syrian people and other refugees arriving in Europe.",
+        "es": "Desplegada a Grecia misión temporal (2 meses), brindando apoyo psicosocial de emergencia a personas sirias y otros refugiados y refugiadas llegando a Europa.",
+        "pt": "Posicionada na Grécia em uma missão temporária (2 meses), propiciando apoio psicossocial de emergência para pessoas sírias e outros refugiados e refugiadas chegando à Europa."
       },
       "id": "cre",
       "place": "Samos",
@@ -79,7 +79,7 @@
       "visible": true
     },
     {
-      "company": "Nfq",
+      "company": "Nfq Advisory, Solutions, Outsourcing",
       "country": {
         "en": "Spain",
         "es": "España",
@@ -92,9 +92,9 @@
       "dateEnd": "01-2019",
       "dateEndValue": 1548025200000,
       "details": {
-        "en": "",
-        "es": "",
-        "pt": ""
+        "en": "Developing and mantaining internal applications using Angular 6/7. Implementing and running Unit testing with Karma & Jasmine. Active participation on suggesting enhancements on UI.",
+        "es": "Desarrollo y mantenimiento de aplicaciones internas usando Angular 6/7. Implementación y acompañamiento de testes unitarios con Karma & Jasmine. Participación activa en sugerencias de mejorías en UI.",
+        "pt": "Desenvolvimento e manutençao de aplicativos internos usando Angular 6/7. Implementação e acompanhamento de testes unitários com Karma & Jasmine. Participação ativa em sugestões de aprimoramentos em UI."
       },
       "id": "nfq",
       "place": "Madrid",
@@ -118,12 +118,12 @@
       "dateEnd": null,
       "dateEndValue": null,
       "details": {
-        "en": "",
-        "es": "",
-        "pt": ""
+        "en": "Developing of new functionalities and mantaining Atresplayer application for Web and SmartTvs using React16/Redux. Deploying staging and production versions using Jenkins/NGINX/Docker. Creating services with Node/Express. Active participation suggesting enhancements for Atresplayer functionalities, as well as updates for a better UX.",
+        "es": "Desarrollo de nuevas funcionalidades y mantenimiento de la aplicación Atresplayer Web y para SmartTvs usando React16/Redux. Despliegue de versiones staging y producción usando Jenkins/NGINX/Docker. Creacción de servicios con Node/Express. Participación activa sugiriendo mejoras en las funcionalidades de Atresplayer bien como para una mejor UX.",
+        "pt": "Desenvolvimento de novas funcionalidades e manutençao do aplicativo Atresplayer para Web e SmartTvs usando React16/Redux. Desplegue de versión de provas e produçao usando Jenking/NGINX/Docker. Criação de serviços com Node/Express. Participação ativa sugerindo aprimoramentos nas funcionalidades do Atresplayer, bem como melhorias para uma melhor UX."
       },
       "id": "a3",
-      "place": "Madrid",
+      "place": "San Sebastián de los Reyes",
       "title": {
         "en": "Junior Frontend Developer",
         "es": "Desarrolladora Frontend Junior",
