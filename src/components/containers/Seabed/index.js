@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react';
 import { PropTypes } from 'prop-types';
-import { Experiences, OtherSkills } from '../../views';
+import { OtherSkills, Formation } from '../../views';
 import {
   FloatingRight,
   FloatingLeft,
@@ -9,7 +9,6 @@ import {
 } from '../../../images';
 import {
   seabedTextPropType,
-  experiencesTextPropType,
   otherSkillsTextPropType,
   globalTextsPropType,
   formationPropType
@@ -43,7 +42,6 @@ class Seabed extends Component {
     texts: seabedTextPropType.isRequired,
     globalTexts: globalTextsPropType.isRequired,
     formation: PropTypes.arrayOf(formationPropType).isRequired,
-    textsExperiences: experiencesTextPropType.isRequired,
     textsOtherSkills: otherSkillsTextPropType.isRequired,
     triggerThankYouMessage: PropTypes.func.isRequired,
     resetScrollPosition: PropTypes.func.isRequired
@@ -325,13 +323,7 @@ class Seabed extends Component {
       frame,
       finishedScenario
     } = this.state;
-    const {
-      texts,
-      textsExperiences,
-      textsOtherSkills,
-      globalTexts,
-      formation
-    } = this.props;
+    const { texts, textsOtherSkills, globalTexts, formation } = this.props;
 
     return (
       <section className="section__seabed">
@@ -398,8 +390,7 @@ class Seabed extends Component {
         </div>
 
         {experiences.active && (
-          <Experiences
-            texts={textsExperiences}
+          <Formation
             globalTexts={globalTexts}
             formation={formation}
             status={experiences}
