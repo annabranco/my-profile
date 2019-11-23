@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types';
 import DeveloperProfile from '../DeveloperProfile';
 import Seabed from '../Seabed';
 import { InbetweenBar, Experiences, MyInfoPage } from '../../views';
-import { SHOW_ACTION, HIDE_ACTION } from '../../../constants';
 import {
   textsPropType,
   projectsPropType,
@@ -28,99 +27,132 @@ class ScrollArea extends Component {
   scrollAreaRef = createRef();
 
   state = {
-    adjustedSize: 0,
-    developerActivation: {
-      adalab: false,
-      projects: false,
-      skills: false
+    cuePointsActivated: new Set()
+  };
+
+  SECTIONS_INTERVAL_POINTS = {
+    developer: {
+      scrollAreaStart: 350,
+      scrollAreaEnd: 1540
     },
-    formationActivation: {
-      psychology: false,
-      ir: false,
-      master: false,
-      programming: false
+    experiences: {
+      scrollAreaStart: 900,
+      scrollAreaEnd: 1900
     }
   };
 
-  handleAdjustExpandedProjectsView = adjust =>
-    this.setState({
-      adjustedSize: adjust
-    });
+  SCROLL_CUEPOINTS = {};
 
-  toggleDynamicElements = (section, element, action) => {
-    const key = `${section}Activation`;
-    const result = action === SHOW_ACTION;
-    this.setState(prevState => ({
-      [key]: {
-        ...prevState[key],
-        [element]: result
-      }
-    }));
+  experiencesSectionIds = new Set();
+
+  cuePointsActivated = new Set();
+
+  componentDidMount() {
+    this.calculateExperiencesScroll();
+  }
+
+  // handleAdjustExpandedProjectsView = adjust =>
+  //   this.setState({
+  //     adjustedSize: adjust
+  //   });
+
+  // toggleDynamicElements = (section, element, action) => {
+  //   const key = `${section}Activation`;
+  //   const result = action === SHOW_ACTION;
+  //   this.setState(prevState => ({
+  //     [key]: {
+  //       ...prevState[key],
+  //       [element]: result
+  //     }
+  //   }));
+  // };
+
+  calculateExperiencesScroll = () => {
+    const { experiences } = this.props;
+    const NUMBER_OF_EXPERIENCES_DISPLAYED = experiences.length;
+    const {
+      scrollAreaStart,
+      scrollAreaEnd
+    } = this.SECTIONS_INTERVAL_POINTS.experiences;
+    const intervalWindowForEachExperience =
+      (scrollAreaEnd - scrollAreaStart) / NUMBER_OF_EXPERIENCES_DISPLAYED;
+    let index = 0;
+
+    for (
+      let position = scrollAreaStart;
+      position < scrollAreaEnd;
+      position += intervalWindowForEachExperience
+    ) {
+      this.SCROLL_CUEPOINTS = {
+        ...this.SCROLL_CUEPOINTS,
+        [position]: experiences[index].id
+      };
+      this.experiencesSectionIds.add(experiences[index].id);
+      index += 1;
+    }
+    this.SCROLL_CUEPOINTS = {
+      ...this.SCROLL_CUEPOINTS,
+      [scrollAreaEnd]: 'experiencesSection'
+    };
   };
 
   handleScroll = event => {
-    const { adjustedSize } = this.state;
+    const { cuePointsActivated } = this.state;
     const scrollPosition = event.target.scrollTop;
+    const cuePointsActivatedBeforeScrolling = [...cuePointsActivated].join(' ');
+    const cuePointsActivatedAfterScrolling = cuePointsActivated;
 
-    if (scrollPosition) {
-      // Toggle Developer section
-      if (scrollPosition >= 350 && scrollPosition <= 1540) {
-        this.toggleDynamicElements('developer', 'adalab', SHOW_ACTION);
-      } else {
-        this.toggleDynamicElements('developer', 'adalab', HIDE_ACTION);
-      }
-      if (scrollPosition >= 500 && scrollPosition <= 1540 + adjustedSize) {
-        this.toggleDynamicElements('developer', 'projects', SHOW_ACTION);
-      } else {
-        this.toggleDynamicElements('developer', 'projects', HIDE_ACTION);
-      }
-      if (scrollPosition >= 450 && scrollPosition <= 1540 + adjustedSize) {
-        this.toggleDynamicElements('developer', 'skills', SHOW_ACTION);
-      } else {
-        this.toggleDynamicElements('developer', 'skills', HIDE_ACTION);
-      }
+    console.log('$$$ scrollPosition', scrollPosition);
 
-      // Toggle Formation section
-      if (
-        scrollPosition >= 1050 + adjustedSize &&
-        scrollPosition <= 2000 + adjustedSize
-      ) {
-        this.toggleDynamicElements('formation', 'psychology', SHOW_ACTION);
-      } else {
-        this.toggleDynamicElements('formation', 'psychology', HIDE_ACTION);
+    Object.keys(this.SCROLL_CUEPOINTS).forEach(cuePoint => {
+      if (scrollPosition < Number(cuePoint)) {
+        cuePointsActivatedAfterScrolling.delete(
+          this.SCROLL_CUEPOINTS[cuePoint]
+        );
+      } else if (scrollPosition >= Number(cuePoint)) {
+        if (this.SCROLL_CUEPOINTS[cuePoint] === 'experiencesSection') {
+          this.experiencesSectionIds.forEach(experienceCuePoint => {
+            cuePointsActivatedAfterScrolling.delete(experienceCuePoint);
+          });
+        } else {
+          cuePointsActivatedAfterScrolling.add(this.SCROLL_CUEPOINTS[cuePoint]);
+        }
       }
-      if (
-        scrollPosition >= 1200 + adjustedSize &&
-        scrollPosition <= 2000 + adjustedSize
-      ) {
-        this.toggleDynamicElements('formation', 'ir', SHOW_ACTION);
-      } else {
-        this.toggleDynamicElements('formation', 'ir', HIDE_ACTION);
-      }
-      if (
-        scrollPosition >= 1320 + adjustedSize &&
-        scrollPosition <= 2000 + adjustedSize
-      ) {
-        this.toggleDynamicElements('formation', 'master', SHOW_ACTION);
-      } else {
-        this.toggleDynamicElements('formation', 'master', HIDE_ACTION);
-      }
-      if (
-        scrollPosition >= 1420 + adjustedSize &&
-        scrollPosition <= 2000 + adjustedSize
-      ) {
-        this.toggleDynamicElements('formation', 'programming', SHOW_ACTION);
-      } else {
-        this.toggleDynamicElements('formation', 'programming', HIDE_ACTION);
-      }
+    });
+
+    // Checks if activated cuepoints have changed before updating state
+    if (
+      (cuePointsActivatedBeforeScrolling !== '' ||
+        [...cuePointsActivatedAfterScrolling].join(' ') !== 0) &&
+      cuePointsActivatedBeforeScrolling !==
+        [...cuePointsActivatedAfterScrolling].join(' ')
+    ) {
+      this.setState({ cuePointsActivated: cuePointsActivatedAfterScrolling });
     }
+    // if (scrollPosition) {
+    //   // Toggle Developer section
+    //   if (scrollPosition >= 350 && scrollPosition <= 1540) {
+    //     this.toggleDynamicElements('developer', 'adalab', SHOW_ACTION);
+    //   } else {
+    //     this.toggleDynamicElements('developer', 'adalab', HIDE_ACTION);
+    //   }
+    //   if (scrollPosition >= 500 && scrollPosition <= 1540 + adjustedSize) {
+    //     this.toggleDynamicElements('developer', 'projects', SHOW_ACTION);
+    //   } else {
+    //     this.toggleDynamicElements('developer', 'projects', HIDE_ACTION);
+    //   }
+    //   if (scrollPosition >= 450 && scrollPosition <= 1540 + adjustedSize) {
+    //     this.toggleDynamicElements('developer', 'skills', SHOW_ACTION);
+    //   } else {
+    //     this.toggleDynamicElements('developer', 'skills', HIDE_ACTION);
+    //   }
   };
 
   resetScrollPosition = delay =>
     setTimeout(() => this.scrollAreaRef.current.scrollTo(0, 0), delay);
 
   render() {
-    const { developerActivation, formationActivation } = this.state;
+    const { developerActivation, cuePointsActivated } = this.state;
     const {
       texts,
       triggerThankYouMessage,
@@ -156,10 +188,10 @@ class ScrollArea extends Component {
 
         <InbetweenBar title={texts.sections.experience} />
         <Experiences
-          texts={texts.experiences}
+          texts={texts.global}
           experiences={experiences}
-          formationActivation={formationActivation}
           language={texts.languages.languageCode}
+          cuePointsActivated={[...cuePointsActivated]}
         />
 
         <InbetweenBar title={texts.sections.other} />
@@ -167,7 +199,6 @@ class ScrollArea extends Component {
           texts={texts.seabed}
           globalTexts={texts.global}
           formation={formation}
-          textsExperiences={texts.experiences}
           textsOtherSkills={texts.otherSkills}
           triggerThankYouMessage={triggerThankYouMessage}
           resetScrollPosition={this.resetScrollPosition}
