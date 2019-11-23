@@ -744,7 +744,6 @@ table {
 
 .section__developer {
   position: relative;
-  display: fixed;
   background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(240, 241, 252, 0.93), rgba(230, 239, 251, 0.98)), url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif");
   background-position: center;
   height: auto;
@@ -1085,7 +1084,6 @@ table {
 
 .section__formation {
   position: relative;
-  display: fixed;
   background-image: linear-gradient(rgba(230, 239, 251, 0.98), rgba(230, 239, 251, 0.93), rgba(189, 214, 246, 0.98)), url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif");
   background-position: center;
   height: 100vh; }
@@ -1212,8 +1210,6 @@ table {
 
 .section__seabed {
   position: relative;
-  position: relative;
-  display: fixed;
   background-image: linear-gradient(rgba(189, 214, 246, 0.96), rgba(171, 204, 246, 0.95), rgba(236, 246, 189, 0.9)), url("https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif");
   background-position: center;
   background-size: cover;

@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import { PropTypes } from 'prop-types';
 import DeveloperProfile from '../DeveloperProfile';
 import Seabed from '../Seabed';
-import { InbetweenBar, Formation, MyInfoPage } from '../../views';
+import { InbetweenBar, Experiences, MyInfoPage } from '../../views';
 import { SHOW_ACTION, HIDE_ACTION } from '../../../constants';
 import {
   textsPropType,
@@ -11,6 +11,7 @@ import {
   formationPropType,
   experiencesPropType
 } from '../../../types';
+import { ScrollAreaWrapper } from './styles';
 
 class ScrollArea extends Component {
   static propTypes = {
@@ -132,9 +133,8 @@ class ScrollArea extends Component {
     } = this.props;
 
     return (
-      <div
-        className={`scrollArea__container ${languageModalIsVisible &&
-          'languageModalIsVisible'}`}
+      <ScrollAreaWrapper
+        languageModalIsVisible={languageModalIsVisible}
         onScroll={this.handleScroll}
         ref={this.scrollAreaRef}
       >
@@ -142,7 +142,7 @@ class ScrollArea extends Component {
           texts={texts.infoPage}
           displayThanksMessage={displayThanksMessage}
         />
-        <InbetweenBar title={texts.developer.title} />
+        <InbetweenBar title={texts.sections.technical} />
         <DeveloperProfile
           texts={texts.developer}
           projects={projects}
@@ -154,15 +154,15 @@ class ScrollArea extends Component {
           developerActivation={developerActivation}
         />
 
-        <InbetweenBar title={texts.formation.title} />
-        <Formation
-          texts={texts.formation}
+        <InbetweenBar title={texts.sections.experience} />
+        <Experiences
+          texts={texts.experiences}
           experiences={experiences}
           formationActivation={formationActivation}
           language={texts.languages.languageCode}
         />
 
-        <InbetweenBar title={texts.seabed.title} />
+        <InbetweenBar title={texts.sections.other} />
         <Seabed
           texts={texts.seabed}
           globalTexts={texts.global}
@@ -172,7 +172,7 @@ class ScrollArea extends Component {
           triggerThankYouMessage={triggerThankYouMessage}
           resetScrollPosition={this.resetScrollPosition}
         />
-      </div>
+      </ScrollAreaWrapper>
     );
   }
 }
