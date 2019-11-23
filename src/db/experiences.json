@@ -5,7 +5,8 @@
       "country": {
         "en": "Brazil",
         "es": "Brasil",
-        "pt": "Brasil"
+        "pt": "Brasil",
+        "countryCode": "br"
       },
       "dateBegin": "05-2005",
       "dateBeginValue": 1114898400000,
@@ -30,7 +31,8 @@
       "country": {
         "en": "Greece",
         "es": "Grecia",
-        "pt": "Grécia"
+        "pt": "Grécia",
+        "countryCode": "gr"
       },
       "dateBegin": "10-2015",
       "dateBeginValue": 1443650400000,
@@ -55,7 +57,8 @@
       "country": {
         "en": "Spain",
         "es": "España",
-        "pt": "Espanha"
+        "pt": "Espanha",
+        "countryCode": "es"
       },
       "dateBegin": "09-2017",
       "dateBeginValue": 1504216800000,
@@ -80,7 +83,9 @@
       "country": {
         "en": "Spain",
         "es": "España",
-        "pt": "Espanha"
+        "pt": "Espanha",
+                "countryCode": "es"
+
       },
       "dateBegin": "10-2018",
       "dateBeginValue": 1538344800000,
@@ -105,7 +110,8 @@
       "country": {
         "en": "Spain",
         "es": "España",
-        "pt": "Espanha"
+        "pt": "Espanha",
+        "countryCode": "es"
       },
       "dateBegin": "01-2019",
       "dateBeginValue": 1548111600000,
