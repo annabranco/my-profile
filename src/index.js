@@ -2,34 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/core/App';
 import {
-  TEXTS_PATH_PRE,
-  TEXTS_PATH_PRO,
-  PROJECTS_PATH_PRE,
-  PROJECTS_PATH_PRO,
-  SKILLS_PATH_PRO,
-  FORMATION_PATH_PRO,
-  EXPERIENCES_PATH_PRO,
-  SKILLS_PATH_PRE,
-  FORMATION_PATH_PRE,
-  EXPERIENCES_PATH_PRE,
-  LANGUAGES_PATH_PRO,
-  LANGUAGES_PATH_PRE
+  TEXTS_PATH,
+  PROJECTS_PATH,
+  SKILLS_PATH,
+  FORMATION_PATH,
+  EXPERIENCES_PATH,
+  LANGUAGES_PATH
 } from './constants';
 import './styles/styles.css';
 
 const APP_VERSION = 'v0.10.0';
-
-const fakeServer = process.env.REACT_APP_FAKE_SERVER === 'true';
-
-const TEXTS_PATH = fakeServer ? TEXTS_PATH_PRE : TEXTS_PATH_PRO;
-const PROJECTS_PATH = fakeServer ? PROJECTS_PATH_PRE : PROJECTS_PATH_PRO;
-const SKILLS_PATH = fakeServer ? SKILLS_PATH_PRE : SKILLS_PATH_PRO;
-const FORMATION_PATH = fakeServer ? FORMATION_PATH_PRE : FORMATION_PATH_PRO;
-const EXPERIENCES_PATH = fakeServer
-  ? EXPERIENCES_PATH_PRE
-  : EXPERIENCES_PATH_PRO;
-
-const LANGUAGES_PATH = fakeServer ? LANGUAGES_PATH_PRE : LANGUAGES_PATH_PRO;
 
 const fetchJson = URL => {
   return fetch(URL)
