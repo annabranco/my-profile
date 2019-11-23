@@ -1,44 +1,50 @@
 {
-  "name"         : "anna-branco-profile",
-  "version"      : "0.11.0",
-  "private"      : true,
-  "dependencies" : {
-    "lodash"                             : "^4.17.15",
-    "node-sass-chokidar"                 : "^1.3.4",
-    "npm-run-all"                        : "^4.1.5",
-    "polished"                           : "^3.4.2",
-    "prop-types"                         : "^15.7.2",
-    "react"                              : "^16.8.6",
-    "react-app-rewire-styled-components" : "^3.0.2",
-    "react-dom"                          : "^16.8.6",
-    "react-scripts"                      : "^3.2.0",
-    "styled-components"                  : "^4.4.1"
+  "name": "anna-branco-profile",
+  "version": "0.11.0",
+  "private": true,
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "node-sass-chokidar": "^1.3.4",
+    "npm-run-all": "^4.1.5",
+    "polished": "^3.4.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-app-rewire-styled-components": "^3.0.2",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^3.2.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
-    "build-css"         : "node-sass-chokidar src/ -o src/",
-    "watch-css"         : "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "fake-server"       : "nodemon fake-server",
-    "start-js"          : "react-scripts start",
-    "start:fake-server" : "npm-run-all -p fake-server watch-css start-js",
-    "start:pre"         : "REACT_APP_FAKE_SERVER=true npm run start:fake-server",
-    "start"             : "npm-run-all -p watch-css start-js",
-    "build-js"          : "react-scripts build",
-    "build"             : "npm-run-all build-css build-js"
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "fake-server": "nodemon --exec babel-node fake-server",
+    "start-js": "react-scripts start",
+    "start:fake-server": "npm-run-all -p fake-server watch-css start-js",
+    "start:dev": "REACT_APP_FAKE_SERVER=true npm run start:fake-server",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js"
   },
   "devDependencies": {
-    "babel-eslint"           : "^10.0.3",
-    "eslint"                 : "^6.6.0",
-    "eslint-config-airbnb"   : "^18.0.1",
-    "eslint-config-prettier" : "^6.4.0",
-    "eslint-plugin-import"   : "^2.18.2",
-    "eslint-plugin-jsx-a11y" : "^6.2.3",
-    "eslint-plugin-prettier" : "^3.1.1",
-    "eslint-plugin-react"    : "^7.16.0",
-    "json-loader"            : "^0.5.7",
-    "json-server"            : "^0.15.1",
-    "nodemon"                : "^1.19.4",
-    "prettier"               : "^1.18.2",
-    "react-app-rewired"      : "^1.6.2"
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "babel-eslint": "^10.0.3",
+    "cors": "^2.8.5",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "express": "^4.17.1",
+    "json-loader": "^0.5.7",
+    "json-server": "^0.15.1",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "react-app-rewired": "^1.6.2"
   },
   "browserslist": [
     ">0.2%",
@@ -46,5 +52,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage" : "./"
+  "homepage": "./"
 }

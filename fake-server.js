@@ -1,26 +1,33 @@
-const jsonServer = require('json-server');
-const path = require('path');
+import http from 'http';
+import express from 'express';
+import fs from 'fs';
+import cors from 'cors';
 
-const DATABASES = [
-  'texts',
-  'projectsDB',
-  'skills',
-  'formation',
-  'experiences',
-  'languages'
-];
+const SERVER_PORT = 3031;
 
-DATABASES.forEach((fileName, index) => {
-  const port = Number(`303${index}`);
-  const server = jsonServer.create();
-  const jsonPath = path.join(__dirname, '/src/db/', `${fileName}.json`);
-  const router = jsonServer.router(jsonPath);
-  const middlewares = jsonServer.defaults();
-  server.use(middlewares);
-  server.use(router);
-  server.listen(port, () => {
-    console.log(
-      `Fake ${fileName.toUpperCase()} server is running on port ${port}.`
-    );
+const app = express();
+app.use(cors());
+const pathForJsonFiles = 'src/db/';
+
+app.get('/', async (req, res) => {
+  res.statusMessage = `A filename must be specified on the request.`;
+  res.status(400).end();
+});
+
+app.get('/:file', async (req, res) => {
+  fs.readFile(pathForJsonFiles + req.params.file, (error, jsonFile) => {
+    if (error) {
+      res.statusMessage = `No filename "${req.params.file}" was found.`;
+      res.status(404).end();
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.statusMessage = `${req.params.file} sent to host.`;
+    res.send(jsonFile);
   });
+});
+
+http.createServer(app).listen(SERVER_PORT, () => {
+  console.debug(
+    `[INFO] Development server started at ${SERVER_PORT} | ${new Date()}`
+  );
 });
