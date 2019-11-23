@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
   colorBlueLight,
@@ -45,7 +45,14 @@ export const ExperienceItem = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   height: auto;
-  width: 100%;
+  opacity: 0;
+  transition: opacity ease 3s;
+
+  ${props =>
+    props.visible &&
+    css`
+      opacity: 1;
+    `}
 `;
 
 export const DateField = styled.div`
@@ -77,8 +84,13 @@ export const ExperienceCompany = styled.p`
 `;
 
 export const CountryFlag = styled.img`
-  margin-left: 5px;
+  margin: 0 5px;
   vertical-align: middle;
+`;
+
+export const ExperiencePlace = styled.span`
+  font-size: 0.8rem;
+  font-style: italic;
 `;
 
 export const ExperienceDetails = styled.p`

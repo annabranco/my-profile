@@ -2,7 +2,7 @@
   "skillGroups": [
     {
       "globalLevel": 3,
-      "logo": 0,
+      "logo": "",
       "name": "Frontend",
       "order": 1,
       "skills": [
@@ -55,7 +55,7 @@
     },
     {
       "globalLevel": 3,
-      "logo": 0,
+      "logo": "",
       "name": "Version Control",
       "order": 2,
       "skills": [
@@ -83,7 +83,7 @@
     },
     {
       "globalLevel": 2,
-      "logo": 0,
+      "logo": "",
       "name": "Testing & Analytics",
       "order": 3,
       "skills": [
@@ -111,7 +111,7 @@
     },
     {
       "globalLevel": 3,
-      "logo": 0,
+      "logo": "",
       "name": "UI & Design Tools",
       "order": 4,
       "skills": [
@@ -134,7 +134,7 @@
     },
     {
       "globalLevel": 1,
-      "logo": 0,
+      "logo": "",
       "name": "Bundlers and Task Runners",
       "order": 5,
       "skills": [
@@ -162,7 +162,7 @@
     },
     {
       "globalLevel": 2,
-      "logo": 0,
+      "logo": "",
       "name": "Multimedia & Ad-services",
       "order": 6,
       "skills": [
@@ -210,7 +210,7 @@
     },
     {
       "globalLevel": 3,
-      "logo": 0,
+      "logo": "",
       "name": "Server-side processes",
       "order": 7,
       "skills": [
@@ -233,7 +233,7 @@
     },
     {
       "globalLevel": 1,
-      "logo": 0,
+      "logo": "",
       "name": "Backend Development",
       "order": 8,
       "skills": [
@@ -256,7 +256,7 @@
     },
     {
       "globalLevel": 3,
-      "logo": 0,
+      "logo": "",
       "name": "Team work & Management Tools",
       "order": 9,
       "skills": [

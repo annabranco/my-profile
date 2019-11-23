@@ -13,7 +13,6 @@ export const projectsPropType = PropTypes.shape({
   order       : PropTypes.number.isRequired,
   repo        : PropTypes.string.isRequired,
   thumbnail   : PropTypes.string.isRequired,
-  title       : PropTypes.string.isRequired,
   url         : PropTypes.string.isRequired
 });
 
@@ -30,8 +29,7 @@ export const developerTextPropType = PropTypes.shape({
   projectsText   : PropTypes.string.isRequired,
   reduced        : PropTypes.string.isRequired,
   showMore       : PropTypes.string.isRequired,
-  showThumbnails : PropTypes.string.isRequired,
-  title          : PropTypes.string.isRequired
+  showThumbnails : PropTypes.string.isRequired
 });
 
 export const experiencesTextPropType = PropTypes.shape({
@@ -54,8 +52,7 @@ export const formationTextPropType = PropTypes.shape({
   ir     : PropTypes.string.isRequired,
   master : PropTypes.string.isRequired,
   psy    : PropTypes.string.isRequired,
-  spain  : PropTypes.string.isRequired,
-  title  : PropTypes.string.isRequired
+  spain  : PropTypes.string.isRequired
 });
 
 export const headerTextPropType = PropTypes.shape({
@@ -119,13 +116,13 @@ export const seabedTextPropType = PropTypes.shape({
   messageKeyboard : PropTypes.string.isRequired,
   skills          : PropTypes.string.isRequired,
   thoughts        : PropTypes.arrayOf(PropTypes.string.isRequired),
-  time2go         : PropTypes.string.isRequired,
-  title           : PropTypes.string.isRequired
+  time2go         : PropTypes.string.isRequired
 });
 
 export const globalTextsPropType = PropTypes.shape({
   open  : PropTypes.string.isRequired,
-  close : PropTypes.string.isRequired
+  close: PropTypes.string.isRequired,
+  since: PropTypes.string.isRequired
 });
 
 export const errorTextsPropType = PropTypes.shape({
@@ -198,7 +195,6 @@ export const experiencesPropType = PropTypes.shape({
   "details"        : textInAllLanguagesPropType.isRequired,
   "id"             : PropTypes.string.isRequired,
   "place"          : PropTypes.string.isRequired,
-  "title"          : textInAllLanguagesPropType.isRequired,
   "visible"        : PropTypes.bool.isRequired
 });
 
@@ -213,7 +209,6 @@ export const formationPropType = PropTypes.shape({
   "gradeText"      : textInAllLanguagesPropType,
   "id"             : PropTypes.string.isRequired,
   "place"          : PropTypes.string.isRequired,
-  "title"          : textInAllLanguagesPropType.isRequired,
   "university"     : PropTypes.string.isRequired,
   "visible"        : PropTypes.bool.isRequired,
 });
