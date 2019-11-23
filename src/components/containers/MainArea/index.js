@@ -28,25 +28,36 @@ class MainArea extends Component {
   };
 
   state = {
-    languageModalIsVisible: true,
-    doNotShowLanguageModalAgain: true
+    languageModalIsVisible: false,
+    checkboxDoNotShowLanguageModalAgain: false
   };
+
+  componentDidMount() {
+    console.log(
+      '$$$ this.props.doNotShowLanguageModalAgain',
+      this.props.doNotShowLanguageModalAgain
+    );
+    if (!this.props.doNotShowLanguageModalAgain) {
+      this.setState({ languageModalIsVisible: true });
+    }
+  }
 
   handleShowLanguageModalAgain = event =>
     this.setState({
-      doNotShowLanguageModalAgain: event.currentTarget.checked
+      checkboxDoNotShowLanguageModalAgain: event.currentTarget.checked
     });
 
   onCloseLanguageModal = () => {
     this.setState({ languageModalIsVisible: false });
-    this.props.closeLanguageModal(this.state.doNotShowLanguageModalAgain);
+    this.props.closeLanguageModal(
+      this.state.checkboxDoNotShowLanguageModalAgain
+    );
   };
 
   render() {
     const { languageModalIsVisible } = this.state;
     const {
       onChangeLanguage,
-      doNotShowLanguageModalAgain,
       texts,
       triggerThankYouMessage,
       displayThanksMessage,
@@ -60,7 +71,7 @@ class MainArea extends Component {
 
     return (
       <main>
-        {!doNotShowLanguageModalAgain && languageModalIsVisible && (
+        {languageModalIsVisible && (
           <LanguagesModal
             languages={languages}
             texts={texts.languages}

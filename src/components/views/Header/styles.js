@@ -1,4 +1,11 @@
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
+import {
+  colorGrayNormal,
+  colorWhite,
+  fontTitleAlt,
+  fontTitle
+} from '../../../styles/theme';
 
 export const HeaderWrapper = styled.header`
   z-index: 2;
@@ -9,7 +16,10 @@ export const HeaderWrapper = styled.header`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-image: linear-gradient(#afa5b9, rgba(#ffffff, 0.8));
+  background-image: linear-gradient(
+    ${colorGrayNormal},
+    ${rgba(colorWhite, 0.6)} 50%
+  );
   height: 40px;
   width: 100vw;
   padding: 0 80px;
@@ -62,7 +72,7 @@ export const HeaderTitle = styled.h2`
   ${headerInner}
   order  : 1;
   height: 20px;
-  font-family: var(--font__title);
+  font-family: ${fontTitleAlt};
 
   @media all and (min-width: 500px) {
     order: 2;
@@ -71,6 +81,6 @@ export const HeaderTitle = styled.h2`
 
 export const VersionInfo = styled.p`
   ${headerInner}
-  font-family: var(--font__title);
+  font-family: ${fontTitle};
   order: 3;
 `;
