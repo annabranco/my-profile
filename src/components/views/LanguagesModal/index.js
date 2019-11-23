@@ -63,7 +63,6 @@ const LanguagesModal = ({
           type="checkbox"
           className="languages__checkbox"
           onClick={handleShowLanguageModalAgain}
-          defaultChecked
         />
         {texts.chekboxText}
       </CheckBoxArea>
