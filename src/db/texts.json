@@ -13,36 +13,13 @@
       "projectsText": "In this section, you can see a few of my projects and creations:",
       "reduced": "Reduce view",
       "showMore": "show more",
-      "showThumbnails": "Show thumbnails",
-      "title": "Technical competences"
+      "showThumbnails": "Show thumbnails"
     },
     "error": {
       "errorLine1": "I'm awfully sorry but something unexpected had happened. :(",
       "errorLine2": "I'd really appreciate if you could notify me of this error on my issues page.",
       "notifyMe": "Notify me",
       "title": "That's embarassing..."
-    },
-    "experiences": {
-      "brazil": "Brazil",
-      "eru": "International Emergencies Response Delegate (ERU)",
-      "eruDetails": "I was deployed in Greece on a temporary mission (2 months), providing psychosocial support for Syrian people and other refugees arriving in Europe.",
-      "find": "You've found a curious object laying on the sea bed.",
-      "ict": "ICT Instructor",
-      "ictDetails": "I gave classes on Information and Communication Technology skills: windows environment, basic software use and internet. Teaching more than 210 kids of Primary Education, from 6 up to 12 years old.",
-      "investigate": "Click on in to investigate it.",
-      "linkedin": "For more details ans references, please visit ",
-      "spain": "Spain",
-      "tj": "Public Servant",
-      "tjDetails": "Public servant with a rising carreer beginning as administrative technician coming to head of sector responsible for social projects."
-    },
-    "formation": {
-      "brazil": "Brazil",
-      "grade": "Final grade: ",
-      "ir": "International Relations",
-      "master": "Master in International Relations",
-      "psy": "Psychology",
-      "spain": "Spain",
-      "title": "Formation"
     },
     "global": {
       "close": "Close",
@@ -99,8 +76,11 @@
     },
     "seabed": {
       "experiences": "Previous experiences",
-      "find": "You've found two curious objects on the seabed.",
+      "find": "You've found a curious object laying on the sea bed.",
       "find2": "Click on any of them to investigate it.",
+      "findMore": "You've found two curious objects on the seabed.",
+      "investigate": "Click on in to investigate it.",
+      "linkedin": "For more details ans references, please visit ",
       "message": "Beyond developing webpages and applications, I love to experiment programming videogames, promoting interactivity with the user and lots of fun.",
       "messageKeyboard": "Thus, now you know my basic profile, how about a little gaming experience? Move the diver to the desired direction using arrows keys on your keyboard (◀︎ or ▶︎) to know more about my profile.",
       "skills": "Other skills",
@@ -114,8 +94,12 @@
         "Sometimes I forget I am just a character inside a professional profile",
         "Oh.. I wish we had time to swim around..."
       ],
-      "time2go": "Time to go back...",
-      "title": "Other informations"
+      "time2go": "Time to go back..."
+    },
+    "sections": {
+      "experience": "Professional experience",
+      "other": "Other informations",
+      "technical": "Technical Competences"
     }
   },
   "es": {
@@ -132,36 +116,13 @@
       "projectsText": "En esta sección puede ver algunos de mis proyectos y creacciones:",
       "reduced": "Reducir visualización",
       "showMore": "ver más",
-      "showThumbnails": "Enseñar miniaturas",
-      "title": "Competencias técnicas"
+      "showThumbnails": "Enseñar miniaturas"
     },
     "error": {
       "errorLine1": "Lo siento mucho, pero algo inesperado ha pasado. :(",
       "errorLine2": "Te agradecería mucho si pudieras notificarme en mi páginas de incidencias.",
       "notifyMe": "Notificármelo",
       "title": "Es vergonzoso..."
-    },
-    "experiences": {
-      "brazil": "Brasil",
-      "eru": "Delegada Internacional de Respuesta en Emergencias (ERU)",
-      "eruDetails": "He sido desplegada a Grecia un misión temporal (2 meses), brindando apoyo psicosocial a personas sirias y otros refugiados y refugiadas llegando a Europa.",
-      "find": "Has encontrado un objecto curioso en el fondo del mar.",
-      "ict": "Instructora de TIC",
-      "ictDetails": "He impartido clases sobre habilidades de Tecnología de la Información y Comunicación: ambiente windows, aplicaciones básicas y uso de internet, enseñando más de 210 niños y niñas de Educación Primaria, de los 6 a los 12 años de edad.",
-      "investigate": "Haz click en ello para investigarlo.",
-      "linkedin": "Para más detalles y referencias, por favor visite ",
-      "spain": "España",
-      "tj": "Funcionaria Pública",
-      "tjDetails": "Funcionaria con carrera ascendente, empezando como técnica administrativa y llegando a ser jefe de sector responsable por proyectos sociales."
-    },
-    "formation": {
-      "brazil": "Brasil",
-      "grade": "Grado final: ",
-      "ir": "Relaciones Internacionales",
-      "master": "Máster en Relaciones Internacionales",
-      "psy": "Psicología",
-      "spain": "España",
-      "title": "Formación"
     },
     "global": {
       "close": "Cerrar",
@@ -218,8 +179,11 @@
     },
     "seabed": {
       "experiences": "Experiencias anteriores",
-      "find": "Has encontrado dos objetos curiosos en el fondo del mar.",
+      "find": "Has encontrado un objecto curioso en el fondo del mar.",
       "find2": "Haz click en cualquier uno para investigarlo.",
+      "findMore": "Has encontrado dos objetos curiosos en el fondo del mar.",
+      "investigate": "Haz click en ello para investigarlo.",
+      "linkedin": "Para más detalles y referencias, por favor visite ",
       "message": "Además de desarrollar páginas y aplicaciones, me encanta experimentar con la programación de videojuegos, promoviendo interactividad con el usuario de una manera bastante lúdica.",
       "messageKeyboard": "Ahora que ya conoces mi perfil básico, ¿qué te parece jugar un poco? Mueve a la buceadora usando las flechas del teclado (◀︎ o ▶︎) para saber más sobre mi perfil.",
       "skills": "Otras habilidades",
@@ -233,8 +197,12 @@
         "Hay veces que se me olvida que soy solo una personaje dentro de un perfil profesional",
         "Oh.. me gustaría que tuviesemos tiempo para nadar por allí..."
       ],
-      "time2go": "Es hora de volver...",
-      "title": "Otros datos de interés"
+      "time2go": "Es hora de volver..."
+    },
+    "sections": {
+      "experience": "Experiencia profesional",
+      "other": "Otras informaciones",
+      "technical": "Competencias técnicas"
     }
   },
   "fr": {
@@ -261,36 +229,13 @@
       "projectsText": "Nesta seção você pode ser alguns de meus projetos e criações:",
       "reduced": "Reduzir visualização",
       "showMore": "ver mais",
-      "showThumbnails": "Mostrar miniaturas",
-      "title": "Competências técnicas"
+      "showThumbnails": "Mostrar miniaturas"
     },
     "error": {
       "errorLine1": "Desculpa, mas alguma coisa inesperada aconteceu. :(",
       "errorLine2": "Agradeceria muito se você pudesse me notificar em minha página de incidências.",
       "notifyMe": "Me notificar",
       "title": "É constrangedor..."
-    },
-    "experiences": {
-      "brazil": "Brasil",
-      "eru": "Delegada Internacional de Resposta em Emergências (ERU)",
-      "eruDetails": "Trabalhei na Grécia em uma missão temporária (2 meses), propiciando apoio psicossocial para pessoas sírias e outros refugiados e refugiadas chegando à Europa.",
-      "find": "Você encontrou um objeto curioso no fundo do mar.",
-      "ict": "Instrutora de TIC",
-      "ictDetails": "Dei aulas sobre habilidades de Tecnologia de Informação e Comunicação: ambiente windows, softwares básicos e uso de internet, ensinando mais de 210 crianças de Educação Primária, de 6 a 12 anos de idade.",
-      "investigate": "Clique nele para investigá-lo.",
-      "linkedin": "Para mais informações e referências, por favor visite ",
-      "spain": "Espanha",
-      "tj": "Servidora Pública",
-      "tjDetails": "Servidora pública com uma carreira ascendente, começando como técnica administrativa e chegando a ser chefe de setor responsável por projetos sociais."
-    },
-    "formation": {
-      "brazil": "Brasil",
-      "grade": "Média final: ",
-      "ir": "Relações Internacionais",
-      "master": "Mestrado em Relações Internacionais",
-      "psy": "Psicologia",
-      "spain": "Espanha",
-      "title": "Formação"
     },
     "global": {
       "close": "Fechar",
@@ -347,8 +292,11 @@
     },
     "seabed": {
       "experiences": "Experiências anteriores",
-      "find": "Você encontrou dois objetos curiosos no fundo do mar.",
+      "find": "Você encontrou um objeto curioso no fundo do mar.",
       "find2": "Clique em qualquer um de eles para investigá-lo.",
+      "findMore": "Você encontrou dois objetos curiosos no fundo do mar.",
+      "investigate": "Clique nele para investigá-lo.",
+      "linkedin": "Para mais informações e referências, por favor visite ",
       "message": "Além de desenvolver páginas e aplicacões, adoro experimentar com programação de jogos, promovendo interatividade com o usuário de uma maneira bastante lúdica.",
       "messageKeyboard": "Assim, agora que você já conhece meu perfil básico, que tal jogar um pouco? Mova a mergulhadora para a direção desejada usando as setas para direita ou esquerda do teclado (◀︎ ou ▶︎) para saber mais sobre o meu perfil.",
       "skills": "Outras habilidades",
@@ -362,8 +310,12 @@
         "Às vezes eu esqueço que sou só uma personagem dentro de um perfil profissional",
         "Oh.. eu gostaria que tivéssemos tempo para nadar por aí..."
       ],
-      "time2go": "É hora de voltar...",
-      "title": "Outras informações"
+      "time2go": "É hora de voltar..."
+    },
+    "sections": {
+      "experience": "Experiência profissional",
+      "other": "Outras informações",
+      "technical": "Competências técnicas"
     }
   }
 }
