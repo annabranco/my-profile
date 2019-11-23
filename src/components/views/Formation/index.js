@@ -1,155 +1,132 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { SHOW_ACTION } from '../../../constants/actions';
 import {
-  formationTextPropType,
-  formationActivationPropType,
-  experiencesPropType
+  experiencesTextPropType,
+  seabedElementsPropType,
+  globalTextsPropType,
+  formationPropType
 } from '../../../types';
+import { isDesktop } from '../../../utils/device';
 
-const Formation = ({ texts, formationActivation, experiences, language }) => {
-  console.log('$$$ EXPERIENCES BEING RENDERED', experiences);
-  return (
-    <section className="section__formation">
-      <div className="formation__verticalBar" />
-      <div className="formation__outer">
-        {experiences.map(
-          item =>
-            item.visible && (
-              <div className="formation__inner" key={item.dateBeginValue}>
-                <div className="formation__date-wrapper">
-                  <p className="formation__inner--year">{`${item.dateBegin} - ${item.dateEnd}`}</p>
-                </div>
-                <div className="formation__info-wrapper formation__inner--horizontalBar">
-                  <h3 className="formation__title">{item.title[language]}</h3>
-                </div>
+const Formation = ({
+  texts,
+  globalTexts,
+  formation,
+  status: { read, visible },
+  onClickOpen,
+  onClickClose
+}) => (
+  <>
+    {!read && isDesktop ? (
+      <>
+        <p className="seabed__findSomething">{texts.find}</p>
+        <p className="seabed__findSomething">{texts.investigate}</p>
+      </>
+    ) : null}
+    <section>
+      <div
+        className={`section__experiences ${visible && SHOW_ACTION}`}
+        onClick={() => onClickOpen('experiences')}
+        role="button"
+        aria-label={globalTexts.open}
+        tabIndex={0}
+      >
+        {!visible ? (
+          <>
+            <p className="experiences__text-fake">- - --- - --</p>
+            <p className="experiences__text-fake">- -- -- - --</p>
+            <p className="experiences__text-fake">- -- ---- --</p>
+            <p className="experiences__text-fake">- - - --- --</p>
+          </>
+        ) : (
+          <div className="experiences__outer">
+            <button
+              className="seabed__click2close"
+              onClick={() => onClickClose('experiences')}
+              type="button"
+              aria-label={globalTexts.close}
+            >
+              X
+            </button>
+
+            <div className="experiences__inner">
+              <div className="experiences__inner--year">09/2017 - 05/2018</div>
+              <div className="experiences__inner--year">10/2015 - 11/2015</div>
+              <div className="experiences__inner--year">05/2005 - 12/2014</div>
+            </div>
+            <div className="experiences__inner">
+              <div className="experiences__verticalBar" />
+            </div>
+            <div className="experiences__inner">
+              <div className="experiences__inner--horizontalBar">
+                <div className="experiences__horizontarBar-psy" />
+                <h2 className="experiences__title">{texts.ict}</h2>
+                <p className="experiences__details">
+                  Servicios Profesionales Sociales, Madrid.
+                  <img
+                    className="experiences__flag"
+                    src="https://www.countryflags.io/es/flat/16.png"
+                    alt={texts.spain}
+                    title={texts.spain}
+                  />
+                </p>
+                <p className="experiences__details">{texts.ictDetails}</p>
               </div>
-            )
+              <div className="experiences__inner--horizontalBar">
+                <div className="experiences__horizontarBar-ir" />
+                <h2 className="experiences__title">{texts.eru}</h2>
+                <p className="experiences__details">
+                  Cruz Roja Española
+                  <img
+                    className="experiences__flag"
+                    src="https://www.countryflags.io/es/flat/16.png"
+                    alt={texts.spain}
+                    title={texts.spain}
+                  />
+                </p>
+                <p className="experiences__details">{texts.eruDetails}</p>
+              </div>
+              <div className="experiences__inner--horizontalBar">
+                <div className="experiences__horizontarBar-master" />
+                <h2 className="experiences__title">{texts.tj}</h2>
+                <p className="experiences__details">
+                  Tribunal de Justiça do Estado do Rio de Janeiro{' '}
+                  <img
+                    className="experiences__flag"
+                    src="https://www.countryflags.io/br/flat/16.png"
+                    alt={texts.brazil}
+                    title={texts.brazil}
+                  />
+                </p>
+                <p className="experiences__details">{texts.tjDetails}</p>
+              </div>
+            </div>
+            <p className="experiences__more">
+              {texts.linkedin}
+              <a
+                className="experiences__social--link"
+                href="https://www.linkedin.com/in/annabranco/"
+                target="_Blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-linkedin-in icon-linkedin" />
+              </a>
+            </p>
+          </div>
         )}
-        {/* <div className="formation__inner">
-          <div className="formation__inner--year">1999 - 2005</div>
-          <div className="formation__inner--year">2007 - 2011</div>
-
-          <div className="formation__inner--year">2012 - 2013</div>
-
-          <div className="formation__inner--year">2018</div>
-        </div>
-        <div className="formation__inner">
-          <div className="formation__verticalBar" />
-        </div>
-        <div className="formation__inner">
-          <div className="formation__inner--horizontalBar">
-            <div
-              className={`formation__horizontarBar-psy ${formationActivation.psychology &&
-                'comeIn'}`}
-            />
-            <h2
-              className={`formation__title formation__title-psy ${formationActivation.psychology &&
-                'comeIn'}`}
-            >
-              {texts.psy}
-            </h2>
-            <p
-              className={`formation__details formation__details-psy ${formationActivation.psychology &&
-                'comeIn'}`}
-            >
-              Universidade Gama Filho
-              <img
-                className="formation__flag"
-                src="https://www.countryflags.io/br/flat/16.png"
-                alt={texts.brazil}
-                title={texts.brazil}
-              />
-            </p>
-            <p
-              className={`formation__details formation__details-psy ${formationActivation.psychology &&
-                'comeIn'}`}
-            >
-              {texts.grade}8,46
-            </p>
-          </div>
-          <div className="formation__inner--horizontalBar">
-            <div
-              className={`formation__horizontarBar-ir ${formationActivation.ir &&
-                'comeIn'}`}
-            />
-            <h2
-              className={`formation__title formation__title-ir ${formationActivation.ir &&
-                'comeIn'}`}
-            >
-              {texts.ir}
-            </h2>
-            <p
-              className={`formation__details formation__details-ir ${formationActivation.ir &&
-                'comeIn'}`}
-            >
-              Universidade Estácio de Sá
-              <img
-                className="formation__flag"
-                src="https://www.countryflags.io/br/flat/16.png"
-                alt={texts.brazil}
-                title={texts.brazil}
-              />
-            </p>
-            <p
-              className={`formation__details formation__details-ir ${formationActivation.ir &&
-                'comeIn'}`}
-            >
-              {texts.grade}9,15
-            </p>
-          </div>
-          <div className="formation__inner--horizontalBar">
-            <div
-              className={`formation__horizontarBar-master ${formationActivation.master &&
-                'comeIn'}`}
-            />
-            <h2
-              className={`formation__title formation__title-master ${formationActivation.master &&
-                'comeIn'}`}
-            >
-              {texts.master}
-            </h2>
-            <p
-              className={`formation__details formation__details-master ${formationActivation.master &&
-                'comeIn'}`}
-            >
-              Universitat Autònoma de Barcelona{' '}
-              <img
-                className="formation__flag"
-                src="https://www.countryflags.io/es/flat/16.png"
-                alt={texts.spain}
-                title={texts.spain}
-              />
-            </p>
-            <p
-              className={`formation__details formation__details-master ${formationActivation.master &&
-                'comeIn'}`}
-            >
-              {texts.grade}8,00
-            </p>
-          </div>
-          <div className="formation__inner--horizontalBar">
-            <div
-              className={`formation__horizontarBar-adalab ${formationActivation.programming &&
-                'comeIn'}`}
-            />
-            <h2
-              className={`formation__title formation__title-adalab ${formationActivation.programming &&
-                'comeIn'}`}
-            >
-              Adalab
-            </h2>
-          </div>
-        </div> */}
       </div>
     </section>
-  );
-};
+  </>
+);
 
 Formation.propTypes = {
-  texts: formationTextPropType.isRequired,
-  formationActivation: formationActivationPropType.isRequired,
-  experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
-  language: PropTypes.string.isRequired
+  texts: experiencesTextPropType.isRequired,
+  globalTexts: globalTextsPropType.isRequired,
+  formation: PropTypes.arrayOf(formationPropType).isRequired,
+  status: seabedElementsPropType.isRequired,
+  onClickOpen: PropTypes.func.isRequired,
+  onClickClose: PropTypes.func.isRequired
 };
 
 export default Formation;

@@ -1,132 +1,72 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { SHOW_ACTION } from '../../../constants/actions';
+import { getFlagURL } from '../../../utils/icons';
+import { experiencesPropType } from '../../../types';
 import {
-  experiencesTextPropType,
-  seabedElementsPropType,
-  globalTextsPropType,
-  formationPropType
-} from '../../../types';
-import { isDesktop } from '../../../utils/device';
+  SectionExperiences,
+  VerticalBar,
+  ExperiencesWrapper,
+  ExperienceItem,
+  DateField,
+  TextDate,
+  DetailsField,
+  ExperienceTitle,
+  ExperienceCompany,
+  CountryFlag,
+  ExperienceDetails
+} from './styles';
 
-const Experiences = ({
-  texts,
-  globalTexts,
-  formation,
-  status: { read, visible },
-  onClickOpen,
-  onClickClose
-}) => (
-  <>
-    {!read && isDesktop ? (
-      <>
-        <p className="seabed__findSomething">{texts.find}</p>
-        <p className="seabed__findSomething">{texts.investigate}</p>
-      </>
-    ) : null}
-    <section>
-      <div
-        className={`section__experiences ${visible && SHOW_ACTION}`}
-        onClick={() => onClickOpen('experiences')}
-        role="button"
-        aria-label={globalTexts.open}
-        tabIndex={0}
-      >
-        {!visible ? (
-          <>
-            <p className="experiences__text-fake">- - --- - --</p>
-            <p className="experiences__text-fake">- -- -- - --</p>
-            <p className="experiences__text-fake">- -- ---- --</p>
-            <p className="experiences__text-fake">- - - --- --</p>
-          </>
-        ) : (
-          <div className="experiences__outer">
-            <button
-              className="seabed__click2close"
-              onClick={() => onClickClose('experiences')}
-              type="button"
-              aria-label={globalTexts.close}
-            >
-              X
-            </button>
+const EXPERIENCE_ON_TOP = 'newer'; // newer or older
 
-            <div className="experiences__inner">
-              <div className="experiences__inner--year">09/2017 - 05/2018</div>
-              <div className="experiences__inner--year">10/2015 - 11/2015</div>
-              <div className="experiences__inner--year">05/2005 - 12/2014</div>
-            </div>
-            <div className="experiences__inner">
-              <div className="experiences__verticalBar" />
-            </div>
-            <div className="experiences__inner">
-              <div className="experiences__inner--horizontalBar">
-                <div className="experiences__horizontarBar-psy" />
-                <h2 className="experiences__title">{texts.ict}</h2>
-                <p className="experiences__details">
-                  Servicios Profesionales Sociales, Madrid.
-                  <img
-                    className="experiences__flag"
-                    src="https://www.countryflags.io/es/flat/16.png"
-                    alt={texts.spain}
-                    title={texts.spain}
-                  />
-                </p>
-                <p className="experiences__details">{texts.ictDetails}</p>
-              </div>
-              <div className="experiences__inner--horizontalBar">
-                <div className="experiences__horizontarBar-ir" />
-                <h2 className="experiences__title">{texts.eru}</h2>
-                <p className="experiences__details">
-                  Cruz Roja Española
-                  <img
-                    className="experiences__flag"
-                    src="https://www.countryflags.io/es/flat/16.png"
-                    alt={texts.spain}
-                    title={texts.spain}
-                  />
-                </p>
-                <p className="experiences__details">{texts.eruDetails}</p>
-              </div>
-              <div className="experiences__inner--horizontalBar">
-                <div className="experiences__horizontarBar-master" />
-                <h2 className="experiences__title">{texts.tj}</h2>
-                <p className="experiences__details">
-                  Tribunal de Justiça do Estado do Rio de Janeiro{' '}
-                  <img
-                    className="experiences__flag"
-                    src="https://www.countryflags.io/br/flat/16.png"
-                    alt={texts.brazil}
-                    title={texts.brazil}
-                  />
-                </p>
-                <p className="experiences__details">{texts.tjDetails}</p>
-              </div>
-            </div>
-            <p className="experiences__more">
-              {texts.linkedin}
-              <a
-                className="experiences__social--link"
-                href="https://www.linkedin.com/in/annabranco/"
-                target="_Blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-linkedin-in icon-linkedin" />
-              </a>
-            </p>
-          </div>
+const Experiences = ({ experiences, language }) => {
+  const customOrder = (x, y) => {
+    if (EXPERIENCE_ON_TOP === 'older') {
+      return x.dateBeginValue - y.dateBeginValue;
+    }
+    return y.dateBeginValue - x.dateBeginValue;
+  };
+
+  return (
+    <SectionExperiences id="experiences">
+      <VerticalBar />
+      <ExperiencesWrapper>
+        {experiences.sort(customOrder).map(
+          item =>
+            item.visible && (
+              <ExperienceItem key={item.dateBeginValue}>
+                <DateField>
+                  <TextDate>{item.dateBegin}</TextDate>
+                  <TextDate>-</TextDate>
+                  <TextDate>{item.dateEnd}</TextDate>
+                </DateField>
+                <DetailsField>
+                  <ExperienceTitle>{item.title[language]}</ExperienceTitle>
+                  <ExperienceCompany>
+                    {item.company}
+                    <CountryFlag
+                      src={getFlagURL(
+                        item.country.countryCode,
+                        'flat',
+                        'small'
+                      )}
+                      alt={item.country[language]}
+                    />
+                  </ExperienceCompany>
+                  <ExperienceDetails>
+                    {item.details[language]}
+                  </ExperienceDetails>
+                </DetailsField>
+              </ExperienceItem>
+            )
         )}
-      </div>
-    </section>
-  </>
-);
+      </ExperiencesWrapper>
+    </SectionExperiences>
+  );
+};
 
 Experiences.propTypes = {
-  texts: experiencesTextPropType.isRequired,
-  globalTexts: globalTextsPropType.isRequired,
-  formation: PropTypes.arrayOf(formationPropType).isRequired,
-  status: seabedElementsPropType.isRequired,
-  onClickOpen: PropTypes.func.isRequired,
-  onClickClose: PropTypes.func.isRequired
+  experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
+  language: PropTypes.string.isRequired
 };
 
 export default Experiences;
