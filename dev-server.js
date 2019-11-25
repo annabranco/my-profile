@@ -14,6 +14,10 @@ app.get('/', async (req, res) => {
   res.status(400).end();
 });
 
+app.get('/health', async (req, res) => {
+  res.sendStatus(200);
+});
+
 app.get('/:file', async (req, res) => {
   fs.readFile(pathForJsonFiles + req.params.file, (error, jsonFile) => {
     if (error) {
