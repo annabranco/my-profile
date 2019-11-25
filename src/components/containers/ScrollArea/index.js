@@ -152,7 +152,7 @@ class ScrollArea extends Component {
     setTimeout(() => this.scrollAreaRef.current.scrollTo(0, 0), delay);
 
   render() {
-    const { developerActivation, cuePointsActivated } = this.state;
+    const { cuePointsActivated } = this.state;
     const {
       texts,
       triggerThankYouMessage,
@@ -183,7 +183,7 @@ class ScrollArea extends Component {
             this.handleAdjustExpandedProjectsView
           }
           language={texts.languages.languageCode}
-          developerActivation={developerActivation}
+          cuePointsActivated={[...cuePointsActivated]}
         />
 
         <InbetweenBar title={texts.sections.experience} />

@@ -2,7 +2,7 @@ const HOST_PRO =
   'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db';
 const HOST_PRE = 'http://localhost:3031';
 
-const isDevelopment = process.env.REACT_APP_FAKE_SERVER === 'true';
+const isDevelopment = process.env.REACT_APP_DEV_SERVER === 'true';
 const HOST = isDevelopment ? HOST_PRE : HOST_PRO;
 
 export const TEXTS_PATH = `${HOST}/texts.json`;

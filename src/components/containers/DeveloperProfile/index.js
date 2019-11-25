@@ -48,10 +48,7 @@ class DeveloperProfile extends Component {
     return (
       <section className="section__developer">
         <div className="developer__outer">
-          <div
-            className={`developer__sidebar ${developerActivation.skills &&
-              'comeIn'}`}
-          >
+          <div className="developer__sidebar comeIn">
             <h3 className="developer__skills--title">{texts.main}</h3>
 
             <div className="developer__inner--skills">
@@ -247,10 +244,7 @@ class DeveloperProfile extends Component {
           </div>
 
           <div className="developer__main">
-            <div
-              className={`developer__formation ${developerActivation.adalab &&
-                'comeIn'}`}
-            >
+            <div className="developer__formation comeIn">
               <h2 className="developer__adalab--title">
                 {texts.formation}{' '}
                 <img
@@ -286,10 +280,7 @@ class DeveloperProfile extends Component {
                 </>
               )}
             </div>
-            <div
-              className={`developer__projects ${developerActivation.projects &&
-                'comeIn'}`}
-            >
+            <div className="developer__projects comeIn">
               <h2 className="developer__projects--title">{texts.projects}</h2>
               <p className="developer__projects--text">{texts.projectsText}</p>
 
