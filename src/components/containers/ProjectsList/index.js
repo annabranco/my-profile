@@ -17,8 +17,8 @@ class ProjectsList extends Component {
   static propTypes = {
     texts: developerTextPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
-    language: PropTypes.string.isRequired,
-    handleAdjustExpandedProjectsView: PropTypes.func.isRequired
+    language: PropTypes.string.isRequired
+    // handleAdjustExpandedProjectsView: PropTypes.func.isRequired
   };
 
   state = {
@@ -44,7 +44,7 @@ class ProjectsList extends Component {
       if (this.state.knowMore) {
         adjust += 200;
       }
-      this.props.handleAdjustExpandedProjectsView(adjust);
+      // this.props.handleAdjustExpandedProjectsView(adjust);
     }
   }
 

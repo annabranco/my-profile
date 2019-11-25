@@ -76,7 +76,6 @@ class Seabed extends Component {
   // ======== Handle view components (Experience and Other Skills)
 
   onClickLinkOnMobile = link => {
-    console.log('$$$ link', link);
     this.setState({
       [link]: {
         active: true,

@@ -179,9 +179,9 @@ class ScrollArea extends Component {
           texts={texts.developer}
           projects={projects}
           skills={skills}
-          handleAdjustExpandedProjectsView={
-            this.handleAdjustExpandedProjectsView
-          }
+          // handleAdjustExpandedProjectsView={
+          //   this.handleAdjustExpandedProjectsView
+          // }
           language={texts.languages.languageCode}
           cuePointsActivated={[...cuePointsActivated]}
         />
