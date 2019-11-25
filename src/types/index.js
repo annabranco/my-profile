@@ -152,19 +152,6 @@ export const allLanguagesTextsPropType = PropTypes.shape({
   pt : textsPropType
 });
 
-export const developerActivationPropType = PropTypes.shape({
-  adalab   : PropTypes.bool.isRequired,
-  projects : PropTypes.bool.isRequired,
-  skills   : PropTypes.bool.isRequired
-});
-
-export const formationActivationPropType = PropTypes.shape({
-  ir          : PropTypes.bool.isRequired,
-  master      : PropTypes.bool.isRequired,
-  programming : PropTypes.bool.isRequired,
-  psychology  : PropTypes.bool.isRequired
-});
-
 export const seabedElementsPropType = PropTypes.shape({
   active  : PropTypes.bool.isRequired,
   read    : PropTypes.bool.isRequired,
