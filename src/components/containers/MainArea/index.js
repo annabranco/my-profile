@@ -33,10 +33,6 @@ class MainArea extends Component {
   };
 
   componentDidMount() {
-    console.log(
-      '$$$ this.props.doNotShowLanguageModalAgain',
-      this.props.doNotShowLanguageModalAgain
-    );
     if (!this.props.doNotShowLanguageModalAgain) {
       this.setState({ languageModalIsVisible: true });
     }

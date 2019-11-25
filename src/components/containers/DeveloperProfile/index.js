@@ -14,7 +14,6 @@ import {
 import {
   developerTextPropType,
   projectsPropType,
-  developerActivationPropType,
   skillGroupsPropType
 } from '../../../types';
 
@@ -23,9 +22,8 @@ class DeveloperProfile extends Component {
     texts: developerTextPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
     skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
-    handleAdjustExpandedProjectsView: PropTypes.func.isRequired,
-    language: PropTypes.string.isRequired,
-    developerActivation: developerActivationPropType.isRequired
+    // handleAdjustExpandedProjectsView: PropTypes.func.isRequired,
+    language: PropTypes.string.isRequired
   };
 
   state = {
@@ -40,9 +38,8 @@ class DeveloperProfile extends Component {
     const {
       texts,
       language,
-      developerActivation,
-      projects,
-      handleAdjustExpandedProjectsView
+      projects
+      // handleAdjustExpandedProjectsView
     } = this.props;
 
     return (
@@ -288,9 +285,9 @@ class DeveloperProfile extends Component {
                 texts={texts}
                 projects={projects}
                 language={language}
-                handleAdjustExpandedProjectsView={
-                  handleAdjustExpandedProjectsView
-                }
+                // handleAdjustExpandedProjectsView={
+                //   handleAdjustExpandedProjectsView
+                // }
               />
             </div>
           </div>
