@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import ProjectsList from '../ProjectsList';
+import chunk from 'lodash/chunk';
+import sortBy from 'lodash/sortBy';
+import { isDesktop } from '../../../utils/device';
+import { Skills, DeveloperInfo } from '../../views';
 import {
-  LogoAdalab,
-  Html,
-  Css,
-  Javascript,
-  Git,
-  Github,
-  Bootstrap,
-  Zeplin
-} from '../../../images';
+  SHOW_THUMBNAILS_ACTION,
+  ADVANCE_ACTION,
+  BACK_ACTION,
+  SHOW_THUMBNAILS_ON_MOBILE_ACTION
+} from '../../../constants';
+import { SectionDeveloper, DeveloperInfoWrapper } from './styles';
 import {
   developerTextPropType,
   projectsPropType,
@@ -22,277 +22,107 @@ class DeveloperProfile extends Component {
     texts: developerTextPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
     skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
-    // handleAdjustExpandedProjectsView: PropTypes.func.isRequired,
     language: PropTypes.string.isRequired
   };
 
   state = {
-    knowMore: false
+    knowMore: false,
+    displayThumbnails: false,
+    actualPage: 1,
+    totalPages: 0,
+    projectsList: [[]],
+    adjustedView: 0
   };
 
-  onClickKnowMore = () =>
-    this.setState(prevState => ({ knowMore: !prevState.knowMore }));
+  componentDidMount() {
+    this.organizeProjectsList(isDesktop ? 2 : 1);
+  }
+
+  organizeProjectsList = numberOfProjectsPerPage => {
+    const organizedProjects = chunk(
+      sortBy(this.props.projects),
+      numberOfProjectsPerPage
+    );
+    this.setState({
+      projectsList: organizedProjects,
+      totalPages: organizedProjects.length
+    });
+  };
+
+  toggleKnowMore = () =>
+    this.setState(prevState => ({
+      knowMore: !prevState.knowMore,
+      adjustedView: prevState.knowMore
+        ? prevState.adjustedView - 200
+        : prevState.adjustedView + 200
+    }));
+
+  toggleProjectsThumbNails = isVisible =>
+    this.setState(prevState => ({
+      displayThumbnails: isVisible,
+      adjustedView: isVisible
+        ? prevState.adjustedView + 150
+        : prevState.adjustedView - 150
+    }));
+
+  onClickChangePage = action => {
+    const { actualPage } = this.state;
+    let nextPage;
+
+    if (action === ADVANCE_ACTION) {
+      nextPage = actualPage + 1;
+    } else if (action === BACK_ACTION) {
+      nextPage = actualPage - 1;
+    }
+
+    if (nextPage) {
+      this.setState({
+        actualPage: nextPage
+      });
+    }
+  };
+
+  setProjectsListClasses = () => {
+    const { displayThumbnails } = this.state;
+
+    if (displayThumbnails && isDesktop) {
+      return ` ${SHOW_THUMBNAILS_ACTION}`;
+    }
+    if (displayThumbnails) {
+      return ` ${SHOW_THUMBNAILS_ON_MOBILE_ACTION}`;
+    }
+    return '';
+  };
 
   render() {
-    const { knowMore } = this.state;
     const {
-      texts,
-      language,
-      projects
-      // handleAdjustExpandedProjectsView
-    } = this.props;
+      knowMore,
+      displayThumbnails,
+      actualPage,
+      totalPages,
+      projectsList
+    } = this.state;
+    const { texts, language, skills } = this.props;
 
     return (
-      <section className="section__developer">
-        <div className="developer__outer">
-          <div className="developer__sidebar comeIn">
-            <h3 className="developer__skills--title">{texts.main}</h3>
-
-            <div className="developer__inner--skills">
-              <div className="skills__outer">
-                <h4 className="skills__text">CSS</h4>
-                <div className="skills__inner--icon">
-                  <img src={Css} alt="" className="skills__icon" />
-                </div>
-                <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star icon--star" aria-hidden />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text">HTML</h4>
-                <div className="skills__inner--icon">
-                  <img src={Html} alt="" className="skills__icon" />
-                </div>
-                <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star-half icon--star" aria-hidden />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text">JavaScript</h4>
-                <div className="skills__inner--icon">
-                  <img src={Javascript} alt="" className="skills__icon" />
-                </div>
-                <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star-half icon--star" aria-hidden />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text">SASS/SCSS</h4>
-                <div className="skills__inner--icon">
-                  <i
-                    className="fab fa-sass skills__icon icon--sass"
-                    aria-hidden
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star-half icon--star" aria-hidden />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text">React.js</h4>
-                <div className="skills__inner--icon">
-                  <i
-                    className="fab fa-react skills__icon icon--react"
-                    aria-hidden
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star icon--star" aria-hidden />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text">git</h4>
-                <div className="skills__inner--icon">
-                  <img src={Git} alt="" className="skills__icon" />
-                </div>
-                <div className="skills__inner--stars">
-                  <i className="fas fa-star icon--star" aria-hidden />
-                  <i className="fas fa-star icon--star" aria-hidden />
-                </div>
-              </div>
-            </div>
-            <h3 className="developer__skills--title">{texts.other}</h3>
-            <div className="developer__inner--skills developer__inner--skills-others">
-              <div className="skills__outer">
-                <h4 className="skills__text--others">GitHub</h4>
-                <div className="skills__inner--icon-others">
-                  <img
-                    src={Github}
-                    alt=""
-                    className="skills__icon--others icon--github"
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i
-                    className="fas fa-star icon--star icon--star--others"
-                    aria-hidden
-                  />
-                  <i
-                    className="fas fa-star icon--star icon--star--others"
-                    aria-hidden
-                  />
-                  <i
-                    className="fas fa-star icon--star icon--star--others"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text--others">node.js</h4>
-                <div className="skills__inner--icon-others">
-                  <i
-                    className="fab fa-node-js skills__icon--others icon--node"
-                    aria-hidden
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i
-                    className="fas fa-star-half icon--star icon--star--others"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text--others">gulp</h4>
-                <div className="skills__inner--icon-others">
-                  <i
-                    className="fab fa-gulp skills__icon--others icon--gulp"
-                    aria-hidden
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i
-                    className="fas fa-star-half icon--star icon--star--others"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text--others">npm</h4>
-                <div className="skills__inner--icon-others">
-                  <i
-                    className="fab fa-npm skills__icon--others icon--npm"
-                    aria-hidden
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i
-                    className="fas fa-star-half icon--star icon--star--others"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text--others">Bootstrap</h4>
-                <div className="skills__inner--icon-others">
-                  <img
-                    src={Bootstrap}
-                    alt=""
-                    className="skills__icon--others icon--bootstrap"
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i
-                    className="fas fa-star-half icon--star icon--star--others"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-
-              <div className="skills__outer">
-                <h4 className="skills__text--others">Zeplin</h4>
-                <div className="skills__inner--icon-others">
-                  <img
-                    src={Zeplin}
-                    alt=""
-                    className="skills__icon--others icon--zeplin"
-                  />
-                </div>
-                <div className="skills__inner--stars">
-                  <i
-                    className="fas fa-star icon--star icon--star--others"
-                    aria-hidden
-                  />
-                  <i
-                    className="fas fa-star icon--star icon--star--others"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="developer__main">
-            <div className="developer__formation comeIn">
-              <h2 className="developer__adalab--title">
-                {texts.formation}{' '}
-                <img
-                  src={LogoAdalab}
-                  alt="Adalab"
-                  className="developer__adalab--logo"
-                />
-                <span
-                  className="developer--more"
-                  onClick={this.onClickKnowMore}
-                  role="button"
-                  aria-label={texts.more}
-                  tabIndex={0}
-                >
-                  {texts.more}
-                </span>
-              </h2>
-
-              {knowMore && (
-                <>
-                  <p className="developer__adalab--text">{texts.adalabText}</p>
-                  <p className="developer__adalab--text">
-                    {texts.adalabMore}
-                    <a
-                      href="https://www.adalab.es"
-                      target="_Blank"
-                      rel="noopener noreferrer"
-                      className="project__url-a"
-                    >
-                      Adalab
-                    </a>
-                  </p>
-                </>
-              )}
-            </div>
-            <div className="developer__projects comeIn">
-              <h2 className="developer__projects--title">{texts.projects}</h2>
-              <p className="developer__projects--text">{texts.projectsText}</p>
-
-              <ProjectsList
-                texts={texts}
-                projects={projects}
-                language={language}
-                // handleAdjustExpandedProjectsView={
-                //   handleAdjustExpandedProjectsView
-                // }
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <SectionDeveloper>
+        <DeveloperInfoWrapper>
+          <Skills skills={skills} />
+          <DeveloperInfo
+            knowMore={knowMore}
+            texts={texts}
+            language={language}
+            toggleKnowMore={this.toggleKnowMore}
+            toggleProjectsThumbNails={this.toggleProjectsThumbNails}
+            displayThumbnails={displayThumbnails}
+            actualPage={actualPage}
+            totalPages={totalPages}
+            projectsList={projectsList}
+            onClickChangePage={this.onClickChangePage}
+            setProjectsListClasses={this.setProjectsListClasses}
+          />
+        </DeveloperInfoWrapper>
+      </SectionDeveloper>
     );
   }
 }
