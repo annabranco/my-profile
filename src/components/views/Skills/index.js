@@ -9,7 +9,9 @@ import {
   SkillsGrid,
   SkillWrapper,
   SkillName,
-  SkillGroup
+  SkillGroup,
+  SkillsList,
+  SkillsLogo
 } from './styles';
 
 const Skills = ({ skills }) => (
@@ -21,19 +23,20 @@ const Skills = ({ skills }) => (
         ) : (
           <SkillGroup key={skillGroup.name}>
             <SkillGroupTitle>{skillGroup.name}</SkillGroupTitle>
-            <SkillsGrid>
-              {skillGroup.skills.map(skill => (
-                <SkillWrapper key={skill.skill}>
-                  <SkillName>{skill.skill}</SkillName>
-                  {/*
-                <div className="skills__inner--icon">
-                   <img src={Css} alt="" className="skills__icon" />
-                </div>
-                */}
-                  <SkillLevel level={skill.level} />
-                </SkillWrapper>
-              ))}
-            </SkillsGrid>
+            <SkillsList>
+              <SkillsLogo src={skillGroup.logo} alt="" />
+              <SkillsGrid>
+                {skillGroup.skills.map(skill => (
+                  <SkillWrapper
+                    key={skill.skill}
+                    isLastElementAlone={skillGroup.skills.length % 2 !== 0}
+                  >
+                    <SkillName>{skill.skill}</SkillName>
+                    <SkillLevel level={skill.level} />
+                  </SkillWrapper>
+                ))}
+              </SkillsGrid>
+            </SkillsList>
           </SkillGroup>
         )}
       </>
