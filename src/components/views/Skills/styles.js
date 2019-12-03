@@ -6,7 +6,8 @@ import {
   colorBlack,
   colorBlueWater,
   fontTitleAlt,
-  fontTitle
+  fontTitle,
+  colorYellowBright
 } from '../../../styles/theme';
 
 export const Sidebar = styled.div`
@@ -37,10 +38,20 @@ export const Sidebar = styled.div`
   }
 `;
 
+export const SkillGroup = styled.div`
+  max-width: 280px;
+  border-radius: 10%;
+  margin: 20px 0 10px;
+  padding-bottom: 10px;
+  &:hover {
+    background: ${rgba(colorYellowBright, 0.1)};
+  }
+`;
+
 export const SkillGroupTitle = styled.h3`
   border: 1px solid ${colorBlack};
   border-radius: 10px 0;
-  margin: 20px 0 15px;
+  margin: 0 0 15px;
   background-image: linear-gradient(
     ${rgba(colorWhite, 0.2)},
     ${rgba(colorBlueWater, 0.5)}
@@ -52,24 +63,21 @@ export const SkillGroupTitle = styled.h3`
   text-align: center;
 `;
 
-export const SkillsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 60px);
-  grid-gap: 20px;
+export const SkillsList = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 `;
 
-export const SkillGroup = styled.div`
-  /* position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
+export const SkillsLogo = styled.img`
+  height: 30%;
+  width: 30%;
+`;
 
-  ${props =>
-    props.group === 'Frontend' &&
-    css`
-      grid-column: span 4;
-    `}
+export const SkillsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 60px);
+  grid-gap: 20px;
 `;
 
 export const SkillWrapper = styled.div`
@@ -82,6 +90,14 @@ export const SkillWrapper = styled.div`
   &:hover .skills__inner--stars {
     display: block;
   }
+
+  ${props =>
+    props.isLastElementAlone &&
+    css`
+      &:last-of-type {
+        grid-column: span 2;
+      }
+    `}
 `;
 
 export const SkillName = styled.h4`
