@@ -73,7 +73,7 @@
       "spanish": "Spanish"
     },
     "seabed": {
-      "experiences": "Previous experiences",
+      "formation": "Formation",
       "find": "You've found a curious object laying on the sea bed.",
       "find2": "Click on any of them to investigate it.",
       "findMore": "You've found two curious objects on the seabed.",
@@ -175,7 +175,7 @@
       "spanish": "Español"
     },
     "seabed": {
-      "experiences": "Experiencias anteriores",
+      "formation": "Formación",
       "find": "Has encontrado un objecto curioso en el fondo del mar.",
       "find2": "Haz click en cualquier uno para investigarlo.",
       "findMore": "Has encontrado dos objetos curiosos en el fondo del mar.",
@@ -287,7 +287,7 @@
       "spanish": "Espanhol"
     },
     "seabed": {
-      "experiences": "Experiências anteriores",
+      "formation": "Formação",
       "find": "Você encontrou um objeto curioso no fundo do mar.",
       "find2": "Clique em qualquer um de eles para investigá-lo.",
       "findMore": "Você encontrou dois objetos curiosos no fundo do mar.",
