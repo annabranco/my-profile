@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import { arrayOf, string } from 'prop-types';
 import { getFlagURL } from '../../../utils/icons';
 import { experiencesPropType, globalTextsPropType } from '../../../types';
 import {
@@ -75,10 +75,10 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
 };
 
 Experiences.propTypes = {
-  experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
-  language: PropTypes.string.isRequired,
+  experiences: arrayOf(experiencesPropType).isRequired,
+  language: string.isRequired,
   texts: globalTextsPropType.isRequired,
-  cuePointsActivated: PropTypes.arrayOf(PropTypes.string).isRequired
+  cuePointsActivated: arrayOf(string).isRequired
 };
 
 export default Experiences;

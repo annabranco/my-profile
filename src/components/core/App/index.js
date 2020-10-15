@@ -49,16 +49,19 @@ class App extends Component {
   };
 
   loadLanguageSettings = () => {
-    if (localStorage.getItem("Anna Branco's professional profile") !== null) {
-      const { language, doNotShowLanguageModalAgain } = JSON.parse(
-        localStorage.getItem("Anna Branco's professional profile")
-      );
-      this.setState({
-        language,
-        doNotShowLanguageModalAgain,
-        languageSettingsAreLoaded: true
-      });
-    }
+    const languageSettings =
+      JSON.parse(localStorage.getItem("Anna Branco's professional profile")) ||
+      {};
+    const language = languageSettings.language || this.state.language;
+    const doNotShowLanguageModalAgain =
+      languageSettings.doNotShowLanguageModalAgain ||
+      this.state.doNotShowLanguageModalAgain;
+
+    this.setState({
+      language,
+      doNotShowLanguageModalAgain,
+      languageSettingsAreLoaded: true
+    });
   };
 
   onChangeLanguage = event =>

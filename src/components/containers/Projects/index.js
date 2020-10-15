@@ -3,30 +3,23 @@ import { PropTypes } from 'prop-types';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
 import { isDesktop } from '../../../utils/device';
-import { Skills, DeveloperInfo } from '../../views';
 import {
   SHOW_THUMBNAILS_ACTION,
   ADVANCE_ACTION,
   BACK_ACTION,
   SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../constants';
-import { SectionDeveloper, DeveloperInfoWrapper } from './styles';
-import {
-  developerTextPropType,
-  projectsPropType,
-  skillGroupsPropType
-} from '../../../types';
+import { developerTextPropType, projectsPropType } from '../../../types';
+import ProjectsList from '../../views/ProjectsList';
 
-class DeveloperProfile extends Component {
+class Projects extends Component {
   static propTypes = {
     texts: developerTextPropType.isRequired,
     projects: PropTypes.arrayOf(projectsPropType).isRequired,
-    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
     language: PropTypes.string.isRequired
   };
 
   state = {
-    knowMore: false,
     displayThumbnails: false,
     actualPage: 1,
     totalPages: 0,
@@ -48,14 +41,6 @@ class DeveloperProfile extends Component {
       totalPages: organizedProjects.length
     });
   };
-
-  toggleKnowMore = () =>
-    this.setState(prevState => ({
-      knowMore: !prevState.knowMore,
-      adjustedView: prevState.knowMore
-        ? prevState.adjustedView - 200
-        : prevState.adjustedView + 200
-    }));
 
   toggleProjectsThumbNails = isVisible =>
     this.setState(prevState => ({
@@ -96,35 +81,27 @@ class DeveloperProfile extends Component {
 
   render() {
     const {
-      knowMore,
       displayThumbnails,
       actualPage,
       totalPages,
       projectsList
     } = this.state;
-    const { texts, language, skills } = this.props;
+    const { texts, language } = this.props;
 
     return (
-      <SectionDeveloper>
-        <DeveloperInfoWrapper>
-          <Skills skills={skills} />
-          <DeveloperInfo
-            knowMore={knowMore}
-            texts={texts}
-            language={language}
-            toggleKnowMore={this.toggleKnowMore}
-            toggleProjectsThumbNails={this.toggleProjectsThumbNails}
-            displayThumbnails={displayThumbnails}
-            actualPage={actualPage}
-            totalPages={totalPages}
-            projectsList={projectsList}
-            onClickChangePage={this.onClickChangePage}
-            setProjectsListClasses={this.setProjectsListClasses}
-          />
-        </DeveloperInfoWrapper>
-      </SectionDeveloper>
+      <ProjectsList
+        texts={texts}
+        language={language}
+        toggleProjectsThumbNails={this.toggleProjectsThumbNails}
+        displayThumbnails={displayThumbnails}
+        actualPage={actualPage}
+        totalPages={totalPages}
+        projectsList={projectsList}
+        onClickChangePage={this.onClickChangePage}
+        setProjectsListClasses={this.setProjectsListClasses}
+      />
     );
   }
 }
 
-export default DeveloperProfile;
+export default Projects;

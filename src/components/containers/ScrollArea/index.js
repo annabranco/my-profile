@@ -1,8 +1,9 @@
 import React, { Component, createRef } from 'react';
 import { PropTypes } from 'prop-types';
-import DeveloperProfile from '../DeveloperProfile';
 import Seabed from '../Seabed';
-import { InbetweenBar, Experiences, MyInfoPage } from '../../views';
+import Projects from '../Projects';
+
+import { ScrollSection, Experiences, MyInfoPage, Skills } from '../../views';
 import {
   textsPropType,
   projectsPropType,
@@ -174,35 +175,48 @@ class ScrollArea extends Component {
           texts={texts.infoPage}
           displayThanksMessage={displayThanksMessage}
         />
-        <InbetweenBar title={texts.sections.technical} />
-        <DeveloperProfile
-          texts={texts.developer}
-          projects={projects}
-          skills={skills}
-          // handleAdjustExpandedProjectsView={
-          //   this.handleAdjustExpandedProjectsView
-          // }
-          language={texts.languages.languageCode}
-          cuePointsActivated={[...cuePointsActivated]}
-        />
+        <ScrollSection title={texts.sections.technical}>
+          <Skills
+            texts={texts.developer}
+            projects={projects}
+            skills={skills}
+            // handleAdjustExpandedProjectsView={
+            //   this.handleAdjustExpandedProjectsView
+            // }
+            language={texts.languages.languageCode}
+            cuePointsActivated={[...cuePointsActivated]}
+          />
+        </ScrollSection>
 
-        <InbetweenBar title={texts.sections.experience} />
-        <Experiences
-          texts={texts.global}
-          experiences={experiences}
-          language={texts.languages.languageCode}
-          cuePointsActivated={[...cuePointsActivated]}
-        />
+        <ScrollSection title={texts.sections.projects}>
+          <Projects
+            texts={texts.developer}
+            projects={projects}
+            skills={skills}
+            language={texts.languages.languageCode}
+            cuePointsActivated={[...cuePointsActivated]}
+          />
+        </ScrollSection>
 
-        <InbetweenBar title={texts.sections.other} />
-        <Seabed
-          texts={texts.seabed}
-          globalTexts={texts.global}
-          formation={formation}
-          textsOtherSkills={texts.otherSkills}
-          triggerThankYouMessage={triggerThankYouMessage}
-          resetScrollPosition={this.resetScrollPosition}
-        />
+        <ScrollSection title={texts.sections.experience}>
+          <Experiences
+            texts={texts.global}
+            experiences={experiences}
+            language={texts.languages.languageCode}
+            cuePointsActivated={[...cuePointsActivated]}
+          />
+        </ScrollSection>
+
+        <ScrollSection title={texts.sections.other}>
+          <Seabed
+            texts={texts.seabed}
+            globalTexts={texts.global}
+            formation={formation}
+            textsOtherSkills={texts.otherSkills}
+            triggerThankYouMessage={triggerThankYouMessage}
+            resetScrollPosition={this.resetScrollPosition}
+          />
+        </ScrollSection>
       </ScrollAreaWrapper>
     );
   }

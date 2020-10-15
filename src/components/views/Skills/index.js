@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import { arrayOf } from 'prop-types';
 import FrontendSkillGroup from '../FrontendSkillGroup';
 import SkillLevel from '../SkillLevel';
 import { skillGroupsPropType } from '../../../types';
@@ -11,11 +11,13 @@ import {
   SkillName,
   SkillGroup,
   SkillsList,
-  SkillsLogo
+  SkillsLogo,
+  SectionDeveloper,
+  DeveloperInfoWrapper
 } from './styles';
 
 const Skills = ({ skills }) => (
-  <Sidebar width={(window.innerWidth * 0, 9)}>
+  <Sidebar>
     {skills.map(skillGroup => (
       <>
         {skillGroup.name === 'Frontend' ? (
@@ -45,7 +47,7 @@ const Skills = ({ skills }) => (
 );
 
 Skills.propTypes = {
-  skills: PropTypes.arrayOf(skillGroupsPropType).isRequired
+  skills: arrayOf(skillGroupsPropType).isRequired
 };
 
 export default Skills;

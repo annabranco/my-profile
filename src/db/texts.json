@@ -1,13 +1,10 @@
 {
   "en": {
     "developer": {
-      "adalabMore": "To get to know about Adalab, you may visit their website: ",
-      "adalabText": "Adalab is an intensive formation program aiming the inclusion of women on the technology sector. In four months, with an average of 9 daily hours of studies (6 of them presential), we dive in deeply on the technical aspects of front-end and learn important skills for professional development. We also work with agile methodologies.",
       "expanded": "Expand view",
       "formation": "Formation by",
       "goUp": "go up",
       "main": "Main skills",
-      "more": "Know more",
       "other": "Other skills",
       "projects": "Projects",
       "projectsText": "In this section, you can see a few of my projects and creations:",
@@ -100,18 +97,16 @@
     "sections": {
       "experience": "Professional experience",
       "other": "Other informations",
+      "projects": "Projects",
       "technical": "Technical Competences"
     }
   },
   "es": {
     "developer": {
-      "adalabMore": "Para saber sobre Adalab, puedes consultar su página web: ",
-      "adalabText": "Adalab es un programa de formación intensiva destinado a la inclusión de mujeres en el sector tecnológico. de estudio al día (6 presenciales), profundizamos en la parte técnica del desarrollo front-end, además de en temas relacionados con el desarrollo profesional. Trabajamos también com metodologías ágiles.",
       "expanded": "Expandir visualización",
       "formation": "Formación por",
       "goUp": "subir",
       "main": "Habilidades principales",
-      "more": "Saber más",
       "other": "Otras habilidades",
       "projects": "Proyectos",
       "projectsText": "En esta sección puede ver algunos de mis proyectos y creacciones:",
@@ -204,6 +199,7 @@
     "sections": {
       "experience": "Experiencia profesional",
       "other": "Otras informaciones",
+      "projects": "Proyectos",
       "technical": "Competencias técnicas"
     }
   },
@@ -219,13 +215,10 @@
   },
   "pt": {
     "developer": {
-      "adalabMore": "Para saber sobre Adalab, você pode consultar sua página web: ",
-      "adalabText": "Adalab é um programa de formação intensiva destinado à inclusão de mulheres no setor tecnológico. Em quatro meses, com uma média de 9 horas diárias de estudos (6 das quais presenciais), nos aprofundamos na parte técnica de front-end e também em importantes temas relacionados ao desenvolvimento profissional. Trabalhamos também com metologias ágeis.",
       "expanded": "Expandir visualização",
       "formation": "Formação por",
       "goUp": "subir",
       "main": "Principais habilidades",
-      "more": "Saiba mais",
       "other": "Outras habilidades",
       "projects": "Projetos",
       "projectsText": "Nesta seção você pode ser alguns de meus projetos e criações:",
@@ -318,6 +311,7 @@
     "sections": {
       "experience": "Experiência profissional",
       "other": "Outras informações",
+      "projects": "Projetos",
       "technical": "Competências técnicas"
     }
   }
