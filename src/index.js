@@ -61,5 +61,10 @@ axios
   )
   .catch(error => {
     console.error(error);
-    ReactDOM.render(<div>Sorry</div>, document.getElementById('root'));
+    ReactDOM.render(
+      <div>
+        Sorry, there has been a problem when building up the application.
+      </div>,
+      document.getElementById('root')
+    );
   });

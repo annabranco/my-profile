@@ -10,12 +10,26 @@ import {
   colorYellowBright
 } from '../../../styles/theme';
 
+export const SectionDeveloper = styled.section`
+  position: relative;
+  background-position: center;
+  height: auto;
+  overflow: hidden;
+  padding-top: 50px;
+`;
+
+export const DeveloperInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+`;
+
 export const Sidebar = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    4,
-    ${props => `${(props.width - 80) / 4 - 20}px`}
-  );
+  box-sizing: border-box;
+  grid-template-columns: repeat(4, calc(100% / 4 - 15px));
   grid-gap: 20px;
   border-radius: 30px;
   background-image: linear-gradient(
@@ -23,8 +37,9 @@ export const Sidebar = styled.div`
     ${rgba(colorWhite, 0.2)}
   );
   height: 600px;
-  width: ${props => props.width};
+  width: 90vw;
   padding: 15px 40px 80px;
+  overflow: hidden;
 
   @media all and (min-width: 768px) {
     /* opacity: 0; */

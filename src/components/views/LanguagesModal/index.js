@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import { string, arrayOf, func } from 'prop-types';
 import { languagesTextPropType, languagesPropType } from '../../../types/index';
 import {
   BackgroundOverlay,
@@ -12,6 +12,7 @@ import {
   CheckBox,
   CheckBoxArea
 } from './styles';
+import AppButton from '../../elements/AppButton';
 
 const LanguagesModal = ({
   frenchClicked,
@@ -66,24 +67,22 @@ const LanguagesModal = ({
         />
         {texts.chekboxText}
       </CheckBoxArea>
-      <button
-        className="languages__close"
+      <AppButton
+        text="ok"
         onClick={onCloseLanguageModal}
-        type="button"
-      >
-        ok
-      </button>
+        buttonStyle="confirm"
+      />
     </ModalWrapper>
   </BackgroundOverlay>
 );
 
 LanguagesModal.propTypes = {
   texts: languagesTextPropType.isRequired,
-  languageSelected: PropTypes.string.isRequired,
-  languages: PropTypes.arrayOf(languagesPropType).isRequired,
-  onChangeLanguage: PropTypes.func.isRequired,
-  onCloseLanguageModal: PropTypes.func.isRequired,
-  handleShowLanguageModalAgain: PropTypes.func.isRequired
+  languageSelected: string.isRequired,
+  languages: arrayOf(languagesPropType).isRequired,
+  onChangeLanguage: func.isRequired,
+  onCloseLanguageModal: func.isRequired,
+  handleShowLanguageModalAgain: func.isRequired
 };
 
 export default LanguagesModal;
