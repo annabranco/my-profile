@@ -26,13 +26,15 @@
     "start:dev-wait-server": "wait-on http://localhost:3031/health && npm start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js"
+    "build": "npm-run-all build-css build-js",
+    "version": "auto-changelog -p --tag-prefix v && git add CHANGELOG.md"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
     "@babel/core": "^7.7.4",
     "@babel/node": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "auto-changelog": "^2.2.1",
     "babel-eslint": "^10.0.3",
     "cors": "^2.8.5",
     "eslint": "^6.6.0",
