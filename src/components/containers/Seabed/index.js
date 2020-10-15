@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import { PropTypes } from 'prop-types';
+import { arrayOf, func } from 'prop-types';
 import { OtherSkills, Formation } from '../../views';
 import {
   FloatingRight,
@@ -14,15 +14,29 @@ import {
   formationPropType
 } from '../../../types';
 import { isDesktop } from '../../../utils/device';
+import {
+  SeabedMessage,
+  SeabedMessageContainer,
+  SeabedMessageDevices,
+  SeabedSection,
+  SeabedSubsectionFormation,
+  SeabedSubsectionText,
+  SeabedSubsectionOtherSkills,
+  HeroImage,
+  SeabedFloor,
+  SeabedFloorText,
+  SeabedBackText,
+  HeroThinkingText
+} from './styles';
 
 const INITIAL_STATE = {
   hideInstructions: false,
-  experiences: {
+  formationSection: {
     active: false,
     visible: false,
     read: false
   },
-  otherSkills: {
+  otherSkillsSection: {
     active: false,
     visible: false,
     read: false
@@ -34,17 +48,21 @@ const INITIAL_STATE = {
     thoughts: -1
   },
   clickedLinkOnMobile: undefined,
-  finishedScenario: false
+  finishedScenario: false,
+  heroMovements: {
+    isSwimming: false,
+    isGoingUp: false
+  }
 };
 
 class Seabed extends Component {
   static propTypes = {
     texts: seabedTextPropType.isRequired,
     globalTexts: globalTextsPropType.isRequired,
-    formation: PropTypes.arrayOf(formationPropType).isRequired,
+    formation: arrayOf(formationPropType).isRequired,
     textsOtherSkills: otherSkillsTextPropType.isRequired,
-    triggerThankYouMessage: PropTypes.func.isRequired,
-    resetScrollPosition: PropTypes.func.isRequired
+    triggerThankYouMessage: func.isRequired,
+    resetScrollPosition: func.isRequired
   };
 
   state = INITIAL_STATE;
@@ -73,7 +91,7 @@ class Seabed extends Component {
     }));
   };
 
-  // ======== Handle view components (Experience and Other Skills)
+  // ======== Handle view components (Formation and Other Skills)
 
   onClickLinkOnMobile = link => {
     this.setState({
@@ -106,8 +124,8 @@ class Seabed extends Component {
       }
     }));
     if (
-      this.state.experiences.read &&
-      this.state.otherSkills.read &&
+      this.state.formationSection.read &&
+      this.state.otherSkillsSection.read &&
       isDesktop
     ) {
       this.setState({ finishedScenario: true });
@@ -143,10 +161,21 @@ class Seabed extends Component {
       Hero.src = SwimmingRight;
       Hero.style.left = `${Number(Hero.style.left.slice(0, -2)) +
         DISPLACEMENT}px`;
-      Hero.classList.add('swim');
+      this.setState({
+        heroMovements: {
+          isSwimming: true,
+          isGoingUp: false
+        }
+      });
       this.floatRight = setTimeout(() => {
         Hero.src = FloatingRight;
-        Hero.classList.remove('swim');
+        this.setState({
+          heroMovements: {
+            isSwimming: false,
+            isGoingUp: false
+          }
+        });
+        // Hero.classList.remove('swim');
       }, 3000);
     } else if (event.key === 'ArrowLeft') {
       // ---- Prevents movement beyond left margin on frame 'left'
@@ -168,10 +197,22 @@ class Seabed extends Component {
       Hero.src = SwimmingLeft;
       Hero.style.left = `${Number(Hero.style.left.slice(0, -2)) -
         DISPLACEMENT}px`;
-      Hero.classList.add('swim');
+      // Hero.classList.add('swim');
+      this.setState({
+        heroMovements: {
+          isSwimming: true,
+          isGoingUp: false
+        }
+      });
       this.floatLeft = setTimeout(() => {
         Hero.src = FloatingLeft;
-        Hero.classList.remove('swim');
+        // Hero.classList.remove('swim');
+        this.setState({
+          heroMovements: {
+            isSwimming: false,
+            isGoingUp: false
+          }
+        });
       }, 3000);
     }
     this.moveToSomewhere();
@@ -181,19 +222,19 @@ class Seabed extends Component {
   moveToSomewhere = () => {
     const { Hero } = this;
 
-    // ---- WHEN the Hero has viewed all components (Experience and OtherSkills), he goes up
-    const { experiences, otherSkills, frame } = this.state;
+    // ---- WHEN the Hero has viewed all components (Formation and OtherSkills), he goes up
+    const { formationSection, otherSkillsSection, frame } = this.state;
     if (
-      experiences.read &&
-      !experiences.active &&
-      otherSkills.read &&
-      !otherSkills.active &&
+      formationSection.read &&
+      !formationSection.active &&
+      otherSkillsSection.read &&
+      !otherSkillsSection.active &&
       frame === 'center'
     ) {
       this.goBackUp();
     }
 
-    // ---- Highlights the text "Previous Experiences" when hero swims over it
+    // ---- Highlights the text "Formation" when hero swims over it
     if (Number(Hero.style.left.slice(0, -2)) >= window.innerWidth - 400) {
       this.setState({ position: 'on-the-right' });
 
@@ -219,19 +260,19 @@ class Seabed extends Component {
       // ---- If Hero is coming from frame "left" (OtherSkills) sets scenario to "center"
       if (this.state.frame === 'left') {
         this.setState(prevState => ({
-          otherSkills: {
-            ...prevState.otherSkills,
+          otherSkillsSection: {
+            ...prevState.otherSkillsSection,
             active: false
           },
           frame: 'center',
           position: 'on-the-left'
         }));
 
-        // ---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "right" (Experiences)
+        // ---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "right" (Formation)
       } else if (this.state.frame === 'center') {
         this.setState(prevState => ({
-          experiences: {
-            ...prevState.experiences,
+          formationSection: {
+            ...prevState.formationSection,
             active: true
           },
           frame: 'right'
@@ -249,22 +290,22 @@ class Seabed extends Component {
         Hero.style.transition = 'all ease 1s';
       }, 10);
 
-      // ---- If Hero is coming from frame "right" (Experiences) sets scenario to "center"
+      // ---- If Hero is coming from frame "right" (Formation) sets scenario to "center"
       if (this.state.frame === 'right') {
         this.setState(prevState => ({
-          experiences: {
-            ...prevState.experiences,
+          formationSection: {
+            ...prevState.formationSection,
             active: false
           },
           frame: 'center',
           position: 'on-the-right'
         }));
 
-        // ---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkills)
+        // ---- If Hero is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkillsSection)
       } else if (this.state.frame === 'center') {
         this.setState(prevState => ({
-          otherSkills: {
-            ...prevState.otherSkills,
+          otherSkillsSection: {
+            ...prevState.otherSkillsSection,
             active: true
           },
           frame: 'left'
@@ -282,8 +323,15 @@ class Seabed extends Component {
       clearTimeout(this.floatRight);
       clearTimeout(this.floatLeft);
       Hero.src = SwimmingRight;
-      Hero.classList.remove('floating-soft');
-      Hero.classList.add('goingUp');
+      this.setState({
+        heroMovements: {
+          isSwimming: false,
+          isGoingUp: true
+        }
+      });
+
+      // Hero.classList.remove('floating-soft');
+      // Hero.classList.add('goingUp');
       Hero.style.transition = 'all ease 10s';
       Hero.style.top = '40%';
     }, 2000);
@@ -303,8 +351,14 @@ class Seabed extends Component {
       window.addEventListener('keyup', this.moveHero);
 
       // -- Puts Hero on its initial position
-      Hero.classList.add('floating-soft');
-      Hero.classList.remove('goingUp');
+      this.setState({
+        heroMovements: {
+          isSwimming: false,
+          isGoingUp: false
+        }
+      });
+      // Hero.classList.add('floating-soft');
+      // Hero.classList.remove('goingUp');
       Hero.style.top = '40%';
       Hero.style.left = `${window.innerWidth * 0.4}px`;
       Hero.src = FloatingRight;
@@ -315,107 +369,96 @@ class Seabed extends Component {
   render() {
     const {
       hideInstructions,
-      experiences,
-      otherSkills,
+      formationSection,
+      otherSkillsSection,
       heroThinks,
       position,
       frame,
-      finishedScenario
+      finishedScenario,
+      heroMovements
     } = this.state;
     const { texts, textsOtherSkills, globalTexts, formation } = this.props;
 
     return (
-      <section className="section__seabed">
+      <SeabedSection>
         {isDesktop && !hideInstructions && (
-          <div className="seabed__message--outer floating-soft">
-            <p className="seabed__message">{texts.message}</p>
-            <p className="seabed__message seabed__message-keyboard">
-              {texts.messageKeyboard}
-            </p>
-            <p className="seabed__message seabed__message-devices">
-              {texts.messageDevices}
-            </p>
-          </div>
+          <SeabedMessageContainer>
+            <SeabedMessage>{texts.message}</SeabedMessage>
+            <SeabedMessage>{texts.messageKeyboard}</SeabedMessage>
+            <SeabedMessageDevices>{texts.messageDevices}</SeabedMessageDevices>
+          </SeabedMessageContainer>
         )}
 
-        <div
-          className={`seabed__go--experiences floating floating-delay ${(frame !==
-            'center' ||
-            finishedScenario) &&
-            'hidden'}`}
-          onClick={() => this.onClickLinkOnMobile(!isDesktop && 'experiences')}
+        <SeabedSubsectionFormation
+          onClick={() =>
+            this.onClickLinkOnMobile(!isDesktop && 'formationSection')
+          }
           role="button"
           tabIndex={0}
+          hidden={finishedScenario || frame !== 'center'}
         >
-          <p
-            className={`seabed__go-text seabed__go-textRight ${position ===
-              'on-the-right' && 'goThisWay'}`}
-          >
-            {texts.experiences}
-          </p>
-        </div>
-        <div
-          className={`seabed__go--otherSkills floating ${(frame !== 'center' ||
-            finishedScenario) &&
-            'hidden'}`}
-          onClick={() => this.onClickLinkOnMobile(!isDesktop && 'otherSkills')}
-          role="button"
-          tabIndex={0}
-        >
-          <p
-            className={`seabed__go-text seabed__go-textLeft ${position ===
-              'on-the-left' && 'goThisWay'}`}
-          >
-            {texts.skills}
-          </p>
-        </div>
+          <SeabedSubsectionText active={position === 'on-the-right'}>
+            {texts.formation}
+          </SeabedSubsectionText>
+        </SeabedSubsectionFormation>
 
-        <img
+        <SeabedSubsectionOtherSkills
+          onClick={() =>
+            this.onClickLinkOnMobile(!isDesktop && 'otherSkillsSection')
+          }
+          role="button"
+          tabIndex={0}
+          hidden={finishedScenario || frame !== 'center'}
+        >
+          <SeabedSubsectionText active={position === 'on-the-left'}>
+            {texts.skills}
+          </SeabedSubsectionText>
+        </SeabedSubsectionOtherSkills>
+
+        <HeroImage
           src={FloatingRight}
           id="hero"
-          className="seabed__hero floating-soft"
           alt="A scuba diver swimming smoothly"
           ref={this.HeroRef}
+          isSwimming={heroMovements.isSwimming}
+          isGoingUp={heroMovements.isGoingUp}
         />
 
-        <div className="seabed__image">
-          <p
-            className={`seabed__anna ${(frame !== 'center' ||
-              finishedScenario) &&
-              'hidden'}`}
-          >
+        <SeabedFloor>
+          <SeabedFloorText hidden={finishedScenario || frame !== 'center'}>
             Anna Branco
-          </p>
-        </div>
+          </SeabedFloorText>
+        </SeabedFloor>
 
-        {experiences.active && (
+        {formationSection.active && (
           <Formation
+            texts={texts}
             globalTexts={globalTexts}
             formation={formation}
-            status={experiences}
-            onClickOpen={this.onClickOpen}
-            onClickClose={this.onClickClose}
+            status={formationSection}
+            onClickOpen={() => this.onClickOpen('formationSection')}
+            onClickClose={() => this.onClickClose('formationSection')}
           />
         )}
 
-        {otherSkills.active && (
+        {otherSkillsSection.active && (
           <OtherSkills
             texts={textsOtherSkills}
             globalTexts={globalTexts}
-            status={otherSkills}
-            onClickOpen={this.onClickOpen}
-            onClickClose={this.onClickClose}
+            status={otherSkillsSection}
+            onClickOpen={() => this.onClickOpen('otherSkillsSection')}
+            onClickClose={() => this.onClickClose('otherSkillsSection')}
           />
         )}
 
-        {finishedScenario && <p className="seabed__back">{texts.time2go}</p>}
+        {finishedScenario && <SeabedBackText>{texts.time2go}</SeabedBackText>}
 
         {heroThinks.side && (
-          <p className={`hero__thinks ${heroThinks.side}`}>
+          <HeroThinkingText side={heroThinks.side}>
             {texts.thoughts[heroThinks.thoughts]}
-          </p>
+          </HeroThinkingText>
         )}
-      </section>
+      </SeabedSection>
     );
   }
 }
