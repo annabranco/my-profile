@@ -13,7 +13,7 @@ import {
 import './styles/reset.css';
 import ErrorScreen from './components/core/ErrorBoundary/ErrorScreen';
 
-const APP_VERSION = 'v0.10.0';
+const APP_VERSION = 'v0.12.0';
 
 const requestData = URL => {
   return axios
