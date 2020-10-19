@@ -1,5 +1,5 @@
 const HOST_PRO =
-  'https://raw.githubusercontent.com/annabranco/my-profile/feature/technical_review/src/db';
+  'https://raw.githubusercontent.com/annabranco/my-profile/dev/src/db';
 const HOST_PRE = 'http://localhost:3031';
 
 const isDevelopment = process.env.REACT_APP_DEV_SERVER === 'true';

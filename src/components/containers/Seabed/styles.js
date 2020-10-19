@@ -6,8 +6,12 @@ import {
   colorWhite,
   colorYellowBright,
   colorYellowPale,
-  fontTitle
+  fontTitle,
+  colorGrayDark,
+  fontTitleAlt,
+  colorRedBright
 } from '../../../styles/theme';
+import { NotDisplayed } from '../../../styles/global';
 
 export const SeabedSection = styled.section`
   position: relative;
@@ -82,7 +86,7 @@ export const SeabedMessage = styled.p`
 `;
 
 export const SeabedMessageDevices = styled(SeabedMessage)`
-  display: none;
+  ${NotDisplayed};
 `;
 
 const SeabedSubsectionContainer = styled.div`
@@ -163,16 +167,15 @@ export const HeroImage = styled.img`
   position: absolute;
   bottom: 40%;
   opacity: 0.6;
-  display: none;
   width: 200px;
   transition: all ease 1s;
+  ${NotDisplayed};
 
   @media all and (min-width: 768px) {
     display: block;
   }
 
   ${({ isSwimming, isGoingUp }) => {
-    console.log('$$$ isSwimming, isGoingUp', isSwimming, isGoingUp);
     if (isSwimming) {
       return css`
         width: 250px;
@@ -256,4 +259,82 @@ export const HeroThinkingText = styled.p`
       right: ${rightValue};
     `;
   }}
+`;
+
+export const TextFindSomething = styled.p`
+  position: absolute;
+  top: 20vh;
+  left: 0;
+  transform: translate(-50%, 0);
+  width: 100%;
+  text-shadow: 0 0 2px ${colorBlack};
+  font-family: ${fontTitle};
+  font-size: 2rem;
+  color: ${colorWhite};
+  text-align: center;
+
+  @media all and (min-width: 768px) {
+    top: 30vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 2.5rem;
+
+    &:nth-of-type(2) {
+      top: 37vh;
+    }
+
+    &:nth-of-type(3) {
+      top: 44vh;
+    }
+  }
+
+  &:nth-of-type(2) {
+    top: 38vh;
+  }
+`;
+
+export const SeabedCloseButton = styled.button`
+  z-index: 4;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  border: 1px solid $[colorRedDark];
+  border-radius: 5px 0;
+  background-image: linear-gradient(
+    ${rgba(colorWhite, 0.2)},
+    ${rgba(colorRedBright, 0.9)}
+  );
+  padding: 2px 5px;
+  text-shadow: 0 0 1px ${rgba(colorGrayDark, 0.51)};
+  font-family: ${fontTitleAlt};
+  font-size: 0.7rem;
+  color: ${colorBlack};
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 ${rgba(colorBlack, 0.4)},
+    inset 0 1px 5px 1px ${rgba(colorWhite, 0.7)};
+
+  @media all and (min-width: 321px) {
+    border-radius: 8px 0;
+    padding: 2px 10px;
+    font-size: 1.2rem;
+  }
+
+  @media all and (min-width: 768px) {
+    right: 10px;
+    border-radius: 12px 0;
+    padding: 3px 12px;
+    font-size: 1.4rem;
+  }
+
+  &:hover {
+    transform: translate(0, 1px);
+    text-decoration: none;
+    box-shadow: inset 0 2px 5px 1px ${rgba(colorBlack, 0.4)};
+  }
+
+  ${({ hidden }) =>
+    hidden &&
+    css`
+      ${NotDisplayed}
+    `}
 `;

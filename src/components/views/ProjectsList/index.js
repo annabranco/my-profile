@@ -1,9 +1,23 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import { arrayOf, string, func, bool, number, oneOf } from 'prop-types';
 
 import { ProjectDetails } from '..';
-import { HIDE_ACTION, ADVANCE_ACTION, BACK_ACTION } from '../../../constants';
+import {
+  ADVANCE_ACTION,
+  BACK_ACTION,
+  SHOW_THUMBNAILS_ON_MOBILE_ACTION,
+  SHOW_THUMBNAILS_ACTION
+} from '../../../constants';
 import { developerTextPropType, projectsPropType } from '../../../types';
+import {
+  ProjectsSection,
+  CheckboxWrapper,
+  CheckboxElement,
+  MyProjectsList,
+  ProjectsPaginator,
+  ProjectsPaginatorText,
+  ProjectsPaginatorIcon
+} from './styles';
 
 const ProjectsList = ({
   texts,
@@ -12,24 +26,23 @@ const ProjectsList = ({
   displayThumbnails,
   actualPage,
   totalPages,
-  projectsList,
+  projects,
   onClickChangePage,
-  setProjectsListClasses
+  thumbnailsStyle
 }) => (
-  <section>
-    <div className="developer__projects--thumbnails-checkbox">
-      <input
+  <ProjectsSection>
+    <CheckboxWrapper>
+      <CheckboxElement
         id="developer__projects-checkbox"
         type="checkbox"
-        className="developer__projects-checkbox"
         onClick={event => toggleProjectsThumbNails(event.currentTarget.checked)}
       />
       <label htmlFor="developer__projects-checkbox">
         {texts.showThumbnails}
       </label>
-    </div>
-    <ul className={`projects__list${setProjectsListClasses()}`}>
-      {projectsList[actualPage - 1].map(project => (
+    </CheckboxWrapper>
+    <MyProjectsList thumbnailsStyle={thumbnailsStyle}>
+      {projects[actualPage - 1].map(project => (
         <ProjectDetails
           project={project}
           language={language}
@@ -37,52 +50,51 @@ const ProjectsList = ({
           key={project.title}
         />
       ))}
-    </ul>
-    <div className="project__seeMore">
-      <span
-        className={`project__seeMore-text project__seeMore-up ${actualPage ===
-          1 && HIDE_ACTION}`}
-      >
+    </MyProjectsList>
+    <ProjectsPaginator>
+      <ProjectsPaginatorText hidden={actualPage === 1}>
         {texts.goUp}
-      </span>
-      <i
-        className={`far fa-arrow-alt-circle-up icon--more ${actualPage === 1 &&
-          HIDE_ACTION}`}
+      </ProjectsPaginatorText>
+      <ProjectsPaginatorIcon
+        hidden={actualPage === 1}
+        className="far fa-arrow-alt-circle-up"
         onClick={() => onClickChangePage(BACK_ACTION)}
         role="button"
         aria-label={texts.goUp}
         tabIndex={0}
       />
-      <i
-        className={`far fa-arrow-alt-circle-down icon--more ${actualPage ===
-          totalPages && HIDE_ACTION}`}
+      <ProjectsPaginatorIcon
+        hidden={actualPage === totalPages}
+        className="far fa-arrow-alt-circle-down"
         onClick={() => onClickChangePage(ADVANCE_ACTION)}
         role="button"
         aria-label={texts.showMore}
         tabIndex={0}
       />
-      <span
-        className={`project__seeMore-text project__seeMore-down ${actualPage ===
-          totalPages && HIDE_ACTION}`}
-      >
+      <ProjectsPaginatorText hidden={actualPage === totalPages}>
         {texts.showMore}
-      </span>
-    </div>
-  </section>
+      </ProjectsPaginatorText>
+    </ProjectsPaginator>
+  </ProjectsSection>
 );
 
 ProjectsList.propTypes = {
   texts: developerTextPropType.isRequired,
-  projects: PropTypes.arrayOf(projectsPropType).isRequired,
-  language: PropTypes.string.isRequired,
-  toggleProjectsThumbNails: PropTypes.func.isRequired,
-  displayThumbnails: PropTypes.bool.isRequired,
-  actualPage: PropTypes.number.isRequired,
-  totalPages: PropTypes.number.isRequired,
-  projectsList: PropTypes.string.isRequired,
-  adjustedView: PropTypes.number.isRequired,
-  onClickChangePage: PropTypes.func.isRequired,
-  setProjectsListClasses: PropTypes.func.isRequired
+  projects: arrayOf(projectsPropType).isRequired,
+  language: string.isRequired,
+  toggleProjectsThumbNails: func.isRequired,
+  displayThumbnails: bool.isRequired,
+  actualPage: number.isRequired,
+  totalPages: number.isRequired,
+  onClickChangePage: func.isRequired,
+  thumbnailsStyle: oneOf([
+    SHOW_THUMBNAILS_ON_MOBILE_ACTION,
+    SHOW_THUMBNAILS_ACTION
+  ])
+};
+
+ProjectsList.defaultProps = {
+  thumbnailsStyle: undefined
 };
 
 export default ProjectsList;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import { arrayOf, string } from 'prop-types';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
 import { isDesktop } from '../../../utils/device';
@@ -15,15 +15,15 @@ import ProjectsList from '../../views/ProjectsList';
 class Projects extends Component {
   static propTypes = {
     texts: developerTextPropType.isRequired,
-    projects: PropTypes.arrayOf(projectsPropType).isRequired,
-    language: PropTypes.string.isRequired
+    projects: arrayOf(projectsPropType).isRequired,
+    language: string.isRequired
   };
 
   state = {
     displayThumbnails: false,
     actualPage: 1,
     totalPages: 0,
-    projectsList: [[]],
+    projects: [[]],
     adjustedView: 0
   };
 
@@ -37,7 +37,7 @@ class Projects extends Component {
       numberOfProjectsPerPage
     );
     this.setState({
-      projectsList: organizedProjects,
+      projects: organizedProjects,
       totalPages: organizedProjects.length
     });
   };
@@ -67,25 +67,20 @@ class Projects extends Component {
     }
   };
 
-  setProjectsListClasses = () => {
+  getThumbnailsStyle = () => {
     const { displayThumbnails } = this.state;
 
     if (displayThumbnails && isDesktop) {
-      return ` ${SHOW_THUMBNAILS_ACTION}`;
+      return SHOW_THUMBNAILS_ACTION;
     }
     if (displayThumbnails) {
-      return ` ${SHOW_THUMBNAILS_ON_MOBILE_ACTION}`;
+      return SHOW_THUMBNAILS_ON_MOBILE_ACTION;
     }
     return '';
   };
 
   render() {
-    const {
-      displayThumbnails,
-      actualPage,
-      totalPages,
-      projectsList
-    } = this.state;
+    const { displayThumbnails, actualPage, totalPages, projects } = this.state;
     const { texts, language } = this.props;
 
     return (
@@ -96,9 +91,9 @@ class Projects extends Component {
         displayThumbnails={displayThumbnails}
         actualPage={actualPage}
         totalPages={totalPages}
-        projectsList={projectsList}
+        projects={projects}
         onClickChangePage={this.onClickChangePage}
-        setProjectsListClasses={this.setProjectsListClasses}
+        thumbnailsStyle={this.getThumbnailsStyle()}
       />
     );
   }

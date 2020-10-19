@@ -22,7 +22,7 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('$$$ Something unexpected had happened', error, errorInfo);
+    console.error('Something unexpected had happened', error, errorInfo);
   }
 
   render() {

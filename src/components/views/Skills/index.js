@@ -11,9 +11,7 @@ import {
   SkillName,
   SkillGroup,
   SkillsList,
-  SkillsLogo,
-  SectionDeveloper,
-  DeveloperInfoWrapper
+  SkillsLogo
 } from './styles';
 
 const Skills = ({ skills }) => (

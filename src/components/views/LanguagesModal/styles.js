@@ -9,6 +9,7 @@ import {
   fontSubtitle,
   fontTitleAlt
 } from '../../../styles/theme';
+import { NotDisplayed } from '../../../styles/global';
 
 export const BackgroundOverlay = styled.div`
   z-index: 3;
@@ -46,7 +47,7 @@ export const ModalWrapper = styled.div`
 
   @media all and (min-width: 560px) {
     border-radius: 50px 0;
-    height: 300px;
+    height: 260px;
     width: 480px;
   }
 `;
@@ -86,7 +87,7 @@ export const Flag = styled.div`
   ${props =>
     !props.active &&
     css`
-      display: none;
+      ${NotDisplayed};
     `}
 `;
 

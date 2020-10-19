@@ -1,6 +1,5 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { SHOW_ACTION } from '../../../constants/actions';
 import {
   experiencesTextPropType,
   seabedElementsPropType,
@@ -8,6 +7,26 @@ import {
   formationPropType
 } from '../../../types';
 import { isDesktop } from '../../../utils/device';
+// import {  } from './styles.js';
+import {
+  SeabedCloseButton,
+  TextFindSomething
+} from '../../containers/Seabed/styles';
+import {
+  FakeText,
+  SectionFormation,
+  FormationWrapper,
+  FormationInnerWrapper,
+  FormationYear,
+  FormationVerticalBar,
+  FormationSeparator,
+  FormationHorizontalBar,
+  FormationTitle,
+  FormationDetails,
+  FormationFlag,
+  FormationMore,
+  FormationMoreLink
+} from './styles';
 
 const Formation = ({
   texts,
@@ -20,103 +39,103 @@ const Formation = ({
   <>
     {!read && isDesktop ? (
       <>
-        <p className="seabed__findSomething">{texts.find}</p>
-        <p className="seabed__findSomething">{texts.investigate}</p>
+        <TextFindSomething>{texts.find}</TextFindSomething>
+        <TextFindSomething>{texts.investigate}</TextFindSomething>
       </>
     ) : null}
-    <section>
-      <div
+    {/* <div
         className={`section__experiences ${visible && SHOW_ACTION}`}
         onClick={() => onClickOpen('experiences')}
         role="button"
         aria-label={globalTexts.open}
         tabIndex={0}
-      >
-        {!visible ? (
-          <>
-            <p className="experiences__text-fake">- - --- - --</p>
-            <p className="experiences__text-fake">- -- -- - --</p>
-            <p className="experiences__text-fake">- -- ---- --</p>
-            <p className="experiences__text-fake">- - - --- --</p>
-          </>
-        ) : (
-          <div className="experiences__outer">
-            <button
-              className="seabed__click2close"
-              onClick={() => onClickClose('experiences')}
-              type="button"
-              aria-label={globalTexts.close}
-            >
-              X
-            </button>
+      > */}
+    <SectionFormation
+      onClick={() => onClickOpen('experiences')}
+      role="button"
+      aria-label={globalTexts.open}
+      tabIndex={0}
+      visible={visible}
+    >
+      {!visible ? (
+        <>
+          <FakeText>- - --- - --</FakeText>
+          <FakeText>- -- -- - --</FakeText>
+          <FakeText>- -- ---- --</FakeText>
+          <FakeText>- - - --- --</FakeText>
+        </>
+      ) : (
+        <FormationWrapper>
+          <SeabedCloseButton
+            onClick={() => onClickClose('experiences')}
+            type="button"
+            aria-label={globalTexts.close}
+          >
+            X
+          </SeabedCloseButton>
 
-            <div className="experiences__inner">
-              <div className="experiences__inner--year">09/2017 - 05/2018</div>
-              <div className="experiences__inner--year">10/2015 - 11/2015</div>
-              <div className="experiences__inner--year">05/2005 - 12/2014</div>
-            </div>
-            <div className="experiences__inner">
-              <div className="experiences__verticalBar" />
-            </div>
-            <div className="experiences__inner">
-              <div className="experiences__inner--horizontalBar">
-                <div className="experiences__horizontarBar-psy" />
-                <h2 className="experiences__title">{texts.ict}</h2>
-                <p className="experiences__details">
-                  Servicios Profesionales Sociales, Madrid.
-                  <img
-                    className="experiences__flag"
-                    src="https://www.countryflags.io/es/flat/16.png"
-                    alt={texts.spain}
-                    title={texts.spain}
-                  />
-                </p>
-                <p className="experiences__details">{texts.ictDetails}</p>
-              </div>
-              <div className="experiences__inner--horizontalBar">
-                <div className="experiences__horizontarBar-ir" />
-                <h2 className="experiences__title">{texts.eru}</h2>
-                <p className="experiences__details">
-                  Cruz Roja Española
-                  <img
-                    className="experiences__flag"
-                    src="https://www.countryflags.io/es/flat/16.png"
-                    alt={texts.spain}
-                    title={texts.spain}
-                  />
-                </p>
-                <p className="experiences__details">{texts.eruDetails}</p>
-              </div>
-              <div className="experiences__inner--horizontalBar">
-                <div className="experiences__horizontarBar-master" />
-                <h2 className="experiences__title">{texts.tj}</h2>
-                <p className="experiences__details">
-                  Tribunal de Justiça do Estado do Rio de Janeiro{' '}
-                  <img
-                    className="experiences__flag"
-                    src="https://www.countryflags.io/br/flat/16.png"
-                    alt={texts.brazil}
-                    title={texts.brazil}
-                  />
-                </p>
-                <p className="experiences__details">{texts.tjDetails}</p>
-              </div>
-            </div>
-            <p className="experiences__more">
-              {texts.linkedin}
-              <a
-                className="experiences__social--link"
-                href="https://www.linkedin.com/in/annabranco/"
-                target="_Blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-linkedin-in icon-linkedin" />
-              </a>
-            </p>
-          </div>
-        )}
-      </div>
-    </section>
+          <FormationInnerWrapper>
+            <FormationYear>09/2017 - 05/2018</FormationYear>
+            <FormationYear>10/2015 - 11/2015</FormationYear>
+            <FormationYear>05/2005 - 12/2014</FormationYear>
+          </FormationInnerWrapper>
+          <FormationInnerWrapper>
+            <FormationVerticalBar />
+          </FormationInnerWrapper>
+          <FormationInnerWrapper>
+            <FormationSeparator>
+              <FormationHorizontalBar />
+              <FormationTitle>{texts.ict}</FormationTitle>
+              <FormationDetails>
+                Servicios Profesionales Sociales, Madrid.
+                <FormationFlag
+                  src="https://www.countryflags.io/es/flat/16.png"
+                  alt={texts.spain}
+                  title={texts.spain}
+                />
+              </FormationDetails>
+              <FormationDetails>{texts.ictDetails}</FormationDetails>
+            </FormationSeparator>
+            <FormationSeparator>
+              <FormationHorizontalBar />
+              <FormationTitle>{texts.eru}</FormationTitle>
+              <FormationDetails>
+                Cruz Roja Española
+                <FormationFlag
+                  src="https://www.countryflags.io/es/flat/16.png"
+                  alt={texts.spain}
+                  title={texts.spain}
+                />
+              </FormationDetails>
+              <FormationDetails>{texts.eruDetails}</FormationDetails>
+            </FormationSeparator>
+            <FormationSeparator>
+              <FormationHorizontalBar />
+              <FormationTitle>{texts.tj}</FormationTitle>
+              <FormationDetails>
+                Tribunal de Justiça do Estado do Rio de Janeiro{' '}
+                <FormationFlag
+                  src="https://www.countryflags.io/br/flat/16.png"
+                  alt={texts.brazil}
+                  title={texts.brazil}
+                />
+              </FormationDetails>
+              <FormationDetails>{texts.tjDetails}</FormationDetails>
+            </FormationSeparator>
+          </FormationInnerWrapper>
+          <FormationMore>
+            {texts.linkedin}
+            <FormationMoreLink
+              href="https://www.linkedin.com/in/annabranco/"
+              target="_Blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-linkedin-in icon-linkedin" />
+            </FormationMoreLink>
+          </FormationMore>
+        </FormationWrapper>
+      )}
+    </SectionFormation>
   </>
 );
 

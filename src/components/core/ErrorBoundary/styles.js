@@ -1,19 +1,13 @@
 import styled, { css } from 'styled-components';
-import { rgba } from 'polished';
 import {
   colorWhite,
   colorBlueLight,
-  colorBlueDark,
   colorBlack,
   colorGrayNormal,
   fontSubtitle,
-  fontTitleAlt,
-  colorGreenBright,
-  colorBlueNormal,
-  fontTitle,
-  colorGrayDark
+  fontTitleAlt
 } from '../../../styles/theme';
-import { FullScreen, Hidden, MainBackground } from '../../../globalStyles';
+import { FullScreen, MainBackground } from '../../../styles/global';
 import { SocialLinkButton } from '../../views/Social/styles';
 
 export const ErrorSection = styled.div`

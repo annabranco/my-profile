@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import { PropTypes } from 'prop-types';
+import { arrayOf, func, bool } from 'prop-types';
 import Seabed from '../Seabed';
 import Projects from '../Projects';
 
@@ -16,13 +16,13 @@ import { ScrollAreaWrapper } from './styles';
 class ScrollArea extends Component {
   static propTypes = {
     texts: textsPropType.isRequired,
-    projects: PropTypes.arrayOf(projectsPropType).isRequired,
-    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
-    experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
-    formation: PropTypes.arrayOf(formationPropType).isRequired,
-    triggerThankYouMessage: PropTypes.func.isRequired,
-    displayThanksMessage: PropTypes.bool.isRequired,
-    languageModalIsVisible: PropTypes.bool.isRequired
+    projects: arrayOf(projectsPropType).isRequired,
+    skills: arrayOf(skillGroupsPropType).isRequired,
+    experiences: arrayOf(experiencesPropType).isRequired,
+    formation: arrayOf(formationPropType).isRequired,
+    triggerThankYouMessage: func.isRequired,
+    displayThanksMessage: bool.isRequired,
+    languageModalIsVisible: bool.isRequired
   };
 
   scrollAreaRef = createRef();
@@ -180,9 +180,6 @@ class ScrollArea extends Component {
             texts={texts.developer}
             projects={projects}
             skills={skills}
-            // handleAdjustExpandedProjectsView={
-            //   this.handleAdjustExpandedProjectsView
-            // }
             language={texts.languages.languageCode}
             cuePointsActivated={[...cuePointsActivated]}
           />
