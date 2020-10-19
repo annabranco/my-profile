@@ -6,6 +6,7 @@ import {
   fontTitleAlt,
   fontTitle
 } from '../../../styles/theme';
+import { NotDisplayed } from '../../../styles/global';
 
 export const HeaderWrapper = styled.header`
   z-index: 2;
@@ -64,7 +65,7 @@ export const Flag = styled.div`
   ${props =>
     !props.active &&
     css`
-      display: none;
+      ${NotDisplayed};
     `}
 `;
 

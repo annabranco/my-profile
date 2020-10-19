@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { func, arrayOf, string, bool } from 'prop-types';
 import ScrollArea from '../ScrollArea';
 import { LanguagesModal } from '../../views';
 import {
@@ -13,18 +13,18 @@ import {
 
 class MainArea extends Component {
   static propTypes = {
-    onChangeLanguage: PropTypes.func.isRequired,
+    onChangeLanguage: func.isRequired,
     texts: textsPropType.isRequired,
-    projects: PropTypes.arrayOf(projectsPropType).isRequired,
-    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
-    experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
-    formation: PropTypes.arrayOf(formationPropType).isRequired,
-    languages: PropTypes.arrayOf(languagesPropType).isRequired,
-    language: PropTypes.string.isRequired,
-    closeLanguageModal: PropTypes.func.isRequired,
-    doNotShowLanguageModalAgain: PropTypes.bool.isRequired,
-    triggerThankYouMessage: PropTypes.func.isRequired,
-    displayThanksMessage: PropTypes.bool.isRequired
+    projects: arrayOf(projectsPropType).isRequired,
+    skills: arrayOf(skillGroupsPropType).isRequired,
+    experiences: arrayOf(experiencesPropType).isRequired,
+    formation: arrayOf(formationPropType).isRequired,
+    languages: arrayOf(languagesPropType).isRequired,
+    language: string.isRequired,
+    closeLanguageModal: func.isRequired,
+    doNotShowLanguageModalAgain: bool.isRequired,
+    triggerThankYouMessage: func.isRequired,
+    displayThanksMessage: bool.isRequired
   };
 
   state = {

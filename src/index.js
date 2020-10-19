@@ -10,7 +10,8 @@ import {
   EXPERIENCES_PATH,
   LANGUAGES_PATH
 } from './constants';
-import './styles/styles.css';
+import './styles/reset.css';
+import ErrorScreen from './components/core/ErrorBoundary/ErrorScreen';
 
 const APP_VERSION = 'v0.10.0';
 
@@ -62,9 +63,9 @@ axios
   .catch(error => {
     console.error(error);
     ReactDOM.render(
-      <div>
-        Sorry, there has been a problem when building up the application.
-      </div>,
+      <ErrorScreen
+        error={`Fail when building up the application => ${error.message}`}
+      />,
       document.getElementById('root')
     );
   });

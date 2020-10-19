@@ -5,11 +5,7 @@ import { string, func } from 'prop-types';
 import {
   colorWhite,
   colorBlueLight,
-  colorBlueDark,
   colorBlack,
-  colorGrayNormal,
-  fontSubtitle,
-  fontTitleAlt,
   fontTitle
 } from '../../../styles/theme';
 

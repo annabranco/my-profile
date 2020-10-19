@@ -15,7 +15,6 @@ import {
 import AppButton from '../../elements/AppButton';
 
 const LanguagesModal = ({
-  frenchClicked,
   texts,
   languages,
   languageSelected,
@@ -25,16 +24,6 @@ const LanguagesModal = ({
 }) => (
   <BackgroundOverlay>
     <ModalWrapper>
-      <ModalText frenchClicked={frenchClicked}>
-        {frenchClicked ? '' : texts.readingLanguage}
-      </ModalText>
-
-      <ModalText frenchClicked={frenchClicked}>
-        {frenchClicked
-          ? "Je suis désolée mais le français n'est pas encore implementé."
-          : texts.changeDefault}
-      </ModalText>
-
       <FlagsWrapper>
         {languages.map(item => (
           <Flag

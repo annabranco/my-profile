@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { string, arrayOf } from 'prop-types';
 import ErrorBoundary from '../ErrorBoundary';
 import { MainArea } from '../../containers';
 import { Header } from '../../views';
@@ -18,12 +18,12 @@ const DEFAULT_PAGE_LANGUAGE = 'English';
 class App extends Component {
   static propTypes = {
     texts: allLanguagesTextsPropType.isRequired,
-    APP_VERSION: PropTypes.string.isRequired,
-    projects: PropTypes.arrayOf(projectsPropType).isRequired,
-    skills: PropTypes.arrayOf(skillGroupsPropType).isRequired,
-    experiences: PropTypes.arrayOf(experiencesPropType).isRequired,
-    formation: PropTypes.arrayOf(formationPropType).isRequired,
-    languages: PropTypes.arrayOf(languagesPropType).isRequired
+    APP_VERSION: string.isRequired,
+    projects: arrayOf(projectsPropType).isRequired,
+    skills: arrayOf(skillGroupsPropType).isRequired,
+    experiences: arrayOf(experiencesPropType).isRequired,
+    formation: arrayOf(formationPropType).isRequired,
+    languages: arrayOf(languagesPropType).isRequired
   };
 
   state = {

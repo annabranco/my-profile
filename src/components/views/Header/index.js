@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, func, arrayOf } from 'prop-types';
 import { headerTextPropType, languagesPropType } from '../../../types/index';
 import {
   HeaderWrapper,
@@ -43,10 +43,10 @@ const Header = ({
 
 Header.propTypes = {
   texts: headerTextPropType.isRequired,
-  language: PropTypes.string.isRequired,
-  onChangeLanguage: PropTypes.func.isRequired,
-  APP_VERSION: PropTypes.string.isRequired,
-  languages: PropTypes.arrayOf(languagesPropType).isRequired
+  language: string.isRequired,
+  onChangeLanguage: func.isRequired,
+  APP_VERSION: string.isRequired,
+  languages: arrayOf(languagesPropType).isRequired
 };
 
 export default Header;
