@@ -8,7 +8,7 @@ import {
 } from '../../../styles/theme';
 import { NotDisplayed } from '../../../styles/global';
 
-export const HeaderWrapper = styled.header`
+export const HeaderArea = styled.header`
   z-index: 2;
   position: fixed;
   top: 0;
@@ -22,13 +22,14 @@ export const HeaderWrapper = styled.header`
     ${rgba(colorWhite, 0.6)} 50%
   );
   height: 40px;
-  width: 100vw;
+  width: 100%;
   padding: 0 80px;
 
   @media all and (min-width: 500px) {
     flex-wrap: nowrap;
   }
 `;
+HeaderArea.displayName = '--- Header ---';
 
 const headerInner = css`
   min-width: 250px;
@@ -43,6 +44,7 @@ export const LanguagesWrapper = styled.div`
     order: 1;
   }
 `;
+LanguagesWrapper.displayName = '--- Languages ---';
 
 const activeFlag = css`
   opacity: 1;
@@ -68,8 +70,9 @@ export const Flag = styled.div`
       ${NotDisplayed};
     `}
 `;
+Flag.displayName = '--- Country Flag ---';
 
-export const HeaderTitle = styled.h2`
+export const AppTitle = styled.h2`
   ${headerInner}
   order  : 1;
   height: 20px;
@@ -79,9 +82,11 @@ export const HeaderTitle = styled.h2`
     order: 2;
   }
 `;
+AppTitle.displayName = '--- App Title ---';
 
-export const VersionInfo = styled.p`
+export const Version = styled.p`
   ${headerInner}
   font-family: ${fontTitle};
   order: 3;
 `;
+Version.displayName = '--- Version ---';

@@ -97,9 +97,9 @@
       "id": "adalab",
       "place": "Madrid",
       "title": {
-        "en": "Programadora Frontend",
-        "es": "",
-        "pt": ""
+        "en": "Frontend Developer",
+        "es": "Programadora Frontend",
+        "pt": "Programadora Frontend"
       },
       "university": "Adalab",
       "visible": true

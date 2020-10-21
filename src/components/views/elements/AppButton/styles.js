@@ -1,32 +1,11 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { string, func } from 'prop-types';
 import {
   colorWhite,
   colorBlueLight,
   colorBlack,
   fontTitle
-} from '../../../styles/theme';
-
-const AppButton = ({ text, buttonStyle, onClick }) => (
-  <StyledButton buttonStyle={buttonStyle} onClick={onClick} type="button">
-    {text}
-  </StyledButton>
-);
-
-AppButton.propTypes = {
-  text: string.isRequired,
-  buttonStyle: string,
-  onClick: func
-};
-
-AppButton.defaultProps = {
-  buttonStyle: 'default',
-  onClick: () => null
-};
-
-export default AppButton;
+} from '../../../../styles/theme';
 
 export const StyledButton = styled.button`
   border: 1px solid ${colorBlack};
@@ -60,3 +39,4 @@ export const StyledButton = styled.button`
     );
   }}
 `;
+StyledButton.displayName = '--- App Button ---';

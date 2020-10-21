@@ -13,6 +13,7 @@ import {
   colorRedDark,
   colorYellowDark
 } from '../../../styles/theme';
+import { Logo } from '../Skills/styles';
 
 export const SectionFormation = styled.section`
   z-index: 6;
@@ -33,7 +34,6 @@ export const SectionFormation = styled.section`
   );
   height: 40px;
   width: 60px;
-  box-sizing: border-box;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 4px 5px 0 ${rgba(colorBlack, 0.4)},
@@ -58,7 +58,7 @@ export const SectionFormation = styled.section`
       border: 2px solid ${colorBlack};
       border-radius: 0;
       height: 90vh;
-      width: 100vw;
+      width: 100%;
       padding: 5px;
       cursor: default;
 
@@ -81,6 +81,7 @@ export const SectionFormation = styled.section`
       }
     `}
 `;
+SectionFormation.displayName = '--- FORMATION Section ---';
 
 export const FakeText = styled.p`
   width: 100%;
@@ -88,98 +89,47 @@ export const FakeText = styled.p`
   line-height: 0.8;
   text-align: center;
 `;
+FakeText.displayName = '--- Fake Text ---';
+
+export const FormationArea = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+`;
+FormationArea.displayName = '--- Formation Area ---';
+
+export const VerticalBar = styled.div`
+  position: absolute;
+  left: 10%;
+  border-right: 5px solid ${rgba(colorBlueLight, 0.3)};
+  height: 100%;
+  width: 0;
+`;
+VerticalBar.displayName = '--- Vertical Bar ---';
 
 export const FormationWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: flex-end;
   margin: 0 auto;
-  height: 100%;
+  padding-right: 5vw;
+  height: auto;
   width: 100%;
 `;
+FormationWrapper.displayName = '--- Formation Wrapper ---';
 
-export const FormationInnerWrapper = styled.div`
+export const FormationItem = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
-  margin: 0 auto;
-  height: 100%;
+  align-items: flex-start;
+  margin: 20px 0;
+  height: auto;
   width: 100%;
 `;
-
-const FormationBaseInnerStyles = css`
-  margin-top: 50px;
-  height: 25%;
-
-  @media all and (min-width: 321px) {
-    margin-top: 25px;
-
-    &:first-of-type {
-      margin-top: 60px;
-    }
-
-    &:last-of-type {
-      margin-top: 10px;
-    }
-  }
-
-  @media all and (min-width: 768px) {
-    margin-top: 40px;
-  }
-
-  &:first-of-type {
-    margin-top: 35px;
-  }
-
-  &:last-of-type {
-    margin-top: 10px;
-  }
-`;
-
-export const FormationYear = styled.div`
-  ${FormationBaseInnerStyles}
-  margin-right : 5px;
-  width: 40px;
-  font-family: ${fontTitle};
-  font-size: 0.8em;
-  color: ${colorRedDark};
-  text-align: center;
-
-  @media all and (min-width: 321px) {
-    margin-right: 10px;
-    width: 60px;
-    font-size: 1.2em;
-  }
-
-  @media all and (min-width: 768px) {
-    margin-right: 15px;
-    width: 60px;
-  }
-`;
-
-export const FormationVerticalBar = styled.div`
-  border-right: 5px solid ${rgba(colorBlueLight, 0.3)};
-  height: 80vh;
-
-  @media all and (min-width: 768px) {
-    height: 85vh;
-  }
-`;
-
-export const FormationSeparator = styled.div`
-  ${FormationBaseInnerStyles}
-  border-right: 5px solid ${rgba(colorBlueLight, 0.3)};
-  height: 80vh;
-
-  @media all and (min-width: 768px) {
-    height: 85vh;
-  }
-`;
-
-export const FormationHorizontalBar = styled.div`
-  display: inline-block;
-  border-top: 5px solid ${rgba(colorBlueLight, 0.3)};
-`;
+FormationItem.displayName = '--- Formation Item ---';
 
 export const FormationTitle = styled.h2`
   display: inline;
@@ -197,37 +147,56 @@ export const FormationTitle = styled.h2`
     color: ${colorYellowDark};
   }
 `;
+FormationTitle.displayName = '--- Formation Title ---';
 
-export const FormationDetails = styled.p`
-  margin: 5px 10px;
+export const DetailsArea = styled.div`
+  width: 80%;
+
+  ${({ margin }) =>
+    margin &&
+    css`
+      margin-left: ${margin};
+    `}
+`;
+DetailsArea.displayName = '--- Details Area ---';
+
+export const Details = styled.p`
+  margin: 0 40px;
   font-family: ${fontSubtitle};
   font-size: 0.9rem;
   line-height: 1;
 
   @media all and (min-width: 768px) {
     font-size: 1rem;
-    line-height: 2;
+    line-height: 1.3;
+  }
+  &:first-of-type {
+    margin-top: 5px;
   }
 `;
+Details.displayName = '--- Details ---';
 
-export const FormationFlag = styled.img`
-  margin-left: 5px;
-  vertical-align: middle;
-`;
+// export const Flag = styled.img`
+//   margin-left: 5px;
+//   vertical-align: middle;
+// `;
+// Flag.displayName = '--- Flag ---';
 
-export const FormationMore = styled.p`
-  position: absolute;
-  bottom: 5px;
-  right: 35px;
-  font-size: 0.8rem;
+// export const MoreInfo = styled.p`
+//   position: absolute;
+//   bottom: 5px;
+//   right: 35px;
+//   font-size: 0.8rem;
 
-  @media all and (min-width: 321px) {
-    bottom: 15px;
-    font-size: 1rem;
-  }
-`;
+//   @media all and (min-width: 321px) {
+//     bottom: 15px;
+//     font-size: 1rem;
+//   }
+// `;
+// MoreInfo.displayName = '--- More Info ---';
 
-export const FormationMoreLink = styled.a`
-  margin-left: 5px;
-  vertical-align: super;
-`;
+// export const Link = styled.a`
+//   margin-left: 5px;
+//   vertical-align: super;
+// `;
+// Link.displayName = '--- Link ---';

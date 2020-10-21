@@ -25,9 +25,9 @@ export const SeabedSection = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
 `;
+SeabedSection.displayName = '--- Seabed Section ---';
 
 // ------- Floating animation
 
@@ -66,7 +66,7 @@ const FloatingDelay = css`
 
 // ---
 
-export const SeabedMessageContainer = styled.div`
+export const MessageContainer = styled.div`
   border-radius: 80px 0;
   margin: 60px auto 0;
   background-color: rgba($white, 0.05);
@@ -75,8 +75,9 @@ export const SeabedMessageContainer = styled.div`
   padding: 10px 50px;
   ${FloatingSoft};
 `;
+MessageContainer.displayName = '--- Message Container ---';
 
-export const SeabedMessage = styled.p`
+export const Message = styled.p`
   margin: 15px 0;
   font-family: $font__title;
   font-size: 1.2rem;
@@ -84,10 +85,12 @@ export const SeabedMessage = styled.p`
   color: ${colorBlueDark};
   text-align: justify;
 `;
+Message.displayName = '--- Message ---';
 
-export const SeabedMessageDevices = styled(SeabedMessage)`
+export const MessageOnMobileDevices = styled(Message)`
   ${NotDisplayed};
 `;
+MessageOnMobileDevices.displayName = '--- Message ---';
 
 const SeabedSubsectionContainer = styled.div`
   position: absolute;
@@ -95,7 +98,7 @@ const SeabedSubsectionContainer = styled.div`
   width: 120px;
 `;
 
-export const SeabedSubsectionFormation = styled(SeabedSubsectionContainer)`
+export const SubsectionFormation = styled(SeabedSubsectionContainer)`
   bottom: 150px;
   left: 20vw;
   justify-content: flex-start;
@@ -116,8 +119,9 @@ export const SeabedSubsectionFormation = styled(SeabedSubsectionContainer)`
       display: hidden;
     `}
 `;
+SubsectionFormation.displayName = '--- Subsection Formation ---';
 
-export const SeabedSubsectionOtherSkills = styled(SeabedSubsectionContainer)`
+export const SubsectionOtherSkills = styled(SeabedSubsectionContainer)`
   top: 170px;
   bottom: initial;
   right: 33vw;
@@ -138,8 +142,9 @@ export const SeabedSubsectionOtherSkills = styled(SeabedSubsectionContainer)`
       display: hidden;
     `}
 `;
+SubsectionOtherSkills.displayName = '--- Subsection Other Skills ---';
 
-export const SeabedSubsectionText = styled.p`
+export const Text = styled.p`
   opacity: 0.9;
   text-shadow: 0 0 3px ${colorBlueDark};
   font-family: sans-serif;
@@ -162,6 +167,7 @@ export const SeabedSubsectionText = styled.p`
       `}
   }
 `;
+Text.displayName = '--- Text ---';
 
 export const HeroImage = styled.img`
   position: absolute;
@@ -194,6 +200,7 @@ export const HeroImage = styled.img`
     `;
   }}
 `;
+HeroImage.displayName = '--- The Hero Image ---';
 
 export const SeabedFloor = styled.div`
   position: absolute;
@@ -203,13 +210,14 @@ export const SeabedFloor = styled.div`
   background-position: bottom;
   background-size: 100% 220%;
   height: 50vh;
-  width: 100vw;
+  width: 100%;
 `;
+SeabedFloor.displayName = '--- Seabed Floor ---';
 
-export const SeabedFloorText = styled.p`
+export const FloorText = styled.p`
   position: absolute;
   bottom: 20px;
-  left: 15vw;
+  left: 17vw;
   transform: perspective(7rem) rotateX(16deg) skewX(20deg);
   width: 80%;
   text-shadow: 0 0 3px ${colorYellowBright};
@@ -224,8 +232,9 @@ export const SeabedFloorText = styled.p`
       display: hidden;
     `}
 `;
+FloorText.displayName = '--- Floor Text ---';
 
-export const SeabedBackText = styled.p`
+export const GoBackText = styled.p`
   margin-top: 30vh;
   text-shadow: 0 0 2px ${colorBlack};
   font-family: ${fontTitle};
@@ -233,8 +242,9 @@ export const SeabedBackText = styled.p`
   color: ${colorWhite};
   text-align: center;
 `;
+GoBackText.displayName = '--- Go Back Text ---';
 
-export const HeroThinkingText = styled.p`
+export const ThinkingText = styled.p`
   position: absolute;
   bottom: 65%;
   opacity: 0.8;
@@ -260,6 +270,7 @@ export const HeroThinkingText = styled.p`
     `;
   }}
 `;
+ThinkingText.displayName = '--- Thinking Text ---';
 
 export const TextFindSomething = styled.p`
   position: absolute;
@@ -292,6 +303,7 @@ export const TextFindSomething = styled.p`
     top: 38vh;
   }
 `;
+TextFindSomething.displayName = '--- Text Find Something ---';
 
 export const SeabedCloseButton = styled.button`
   z-index: 4;
@@ -338,3 +350,4 @@ export const SeabedCloseButton = styled.button`
       ${NotDisplayed}
     `}
 `;
+SeabedCloseButton.displayName = '--- Close Button ---';

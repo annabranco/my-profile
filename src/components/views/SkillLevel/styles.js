@@ -13,6 +13,7 @@ export const StarsWrapper = styled.div`
     opacity: 0.9;
   }
 `;
+StarsWrapper.displayName = '--- Stars Wrapper ---';
 
 export const Star = styled.i`
   border-radius: 50%;
@@ -26,3 +27,4 @@ export const Star = styled.i`
   box-shadow: 0 0 5px 2px ${colorWhite};
   text-align: center;
 `;
+Star.displayName = '--- Star ---';

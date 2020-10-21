@@ -1,66 +1,66 @@
 import React from 'react';
 import { infoPageTextPropType } from '../../../types';
 import {
-  SocialWrapper,
-  SocialBlock,
-  SocialLink,
-  SocialLinkButton,
-  SocialIcon,
-  SocialName,
-  SocialBlockSkype,
-  SocialLinkSkypeButton
+  SocialArea,
+  SocialItem,
+  Link,
+  LinkButton,
+  Icon,
+  Text,
+  SocialItemSkype,
+  LinkSkypeButton
 } from './styles';
 
 const Social = ({ texts }) => (
-  <SocialWrapper>
-    <SocialBlock>
-      <SocialLink href="mailto:anya.branco@icloud.com">
-        <SocialIcon className="far fa-envelope" />
-        <SocialName>anya.branco@icloud.com</SocialName>
-      </SocialLink>
-    </SocialBlock>
-    <SocialBlock>
-      <SocialLinkButton
+  <SocialArea>
+    <SocialItem>
+      <Link href="mailto:anya.branco@icloud.com">
+        <Icon className="far fa-envelope" />
+        <Text>anya.branco@icloud.com</Text>
+      </Link>
+    </SocialItem>
+    <SocialItem>
+      <LinkButton
         href="https://github.com/annabranco"
         target="_Blank"
         rel="noopener noreferrer"
       >
-        <SocialIcon className="fab fa-github-alt" />
-        <SocialName>Github</SocialName>
-      </SocialLinkButton>
-    </SocialBlock>
-    <SocialBlock>
-      <SocialLinkButton
+        <Icon className="fab fa-github-alt" />
+        <Text>Github</Text>
+      </LinkButton>
+    </SocialItem>
+    <SocialItem>
+      <LinkButton
         href="https://www.linkedin.com/in/annabranco/"
         target="_Blank"
         rel="noopener noreferrer"
       >
-        <SocialIcon className="fab fa-linkedin-in" />
-        <SocialName>LinkedIn</SocialName>
-      </SocialLinkButton>
-    </SocialBlock>
-    <SocialBlock>
-      <SocialLinkButton
+        <Icon className="fab fa-linkedin-in" />
+        <Text>LinkedIn</Text>
+      </LinkButton>
+    </SocialItem>
+    <SocialItem>
+      <LinkButton
         href="https://twitter.com/AnyaBranco"
         target="_Blank"
         rel="noopener noreferrer"
       >
-        <SocialIcon className="fab fa-twitter" />
-        <SocialName>Twitter</SocialName>
-      </SocialLinkButton>
-    </SocialBlock>
-    <SocialBlockSkype>
-      <SocialLinkSkypeButton href="skype:live%3Aanna.branco_3?call">
-        <SocialIcon className="fab fa-skype" />
-        <SocialName>{texts.call}</SocialName>
-      </SocialLinkSkypeButton>
-      <SocialLinkSkypeButton href="skype:live%3Aanna.branco_3?chat">
+        <Icon className="fab fa-twitter" />
+        <Text>Twitter</Text>
+      </LinkButton>
+    </SocialItem>
+    <SocialItemSkype>
+      <LinkSkypeButton href="skype:live%3Aanna.branco_3?call">
+        <Icon className="fab fa-skype" />
+        <Text>{texts.call}</Text>
+      </LinkSkypeButton>
+      <LinkSkypeButton href="skype:live%3Aanna.branco_3?chat">
         {' '}
-        <SocialIcon className="fas fa-comments" />
-        <SocialName>{texts.chat}</SocialName>
-      </SocialLinkSkypeButton>
-    </SocialBlockSkype>
-  </SocialWrapper>
+        <Icon className="fas fa-comments" />
+        <Text>{texts.chat}</Text>
+      </LinkSkypeButton>
+    </SocialItemSkype>
+  </SocialArea>
 );
 
 Social.propTypes = {

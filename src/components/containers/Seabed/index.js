@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react';
-import { arrayOf, func } from 'prop-types';
+import { arrayOf, func, string } from 'prop-types';
 import { OtherSkills, Formation } from '../../views';
 import {
   FloatingRight,
@@ -15,18 +15,18 @@ import {
 } from '../../../types';
 import { isDesktop } from '../../../utils/device';
 import {
-  SeabedMessage,
-  SeabedMessageContainer,
-  SeabedMessageDevices,
+  Message,
+  MessageContainer,
+  MessageOnMobileDevices,
   SeabedSection,
-  SeabedSubsectionFormation,
-  SeabedSubsectionText,
-  SeabedSubsectionOtherSkills,
+  SubsectionFormation,
+  Text,
+  SubsectionOtherSkills,
   HeroImage,
   SeabedFloor,
-  SeabedFloorText,
-  SeabedBackText,
-  HeroThinkingText
+  FloorText,
+  GoBackText,
+  ThinkingText
 } from './styles';
 
 const INITIAL_STATE = {
@@ -62,7 +62,8 @@ class Seabed extends Component {
     formation: arrayOf(formationPropType).isRequired,
     textsOtherSkills: otherSkillsTextPropType.isRequired,
     triggerThankYouMessage: func.isRequired,
-    resetScrollPosition: func.isRequired
+    resetScrollPosition: func.isRequired,
+    language: string.isRequired
   };
 
   state = INITIAL_STATE;
@@ -377,19 +378,27 @@ class Seabed extends Component {
       finishedScenario,
       heroMovements
     } = this.state;
-    const { texts, textsOtherSkills, globalTexts, formation } = this.props;
+    const {
+      texts,
+      textsOtherSkills,
+      globalTexts,
+      formation,
+      language
+    } = this.props;
 
     return (
-      <SeabedSection>
+      <SeabedSection id="Seabed Section">
         {isDesktop && !hideInstructions && (
-          <SeabedMessageContainer>
-            <SeabedMessage>{texts.message}</SeabedMessage>
-            <SeabedMessage>{texts.messageKeyboard}</SeabedMessage>
-            <SeabedMessageDevices>{texts.messageDevices}</SeabedMessageDevices>
-          </SeabedMessageContainer>
+          <MessageContainer>
+            <Message>{texts.message}</Message>
+            <Message>{texts.messageKeyboard}</Message>
+            <MessageOnMobileDevices>
+              {texts.messageDevices}
+            </MessageOnMobileDevices>
+          </MessageContainer>
         )}
 
-        <SeabedSubsectionFormation
+        <SubsectionFormation
           onClick={() =>
             this.onClickLinkOnMobile(!isDesktop && 'formationSection')
           }
@@ -397,12 +406,10 @@ class Seabed extends Component {
           tabIndex={0}
           hidden={finishedScenario || frame !== 'center'}
         >
-          <SeabedSubsectionText active={position === 'on-the-right'}>
-            {texts.formation}
-          </SeabedSubsectionText>
-        </SeabedSubsectionFormation>
+          <Text active={position === 'on-the-right'}>{texts.formation}</Text>
+        </SubsectionFormation>
 
-        <SeabedSubsectionOtherSkills
+        <SubsectionOtherSkills
           onClick={() =>
             this.onClickLinkOnMobile(!isDesktop && 'otherSkillsSection')
           }
@@ -410,10 +417,8 @@ class Seabed extends Component {
           tabIndex={0}
           hidden={finishedScenario || frame !== 'center'}
         >
-          <SeabedSubsectionText active={position === 'on-the-left'}>
-            {texts.skills}
-          </SeabedSubsectionText>
-        </SeabedSubsectionOtherSkills>
+          <Text active={position === 'on-the-left'}>{texts.skills}</Text>
+        </SubsectionOtherSkills>
 
         <HeroImage
           src={FloatingRight}
@@ -425,9 +430,9 @@ class Seabed extends Component {
         />
 
         <SeabedFloor>
-          <SeabedFloorText hidden={finishedScenario || frame !== 'center'}>
+          <FloorText hidden={finishedScenario || frame !== 'center'}>
             Anna Branco
-          </SeabedFloorText>
+          </FloorText>
         </SeabedFloor>
 
         {formationSection.active && (
@@ -438,6 +443,7 @@ class Seabed extends Component {
             status={formationSection}
             onClickOpen={() => this.onClickOpen('formationSection')}
             onClickClose={() => this.onClickClose('formationSection')}
+            language={language}
           />
         )}
 
@@ -451,12 +457,12 @@ class Seabed extends Component {
           />
         )}
 
-        {finishedScenario && <SeabedBackText>{texts.time2go}</SeabedBackText>}
+        {finishedScenario && <GoBackText>{texts.time2go}</GoBackText>}
 
         {heroThinks.side && (
-          <HeroThinkingText side={heroThinks.side}>
+          <ThinkingText side={heroThinks.side}>
             {texts.thoughts[heroThinks.thoughts]}
-          </HeroThinkingText>
+          </ThinkingText>
         )}
       </SeabedSection>
     );

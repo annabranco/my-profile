@@ -1,37 +1,36 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, bool } from 'prop-types';
 import SkillLevel from '../SkillLevel';
-import { SkillGroupTitle, SkillWrapper, SkillName } from '../Skills/styles';
-import {
-  FrontendSkillWrapper,
-  FrontendSkillsWrapper,
-  FrondendSkillsLogoWrapper,
-  FrondendSkillsLogo
-} from './styles';
+import { Title, SkillItem, Name } from '../Skills/styles';
+import { FrontendGroup, SkillsWrapper, LogoWrapper, Logo } from './styles';
 
-const FrontendSkillGroup = ({ details }) => (
-  <FrontendSkillWrapper>
-    <SkillGroupTitle group={details.name}>{details.name}</SkillGroupTitle>
-    <FrontendSkillsWrapper>
+const FrontendSkillGroup = ({ details, visible }) => (
+  <FrontendGroup visible={visible}>
+    <Title group={details.name}>{details.name}</Title>
+    <SkillsWrapper>
       {details.skills.map(skill => (
-        <SkillWrapper key={skill.skill}>
-          <SkillName>{skill.skill}</SkillName>
+        <SkillItem key={skill.skill}>
+          <Name>{skill.skill}</Name>
 
           {skill.logo && (
-            <FrondendSkillsLogoWrapper>
-              <FrondendSkillsLogo src={skill.logo} alt="" />
-            </FrondendSkillsLogoWrapper>
+            <LogoWrapper>
+              <Logo src={skill.logo} alt="" />
+            </LogoWrapper>
           )}
 
           <SkillLevel level={skill.level} />
-        </SkillWrapper>
+        </SkillItem>
       ))}
-    </FrontendSkillsWrapper>
-  </FrontendSkillWrapper>
+    </SkillsWrapper>
+  </FrontendGroup>
 );
 
 FrontendSkillGroup.propTypes = {
-  details: string.isRequired
+  details: string.isRequired,
+  visible: bool
+};
+FrontendSkillGroup.defaultProps = {
+  visible: false
 };
 
 export default FrontendSkillGroup;

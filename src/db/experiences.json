@@ -115,8 +115,8 @@
       },
       "dateBegin": "01-2019",
       "dateBeginValue": 1548111600000,
-      "dateEnd": null,
-      "dateEndValue": null,
+      "dateEnd": "01-2020",
+      "dateEndValue": 1577833200000,
       "details": {
         "en": "Developing of new functionalities and mantaining Atresplayer application for Web and SmartTvs using React16/Redux. Deploying staging and production versions using Jenkins/NGINX/Docker. Creating services with Node/Express. Active participation suggesting enhancements for Atresplayer functionalities, as well as updates for a better UX.",
         "es": "Desarrollo de nuevas funcionalidades y mantenimiento de la aplicación Atresplayer Web y para SmartTvs usando React16/Redux. Despliegue de versiones staging y producción usando Jenkins/NGINX/Docker. Creacción de servicios con Node/Express. Participación activa sugiriendo mejoras en las funcionalidades de Atresplayer bien como para una mejor UX.",
@@ -125,9 +125,35 @@
       "id": "a3",
       "place": "San Sebastián de los Reyes",
       "title": {
-        "en": "Junior Frontend Developer",
-        "es": "Desarrolladora Frontend Junior",
-        "pt": "Programadora Frontend Junior"
+        "en": "Software Developer",
+        "es": "Desarrolladora de Software",
+        "pt": "Programadora de Software"
+      },
+      "visible": true
+    },
+    {
+      "company": "Atresmedia",
+      "country": {
+        "en": "Spain",
+        "es": "España",
+        "pt": "Espanha",
+        "countryCode": "es"
+      },
+      "dateBegin": "01-2020",
+      "dateBeginValue": 1577833200000,
+      "dateEnd": null,
+      "dateEndValue": null,
+      "details": {
+        "en": "",
+        "es": "",
+        "pt": ""
+      },
+      "id": "a3-2",
+      "place": "San Sebastián de los Reyes",
+      "title": {
+        "en": "Software Engineer",
+        "es": "Engeniera de Software",
+        "pt": "Engenheira de Software"
       },
       "visible": true
     }

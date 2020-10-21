@@ -12,6 +12,11 @@ import {
   experiencesPropType
 } from '../../../types';
 import { ScrollAreaWrapper } from './styles';
+import {
+  SKILLS_FIRST_ROW,
+  SKILLS_SECOND_ROW,
+  SKILLS_THIRD_ROW
+} from '../../views/Skills';
 
 class ScrollArea extends Component {
   static propTypes = {
@@ -28,17 +33,18 @@ class ScrollArea extends Component {
   scrollAreaRef = createRef();
 
   state = {
-    cuePointsActivated: new Set()
+    cuePointsActivated: new Set(),
+    adjustScroll: 0
   };
 
   SECTIONS_INTERVAL_POINTS = {
-    developer: {
-      scrollAreaStart: 350,
-      scrollAreaEnd: 1540
+    skills: {
+      scrollAreaStart: 200,
+      scrollAreaEnd: 1200
     },
     experiences: {
-      scrollAreaStart: 900,
-      scrollAreaEnd: 1900
+      scrollAreaStart: 1300 + this.state.adjustScroll,
+      scrollAreaEnd: 2000 + this.state.adjustScroll
     }
   };
 
@@ -50,23 +56,20 @@ class ScrollArea extends Component {
 
   componentDidMount() {
     this.calculateExperiencesScroll();
+    this.calculateSkillsScroll();
   }
 
-  // handleAdjustExpandedProjectsView = adjust =>
-  //   this.setState({
-  //     adjustedSize: adjust
-  //   });
-
-  // toggleDynamicElements = (section, element, action) => {
-  //   const key = `${section}Activation`;
-  //   const result = action === SHOW_ACTION;
-  //   this.setState(prevState => ({
-  //     [key]: {
-  //       ...prevState[key],
-  //       [element]: result
-  //     }
-  //   }));
-  // };
+  calculateSkillsScroll = () => {
+    this.SCROLL_CUEPOINTS[
+      this.SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart
+    ] = SKILLS_FIRST_ROW;
+    this.SCROLL_CUEPOINTS[
+      this.SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart + 300
+    ] = SKILLS_SECOND_ROW;
+    this.SCROLL_CUEPOINTS[
+      this.SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart + 400
+    ] = SKILLS_THIRD_ROW;
+  };
 
   calculateExperiencesScroll = () => {
     const { experiences } = this.props;
@@ -100,7 +103,7 @@ class ScrollArea extends Component {
   handleScroll = event => {
     const { cuePointsActivated } = this.state;
     const scrollPosition = event.target.scrollTop;
-    const cuePointsActivatedBeforeScrolling = [...cuePointsActivated].join(' ');
+    const cuePointsActivatedBeforeScrolling = [...cuePointsActivated].join(' '); // debug
     const cuePointsActivatedAfterScrolling = cuePointsActivated;
 
     console.log('$$$ scrollPosition', scrollPosition);
@@ -152,6 +155,11 @@ class ScrollArea extends Component {
   resetScrollPosition = delay =>
     setTimeout(() => this.scrollAreaRef.current.scrollTo(0, 0), delay);
 
+  adjustScrollAfterThumbnails = adjustment => {
+    console.log('$$$ adjustment', adjustment);
+    this.setState({ adjustScroll: adjustment });
+  };
+
   render() {
     const { cuePointsActivated } = this.state;
     const {
@@ -177,10 +185,7 @@ class ScrollArea extends Component {
         />
         <ScrollSection title={texts.sections.technical}>
           <Skills
-            texts={texts.developer}
-            projects={projects}
             skills={skills}
-            language={texts.languages.languageCode}
             cuePointsActivated={[...cuePointsActivated]}
           />
         </ScrollSection>
@@ -191,6 +196,7 @@ class ScrollArea extends Component {
             projects={projects}
             skills={skills}
             language={texts.languages.languageCode}
+            adjustScrollAfterThumbnails={this.adjustScrollAfterThumbnails}
             cuePointsActivated={[...cuePointsActivated]}
           />
         </ScrollSection>
@@ -212,6 +218,7 @@ class ScrollArea extends Component {
             textsOtherSkills={texts.otherSkills}
             triggerThankYouMessage={triggerThankYouMessage}
             resetScrollPosition={this.resetScrollPosition}
+            language={texts.languages.languageCode}
           />
         </ScrollSection>
       </ScrollAreaWrapper>

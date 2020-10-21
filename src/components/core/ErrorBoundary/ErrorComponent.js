@@ -5,13 +5,13 @@ import { Barquinho } from '../../../images';
 import {
   ErrorSection,
   ErrorTitle,
-  ErrorNotifyWrapper,
-  ErrorSorryMessage,
-  ErrorNotifyButton,
-  ErrorNotifyButtonText,
-  ErrorNotifyButtonIcon,
-  ErrorDetailArea,
-  ErrorDetailText
+  NotificationArea,
+  SorryText,
+  NotifyButton,
+  NotifyButtonText,
+  NotifyButtonIcon,
+  ErrorDetailsArea,
+  DetailsText
 } from './styles';
 import { MeuBarquinho } from '../../views/MyInfoPage/styles';
 
@@ -23,7 +23,7 @@ const DEFAULT_ERROR_TEXTS = {
   title: "That's embarassing..."
 };
 
-class ErrorScreen extends Component {
+class ErrorComponent extends Component {
   static propTypes = {
     error: string.isRequired,
     texts: string
@@ -48,25 +48,25 @@ class ErrorScreen extends Component {
       <ErrorSection>
         <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
         <ErrorTitle>{texts.title}</ErrorTitle>
-        <ErrorNotifyWrapper>
-          <ErrorSorryMessage>{texts.errorLine1}</ErrorSorryMessage>
-          <ErrorSorryMessage>{texts.errorLine2}</ErrorSorryMessage>
-          <ErrorDetailArea>
-            <ErrorDetailText>{error}</ErrorDetailText>
-          </ErrorDetailArea>
-          <ErrorNotifyButton
+        <NotificationArea>
+          <SorryText>{texts.errorLine1}</SorryText>
+          <SorryText>{texts.errorLine2}</SorryText>
+          <ErrorDetailsArea>
+            <DetailsText>{error}</DetailsText>
+          </ErrorDetailsArea>
+          <NotifyButton
             visible={this.state.showNotifyButton}
             href="https://github.com/annabranco/my-profile/issues/new"
             target="_Blank"
             rel="noopener noreferrer"
           >
-            <ErrorNotifyButtonText>{texts.notifyMe}</ErrorNotifyButtonText>
-            <ErrorNotifyButtonIcon className="fab fa-github-alt" />
-          </ErrorNotifyButton>
-        </ErrorNotifyWrapper>
+            <NotifyButtonText>{texts.notifyMe}</NotifyButtonText>
+            <NotifyButtonIcon className="fab fa-github-alt" />
+          </NotifyButton>
+        </NotificationArea>
       </ErrorSection>
     );
   }
 }
 
-export default ErrorScreen;
+export default ErrorComponent;

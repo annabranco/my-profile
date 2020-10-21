@@ -8,13 +8,14 @@ import {
   fontTitleAlt
 } from '../../../styles/theme';
 import { FullScreen, MainBackground } from '../../../styles/global';
-import { SocialLinkButton } from '../../views/Social/styles';
+import { LinkButton } from '../../views/Social/styles';
 
 export const ErrorSection = styled.div`
   ${MainBackground}
   ${FullScreen};
   margin: 0;
 `;
+ErrorSection.displayName = '--- Error Screen ---';
 
 export const ErrorTitle = styled.h2`
   margin-left: 0;
@@ -23,8 +24,9 @@ export const ErrorTitle = styled.h2`
   font-size: 2rem;
   text-align: left;
 `;
+ErrorTitle.displayName = '--- Title ---';
 
-export const ErrorNotifyWrapper = styled.div`
+export const NotificationArea = styled.div`
   position: relative;
   top: 50%;
   display: flex;
@@ -33,8 +35,9 @@ export const ErrorNotifyWrapper = styled.div`
   align-items: center;
   width: 80vw;
 `;
+NotificationArea.displayName = '--- Notification Area ---';
 
-export const ErrorSorryMessage = styled.p`
+export const SorryText = styled.p`
   margin: 0 0 20px;
   width: 80%;
   font-style: italic;
@@ -44,12 +47,12 @@ export const ErrorSorryMessage = styled.p`
   color: ${colorBlueLight};
   text-align: left;
 `;
+SorryText.displayName = '--- Sorry Text ---';
 
-export const ErrorDetailArea = styled.div`
+export const ErrorDetailsArea = styled.div`
   background: ${colorWhite};
   width: 60vw;
   padding: 10px 40px;
-  box-sizing: border-box;
   border-radius: 8px 0;
   margin-top: 15px;
   box-shadow: 0 0 5px 2px ${colorWhite};
@@ -61,12 +64,14 @@ export const ErrorDetailArea = styled.div`
     color: ${colorGrayNormal};
   }
 `;
+ErrorDetailsArea.displayName = '--- Error Details Area ---';
 
-export const ErrorDetailText = styled.p`
+export const DetailsText = styled.p`
   font-size: 1rem;
 `;
+DetailsText.displayName = '--- Details Text ---';
 
-export const ErrorNotifyButton = styled(SocialLinkButton)`
+export const NotifyButton = styled(LinkButton)`
   margin-top: 40px;
   position: fixed;
   bottom: 5%;
@@ -79,8 +84,9 @@ export const ErrorNotifyButton = styled(SocialLinkButton)`
       transition: opacity 10s;
     `}
 `;
+NotifyButton.displayName = '--- Notify Button ---';
 
-export const ErrorNotifyButtonText = styled.p`
+export const NotifyButtonText = styled.p`
   position: relative;
   right: 0;
   margin: 4px 0 0 5px;
@@ -88,11 +94,13 @@ export const ErrorNotifyButtonText = styled.p`
   font-size: 1.3rem;
   color: ${colorBlack};
 `;
+NotifyButtonText.displayName = '--- Text ---';
 
-export const ErrorNotifyButtonIcon = styled.i`
+export const NotifyButtonIcon = styled.i`
   display: inline;
   margin-left: 15px;
   vertical-align: middle;
   text-shadow: 0 0 1px ${colorBlack};
   font-size: 2rem;
 `;
+NotifyButtonIcon.displayName = '--- Icon ---';

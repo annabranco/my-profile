@@ -4,15 +4,15 @@ import { languagesTextPropType, languagesPropType } from '../../../types/index';
 import {
   BackgroundOverlay,
   ModalWrapper,
-  ModalText,
+  Text,
   FlagsWrapper,
-  FlagImage,
-  FlagLabel,
+  Image,
+  Label,
   Flag,
   CheckBox,
   CheckBoxArea
 } from './styles';
-import AppButton from '../../elements/AppButton';
+import AppButton from '../elements/AppButton';
 
 const LanguagesModal = ({
   texts,
@@ -36,8 +36,8 @@ const LanguagesModal = ({
             key={item.languageCode}
             active={item.active}
           >
-            <FlagLabel>{item.language}</FlagLabel>
-            <FlagImage
+            <Label>{item.language}</Label>
+            <Image
               src={`https://www.countryflags.io/${item.flagCode}/shiny/64.png`}
               alt=""
               lang={item.languageCode}
@@ -47,7 +47,7 @@ const LanguagesModal = ({
         ))}
       </FlagsWrapper>
 
-      <ModalText>{texts.changeUpperBar}</ModalText>
+      <Text>{texts.changeUpperBar}</Text>
       <CheckBoxArea>
         <CheckBox
           type="checkbox"

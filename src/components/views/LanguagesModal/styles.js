@@ -25,8 +25,9 @@ export const BackgroundOverlay = styled.div`
     ${rgba(colorBlack, 0.9)}
   );
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 `;
+BackgroundOverlay.displayName = '--- Background Overlay ---';
 
 export const ModalWrapper = styled.div`
   display: flex;
@@ -51,8 +52,9 @@ export const ModalWrapper = styled.div`
     width: 480px;
   }
 `;
+ModalWrapper.displayName = '--- Modal Wrapper ---';
 
-export const ModalText = styled.p`
+export const Text = styled.p`
   margin: 5px 0;
   font-family: ${fontSubtitle};
   font-size: 0.8rem;
@@ -62,6 +64,7 @@ export const ModalText = styled.p`
     font-size: 1rem;
   }
 `;
+Text.displayName = '--- Text ---';
 
 export const FlagsWrapper = styled.div`
   display: flex;
@@ -74,6 +77,7 @@ export const FlagsWrapper = styled.div`
     margin: 20px auto 0;
   }
 `;
+FlagsWrapper.displayName = '--- Flags Wrapper ---';
 
 export const Flag = styled.div`
   display: flex;
@@ -90,20 +94,22 @@ export const Flag = styled.div`
       ${NotDisplayed};
     `}
 `;
+Flag.displayName = '--- Flag ---';
 
 const activeFlag = css`
   opacity: 1;
   cursor: default;
 `;
 
-export const FlagLabel = styled.div`
+export const Label = styled.div`
   margin-bottom: 3px;
   font-family: ${fontTitleAlt};
   font-size: 0.8rem;
   text-align: center;
 `;
+Label.displayName = '--- Label ---';
 
-export const FlagImage = styled.img`
+export const Image = styled.img`
   opacity: 0.5;
   margin-top: -10px;
   width: 100%;
@@ -114,11 +120,14 @@ export const FlagImage = styled.img`
       ${activeFlag}
     `}
 `;
+Image.displayName = '--- Image ---';
+
+export const CheckBoxArea = styled(Text)`
+  margin: 30px 0 10px;
+`;
+CheckBoxArea.displayName = '--- CheckBox Area ---';
 
 export const CheckBox = styled.input`
   margin-right: 20px;
 `;
-
-export const CheckBoxArea = styled(ModalText)`
-  margin: 30px 0 10px;
-`;
+CheckBox.displayName = '--- CheckBox ---';

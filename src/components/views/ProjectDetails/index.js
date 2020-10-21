@@ -3,34 +3,34 @@ import { string, bool } from 'prop-types';
 import { projectsPropType } from '../../../types';
 import {
   ProjectItem,
-  ProjectLink,
-  ProjectTitle,
-  ProjectTitleIcon,
-  ProjectDescription,
-  ProjectRepoIcon,
-  ProjectThumbnail
+  Link,
+  Title,
+  SeeIcon,
+  Description,
+  RepoIcon,
+  Thumbnail
 } from './styles';
 
 const ProjectDetails = ({ project, language, displayThumbnails }) => (
   <ProjectItem key={project.title}>
-    <ProjectLink href={project.url} target="_Blank" rel="noopener noreferrer">
-      <ProjectTitle>
+    <Link href={project.url} target="_Blank" rel="noopener noreferrer">
+      <Title>
         {project.title}
-        <ProjectTitleIcon className="far fa-eye" />
-      </ProjectTitle>
-    </ProjectLink>
-    <ProjectDescription>{project.description[language]}</ProjectDescription>
+        <SeeIcon className="far fa-eye" />
+      </Title>
+    </Link>
+    <Description>{project.description[language]}</Description>
 
-    <ProjectLink href={project.repo} target="_Blank" rel="noopener noreferrer">
+    <Link href={project.repo} target="_Blank" rel="noopener noreferrer">
       <p className="project__repo">
-        <ProjectRepoIcon className="fab fa-github-alt" />
+        <RepoIcon className="fab fa-github-alt" />
         {project.repo.replace('https://github.com', '')}
       </p>
-    </ProjectLink>
+    </Link>
     {displayThumbnails && (
-      <ProjectLink href={project.url} target="_Blank" rel="noopener noreferrer">
-        <ProjectThumbnail src={project.thumbnail} alt={project.title} />
-      </ProjectLink>
+      <Link href={project.url} target="_Blank" rel="noopener noreferrer">
+        <Thumbnail src={project.thumbnail} alt={project.title} />
+      </Link>
     )}
   </ProjectItem>
 );

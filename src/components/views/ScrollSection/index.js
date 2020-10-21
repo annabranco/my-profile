@@ -1,17 +1,13 @@
 import React from 'react';
 import { string, node } from 'prop-types';
-import {
-  SectionContainer,
-  SectionHeaderContainer,
-  SectionHeaderTitle
-} from './styles';
+import { SectionContent, SectionHeader, Title } from './styles';
 
 const ScrollSection = ({ title, children }) => (
   <section id={title}>
-    <SectionHeaderContainer>
-      <SectionHeaderTitle>{title}</SectionHeaderTitle>
-    </SectionHeaderContainer>
-    <SectionContainer>{children}</SectionContainer>
+    <SectionHeader>
+      <Title>{title}</Title>
+    </SectionHeader>
+    <SectionContent>{children}</SectionContent>
   </section>
 );
 

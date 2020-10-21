@@ -6,14 +6,16 @@ import { MainBackground, NotDisplayed } from '../../../styles/global';
 export const SectionMyInfo = styled.section`
   ${MainBackground}
 `;
+SectionMyInfo.displayName = '--- MY INFO Section ---';
 
 export const MyInfoWrapper = styled.div`
   margin-top: 50px;
-  width: 100vw;
+  width: 100%;
   @media all and (min-width: 500px) {
     margin-top: 100px;
   }
 `;
+MyInfoWrapper.displayName = '--- My Info Area ---';
 
 const MyName = styled.h1`
   background-image: url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/other/bg-binary.jpg');
@@ -47,6 +49,7 @@ export const MyNameOnMobileDevices = styled(MyName)`
     ${NotDisplayed};
   }
 `;
+MyNameOnMobileDevices.displayName = '--- My Name ---';
 
 export const MyNameOnDesktopDevices = styled(MyName)`
   ${NotDisplayed};
@@ -55,6 +58,7 @@ export const MyNameOnDesktopDevices = styled(MyName)`
     display: block;
   }
 `;
+MyNameOnDesktopDevices.displayName = '--- My Name ---';
 
 export const MyInfoInnerWrapper = styled.div`
   display: flex;
@@ -68,8 +72,9 @@ export const MyInfoInnerWrapper = styled.div`
     width: 90%;
   }
 `;
+MyInfoInnerWrapper.displayName = '--- Inner Wrapper ---';
 
-export const MyInfoMainArea = styled.div`
+export const MainArea = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -80,8 +85,9 @@ export const MyInfoMainArea = styled.div`
     width: 75%;
   }
 `;
+MainArea.displayName = '--- Main Area ---';
 
-export const MyInfoPhotoWrapper = styled.div`
+export const PhotoWrapper = styled.div`
   height: 170px;
   width: 100%;
   padding-right: 5px;
@@ -92,12 +98,14 @@ export const MyInfoPhotoWrapper = styled.div`
     width: 30%;
   }
 `;
+PhotoWrapper.displayName = '--- Photo Wrapper ---';
 
-export const MyInfoPhoto = styled.img`
+export const Photo = styled.img`
   width: 100%;
 `;
+Photo.displayName = '--- Photo ---';
 
-export const MyInfoWhoAmI = styled.div`
+export const InfoArea = styled.div`
   height: 230px;
   width: 100%;
   padding: 10px 20px 10px 40px;
@@ -107,8 +115,9 @@ export const MyInfoWhoAmI = styled.div`
     width: 70%;
   }
 `;
+InfoArea.displayName = '--- Info Area ---';
 
-export const MyJob = styled.h2`
+export const JobTitle = styled.h2`
   margin-top: -30px;
   margin-left: -25px;
   width: 42vw;
@@ -128,8 +137,9 @@ export const MyJob = styled.h2`
     text-align: left;
   }
 `;
+JobTitle.displayName = '--- Job Title ---';
 
-export const MyInfoMessage = styled.div`
+export const InfoMessage = styled.div`
   margin: -20px 0 0;
   width: 90%;
   font-style: italic;
@@ -147,8 +157,9 @@ export const MyInfoMessage = styled.div`
     text-align: left;
   }
 `;
+InfoMessage.displayName = '--- Info Message ---';
 
-export const MyInfoSocialWrapper = styled.div`
+export const SocialArea = styled.div`
   height: 400px;
   width: 55%;
 
@@ -160,6 +171,7 @@ export const MyInfoSocialWrapper = styled.div`
     width: 25%;
   }
 `;
+SocialArea.displayName = '--- Social Area ---';
 
 const Navigating = keyframes`
   0% {
@@ -203,6 +215,7 @@ export const MeuBarquinho = styled.img`
     filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
   }
 `;
+MeuBarquinho.displayName = '--- Ship Image ---';
 
 export const ScrollDownDisplay = styled.div`
   z-index: 3;
@@ -216,12 +229,14 @@ export const ScrollDownDisplay = styled.div`
     margin-top: 80px;
   }
 `;
+ScrollDownDisplay.displayName = '--- ScrollDown Display ---';
 
 export const LineOfArrows = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+LineOfArrows.displayName = '--- Line of Arrows ---';
 
 // ----- Animated Arrows
 
@@ -253,11 +268,14 @@ const ArrowIcon = styled.i`
 export const FirstArrowIcon = styled(ArrowIcon)`
   animation-delay: 2s;
 `;
+FirstArrowIcon.displayName = '--- Animated Arrows ---';
 
 export const SecondArrowIcon = styled(ArrowIcon)`
   animation-delay: 3s;
 `;
+SecondArrowIcon.displayName = '--- Animated Arrows ---';
 
 export const ThirdArrowIcon = styled(ArrowIcon)`
   animation-delay: 4s;
 `;
+ThirdArrowIcon.displayName = '--- Animated Arrows ---';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import { number } from 'prop-types';
 import { StarsWrapper, Star } from './styles';
 
 const SkillLevel = ({ level }) => {
@@ -15,7 +15,7 @@ const SkillLevel = ({ level }) => {
 };
 
 SkillLevel.propTypes = {
-  level: PropTypes.number
+  level: number
 };
 
 SkillLevel.defaultProps = {

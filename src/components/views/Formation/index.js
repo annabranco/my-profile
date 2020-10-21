@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import { arrayOf, func, string } from 'prop-types';
 import {
   experiencesTextPropType,
   seabedElementsPropType,
@@ -7,7 +7,6 @@ import {
   formationPropType
 } from '../../../types';
 import { isDesktop } from '../../../utils/device';
-// import {  } from './styles.js';
 import {
   SeabedCloseButton,
   TextFindSomething
@@ -15,18 +14,28 @@ import {
 import {
   FakeText,
   SectionFormation,
+  FormationArea,
+  // FormationPart,
+  // Year,
+  VerticalBar,
+  // Separator,
+  // Title,
+  // Details,
+  // Flag,
+  // MoreInfo,
+  // Link,
   FormationWrapper,
-  FormationInnerWrapper,
-  FormationYear,
-  FormationVerticalBar,
-  FormationSeparator,
-  FormationHorizontalBar,
   FormationTitle,
-  FormationDetails,
-  FormationFlag,
-  FormationMore,
-  FormationMoreLink
+  Details,
+  FormationItem,
+  DetailsArea
 } from './styles';
+import { HorizontalBar } from '../elements/HorizontalBar/styles';
+import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';
+import { Title } from '../ScrollSection/styles';
+import { getFlagURL } from '../../../utils/icons';
+
+const FORMATION_ON_TOP = 'older'; // newer or older
 
 const Formation = ({
   texts,
@@ -34,118 +43,117 @@ const Formation = ({
   formation,
   status: { read, visible },
   onClickOpen,
-  onClickClose
-}) => (
-  <>
-    {!read && isDesktop ? (
-      <>
-        <TextFindSomething>{texts.find}</TextFindSomething>
-        <TextFindSomething>{texts.investigate}</TextFindSomething>
-      </>
-    ) : null}
-    {/* <div
+  onClickClose,
+  language
+}) => {
+  const customOrder = (x, y) => {
+    if (FORMATION_ON_TOP === 'older') {
+      return x.dateBeginValue - y.dateBeginValue;
+    }
+    return y.dateBeginValue - x.dateBeginValue;
+  };
+
+  return (
+    <>
+      {!read && isDesktop ? (
+        <>
+          <TextFindSomething>{texts.find}</TextFindSomething>
+          <TextFindSomething>{texts.investigate}</TextFindSomething>
+        </>
+      ) : null}
+      {/* <div
         className={`section__experiences ${visible && SHOW_ACTION}`}
         onClick={() => onClickOpen('experiences')}
         role="button"
         aria-label={globalTexts.open}
         tabIndex={0}
       > */}
-    <SectionFormation
-      onClick={() => onClickOpen('experiences')}
-      role="button"
-      aria-label={globalTexts.open}
-      tabIndex={0}
-      visible={visible}
-    >
-      {!visible ? (
-        <>
-          <FakeText>- - --- - --</FakeText>
-          <FakeText>- -- -- - --</FakeText>
-          <FakeText>- -- ---- --</FakeText>
-          <FakeText>- - - --- --</FakeText>
-        </>
-      ) : (
-        <FormationWrapper>
-          <SeabedCloseButton
-            onClick={() => onClickClose('experiences')}
-            type="button"
-            aria-label={globalTexts.close}
-          >
-            X
-          </SeabedCloseButton>
-
-          <FormationInnerWrapper>
-            <FormationYear>09/2017 - 05/2018</FormationYear>
-            <FormationYear>10/2015 - 11/2015</FormationYear>
-            <FormationYear>05/2005 - 12/2014</FormationYear>
-          </FormationInnerWrapper>
-          <FormationInnerWrapper>
-            <FormationVerticalBar />
-          </FormationInnerWrapper>
-          <FormationInnerWrapper>
-            <FormationSeparator>
-              <FormationHorizontalBar />
-              <FormationTitle>{texts.ict}</FormationTitle>
-              <FormationDetails>
-                Servicios Profesionales Sociales, Madrid.
-                <FormationFlag
-                  src="https://www.countryflags.io/es/flat/16.png"
-                  alt={texts.spain}
-                  title={texts.spain}
-                />
-              </FormationDetails>
-              <FormationDetails>{texts.ictDetails}</FormationDetails>
-            </FormationSeparator>
-            <FormationSeparator>
-              <FormationHorizontalBar />
-              <FormationTitle>{texts.eru}</FormationTitle>
-              <FormationDetails>
-                Cruz Roja Española
-                <FormationFlag
-                  src="https://www.countryflags.io/es/flat/16.png"
-                  alt={texts.spain}
-                  title={texts.spain}
-                />
-              </FormationDetails>
-              <FormationDetails>{texts.eruDetails}</FormationDetails>
-            </FormationSeparator>
-            <FormationSeparator>
-              <FormationHorizontalBar />
-              <FormationTitle>{texts.tj}</FormationTitle>
-              <FormationDetails>
-                Tribunal de Justiça do Estado do Rio de Janeiro{' '}
-                <FormationFlag
-                  src="https://www.countryflags.io/br/flat/16.png"
-                  alt={texts.brazil}
-                  title={texts.brazil}
-                />
-              </FormationDetails>
-              <FormationDetails>{texts.tjDetails}</FormationDetails>
-            </FormationSeparator>
-          </FormationInnerWrapper>
-          <FormationMore>
-            {texts.linkedin}
-            <FormationMoreLink
-              href="https://www.linkedin.com/in/annabranco/"
-              target="_Blank"
-              rel="noopener noreferrer"
+      <SectionFormation
+        id="Formation Section"
+        onClick={() => onClickOpen('experiences')}
+        role="button"
+        aria-label={globalTexts.open}
+        tabIndex={0}
+        visible={visible}
+      >
+        {!visible ? (
+          <>
+            <FakeText>- - --- - --</FakeText>
+            <FakeText>- -- -- - --</FakeText>
+            <FakeText>- -- ---- --</FakeText>
+            <FakeText>- - - --- --</FakeText>
+          </>
+        ) : (
+          <FormationArea>
+            <SeabedCloseButton
+              onClick={() => onClickClose('experiences')}
+              type="button"
+              aria-label={globalTexts.close}
             >
-              <i className="fab fa-linkedin-in icon-linkedin" />
-            </FormationMoreLink>
-          </FormationMore>
-        </FormationWrapper>
-      )}
-    </SectionFormation>
-  </>
-);
+              X
+            </SeabedCloseButton>
+            <VerticalBar />
+            <FormationWrapper>
+              <Title>{texts.formation}</Title>
+              {formation.sort(customOrder).map(
+                (item, index) =>
+                  item.visible && (
+                    <FormationItem visible key={item.dateBeginValue}>
+                      <HorizontalBar
+                        border="4px"
+                        width={`${(60 / formation.length) *
+                          ((index + 1) * 10)}px`}
+                        moveY="25px"
+                        margin="9%"
+                      />
+                      <DateArea>
+                        {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
+                        <TextDate>{item.dateBegin}</TextDate>
+                        {item.dateEnd && (
+                          <>
+                            <TextDate>-</TextDate>
+                            <TextDate>{item.dateEnd}</TextDate>
+                          </>
+                        )}
+                      </DateArea>
+                      <DetailsArea
+                        margin={`${(60 / formation.length) *
+                          ((index + 1) * 6)}px`}
+                      >
+                        <FormationTitle>{item.title[language]}</FormationTitle>
+                        <Details>
+                          {item.university}
+                          <CountryFlag
+                            src={getFlagURL(item.countryCode, 'flat', 'small')}
+                            alt={item.country[language]}
+                          />
+                        </Details>
+                        {item.gradeText && (
+                          <Details>
+                            {item.gradeText[language]}
+                            {item.grade.toFixed(2)}
+                          </Details>
+                        )}
+                      </DetailsArea>
+                    </FormationItem>
+                  )
+              )}
+            </FormationWrapper>
+          </FormationArea>
+        )}
+      </SectionFormation>
+    </>
+  );
+};
 
 Formation.propTypes = {
   texts: experiencesTextPropType.isRequired,
   globalTexts: globalTextsPropType.isRequired,
-  formation: PropTypes.arrayOf(formationPropType).isRequired,
+  formation: arrayOf(formationPropType).isRequired,
   status: seabedElementsPropType.isRequired,
-  onClickOpen: PropTypes.func.isRequired,
-  onClickClose: PropTypes.func.isRequired
+  onClickOpen: func.isRequired,
+  onClickClose: func.isRequired,
+  language: string.isRequired
 };
 
 export default Formation;

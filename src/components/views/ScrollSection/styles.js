@@ -9,7 +9,7 @@ import {
 } from '../../../styles/theme';
 import Sea from '../../../images/bg/sea.gif';
 
-export const SectionHeaderContainer = styled.div`
+export const SectionHeader = styled.div`
   z-index: 3;
   display: flex;
   justify-content: center;
@@ -22,20 +22,22 @@ export const SectionHeaderContainer = styled.div`
   width: 100%;
   padding-top: 15px;
   box-shadow: 0 10px 15px 0 ${rgba(colorGrayDark, 0.6)};
-  margin: 5px 0 20px;
+  margin: 5px 0 10px;
 
   &:last-child {
     height: 100px;
   }
 `;
+SectionHeader.displayName = '--- Section Header ---';
 
-export const SectionHeaderTitle = styled.h2`
+export const Title = styled.h2`
   font-family: ${fontTitleAlt};
   font-size: 2rem;
   color: ${colorBlack};
 `;
+Title.displayName = '--- Title ---';
 
-export const SectionContainer = styled.div`
+export const SectionContent = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -50,5 +52,5 @@ export const SectionContainer = styled.div`
   background-position: center;
   height: auto;
   overflow: hidden;
-  padding-top: 50px;
 `;
+SectionContent.displayName = '--- Section Content ---';

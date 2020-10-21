@@ -9,7 +9,7 @@ import {
   colorBlueNormal
 } from '../../../styles/theme';
 
-export const SocialWrapper = styled.div`
+export const SocialArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -27,8 +27,9 @@ export const SocialWrapper = styled.div`
     padding: 10px 0 80px;
   }
 `;
+SocialArea.displayName = '--- Social Area ---';
 
-export const SocialBlock = styled.div`
+export const SocialItem = styled.div`
   margin: 5px 0;
   width: 200px;
 
@@ -36,14 +37,16 @@ export const SocialBlock = styled.div`
     margin: 15px 0;
   }
 `;
+SocialItem.displayName = '--- Social Item ---';
 
-export const SocialBlockSkype = styled(SocialBlock)`
+export const SocialItemSkype = styled(SocialItem)`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+SocialItemSkype.displayName = '--- Social Item ---';
 
-export const SocialLink = styled.a`
+export const Link = styled.a`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -55,8 +58,9 @@ export const SocialLink = styled.a`
     color: ${colorBlueDark};
   }
 `;
+Link.displayName = '--- Link ---';
 
-export const SocialLinkButton = styled(SocialLink)`
+export const LinkButton = styled(Link)`
   border: 1px solid ${colorWhite};
   border-radius: 25px 0;
   background-image: linear-gradient(
@@ -83,8 +87,9 @@ export const SocialLinkButton = styled(SocialLink)`
     box-shadow: inset 0 2px 5px 1px ${rgba(colorBlack, 0.4)};
   }
 `;
+LinkButton.displayName = '--- Link Button ---';
 
-export const SocialLinkSkypeButton = styled(SocialLinkButton)`
+export const LinkSkypeButton = styled(LinkButton)`
   width: 75px;
   flex-direction: column;
   width: 100%;
@@ -106,32 +111,27 @@ export const SocialLinkSkypeButton = styled(SocialLinkButton)`
     border-radius: 0 0 25px 0;
   }
 `;
+LinkSkypeButton.displayName = '--- Link Button  ---';
 
-export const SocialIcon = styled.div`
+export const Icon = styled.div`
   display: inline;
   vertical-align: middle;
   text-shadow: 0 0 1px ${colorBlack};
   font-size: 2rem;
 `;
+Icon.displayName = '--- Icon ---';
 
-export const SocialIconSkype = styled(SocialIcon)`
-  & :hover {
-    color: ${colorBlueDark};
-  }
-`;
-
-export const SocialName = styled.p`
+export const Text = styled.p`
   margin: 4px 0 0;
   font-family: ${fontTitleAlt};
   font-size: 1rem;
   color: ${colorBlack};
 
-
-  ${SocialLinkButton} & {
+  ${LinkButton} & {
     margin: 4px 0 0 25px;
   }
 
-  ${SocialLinkSkypeButton} & {
+  ${LinkSkypeButton} & {
     margin: 4px 0 0 0;
   }
 
@@ -142,18 +142,6 @@ export const SocialName = styled.p`
   @media all and (min-width: 500px) {
     margin: 4px 0 0 0;
     font-size: 1.3rem;
-
-    /* ${SocialLinkButton} &: {
-      color: red;
-      margin: 4px 0 0 5px;
-    } */
-    /* .infoPage__social--link-mail &,
-    .infoPage__social--link-skype & {
-      margin: 4px 25px 0;
-    } */
   }
-
-  /* .infoPage__social--link-mail &,
-  .infoPage__social--link-skype & {
-  } */
 `;
+Text.displayName = '--- Text ---';

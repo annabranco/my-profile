@@ -9,7 +9,7 @@ import {
   fontSubtitle
 } from '../../../styles/theme';
 
-export const SectionExperiences = styled.section`
+export const ExperiencesArea = styled.div`
   position: relative;
   background-image: linear-gradient(
       rgba(230, 239, 251, 0.98),
@@ -18,16 +18,18 @@ export const SectionExperiences = styled.section`
     ),
     url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
   background-position: center;
-  height: 100vh;
+  height: auto;
 `;
+ExperiencesArea.displayName = '--- Experiences Area ---';
 
 export const VerticalBar = styled.div`
   position: absolute;
   left: 10%;
   border-right: 5px solid ${rgba(colorBlueLight, 0.3)};
-  height: 100vh;
+  height: 100%;
   width: 0;
 `;
+VerticalBar.displayName = '--- Vertical Bar ---';
 
 export const ExperiencesWrapper = styled.div`
   display: flex;
@@ -35,29 +37,34 @@ export const ExperiencesWrapper = styled.div`
   justify-content: space-around;
   align-items: flex-end;
   margin: 0 auto;
-  margin-left: -5vw;
-  height: 100vh;
-  width: 100vw;
+  padding-right: 5vw;
+  height: auto;
+  width: 100%;
 `;
+ExperiencesWrapper.displayName = '--- Experiences Wrapper ---';
 
 export const ExperienceItem = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  margin: 20px 0;
   height: auto;
+  width: 100%;
   opacity: 0;
   transition: opacity ease 3s;
 
-  ${props =>
-    props.visible &&
+  ${({ visible }) =>
+    visible &&
     css`
       opacity: 1;
     `}
 `;
+ExperienceItem.displayName = '--- Experience Item ---';
 
-export const DateField = styled.div`
-  width: 20%;
+export const DateArea = styled.div`
+  width: 12%;
 `;
+DateArea.displayName = '--- Date Area ---';
 
 export const TextDate = styled.p`
   font-family: ${fontTitle};
@@ -65,34 +72,51 @@ export const TextDate = styled.p`
   color: ${colorRedDark};
   text-align: center;
 `;
+TextDate.displayName = '--- TextDate ---';
 
-export const DetailsField = styled.div`
-  width: 80%;
+export const DetailsArea = styled.div`
+  margin-left: 40px;
+  transform: translate(800px, 0);
+  transition: all 4s ease;
+
+  ${({ visible }) =>
+    visible &&
+    css`
+      width: 80%;
+      transform: translate(0, 0);
+    `}
 `;
+DetailsArea.displayName = '--- Details Area ---';
 
-export const ExperienceTitle = styled.h3`
+export const Title = styled.h3`
   display: inline;
+  margin-bottom: 20px;
   font-family: ${fontTitleAlt};
   font-size: 1.4em;
   color: ${colorBlueDark};
 `;
+Title.displayName = '--- Title ---';
 
-export const ExperienceCompany = styled.p`
-  margin-left: 10px;
+export const Company = styled.p`
+  margin: 8px 0 0 15px;
   font-family: ${fontSubtitle};
   font-size: 1rem;
 `;
+Company.displayName = '--- Company ---';
 
 export const CountryFlag = styled.img`
   margin: 0 5px;
   vertical-align: middle;
 `;
+CountryFlag.displayName = '--- Country Flag ---';
 
-export const ExperiencePlace = styled.span`
+export const City = styled.span`
   font-size: 0.8rem;
   font-style: italic;
 `;
+City.displayName = '--- City ---';
 
-export const ExperienceDetails = styled.p`
+export const Details = styled.p`
   margin-top: 10px;
 `;
+Details.displayName = '--- Details ---';

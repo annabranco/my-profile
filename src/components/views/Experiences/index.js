@@ -1,21 +1,23 @@
 import React from 'react';
 import { arrayOf, string } from 'prop-types';
 import { getFlagURL } from '../../../utils/icons';
+// import { HorizontalBar } from '../Formation/styles';
 import { experiencesPropType, globalTextsPropType } from '../../../types';
 import {
-  SectionExperiences,
+  ExperiencesArea,
   VerticalBar,
   ExperiencesWrapper,
   ExperienceItem,
-  DateField,
+  DateArea,
   TextDate,
-  DetailsField,
-  ExperienceTitle,
-  ExperienceCompany,
+  DetailsArea,
+  Title,
+  Company,
   CountryFlag,
-  ExperienceDetails,
-  ExperiencePlace
+  Details,
+  City
 } from './styles';
+import { HorizontalBar } from '../elements/HorizontalBar/styles';
 
 const EXPERIENCE_ON_TOP = 'newer'; // newer or older
 
@@ -26,9 +28,8 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
     }
     return y.dateBeginValue - x.dateBeginValue;
   };
-
   return (
-    <SectionExperiences id="experiences">
+    <ExperiencesArea>
       <VerticalBar />
       <ExperiencesWrapper>
         {experiences.sort(customOrder).map(
@@ -38,7 +39,13 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
                 key={item.dateBeginValue}
                 visible={cuePointsActivated.includes(item.id)}
               >
-                <DateField>
+                <HorizontalBar
+                  border="2px"
+                  width="20%"
+                  moveY="25px"
+                  margin="9%"
+                />
+                <DateArea>
                   {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
                   <TextDate>{item.dateBegin}</TextDate>
                   {item.dateEnd && (
@@ -47,10 +54,10 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
                       <TextDate>{item.dateEnd}</TextDate>
                     </>
                   )}
-                </DateField>
-                <DetailsField>
-                  <ExperienceTitle>{item.title[language]}</ExperienceTitle>
-                  <ExperienceCompany>
+                </DateArea>
+                <DetailsArea visible={cuePointsActivated.includes(item.id)}>
+                  <Title>{item.title[language]}</Title>
+                  <Company>
                     {item.company}
                     <CountryFlag
                       src={getFlagURL(
@@ -60,17 +67,15 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
                       )}
                       alt={item.country[language]}
                     />
-                    <ExperiencePlace>{item.place}</ExperiencePlace>
-                  </ExperienceCompany>
-                  <ExperienceDetails>
-                    {item.details[language]}
-                  </ExperienceDetails>
-                </DetailsField>
+                    <City>{item.place}</City>
+                  </Company>
+                  <Details>{item.details[language]}</Details>
+                </DetailsArea>
               </ExperienceItem>
             )
         )}
       </ExperiencesWrapper>
-    </SectionExperiences>
+    </ExperiencesArea>
   );
 };
 

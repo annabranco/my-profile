@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { node } from 'prop-types';
 import { errorTextsPropType } from '../../../types';
-import ErrorScreen from './ErrorScreen';
+import ErrorComponent from './ErrorComponent';
 
 class ErrorBoundary extends Component {
   static propTypes = {
@@ -30,7 +30,7 @@ class ErrorBoundary extends Component {
     const { texts } = this.props;
 
     if (error) {
-      return <ErrorScreen error={error.message} texts={texts} />;
+      return <ErrorComponent error={error.message} texts={texts} />;
     }
     return this.props.children;
   }

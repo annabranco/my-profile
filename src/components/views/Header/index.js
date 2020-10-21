@@ -2,11 +2,11 @@ import React from 'react';
 import { string, func, arrayOf } from 'prop-types';
 import { headerTextPropType, languagesPropType } from '../../../types/index';
 import {
-  HeaderWrapper,
+  HeaderArea,
   LanguagesWrapper,
   Flag,
-  HeaderTitle,
-  VersionInfo
+  AppTitle,
+  Version
 } from './styles';
 
 const Header = ({
@@ -16,7 +16,7 @@ const Header = ({
   onChangeLanguage,
   APP_VERSION
 }) => (
-  <HeaderWrapper>
+  <HeaderArea>
     <LanguagesWrapper>
       {languages.map(item => (
         <Flag
@@ -36,9 +36,9 @@ const Header = ({
         </Flag>
       ))}
     </LanguagesWrapper>
-    <HeaderTitle>{texts.title}</HeaderTitle>
-    <VersionInfo>{APP_VERSION}</VersionInfo>
-  </HeaderWrapper>
+    <AppTitle>{texts.title}</AppTitle>
+    <Version>{APP_VERSION}</Version>
+  </HeaderArea>
 );
 
 Header.propTypes = {

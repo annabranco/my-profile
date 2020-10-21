@@ -10,3 +10,4 @@ export const ScrollAreaWrapper = styled.div`
       overflow-y: hidden;
     `}
 `;
+ScrollAreaWrapper.displayName = '--- Scroll Area ---';

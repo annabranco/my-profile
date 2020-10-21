@@ -12,11 +12,11 @@ import { developerTextPropType, projectsPropType } from '../../../types';
 import {
   ProjectsSection,
   CheckboxWrapper,
-  CheckboxElement,
-  MyProjectsList,
-  ProjectsPaginator,
-  ProjectsPaginatorText,
-  ProjectsPaginatorIcon
+  Checkbox,
+  ProjectsGrid,
+  Paginator,
+  Text,
+  Icon
 } from './styles';
 
 const ProjectsList = ({
@@ -32,7 +32,7 @@ const ProjectsList = ({
 }) => (
   <ProjectsSection>
     <CheckboxWrapper>
-      <CheckboxElement
+      <Checkbox
         id="developer__projects-checkbox"
         type="checkbox"
         onClick={event => toggleProjectsThumbNails(event.currentTarget.checked)}
@@ -41,7 +41,7 @@ const ProjectsList = ({
         {texts.showThumbnails}
       </label>
     </CheckboxWrapper>
-    <MyProjectsList thumbnailsStyle={thumbnailsStyle}>
+    <ProjectsGrid thumbnailsStyle={thumbnailsStyle}>
       {projects[actualPage - 1].map(project => (
         <ProjectDetails
           project={project}
@@ -50,12 +50,10 @@ const ProjectsList = ({
           key={project.title}
         />
       ))}
-    </MyProjectsList>
-    <ProjectsPaginator>
-      <ProjectsPaginatorText hidden={actualPage === 1}>
-        {texts.goUp}
-      </ProjectsPaginatorText>
-      <ProjectsPaginatorIcon
+    </ProjectsGrid>
+    <Paginator>
+      <Text hidden={actualPage === 1}>{texts.goUp}</Text>
+      <Icon
         hidden={actualPage === 1}
         className="far fa-arrow-alt-circle-up"
         onClick={() => onClickChangePage(BACK_ACTION)}
@@ -63,7 +61,7 @@ const ProjectsList = ({
         aria-label={texts.goUp}
         tabIndex={0}
       />
-      <ProjectsPaginatorIcon
+      <Icon
         hidden={actualPage === totalPages}
         className="far fa-arrow-alt-circle-down"
         onClick={() => onClickChangePage(ADVANCE_ACTION)}
@@ -71,10 +69,8 @@ const ProjectsList = ({
         aria-label={texts.showMore}
         tabIndex={0}
       />
-      <ProjectsPaginatorText hidden={actualPage === totalPages}>
-        {texts.showMore}
-      </ProjectsPaginatorText>
-    </ProjectsPaginator>
+      <Text hidden={actualPage === totalPages}>{texts.showMore}</Text>
+    </Paginator>
   </ProjectsSection>
 );
 

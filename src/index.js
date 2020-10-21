@@ -11,7 +11,7 @@ import {
   LANGUAGES_PATH
 } from './constants';
 import './styles/reset.css';
-import ErrorScreen from './components/core/ErrorBoundary/ErrorScreen';
+import ErrorComponent from './components/core/ErrorBoundary/ErrorComponent';
 
 const APP_VERSION = 'v0.12.0';
 
@@ -63,7 +63,7 @@ axios
   .catch(error => {
     console.error(error);
     ReactDOM.render(
-      <ErrorScreen
+      <ErrorComponent
         error={`Fail when building up the application => ${error.message}`}
       />,
       document.getElementById('root')

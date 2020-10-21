@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, string } from 'prop-types';
+import { arrayOf, string, func } from 'prop-types';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
 import { isDesktop } from '../../../utils/device';
@@ -16,7 +16,8 @@ class Projects extends Component {
   static propTypes = {
     texts: developerTextPropType.isRequired,
     projects: arrayOf(projectsPropType).isRequired,
-    language: string.isRequired
+    language: string.isRequired,
+    adjustScrollAfterThumbnails: func.isRequired
   };
 
   state = {
@@ -42,13 +43,15 @@ class Projects extends Component {
     });
   };
 
-  toggleProjectsThumbNails = isVisible =>
+  toggleProjectsThumbNails = isVisible => {
     this.setState(prevState => ({
       displayThumbnails: isVisible,
       adjustedView: isVisible
         ? prevState.adjustedView + 150
         : prevState.adjustedView - 150
     }));
+    this.props.adjustScrollAfterThumbnails(150);
+  };
 
   onClickChangePage = action => {
     const { actualPage } = this.state;

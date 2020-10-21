@@ -10,25 +10,8 @@ import {
   colorYellowBright
 } from '../../../styles/theme';
 
-export const SectionDeveloper = styled.section`
-  position: relative;
-  background-position: center;
-  height: auto;
-  overflow: hidden;
-  padding-top: 50px;
-`;
-
-export const DeveloperInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-`;
-
-export const Sidebar = styled.div`
+export const SkillsArea = styled.div`
   display: grid;
-  box-sizing: border-box;
   grid-template-columns: repeat(4, calc(100% / 4 - 15px));
   grid-gap: 20px;
   border-radius: 30px;
@@ -38,7 +21,7 @@ export const Sidebar = styled.div`
   );
   height: 600px;
   width: 90vw;
-  padding: 15px 40px 80px;
+  padding: 45px 40px 80px;
   overflow: hidden;
 
   @media all and (min-width: 768px) {
@@ -52,18 +35,55 @@ export const Sidebar = styled.div`
     }
   }
 `;
+SkillsArea.displayName = '--- Skills Area ---';
 
 export const SkillGroup = styled.div`
   max-width: 280px;
   border-radius: 10%;
   margin: 20px 0 10px;
   padding-bottom: 10px;
+  opacity: 0;
   &:hover {
     background: ${rgba(colorYellowBright, 0.1)};
   }
-`;
+  transition: transform 2s ease, opacity 1s ease;
 
-export const SkillGroupTitle = styled.h3`
+  ${({ position }) => {
+    if (position === 1 || position === 5) {
+      return css`
+        transform: translate(-300px, 200px) rotate(64deg);
+      `;
+    }
+    if (position === 2 || position === 6) {
+      return css`
+        transform: translate(-300px, 500px) rotate(10deg);
+      `;
+    }
+    if (position === 3 || position === 7) {
+      return css`
+        transform: translate(300px, 500px) rotate(-10deg);
+      `;
+    }
+    if (position === 4 || position === 8) {
+      return css`
+        transform: translate(300px, 200px) rotate(-40deg);
+      `;
+    }
+    return null;
+  }};
+
+  ${({ isVisible }) =>
+    isVisible &&
+    css`
+      transform: translate(0, 0);
+
+      margin-top: 0;
+      opacity: 1;
+    `}
+`;
+SkillGroup.displayName = '--- Skill Group ---';
+
+export const Title = styled.h3`
   border: 1px solid ${colorBlack};
   border-radius: 10px 0;
   margin: 0 0 15px;
@@ -77,25 +97,29 @@ export const SkillGroupTitle = styled.h3`
   font-family: ${fontTitleAlt};
   text-align: center;
 `;
+Title.displayName = '--- Title ---';
 
-export const SkillsList = styled.div`
+export const SkillsInsideGroup = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
 `;
+SkillsInsideGroup.displayName = '--- Skills Inside Group ---';
 
-export const SkillsLogo = styled.img`
+export const Logo = styled.img`
   height: 30%;
   width: 30%;
 `;
+Logo.displayName = '--- Logo ---';
 
 export const SkillsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 60px);
   grid-gap: 20px;
 `;
+SkillsGrid.displayName = '--- Skills Grid ---';
 
-export const SkillWrapper = styled.div`
+export const SkillItem = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -114,11 +138,13 @@ export const SkillWrapper = styled.div`
       }
     `}
 `;
+SkillItem.displayName = '--- Skill Item ---';
 
-export const SkillName = styled.h4`
+export const Name = styled.h4`
   margin-bottom: 5px;
   font-family: ${fontTitle};
   font-size: 1rem;
   font-weight: bold;
   color: ${colorBlack};
 `;
+Name.displayName = '--- Name ---';

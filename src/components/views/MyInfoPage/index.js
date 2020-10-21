@@ -9,14 +9,14 @@ import {
   SectionMyInfo,
   MyNameOnMobileDevices,
   MyInfoInnerWrapper,
-  MyInfoMainArea,
-  MyInfoPhotoWrapper,
-  MyInfoPhoto,
-  MyInfoWhoAmI,
+  MainArea,
+  PhotoWrapper,
+  Photo,
+  InfoArea,
   MyNameOnDesktopDevices,
-  MyJob,
-  MyInfoMessage,
-  MyInfoSocialWrapper,
+  JobTitle,
+  InfoMessage,
+  SocialArea,
   MeuBarquinho,
   ScrollDownDisplay,
   LineOfArrows,
@@ -26,26 +26,26 @@ import {
 } from './styles';
 
 const MyInfoPage = ({ texts, displayThanksMessage }) => (
-  <SectionMyInfo>
+  <SectionMyInfo id="My Info Section">
     <MyInfoWrapper>
       <MyNameOnMobileDevices>Anna Branco</MyNameOnMobileDevices>
 
       <MyInfoInnerWrapper>
-        <MyInfoMainArea>
-          <MyInfoPhotoWrapper>
-            <MyInfoPhoto src={Mugshot} alt="Anna Branco" />
-          </MyInfoPhotoWrapper>
-          <MyInfoWhoAmI>
+        <MainArea>
+          <PhotoWrapper>
+            <Photo src={Mugshot} alt="Anna Branco" />
+          </PhotoWrapper>
+          <InfoArea>
             <MyNameOnDesktopDevices>Anna Branco</MyNameOnDesktopDevices>
-            <MyJob>{texts.job}</MyJob>
-            <MyInfoMessage>
+            <JobTitle>{texts.job}</JobTitle>
+            <InfoMessage>
               {!displayThanksMessage ? texts.aditional : texts.thankyou}
-            </MyInfoMessage>
-          </MyInfoWhoAmI>
-        </MyInfoMainArea>
-        <MyInfoSocialWrapper>
+            </InfoMessage>
+          </InfoArea>
+        </MainArea>
+        <SocialArea>
           <Social texts={texts} />
-        </MyInfoSocialWrapper>
+        </SocialArea>
       </MyInfoInnerWrapper>
 
       <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
