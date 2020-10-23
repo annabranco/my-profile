@@ -57,6 +57,9 @@ export const Link = styled.a`
   & :hover {
     color: ${colorBlueDark};
   }
+  &:hover {
+    text-decoration: none;
+  }
 `;
 Link.displayName = '--- Link ---';
 

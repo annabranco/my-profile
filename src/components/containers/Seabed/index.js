@@ -374,6 +374,15 @@ const SeaBed = ({
     const captureHeroMovement = event => {
       moveHero(event);
     };
+    if (
+      scenarioHasFinished &&
+      positionState.frame === 'center' &&
+      positionState.position === 'center'
+    ) {
+      return () => {
+        window.removeEventListener('keyup', captureHeroMovement);
+      };
+    }
     window.addEventListener('keyup', captureHeroMovement);
 
     return () => {
