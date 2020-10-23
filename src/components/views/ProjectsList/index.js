@@ -84,9 +84,13 @@ ProjectsList.propTypes = {
   thumbnailsStyle: oneOf([
     SHOW_THUMBNAILS_ON_MOBILE_ACTION,
     SHOW_THUMBNAILS_ACTION
-  ]).isRequired,
+  ]),
   toggleProjectsThumbNails: func.isRequired,
   totalPages: number.isRequired
+};
+
+ProjectsList.defaultProps = {
+  thumbnailsStyle: ''
 };
 
 ProjectsList.defaultProps = {

@@ -38,14 +38,6 @@ const Projects = ({
     THUMBS_STATE
   );
 
-  const organizeProjectsList = numberOfProjectsPerPage => {
-    const pagedProjects = chunk(sortBy(projects), numberOfProjectsPerPage);
-    setProjectsState({
-      projects: pagedProjects,
-      totalPages: pagedProjects.length
-    });
-  };
-
   const toggleProjectsThumbNails = isVisible => {
     updateThumbsState(prevState => ({
       adjustedView: isVisible
@@ -71,15 +63,26 @@ const Projects = ({
   };
 
   const getThumbnailsStyle = () => {
-    if (thumbsState.displayThumbnails && !isDesktop) {
+    if (thumbsState.displayThumbnails && isDesktop) {
+      return SHOW_THUMBNAILS_ACTION;
+    }
+    if (thumbsState.displayThumbnails) {
       return SHOW_THUMBNAILS_ON_MOBILE_ACTION;
     }
-    return SHOW_THUMBNAILS_ACTION;
+    return null;
   };
 
   useEffect(() => {
+    const organizeProjectsList = numberOfProjectsPerPage => {
+      const pagedProjects = chunk(sortBy(projects), numberOfProjectsPerPage);
+      setProjectsState({
+        projects: pagedProjects,
+        totalPages: pagedProjects.length
+      });
+    };
+
     organizeProjectsList(isDesktop ? 2 : 1);
-  }, []);
+  }, [projects, setProjectsState]);
 
   return (
     <ProjectsList

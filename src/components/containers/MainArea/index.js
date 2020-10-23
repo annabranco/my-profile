@@ -40,7 +40,7 @@ const MainArea = ({
     if (!blockLangModal) {
       toggleModalVisible(true);
     }
-  }, []);
+  }, [blockLangModal, toggleModalVisible]);
 
   const toggleBlockLangModal = event =>
     toggleHideForever(event.currentTarget.checked);

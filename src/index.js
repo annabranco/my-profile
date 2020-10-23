@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import appInfo from '../package.json';
 import App from './components/core/App';
 import ErrorComponent from './components/core/ErrorBoundary/ErrorComponent';
 import {
@@ -13,7 +14,7 @@ import {
 } from './constants';
 import './styles/reset.css';
 
-const APP_VERSION = 'v0.12.0';
+const APP_VERSION = appInfo.version;
 
 const requestData = URL => {
   return axios

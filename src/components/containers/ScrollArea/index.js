@@ -52,44 +52,6 @@ const ScrollArea = ({
 
   const experiencesSectionIds = new Set();
 
-  const calculateSkillsScroll = () => {
-    SCROLL_CUEPOINTS.set(
-      SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart,
-      SKILLS_FIRST_ROW
-    );
-    SCROLL_CUEPOINTS.set(
-      SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart + 300,
-      SKILLS_SECOND_ROW
-    );
-
-    SCROLL_CUEPOINTS.set(
-      SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart + 400,
-      SKILLS_THIRD_ROW
-    );
-  };
-
-  const calculateExperiencesScroll = () => {
-    const NUMBER_OF_EXPERIENCES_DISPLAYED = experiences.length;
-    const {
-      scrollAreaStart,
-      scrollAreaEnd
-    } = SECTIONS_INTERVAL_POINTS.experiences;
-    const intervalWindowForEachExperience =
-      (scrollAreaEnd - scrollAreaStart) / NUMBER_OF_EXPERIENCES_DISPLAYED;
-    let index = 0;
-
-    for (
-      let position = scrollAreaStart;
-      position < scrollAreaEnd;
-      position += intervalWindowForEachExperience
-    ) {
-      SCROLL_CUEPOINTS.set(Math.floor(position), experiences[index].id);
-      experiencesSectionIds.add(experiences[index].id);
-      index += 1;
-    }
-    SCROLL_CUEPOINTS.set(scrollAreaEnd, 'experiencesSection');
-  };
-
   const handleScroll = event => {
     const scrollPosition = event.target.scrollTop;
     const cuePointsAfterScrolling = new Set(cuePointsActivated);
@@ -127,9 +89,47 @@ const ScrollArea = ({
   };
 
   useEffect(() => {
+    const calculateSkillsScroll = () => {
+      SCROLL_CUEPOINTS.set(
+        SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart,
+        SKILLS_FIRST_ROW
+      );
+      SCROLL_CUEPOINTS.set(
+        SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart + 300,
+        SKILLS_SECOND_ROW
+      );
+
+      SCROLL_CUEPOINTS.set(
+        SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart + 400,
+        SKILLS_THIRD_ROW
+      );
+    };
+
+    const calculateExperiencesScroll = () => {
+      const NUMBER_OF_EXPERIENCES_DISPLAYED = experiences.length;
+      const {
+        scrollAreaStart,
+        scrollAreaEnd
+      } = SECTIONS_INTERVAL_POINTS.experiences;
+      const intervalWindowForEachExperience =
+        (scrollAreaEnd - scrollAreaStart) / NUMBER_OF_EXPERIENCES_DISPLAYED;
+      let index = 0;
+
+      for (
+        let position = scrollAreaStart;
+        position < scrollAreaEnd;
+        position += intervalWindowForEachExperience
+      ) {
+        SCROLL_CUEPOINTS.set(Math.floor(position), experiences[index].id);
+        experiencesSectionIds.add(experiences[index].id);
+        index += 1;
+      }
+      SCROLL_CUEPOINTS.set(scrollAreaEnd, 'experiencesSection');
+    };
+
     calculateSkillsScroll();
     calculateExperiencesScroll();
-  }, []);
+  }, [SECTIONS_INTERVAL_POINTS, experiences, experiencesSectionIds]);
 
   return (
     <ScrollAreaWrapper

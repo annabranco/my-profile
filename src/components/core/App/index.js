@@ -48,17 +48,6 @@ const App = ({
     SETTINGS_LOADED
   );
 
-  const loadLanguageSettings = () => {
-    const languageSettings =
-      JSON.parse(localStorage.getItem("Anna Branco's professional profile")) ||
-      {};
-    setLanguage(languageSettings.language || language);
-    toggleBlockModal(
-      languageSettings.hideLanguagesModalForever || blockLangModal
-    );
-    setSettingsLoaded(true);
-  };
-
   const onChangeLanguage = event => setLanguage(event.currentTarget.lang);
 
   const closeLanguageModal = hideForever => {
@@ -75,8 +64,19 @@ const App = ({
   const triggerThankYouMessage = () => setDisplayThanks(true);
 
   useEffect(() => {
+    const loadLanguageSettings = () => {
+      const languageSettings =
+        JSON.parse(
+          localStorage.getItem("Anna Branco's professional profile")
+        ) || {};
+      toggleBlockModal(
+        languageSettings.hideLanguagesModalForever || blockLangModal
+      );
+      setSettingsLoaded(true);
+    };
+
     loadLanguageSettings();
-  }, []);
+  }, [blockLangModal, language, setSettingsLoaded, toggleBlockModal]);
 
   return (
     <ErrorBoundary texts={texts[language].error}>

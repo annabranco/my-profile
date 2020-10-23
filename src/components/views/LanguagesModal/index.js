@@ -51,8 +51,8 @@ const LanguagesModal = ({
       <Text>{texts.changeUpperBar}</Text>
       <CheckBoxArea>
         <CheckBox
-          checked={hideForever}
           className="languages__checkbox"
+          defaultChecked={hideForever}
           onClick={toggleBlockLangModal}
           type="checkbox"
         />
