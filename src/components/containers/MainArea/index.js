@@ -1,95 +1,95 @@
-import React, { Component } from 'react';
-import { func, arrayOf, string, bool } from 'prop-types';
+import React, { useEffect } from 'react';
+import { arrayOf, string, bool, func } from 'prop-types';
+import { useStateWithLabel } from '../../../utils/hooks';
 import ScrollArea from '../ScrollArea';
 import { LanguagesModal } from '../../views';
+import { LANG_MODAL_VISIBLE, BLOCK_LANG_MODAL } from '../../../constants';
 import {
-  textsPropType,
+  experiencesPropType,
+  formationPropType,
+  languagesPropType,
   projectsPropType,
   skillGroupsPropType,
-  formationPropType,
-  experiencesPropType,
-  languagesPropType
+  textsPropType
 } from '../../../types';
 
-class MainArea extends Component {
-  static propTypes = {
-    onChangeLanguage: func.isRequired,
-    texts: textsPropType.isRequired,
-    projects: arrayOf(projectsPropType).isRequired,
-    skills: arrayOf(skillGroupsPropType).isRequired,
-    experiences: arrayOf(experiencesPropType).isRequired,
-    formation: arrayOf(formationPropType).isRequired,
-    languages: arrayOf(languagesPropType).isRequired,
-    language: string.isRequired,
-    closeLanguageModal: func.isRequired,
-    doNotShowLanguageModalAgain: bool.isRequired,
-    triggerThankYouMessage: func.isRequired,
-    displayThanksMessage: bool.isRequired
-  };
+const MainArea = ({
+  blockLangModal,
+  closeLanguageModal,
+  onChangeLanguage,
+  displayThanks,
+  experiences,
+  formation,
+  language,
+  languages,
+  projects,
+  skills,
+  texts,
+  triggerThankYouMessage
+}) => {
+  const [hideForever, toggleHideForever] = useStateWithLabel(
+    false,
+    BLOCK_LANG_MODAL
+  );
+  const [langModalVisible, toggleModalVisible] = useStateWithLabel(
+    false,
+    LANG_MODAL_VISIBLE
+  );
 
-  state = {
-    languageModalIsVisible: false,
-    checkboxDoNotShowLanguageModalAgain: false
-  };
-
-  componentDidMount() {
-    if (!this.props.doNotShowLanguageModalAgain) {
-      this.setState({ languageModalIsVisible: true });
+  useEffect(() => {
+    if (!blockLangModal) {
+      toggleModalVisible(true);
     }
-  }
+  }, []);
 
-  handleShowLanguageModalAgain = event =>
-    this.setState({
-      checkboxDoNotShowLanguageModalAgain: event.currentTarget.checked
-    });
+  const toggleBlockLangModal = event =>
+    toggleHideForever(event.currentTarget.checked);
 
-  onCloseLanguageModal = () => {
-    this.setState({ languageModalIsVisible: false });
-    this.props.closeLanguageModal(
-      this.state.checkboxDoNotShowLanguageModalAgain
-    );
+  const onCloseLanguageModal = () => {
+    toggleModalVisible(false);
+    closeLanguageModal(hideForever);
   };
 
-  render() {
-    const { languageModalIsVisible } = this.state;
-    const {
-      onChangeLanguage,
-      texts,
-      triggerThankYouMessage,
-      displayThanksMessage,
-      projects,
-      skills,
-      formation,
-      experiences,
-      languages,
-      language
-    } = this.props;
-
-    return (
-      <main>
-        {languageModalIsVisible && (
-          <LanguagesModal
-            languages={languages}
-            texts={texts.languages}
-            languageSelected={language}
-            onChangeLanguage={onChangeLanguage}
-            onCloseLanguageModal={this.onCloseLanguageModal}
-            handleShowLanguageModalAgain={this.handleShowLanguageModalAgain}
-          />
-        )}
-        <ScrollArea
-          texts={texts}
-          projects={projects}
-          skills={skills}
-          formation={formation}
-          experiences={experiences}
-          triggerThankYouMessage={triggerThankYouMessage}
-          displayThanksMessage={displayThanksMessage}
-          languageModalIsVisible={languageModalIsVisible}
+  return (
+    <main>
+      {langModalVisible && (
+        <LanguagesModal
+          hideForever={hideForever}
+          languages={languages}
+          languageSelected={language}
+          onChangeLanguage={onChangeLanguage}
+          onCloseLanguageModal={onCloseLanguageModal}
+          texts={texts.languages}
+          toggleBlockLangModal={toggleBlockLangModal}
         />
-      </main>
-    );
-  }
-}
+      )}
+      <ScrollArea
+        displayThanks={displayThanks}
+        experiences={experiences}
+        formation={formation}
+        langModalVisible={langModalVisible}
+        projects={projects}
+        skills={skills}
+        texts={texts}
+        triggerThankYouMessage={triggerThankYouMessage}
+      />
+    </main>
+  );
+};
+
+MainArea.propTypes = {
+  blockLangModal: bool.isRequired,
+  closeLanguageModal: func.isRequired,
+  displayThanks: bool.isRequired,
+  experiences: arrayOf(experiencesPropType).isRequired,
+  formation: arrayOf(formationPropType).isRequired,
+  language: string.isRequired,
+  languages: arrayOf(languagesPropType).isRequired,
+  onChangeLanguage: func.isRequired,
+  projects: arrayOf(projectsPropType).isRequired,
+  skills: arrayOf(skillGroupsPropType).isRequired,
+  texts: textsPropType.isRequired,
+  triggerThankYouMessage: func.isRequired
+};
 
 export default MainArea;

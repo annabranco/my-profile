@@ -2,49 +2,41 @@ import React from 'react';
 import { arrayOf, func, string } from 'prop-types';
 import {
   experiencesTextPropType,
-  seabedElementsPropType,
+  formationPropType,
   globalTextsPropType,
-  formationPropType
+  seabedElementsPropType
 } from '../../../types';
 import { isDesktop } from '../../../utils/device';
+import { getFlagURL } from '../../../utils/icons';
+import {
+  Details,
+  DetailsArea,
+  FakeText,
+  FormationArea,
+  FormationItem,
+  FormationTitle,
+  FormationWrapper,
+  SectionFormation,
+  VerticalBar
+} from './styles';
 import {
   SeabedCloseButton,
   TextFindSomething
 } from '../../containers/Seabed/styles';
-import {
-  FakeText,
-  SectionFormation,
-  FormationArea,
-  // FormationPart,
-  // Year,
-  VerticalBar,
-  // Separator,
-  // Title,
-  // Details,
-  // Flag,
-  // MoreInfo,
-  // Link,
-  FormationWrapper,
-  FormationTitle,
-  Details,
-  FormationItem,
-  DetailsArea
-} from './styles';
 import { HorizontalBar } from '../elements/HorizontalBar/styles';
 import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';
 import { Title } from '../ScrollSection/styles';
-import { getFlagURL } from '../../../utils/icons';
 
 const FORMATION_ON_TOP = 'older'; // newer or older
 
 const Formation = ({
-  texts,
-  globalTexts,
   formation,
-  status: { read, visible },
-  onClickOpen,
+  globalTexts,
+  language,
   onClickClose,
-  language
+  onClickOpen,
+  status: { read, visible },
+  texts
 }) => {
   const customOrder = (x, y) => {
     if (FORMATION_ON_TOP === 'older') {
@@ -61,16 +53,9 @@ const Formation = ({
           <TextFindSomething>{texts.investigate}</TextFindSomething>
         </>
       ) : null}
-      {/* <div
-        className={`section__experiences ${visible && SHOW_ACTION}`}
-        onClick={() => onClickOpen('experiences')}
-        role="button"
-        aria-label={globalTexts.open}
-        tabIndex={0}
-      > */}
       <SectionFormation
         id="Formation Section"
-        onClick={() => onClickOpen('experiences')}
+        onClick={() => onClickOpen('formationSection')}
         role="button"
         aria-label={globalTexts.open}
         tabIndex={0}
@@ -86,7 +71,7 @@ const Formation = ({
         ) : (
           <FormationArea>
             <SeabedCloseButton
-              onClick={() => onClickClose('experiences')}
+              onClick={() => onClickClose('formationSection')}
               type="button"
               aria-label={globalTexts.close}
             >
@@ -101,10 +86,10 @@ const Formation = ({
                     <FormationItem visible key={item.dateBeginValue}>
                       <HorizontalBar
                         border="4px"
+                        margin="9%"
+                        moveY="25px"
                         width={`${(60 / formation.length) *
                           ((index + 1) * 10)}px`}
-                        moveY="25px"
-                        margin="9%"
                       />
                       <DateArea>
                         {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
@@ -147,13 +132,13 @@ const Formation = ({
 };
 
 Formation.propTypes = {
-  texts: experiencesTextPropType.isRequired,
-  globalTexts: globalTextsPropType.isRequired,
   formation: arrayOf(formationPropType).isRequired,
-  status: seabedElementsPropType.isRequired,
-  onClickOpen: func.isRequired,
+  globalTexts: globalTextsPropType.isRequired,
+  language: string.isRequired,
   onClickClose: func.isRequired,
-  language: string.isRequired
+  onClickOpen: func.isRequired,
+  status: seabedElementsPropType.isRequired,
+  texts: experiencesTextPropType.isRequired
 };
 
 export default Formation;

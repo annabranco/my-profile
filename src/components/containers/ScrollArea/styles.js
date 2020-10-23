@@ -5,7 +5,7 @@ export const ScrollAreaWrapper = styled.div`
   overflow: scroll;
 
   ${props =>
-    props.languageModalIsVisible &&
+    props.langModalVisible &&
     css`
       overflow-y: hidden;
     `}

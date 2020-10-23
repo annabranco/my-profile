@@ -1,37 +1,37 @@
 import React from 'react';
 import { bool } from 'prop-types';
 import Social from '../Social';
-import { Mugshot, Barquinho } from '../../../images';
-import { infoPageTextPropType } from '../../../types';
 import { isFullWindowDesktop } from '../../../utils/device';
+import { Mugshot, Barquinho } from '../../../images';
 import {
-  MyInfoWrapper,
-  SectionMyInfo,
-  MyNameOnMobileDevices,
-  MyInfoInnerWrapper,
-  MainArea,
-  PhotoWrapper,
-  Photo,
-  InfoArea,
-  MyNameOnDesktopDevices,
-  JobTitle,
-  InfoMessage,
-  SocialArea,
-  MeuBarquinho,
-  ScrollDownDisplay,
-  LineOfArrows,
   FirstArrowIcon,
+  InfoArea,
+  InfoMessage,
+  JobTitle,
+  LineOfArrows,
+  MainAreaWrapper,
+  MeuBarquinho,
+  MyInfoInnerWrapper,
+  MyInfoWrapper,
+  MyNameOnDesktopDevices,
+  MyNameOnMobileDevices,
+  Photo,
+  PhotoWrapper,
+  ScrollDownDisplay,
   SecondArrowIcon,
+  SectionMyInfo,
+  SocialArea,
   ThirdArrowIcon
 } from './styles';
+import { infoPageTextPropType } from '../../../types';
 
-const MyInfoPage = ({ texts, displayThanksMessage }) => (
+const MyInfoPage = ({ displayThanks, texts }) => (
   <SectionMyInfo id="My Info Section">
     <MyInfoWrapper>
       <MyNameOnMobileDevices>Anna Branco</MyNameOnMobileDevices>
 
       <MyInfoInnerWrapper>
-        <MainArea>
+        <MainAreaWrapper>
           <PhotoWrapper>
             <Photo src={Mugshot} alt="Anna Branco" />
           </PhotoWrapper>
@@ -39,10 +39,10 @@ const MyInfoPage = ({ texts, displayThanksMessage }) => (
             <MyNameOnDesktopDevices>Anna Branco</MyNameOnDesktopDevices>
             <JobTitle>{texts.job}</JobTitle>
             <InfoMessage>
-              {!displayThanksMessage ? texts.aditional : texts.thankyou}
+              {!displayThanks ? texts.aditional : texts.thankyou}
             </InfoMessage>
           </InfoArea>
-        </MainArea>
+        </MainAreaWrapper>
         <SocialArea>
           <Social texts={texts} />
         </SocialArea>
@@ -78,12 +78,8 @@ const MyInfoPage = ({ texts, displayThanksMessage }) => (
 );
 
 MyInfoPage.propTypes = {
-  texts: infoPageTextPropType.isRequired,
-  displayThanksMessage: bool
-};
-
-MyInfoPage.defaultProps = {
-  displayThanksMessage: false
+  displayThanks: bool.isRequired,
+  texts: infoPageTextPropType.isRequired
 };
 
 export default MyInfoPage;

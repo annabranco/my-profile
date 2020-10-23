@@ -1,37 +1,37 @@
 import React from 'react';
-import { string, func, arrayOf } from 'prop-types';
-import { headerTextPropType, languagesPropType } from '../../../types/index';
+import { arrayOf, func, string } from 'prop-types';
 import {
+  AppTitle,
+  Flag,
   HeaderArea,
   LanguagesWrapper,
-  Flag,
-  AppTitle,
   Version
 } from './styles';
+import { headerTextPropType, languagesPropType } from '../../../types';
 
 const Header = ({
-  languages,
-  texts,
+  APP_VERSION,
   language,
+  languages,
   onChangeLanguage,
-  APP_VERSION
+  texts
 }) => (
   <HeaderArea>
     <LanguagesWrapper>
       {languages.map(item => (
         <Flag
-          onClick={onChangeLanguage}
-          role="button"
+          active={item.active}
           aria-label={item.language}
-          tabIndex={0}
+          key={item.languageCode}
           lang={item.languageCode}
           languageSelected={language}
-          key={item.languageCode}
-          active={item.active}
+          onClick={onChangeLanguage}
+          role="button"
+          tabIndex={0}
         >
           <img
-            src={`https://www.countryflags.io/${item.flagCode}/flat/16.png`}
             alt=""
+            src={`https://www.countryflags.io/${item.flagCode}/flat/16.png`}
           />
         </Flag>
       ))}
@@ -42,11 +42,11 @@ const Header = ({
 );
 
 Header.propTypes = {
-  texts: headerTextPropType.isRequired,
-  language: string.isRequired,
-  onChangeLanguage: func.isRequired,
   APP_VERSION: string.isRequired,
-  languages: arrayOf(languagesPropType).isRequired
+  language: string.isRequired,
+  languages: arrayOf(languagesPropType).isRequired,
+  onChangeLanguage: func.isRequired,
+  texts: headerTextPropType.isRequired
 };
 
 export default Header;

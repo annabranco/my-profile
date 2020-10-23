@@ -1,15 +1,15 @@
 import React from 'react';
-import { infoPageTextPropType } from '../../../types';
 import {
-  SocialArea,
-  SocialItem,
+  Icon,
   Link,
   LinkButton,
-  Icon,
-  Text,
+  LinkSkypeButton,
+  SocialArea,
+  SocialItem,
   SocialItemSkype,
-  LinkSkypeButton
+  Text
 } from './styles';
+import { infoPageTextPropType } from '../../../types';
 
 const Social = ({ texts }) => (
   <SocialArea>

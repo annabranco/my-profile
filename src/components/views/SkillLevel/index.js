@@ -1,6 +1,6 @@
 import React from 'react';
 import { number } from 'prop-types';
-import { StarsWrapper, Star } from './styles';
+import { Star, StarsWrapper } from './styles';
 
 const SkillLevel = ({ level }) => {
   const stars = new Array(level).fill('*');

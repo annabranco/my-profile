@@ -1,42 +1,41 @@
 import React from 'react';
 import { func } from 'prop-types';
-import { MacNotebook } from '../../../images';
-import {
-  seabedElementsPropType,
-  otherSkillsTextPropType,
-  globalTextsPropType
-} from '../../../types';
 import { isDesktop } from '../../../utils/device';
+import { MacNotebook } from '../../../images';
 import { TextFindSomething } from '../../containers/Seabed/styles';
 import {
-  MacScreen,
-  OtherSkillsWrapper,
-  SectionOtherSkills,
-  TopBar,
+  CloseButton,
   DesignArea,
-  MacKeyboard,
+  DesignText,
+  Flag,
+  Icon,
   KeyboardKeysWrapper,
   Keys,
   LanguagesArea,
-  Title,
-  Icon,
-  Flag,
+  LanguagesTable,
+  MacKeyboard,
+  MacScreen,
   OtherInformationsArea,
   OtherInformationsTable,
-  LanguagesTable,
+  OtherSkillsWrapper,
   Sample,
-  DesignText,
   SamplesWrapper,
-  CloseButton,
-  MacCloseButton
+  SectionOtherSkills,
+  Title,
+  TopBar
 } from './styles';
+import {
+  globalTextsPropType,
+  otherSkillsTextPropType,
+  seabedElementsPropType
+} from '../../../types';
 
 const OtherSkills = ({
-  texts,
   globalTexts,
-  status: { read, visible },
+  onClickClose,
   onClickOpen,
-  onClickClose
+  status: { read, visible },
+  texts
 }) => (
   <>
     {!read && isDesktop ? (
@@ -50,21 +49,12 @@ const OtherSkills = ({
     <SectionOtherSkills id="Other Skills Section" visible={visible}>
       {isDesktop && <TopBar visible={visible} src={MacNotebook} alt="" />}
       <MacScreen visible={visible}>
-        <MacCloseButton
-          visible={visible}
-          onClick={() => onClickClose('otherSkills')}
-        />
-        <MacCloseButton
-          isTabButton
-          visible={visible}
-          onClick={() => onClickClose('otherSkills')}
-        />
         <OtherSkillsWrapper
-          visible={visible}
-          onClick={() => onClickOpen('otherSkills')}
-          role="button"
           aria-label={globalTexts.open}
+          onClick={() => onClickOpen('otherSkillsSection')}
+          role="button"
           tabIndex={0}
+          visible={visible}
         >
           <LanguagesArea>
             <Title>{texts.languages}</Title>
@@ -218,53 +208,53 @@ const OtherSkills = ({
             <SamplesWrapper>
               <a
                 href="https://pre00.deviantart.net/f5fe/th/pre/f/2018/065/a/2/rio_de_janeiro__um_retrato_da_violencia_by_annabranco-dc53j1i.jpg"
-                target="_Blank"
                 rel="noopener noreferrer"
+                target="_Blank"
               >
                 <Sample image="https://pre00.deviantart.net/f5fe/th/pre/f/2018/065/a/2/rio_de_janeiro__um_retrato_da_violencia_by_annabranco-dc53j1i.jpg" />
               </a>
               <a
                 href="https://img00.deviantart.net/9fb7/i/2018/069/2/c/recuerda_siempre_mirar_el_color_de_las_banderas_by_annabranco-dc5gv8e.jpg"
-                target="_Blank"
                 rel="noopener noreferrer"
+                target="_Blank"
               >
                 <Sample image="https://img00.deviantart.net/9fb7/i/2018/069/2/c/recuerda_siempre_mirar_el_color_de_las_banderas_by_annabranco-dc5gv8e.jpg" />
               </a>
               <a
                 href="https://pre00.deviantart.net/3afa/th/pre/i/2018/069/e/3/basic_english_by_annabranco-dc5go6q.jpg"
-                target="_Blank"
                 rel="noopener noreferrer"
+                target="_Blank"
               >
                 <Sample image="https://pre00.deviantart.net/3afa/th/pre/i/2018/069/e/3/basic_english_by_annabranco-dc5go6q.jpg" />
               </a>
               <a
                 href="https://pre00.deviantart.net/6e8f/th/pre/f/2018/245/e/8/violencia1_en_by_annabranco-dclta8q.jpg"
-                target="_Blank"
                 rel="noopener noreferrer"
+                target="_Blank"
               >
                 <Sample image="https://pre00.deviantart.net/6e8f/th/pre/f/2018/245/e/8/violencia1_en_by_annabranco-dclta8q.jpg" />
               </a>
               <a
                 href="https://pre00.deviantart.net/9f40/th/pre/f/2018/065/1/7/terremoto_en_mexico_19_09_17_by_alvarobranco_dbo6p_by_annabranco-dc53k8f.jpg"
-                target="_Blank"
                 rel="noopener noreferrer"
+                target="_Blank"
               >
                 <Sample image="https://pre00.deviantart.net/9f40/th/pre/f/2018/065/1/7/terremoto_en_mexico_19_09_17_by_alvarobranco_dbo6p_by_annabranco-dc53k8f.jpg" />
               </a>
               <a
                 href="https://pre00.deviantart.net/d51e/th/pre/i/2018/069/5/b/european_map__arabic__by_annabranco-dc5gve5.jpg"
-                target="_Blank"
                 rel="noopener noreferrer"
+                target="_Blank"
               >
                 <Sample image="https://pre00.deviantart.net/d51e/th/pre/i/2018/069/5/b/european_map__arabic__by_annabranco-dc5gve5.jpg" />
               </a>
             </SamplesWrapper>
           </DesignArea>
           <CloseButton
-            onClick={() => onClickClose('otherSkills')}
-            type="button"
             aria-label={globalTexts.close}
             hidden={!visible}
+            onClick={() => onClickClose('otherSkillsSection')}
+            type="button"
           >
             {globalTexts.close}
           </CloseButton>
@@ -283,11 +273,11 @@ const OtherSkills = ({
 );
 
 OtherSkills.propTypes = {
-  texts: otherSkillsTextPropType.isRequired,
   globalTexts: globalTextsPropType.isRequired,
-  status: seabedElementsPropType.isRequired,
+  onClickClose: func.isRequired,
   onClickOpen: func.isRequired,
-  onClickClose: func.isRequired
+  status: seabedElementsPropType.isRequired,
+  texts: otherSkillsTextPropType.isRequired
 };
 
 export default OtherSkills;

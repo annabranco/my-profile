@@ -7,13 +7,10 @@ import {
   colorBlack,
   fontSubtitle,
   fontTitleAlt,
-  fontTitle,
   colorYellowBright,
   colorBlueWater,
-  colorRedDark,
   colorYellowDark
 } from '../../../styles/theme';
-import { Logo } from '../Skills/styles';
 
 export const SectionFormation = styled.section`
   z-index: 6;

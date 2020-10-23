@@ -1,120 +1,120 @@
-import React, { Component } from 'react';
-import { string, arrayOf } from 'prop-types';
+import React, { useEffect } from 'react';
+import { arrayOf, string } from 'prop-types';
+import { useStateWithLabel } from '../../../utils/hooks';
+import { getLanguageCodeByName } from '../../../utils/languages';
 import ErrorBoundary from '../ErrorBoundary';
 import { MainArea } from '../../containers';
 import { Header } from '../../views';
-import { getLanguageCodeByName } from '../../../utils/languages';
 import {
-  projectsPropType,
+  BLOCK_LANG_MODAL,
+  DISPLAY_THANKS,
+  LANGUAGE,
+  SETTINGS_LOADED
+} from '../../../constants';
+import {
   allLanguagesTextsPropType,
-  skillGroupsPropType,
   experiencesPropType,
   formationPropType,
-  languagesPropType
+  languagesPropType,
+  projectsPropType,
+  skillGroupsPropType
 } from '../../../types';
 
 const DEFAULT_PAGE_LANGUAGE = 'English';
 
-class App extends Component {
-  static propTypes = {
-    texts: allLanguagesTextsPropType.isRequired,
-    APP_VERSION: string.isRequired,
-    projects: arrayOf(projectsPropType).isRequired,
-    skills: arrayOf(skillGroupsPropType).isRequired,
-    experiences: arrayOf(experiencesPropType).isRequired,
-    formation: arrayOf(formationPropType).isRequired,
-    languages: arrayOf(languagesPropType).isRequired
+const App = ({
+  APP_VERSION,
+  experiences,
+  formation,
+  languages,
+  projects,
+  skills,
+  texts
+}) => {
+  const [blockLangModal, toggleBlockModal] = useStateWithLabel(
+    false,
+    BLOCK_LANG_MODAL
+  );
+  const [displayThanks, setDisplayThanks] = useStateWithLabel(
+    false,
+    DISPLAY_THANKS
+  );
+  const [language, setLanguage] = useStateWithLabel(
+    getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
+    LANGUAGE
+  );
+  const [settingsLoaded, setSettingsLoaded] = useStateWithLabel(
+    false,
+    SETTINGS_LOADED
+  );
+
+  const loadLanguageSettings = () => {
+    const languageSettings =
+      JSON.parse(localStorage.getItem("Anna Branco's professional profile")) ||
+      {};
+    setLanguage(languageSettings.language || language);
+    toggleBlockModal(
+      languageSettings.hideLanguagesModalForever || blockLangModal
+    );
+    setSettingsLoaded(true);
   };
 
-  state = {
-    language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
-    doNotShowLanguageModalAgain: false,
-    displayThanksMessage: false,
-    languageSettingsAreLoaded: false
-  };
+  const onChangeLanguage = event => setLanguage(event.currentTarget.lang);
 
-  componentDidMount() {
-    this.loadLanguageSettings();
-  }
-
-  saveLanguageSettings = () => {
-    const { language, doNotShowLanguageModalAgain } = this.state;
+  const closeLanguageModal = hideForever => {
+    toggleBlockModal(hideForever);
     localStorage.setItem(
       "Anna Branco's professional profile",
       JSON.stringify({
         language,
-        doNotShowLanguageModalAgain
+        hideLanguagesModalForever: hideForever
       })
     );
   };
 
-  loadLanguageSettings = () => {
-    const languageSettings =
-      JSON.parse(localStorage.getItem("Anna Branco's professional profile")) ||
-      {};
-    const language = languageSettings.language || this.state.language;
-    const doNotShowLanguageModalAgain =
-      languageSettings.doNotShowLanguageModalAgain ||
-      this.state.doNotShowLanguageModalAgain;
+  const triggerThankYouMessage = () => setDisplayThanks(true);
 
-    this.setState({
-      language,
-      doNotShowLanguageModalAgain,
-      languageSettingsAreLoaded: true
-    });
-  };
+  useEffect(() => {
+    loadLanguageSettings();
+  }, []);
 
-  onChangeLanguage = event =>
-    this.setState({ language: event.currentTarget.lang });
-
-  closeLanguageModal = willModalBeDisplayedAgain =>
-    this.setState(
-      { doNotShowLanguageModalAgain: willModalBeDisplayedAgain },
-      () => this.saveLanguageSettings()
-    );
-
-  triggerThankYouMessage = () => this.setState({ displayThanksMessage: true });
-
-  render() {
-    const { language, languageSettingsAreLoaded } = this.state;
-    const {
-      texts,
-      APP_VERSION,
-      projects,
-      skills,
-      formation,
-      experiences,
-      languages
-    } = this.props;
-
-    return (
-      <ErrorBoundary texts={texts[language].error}>
-        <Header
-          languages={languages}
-          texts={texts[language].header}
+  return (
+    <ErrorBoundary texts={texts[language].error}>
+      <Header
+        APP_VERSION={APP_VERSION}
+        language={language}
+        languages={languages}
+        onChangeLanguage={onChangeLanguage}
+        texts={texts[language].header}
+      />
+      {settingsLoaded && (
+        <MainArea
+          blockLangModal={blockLangModal}
+          closeLanguageModal={closeLanguageModal}
+          displayThanks={displayThanks}
+          experiences={experiences}
+          formation={formation}
           language={language}
-          onChangeLanguage={this.onChangeLanguage}
-          APP_VERSION={APP_VERSION}
+          languages={languages}
+          onChangeLanguage={onChangeLanguage}
+          projects={projects}
+          skills={skills}
+          texts={texts[language]}
+          triggerThankYouMessage={triggerThankYouMessage}
         />
-        {languageSettingsAreLoaded && (
-          <MainArea
-            languages={languages}
-            language={language}
-            onChangeLanguage={this.onChangeLanguage}
-            texts={texts[language]}
-            projects={projects}
-            skills={skills}
-            formation={formation}
-            experiences={experiences}
-            closeLanguageModal={this.closeLanguageModal}
-            doNotShowLanguageModalAgain={this.state.doNotShowLanguageModalAgain}
-            triggerThankYouMessage={this.triggerThankYouMessage}
-            displayThanksMessage={this.state.displayThanksMessage}
-          />
-        )}
-      </ErrorBoundary>
-    );
-  }
-}
+      )}
+    </ErrorBoundary>
+  );
+};
+
+App.propTypes = {
+  APP_VERSION: string.isRequired,
+  experiences: arrayOf(experiencesPropType).isRequired,
+  formation: arrayOf(formationPropType).isRequired,
+  languages: arrayOf(languagesPropType).isRequired,
+  projects: arrayOf(projectsPropType).isRequired,
+  skills: arrayOf(skillGroupsPropType).isRequired,
+  texts: allLanguagesTextsPropType.isRequired
+};
 
 export default App;

@@ -74,7 +74,7 @@ export const MyInfoInnerWrapper = styled.div`
 `;
 MyInfoInnerWrapper.displayName = '--- Inner Wrapper ---';
 
-export const MainArea = styled.div`
+export const MainAreaWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -85,7 +85,7 @@ export const MainArea = styled.div`
     width: 75%;
   }
 `;
-MainArea.displayName = '--- Main Area ---';
+MainAreaWrapper.displayName = '--- Main Area ---';
 
 export const PhotoWrapper = styled.div`
   height: 170px;

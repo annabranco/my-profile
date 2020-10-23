@@ -1,8 +1,8 @@
 import React from 'react';
-import { string, node } from 'prop-types';
+import { node, string } from 'prop-types';
 import { SectionContent, SectionHeader, Title } from './styles';
 
-const ScrollSection = ({ title, children }) => (
+const ScrollSection = ({ children, title }) => (
   <section id={title}>
     <SectionHeader>
       <Title>{title}</Title>
@@ -12,8 +12,8 @@ const ScrollSection = ({ title, children }) => (
 );
 
 ScrollSection.propTypes = {
-  title: string.isRequired,
-  children: node.isRequired
+  children: node.isRequired,
+  title: string.isRequired
 };
 
 export default ScrollSection;

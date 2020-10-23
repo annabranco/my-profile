@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import App from './components/core/App';
+import ErrorComponent from './components/core/ErrorBoundary/ErrorComponent';
 import {
-  TEXTS_PATH,
+  EXPERIENCES_PATH,
+  FORMATION_PATH,
+  LANGUAGES_PATH,
   PROJECTS_PATH,
   SKILLS_PATH,
-  FORMATION_PATH,
-  EXPERIENCES_PATH,
-  LANGUAGES_PATH
+  TEXTS_PATH
 } from './constants';
 import './styles/reset.css';
-import ErrorComponent from './components/core/ErrorBoundary/ErrorComponent';
 
 const APP_VERSION = 'v0.12.0';
 
@@ -25,12 +25,12 @@ const requestData = URL => {
 };
 
 const dataBasePaths = [
-  TEXTS_PATH,
+  EXPERIENCES_PATH,
+  FORMATION_PATH,
+  LANGUAGES_PATH,
   PROJECTS_PATH,
   SKILLS_PATH,
-  FORMATION_PATH,
-  EXPERIENCES_PATH,
-  LANGUAGES_PATH
+  TEXTS_PATH
 ];
 
 axios
@@ -38,22 +38,22 @@ axios
   .then(
     axios.spread(
       (
-        texts,
+        dataExperiences,
+        dataFormation,
+        dataLanguages,
         dataProjects,
         dataSkills,
-        dataFormation,
-        dataExperiences,
-        dataLanguages
+        texts
       ) => {
         ReactDOM.render(
           <App
-            texts={texts}
+            APP_VERSION={APP_VERSION}
+            experiences={dataExperiences.experiences}
+            formation={dataFormation.formation}
+            languages={dataLanguages.languages}
             projects={dataProjects.projects}
             skills={dataSkills.skillGroups}
-            formation={dataFormation.formation}
-            experiences={dataExperiences.experiences}
-            languages={dataLanguages.languages}
-            APP_VERSION={APP_VERSION}
+            texts={texts}
           />,
           document.getElementById('root')
         );

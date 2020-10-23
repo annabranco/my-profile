@@ -1,6 +1,5 @@
 import React from 'react';
-import { string, bool } from 'prop-types';
-import { projectsPropType } from '../../../types';
+import { bool, string } from 'prop-types';
 import {
   ProjectItem,
   Link,
@@ -10,10 +9,11 @@ import {
   RepoIcon,
   Thumbnail
 } from './styles';
+import { projectsPropType } from '../../../types';
 
-const ProjectDetails = ({ project, language, displayThumbnails }) => (
+const ProjectDetails = ({ displayThumbnails, language, project }) => (
   <ProjectItem key={project.title}>
-    <Link href={project.url} target="_Blank" rel="noopener noreferrer">
+    <Link href={project.url} rel="noopener noreferrer" target="_Blank">
       <Title>
         {project.title}
         <SeeIcon className="far fa-eye" />
@@ -21,14 +21,14 @@ const ProjectDetails = ({ project, language, displayThumbnails }) => (
     </Link>
     <Description>{project.description[language]}</Description>
 
-    <Link href={project.repo} target="_Blank" rel="noopener noreferrer">
+    <Link href={project.repo} rel="noopener noreferrer" target="_Blank">
       <p className="project__repo">
         <RepoIcon className="fab fa-github-alt" />
         {project.repo.replace('https://github.com', '')}
       </p>
     </Link>
     {displayThumbnails && (
-      <Link href={project.url} target="_Blank" rel="noopener noreferrer">
+      <Link href={project.url} rel="noopener noreferrer" target="_Blank">
         <Thumbnail src={project.thumbnail} alt={project.title} />
       </Link>
     )}
@@ -36,9 +36,9 @@ const ProjectDetails = ({ project, language, displayThumbnails }) => (
 );
 
 ProjectDetails.propTypes = {
-  project: projectsPropType.isRequired,
+  displayThumbnails: bool.isRequired,
   language: string.isRequired,
-  displayThumbnails: bool.isRequired
+  project: projectsPropType.isRequired
 };
 
 export default ProjectDetails;

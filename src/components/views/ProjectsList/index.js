@@ -1,72 +1,72 @@
 import React from 'react';
-import { arrayOf, string, func, bool, number, oneOf } from 'prop-types';
-
-import { ProjectDetails } from '..';
+import { arrayOf, bool, func, number, oneOf, string } from 'prop-types';
+import ProjectDetails from '../ProjectDetails';
 import {
   ADVANCE_ACTION,
   BACK_ACTION,
-  SHOW_THUMBNAILS_ON_MOBILE_ACTION,
-  SHOW_THUMBNAILS_ACTION
+  SHOW_THUMBNAILS_ACTION,
+  SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../constants';
-import { developerTextPropType, projectsPropType } from '../../../types';
 import {
-  ProjectsSection,
-  CheckboxWrapper,
   Checkbox,
-  ProjectsGrid,
+  CheckboxWrapper,
+  Icon,
   Paginator,
-  Text,
-  Icon
+  ProjectsGrid,
+  ProjectsSection,
+  Text
 } from './styles';
+import { developerTextPropType, projectsPropType } from '../../../types';
 
 const ProjectsList = ({
-  texts,
-  language,
-  toggleProjectsThumbNails,
-  displayThumbnails,
   actualPage,
-  totalPages,
-  projects,
+  displayThumbnails,
+  language,
   onClickChangePage,
-  thumbnailsStyle
+  projects,
+  texts,
+  thumbnailsStyle,
+  toggleProjectsThumbNails,
+  totalPages
 }) => (
   <ProjectsSection>
     <CheckboxWrapper>
       <Checkbox
         id="developer__projects-checkbox"
-        type="checkbox"
         onClick={event => toggleProjectsThumbNails(event.currentTarget.checked)}
+        type="checkbox"
       />
       <label htmlFor="developer__projects-checkbox">
         {texts.showThumbnails}
       </label>
     </CheckboxWrapper>
     <ProjectsGrid thumbnailsStyle={thumbnailsStyle}>
-      {projects[actualPage - 1].map(project => (
-        <ProjectDetails
-          project={project}
-          language={language}
-          displayThumbnails={displayThumbnails}
-          key={project.title}
-        />
-      ))}
+      {projects &&
+        projects[actualPage - 1].map(project => (
+          <ProjectDetails
+            displayThumbnails={displayThumbnails}
+            key={project.title}
+            language={language}
+            project={project}
+          />
+        ))}
     </ProjectsGrid>
     <Paginator>
       <Text hidden={actualPage === 1}>{texts.goUp}</Text>
       <Icon
-        hidden={actualPage === 1}
+        aria-label={texts.goUp}
         className="far fa-arrow-alt-circle-up"
+        hidden={actualPage === 1}
         onClick={() => onClickChangePage(BACK_ACTION)}
         role="button"
-        aria-label={texts.goUp}
         tabIndex={0}
       />
       <Icon
-        hidden={actualPage === totalPages}
+        aria-label={texts.showMore}
         className="far fa-arrow-alt-circle-down"
+        hidden={actualPage === totalPages}
         onClick={() => onClickChangePage(ADVANCE_ACTION)}
         role="button"
-        aria-label={texts.showMore}
         tabIndex={0}
       />
       <Text hidden={actualPage === totalPages}>{texts.showMore}</Text>
@@ -75,18 +75,18 @@ const ProjectsList = ({
 );
 
 ProjectsList.propTypes = {
-  texts: developerTextPropType.isRequired,
-  projects: arrayOf(projectsPropType).isRequired,
-  language: string.isRequired,
-  toggleProjectsThumbNails: func.isRequired,
-  displayThumbnails: bool.isRequired,
   actualPage: number.isRequired,
-  totalPages: number.isRequired,
+  displayThumbnails: bool.isRequired,
+  language: string.isRequired,
   onClickChangePage: func.isRequired,
+  projects: arrayOf(projectsPropType).isRequired,
+  texts: developerTextPropType.isRequired,
   thumbnailsStyle: oneOf([
     SHOW_THUMBNAILS_ON_MOBILE_ACTION,
     SHOW_THUMBNAILS_ACTION
-  ])
+  ]),
+  toggleProjectsThumbNails: func.isRequired,
+  totalPages: number.isRequired
 };
 
 ProjectsList.defaultProps = {

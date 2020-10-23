@@ -75,5 +75,7 @@ Text.displayName = '--- Text ---';
 export const Icon = styled.i`
   margin: 0 5px;
   font-size: 2rem;
+  cursor: pointer;
+  outline: none;
 `;
 Icon.displayName = '--- Icon ---';

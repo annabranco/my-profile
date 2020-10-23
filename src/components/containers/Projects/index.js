@@ -1,60 +1,62 @@
-import React, { Component } from 'react';
-import { arrayOf, string, func } from 'prop-types';
+import React, { useEffect } from 'react';
+import { arrayOf, func, string } from 'prop-types';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
+import { useStateWithLabel } from '../../../utils/hooks';
 import { isDesktop } from '../../../utils/device';
+import { ProjectsList } from '../../views';
 import {
-  SHOW_THUMBNAILS_ACTION,
+  ACTUAL_PAGE,
   ADVANCE_ACTION,
   BACK_ACTION,
-  SHOW_THUMBNAILS_ON_MOBILE_ACTION
+  PROJECTS_STATE,
+  SHOW_THUMBNAILS_ACTION,
+  SHOW_THUMBNAILS_ON_MOBILE_ACTION,
+  THUMBS_STATE
 } from '../../../constants';
 import { developerTextPropType, projectsPropType } from '../../../types';
-import ProjectsList from '../../views/ProjectsList';
 
-class Projects extends Component {
-  static propTypes = {
-    texts: developerTextPropType.isRequired,
-    projects: arrayOf(projectsPropType).isRequired,
-    language: string.isRequired,
-    adjustScrollAfterThumbnails: func.isRequired
-  };
+const Projects = ({
+  adjustScrollAfterThumbnails,
+  language,
+  projects,
+  texts
+}) => {
+  const [actualPage, changePage] = useStateWithLabel(1, ACTUAL_PAGE);
+  const [projectsState, setProjectsState] = useStateWithLabel(
+    {
+      projects: null,
+      totalPages: 0
+    },
+    PROJECTS_STATE
+  );
+  const [thumbsState, updateThumbsState] = useStateWithLabel(
+    {
+      adjustedView: 0,
+      displayThumbnails: false
+    },
+    THUMBS_STATE
+  );
 
-  state = {
-    displayThumbnails: false,
-    actualPage: 1,
-    totalPages: 0,
-    projects: [[]],
-    adjustedView: 0
-  };
-
-  componentDidMount() {
-    this.organizeProjectsList(isDesktop ? 2 : 1);
-  }
-
-  organizeProjectsList = numberOfProjectsPerPage => {
-    const organizedProjects = chunk(
-      sortBy(this.props.projects),
-      numberOfProjectsPerPage
-    );
-    this.setState({
-      projects: organizedProjects,
-      totalPages: organizedProjects.length
+  const organizeProjectsList = numberOfProjectsPerPage => {
+    const pagedProjects = chunk(sortBy(projects), numberOfProjectsPerPage);
+    setProjectsState({
+      projects: pagedProjects,
+      totalPages: pagedProjects.length
     });
   };
 
-  toggleProjectsThumbNails = isVisible => {
-    this.setState(prevState => ({
-      displayThumbnails: isVisible,
+  const toggleProjectsThumbNails = isVisible => {
+    updateThumbsState(prevState => ({
       adjustedView: isVisible
         ? prevState.adjustedView + 150
-        : prevState.adjustedView - 150
+        : prevState.adjustedView - 150,
+      displayThumbnails: isVisible
     }));
-    this.props.adjustScrollAfterThumbnails(150);
+    adjustScrollAfterThumbnails(150);
   };
 
-  onClickChangePage = action => {
-    const { actualPage } = this.state;
+  const onClickChangePage = action => {
     let nextPage;
 
     if (action === ADVANCE_ACTION) {
@@ -64,42 +66,44 @@ class Projects extends Component {
     }
 
     if (nextPage) {
-      this.setState({
-        actualPage: nextPage
-      });
+      changePage(nextPage);
     }
   };
 
-  getThumbnailsStyle = () => {
-    const { displayThumbnails } = this.state;
-
-    if (displayThumbnails && isDesktop) {
+  const getThumbnailsStyle = () => {
+    if (thumbsState.displayThumbnails && isDesktop) {
       return SHOW_THUMBNAILS_ACTION;
     }
-    if (displayThumbnails) {
+    if (thumbsState.displayThumbnails) {
       return SHOW_THUMBNAILS_ON_MOBILE_ACTION;
     }
     return '';
   };
 
-  render() {
-    const { displayThumbnails, actualPage, totalPages, projects } = this.state;
-    const { texts, language } = this.props;
+  useEffect(() => {
+    organizeProjectsList(isDesktop ? 2 : 1);
+  }, []);
 
-    return (
-      <ProjectsList
-        texts={texts}
-        language={language}
-        toggleProjectsThumbNails={this.toggleProjectsThumbNails}
-        displayThumbnails={displayThumbnails}
-        actualPage={actualPage}
-        totalPages={totalPages}
-        projects={projects}
-        onClickChangePage={this.onClickChangePage}
-        thumbnailsStyle={this.getThumbnailsStyle()}
-      />
-    );
-  }
-}
+  return (
+    <ProjectsList
+      actualPage={actualPage}
+      displayThumbnails={thumbsState.displayThumbnails}
+      language={language}
+      onClickChangePage={onClickChangePage}
+      projects={projectsState.projects}
+      texts={texts}
+      thumbnailsStyle={getThumbnailsStyle()}
+      toggleProjectsThumbNails={toggleProjectsThumbNails}
+      totalPages={projectsState.totalPages}
+    />
+  );
+};
+
+Projects.propTypes = {
+  adjustScrollAfterThumbnails: func.isRequired,
+  language: string.isRequired,
+  projects: arrayOf(projectsPropType).isRequired,
+  texts: developerTextPropType.isRequired
+};
 
 export default Projects;

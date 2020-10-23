@@ -1,47 +1,48 @@
 import React from 'react';
-import { string, arrayOf, func } from 'prop-types';
-import { languagesTextPropType, languagesPropType } from '../../../types/index';
+import { arrayOf, bool, func, string } from 'prop-types';
+import AppButton from '../elements/AppButton';
 import {
   BackgroundOverlay,
-  ModalWrapper,
-  Text,
+  CheckBox,
+  CheckBoxArea,
+  Flag,
   FlagsWrapper,
   Image,
   Label,
-  Flag,
-  CheckBox,
-  CheckBoxArea
+  ModalWrapper,
+  Text
 } from './styles';
-import AppButton from '../elements/AppButton';
+import { languagesPropType, languagesTextPropType } from '../../../types/index';
 
 const LanguagesModal = ({
-  texts,
+  hideForever,
   languages,
   languageSelected,
   onChangeLanguage,
   onCloseLanguageModal,
-  handleShowLanguageModalAgain
+  texts,
+  toggleBlockLangModal
 }) => (
   <BackgroundOverlay>
     <ModalWrapper>
       <FlagsWrapper>
         {languages.map(item => (
           <Flag
-            onClick={onChangeLanguage}
-            role="button"
+            active={item.active}
             aria-label={item.language}
-            tabIndex={0}
+            key={item.languageCode}
             lang={item.languageCode}
             languageSelected={languageSelected}
-            key={item.languageCode}
-            active={item.active}
+            onClick={onChangeLanguage}
+            role="button"
+            tabIndex={0}
           >
             <Label>{item.language}</Label>
             <Image
-              src={`https://www.countryflags.io/${item.flagCode}/shiny/64.png`}
               alt=""
               lang={item.languageCode}
               languageSelected={languageSelected}
+              src={`https://www.countryflags.io/${item.flagCode}/shiny/64.png`}
             />
           </Flag>
         ))}
@@ -50,28 +51,30 @@ const LanguagesModal = ({
       <Text>{texts.changeUpperBar}</Text>
       <CheckBoxArea>
         <CheckBox
-          type="checkbox"
+          checked={hideForever}
           className="languages__checkbox"
-          onClick={handleShowLanguageModalAgain}
+          onClick={toggleBlockLangModal}
+          type="checkbox"
         />
         {texts.chekboxText}
       </CheckBoxArea>
       <AppButton
-        text="ok"
-        onClick={onCloseLanguageModal}
         buttonStyle="confirm"
+        onClick={onCloseLanguageModal}
+        text="ok"
       />
     </ModalWrapper>
   </BackgroundOverlay>
 );
 
 LanguagesModal.propTypes = {
-  texts: languagesTextPropType.isRequired,
-  languageSelected: string.isRequired,
+  hideForever: bool.isRequired,
   languages: arrayOf(languagesPropType).isRequired,
+  languageSelected: string.isRequired,
   onChangeLanguage: func.isRequired,
   onCloseLanguageModal: func.isRequired,
-  handleShowLanguageModalAgain: func.isRequired
+  texts: languagesTextPropType.isRequired,
+  toggleBlockLangModal: func.isRequired
 };
 
 export default LanguagesModal;

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { arrayOf, string } from 'prop-types';
 import FrontendSkillGroup from '../FrontendSkillGroup';
 import SkillLevel from '../SkillLevel';
-import { skillGroupsPropType } from '../../../types';
+import {
+  SKILLS_FIRST_ROW,
+  SKILLS_SECOND_ROW,
+  SKILLS_THIRD_ROW
+} from '../../../constants';
 import {
   SkillsArea,
   Title,
@@ -13,31 +17,29 @@ import {
   SkillsInsideGroup,
   Logo
 } from './styles';
+import { skillGroupsPropType } from '../../../types';
 
-export const SKILLS_FIRST_ROW = 'skillsFirstRow';
-export const SKILLS_SECOND_ROW = 'skillsSecondRow';
-export const SKILLS_THIRD_ROW = 'skillsLastRow';
+const FIRST_ROW_ITEMS = 'Frontend';
+const SECOND_ROW_ITEMS = new Set([1, 2, 3, 4]);
+const THIRD_ROW_ITEMS = new Set([5, 6, 7, 8]);
 
-const Skills = ({ skills, cuePointsActivated }) => {
-  const FIRST_ROW_ITEMS = 'Frontend';
-  const SECOND_ROW_ITEMS = [1, 2, 3, 4];
-  const THIRD_ROW_ITEMS = [5, 6, 7, 8];
+const Skills = ({ cuePointsActivated, skills }) => {
   const isVisible = identificator => {
     if (
-      cuePointsActivated.includes(SKILLS_FIRST_ROW) &&
+      cuePointsActivated.has(SKILLS_FIRST_ROW) &&
       FIRST_ROW_ITEMS.includes(identificator)
     ) {
       return true;
     }
     if (
-      cuePointsActivated.includes(SKILLS_SECOND_ROW) &&
-      SECOND_ROW_ITEMS.includes(identificator)
+      cuePointsActivated.has(SKILLS_SECOND_ROW) &&
+      SECOND_ROW_ITEMS.has(identificator)
     ) {
       return true;
     }
     if (
-      cuePointsActivated.includes(SKILLS_THIRD_ROW) &&
-      THIRD_ROW_ITEMS.includes(identificator)
+      cuePointsActivated.has(SKILLS_THIRD_ROW) &&
+      THIRD_ROW_ITEMS.has(identificator)
     ) {
       return true;
     }
@@ -47,19 +49,14 @@ const Skills = ({ skills, cuePointsActivated }) => {
   return (
     <SkillsArea>
       {skills.map((skillObject, index) => (
-        <>
+        <Fragment key={skillObject.name}>
           {skillObject.name === 'Frontend' ? (
             <FrontendSkillGroup
-              key={skillObject.name}
               details={skillObject}
               visible={isVisible(skillObject.name)}
             />
           ) : (
-            <SkillGroup
-              key={skillObject.name}
-              isVisible={isVisible(index)}
-              position={index}
-            >
+            <SkillGroup isVisible={isVisible(index)} position={index}>
               <Title>{skillObject.name}</Title>
               <SkillsInsideGroup>
                 <Logo src={skillObject.logo} alt="" />
@@ -77,15 +74,15 @@ const Skills = ({ skills, cuePointsActivated }) => {
               </SkillsInsideGroup>
             </SkillGroup>
           )}
-        </>
+        </Fragment>
       ))}
     </SkillsArea>
   );
 };
 
 Skills.propTypes = {
-  skills: arrayOf(skillGroupsPropType).isRequired,
-  cuePointsActivated: arrayOf(string).isRequired
+  cuePointsActivated: arrayOf(string).isRequired,
+  skills: arrayOf(skillGroupsPropType).isRequired
 };
 
 export default Skills;

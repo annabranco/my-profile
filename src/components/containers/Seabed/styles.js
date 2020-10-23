@@ -246,13 +246,13 @@ GoBackText.displayName = '--- Go Back Text ---';
 
 export const ThinkingText = styled.p`
   position: absolute;
-  bottom: 65%;
+  bottom: 68%;
   opacity: 0.8;
   width: 180px;
-  text-shadow: 0 0 1px ${colorBlack};
+  text-shadow: -1px 1px 6px ${colorBlack};
   font-style: italic;
   font-family: sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: ${colorYellowPale};
   text-align: center;
 

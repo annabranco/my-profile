@@ -15,8 +15,7 @@ import {
   colorGreenPale,
   colorYellowPale,
   colorRedBright,
-  fontTitleAlt,
-  colorRedDark
+  fontTitleAlt
 } from '../../../styles/theme';
 import { Hidden, NotDisplayed } from '../../../styles/global';
 

@@ -1,17 +1,17 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { func, string } from 'prop-types';
 import { StyledButton } from './styles';
 
-const AppButton = ({ text, buttonStyle, onClick }) => (
+const AppButton = ({ buttonStyle, onClick, text }) => (
   <StyledButton buttonStyle={buttonStyle} onClick={onClick} type="button">
     {text}
   </StyledButton>
 );
 
 AppButton.propTypes = {
-  text: string.isRequired,
   buttonStyle: string,
-  onClick: func
+  onClick: func,
+  text: string.isRequired
 };
 
 AppButton.defaultProps = {

@@ -1,33 +1,33 @@
 import React from 'react';
 import { arrayOf, string } from 'prop-types';
 import { getFlagURL } from '../../../utils/icons';
-// import { HorizontalBar } from '../Formation/styles';
-import { experiencesPropType, globalTextsPropType } from '../../../types';
 import {
-  ExperiencesArea,
-  VerticalBar,
-  ExperiencesWrapper,
-  ExperienceItem,
-  DateArea,
-  TextDate,
-  DetailsArea,
-  Title,
+  City,
   Company,
   CountryFlag,
+  DateArea,
   Details,
-  City
+  DetailsArea,
+  ExperienceItem,
+  ExperiencesArea,
+  ExperiencesWrapper,
+  TextDate,
+  Title,
+  VerticalBar
 } from './styles';
 import { HorizontalBar } from '../elements/HorizontalBar/styles';
+import { experiencesPropType, globalTextsPropType } from '../../../types';
 
 const EXPERIENCE_ON_TOP = 'newer'; // newer or older
 
-const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
+const Experiences = ({ cuePointsActivated, experiences, language, texts }) => {
   const customOrder = (x, y) => {
     if (EXPERIENCE_ON_TOP === 'older') {
       return x.dateBeginValue - y.dateBeginValue;
     }
     return y.dateBeginValue - x.dateBeginValue;
   };
+
   return (
     <ExperiencesArea>
       <VerticalBar />
@@ -37,13 +37,13 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
             item.visible && (
               <ExperienceItem
                 key={item.dateBeginValue}
-                visible={cuePointsActivated.includes(item.id)}
+                visible={cuePointsActivated.has(item.id)}
               >
                 <HorizontalBar
                   border="2px"
-                  width="20%"
-                  moveY="25px"
                   margin="9%"
+                  moveY="25px"
+                  width="20%"
                 />
                 <DateArea>
                   {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
@@ -55,7 +55,7 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
                     </>
                   )}
                 </DateArea>
-                <DetailsArea visible={cuePointsActivated.includes(item.id)}>
+                <DetailsArea visible={cuePointsActivated.has(item.id)}>
                   <Title>{item.title[language]}</Title>
                   <Company>
                     {item.company}
@@ -80,10 +80,10 @@ const Experiences = ({ texts, experiences, language, cuePointsActivated }) => {
 };
 
 Experiences.propTypes = {
+  cuePointsActivated: arrayOf(string).isRequired,
   experiences: arrayOf(experiencesPropType).isRequired,
   language: string.isRequired,
-  texts: globalTextsPropType.isRequired,
-  cuePointsActivated: arrayOf(string).isRequired
+  texts: globalTextsPropType.isRequired
 };
 
 export default Experiences;
