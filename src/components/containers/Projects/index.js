@@ -71,13 +71,10 @@ const Projects = ({
   };
 
   const getThumbnailsStyle = () => {
-    if (thumbsState.displayThumbnails && isDesktop) {
-      return SHOW_THUMBNAILS_ACTION;
-    }
-    if (thumbsState.displayThumbnails) {
+    if (thumbsState.displayThumbnails && !isDesktop) {
       return SHOW_THUMBNAILS_ON_MOBILE_ACTION;
     }
-    return '';
+    return SHOW_THUMBNAILS_ACTION;
   };
 
   useEffect(() => {

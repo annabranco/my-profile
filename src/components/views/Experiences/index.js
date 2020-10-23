@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf, string } from 'prop-types';
+import { arrayOf, instanceOf, string } from 'prop-types';
 import { getFlagURL } from '../../../utils/icons';
 import {
   City,
@@ -16,7 +16,7 @@ import {
   VerticalBar
 } from './styles';
 import { HorizontalBar } from '../elements/HorizontalBar/styles';
-import { experiencesPropType, globalTextsPropType } from '../../../types';
+import { experiencesTextPropType, globalTextsPropType } from '../../../types';
 
 const EXPERIENCE_ON_TOP = 'newer'; // newer or older
 
@@ -80,8 +80,8 @@ const Experiences = ({ cuePointsActivated, experiences, language, texts }) => {
 };
 
 Experiences.propTypes = {
-  cuePointsActivated: arrayOf(string).isRequired,
-  experiences: arrayOf(experiencesPropType).isRequired,
+  cuePointsActivated: instanceOf(Set).isRequired,
+  experiences: arrayOf(experiencesTextPropType).isRequired,
   language: string.isRequired,
   texts: globalTextsPropType.isRequired
 };

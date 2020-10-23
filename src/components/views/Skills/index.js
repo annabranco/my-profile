@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { arrayOf, string } from 'prop-types';
+import { arrayOf, instanceOf } from 'prop-types';
 import FrontendSkillGroup from '../FrontendSkillGroup';
 import SkillLevel from '../SkillLevel';
 import {
@@ -81,7 +81,7 @@ const Skills = ({ cuePointsActivated, skills }) => {
 };
 
 Skills.propTypes = {
-  cuePointsActivated: arrayOf(string).isRequired,
+  cuePointsActivated: instanceOf(Set).isRequired,
   skills: arrayOf(skillGroupsPropType).isRequired
 };
 

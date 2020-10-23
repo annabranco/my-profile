@@ -13,7 +13,7 @@ import {
 } from '../../../constants';
 import { ScrollAreaWrapper } from './styles';
 import {
-  experiencesPropType,
+  experiencesTextPropType,
   formationPropType,
   projectsPropType,
   skillGroupsPropType,
@@ -177,7 +177,7 @@ const ScrollArea = ({
 
 ScrollArea.propTypes = {
   displayThanks: bool.isRequired,
-  experiences: arrayOf(experiencesPropType).isRequired,
+  experiences: arrayOf(experiencesTextPropType).isRequired,
   formation: arrayOf(formationPropType).isRequired,
   langModalVisible: bool.isRequired,
   projects: arrayOf(projectsPropType).isRequired,

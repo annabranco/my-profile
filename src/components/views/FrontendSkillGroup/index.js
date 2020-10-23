@@ -1,8 +1,9 @@
 import React from 'react';
-import { bool, string } from 'prop-types';
+import { bool } from 'prop-types';
 import SkillLevel from '../SkillLevel';
 import { FrontendGroup, SkillsWrapper, LogoWrapper, Logo } from './styles';
 import { Title, SkillItem, Name } from '../Skills/styles';
+import { skillGroupsPropType } from '../../../types';
 
 const FrontendSkillGroup = ({ details, visible }) => (
   <FrontendGroup visible={visible}>
@@ -26,11 +27,8 @@ const FrontendSkillGroup = ({ details, visible }) => (
 );
 
 FrontendSkillGroup.propTypes = {
-  details: string.isRequired,
-  visible: bool
-};
-FrontendSkillGroup.defaultProps = {
-  visible: false
+  details: skillGroupsPropType.isRequired,
+  visible: bool.isRequired
 };
 
 export default FrontendSkillGroup;

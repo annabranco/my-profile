@@ -1,11 +1,6 @@
 import React from 'react';
 import { arrayOf, func, string } from 'prop-types';
-import {
-  experiencesTextPropType,
-  formationPropType,
-  globalTextsPropType,
-  seabedElementsPropType
-} from '../../../types';
+
 import { isDesktop } from '../../../utils/device';
 import { getFlagURL } from '../../../utils/icons';
 import {
@@ -26,6 +21,12 @@ import {
 import { HorizontalBar } from '../elements/HorizontalBar/styles';
 import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';
 import { Title } from '../ScrollSection/styles';
+import {
+  formationPropType,
+  globalTextsPropType,
+  seabedElementsPropType,
+  seabedTextPropType
+} from '../../../types';
 
 const FORMATION_ON_TOP = 'older'; // newer or older
 
@@ -138,7 +139,7 @@ Formation.propTypes = {
   onClickClose: func.isRequired,
   onClickOpen: func.isRequired,
   status: seabedElementsPropType.isRequired,
-  texts: experiencesTextPropType.isRequired
+  texts: seabedTextPropType.isRequired
 };
 
 export default Formation;

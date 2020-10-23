@@ -204,6 +204,41 @@
     }
   },
   "fr": {
+    "developer": {
+      "expanded": "Expand view",
+      "formation": "Formation by",
+      "goUp": "go up",
+      "main": "Main skills",
+      "other": "Other skills",
+      "projects": "Projects",
+      "projectsText": "In this section, you can see a few of my projects and creations:",
+      "reduced": "Reduce view",
+      "showMore": "show more",
+      "showThumbnails": "Show thumbnails"
+    },
+    "error": {
+      "errorLine1": "I'm awfully sorry but something unexpected had happened. :(",
+      "errorLine2": "I'd really appreciate if you could notify me of this error on my issues page.",
+      "notifyMe": "Notify me",
+      "title": "That's embarassing..."
+    },
+    "global": {
+      "close": "Close",
+      "open": "Open",
+      "since": "Since"
+    },
+    "header": {
+      "contact": "Contact",
+      "title": "Anna Branco's professional profile"
+    },
+    "infoPage": {
+      "aditional": "Developing sites and apps where navigating around is a beautiful journey",
+      "advise": "For an enhanced user experience, visiting this page on a full screen desktop is advised.",
+      "call": "Call",
+      "chat": "Chat",
+      "job": "Front End Developer",
+      "thankyou": "Thank you very much for navigating trough all my profile!"
+    },
     "languages": {
       "changeDefault": "Cliquez ci-dessous pour changer le langue par défaut:",
       "changeUpperBar": "Vous pouvez aussi le changer dans la barre supérieure",
@@ -211,6 +246,63 @@
       "language": "Français",
       "languageCode": "fr",
       "readingLanguage": "Vous lisez mon profil professionel en français."
+    },
+    "otherSkills": {
+      "basic": "Basic",
+      "design": "Graphic design",
+      "english": "English",
+      "find": "You've found... a computer?!",
+      "find2": "And it is oddly on",
+      "fluent": "Fluent",
+      "french": "French",
+      "how": "How I have developed it",
+      "intermediate": "Intermediate",
+      "investigate": "Click on the screen to investigate it.",
+      "languages": "Languages",
+      "other": "Other skills",
+      "portuguese": "Portuguese",
+      "russian": "Russian",
+      "samples": "Here are some of my design creations:",
+      "skill": "Skill",
+      "skill1": "Working under pressure",
+      "skill1details": "More than 5 years as volunteer on ambulances and emergencies",
+      "skill2": "Leadership",
+      "skill2details": "More than 3 years of professional experience managing different teams",
+      "skill3": "Communication",
+      "skill3details": "Solid experience teaching, giving formations and speeches",
+      "skill4": "Empathy",
+      "skill4details": "Psychology formation and humanitarian background",
+      "skill5": "Flexibility",
+      "skill5details": "Very good experience working within multicultural environments",
+      "spanish": "Spanish"
+    },
+    "seabed": {
+      "formation": "Formation",
+      "find": "You've found a curious object laying on the sea bed.",
+      "find2": "Click on any of them to investigate it.",
+      "findMore": "You've found two curious objects on the seabed.",
+      "investigate": "Click on in to investigate it.",
+      "linkedin": "For more details ans references, please visit ",
+      "message": "Beyond developing webpages and applications, I love to experiment programming videogames, promoting interactivity with the user and lots of fun.",
+      "messageKeyboard": "Thus, now you know my basic profile, how about a little gaming experience? Move the diver to the desired direction using arrows keys on your keyboard (◀︎ or ▶︎) to know more about my profile.",
+      "skills": "Other skills",
+      "thoughts": [
+        "That's weird... I could swear I've just seen a cat dressed up as an octopus",
+        "The sea... the final frontier...",
+        "Just keep swimming... Just keep swiiimming...",
+        "I've just remembered that old movie with an alien ship living into an underwater abyss...",
+        "hmm... maybe another day.",
+        "Oh.. I wish we had time to swim around...",
+        "Sometimes I forget I am just a character inside a professional profile",
+        "Yeah. I too would love to explore around, but we have to focus on the professional profile, right?"
+      ],
+      "time2go": "Time to go back..."
+    },
+    "sections": {
+      "experience": "Professional experience",
+      "other": "Other informations",
+      "projects": "Projects",
+      "technical": "Technical Competences"
     }
   },
   "pt": {

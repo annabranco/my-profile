@@ -13,7 +13,7 @@ import {
 } from '../../../constants';
 import {
   allLanguagesTextsPropType,
-  experiencesPropType,
+  experiencesTextPropType,
   formationPropType,
   languagesPropType,
   projectsPropType,
@@ -109,7 +109,7 @@ const App = ({
 
 App.propTypes = {
   APP_VERSION: string.isRequired,
-  experiences: arrayOf(experiencesPropType).isRequired,
+  experiences: arrayOf(experiencesTextPropType).isRequired,
   formation: arrayOf(formationPropType).isRequired,
   languages: arrayOf(languagesPropType).isRequired,
   projects: arrayOf(projectsPropType).isRequired,

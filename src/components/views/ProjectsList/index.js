@@ -79,18 +79,32 @@ ProjectsList.propTypes = {
   displayThumbnails: bool.isRequired,
   language: string.isRequired,
   onClickChangePage: func.isRequired,
-  projects: arrayOf(projectsPropType).isRequired,
+  projects: arrayOf(arrayOf(projectsPropType)),
   texts: developerTextPropType.isRequired,
   thumbnailsStyle: oneOf([
     SHOW_THUMBNAILS_ON_MOBILE_ACTION,
     SHOW_THUMBNAILS_ACTION
-  ]),
+  ]).isRequired,
   toggleProjectsThumbNails: func.isRequired,
   totalPages: number.isRequired
 };
 
 ProjectsList.defaultProps = {
-  thumbnailsStyle: undefined
+  projects: [
+    [
+      {
+        description: {
+          en: '',
+          es: '',
+          pt: ''
+        },
+        order: 0,
+        repo: '',
+        thumbnail: '',
+        url: ''
+      }
+    ]
+  ]
 };
 
 export default ProjectsList;

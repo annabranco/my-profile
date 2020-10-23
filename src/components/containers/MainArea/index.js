@@ -5,7 +5,7 @@ import ScrollArea from '../ScrollArea';
 import { LanguagesModal } from '../../views';
 import { LANG_MODAL_VISIBLE, BLOCK_LANG_MODAL } from '../../../constants';
 import {
-  experiencesPropType,
+  experiencesTextPropType,
   formationPropType,
   languagesPropType,
   projectsPropType,
@@ -81,7 +81,7 @@ MainArea.propTypes = {
   blockLangModal: bool.isRequired,
   closeLanguageModal: func.isRequired,
   displayThanks: bool.isRequired,
-  experiences: arrayOf(experiencesPropType).isRequired,
+  experiences: arrayOf(experiencesTextPropType).isRequired,
   formation: arrayOf(formationPropType).isRequired,
   language: string.isRequired,
   languages: arrayOf(languagesPropType).isRequired,
