@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
-import appInfo from '../package.json';
+import { Provider } from 'react-redux';
+import { getStore } from './redux';
 import App from './components/core/App';
 import ErrorComponent from './components/core/ErrorBoundary/ErrorComponent';
 import {
@@ -13,17 +13,7 @@ import {
   TEXTS_PATH
 } from './constants';
 import './styles/reset.css';
-
-const APP_VERSION = appInfo.version;
-
-const requestData = URL => {
-  return axios
-    .get(URL)
-    .then(data => {
-      return data.data;
-    })
-    .catch(error => console.error(`Failed to get data from ${URL}. ${error}.`));
-};
+import { dispatchFetchDatabase } from './utils/fetchData';
 
 const dataBasePaths = [
   EXPERIENCES_PATH,
@@ -34,33 +24,17 @@ const dataBasePaths = [
   TEXTS_PATH
 ];
 
-axios
-  .all(dataBasePaths.map(path => requestData(path)))
-  .then(
-    axios.spread(
-      (
-        dataExperiences,
-        dataFormation,
-        dataLanguages,
-        dataProjects,
-        dataSkills,
-        texts
-      ) => {
-        ReactDOM.render(
-          <App
-            APP_VERSION={APP_VERSION}
-            experiences={dataExperiences.experiences}
-            formation={dataFormation.formation}
-            languages={dataLanguages.languages}
-            projects={dataProjects.projects}
-            skills={dataSkills.skillGroups}
-            texts={texts}
-          />,
-          document.getElementById('root')
-        );
-      }
-    )
-  )
+const store = getStore();
+
+dispatchFetchDatabase(dataBasePaths)
+  .then(() => {
+    ReactDOM.render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+      document.getElementById('root')
+    );
+  })
   .catch(error => {
     console.error(error);
     ReactDOM.render(

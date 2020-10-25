@@ -14,7 +14,7 @@ import {
   NotifyButtonText,
   SorryText
 } from './styles';
-import { MeuBarquinho } from '../../views/MyInfoPage/styles';
+import { MeuBarquinho } from '../../MyInfoPage/styles';
 
 const DEFAULT_ERROR_TEXTS = {
   errorLine1: "I'm awfully sorry but something unexpected had happened. :(",

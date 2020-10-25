@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { node } from 'prop-types';
-import { errorTextsPropType } from '../../../types';
 import ErrorComponent from './ErrorComponent';
+import { errorTextsPropType } from '../../../types';
 
 class ErrorBoundary extends Component {
   static propTypes = {
@@ -36,4 +37,10 @@ class ErrorBoundary extends Component {
   }
 }
 
-export default ErrorBoundary;
+export const getUser = state => state.user;
+
+const mapStateToProps = state => ({
+  texts: state.texts.error
+});
+
+export default connect(mapStateToProps)(ErrorBoundary);

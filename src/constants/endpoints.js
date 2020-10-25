@@ -1,8 +1,9 @@
+import { isDevelopment } from '../utils/environments';
+
 const HOST_PRO =
   'https://raw.githubusercontent.com/annabranco/my-profile/dev/src/db';
 const HOST_PRE = 'http://localhost:3031';
 
-const isDevelopment = process.env.REACT_APP_DEV_SERVER === 'true';
 const HOST = isDevelopment ? HOST_PRE : HOST_PRO;
 
 export const EXPERIENCES_PATH = `${HOST}/experiences.json`;

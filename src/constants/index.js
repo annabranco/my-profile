@@ -1,4 +1,4 @@
 export * from './actions';
-export * from './displayNames';
+export * from './names';
 export * from './endpoints';
-export { LANGUAGES } from './languages';
+export { APP_LANGUAGES } from './languages';
