@@ -96,6 +96,11 @@ const SeaBed = ({ resetScrollPosition }) => {
 
   // ======== Handle view components (Formation and Other Skills)
 
+  const closeSubsections = () => {
+    onClickClose('formationSection');
+    onClickClose('otherSkillsSection');
+  };
+
   const onClickLinkOnMobile = link => {
     if (link === 'formationSection') {
       return changeFormationState({
@@ -199,6 +204,7 @@ const SeaBed = ({ resetScrollPosition }) => {
       floatingImage = FloatingRight;
       swimmingImage = SwimmingRight;
       newMovement = `${Number(HERO.style.left.slice(0, -2)) + DISPLACEMENT}px`;
+      closeSubsections();
     } else if (event.key === 'ArrowLeft') {
       // ---- Prevents movement beyond left margin on frame 'left'
       if (
@@ -210,6 +216,7 @@ const SeaBed = ({ resetScrollPosition }) => {
       swimmingImage = SwimmingLeft;
       floatingImage = FloatingLeft;
       newMovement = `${Number(HERO.style.left.slice(0, -2)) - DISPLACEMENT}px`;
+      closeSubsections();
     }
     changeThinkingState(prevState => ({
       ...prevState,
