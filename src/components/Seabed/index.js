@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { func } from 'prop-types';
 import Formation from '../Formation';
 import OtherSkills from '../OtherSkills';
-import { seabedTextsSelector } from '../../redux/selectors';
+import { finishedSelector, seabedTextsSelector } from '../../redux/selectors';
 import { triggerFinishScenario } from '../../redux/actions/finishedScenario';
 import { useStateWithLabel } from '../../utils/hooks';
 import { isDesktop } from '../../utils/device';
@@ -16,12 +16,16 @@ import {
   SwimmingRight
 } from '../../images';
 import {
-  FINISHED,
+  CENTER,
   FORMATION,
   INSTRUCTIONS,
+  LEFT,
   MOVEMENTS,
+  ON_THE_LEFT,
+  ON_THE_RIGHT,
   OTHER_SKILLS,
   POSITION,
+  RIGHT,
   THINKING
 } from '../../constants';
 import {
@@ -45,6 +49,7 @@ let floatRight;
 
 const SeaBed = ({ resetScrollPosition }) => {
   const texts = useSelector(seabedTextsSelector);
+  const isFinished = useSelector(finishedSelector);
   const dispatch = useDispatch();
 
   const [formationState, changeFormationState] = useStateWithLabel(
@@ -57,6 +62,8 @@ const SeaBed = ({ resetScrollPosition }) => {
   );
   const [heroMovements, changeHeroMovements] = useStateWithLabel(
     {
+      back2Surface: false,
+      crossingBorder: false,
       isGoingUp: false,
       isSwimming: false
     },
@@ -76,14 +83,10 @@ const SeaBed = ({ resetScrollPosition }) => {
   );
   const [positionState, changePositionState] = useStateWithLabel(
     {
-      frame: 'center',
+      frame: CENTER,
       position: 'initial'
     },
     POSITION
-  );
-  const [scenarioHasFinished, finishScenario] = useStateWithLabel(
-    false,
-    FINISHED
   );
   const [thinkingState, changeThinkingState] = useStateWithLabel(
     {
@@ -105,15 +108,15 @@ const SeaBed = ({ resetScrollPosition }) => {
     if (link === 'formationSection') {
       return changeFormationState({
         active: true,
-        visible: true,
-        read: true
+        read: true,
+        visible: true
       });
     }
     if (link === 'otherSkillsSection') {
       return changeOtherSkillsState({
         active: true,
-        visible: true,
-        read: true
+        read: true,
+        visible: true
       });
     }
     return null;
@@ -152,15 +155,14 @@ const SeaBed = ({ resetScrollPosition }) => {
       }));
     }
     if (formationState.read && otherSkillsState.read && isDesktop) {
-      finishScenario(true);
+      // -- Triggers thank you message on first screen
+      dispatch(triggerFinishScenario(true));
     }
-    // -- Triggers thank you message on first screen
-    dispatch(triggerFinishScenario());
   };
 
   const resetInitialState = () => {
     changePositionState({
-      frame: 'center',
+      frame: CENTER,
       position: 'initial'
     });
     changeThinkingState({
@@ -168,6 +170,8 @@ const SeaBed = ({ resetScrollPosition }) => {
       thoughts: -1
     });
     changeHeroMovements({
+      back2Surface: false,
+      crossingBorder: false,
       isGoingUp: false,
       isSwimming: false
     });
@@ -182,36 +186,39 @@ const SeaBed = ({ resetScrollPosition }) => {
       visible: false
     });
     hideInstructions(false);
-    finishScenario(false);
+    setTimeout(() => {
+      dispatch(triggerFinishScenario(true));
+    }, 5000);
+    // finishScenario(false);
   };
 
   // ======== Handle base HERO movements
 
-  const moveHero = event => {
+  const moveHero = (event, updatedPosition) => {
     const DISPLACEMENT = 250;
     let floatingImage;
     let newMovement;
     let swimmingImage;
 
     if (event.key === 'ArrowRight') {
-      // ---- Prevents movement beyond right margin on frame 'right'
+      // ---- Prevents movement beyond right margin on frame RIGHT
       if (
-        positionState.frame === 'right' &&
-        positionState.position === 'on-the-right'
+        updatedPosition.frame === RIGHT &&
+        updatedPosition.position === ON_THE_RIGHT
       ) {
-        return onReachBorder('on-right');
+        return onReachBorder(ON_THE_RIGHT);
       }
       floatingImage = FloatingRight;
       swimmingImage = SwimmingRight;
       newMovement = `${Number(HERO.style.left.slice(0, -2)) + DISPLACEMENT}px`;
       closeSubsections();
     } else if (event.key === 'ArrowLeft') {
-      // ---- Prevents movement beyond left margin on frame 'left'
+      // ---- Prevents movement beyond left margin on frame LEFT
       if (
-        positionState.frame === 'left' &&
-        positionState.position === 'on-the-left'
+        updatedPosition.frame === LEFT &&
+        updatedPosition.position === ON_THE_LEFT
       ) {
-        return onReachBorder('on-left');
+        return onReachBorder(ON_THE_LEFT);
       }
       swimmingImage = SwimmingLeft;
       floatingImage = FloatingLeft;
@@ -227,52 +234,52 @@ const SeaBed = ({ resetScrollPosition }) => {
     HERO.src = swimmingImage;
     HERO.style.left = newMovement;
     changeHeroMovements({
-      isGoingUp: false,
+      ...heroMovements,
       isSwimming: true
     });
     floatRight = setTimeout(() => {
       HERO.src = floatingImage;
       changeHeroMovements({
-        isGoingUp: false,
+        ...heroMovements,
         isSwimming: false
       });
     }, 3000);
-    return heroHasMoved();
+    return heroHasMoved(updatedPosition);
   };
 
   // ======= Function that fires events when HERO reaches some specific places
 
-  const heroHasMoved = () => {
+  const heroHasMoved = updatedPosition => {
     // ---- WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
     if (
       formationState.read &&
       !formationState.active &&
       otherSkillsState.read &&
       !otherSkillsState.active &&
-      positionState.frame === 'center'
+      updatedPosition.frame === CENTER
     ) {
-      goBackUp();
+      goBackUp(updatedPosition);
     }
 
     // ---- Highlights the text "Formation" when hero swims over it
     if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 400) {
       changePositionState(prevState => ({
         ...prevState,
-        position: 'on-the-right'
+        position: ON_THE_RIGHT
       }));
 
       // ---- Highlights the text "Other Skills" when hero swims over it
     } else if (Number(HERO.style.left.slice(0, -2)) <= 200) {
       changePositionState(prevState => ({
         ...prevState,
-        position: 'on-the-left'
+        position: ON_THE_LEFT
       }));
 
       // ---- Clear highlights
-    } else if (positionState.position !== 'center') {
+    } else if (updatedPosition.position !== CENTER && !isFinished) {
       changePositionState(prevState => ({
-        ...prevState,
-        position: 'center'
+        frame: prevState.frame,
+        position: CENTER
       }));
     }
 
@@ -280,20 +287,27 @@ const SeaBed = ({ resetScrollPosition }) => {
     if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 50) {
       hideInstructions(true);
 
-      HERO.style.transition = 'none';
+      changeHeroMovements({
+        ...heroMovements,
+        crossingBorder: true
+      });
       HERO.style.left = '-30px';
       setTimeout(() => {
-        HERO.style.transition = 'all ease 1s';
+        // HERO.style.transition = 'all ease 1s';
+        changeHeroMovements({
+          ...heroMovements,
+          crossingBorder: false
+        });
       }, 10);
 
       // ---- If HERO is coming from frame "left" (OtherSkills) sets scenario to "center"
-      if (positionState.frame === 'left') {
-        changePositionState({ frame: 'center', position: 'on-the-left' });
+      if (updatedPosition.frame === LEFT) {
+        changePositionState({ frame: CENTER, position: ON_THE_LEFT });
         changeOtherSkillsState(prevState => ({ ...prevState, active: false }));
 
         // ---- If HERO is coming from frame "center" (basic Seabed) sets scenario to "right" (Formation)
-      } else if (positionState.frame === 'center') {
-        changePositionState({ frame: 'right', position: 'on-the-left' });
+      } else if (updatedPosition.frame === CENTER) {
+        changePositionState({ frame: RIGHT, position: ON_THE_LEFT });
         changeFormationState(prevState => ({ ...prevState, active: true }));
       }
     }
@@ -302,20 +316,26 @@ const SeaBed = ({ resetScrollPosition }) => {
     if (Number(HERO.style.left.slice(0, -2)) <= -200) {
       hideInstructions(true);
 
-      HERO.style.transition = 'none';
+      changeHeroMovements({
+        ...heroMovements,
+        crossingBorder: true
+      });
       HERO.style.left = `${window.innerWidth - 200}px`;
       setTimeout(() => {
-        HERO.style.transition = 'all ease 1s';
+        changeHeroMovements({
+          ...heroMovements,
+          crossingBorder: false
+        });
       }, 10);
 
       // ---- If HERO is coming from frame "right" (Formation) sets scenario to "center"
-      if (positionState.frame === 'right') {
-        changePositionState({ frame: 'center', position: 'on-the-right' });
+      if (updatedPosition.frame === RIGHT) {
+        changePositionState({ frame: CENTER, position: ON_THE_RIGHT });
         changeFormationState(prevState => ({ ...prevState, active: false }));
 
         // ---- If HERO is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkillsSection)
-      } else if (positionState.frame === 'center') {
-        changePositionState({ frame: 'left', position: 'on-the-right' });
+      } else if (updatedPosition.frame === CENTER) {
+        changePositionState({ frame: LEFT, position: ON_THE_RIGHT });
         changeOtherSkillsState(prevState => ({ ...prevState, active: true }));
       }
     }
@@ -331,21 +351,27 @@ const SeaBed = ({ resetScrollPosition }) => {
   };
 
   // ======== All page viewed. Reset all states and go back to first page
-  const goBackUp = () => {
-    window.removeEventListener('keyup', moveHero);
+  const goBackUp = updatedPosition => {
+    // window.removeEventListener('keyup', captureHeroMovement);
     setTimeout(() => {
       clearTimeout(floatRight);
       clearTimeout(floatLeft);
-      HERO.src = SwimmingRight;
+      HERO.src =
+        updatedPosition.position === ON_THE_LEFT ? SwimmingRight : SwimmingLeft;
+      changePositionState({ frame: CENTER, position: CENTER });
       changeHeroMovements({
+        ...heroMovements,
         isGoingUp: true,
         isSwimming: false
       });
-      HERO.style.transition = 'all ease 10s';
-      HERO.style.top = '40%';
     }, 2000);
     setTimeout(() => {
-      HERO.style.top = '-200px';
+      changeHeroMovements({
+        back2Surface: true,
+        crossingBorder: false,
+        isGoingUp: true,
+        isSwimming: false
+      });
     }, 2500);
 
     if (!isDesktop) {
@@ -357,34 +383,32 @@ const SeaBed = ({ resetScrollPosition }) => {
     setTimeout(() => {
       // -- Resets component to its initial state
       resetInitialState();
-      window.addEventListener('keyup', moveHero);
 
       // -- Puts HERO on its initial position
       changeHeroMovements({
-        isSwimming: false,
-        isGoingUp: false
+        back2Surface: false,
+        crossingBorder: false,
+        isGoingUp: false,
+        isSwimming: false
       });
-      HERO.style.top = '40%';
       HERO.style.left = `${window.innerWidth * 0.4}px`;
       HERO.src = FloatingRight;
-      HERO.style.transition = 'all ease 1s';
     }, 8050);
   };
 
   useEffect(() => {
     const captureHeroMovement = event => {
-      moveHero(event);
+      moveHero(event, positionState);
     };
     if (
-      scenarioHasFinished &&
-      positionState.frame === 'center' &&
-      positionState.position === 'center'
+      isFinished &&
+      positionState.frame === CENTER &&
+      positionState.position === CENTER
     ) {
-      return () => {
-        window.removeEventListener('keyup', captureHeroMovement);
-      };
+      window.removeEventListener('keyup', captureHeroMovement);
+    } else {
+      window.addEventListener('keyup', captureHeroMovement);
     }
-    window.addEventListener('keyup', captureHeroMovement);
 
     return () => {
       window.removeEventListener('keyup', captureHeroMovement);
@@ -409,40 +433,41 @@ const SeaBed = ({ resetScrollPosition }) => {
       )}
 
       <SubsectionFormation
-        hidden={scenarioHasFinished || positionState.frame !== 'center'}
+        hidden={isFinished || positionState.frame !== CENTER}
         onClick={() => onClickLinkOnMobile(!isDesktop && 'formationSection')}
         role="button"
         tabIndex={0}
       >
-        <Text active={positionState.position === 'on-the-right'}>
+        <Text active={positionState.position === ON_THE_RIGHT}>
           {texts.formation}
         </Text>
       </SubsectionFormation>
 
       <SubsectionOtherSkills
-        hidden={scenarioHasFinished || positionState.frame !== 'center'}
+        hidden={isFinished || positionState.frame !== CENTER}
         onClick={() => onClickLinkOnMobile(!isDesktop && 'otherSkillsSection')}
         role="button"
         tabIndex={0}
       >
-        <Text active={positionState.position === 'on-the-left'}>
+        <Text active={positionState.position === ON_THE_LEFT}>
           {texts.skills}
         </Text>
       </SubsectionOtherSkills>
 
       <HeroImage
         alt="A scuba diver swimming smoothly"
+        back2Surface={heroMovements.back2Surface}
+        crossingBorder={heroMovements.crossingBorder}
         id="hero"
         isGoingUp={heroMovements.isGoingUp}
         isSwimming={heroMovements.isSwimming}
+        position={positionState.position}
         ref={HeroRef}
         src={FloatingRight}
       />
 
       <SeabedFloor>
-        <FloorText
-          hidden={scenarioHasFinished || positionState.frame !== 'center'}
-        >
+        <FloorText hidden={isFinished || positionState.frame !== CENTER}>
           Anna Branco
         </FloorText>
       </SeabedFloor>
@@ -463,7 +488,7 @@ const SeaBed = ({ resetScrollPosition }) => {
         />
       )}
 
-      {scenarioHasFinished && <GoBackText>{texts.time2go}</GoBackText>}
+      {isFinished && <GoBackText>{texts.time2go}</GoBackText>}
 
       {thinkingState.side && (
         <ThinkingText side={thinkingState.side}>

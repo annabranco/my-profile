@@ -27,9 +27,9 @@ export default (state = {}, action) => {
 
   switch (type) {
     case ACTION_CASES[group]:
-      console.log('$$$ ACTION_CASES[group]', ACTION_CASES[group]);
-      console.log('$$$ state', state);
-      console.log('$$$ data', data);
+      console.log('ACTION_CASES[group]', ACTION_CASES[group]);
+      console.log('state', state);
+      console.log('data', data);
 
       return {
         ...state,
@@ -43,7 +43,7 @@ export default (state = {}, action) => {
 // CLASS version
 export default class {
   constructor(state, action) {
-      console.log('$$$ state', state);
+      console.log('state', state);
 
     const { type, payload: { data, group } = { group: NO_GROUP } } = action;
 

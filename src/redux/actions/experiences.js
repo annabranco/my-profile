@@ -2,13 +2,11 @@ import { dispatch } from '.';
 import {
   LOAD_EXPERIENCES,
   LOAD_EXPERIENCES_SUCCESS,
-  LOAD_EXPERIENCES_FAIL,
-  EXPERIENCES
+  LOAD_EXPERIENCES_FAIL
 } from '../../constants';
 
 export const loadExperiencesRequest = () => ({
-  type: LOAD_EXPERIENCES,
-  payload: EXPERIENCES
+  type: LOAD_EXPERIENCES
 });
 
 export const loadExperiencesSuccess = experiences => ({

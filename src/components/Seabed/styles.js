@@ -12,6 +12,7 @@ import {
   colorRedBright
 } from '../../styles/theme';
 import { NotDisplayed } from '../../styles/global';
+import { ON_THE_LEFT } from '../../constants';
 
 const FloatingAnimation = keyframes`
   from {
@@ -94,20 +95,43 @@ export const HeroImage = styled.img`
     display: block;
   }
 
-  ${({ isSwimming, isGoingUp }) => {
+  ${({ back2Surface, crossingBorder, isGoingUp, isSwimming, position }) => {
+    if (crossingBorder) {
+      return css`
+        width: 250px;
+        transition: none;
+      `;
+    }
+
     if (isSwimming) {
       return css`
         width: 250px;
         ${FloatingSoft}
       `;
     }
+
+    if (isGoingUp && back2Surface) {
+      return css`
+        transform: ${position === ON_THE_LEFT
+          ? 'rotate(290deg)'
+          : 'rotate(70deg)'};
+        top: -200px !important;
+        width: 250px;
+        transition: all 10s ease !important;
+      `;
+    }
+
     if (isGoingUp) {
       return css`
-        transform: rotate(290deg);
+        transform: ${position === ON_THE_LEFT
+          ? 'rotate(290deg)'
+          : 'rotate(70deg)'};
+        top: 40%;
         width: 250px;
         transition: all 10s ease;
       `;
     }
+
     return css`
       ${FloatingSoft}
     `;
@@ -336,7 +360,7 @@ export const ThinkingText = styled.p`
     let leftValue = 'initial';
     let rightValue = '40px';
 
-    if (side === 'on-left') {
+    if (side === ON_THE_LEFT) {
       leftValue = '40px';
       rightValue = 'initial';
     }

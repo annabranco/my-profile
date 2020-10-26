@@ -2,7 +2,6 @@ export const ACTUAL_PAGE = 'actualPage';
 export const ADJUST_SCROLL = 'adjustScroll';
 export const HIDE_FOREVER = 'hideLanguageModalForever';
 export const CUEPOINTS = 'cuePointsActivated';
-export const FINISHED = 'scenarioHasFinished';
 export const EXPERIENCES = 'experiences';
 export const FORMATION = 'formation';
 export const INSTRUCTIONS = 'instructionsHidden';

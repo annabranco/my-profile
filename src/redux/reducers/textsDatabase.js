@@ -1,7 +1,6 @@
 // import useDatabaseReducer from './database';
 
 // export default (state, action) => {
-//   console.log('$$$ REDUCER state', state);
 //   return useDatabaseReducer(state, action);
 // };
 

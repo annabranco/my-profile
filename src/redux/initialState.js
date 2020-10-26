@@ -6,6 +6,7 @@ const languageSettings =
 
 export const INITIAL_STATE = {
   experiences: [],
+  finishedScenario: false,
   formation: [],
   language:
     languageSettings.language ||
@@ -14,6 +15,5 @@ export const INITIAL_STATE = {
   projects: [],
   skills: [],
   texts: {},
-  textsDatabase: {},
-  finishedScenario: false
+  textsDatabase: {}
 };

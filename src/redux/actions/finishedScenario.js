@@ -1,5 +1,6 @@
 import { FINISH_SCENARIO } from '../../constants';
 
-export const triggerFinishScenario = () => ({
-  type: FINISH_SCENARIO
+export const triggerFinishScenario = payload => ({
+  type: FINISH_SCENARIO,
+  payload
 });
