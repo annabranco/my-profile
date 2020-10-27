@@ -7,6 +7,7 @@ import {
   SKILLS_PATH,
   TEXTS_PATH
 } from '../constants';
+import { getStore } from '../redux';
 import { loadExperiences } from '../redux/actions/experiences';
 import { loadFormation } from '../redux/actions/formation';
 import { loadLanguages } from '../redux/actions/languages';
@@ -14,20 +15,22 @@ import { loadProjects } from '../redux/actions/projects';
 import { loadSkills } from '../redux/actions/skills';
 import { loadTexts } from '../redux/actions/texts';
 
+const store = getStore();
+
 const dispatchReduxAction = (URL, request) => {
   switch (URL) {
     case EXPERIENCES_PATH:
-      return loadExperiences(request);
+      return store.dispatch(loadExperiences(request));
     case FORMATION_PATH:
-      return loadFormation(request);
+      return store.dispatch(loadFormation(request));
     case LANGUAGES_PATH:
-      return loadLanguages(request);
+      return store.dispatch(loadLanguages(request));
     case PROJECTS_PATH:
-      return loadProjects(request);
+      return store.dispatch(loadProjects(request));
     case SKILLS_PATH:
-      return loadSkills(request);
+      return store.dispatch(loadSkills(request));
     case TEXTS_PATH:
-      return loadTexts(request);
+      return store.dispatch(loadTexts(request));
     default:
       return null;
   }

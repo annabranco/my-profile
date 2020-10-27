@@ -1,9 +1,3 @@
-// import useDatabaseReducer from './database';
-
-// export default (state, action) => {
-//   return useDatabaseReducer(state, action);
-// };
-
 import { LOAD_TEXTS_DATABASE_SUCCESS } from '../../constants';
 import { INITIAL_STATE } from '../initialState';
 
@@ -20,6 +14,3 @@ export default (state = INITIAL_STATE.textsDatabase, action) => {
       return state;
   }
 };
-
-// // For one database reducer
-// const { type, payload: { data } = { group: NO_GROUP } } = action;

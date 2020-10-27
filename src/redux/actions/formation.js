@@ -1,4 +1,3 @@
-import { dispatch } from '.';
 import {
   LOAD_FORMATION,
   LOAD_FORMATION_SUCCESS,
@@ -19,7 +18,7 @@ export const loadFormationFail = error => ({
   payload: error
 });
 
-export const loadFormation = request => {
+export const loadFormation = request => dispatch => {
   dispatch(loadFormationRequest());
   request
     .then(
@@ -27,27 +26,3 @@ export const loadFormation = request => {
     )
     .catch(error => dispatch(loadFormationFail(error)));
 };
-
-// // For one database reducer
-// export const loadLanguagesRequest = () => ({
-//   type: LOAD_LANGUAGES,
-//   payload: {
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesSuccess = languages => ({
-//   type: LOAD_LANGUAGES_SUCCESS,
-//   payload: {
-//     data: { ...languages },
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesFail = error => ({
-//   type: LOAD_LANGUAGES_FAIL,
-//   payload: {
-//     data: error,
-//     group: LANGUAGES
-//   }
-// });

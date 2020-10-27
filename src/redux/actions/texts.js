@@ -1,43 +1,25 @@
-import { dispatch } from '.';
-import { getStore } from '..';
 import {
   LOAD_TEXTS_DATABASE,
   LOAD_TEXTS_DATABASE_SUCCESS,
-  LOAD_TEXTS_DATABASE_FAIL,
-  UPDATE_TEXTS
+  LOAD_TEXTS_DATABASE_FAIL
 } from '../../constants';
-
-export const updateTexts = (
-  language,
-  textsDatabase = getStore().getState().textsDatabase
-) => {
-  return {
-    type: UPDATE_TEXTS,
-    payload: textsDatabase[language]
-  };
-};
 
 export const loadTextsRequest = language => ({
   type: LOAD_TEXTS_DATABASE,
   payload: language
 });
 
-export const loadTextsSuccess = textsDatabase => {
-  const { language } = getStore().getState();
-
-  dispatch(updateTexts(language, textsDatabase));
-  return {
-    type: LOAD_TEXTS_DATABASE_SUCCESS,
-    payload: { ...textsDatabase }
-  };
-};
+export const loadTextsSuccess = textsDatabase => ({
+  type: LOAD_TEXTS_DATABASE_SUCCESS,
+  payload: { ...textsDatabase }
+});
 
 export const loadTextsFail = error => ({
   type: LOAD_TEXTS_DATABASE_FAIL,
   payload: error
 });
 
-export const loadTexts = request => {
+export const loadTexts = request => dispatch => {
   dispatch(loadTextsRequest());
   request
     .then(texts => texts && dispatch(loadTextsSuccess(texts)))
@@ -46,27 +28,3 @@ export const loadTexts = request => {
       dispatch(loadTextsFail(error));
     });
 };
-
-// For one database reducer
-// export const loadLanguagesRequest = () => ({
-//   type: LOAD_LANGUAGES,
-//   payload: {
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesSuccess = languages => ({
-//   type: LOAD_LANGUAGES_SUCCESS,
-//   payload: {
-//     data: { ...languages },
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesFail = error => ({
-//   type: LOAD_LANGUAGES_FAIL,
-//   payload: {
-//     data: error,
-//     group: LANGUAGES
-//   }
-// });

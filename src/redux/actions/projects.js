@@ -1,4 +1,3 @@
-import { dispatch } from '.';
 import {
   LOAD_PROJECTS,
   LOAD_PROJECTS_SUCCESS,
@@ -19,33 +18,9 @@ export const loadProjectsFail = error => ({
   payload: error
 });
 
-export const loadProjects = request => {
+export const loadProjects = request => dispatch => {
   dispatch(loadProjectsRequest());
   request
     .then(({ projects }) => projects && dispatch(loadProjectsSuccess(projects)))
     .catch(error => dispatch(loadProjectsFail(error)));
 };
-
-// For one database reducer
-// export const loadLanguagesRequest = () => ({
-//   type: LOAD_LANGUAGES,
-//   payload: {
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesSuccess = languages => ({
-//   type: LOAD_LANGUAGES_SUCCESS,
-//   payload: {
-//     data: { ...languages },
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesFail = error => ({
-//   type: LOAD_LANGUAGES_FAIL,
-//   payload: {
-//     data: error,
-//     group: LANGUAGES
-//   }
-// });

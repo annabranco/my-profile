@@ -1,5 +1,3 @@
-import { dispatch } from '.';
-import { updateTexts } from './texts';
 import {
   LOAD_LANGUAGES,
   LOAD_LANGUAGES_SUCCESS,
@@ -23,13 +21,10 @@ export const loadLanguagesFail = error => ({
   payload: error
 });
 
-export const changeLanguage = language => {
-  dispatch(updateTexts(language));
-  return {
-    type: CHANGE_LANGUAGE,
-    payload: language
-  };
-};
+export const changeLanguage = language => ({
+  type: CHANGE_LANGUAGE,
+  payload: language
+});
 
 export const getLanguagerSettings = settings => ({
   type: GET_LANGUAGE_PREFERENCES,
@@ -41,36 +36,9 @@ export const setLanguagerSettings = settings => ({
   payload: settings
 });
 
-export const loadLanguages = request => {
+export const loadLanguages = request => dispatch => {
   dispatch(loadLanguagesRequest());
   request
-    .then(
-      ({ languages }) =>
-        languages && dispatch(loadLanguagesSuccess(languages))
-    )
+    .then(({ languages }) => dispatch(loadLanguagesSuccess(languages)))
     .catch(error => dispatch(loadLanguagesFail(error)));
 };
-
-// // For one database reducer
-// export const loadLanguagesRequest = () => ({
-//   type: LOAD_LANGUAGES,
-//   payload: {
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesSuccess = languages => ({
-//   type: LOAD_LANGUAGES_SUCCESS,
-//   payload: {
-//     data: { ...languages },
-//     group: LANGUAGES
-//   }
-// });
-
-// export const loadLanguagesFail = error => ({
-//   type: LOAD_LANGUAGES_FAIL,
-//   payload: {
-//     data: error,
-//     group: LANGUAGES
-//   }
-// });
