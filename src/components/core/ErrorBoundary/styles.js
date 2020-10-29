@@ -13,7 +13,7 @@ import { LinkButton } from '../../Social/styles';
 export const DetailsText = styled.p`
   font-size: 1rem;
 `;
-DetailsText.displayName = '--- Details Text ---';
+DetailsText.displayName = 'DetailsText';
 
 export const ErrorDetailsArea = styled.div`
   background: ${colorWhite};
@@ -30,14 +30,14 @@ export const ErrorDetailsArea = styled.div`
     color: ${colorGrayNormal};
   }
 `;
-ErrorDetailsArea.displayName = '--- Error Details Area ---';
+ErrorDetailsArea.displayName = 'ErrorDetailsArea';
 
 export const ErrorSection = styled.div`
   ${MainBackground}
   ${FullScreen};
   margin: 0;
 `;
-ErrorSection.displayName = '--- Error Screen ---';
+ErrorSection.displayName = 'ErrorSection';
 
 export const ErrorTitle = styled.h2`
   margin-left: 0;
@@ -46,7 +46,7 @@ export const ErrorTitle = styled.h2`
   font-size: 2rem;
   text-align: left;
 `;
-ErrorTitle.displayName = '--- Title ---';
+ErrorTitle.displayName = 'ErrorTitle';
 
 export const NotificationArea = styled.div`
   position: relative;
@@ -57,7 +57,7 @@ export const NotificationArea = styled.div`
   align-items: center;
   width: 80vw;
 `;
-NotificationArea.displayName = '--- Notification Area ---';
+NotificationArea.displayName = 'NotificationArea';
 
 export const NotifyButton = styled(LinkButton)`
   margin-top: 40px;
@@ -72,7 +72,7 @@ export const NotifyButton = styled(LinkButton)`
       transition: opacity 10s;
     `}
 `;
-NotifyButton.displayName = '--- Notify Button ---';
+NotifyButton.displayName = 'NotifyButton';
 
 export const NotifyButtonIcon = styled.i`
   display: inline;
@@ -81,7 +81,7 @@ export const NotifyButtonIcon = styled.i`
   text-shadow: 0 0 1px ${colorBlack};
   font-size: 2rem;
 `;
-NotifyButtonIcon.displayName = '--- Icon ---';
+NotifyButtonIcon.displayName = 'NotifyButtonIcon';
 
 export const NotifyButtonText = styled.p`
   position: relative;
@@ -91,7 +91,7 @@ export const NotifyButtonText = styled.p`
   font-size: 1.3rem;
   color: ${colorBlack};
 `;
-NotifyButtonText.displayName = '--- Text ---';
+NotifyButtonText.displayName = 'NotifyButtonText';
 
 export const SorryText = styled.p`
   margin: 0 0 20px;
@@ -103,4 +103,4 @@ export const SorryText = styled.p`
   color: ${colorBlueLight};
   text-align: left;
 `;
-SorryText.displayName = '--- Sorry Text ---';
+SorryText.displayName = 'SorryText';

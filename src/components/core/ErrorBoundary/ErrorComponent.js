@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { string } from 'prop-types';
+import appInfo from '../../../../package.json';
 import { useStateWithLabel } from '../../../utils/hooks';
-import { Barquinho } from '../../../images';
+import { Barquinho } from '../../../assets/images';
 import { NOTIFY_BUTTON } from '../../../constants';
 import {
   DetailsText,
@@ -15,6 +16,7 @@ import {
   SorryText
 } from './styles';
 import { MeuBarquinho } from '../../MyInfoPage/styles';
+import { errorTextsPropType } from '../../../types';
 
 const DEFAULT_ERROR_TEXTS = {
   errorLine1: "I'm awfully sorry but something unexpected had happened. :(",
@@ -23,6 +25,8 @@ const DEFAULT_ERROR_TEXTS = {
   notifyMe: 'Notify me',
   title: "That's embarassing..."
 };
+
+const REPORT_ISSUE_PAGE = `${appInfo.bugs.url}/new`;
 
 const ErrorComponent = ({ error, texts }) => {
   const [showNotifyButton, toggleNotifyButton] = useStateWithLabel(
@@ -46,7 +50,7 @@ const ErrorComponent = ({ error, texts }) => {
         </ErrorDetailsArea>
         <NotifyButton
           visible={showNotifyButton}
-          href="https://github.com/annabranco/my-profile/issues/new"
+          href={REPORT_ISSUE_PAGE}
           target="_Blank"
           rel="noopener noreferrer"
         >
@@ -60,7 +64,7 @@ const ErrorComponent = ({ error, texts }) => {
 
 ErrorComponent.propTypes = {
   error: string.isRequired,
-  texts: string
+  texts: errorTextsPropType
 };
 
 ErrorComponent.defaultProps = {
