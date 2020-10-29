@@ -13,7 +13,7 @@ export const Star = styled.i`
   box-shadow: 0 0 5px 2px ${colorWhite};
   text-align: center;
 `;
-Star.displayName = '--- Star ---';
+Star.displayName = 'Star';
 
 export const StarsWrapper = styled.div`
   position: absolute;
@@ -27,4 +27,4 @@ export const StarsWrapper = styled.div`
     opacity: 0.9;
   }
 `;
-StarsWrapper.displayName = '--- Stars Wrapper ---';
+StarsWrapper.displayName = 'Stars Wrapper';

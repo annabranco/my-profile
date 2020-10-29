@@ -13,7 +13,7 @@ export const FrontendGroup = styled.div`
       opacity: 1;
     `}
 `;
-FrontendGroup.displayName = '--- Frontend Group ---';
+FrontendGroup.displayName = 'Frontend Group';
 
 export const Logo = styled.img`
   height: 100%;
@@ -23,7 +23,7 @@ export const Logo = styled.img`
     height: 60px;
   }
 `;
-Logo.displayName = '--- Logo ---';
+Logo.displayName = 'Logo';
 
 export const LogoWrapper = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ export const LogoWrapper = styled.div`
   height: 68px;
   width: 60px;
 `;
-LogoWrapper.displayName = '--- Logo Wrapper ---';
+LogoWrapper.displayName = 'Logo Wrapper';
 
 export const SkillsWrapper = styled.div`
   display: flex;
@@ -40,4 +40,4 @@ export const SkillsWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
-SkillsWrapper.displayName = '--- Skills Wrapper ---';
+SkillsWrapper.displayName = 'Skills Wrapper';

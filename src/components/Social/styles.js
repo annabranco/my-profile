@@ -15,7 +15,7 @@ export const Icon = styled.div`
   text-shadow: 0 0 1px ${colorBlack};
   font-size: 2rem;
 `;
-Icon.displayName = '--- Icon ---';
+Icon.displayName = 'Icon';
 
 export const Link = styled.a`
   display: flex;
@@ -32,7 +32,7 @@ export const Link = styled.a`
     text-decoration: none;
   }
 `;
-Link.displayName = '--- Link ---';
+Link.displayName = 'Link';
 
 export const LinkButton = styled(Link)`
   border: 1px solid ${colorWhite};
@@ -61,7 +61,7 @@ export const LinkButton = styled(Link)`
     box-shadow: inset 0 2px 5px 1px ${rgba(colorBlack, 0.4)};
   }
 `;
-LinkButton.displayName = '--- Link Button ---';
+LinkButton.displayName = 'Link Button';
 
 export const LinkSkypeButton = styled(LinkButton)`
   width: 75px;
@@ -85,7 +85,7 @@ export const LinkSkypeButton = styled(LinkButton)`
     border-radius: 0 0 25px 0;
   }
 `;
-LinkSkypeButton.displayName = '--- Link Button  ---';
+LinkSkypeButton.displayName = 'Link Button ';
 
 export const SocialArea = styled.div`
   display: flex;
@@ -105,7 +105,7 @@ export const SocialArea = styled.div`
     padding: 10px 0 80px;
   }
 `;
-SocialArea.displayName = '--- Social Area ---';
+SocialArea.displayName = 'Social Area';
 
 export const SocialItem = styled.div`
   margin: 5px 0;
@@ -115,14 +115,14 @@ export const SocialItem = styled.div`
     margin: 15px 0;
   }
 `;
-SocialItem.displayName = '--- Social Item ---';
+SocialItem.displayName = 'Social Item';
 
 export const SocialItemSkype = styled(SocialItem)`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-SocialItemSkype.displayName = '--- Social Item ---';
+SocialItemSkype.displayName = 'Social Item';
 
 export const Text = styled.p`
   margin: 4px 0 0;
@@ -147,4 +147,4 @@ export const Text = styled.p`
     font-size: 1.3rem;
   }
 `;
-Text.displayName = '--- Text ---';
+Text.displayName = 'Text';

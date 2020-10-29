@@ -13,30 +13,30 @@ export const City = styled.span`
   font-size: 0.8rem;
   font-style: italic;
 `;
-City.displayName = '--- City ---';
+City.displayName = 'City';
 
 export const Company = styled.p`
   margin: 8px 0 0 15px;
   font-family: ${fontSubtitle};
   font-size: 1rem;
 `;
-Company.displayName = '--- Company ---';
+Company.displayName = 'Company';
 
 export const CountryFlag = styled.img`
   margin: 0 5px;
   vertical-align: middle;
 `;
-CountryFlag.displayName = '--- Country Flag ---';
+CountryFlag.displayName = 'Country Flag';
 
 export const DateArea = styled.div`
   width: 12%;
 `;
-DateArea.displayName = '--- Date Area ---';
+DateArea.displayName = 'Date Area';
 
 export const Details = styled.p`
   margin-top: 10px;
 `;
-Details.displayName = '--- Details ---';
+Details.displayName = 'Details';
 
 export const DetailsArea = styled.div`
   margin-left: 40px;
@@ -50,7 +50,7 @@ export const DetailsArea = styled.div`
       transform: translate(0, 0);
     `}
 `;
-DetailsArea.displayName = '--- Details Area ---';
+DetailsArea.displayName = 'Details Area';
 
 export const ExperiencesArea = styled.div`
   position: relative;
@@ -63,7 +63,7 @@ export const ExperiencesArea = styled.div`
   background-position: center;
   height: auto;
 `;
-ExperiencesArea.displayName = '--- Experiences Area ---';
+ExperiencesArea.displayName = 'Experiences Area';
 
 export const ExperiencesWrapper = styled.div`
   display: flex;
@@ -75,7 +75,7 @@ export const ExperiencesWrapper = styled.div`
   height: auto;
   width: 100%;
 `;
-ExperiencesWrapper.displayName = '--- Experiences Wrapper ---';
+ExperiencesWrapper.displayName = 'Experiences Wrapper';
 
 export const ExperienceItem = styled.div`
   display: flex;
@@ -93,7 +93,7 @@ export const ExperienceItem = styled.div`
       opacity: 1;
     `}
 `;
-ExperienceItem.displayName = '--- Experience Item ---';
+ExperienceItem.displayName = 'Experience Item';
 
 export const TextDate = styled.p`
   font-family: ${fontTitle};
@@ -101,7 +101,7 @@ export const TextDate = styled.p`
   color: ${colorRedDark};
   text-align: center;
 `;
-TextDate.displayName = '--- TextDate ---';
+TextDate.displayName = 'TextDate';
 
 export const Title = styled.h3`
   display: inline;
@@ -110,7 +110,7 @@ export const Title = styled.h3`
   font-size: 1.4em;
   color: ${colorBlueDark};
 `;
-Title.displayName = '--- Title ---';
+Title.displayName = 'Title';
 
 export const VerticalBar = styled.div`
   position: absolute;
@@ -119,4 +119,4 @@ export const VerticalBar = styled.div`
   height: 100%;
   width: 0;
 `;
-VerticalBar.displayName = '--- Vertical Bar ---';
+VerticalBar.displayName = 'Vertical Bar';

@@ -7,7 +7,7 @@ import {
   colorBlack,
   fontTitleAlt
 } from '../../styles/theme';
-import Sea from '../../images/bg/sea.gif';
+import Sea from '../../assets/images/bg/sea.gif';
 
 export const SectionContent = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ export const SectionContent = styled.div`
   height: auto;
   overflow: hidden;
 `;
-SectionContent.displayName = '--- Section Content ---';
+SectionContent.displayName = 'Section Content';
 
 export const SectionHeader = styled.div`
   z-index: 3;
@@ -46,11 +46,11 @@ export const SectionHeader = styled.div`
     height: 100px;
   }
 `;
-SectionHeader.displayName = '--- Section Header ---';
+SectionHeader.displayName = 'Section Header';
 
 export const Title = styled.h2`
   font-family: ${fontTitleAlt};
   font-size: 2rem;
   color: ${colorBlack};
 `;
-Title.displayName = '--- Title ---';
+Title.displayName = 'Title';

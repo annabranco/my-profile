@@ -39,4 +39,4 @@ export const StyledButton = styled.button`
     );
   }}
 `;
-StyledButton.displayName = '--- App Button ---';
+StyledButton.displayName = 'App Button';

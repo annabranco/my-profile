@@ -79,7 +79,7 @@ const Navigating = keyframes`
 export const FirstArrowIcon = styled(ArrowIcon)`
   animation-delay: 2s;
 `;
-FirstArrowIcon.displayName = '--- Animated Arrows ---';
+FirstArrowIcon.displayName = 'Animated Arrows';
 
 export const InfoArea = styled.div`
   height: 230px;
@@ -91,7 +91,7 @@ export const InfoArea = styled.div`
     width: 70%;
   }
 `;
-InfoArea.displayName = '--- Info Area ---';
+InfoArea.displayName = 'Info Area';
 
 export const InfoMessage = styled.div`
   margin: -20px 0 0;
@@ -111,7 +111,7 @@ export const InfoMessage = styled.div`
     text-align: left;
   }
 `;
-InfoMessage.displayName = '--- Info Message ---';
+InfoMessage.displayName = 'Info Message';
 
 export const JobTitle = styled.h2`
   margin-top: -30px;
@@ -133,14 +133,14 @@ export const JobTitle = styled.h2`
     text-align: left;
   }
 `;
-JobTitle.displayName = '--- Job Title ---';
+JobTitle.displayName = 'Job Title';
 
 export const LineOfArrows = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-LineOfArrows.displayName = '--- Line of Arrows ---';
+LineOfArrows.displayName = 'Line of Arrows';
 
 export const MainAreaWrapper = styled.div`
   display: flex;
@@ -153,7 +153,7 @@ export const MainAreaWrapper = styled.div`
     width: 75%;
   }
 `;
-MainAreaWrapper.displayName = '--- Main Area ---';
+MainAreaWrapper.displayName = 'Main Area';
 
 export const MeuBarquinho = styled.img`
   position: absolute;
@@ -172,7 +172,7 @@ export const MeuBarquinho = styled.img`
     filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
   }
 `;
-MeuBarquinho.displayName = '--- Ship Image ---';
+MeuBarquinho.displayName = 'Ship Image';
 
 export const MyInfoInnerWrapper = styled.div`
   display: flex;
@@ -186,7 +186,7 @@ export const MyInfoInnerWrapper = styled.div`
     width: 90%;
   }
 `;
-MyInfoInnerWrapper.displayName = '--- Inner Wrapper ---';
+MyInfoInnerWrapper.displayName = 'Inner Wrapper';
 
 export const MyInfoWrapper = styled.div`
   margin-top: 50px;
@@ -195,7 +195,7 @@ export const MyInfoWrapper = styled.div`
     margin-top: 100px;
   }
 `;
-MyInfoWrapper.displayName = '--- My Info Area ---';
+MyInfoWrapper.displayName = 'My Info Area';
 
 export const MyNameOnDesktopDevices = styled(MyName)`
   ${NotDisplayed};
@@ -204,7 +204,7 @@ export const MyNameOnDesktopDevices = styled(MyName)`
     display: block;
   }
 `;
-MyNameOnDesktopDevices.displayName = '--- My Name ---';
+MyNameOnDesktopDevices.displayName = 'My Name';
 
 export const MyNameOnMobileDevices = styled(MyName)`
   display: block;
@@ -215,12 +215,12 @@ export const MyNameOnMobileDevices = styled(MyName)`
     ${NotDisplayed};
   }
 `;
-MyNameOnMobileDevices.displayName = '--- My Name ---';
+MyNameOnMobileDevices.displayName = 'My Name';
 
 export const Photo = styled.img`
   width: 100%;
 `;
-Photo.displayName = '--- Photo ---';
+Photo.displayName = 'Photo';
 
 export const PhotoWrapper = styled.div`
   height: 170px;
@@ -233,7 +233,7 @@ export const PhotoWrapper = styled.div`
     width: 30%;
   }
 `;
-PhotoWrapper.displayName = '--- Photo Wrapper ---';
+PhotoWrapper.displayName = 'Photo Wrapper';
 
 export const ScrollDownDisplay = styled.div`
   z-index: 3;
@@ -247,17 +247,17 @@ export const ScrollDownDisplay = styled.div`
     margin-top: 80px;
   }
 `;
-ScrollDownDisplay.displayName = '--- ScrollDown Display ---';
+ScrollDownDisplay.displayName = 'ScrollDown Display';
 
 export const SecondArrowIcon = styled(ArrowIcon)`
   animation-delay: 3s;
 `;
-SecondArrowIcon.displayName = '--- Animated Arrows ---';
+SecondArrowIcon.displayName = 'Animated Arrows';
 
 export const SectionMyInfo = styled.section`
   ${MainBackground}
 `;
-SectionMyInfo.displayName = '--- MY INFO Section ---';
+SectionMyInfo.displayName = 'MY INFO Section';
 
 export const SocialArea = styled.div`
   height: 400px;
@@ -271,9 +271,9 @@ export const SocialArea = styled.div`
     width: 25%;
   }
 `;
-SocialArea.displayName = '--- Social Area ---';
+SocialArea.displayName = 'Social Area';
 
 export const ThirdArrowIcon = styled(ArrowIcon)`
   animation-delay: 4s;
 `;
-ThirdArrowIcon.displayName = '--- Animated Arrows ---';
+ThirdArrowIcon.displayName = 'Animated Arrows';

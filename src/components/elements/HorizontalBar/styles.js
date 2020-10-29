@@ -39,4 +39,4 @@ export const HorizontalBar = styled.div`
     `}
 
 `;
-HorizontalBar.displayName = '--- Horizontal Bar ---';
+HorizontalBar.displayName = 'Horizontal Bar';

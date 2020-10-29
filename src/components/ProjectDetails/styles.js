@@ -12,7 +12,7 @@ export const Description = styled.p`
   line-height: 1.4;
   text-align: justify;
 `;
-Description.displayName = '--- Description ---';
+Description.displayName = 'Description';
 
 export const Link = styled.a`
   text-decoration: none;
@@ -20,12 +20,12 @@ export const Link = styled.a`
     text-decoration: none;
   }
 `;
-Link.displayName = '--- Link ---';
+Link.displayName = 'Link';
 
 export const ProjectItem = styled.div`
   height: auto;
 `;
-ProjectItem.displayName = '--- Project Item ---';
+ProjectItem.displayName = 'Project Item';
 
 export const RepoIcon = styled.i`
   opacity: 0.4;
@@ -34,14 +34,14 @@ export const RepoIcon = styled.i`
   font-size: 1.3rem;
   color: ${colorBlack};
 `;
-RepoIcon.displayName = '--- Repo Icon ---';
+RepoIcon.displayName = 'Repo Icon';
 
 export const SeeIcon = styled.i`
   margin-left: 10px;
   opacity: 0.4;
   color: ${colorBlack};
 `;
-SeeIcon.displayName = '--- SeeIcon ---';
+SeeIcon.displayName = 'SeeIcon';
 
 export const Thumbnail = styled.img`
   border: 1px solid ${colorBlack};
@@ -50,7 +50,7 @@ export const Thumbnail = styled.img`
   width: 100%;
   box-shadow: 0 3px 7px 0 ${rgba(colorGrayDark, 0.8)};
 `;
-Thumbnail.displayName = '--- Thumbnail ---';
+Thumbnail.displayName = 'Thumbnail';
 
 export const Title = styled.h3`
   margin: 10px 0;
@@ -59,4 +59,4 @@ export const Title = styled.h3`
   font-weight: bold;
   color: ${colorBlueDark};
 `;
-Title.displayName = '--- Title ---';
+Title.displayName = 'Title';

@@ -26,7 +26,7 @@ export const Details = styled.p`
     margin-top: 5px;
   }
 `;
-Details.displayName = '--- Details ---';
+Details.displayName = 'Details';
 
 export const DetailsArea = styled.div`
   width: 80%;
@@ -37,7 +37,7 @@ export const DetailsArea = styled.div`
       margin-left: ${margin};
     `}
 `;
-DetailsArea.displayName = '--- Details Area ---';
+DetailsArea.displayName = 'Details Area';
 
 export const FakeText = styled.p`
   width: 100%;
@@ -45,7 +45,7 @@ export const FakeText = styled.p`
   line-height: 0.8;
   text-align: center;
 `;
-FakeText.displayName = '--- Fake Text ---';
+FakeText.displayName = 'Fake Text';
 
 export const FormationArea = styled.div`
   display: flex;
@@ -54,7 +54,7 @@ export const FormationArea = styled.div`
   height: 100%;
   width: 100%;
 `;
-FormationArea.displayName = '--- Formation Area ---';
+FormationArea.displayName = 'Formation Area';
 
 export const FormationItem = styled.div`
   display: flex;
@@ -64,7 +64,7 @@ export const FormationItem = styled.div`
   height: auto;
   width: 100%;
 `;
-FormationItem.displayName = '--- Formation Item ---';
+FormationItem.displayName = 'Formation Item';
 
 export const FormationTitle = styled.h2`
   display: inline;
@@ -82,7 +82,7 @@ export const FormationTitle = styled.h2`
     color: ${colorYellowDark};
   }
 `;
-FormationTitle.displayName = '--- Formation Title ---';
+FormationTitle.displayName = 'Formation Title';
 
 export const FormationWrapper = styled.div`
   display: flex;
@@ -94,7 +94,7 @@ export const FormationWrapper = styled.div`
   height: auto;
   width: 100%;
 `;
-FormationWrapper.displayName = '--- Formation Wrapper ---';
+FormationWrapper.displayName = 'Formation Wrapper';
 
 export const SectionFormation = styled.section`
   z-index: 6;
@@ -162,7 +162,7 @@ export const SectionFormation = styled.section`
       }
     `}
 `;
-SectionFormation.displayName = '--- FORMATION Section ---';
+SectionFormation.displayName = 'FORMATION Section';
 
 export const VerticalBar = styled.div`
   position: absolute;
@@ -171,4 +171,4 @@ export const VerticalBar = styled.div`
   height: 100%;
   width: 0;
 `;
-VerticalBar.displayName = '--- Vertical Bar ---';
+VerticalBar.displayName = 'Vertical Bar';

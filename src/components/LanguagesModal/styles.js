@@ -26,7 +26,7 @@ export const Text = styled.p`
     font-size: 1rem;
   }
 `;
-Text.displayName = '--- Text ---';
+Text.displayName = 'Text';
 
 export const BackgroundOverlay = styled.div`
   z-index: 3;
@@ -44,17 +44,17 @@ export const BackgroundOverlay = styled.div`
   height: 100vh;
   width: 100%;
 `;
-BackgroundOverlay.displayName = '--- Background Overlay ---';
+BackgroundOverlay.displayName = 'Background Overlay';
 
 export const CheckBox = styled.input`
   margin-right: 20px;
 `;
-CheckBox.displayName = '--- CheckBox ---';
+CheckBox.displayName = 'CheckBox';
 
 export const CheckBoxArea = styled(Text)`
   margin: 30px 0 10px;
 `;
-CheckBoxArea.displayName = '--- CheckBox Area ---';
+CheckBoxArea.displayName = 'CheckBox Area';
 
 export const ModalWrapper = styled.div`
   display: flex;
@@ -79,7 +79,7 @@ export const ModalWrapper = styled.div`
     width: 480px;
   }
 `;
-ModalWrapper.displayName = '--- Modal Wrapper ---';
+ModalWrapper.displayName = 'Modal Wrapper';
 
 export const Flag = styled.div`
   display: flex;
@@ -96,7 +96,7 @@ export const Flag = styled.div`
       ${NotDisplayed};
     `}
 `;
-Flag.displayName = '--- Flag ---';
+Flag.displayName = 'Flag';
 
 export const FlagsWrapper = styled.div`
   display: flex;
@@ -109,7 +109,7 @@ export const FlagsWrapper = styled.div`
     margin: 20px auto 0;
   }
 `;
-FlagsWrapper.displayName = '--- Flags Wrapper ---';
+FlagsWrapper.displayName = 'Flags Wrapper';
 
 export const Image = styled.img`
   opacity: 0.5;
@@ -122,7 +122,7 @@ export const Image = styled.img`
       ${activeFlag}
     `}
 `;
-Image.displayName = '--- Image ---';
+Image.displayName = 'Image';
 
 export const Label = styled.div`
   margin-bottom: 3px;
@@ -130,4 +130,4 @@ export const Label = styled.div`
   font-size: 0.8rem;
   text-align: center;
 `;
-Label.displayName = '--- Label ---';
+Label.displayName = 'Label';

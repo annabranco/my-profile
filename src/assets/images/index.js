@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 export const FloatingLeft = require('./other/floatingLeft.gif');
 export const FloatingRight = require('./other/floatingRight.gif');
 export const Barquinho = require('./other/barquinho.gif');

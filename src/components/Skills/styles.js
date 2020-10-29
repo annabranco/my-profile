@@ -14,7 +14,7 @@ export const Logo = styled.img`
   height: 30%;
   width: 30%;
 `;
-Logo.displayName = '--- Logo ---';
+Logo.displayName = 'Logo';
 
 export const Name = styled.h4`
   margin-bottom: 5px;
@@ -23,7 +23,7 @@ export const Name = styled.h4`
   font-weight: bold;
   color: ${colorBlack};
 `;
-Name.displayName = '--- Name ---';
+Name.displayName = 'Name';
 
 export const SkillsArea = styled.div`
   display: grid;
@@ -50,14 +50,14 @@ export const SkillsArea = styled.div`
     }
   }
 `;
-SkillsArea.displayName = '--- Skills Area ---';
+SkillsArea.displayName = 'Skills Area';
 
 export const SkillsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 60px);
   grid-gap: 20px;
 `;
-SkillsGrid.displayName = '--- Skills Grid ---';
+SkillsGrid.displayName = 'Skills Grid';
 
 export const SkillGroup = styled.div`
   max-width: 280px;
@@ -103,14 +103,14 @@ export const SkillGroup = styled.div`
       opacity: 1;
     `}
 `;
-SkillGroup.displayName = '--- Skill Group ---';
+SkillGroup.displayName = 'Skill Group';
 
 export const SkillsInsideGroup = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
 `;
-SkillsInsideGroup.displayName = '--- Skills Inside Group ---';
+SkillsInsideGroup.displayName = 'Skills Inside Group';
 
 export const SkillItem = styled.div`
   position: relative;
@@ -131,7 +131,7 @@ export const SkillItem = styled.div`
       }
     `}
 `;
-SkillItem.displayName = '--- Skill Item ---';
+SkillItem.displayName = 'Skill Item';
 
 export const Title = styled.h3`
   border: 1px solid ${colorBlack};
@@ -147,4 +147,4 @@ export const Title = styled.h3`
   font-family: ${fontTitleAlt};
   text-align: center;
 `;
-Title.displayName = '--- Title ---';
+Title.displayName = 'Title';

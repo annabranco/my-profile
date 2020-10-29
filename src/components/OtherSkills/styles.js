@@ -131,18 +131,18 @@ export const CloseButton = styled.button`
       ${NotDisplayed}
     `}
 `;
-CloseButton.displayName = '--- Close Button ---';
+CloseButton.displayName = 'Close Button';
 
 export const DesignArea = styled(OtherSkillsOuter)`
   margin-top: -60px;
   margin-bottom: 50px;
 `;
-DesignArea.displayName = '--- Design Area ---';
+DesignArea.displayName = 'Design Area';
 
 export const DesignText = styled.p`
   margin: 15px auto;
 `;
-DesignText.displayName = '--- Design Text ---';
+DesignText.displayName = 'Design Text';
 
 export const Flag = styled.img`
   position: absolute;
@@ -157,14 +157,14 @@ export const Flag = styled.img`
     left: -35px;
   }
 `;
-Flag.displayName = '--- Flag ---';
+Flag.displayName = 'Flag';
 
 export const Icon = styled.i`
   position: absolute;
   left: 10px;
   color: ${colorBlueLight};
 `;
-Icon.displayName = '--- Icon ---';
+Icon.displayName = 'Icon';
 
 export const KeyboardKeysWrapper = styled.div`
   position: absolute;
@@ -179,7 +179,7 @@ export const KeyboardKeysWrapper = styled.div`
       ${NotDisplayed}
     `}
 `;
-KeyboardKeysWrapper.displayName = '--- Keyboard Keys Wrapper ---';
+KeyboardKeysWrapper.displayName = 'Keyboard Keys Wrapper';
 
 export const Keys = styled.div`
   transform: perspective(0em) rotateX(120deg) skewX(100deg);
@@ -188,13 +188,13 @@ export const Keys = styled.div`
   line-height: 0.9;
   text-align: center;
 `;
-Keys.displayName = '--- Keyboard Keys ---';
+Keys.displayName = 'Keyboard Keys';
 
 export const LanguagesArea = styled(OtherSkillsOuter)`
   padding: 10px 20px 30px 30px;
   grid-row-start: span 2;
 `;
-LanguagesArea.displayName = '--- Languages Area ---';
+LanguagesArea.displayName = 'Languages Area';
 
 export const LanguagesTable = styled(OtherSkillsTable)`
   margin: 0 auto;
@@ -243,7 +243,7 @@ export const LanguagesTable = styled(OtherSkillsTable)`
     }
   }
 `;
-LanguagesTable.displayName = '--- Languages Table ---';
+LanguagesTable.displayName = 'Languages Table';
 
 export const MacCloseButton = styled.button`
   z-index: 10;
@@ -320,7 +320,7 @@ export const MacKeyboard = styled.div`
       ${NotDisplayed}
     `}
 `;
-MacKeyboard.displayName = '--- Mac Keyboard ---';
+MacKeyboard.displayName = 'Mac Keyboard';
 
 export const MacScreen = styled.div`
   opacity: 0.9;
@@ -342,7 +342,7 @@ export const MacScreen = styled.div`
       overflow-y: scroll;
     `}
 `;
-MacScreen.displayName = '--- Mac Screen ---';
+MacScreen.displayName = 'Mac Screen';
 
 export const OtherInformationsArea = styled(OtherSkillsOuter)`
   display: flex;
@@ -353,7 +353,7 @@ export const OtherInformationsArea = styled(OtherSkillsOuter)`
 
   padding-bottom: 30px;
 `;
-OtherInformationsArea.displayName = '--- Other Informations Area ---';
+OtherInformationsArea.displayName = 'Other Informations Area';
 
 export const OtherInformationsTable = styled(OtherSkillsTable)`
   margin-bottom: 30px;
@@ -395,7 +395,7 @@ export const OtherInformationsTable = styled(OtherSkillsTable)`
     }
   }
 `;
-OtherInformationsTable.displayName = '--- Other Informations Table ---';
+OtherInformationsTable.displayName = 'Other Informations Table';
 
 export const OtherSkillsWrapper = styled.div`
   z-index: 3;
@@ -449,7 +449,7 @@ export const OtherSkillsWrapper = styled.div`
       }
     `}
 `;
-OtherSkillsWrapper.displayName = '--- Other Skills Wrapper ---';
+OtherSkillsWrapper.displayName = 'Other Skills Wrapper';
 
 export const Sample = styled.div`
   border: 3px solid ${rgba(colorWhite, 0.5)};
@@ -470,14 +470,14 @@ export const Sample = styled.div`
     border: 3px solid ${colorYellowBright};
   }
 `;
-Sample.displayName = '--- Sample ---';
+Sample.displayName = 'Sample';
 
 export const SamplesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 `;
-SamplesWrapper.displayName = '--- Samples Wrapper ---';
+SamplesWrapper.displayName = 'Samples Wrapper';
 
 export const SectionOtherSkills = styled.section`
   z-index: 6;
@@ -503,7 +503,7 @@ export const SectionOtherSkills = styled.section`
       `}
   }
 `;
-SectionOtherSkills.displayName = '--- OTHER SKILLS Section ---';
+SectionOtherSkills.displayName = 'OTHER SKILLS Section';
 
 export const Title = styled.h2`
   margin: 10px 0;
@@ -516,7 +516,7 @@ export const Title = styled.h2`
     margin: 10px 20px 10px 0;
   }
 `;
-Title.displayName = '--- Title ---';
+Title.displayName = 'Title';
 
 export const TopBar = styled.img`
   z-index: 9;
@@ -536,4 +536,4 @@ export const TopBar = styled.img`
       width: 101vw;
     `}
 `;
-TopBar.displayName = '--- Top Bar ---';
+TopBar.displayName = 'Top Bar';

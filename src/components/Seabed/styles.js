@@ -71,7 +71,7 @@ export const FloorText = styled.p`
       display: hidden;
     `}
 `;
-FloorText.displayName = '--- Floor Text ---';
+FloorText.displayName = 'Floor Text';
 
 export const GoBackText = styled.p`
   margin-top: 30vh;
@@ -81,7 +81,7 @@ export const GoBackText = styled.p`
   color: ${colorWhite};
   text-align: center;
 `;
-GoBackText.displayName = '--- Go Back Text ---';
+GoBackText.displayName = 'Go Back Text';
 
 export const HeroImage = styled.img`
   position: absolute;
@@ -137,7 +137,7 @@ export const HeroImage = styled.img`
     `;
   }}
 `;
-HeroImage.displayName = '--- The Hero Image ---';
+HeroImage.displayName = 'The Hero Image';
 
 export const Message = styled.p`
   margin: 15px 0;
@@ -147,7 +147,7 @@ export const Message = styled.p`
   color: ${colorBlueDark};
   text-align: justify;
 `;
-Message.displayName = '--- Message ---';
+Message.displayName = 'Message';
 
 export const MessageContainer = styled.div`
   border-radius: 80px 0;
@@ -158,12 +158,12 @@ export const MessageContainer = styled.div`
   padding: 10px 50px;
   ${FloatingSoft};
 `;
-MessageContainer.displayName = '--- Message Container ---';
+MessageContainer.displayName = 'Message Container';
 
 export const MessageOnMobileDevices = styled(Message)`
   ${NotDisplayed};
 `;
-MessageOnMobileDevices.displayName = '--- Message ---';
+MessageOnMobileDevices.displayName = 'Message';
 
 export const SeabedCloseButton = styled.button`
   z-index: 4;
@@ -210,7 +210,7 @@ export const SeabedCloseButton = styled.button`
       ${NotDisplayed}
     `}
 `;
-SeabedCloseButton.displayName = '--- Close Button ---';
+SeabedCloseButton.displayName = 'Close Button';
 
 export const SeabedFloor = styled.div`
   position: absolute;
@@ -222,7 +222,7 @@ export const SeabedFloor = styled.div`
   height: 50vh;
   width: 100%;
 `;
-SeabedFloor.displayName = '--- Seabed Floor ---';
+SeabedFloor.displayName = 'Seabed Floor';
 
 export const SeabedSection = styled.section`
   position: relative;
@@ -238,7 +238,7 @@ export const SeabedSection = styled.section`
   height: 100vh;
   width: 100%;
 `;
-SeabedSection.displayName = '--- Seabed Section ---';
+SeabedSection.displayName = 'Seabed Section';
 
 export const SubsectionFormation = styled(SeabedSubsectionContainer)`
   bottom: 150px;
@@ -261,7 +261,7 @@ export const SubsectionFormation = styled(SeabedSubsectionContainer)`
       display: hidden;
     `}
 `;
-SubsectionFormation.displayName = '--- Subsection Formation ---';
+SubsectionFormation.displayName = 'Subsection Formation';
 
 export const SubsectionOtherSkills = styled(SeabedSubsectionContainer)`
   top: 170px;
@@ -284,7 +284,7 @@ export const SubsectionOtherSkills = styled(SeabedSubsectionContainer)`
       display: hidden;
     `}
 `;
-SubsectionOtherSkills.displayName = '--- Subsection Other Skills ---';
+SubsectionOtherSkills.displayName = 'Subsection Other Skills';
 
 export const Text = styled.p`
   opacity: 0.9;
@@ -309,7 +309,7 @@ export const Text = styled.p`
       `}
   }
 `;
-Text.displayName = '--- Text ---';
+Text.displayName = 'Text';
 
 export const TextFindSomething = styled.p`
   position: absolute;
@@ -342,7 +342,7 @@ export const TextFindSomething = styled.p`
     top: 38vh;
   }
 `;
-TextFindSomething.displayName = '--- Text Find Something ---';
+TextFindSomething.displayName = 'Text Find Something';
 
 export const ThinkingText = styled.p`
   position: absolute;
@@ -370,4 +370,4 @@ export const ThinkingText = styled.p`
     `;
   }}
 `;
-ThinkingText.displayName = '--- Thinking Text ---';
+ThinkingText.displayName = 'Thinking Text';

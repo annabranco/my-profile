@@ -8,13 +8,13 @@ import { NotDisplayed } from '../../styles/global';
 export const Checkbox = styled.input`
   margin: 0 10px;
 `;
-Checkbox.displayName = '--- Checkbox ---';
+Checkbox.displayName = 'Checkbox';
 
 export const CheckboxWrapper = styled.div`
   width: 100%;
   text-align: center;
 `;
-CheckboxWrapper.displayName = '--- Checkbox Area ---';
+CheckboxWrapper.displayName = 'Checkbox Area';
 
 export const Icon = styled.i`
   margin: 0 5px;
@@ -22,7 +22,7 @@ export const Icon = styled.i`
   cursor: pointer;
   outline: none;
 `;
-Icon.displayName = '--- Icon ---';
+Icon.displayName = 'Icon';
 
 export const Paginator = styled.div`
   opacity: 0.5;
@@ -35,7 +35,7 @@ export const Paginator = styled.div`
       ${NotDisplayed}
     `}
 `;
-Paginator.displayName = '--- Paginator ---';
+Paginator.displayName = 'Paginator';
 
 export const ProjectsGrid = styled.ul`
   display: grid;
@@ -66,16 +66,16 @@ export const ProjectsGrid = styled.ul`
     return null;
   }}
 `;
-ProjectsGrid.displayName = '--- Projects Grid ---';
+ProjectsGrid.displayName = 'Projects Grid';
 
 export const ProjectsSection = styled.section`
   padding-top: 60px;
 `;
-ProjectsSection.displayName = '--- PROJECTS Section ---';
+ProjectsSection.displayName = 'PROJECTS Section';
 
 export const Text = styled.span`
   vertical-align: super;
   font-size: 0.8rem;
   text-align: center;
 `;
-Text.displayName = '--- Text ---';
+Text.displayName = 'Text';
