@@ -34,23 +34,24 @@ const Header = ({ hideForever }) => {
   return (
     <HeaderArea>
       <LanguagesWrapper>
-        {languages.map(item => (
-          <Flag
-            active={item.active}
-            aria-label={item.language}
-            key={item.languageCode}
-            lang={item.languageCode}
-            languageSelected={languageSelected}
-            onClick={onCLickFlag}
-            role="button"
-            tabIndex={0}
-          >
-            <img
-              alt=""
-              src={`https://www.countryflags.io/${item.flagCode}/flat/16.png`}
-            />
-          </Flag>
-        ))}
+        {languages
+          .filter(item => item.active)
+          .map(item => (
+            <Flag
+              aria-label={item.language}
+              key={item.languageCode}
+              lang={item.languageCode}
+              languageSelected={languageSelected}
+              onClick={onCLickFlag}
+              role="button"
+              tabIndex={0}
+            >
+              <img
+                alt=""
+                src={`https://www.countryflags.io/${item.flagCode}/flat/16.png`}
+              />
+            </Flag>
+          ))}
       </LanguagesWrapper>
       <AppTitle>{title}</AppTitle>
       <Version>{APP_VERSION}</Version>

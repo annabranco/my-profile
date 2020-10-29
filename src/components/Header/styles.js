@@ -6,7 +6,6 @@ import {
   fontTitleAlt,
   fontTitle
 } from '../../styles/theme';
-import { NotDisplayed } from '../../styles/global';
 
 const headerInner = css`
   min-width: 250px;
@@ -28,7 +27,7 @@ export const AppTitle = styled.h2`
     order: 2;
   }
 `;
-AppTitle.displayName = '--- App Title ---';
+AppTitle.displayName = 'AppTitle';
 
 export const Flag = styled.div`
   display: inline;
@@ -42,14 +41,8 @@ export const Flag = styled.div`
     css`
       ${activeFlag}
     `}
-
-  ${props =>
-    !props.active &&
-    css`
-      ${NotDisplayed};
-    `}
 `;
-Flag.displayName = '--- Country Flag ---';
+Flag.displayName = 'Flag';
 
 export const HeaderArea = styled.header`
   z-index: 2;
@@ -72,7 +65,7 @@ export const HeaderArea = styled.header`
     flex-wrap: nowrap;
   }
 `;
-HeaderArea.displayName = '--- Header ---';
+HeaderArea.displayName = 'Header';
 
 export const LanguagesWrapper = styled.div`
   ${headerInner}
@@ -82,11 +75,11 @@ export const LanguagesWrapper = styled.div`
     order: 1;
   }
 `;
-LanguagesWrapper.displayName = '--- Languages ---';
+LanguagesWrapper.displayName = 'LanguagesWrapper';
 
 export const Version = styled.p`
   ${headerInner}
   font-family: ${fontTitle};
   order: 3;
 `;
-Version.displayName = '--- Version ---';
+Version.displayName = 'Version';
