@@ -1,25 +1,26 @@
 import React from 'react';
-import { number } from 'prop-types';
+import { number, string } from 'prop-types';
 import { Star, StarsWrapper } from './styles';
 
-const SkillLevel = ({ level }) => {
+const SkillLevel = ({ level, skill }) => {
   const stars = new Array(level).fill('*');
 
   return (
     <StarsWrapper>
-      {stars.map(() => (
-        <Star className="fas fa-star" aria-hidden key={Math.random()} />
+      {stars.map((_, index) => (
+        <Star
+          aria-hidden
+          className="fas fa-star"
+          key={`${skill}-${level}-${index}`} // eslint-disable-line react/no-array-index-key
+        />
       ))}
     </StarsWrapper>
   );
 };
 
 SkillLevel.propTypes = {
-  level: number
-};
-
-SkillLevel.defaultProps = {
-  level: 1
+  skill: string.isRequired,
+  level: number.isRequired
 };
 
 export default SkillLevel;

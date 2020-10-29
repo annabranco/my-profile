@@ -1,0 +1,589 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Experiences > matches the snapshot 1`] = `
+<MockProvider>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Experiences
+      cuePointsActivated={Set {}}
+    >
+      <Experiences Area>
+        <div
+          className="lazGio"
+        >
+          <Vertical Bar>
+            <div
+              className="bkcEEp"
+            />
+          </Vertical Bar>
+          <Experiences Wrapper>
+            <div
+              className="fJWWbJ"
+            >
+              <Experience Item
+                key="1577833200000"
+                visible={false}
+              >
+                <div
+                  className="jMrpcv"
+                >
+                  <Horizontal Bar
+                    border="2px"
+                    margin="9%"
+                    moveY="25px"
+                    width="20%"
+                  >
+                    <div
+                      className="ktRaOy"
+                      width="20%"
+                    />
+                  </Horizontal Bar>
+                  <Date Area>
+                    <div
+                      className="epUZIS"
+                    >
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          Since
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          01-2020
+                        </p>
+                      </TextDate>
+                    </div>
+                  </Date Area>
+                  <Details Area
+                    visible={false}
+                  >
+                    <div
+                      className="qFyWx"
+                    >
+                      <Title>
+                        <h3
+                          className="gpqrxr"
+                        >
+                          Software Engineer
+                        </h3>
+                      </Title>
+                      <Company>
+                        <p
+                          className="jlOufU"
+                        >
+                          Atresmedia
+                          <Country Flag
+                            alt="Spain"
+                            src="https://www.countryflags.io/es/flat/16.png"
+                          >
+                            <img
+                              alt="Spain"
+                              className="cmpiMz"
+                              src="https://www.countryflags.io/es/flat/16.png"
+                            />
+                          </Country Flag>
+                          <City>
+                            <span
+                              className="jLPSAC"
+                            >
+                              San Sebastián de los Reyes
+                            </span>
+                          </City>
+                        </p>
+                      </Company>
+                      <Details>
+                        <p
+                          className="gMQYOX"
+                        />
+                      </Details>
+                    </div>
+                  </Details Area>
+                </div>
+              </Experience Item>
+              <Experience Item
+                key="1548111600000"
+                visible={false}
+              >
+                <div
+                  className="jMrpcv"
+                >
+                  <Horizontal Bar
+                    border="2px"
+                    margin="9%"
+                    moveY="25px"
+                    width="20%"
+                  >
+                    <div
+                      className="ktRaOy"
+                      width="20%"
+                    />
+                  </Horizontal Bar>
+                  <Date Area>
+                    <div
+                      className="epUZIS"
+                    >
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          01-2019
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          -
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          01-2020
+                        </p>
+                      </TextDate>
+                    </div>
+                  </Date Area>
+                  <Details Area
+                    visible={false}
+                  >
+                    <div
+                      className="qFyWx"
+                    >
+                      <Title>
+                        <h3
+                          className="gpqrxr"
+                        >
+                          Software Developer
+                        </h3>
+                      </Title>
+                      <Company>
+                        <p
+                          className="jlOufU"
+                        >
+                          Atresmedia
+                          <Country Flag
+                            alt="Spain"
+                            src="https://www.countryflags.io/es/flat/16.png"
+                          >
+                            <img
+                              alt="Spain"
+                              className="cmpiMz"
+                              src="https://www.countryflags.io/es/flat/16.png"
+                            />
+                          </Country Flag>
+                          <City>
+                            <span
+                              className="jLPSAC"
+                            >
+                              San Sebastián de los Reyes
+                            </span>
+                          </City>
+                        </p>
+                      </Company>
+                      <Details>
+                        <p
+                          className="gMQYOX"
+                        >
+                          Developing of new functionalities and mantaining Atresplayer application for Web and SmartTvs using React16/Redux. Deploying staging and production versions using Jenkins/NGINX/Docker. Creating services with Node/Express. Active participation suggesting enhancements for Atresplayer functionalities, as well as updates for a better UX.
+                        </p>
+                      </Details>
+                    </div>
+                  </Details Area>
+                </div>
+              </Experience Item>
+              <Experience Item
+                key="1538344800000"
+                visible={false}
+              >
+                <div
+                  className="jMrpcv"
+                >
+                  <Horizontal Bar
+                    border="2px"
+                    margin="9%"
+                    moveY="25px"
+                    width="20%"
+                  >
+                    <div
+                      className="ktRaOy"
+                      width="20%"
+                    />
+                  </Horizontal Bar>
+                  <Date Area>
+                    <div
+                      className="epUZIS"
+                    >
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          10-2018
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          -
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          01-2019
+                        </p>
+                      </TextDate>
+                    </div>
+                  </Date Area>
+                  <Details Area
+                    visible={false}
+                  >
+                    <div
+                      className="qFyWx"
+                    >
+                      <Title>
+                        <h3
+                          className="gpqrxr"
+                        >
+                          Junior Frontend Developer
+                        </h3>
+                      </Title>
+                      <Company>
+                        <p
+                          className="jlOufU"
+                        >
+                          Nfq Advisory, Solutions, Outsourcing
+                          <Country Flag
+                            alt="Spain"
+                            src="https://www.countryflags.io/es/flat/16.png"
+                          >
+                            <img
+                              alt="Spain"
+                              className="cmpiMz"
+                              src="https://www.countryflags.io/es/flat/16.png"
+                            />
+                          </Country Flag>
+                          <City>
+                            <span
+                              className="jLPSAC"
+                            >
+                              Madrid
+                            </span>
+                          </City>
+                        </p>
+                      </Company>
+                      <Details>
+                        <p
+                          className="gMQYOX"
+                        >
+                          Developing and mantaining internal applications using Angular 6/7. Implementing and running Unit testing with Karma & Jasmine. Active participation on suggesting enhancements on UI.
+                        </p>
+                      </Details>
+                    </div>
+                  </Details Area>
+                </div>
+              </Experience Item>
+              <Experience Item
+                key="1504216800000"
+                visible={false}
+              >
+                <div
+                  className="jMrpcv"
+                >
+                  <Horizontal Bar
+                    border="2px"
+                    margin="9%"
+                    moveY="25px"
+                    width="20%"
+                  >
+                    <div
+                      className="ktRaOy"
+                      width="20%"
+                    />
+                  </Horizontal Bar>
+                  <Date Area>
+                    <div
+                      className="epUZIS"
+                    >
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          09-2017
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          -
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          05-2018
+                        </p>
+                      </TextDate>
+                    </div>
+                  </Date Area>
+                  <Details Area
+                    visible={false}
+                  >
+                    <div
+                      className="qFyWx"
+                    >
+                      <Title>
+                        <h3
+                          className="gpqrxr"
+                        >
+                          ICT Instructor
+                        </h3>
+                      </Title>
+                      <Company>
+                        <p
+                          className="jlOufU"
+                        >
+                          Servicios Profesionales Sociales
+                          <Country Flag
+                            alt="Spain"
+                            src="https://www.countryflags.io/es/flat/16.png"
+                          >
+                            <img
+                              alt="Spain"
+                              className="cmpiMz"
+                              src="https://www.countryflags.io/es/flat/16.png"
+                            />
+                          </Country Flag>
+                          <City>
+                            <span
+                              className="jLPSAC"
+                            >
+                              Madrid
+                            </span>
+                          </City>
+                        </p>
+                      </Company>
+                      <Details>
+                        <p
+                          className="gMQYOX"
+                        >
+                          I gave classes on Information and Communication Technology skills: windows environment, basic software use and internet. Teaching more than 210 kids of Primary Education, from 6 up to 12 years old.
+                        </p>
+                      </Details>
+                    </div>
+                  </Details Area>
+                </div>
+              </Experience Item>
+              <Experience Item
+                key="1443650400000"
+                visible={false}
+              >
+                <div
+                  className="jMrpcv"
+                >
+                  <Horizontal Bar
+                    border="2px"
+                    margin="9%"
+                    moveY="25px"
+                    width="20%"
+                  >
+                    <div
+                      className="ktRaOy"
+                      width="20%"
+                    />
+                  </Horizontal Bar>
+                  <Date Area>
+                    <div
+                      className="epUZIS"
+                    >
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          10-2015
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          -
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          12-2015
+                        </p>
+                      </TextDate>
+                    </div>
+                  </Date Area>
+                  <Details Area
+                    visible={false}
+                  >
+                    <div
+                      className="qFyWx"
+                    >
+                      <Title>
+                        <h3
+                          className="gpqrxr"
+                        >
+                          International Emergencies Response Delegate (ERU)
+                        </h3>
+                      </Title>
+                      <Company>
+                        <p
+                          className="jlOufU"
+                        >
+                          Cruz Roja Española
+                          <Country Flag
+                            alt="Greece"
+                            src="https://www.countryflags.io/gr/flat/16.png"
+                          >
+                            <img
+                              alt="Greece"
+                              className="cmpiMz"
+                              src="https://www.countryflags.io/gr/flat/16.png"
+                            />
+                          </Country Flag>
+                          <City>
+                            <span
+                              className="jLPSAC"
+                            >
+                              Samos
+                            </span>
+                          </City>
+                        </p>
+                      </Company>
+                      <Details>
+                        <p
+                          className="gMQYOX"
+                        >
+                          Deployed in Greece on a temporary mission (2 months), providing emergency psychosocial support for Syrian people and other refugees arriving in Europe.
+                        </p>
+                      </Details>
+                    </div>
+                  </Details Area>
+                </div>
+              </Experience Item>
+              <Experience Item
+                key="1114898400000"
+                visible={false}
+              >
+                <div
+                  className="jMrpcv"
+                >
+                  <Horizontal Bar
+                    border="2px"
+                    margin="9%"
+                    moveY="25px"
+                    width="20%"
+                  >
+                    <div
+                      className="ktRaOy"
+                      width="20%"
+                    />
+                  </Horizontal Bar>
+                  <Date Area>
+                    <div
+                      className="epUZIS"
+                    >
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          05-2005
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          -
+                        </p>
+                      </TextDate>
+                      <TextDate>
+                        <p
+                          className="eGkwgw"
+                        >
+                          12-2014
+                        </p>
+                      </TextDate>
+                    </div>
+                  </Date Area>
+                  <Details Area
+                    visible={false}
+                  >
+                    <div
+                      className="qFyWx"
+                    >
+                      <Title>
+                        <h3
+                          className="gpqrxr"
+                        >
+                          Public Servant
+                        </h3>
+                      </Title>
+                      <Company>
+                        <p
+                          className="jlOufU"
+                        >
+                          Tribunal de Justiça
+                          <Country Flag
+                            alt="Brazil"
+                            src="https://www.countryflags.io/br/flat/16.png"
+                          >
+                            <img
+                              alt="Brazil"
+                              className="cmpiMz"
+                              src="https://www.countryflags.io/br/flat/16.png"
+                            />
+                          </Country Flag>
+                          <City>
+                            <span
+                              className="jLPSAC"
+                            >
+                              Rio de Janeiro
+                            </span>
+                          </City>
+                        </p>
+                      </Company>
+                      <Details>
+                        <p
+                          className="gMQYOX"
+                        >
+                          Public servant with a rising carreer beginning as administrative technician coming to head of sector responsible for social projects.
+                        </p>
+                      </Details>
+                    </div>
+                  </Details Area>
+                </div>
+              </Experience Item>
+            </div>
+          </Experiences Wrapper>
+        </div>
+      </Experiences Area>
+    </Experiences>
+  </Provider>
+</MockProvider>
+`;

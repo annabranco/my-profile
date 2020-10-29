@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Formation > matches the snapshot 1`] = `
+<MockProvider>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Formation
+      onClickClose={[Function]}
+      onClickOpen={[Function]}
+      status={
+        Object {
+          "active": false,
+          "read": false,
+          "visible": false,
+        }
+      }
+    >
+      <Text Find Something>
+        <p
+          className="bhOJwe"
+        >
+          You've found a curious object laying on the sea bed.
+        </p>
+      </Text Find Something>
+      <Text Find Something>
+        <p
+          className="bhOJwe"
+        >
+          Click on in to investigate it.
+        </p>
+      </Text Find Something>
+      <FORMATION Section
+        aria-label="Open"
+        id="Formation Section"
+        onClick={[Function]}
+        role="button"
+        tabIndex={0}
+        visible={false}
+      >
+        <section
+          aria-label="Open"
+          className="gvYaiy"
+          id="Formation Section"
+          onClick={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <Fake Text>
+            <p
+              className="gUTwXr"
+            >
+              - - --- - --
+            </p>
+          </Fake Text>
+          <Fake Text>
+            <p
+              className="gUTwXr"
+            >
+              - -- -- - --
+            </p>
+          </Fake Text>
+          <Fake Text>
+            <p
+              className="gUTwXr"
+            >
+              - -- ---- --
+            </p>
+          </Fake Text>
+          <Fake Text>
+            <p
+              className="gUTwXr"
+            >
+              - - - --- --
+            </p>
+          </Fake Text>
+        </section>
+      </FORMATION Section>
+    </Formation>
+  </Provider>
+</MockProvider>
+`;

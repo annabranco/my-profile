@@ -70,7 +70,7 @@ const Skills = ({ cuePointsActivated }) => {
                       isLastElementAlone={skillObject.skills.length % 2 !== 0}
                     >
                       <Name>{skill.skill}</Name>
-                      <SkillLevel level={skill.level} />
+                      <SkillLevel level={skill.level} skill={skill.skill} />
                     </SkillItem>
                   ))}
                 </SkillsGrid>

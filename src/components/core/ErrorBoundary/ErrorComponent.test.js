@@ -44,12 +44,7 @@ describe('< ErrorComponent >', () => {
   it('should have a container displaying the error message', () => {
     const errorWrapper = component.find('ErrorDetailsArea');
     expect(errorWrapper).toBeDefined();
-    expect(
-      errorWrapper
-        .find('DetailsText')
-        .children()
-        .text()
-    ).toBe(MOCK_ERROR);
+    expect(errorWrapper.find('DetailsText').children().text()).toBe(MOCK_ERROR);
   });
 
   it('should have a notify button leading to Github issues page', () => {
@@ -57,12 +52,9 @@ describe('< ErrorComponent >', () => {
 
     const notifyButton = component.find('NotifyButton');
     expect(notifyButton).toBeDefined();
-    expect(
-      notifyButton
-        .find('NotifyButtonText')
-        .first()
-        .text()
-    ).toBe(DEFAULT_ERROR_TEXTS.notifyMe);
+    expect(notifyButton.find('NotifyButtonText').first().text()).toBe(
+      DEFAULT_ERROR_TEXTS.notifyMe
+    );
     expect(notifyButton.type().target).toBe('a');
     expect(notifyButton.props().href).toBe(REPORT_ISSUE_PAGE);
   });

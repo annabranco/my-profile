@@ -62,7 +62,7 @@ const ScrollArea = ({ langModalVisible }) => {
         cuePointsAfterScrolling.delete(cuePointName);
       } else if (scrollPosition >= Number(cuePoint)) {
         if (cuePointName === 'experiencesSection') {
-          // --- Makes experiences also go out when scrolling down
+          // Makes experiences also go out when scrolling down
           //     experiencesSectionIds.forEach(experienceCuePoint => {
           //       cuePointsAfterScrolling.delete(experienceCuePoint);
         } else {

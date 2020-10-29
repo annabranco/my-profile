@@ -6,7 +6,7 @@ import {
   otherSkillsTextSelector
 } from '../../redux/selectors';
 import { isDesktop } from '../../utils/device';
-import { MacNotebook } from '../../images';
+import { MacNotebook } from '../../assets/images';
 import { TextFindSomething } from '../Seabed/styles';
 import {
   CloseButton,
@@ -269,7 +269,7 @@ const OtherSkills = ({
           <Keys>... . . . . . . ..</Keys>
           <Keys>. . . . . . . . . .</Keys>
           <Keys>. . . . . . . . . .</Keys>
-          <Keys>--------- ......</Keys>
+          <Keys>------......</Keys>
         </KeyboardKeysWrapper>
       </SectionOtherSkills>
     </>

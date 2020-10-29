@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Social from '../Social';
 import { finishedSelector, infoPageTextSelector } from '../../redux/selectors';
 import { isFullWindowDesktop } from '../../utils/device';
-import { Mugshot, Barquinho } from '../../images';
+import { Mugshot, Barquinho } from '../../assets/images';
 import {
   FirstArrowIcon,
   InfoArea,

@@ -10,11 +10,10 @@ import { triggerFinishScenario } from '../../redux/actions/finishedScenario';
 import { useStateWithLabel } from '../../utils/hooks';
 import { isDesktop } from '../../utils/device';
 import {
-  FloatingLeft,
   FloatingRight,
   SwimmingLeft,
   SwimmingRight
-} from '../../images';
+} from '../../assets/images';
 import {
   CENTER,
   FORMATION,
@@ -201,7 +200,7 @@ const SeaBed = ({ resetScrollPosition }) => {
     let swimmingImage;
 
     if (event.key === 'ArrowRight') {
-      // ---- Prevents movement beyond right margin on frame RIGHT
+      // -Prevents movement beyond right margin on frame RIGHT
       if (
         updatedPosition.frame === RIGHT &&
         updatedPosition.position === ON_THE_RIGHT
@@ -213,7 +212,7 @@ const SeaBed = ({ resetScrollPosition }) => {
       newMovement = `${Number(HERO.style.left.slice(0, -2)) + DISPLACEMENT}px`;
       closeSubsections();
     } else if (event.key === 'ArrowLeft') {
-      // ---- Prevents movement beyond left margin on frame LEFT
+      // -Prevents movement beyond left margin on frame LEFT
       if (
         updatedPosition.frame === LEFT &&
         updatedPosition.position === ON_THE_LEFT
@@ -221,7 +220,7 @@ const SeaBed = ({ resetScrollPosition }) => {
         return onReachBorder(ON_THE_LEFT);
       }
       swimmingImage = SwimmingLeft;
-      floatingImage = FloatingLeft;
+      floatingImage = FloatingRight;
       newMovement = `${Number(HERO.style.left.slice(0, -2)) - DISPLACEMENT}px`;
       closeSubsections();
     }
@@ -250,7 +249,7 @@ const SeaBed = ({ resetScrollPosition }) => {
   // ======= Function that fires events when HERO reaches some specific places
 
   const heroHasMoved = updatedPosition => {
-    // ---- WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
+    // -WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
     if (
       formationState.read &&
       !formationState.active &&
@@ -261,21 +260,21 @@ const SeaBed = ({ resetScrollPosition }) => {
       goBackUp(updatedPosition);
     }
 
-    // ---- Highlights the text "Formation" when hero swims over it
+    // -Highlights the text "Formation" when hero swims over it
     if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 400) {
       changePositionState(prevState => ({
         ...prevState,
         position: ON_THE_RIGHT
       }));
 
-      // ---- Highlights the text "Other Skills" when hero swims over it
+      // -Highlights the text "Other Skills" when hero swims over it
     } else if (Number(HERO.style.left.slice(0, -2)) <= 200) {
       changePositionState(prevState => ({
         ...prevState,
         position: ON_THE_LEFT
       }));
 
-      // ---- Clear highlights
+      // -Clear highlights
     } else if (updatedPosition.position !== CENTER && !isFinished) {
       changePositionState(prevState => ({
         frame: prevState.frame,
@@ -300,12 +299,12 @@ const SeaBed = ({ resetScrollPosition }) => {
         });
       }, 10);
 
-      // ---- If HERO is coming from frame "left" (OtherSkills) sets scenario to "center"
+      // -If HERO is coming from frame "left" (OtherSkills) sets scenario to "center"
       if (updatedPosition.frame === LEFT) {
         changePositionState({ frame: CENTER, position: ON_THE_LEFT });
         changeOtherSkillsState(prevState => ({ ...prevState, active: false }));
 
-        // ---- If HERO is coming from frame "center" (basic Seabed) sets scenario to "right" (Formation)
+        // -If HERO is coming from frame "center" (basic Seabed) sets scenario to "right" (Formation)
       } else if (updatedPosition.frame === CENTER) {
         changePositionState({ frame: RIGHT, position: ON_THE_LEFT });
         changeFormationState(prevState => ({ ...prevState, active: true }));
@@ -328,12 +327,12 @@ const SeaBed = ({ resetScrollPosition }) => {
         });
       }, 10);
 
-      // ---- If HERO is coming from frame "right" (Formation) sets scenario to "center"
+      // -If HERO is coming from frame "right" (Formation) sets scenario to "center"
       if (updatedPosition.frame === RIGHT) {
         changePositionState({ frame: CENTER, position: ON_THE_RIGHT });
         changeFormationState(prevState => ({ ...prevState, active: false }));
 
-        // ---- If HERO is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkillsSection)
+        // -If HERO is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkillsSection)
       } else if (updatedPosition.frame === CENTER) {
         changePositionState({ frame: LEFT, position: ON_THE_RIGHT });
         changeOtherSkillsState(prevState => ({ ...prevState, active: true }));

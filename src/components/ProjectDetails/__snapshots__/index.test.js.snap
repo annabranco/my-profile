@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< ProjectDetails > matches the snapshot 1`] = `
+<MockProvider>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <ProjectDetails
+      displayThumbnails={false}
+      project={
+        Object {
+          "description": Object {
+            "en": "This is the page you are currently visiting. It was created as a personal project developed with React.js as a digital presentation of my professional profile.",
+            "es": "Esta es la página donde estás navegando. Ha sido creada como un proyecto personal desarrollado con React.js para la presentación digital de mi perfil profesional.",
+            "pt": "Esta é a página onde você está. Foi criada como um projeto pessoal desenvolvido com React.js para apresentação digital do meu perfil profissional.",
+          },
+          "order": 1,
+          "repo": "https://github.com/annabranco/my-profile",
+          "thumbnail": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-my-profile.jpg",
+          "title": "My profile",
+          "url": "https://annabranco.github.io/my-profile/",
+        }
+      }
+    >
+      <Project Item
+        key="My profile"
+      >
+        <div
+          className="jhrGlQ"
+        >
+          <Link
+            href="https://annabranco.github.io/my-profile/"
+            rel="noopener noreferrer"
+            target="_Blank"
+          >
+            <a
+              className="kOEPgv"
+              href="https://annabranco.github.io/my-profile/"
+              rel="noopener noreferrer"
+              target="_Blank"
+            >
+              <Title>
+                <h3
+                  className="PEspk"
+                >
+                  My profile
+                  <SeeIcon
+                    className="far fa-eye"
+                  >
+                    <i
+                      className="kdhGNa far fa-eye"
+                    />
+                  </SeeIcon>
+                </h3>
+              </Title>
+            </a>
+          </Link>
+          <Description>
+            <p
+              className="jVJjFT"
+            >
+              This is the page you are currently visiting. It was created as a personal project developed with React.js as a digital presentation of my professional profile.
+            </p>
+          </Description>
+          <Link
+            href="https://github.com/annabranco/my-profile"
+            rel="noopener noreferrer"
+            target="_Blank"
+          >
+            <a
+              className="kOEPgv"
+              href="https://github.com/annabranco/my-profile"
+              rel="noopener noreferrer"
+              target="_Blank"
+            >
+              <p
+                className="project__repo"
+              >
+                <Repo Icon
+                  className="fab fa-github-alt"
+                >
+                  <i
+                    className="iUKfTa fab fa-github-alt"
+                  />
+                </Repo Icon>
+                /annabranco/my-profile
+              </p>
+            </a>
+          </Link>
+        </div>
+      </Project Item>
+    </ProjectDetails>
+  </Provider>
+</MockProvider>
+`;

@@ -19,7 +19,7 @@ const FrontendSkillGroup = ({ details, visible }) => (
             </LogoWrapper>
           )}
 
-          <SkillLevel level={skill.level} />
+          <SkillLevel level={skill.level} skill={skill.skill} />
         </SkillItem>
       ))}
     </SkillsWrapper>
