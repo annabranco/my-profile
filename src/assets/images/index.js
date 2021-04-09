@@ -1,10 +1,14 @@
 /* eslint-disable global-require */
+
 export const FloatingLeft = require('./other/floatingLeft.gif');
+export const Binary = require('./other/bg-binary.jpg');
 export const FloatingRight = require('./other/floatingRight.gif');
 export const Barquinho = require('./other/barquinho.gif');
 export const LogoAdalab = require('./logo-adalab.png');
 export const MacNotebook = require('./bg/bg-mac.jpg');
 export const Mugshot = require('./annabranco.png');
+export const Sea = require('./bg/sea.gif');
+export const SeaBed = require('./bg/seabed.jpg');
 export const SwimmingRight = require('./other/swimmingRight.gif');
 export const SwimmingLeft = require('./other/swimmingLeft.gif');
 

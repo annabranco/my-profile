@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { rgba } from 'polished';
 import { colorWhite } from './theme';
+import { Sea } from '../assets/images';
 
 export const NotDisplayed = css`
   display: none;
@@ -24,7 +25,7 @@ export const MainBackground = css`
       ${rgba('#ffffff', 0.7)},
       ${rgba('#ffffff', 0.3)}
     ),
-    url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
+    ${`url(${Sea})`};
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -37,6 +38,6 @@ export const MainBackground = css`
         ${rgba('#ffffff', 0.8)},
         ${rgba('#ffffff', 0.7)}
       ),
-      url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
+      ${`url(${Sea})`};
   }
 `;

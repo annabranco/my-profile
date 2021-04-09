@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
+import { Sea } from '../../assets/images';
 import {
   colorBlueLight,
   fontTitle,
@@ -59,7 +60,7 @@ export const ExperiencesArea = styled.div`
       rgba(230, 239, 251, 0.93),
       rgba(189, 214, 246, 0.98)
     ),
-    url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
+    ${`url(${Sea})`};
   background-position: center;
   height: auto;
 `;

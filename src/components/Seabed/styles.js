@@ -1,5 +1,8 @@
 import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
+import { ON_THE_LEFT } from '../../constants';
+import { Sea, SeaBed } from '../../assets/images';
+import { NotDisplayed } from '../../styles/global';
 import {
   colorBlack,
   colorBlueDark,
@@ -11,8 +14,6 @@ import {
   fontTitleAlt,
   colorRedBright
 } from '../../styles/theme';
-import { NotDisplayed } from '../../styles/global';
-import { ON_THE_LEFT } from '../../constants';
 
 const FloatingAnimation = keyframes`
   from {
@@ -216,7 +217,7 @@ export const SeabedFloor = styled.div`
   position: absolute;
   bottom: 0;
   opacity: 0.05;
-  background-image: url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/seabed.jpg');
+  background-image: ${`url(${SeaBed})`};
   background-position: bottom;
   background-size: 100% 220%;
   height: 50vh;
@@ -231,7 +232,7 @@ export const SeabedSection = styled.section`
       ${rgba('#abccf6', 0.95)},
       ${rgba('#ecf6bd', 0.9)}
     ),
-    url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/bg/sea.gif');
+    ${`url(${Sea})`};
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

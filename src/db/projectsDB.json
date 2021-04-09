@@ -8,7 +8,7 @@
       },
       "order"     : 1,
       "repo"      : "https://github.com/annabranco/zombicide-party",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-zombicide-party.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-zombicide-party.jpg",
       "title"     : "Zombicide Party",
       "url"       : "https://annabranco.github.io/zombicide-party/"
     },
@@ -20,7 +20,7 @@
       },
       "order"     : 2,
       "repo"      : "https://github.com/annabranco/nnk",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-no-name-kitchen.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-no-name-kitchen.jpg",
       "title"     : "No Name Kitchen",
       "url"       : "http://nnk.vercel.app/"
     },
@@ -32,7 +32,7 @@
       },
       "order"     : 3,
       "repo"      : "https://github.com/annabranco/toy-story-games",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-toy-story.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-toy-story.jpg",
       "title"     : "Toy Story Games",
       "url"       : "https://annabranco.github.io/toy-story-games/"
     },
@@ -44,7 +44,7 @@
       },
       "order"     : 4,
       "repo"      : "https://github.com/annabranco/an-adventure",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-an-adventure.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-an-adventure.jpg",
       "title"     : "An Adventure",
       "url"       : "https://annabranco.github.io/an-adventure/"
     },
@@ -56,7 +56,7 @@
       },
       "order"     : 5,
       "repo"      : "https://github.com/annabranco/shougi",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-shougi.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-shougi.jpg",
       "title"     : "Shougi",
       "url"       : "https://annabranco.github.io/shougi/"
     },
@@ -68,7 +68,7 @@
       },
       "order"     : 6,
       "repo"      : "https://github.com/annabranco/harry-potter-database",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-harry-potter-database.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-harry-potter-database.jpg",
       "title"     : "Harry Potter Database",
       "url"       : "https://annabranco.github.io/harry-potter-database"
     },
@@ -80,7 +80,7 @@
       },
       "order"     : 7,
       "repo"      : "https://github.com/annabranco/tv-series-finder",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-tv-series-finder.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-tv-series-finder.jpg",
       "title"     : "TV Series Finder",
       "url"       : "https://annabranco.github.io/tv-series-finder/"
     },
@@ -92,7 +92,7 @@
       },
       "order"     : 8,
       "repo"      : "https://github.com/annabranco/my-profile",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-my-profile.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-my-profile.jpg",
       "title"     : "My profile",
       "url"       : "https://annabranco.github.io/my-profile/"
     },
@@ -104,7 +104,7 @@
       },
       "order"     : 9,
       "repo"      : "https://github.com/annabranco/days-go-by",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/thumbnails/thumbnail-days-go-by.jpg",
+      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/thumbnails/thumbnail-days-go-by.jpg",
       "title"     : "Days Go By",
       "url"       : "https://annabranco.github.io/days-go-by/"
     }

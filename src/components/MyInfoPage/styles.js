@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { rgba } from 'polished';
+import { Binary } from '../../assets/images';
 import { colorBlueLight, fontSubtitle, fontTitle } from '../../styles/theme';
 import { MainBackground, NotDisplayed } from '../../styles/global';
 
@@ -29,7 +30,7 @@ const ArrowIcon = styled.i`
 `;
 
 const MyName = styled.h1`
-  background-image: url('https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/other/bg-binary.jpg');
+  background-image: ${`url(${Binary})`};
   background-position: center;
   background-size: contain;
   -webkit-background-clip: text;
