@@ -1,0 +1,2512 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Skills > matches the snapshot 1`] = `
+<MockProvider>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Skills
+      cuePointsActivated={Set {}}
+    >
+      <Skills Area>
+        <div
+          className="itiBHA"
+        >
+          <FrontendSkillGroup
+            details={
+              Object {
+                "globalLevel": 3,
+                "logo": "",
+                "name": "Frontend",
+                "order": 1,
+                "skills": Array [
+                  Object {
+                    "level": 3,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/js.png",
+                    "order": 1,
+                    "skill": "JavaScript",
+                  },
+                  Object {
+                    "level": 3,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/react.png",
+                    "order": 2,
+                    "skill": "React",
+                  },
+                  Object {
+                    "level": 2,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/redux.png",
+                    "order": 3,
+                    "skill": "Redux",
+                  },
+                  Object {
+                    "level": 3,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/frontity.png",
+                    "order": 4,
+                    "skill": "Frontity",
+                  },
+                  Object {
+                    "level": 1,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/angular.png",
+                    "order": 5,
+                    "skill": "Angular",
+                  },
+                  Object {
+                    "level": 2,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/typescript.png",
+                    "order": 6,
+                    "skill": "TypeScript",
+                  },
+                  Object {
+                    "level": 3,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/html5.png",
+                    "order": 7,
+                    "skill": "HTML5",
+                  },
+                  Object {
+                    "level": 3,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/css3.png",
+                    "order": 8,
+                    "skill": "CSS3",
+                  },
+                  Object {
+                    "level": 3,
+                    "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/styled-components.png",
+                    "order": 9,
+                    "skill": "Styled",
+                  },
+                ],
+              }
+            }
+            visible={false}
+          >
+            <Frontend Group
+              visible={false}
+            >
+              <div
+                className="dtnNXG"
+              >
+                <Title
+                  group="Frontend"
+                >
+                  <h3
+                    className="hqlzTC"
+                  >
+                    Frontend
+                  </h3>
+                </Title>
+                <Skills Wrapper>
+                  <div
+                    className="gWsWNM"
+                  >
+                    <Skill Item
+                      key="1-JavaScript"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            JavaScript
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/js.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/js.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={3}
+                          skill="JavaScript"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="JavaScript-3-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="JavaScript-3-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="JavaScript-3-2"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="2-React"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            React
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/react.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/react.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={3}
+                          skill="React"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="React-3-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="React-3-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="React-3-2"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="3-Redux"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            Redux
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/redux.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/redux.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={2}
+                          skill="Redux"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Redux-2-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Redux-2-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="4-Frontity"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            Frontity
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/frontity.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/frontity.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={3}
+                          skill="Frontity"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Frontity-3-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Frontity-3-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Frontity-3-2"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="5-Angular"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            Angular
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/angular.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/angular.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={1}
+                          skill="Angular"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Angular-1-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="6-TypeScript"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            TypeScript
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/typescript.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/typescript.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={2}
+                          skill="TypeScript"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="TypeScript-2-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="TypeScript-2-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="7-HTML5"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            HTML5
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/html5.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/html5.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={3}
+                          skill="HTML5"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="HTML5-3-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="HTML5-3-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="HTML5-3-2"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="8-CSS3"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            CSS3
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/css3.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/css3.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={3}
+                          skill="CSS3"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="CSS3-3-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="CSS3-3-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="CSS3-3-2"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                    <Skill Item
+                      key="9-Styled"
+                    >
+                      <div
+                        className="OlmOk"
+                      >
+                        <Name>
+                          <h4
+                            className="jLXHzY"
+                          >
+                            Styled
+                          </h4>
+                        </Name>
+                        <Logo Wrapper>
+                          <div
+                            className="cAfggy"
+                          >
+                            <Logo
+                              alt=""
+                              src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/styled-components.png"
+                            >
+                              <img
+                                alt=""
+                                className="dRGbUX"
+                                src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/styled-components.png"
+                              />
+                            </Logo>
+                          </div>
+                        </Logo Wrapper>
+                        <SkillLevel
+                          level={3}
+                          skill="Styled"
+                        >
+                          <Stars Wrapper>
+                            <div
+                              className="puMru"
+                            >
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Styled-3-0"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Styled-3-1"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                              <Star
+                                aria-hidden={true}
+                                className="fas fa-star"
+                                key="Styled-3-2"
+                              >
+                                <i
+                                  aria-hidden={true}
+                                  className="inLprB fas fa-star"
+                                />
+                              </Star>
+                            </div>
+                          </Stars Wrapper>
+                        </SkillLevel>
+                      </div>
+                    </Skill Item>
+                  </div>
+                </Skills Wrapper>
+              </div>
+            </Frontend Group>
+          </FrontendSkillGroup>
+          <Skill Group
+            isVisible={false}
+            position={1}
+          >
+            <div
+              className="fDeiMA"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  Version Control
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/git.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/git.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Git"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Git
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Git"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Git-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Git-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Git-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="GitLab"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              GitLab
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="GitLab"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitLab-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitLab-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitLab-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="GitHub"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              GitHub
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="GitHub"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitHub-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitHub-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitHub-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="GitKraken"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              GitKraken
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="GitKraken"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitKraken-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitKraken-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="GitKraken-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+          <Skill Group
+            isVisible={false}
+            position={2}
+          >
+            <div
+              className="jOiVGM"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  Testing & Analytics
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/jasmine.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/jasmine.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Karma"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Karma
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={2}
+                            skill="Karma"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Karma-2-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Karma-2-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Jasmine"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Jasmine
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={2}
+                            skill="Jasmine"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Jasmine-2-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Jasmine-2-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Applause"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Applause
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Applause"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Applause-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Applause-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Applause-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Youbora"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Youbora
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Youbora"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Youbora-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+          <Skill Group
+            isVisible={false}
+            position={3}
+          >
+            <div
+              className="fkdhtQ"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  UI & Design Tools
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/photoshop.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/photoshop.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Photoshop"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Photoshop
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Photoshop"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Photoshop-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Photoshop-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Photoshop-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Zeplin"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Zeplin
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Zeplin"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Zeplin-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Zeplin-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Zeplin-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Illustrator"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Illustrator
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={2}
+                            skill="Illustrator"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Illustrator-2-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Illustrator-2-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+          <Skill Group
+            isVisible={false}
+            position={4}
+          >
+            <div
+              className="NNCNO"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  Bundlers and Task Runners
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/webpack.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/webpack.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Yarn"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Yarn
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Yarn"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Yarn-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Yarn-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Yarn-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Npm"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Npm
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Npm"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Npm-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Npm-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Npm-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Webpack"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Webpack
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={2}
+                            skill="Webpack"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Webpack-2-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Webpack-2-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Gulp"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Gulp
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Gulp"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Gulp-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+          <Skill Group
+            isVisible={false}
+            position={5}
+          >
+            <div
+              className="fDeiMA"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  Multimedia & Ad-services
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/shaka.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/shaka.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Tizen"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Tizen
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Tizen"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Tizen-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Tizen-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Tizen-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="WebOS"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              WebOS
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="WebOS"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="WebOS-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="WebOS-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="WebOS-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="JsVideo"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              JsVideo
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="JsVideo"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="JsVideo-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="JsVideo-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="JsVideo-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Freewheel"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Freewheel
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Freewheel"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Freewheel-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Smart Ad-Server"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Smart Ad-Server
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Smart Ad-Server"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Smart Ad-Server-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+          <Skill Group
+            isVisible={false}
+            position={6}
+          >
+            <div
+              className="jOiVGM"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  Server-side processes
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/docker.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/docker.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Docker"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Docker
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Docker"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Docker-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Jenkins"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Jenkins
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Jenkins"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Jenkins-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Akamai"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Akamai
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Akamai"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Akamai-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+          <Skill Group
+            isVisible={false}
+            position={7}
+          >
+            <div
+              className="fkdhtQ"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  Backend Development
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/python.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/python.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Python"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Python
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Python"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Python-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Django"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Django
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={1}
+                            skill="Django"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Django-1-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={true}
+                        key="Node"
+                      >
+                        <div
+                          className="fAmoOx"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Node
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={2}
+                            skill="Node"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Node-2-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Node-2-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+          <Skill Group
+            isVisible={false}
+            position={8}
+          >
+            <div
+              className="NNCNO"
+            >
+              <Title>
+                <h3
+                  className="hqlzTC"
+                >
+                  Team work & Management Tools
+                </h3>
+              </Title>
+              <Skills Inside Group>
+                <div
+                  className="bwhJRB"
+                >
+                  <Logo
+                    alt=""
+                    src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/agile.png"
+                  >
+                    <img
+                      alt=""
+                      className="fEeAev"
+                      src="https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/agile.png"
+                    />
+                  </Logo>
+                  <Skills Grid>
+                    <div
+                      className="deryAp"
+                    >
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Scrum"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Scrum
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Scrum"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Scrum-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Scrum-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Scrum-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Agile"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Agile
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Agile"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Agile-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Agile-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Agile-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Jira"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Jira
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Jira"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Jira-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Jira-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Jira-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                      <Skill Item
+                        isLastElementAlone={false}
+                        key="Confluence"
+                      >
+                        <div
+                          className="OlmOk"
+                        >
+                          <Name>
+                            <h4
+                              className="jLXHzY"
+                            >
+                              Confluence
+                            </h4>
+                          </Name>
+                          <SkillLevel
+                            level={3}
+                            skill="Confluence"
+                          >
+                            <Stars Wrapper>
+                              <div
+                                className="puMru"
+                              >
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Confluence-3-0"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Confluence-3-1"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                                <Star
+                                  aria-hidden={true}
+                                  className="fas fa-star"
+                                  key="Confluence-3-2"
+                                >
+                                  <i
+                                    aria-hidden={true}
+                                    className="inLprB fas fa-star"
+                                  />
+                                </Star>
+                              </div>
+                            </Stars Wrapper>
+                          </SkillLevel>
+                        </div>
+                      </Skill Item>
+                    </div>
+                  </Skills Grid>
+                </div>
+              </Skills Inside Group>
+            </div>
+          </Skill Group>
+        </div>
+      </Skills Area>
+    </Skills>
+  </Provider>
+</MockProvider>
+`;

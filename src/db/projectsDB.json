@@ -2,15 +2,27 @@
   "projects": [
     {
       "description": {
-        "en" : "This is the page you are currently visiting. It was created as a personal project developed with React.js as a digital presentation of my professional profile.",
-        "es" : "Esta es la página donde estás navegando. Ha sido creada como un proyecto personal desarrollado con React.js para la presentación digital de mi perfil profesional.",
-        "pt" : "Esta é a página onde você está. Foi criada como um projeto pessoal desenvolvido com React.js para apresentação digital do meu perfil profissional."
+        "en" : "A a free unofficial app to enhance the players experience while playing Zombicide tabletop game.",
+        "es" : "Una app no oficial y gratuita para mejorar la experiencia de los jugadores en sus partidas del juego de mesa Zombicide.",
+        "pt" : "Una app nãp oficial e gratuita para melhorar a experiência dos jogadores em suas partidas do jogo de tabuleiro Zombicide."
       },
       "order"     : 1,
-      "repo"      : "https://github.com/annabranco/my-profile",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-my-profile.jpg",
-      "title"     : "My profile",
-      "url"       : "https://annabranco.github.io/my-profile/"
+      "repo"      : "https://github.com/annabranco/zombicide-party",
+      "thumbnail" : "zombicide-party",
+      "title"     : "Zombicide Party",
+      "url"       : "https://annabranco.github.io/zombicide-party/"
+    },
+    {
+      "description": {
+        "en" : "A landing page for No Name Kitchen, a NGO working with refugees arriving in Europe. Pre.release.",
+        "es" : "Una página landing para No Name Kitchen, una ONG que trabaja con refugiados llegando a Europa. Pre-release.",
+        "pt" : "Uma página landing para No Name Kitchen, uma ONG que trabalha com refugiados chegando à Europa. Pre-release."
+      },
+      "order"     : 2,
+      "repo"      : "https://github.com/annabranco/nnk",
+      "thumbnail" : "no-name-kitchen",
+      "title"     : "No Name Kitchen",
+      "url"       : "http://nnk.vercel.app/"
     },
     {
       "description": {
@@ -18,35 +30,47 @@
         "es" : "Un divertido y bonito juego de parejas, con tema de Toy Story (Disney), para todas las edades. Está basado en mi ejercicio final de evaluación de Adalab.",
         "pt" : "Um divertido e bonito jogo da memória, com temática de Toy Story (Disney), para todas as idades. Foi inspirado em meu exercício final de avaliação de Adalab."
       },
-      "order"     : 2,
+      "order"     : 3,
       "repo"      : "https://github.com/annabranco/toy-story-games",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-toy-story.jpg",
+      "thumbnail" : "toy-story",
       "title"     : "Toy Story Games",
       "url"       : "https://annabranco.github.io/toy-story-games/"
     },
-    {
+        {
       "description": {
-        "en" : "The protptype of an own Role Playing Game built in vanilla JavaScript. There is currently just one simple task to accomplish. The assets were not created by me.",
+        "en" : "The prototype of an own Role Playing Game built in vanilla JavaScript. There is currently just one simple task to accomplish. The assets were not created by me.",
         "es" : "El prototipo de un juego de rol mío desarrollado en JavaScript vanilla. Actualmente hay solamente un objetivo por alcanzar. Los assets no fueron creados por mí.",
         "pt" : "O protótipo de um jogo de RPG meu programado en JavaScript vanilla. No momento só há um simples objetivo por alcançar. Os assets não foram criados por mim."
       },
-      "order"     : 3,
+      "order"     : 4,
       "repo"      : "https://github.com/annabranco/an-adventure",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-an-adventure.jpg",
+      "thumbnail" : "an-adventure",
       "title"     : "An Adventure",
       "url"       : "https://annabranco.github.io/an-adventure/"
     },
-    {
+        {
       "description": {
-        "en" : "A prototype of a web page of football team. The news and contact pages are embed content from Wordpress to reproduce back-end functionalities.",
-        "es" : "Un prototipo de una página web de un equipo de fútbol. La parte de noticias y contacto son contenidos externos reproduciendo funcionalidades back-end.",
-        "pt" : "Um protótipo de uma página web de um time de futebol. A parte de notícias e contato são conteúdos externos reproduzindo funcionalidades back-end."
+        "en" : "A demo pre-release of a game of Shougi, the Japanese Chess. Unfinished, but playable and fun.",
+        "es" : "Una demo pre-release de un juego de Shougi, el ajedrez japonés. No está terminado, pero es jugable y divertido.",
+        "pt" : "Uma demo pre-release de um jogo de Shougi, o xadrez japonês. Não está terminado, mas é jogável e divertido."
       },
-      "order"     : 4,
-      "repo"      : "https://github.com/annabranco/nipiterfc",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-ni-piter.jpg",
-      "title"     : "Ni Piter FC",
-      "url"       : "https://annabranco.github.io/nipiterfc/"
+      "order"     : 5,
+      "repo"      : "https://github.com/annabranco/shougi",
+      "thumbnail" : "shougi",
+      "title"     : "Shougi",
+      "url"       : "https://annabranco.github.io/shougi/"
+    },
+        {
+      "description": {
+        "en" : "A beautiful visual database of Harry Potter characters, with filters and favorites function. My future objective is to develop the database as my own API.",
+        "es" : "Un proyecto visual de los personajes de Harry Potter, con filtros y gestión de favoritos. Mi futuro objetivo es desarrollar todos los datos en una API mía. ",
+        "pt" : "Un bonito projeto visual dos personagens de Harry Potter, com filtros e gestão de favoritos. Meu objetivo futuro é desenvolver os dados em minha própria API."
+      },
+      "order"     : 6,
+      "repo"      : "https://github.com/annabranco/harry-potter-database",
+      "thumbnail" : "harry-potter-database",
+      "title"     : "Harry Potter Database",
+      "url"       : "https://annabranco.github.io/harry-potter-database"
     },
     {
       "description": {
@@ -54,35 +78,35 @@
         "es" : "Un buscador de series de televisión, donde los usuarios pueden buscar en una grande base de datos y ver sinopsis, valoraciones y añadir a favoritos.",
         "pt" : "Um buscador de séries de TV, onde os usuários podem buscar en um enorme banco de dados, bem como ver sinopses, avaliações e adicionar a favoritos."
       },
-      "order"     : 5,
+      "order"     : 7,
       "repo"      : "https://github.com/annabranco/tv-series-finder",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-tv-series-finder.jpg",
+      "thumbnail" : "tv-series-finder",
       "title"     : "TV Series Finder",
       "url"       : "https://annabranco.github.io/tv-series-finder/"
     },
     {
       "description": {
-        "en" : "The final technical project from Adalab developed by a group of five students (called Ohana). It generates a professional profile card to be shared.",
-        "es" : "Proyecto técnico final de Adalab desarrollado por un equipo de 5 estudiantes (llamadas Ohana). Crea una tarjeta virtual profesional para compartirla.",
-        "pt" : "Projeto técnico final de Adalab, desenvolvido por um time de 5 estudantes (chamadas Ohana). Cria um cartão virtual profissional para ser compartilhado."
+        "en" : "This is the page you are currently visiting. It was created as a personal project developed with React.js as a digital presentation of my professional profile.",
+        "es" : "Esta es la página donde estás navegando. Ha sido creada como un proyecto personal desarrollado con React.js para la presentación digital de mi perfil profesional.",
+        "pt" : "Esta é a página onde você está. Foi criada como um projeto pessoal desenvolvido com React.js para apresentação digital do meu perfil profissional."
       },
-      "order"     : 6,
-      "repo"      : "https://github.com/Adalab/dorcas-s3-ohana-group",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-awesome-profile-cards.jpg",
-      "title"     : "Awesome Profile Cards",
-      "url"       : "http://beta.adalab.es/dorcas-s3-ohana-group/"
+      "order"     : 8,
+      "repo"      : "https://github.com/annabranco/my-profile",
+      "thumbnail" : "my-profile",
+      "title"     : "My profile",
+      "url"       : "https://annabranco.github.io/my-profile/"
     },
     {
       "description": {
-        "en" : "A beautiful visual database of Harry Potter characters, with filters and favorites function. My future objective is to develop the database as my own API.",
-        "es" : "Un proyecto visual de los personajes de Harry Potter, con filtros y gestión de favoritos. Mi futuro objetivo es desarrollar todos los datos en una API mía. ",
-        "pt" : "Un bonito projeto visual dos personagens de Harry Potter, com filtros e gestão de favoritos. Meu objetivo futuro é desenvolver os dados em minha própria API."
+        "en" : "An animation game where the player interacts with the weather and creates beatiful natural events. In progress.",
+        "es" : "Un juego de animación donde el jugador interactúa con el tiempo y crea bonitos eventos naturales. En desarrollo.",
+        "pt" : "Um jogo de animação onde o jogador interage con o tempo e cria bonitos eventos naturais. Em desenvolvimento."
       },
-      "order"     : 7,
-      "repo"      : "https://github.com/annabranco/harry-potter-database",
-      "thumbnail" : "https://raw.githubusercontent.com/annabranco/my-profile/master/src/images/thumbnails/thumbnail-harry-potter-database.jpg",
-      "title"     : "Harry Potter Database",
-      "url"       : "https://annabranco.github.io/harry-potter-database"
+      "order"     : 9,
+      "repo"      : "https://github.com/annabranco/days-go-by",
+      "thumbnail" : "days-go-by",
+      "title"     : "Days Go By",
+      "url"       : "https://annabranco.github.io/days-go-by/"
     }
   ]
 }

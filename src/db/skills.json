@@ -1,0 +1,280 @@
+{
+  "skillGroups": [
+    {
+      "globalLevel": 3,
+      "logo": "",
+      "name": "Frontend",
+      "order": 1,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "JavaScript",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/js.png"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "React",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/react.png"
+        },
+        {
+          "level": 2,
+          "order": 3,
+          "skill": "Redux",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/redux.png"
+        },
+        {
+          "level": 3,
+          "order": 4,
+          "skill": "Frontity",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/frontity.png"
+        },
+        {
+          "level": 1,
+          "order": 5,
+          "skill": "Angular",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/angular.png"
+        },
+        {
+          "level": 2,
+          "order": 6,
+          "skill": "TypeScript",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/typescript.png"
+        },
+        {
+          "level": 3,
+          "order": 7,
+          "skill": "HTML5",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/html5.png"
+        },
+        {
+          "level": 3,
+          "order": 8,
+          "skill": "CSS3",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/css3.png"
+        },
+        {
+          "level": 3,
+          "order": 9,
+          "skill": "Styled",
+          "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/styled-components.png"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/git.png",
+      "name": "Version Control",
+      "order": 2,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Git"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "GitLab"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "GitHub"
+        },
+        {
+          "level": 3,
+          "order": 4,
+          "skill": "GitKraken"
+        }
+      ]
+    },
+    {
+      "globalLevel": 2,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/jasmine.png",
+      "name": "Testing & Analytics",
+      "order": 3,
+      "skills": [
+        {
+          "level": 2,
+          "order": 1,
+          "skill": "Karma"
+        },
+        {
+          "level": 2,
+          "order": 2,
+          "skill": "Jasmine"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "Applause"
+        },
+        {
+          "level": 1,
+          "order": 4,
+          "skill": "Youbora"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/photoshop.png",
+      "name": "UI & Design Tools",
+      "order": 4,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Photoshop"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "Zeplin"
+        },
+        {
+          "level": 2,
+          "order": 3,
+          "skill": "Illustrator"
+        }
+      ]
+    },
+    {
+      "globalLevel": 1,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/webpack.png",
+      "name": "Bundlers and Task Runners",
+      "order": 5,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Yarn"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "Npm"
+        },
+        {
+          "level": 2,
+          "order": 3,
+          "skill": "Webpack"
+        },
+        {
+          "level": 1,
+          "order": 4,
+          "skill": "Gulp"
+        }
+      ]
+    },
+    {
+      "globalLevel": 2,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/shaka.png",
+      "name": "Multimedia & Ad-services",
+      "order": 6,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Tizen"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "WebOS"
+        },
+        {
+          "level": 3,
+          "order": 6,
+          "skill": "JsVideo"
+        },
+        {
+          "level": 1,
+          "order": 7,
+          "skill": "Freewheel"
+        },
+        {
+          "level": 1,
+          "order": 8,
+          "skill": "Smart Ad-Server"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/docker.png",
+      "name": "Server-side processes",
+      "order": 7,
+      "skills": [
+        {
+          "level": 1,
+          "order": 1,
+          "skill": "Docker"
+        },
+        {
+          "level": 1,
+          "order": 2,
+          "skill": "Jenkins"
+        },
+        {
+          "level": 1,
+          "order": 3,
+          "skill": "Akamai"
+        }
+      ]
+    },
+    {
+      "globalLevel": 1,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/python.png",
+      "name": "Backend Development",
+      "order": 8,
+      "skills": [
+        {
+          "level": 1,
+          "order": 1,
+          "skill": "Python"
+        },
+        {
+          "level": 1,
+          "order": 2,
+          "skill": "Django"
+        },
+        {
+          "level": 2,
+          "order": 3,
+          "skill": "Node"
+        }
+      ]
+    },
+    {
+      "globalLevel": 3,
+      "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/assets/images/skills/agile.png",
+      "name": "Team work & Management Tools",
+      "order": 9,
+      "skills": [
+        {
+          "level": 3,
+          "order": 1,
+          "skill": "Scrum"
+        },
+        {
+          "level": 3,
+          "order": 2,
+          "skill": "Agile"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "Jira"
+        },
+        {
+          "level": 3,
+          "order": 4,
+          "skill": "Confluence"
+        }
+      ]
+    }
+  ]
+}

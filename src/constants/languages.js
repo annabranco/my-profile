@@ -1,4 +1,4 @@
-export const LANGUAGES = {
+export const APP_LANGUAGES = {
   es: 'Español',
   pt: 'Português',
   fr: 'Français',

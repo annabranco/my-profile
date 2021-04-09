@@ -1,86 +1,72 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
-import { MainArea } from '../../containers';
-import { Header } from '../../views';
-import { getLanguageCodeByName } from '../../../utils/languages';
-import { projectsPropType, allLanguagesTextsPropType } from '../../../types';
+import { useStateWithLabel } from '../../../utils/hooks';
+import Header from '../../Header';
+import LanguagesModal from '../../LanguagesModal';
+import MainArea from '../../MainArea';
+import {
+  HIDE_FOREVER,
+  LANG_MODAL_VISIBLE,
+  SETTINGS_LOADED
+} from '../../../constants';
 
-const DEFAULT_PAGE_LANGUAGE = 'English';
+const App = () => {
+  const languageSettings =
+    JSON.parse(localStorage.getItem("Anna Branco's professional profile")) ||
+    {};
 
-class App extends Component {
-  static propTypes = {
-    texts: allLanguagesTextsPropType.isRequired,
-    APP_VERSION: PropTypes.string.isRequired,
-    projects: PropTypes.arrayOf(projectsPropType).isRequired
+  const [hideForever, toggleHideForever] = useStateWithLabel(
+    languageSettings.hideLanguagesModalForever || false,
+    HIDE_FOREVER
+  );
+  const [settingsLoaded, setSettingsLoaded] = useStateWithLabel(
+    false,
+    SETTINGS_LOADED
+  );
+  const [langModalVisible, toggleModalVisible] = useStateWithLabel(
+    false,
+    LANG_MODAL_VISIBLE
+  );
+
+  const toggleBlockLangModal = () => toggleHideForever(prevState => !prevState);
+
+  const onCloseLanguageModal = () => {
+    toggleModalVisible(false);
+    toggleHideForever(hideForever);
   };
 
-  state = {
-    language: getLanguageCodeByName(DEFAULT_PAGE_LANGUAGE),
-    doNotShowLanguageModalAgain: false,
-    displayThanksMessage: false
-  };
-
-  componentDidMount() {
-    this.loadLanguageSettings();
-    console.log('$$$ this.props.projects', this.props.projects);
-  }
-
-  saveLanguageSettings = () => {
-    const { language, doNotShowLanguageModalAgain } = this.state;
-    localStorage.setItem(
-      "Anna Branco's professional profile",
-      JSON.stringify({
-        language,
-        doNotShowLanguageModalAgain
-      })
-    );
-  };
-
-  loadLanguageSettings = () => {
-    if (localStorage.getItem("Anna Branco's professional profile") !== null) {
-      const { language, doNotShowLanguageModalAgain } = JSON.parse(
-        localStorage.getItem("Anna Branco's professional profile")
+  useEffect(() => {
+    const loadLanguageSettings = () => {
+      toggleHideForever(
+        languageSettings.hideLanguagesModalForever || hideForever
       );
-      this.setState({ language, doNotShowLanguageModalAgain });
+      setSettingsLoaded(true);
+    };
+    loadLanguageSettings();
+    if (!hideForever) {
+      toggleModalVisible(true);
     }
-  };
+  }, [
+    hideForever,
+    languageSettings.hideLanguagesModalForever,
+    setSettingsLoaded,
+    toggleHideForever,
+    toggleModalVisible
+  ]);
 
-  onChangeLanguage = event =>
-    this.setState({ language: event.currentTarget.lang });
-
-  closeLanguageModal = willModalBeDisplayedAgain =>
-    this.setState(
-      { doNotShowLanguageModalAgain: willModalBeDisplayedAgain },
-      () => this.saveLanguageSettings()
-    );
-
-  triggerThankYouMessage = () => this.setState({ displayThanksMessage: true });
-
-  render() {
-    const { language } = this.state;
-    const { texts, APP_VERSION, projects } = this.props;
-
-    return (
-      <ErrorBoundary texts={texts[language].error}>
-        <Header
-          texts={texts[language].header}
-          language={language}
-          onChangeLanguage={this.onChangeLanguage}
-          APP_VERSION={APP_VERSION}
+  return (
+    <ErrorBoundary>
+      {langModalVisible && (
+        <LanguagesModal
+          hideForever={hideForever}
+          onCloseLanguageModal={onCloseLanguageModal}
+          toggleBlockLangModal={toggleBlockLangModal}
         />
-        <MainArea
-          onChangeLanguage={this.onChangeLanguage}
-          texts={texts[language]}
-          projects={projects}
-          closeLanguageModal={this.closeLanguageModal}
-          doNotShowLanguageModalAgain={this.state.doNotShowLanguageModalAgain}
-          triggerThankYouMessage={this.triggerThankYouMessage}
-          displayThanksMessage={this.state.displayThanksMessage}
-        />
-      </ErrorBoundary>
-    );
-  }
-}
+      )}
+      <Header hideForever={hideForever} />
+      {settingsLoaded && <MainArea langModalVisible={langModalVisible} />}
+    </ErrorBoundary>
+  );
+};
 
 export default App;

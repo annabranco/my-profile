@@ -1,40 +1,46 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { getStore } from './redux';
 import App from './components/core/App';
+import ErrorComponent from './components/core/ErrorBoundary/ErrorComponent';
 import {
-  TEXTS_PATH_PRE,
-  TEXTS_PATH_PRO,
-  PROJECTS_PATH_PRE,
-  PROJECTS_PATH_PRO
+  EXPERIENCES_PATH,
+  FORMATION_PATH,
+  LANGUAGES_PATH,
+  PROJECTS_PATH,
+  SKILLS_PATH,
+  TEXTS_PATH
 } from './constants';
-import './styles/styles.css';
+import './styles/reset.css';
+import { dispatchFetchDatabase } from './utils/fetchData';
 
-const APP_VERSION = 'v0.10.0';
+const dataBasePaths = [
+  EXPERIENCES_PATH,
+  FORMATION_PATH,
+  LANGUAGES_PATH,
+  PROJECTS_PATH,
+  SKILLS_PATH,
+  TEXTS_PATH
+];
 
-const developWithFakeServer = process.env.REACT_APP_FAKE_SERVER === 'true';
-const TEXTS_PATH = developWithFakeServer ? TEXTS_PATH_PRE : TEXTS_PATH_PRO;
-const PROJECTS_PATH = developWithFakeServer
-  ? PROJECTS_PATH_PRE
-  : PROJECTS_PATH_PRO;
+const store = getStore();
 
-const fetchJson = URL => {
-  return fetch(URL)
-    .then(response => response.json())
-    .then(data => {
-      console.log('$$$ data', data);
-      return data;
-    })
-    .catch(error => console.error(`Failed to get data from ${URL}. ${error}.`));
-};
-
-const loadTexts = fetchJson(TEXTS_PATH);
-const loadProjects = fetchJson(PROJECTS_PATH);
-
-Promise.all([loadTexts, loadProjects])
-  .then(([texts, data]) => {
+dispatchFetchDatabase(dataBasePaths)
+  .then(() => {
     ReactDOM.render(
-      <App texts={texts} projects={data.projects} APP_VERSION={APP_VERSION} />,
+      <Provider store={store}>
+        <App />
+      </Provider>,
       document.getElementById('root')
     );
   })
-  .catch(error => console.error(error));
+  .catch(error => {
+    console.error(error);
+    ReactDOM.render(
+      <ErrorComponent
+        error={`Fail when building up the application => ${error.message}`}
+      />,
+      document.getElementById('root')
+    );
+  });
