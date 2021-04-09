@@ -4,7 +4,7 @@
   "description": "This is Anna Branco's developer profile",
   "version": "1.0.1",
   "repository": "github:annabranco/my-profile/",
-  "homepage": "./",
+  "homepage": "http://annabranco.github.io/my-profile/",
   "keywords": [
     "frontend",
     "developer",
@@ -17,10 +17,23 @@
   },
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "start:dev": "cross-env REACT_APP_DEV_SERVER=true concurrently \"npm run start:dev-server\" \"npm run start:dev-wait-server\"",
+    "start:dev-server": "babel-node ./localService/dev-server",
+    "start:dev-wait-server": "wait-on http://localhost:3031/health && npm start",
+    "test": "jest",
+    "test:dev": "jest --silent=false --watch",
+    "version": "auto-changelog -p --tag-prefix v && git add CHANGELOG.md",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
   "dependencies": {
     "axios": "^0.20.0",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.2",
+    "gh-pages": "^3.1.0",
     "lodash": "^4.17.19",
     "polished": "^4.0.3",
     "prop-types": "^15.7.2",
@@ -69,16 +82,6 @@
     "react-app-rewired": "^2.1.6",
     "react-dev-utils": "^11.0.0",
     "wait-on": "^5.2.0"
-  },
-  "scripts": {
-    "build": "react-scripts build",
-    "start": "react-scripts start",
-    "start:dev": "cross-env REACT_APP_DEV_SERVER=true concurrently \"npm run start:dev-server\" \"npm run start:dev-wait-server\"",
-    "start:dev-server": "babel-node ./localService/dev-server",
-    "start:dev-wait-server": "wait-on http://localhost:3031/health && npm start",
-    "test": "jest",
-    "test:dev": "jest --silent=false --watch",
-    "version": "auto-changelog -p --tag-prefix v && git add CHANGELOG.md"
   },
   "browserslist": [
     ">0.2%",
