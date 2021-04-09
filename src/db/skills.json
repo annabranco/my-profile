@@ -45,13 +45,13 @@
         {
           "level": 3,
           "order": 7,
-          "skill": "HTML5",
+          "skill": "HTML",
           "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/html5.png"
         },
         {
           "level": 3,
           "order": 8,
-          "skill": "CSS3",
+          "skill": "CSS/Sass",
           "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/css3.png"
         },
         {
@@ -82,39 +82,34 @@
           "level": 3,
           "order": 3,
           "skill": "GitHub"
-        },
-        {
-          "level": 3,
-          "order": 4,
-          "skill": "GitKraken"
         }
       ]
     },
     {
       "globalLevel": 2,
       "logo": "https://raw.githubusercontent.com/annabranco/my-profile/dev/src/images/skills/jasmine.png",
-      "name": "Testing & Analytics",
+      "name": "Testing & Debugging",
       "order": 3,
       "skills": [
         {
-          "level": 2,
+          "level": 1,
           "order": 1,
           "skill": "Karma"
         },
         {
-          "level": 2,
+          "level": 1,
           "order": 2,
-          "skill": "Jasmine"
+          "skill": "Jest"
         },
         {
-          "level": 3,
+          "level": 1,
           "order": 3,
-          "skill": "Applause"
+          "skill": "Jasmine"
         },
         {
           "level": 1,
           "order": 4,
-          "skill": "Youbora"
+          "skill": "Kibana"
         }
       ]
     },
@@ -244,7 +239,7 @@
         {
           "level": 2,
           "order": 3,
-          "skill": "Node"
+          "skill": "NodeJS"
         }
       ]
     },
@@ -272,7 +267,7 @@
         {
           "level": 3,
           "order": 4,
-          "skill": "Confluence"
+          "skill": "Kanban"
         }
       ]
     }
