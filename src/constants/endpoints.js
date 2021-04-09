@@ -1,7 +1,7 @@
 import { isDevelopment } from '../utils/environments';
 
 const HOST_PRO =
-  'https://raw.githubusercontent.com/annabranco/my-profile/dev/src/db';
+  'https://raw.githubusercontent.com/annabranco/my-profile/master/src/db';
 const HOST_PRE = 'http://localhost:3031';
 
 const HOST = isDevelopment ? HOST_PRE : HOST_PRO;
