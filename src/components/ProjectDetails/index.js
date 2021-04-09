@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { bool } from 'prop-types';
 import { currentLanguageSelector } from '../../redux/selectors';
+import { THUMBNAILS } from '../../assets/images';
+import { projectsPropType } from '../../types';
 import {
   Description,
   Link,
@@ -11,7 +13,8 @@ import {
   Thumbnail,
   Title
 } from './styles';
-import { projectsPropType } from '../../types';
+
+const a = THUMBNAILS;
 
 const ProjectDetails = ({ displayThumbnails, project }) => {
   const languageSelected = useSelector(currentLanguageSelector);
@@ -34,7 +37,7 @@ const ProjectDetails = ({ displayThumbnails, project }) => {
       </Link>
       {displayThumbnails && (
         <Link href={project.url} rel="noopener noreferrer" target="_Blank">
-          <Thumbnail src={project.thumbnail} alt={project.title} />
+          <Thumbnail src={THUMBNAILS[project.thumbnail]} alt={project.title} />
         </Link>
       )}
     </ProjectItem>

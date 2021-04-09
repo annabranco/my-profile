@@ -33,18 +33,6 @@ const ProjectsList = ({
 
   return (
     <ProjectsSection>
-      <CheckboxWrapper>
-        <Checkbox
-          id="developer__projects-checkbox"
-          onClick={event =>
-            toggleProjectsThumbNails(event.currentTarget.checked)
-          }
-          type="checkbox"
-        />
-        <label htmlFor="developer__projects-checkbox">
-          {texts.showThumbnails}
-        </label>
-      </CheckboxWrapper>
       <ProjectsGrid thumbnailsStyle={thumbnailsStyle}>
         {projects &&
           projects[actualPage - 1].map(project => (
@@ -55,12 +43,26 @@ const ProjectsList = ({
             />
           ))}
       </ProjectsGrid>
+      <CheckboxWrapper>
+        <Checkbox
+          id="developer__projects-checkbox"
+          onClick={event =>
+            toggleProjectsThumbNails(event.currentTarget.checked)
+          }
+          type="checkbox"
+          defaultChecked={displayThumbnails}
+        />
+        <label htmlFor="developer__projects-checkbox">
+          {texts.showThumbnails}
+        </label>
+      </CheckboxWrapper>
+
       <Paginator>
-        <Text hidden={actualPage === 1}>{texts.goUp}</Text>
+        <Text notVisible={actualPage === 1}>{texts.goUp}</Text>
         <Icon
           aria-label={texts.goUp}
           className="far fa-arrow-alt-circle-up"
-          hidden={actualPage === 1}
+          notVisible={actualPage === 1}
           onClick={() => onClickChangePage(BACK_ACTION)}
           role="button"
           tabIndex={0}
@@ -68,12 +70,12 @@ const ProjectsList = ({
         <Icon
           aria-label={texts.showMore}
           className="far fa-arrow-alt-circle-down"
-          hidden={actualPage === totalPages}
+          notVisible={actualPage === totalPages}
           onClick={() => onClickChangePage(ADVANCE_ACTION)}
           role="button"
           tabIndex={0}
         />
-        <Text hidden={actualPage === totalPages}>{texts.showMore}</Text>
+        <Text notVisible={actualPage === totalPages}>{texts.showMore}</Text>
       </Paginator>
     </ProjectsSection>
   );

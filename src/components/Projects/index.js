@@ -31,7 +31,7 @@ const Projects = ({ adjustScrollAfterThumbnails }) => {
   const [thumbsState, updateThumbsState] = useStateWithLabel(
     {
       adjustedView: 0,
-      displayThumbnails: false
+      displayThumbnails: true
     },
     THUMBS_STATE
   );

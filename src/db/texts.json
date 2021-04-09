@@ -97,7 +97,7 @@
     "sections": {
       "experience": "Professional experience",
       "other": "Other informations",
-      "projects": "Projects",
+      "projects": "Own projects",
       "technical": "Technical Competences"
     }
   },
@@ -199,7 +199,7 @@
     "sections": {
       "experience": "Experiencia profesional",
       "other": "Otras informaciones",
-      "projects": "Proyectos",
+      "projects": "Proyectos propios",
       "technical": "Competencias técnicas"
     }
   },
@@ -311,7 +311,7 @@
     "sections": {
       "experience": "Experiência profissional",
       "other": "Outras informações",
-      "projects": "Projetos",
+      "projects": "Projetos próprios",
       "technical": "Competências técnicas"
     }
   }

@@ -29,3 +29,26 @@ export const Shaka = require('./skills/shaka.png');
 export const StyledComponents = require('./skills/styled-components.png');
 export const Typescript = require('./skills/typescript.png');
 export const Webpack = require('./skills/webpack.png');
+
+// Thumbnails
+const Zombicide = require('./thumbnails/thumbnail-zombicide-party.jpg');
+const NNK = require('./thumbnails/thumbnail-no-name-kitchen.jpg');
+const ToyStory = require('./thumbnails/thumbnail-toy-story.jpg');
+const AnAdventure = require('./thumbnails/thumbnail-an-adventure.jpg');
+const Shougi = require('./thumbnails/thumbnail-shougi.jpg');
+const HarryPotter = require('./thumbnails/thumbnail-harry-potter-database.jpg');
+const TvSeries = require('./thumbnails/thumbnail-tv-series-finder.jpg');
+const MyProfile = require('./thumbnails/thumbnail-my-profile.jpg');
+const DaysGoBy = require('./thumbnails/thumbnail-days-go-by.jpg');
+
+export const THUMBNAILS = {
+  'zombicide-party': Zombicide,
+  'no-name-kitchen': NNK,
+  'toy-story': ToyStory,
+  'an-adventure': AnAdventure,
+  shougi: Shougi,
+  'harry-potter-database': HarryPotter,
+  'tv-series-finder': TvSeries,
+  'my-profile': MyProfile,
+  'days-go-by': DaysGoBy
+};

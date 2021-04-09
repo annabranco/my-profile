@@ -40,8 +40,8 @@ const ScrollArea = ({ langModalVisible }) => {
       scrollAreaEnd: 1200
     },
     experiences: {
-      scrollAreaStart: 1300 + adjustScroll,
-      scrollAreaEnd: 2000 + adjustScroll
+      scrollAreaStart: 1400 + adjustScroll,
+      scrollAreaEnd: 2100 + adjustScroll
     }
   };
 
@@ -53,8 +53,8 @@ const ScrollArea = ({ langModalVisible }) => {
 
     // eslint-disable-next-line no-underscore-dangle
     if (window._debug) {
-      console.log('$$$ scrollPosition', scrollPosition);
-      console.log('$$$ cuePointsActivated', cuePointsActivated);
+      console.log('$$$ scrollPosition', scrollPosition); // eslint-disable-line no-console
+      console.log('$$$ cuePointsActivated', cuePointsActivated); // eslint-disable-line no-console
     }
 
     SCROLL_CUEPOINTS.forEach((cuePointName, cuePoint) => {
