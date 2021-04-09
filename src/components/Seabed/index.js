@@ -95,6 +95,7 @@ const SeaBed = ({ resetScrollPosition }) => {
     THINKING
   );
   const HeroRef = useRef();
+  const isKeyDown = useRef();
 
   // ======== Handle view components (Formation and Other Skills)
 
@@ -193,13 +194,13 @@ const SeaBed = ({ resetScrollPosition }) => {
 
   // ======== Handle base HERO movements
 
-  const moveHero = (event, updatedPosition) => {
+  const moveHero = (key, updatedPosition) => {
     const DISPLACEMENT = 250;
     let floatingImage;
     let newMovement;
     let swimmingImage;
 
-    if (event.key === 'ArrowRight') {
+    if (key === 'ArrowRight') {
       // -Prevents movement beyond right margin on frame RIGHT
       if (
         updatedPosition.frame === RIGHT &&
@@ -211,7 +212,7 @@ const SeaBed = ({ resetScrollPosition }) => {
       swimmingImage = SwimmingRight;
       newMovement = `${Number(HERO.style.left.slice(0, -2)) + DISPLACEMENT}px`;
       closeSubsections();
-    } else if (event.key === 'ArrowLeft') {
+    } else if (key === 'ArrowLeft') {
       // -Prevents movement beyond left margin on frame LEFT
       if (
         updatedPosition.frame === LEFT &&
@@ -249,6 +250,13 @@ const SeaBed = ({ resetScrollPosition }) => {
   // ======= Function that fires events when HERO reaches some specific places
 
   const heroHasMoved = updatedPosition => {
+    if (heroMovements.crossingBorder) {
+      changeHeroMovements({
+        ...heroMovements,
+        crossingBorder: false
+      });
+    }
+
     // -WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
     if (
       formationState.read &&
@@ -396,23 +404,38 @@ const SeaBed = ({ resetScrollPosition }) => {
   };
 
   useEffect(() => {
-    const captureHeroMovement = event => {
-      moveHero(event, positionState);
+    const onKeyUp = () => {
+      isKeyDown.current = false;
+    };
+
+    const captureHeroMovement = ({ key }) => {
+      if (!isKeyDown.current) {
+        isKeyDown.current = true;
+        setTimeout(() => {
+          isKeyDown.current = false;
+        }, 1000);
+        if (key === 'ArrowRight' || key === 'ArrowLeft') {
+          moveHero(key, positionState);
+        }
+      }
     };
     if (
       isFinished &&
       positionState.frame === CENTER &&
       positionState.position === CENTER
     ) {
-      window.removeEventListener('keyup', captureHeroMovement);
+      window.removeEventListener('keydown', captureHeroMovement);
+      window.removeEventListener('keyup', onKeyUp);
     } else {
-      window.addEventListener('keyup', captureHeroMovement);
+      window.addEventListener('keydown', captureHeroMovement);
+      window.addEventListener('keyup', onKeyUp);
     }
 
     return () => {
-      window.removeEventListener('keyup', captureHeroMovement);
+      window.removeEventListener('keydown', captureHeroMovement);
+      window.removeEventListener('keyup', onKeyUp);
     };
-  });
+  }, [positionState.position]);
 
   useEffect(() => {
     HERO = HeroRef.current;

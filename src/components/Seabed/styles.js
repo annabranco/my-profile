@@ -88,7 +88,7 @@ export const HeroImage = styled.img`
   bottom: 40%;
   opacity: 0.6;
   width: 200px;
-  transition: all ease 1s;
+  transition: all linear 1s;
   ${NotDisplayed};
 
   @media all and (min-width: 768px) {
