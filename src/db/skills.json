@@ -82,39 +82,34 @@
           "level": 3,
           "order": 3,
           "skill": "GitHub"
-        },
-        {
-          "level": 3,
-          "order": 4,
-          "skill": "GitKraken"
         }
       ]
     },
     {
       "globalLevel": 2,
       "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/jasmine.png",
-      "name": "Testing & Analytics",
+      "name": "Testing & Debugging",
       "order": 3,
       "skills": [
         {
           "level": 2,
           "order": 1,
-          "skill": "Karma"
+          "skill": "Jest"
         },
         {
           "level": 2,
           "order": 2,
-          "skill": "Jasmine"
+          "skill": "Karma"
         },
         {
-          "level": 3,
+          "level": 2,
           "order": 3,
-          "skill": "Applause"
+          "skill": "Jasmine"
         },
         {
           "level": 1,
           "order": 4,
-          "skill": "Youbora"
+          "skill": "Kibana"
         }
       ]
     },
@@ -148,24 +143,19 @@
       "order": 5,
       "skills": [
         {
-          "level": 3,
-          "order": 1,
-          "skill": "Yarn"
-        },
-        {
-          "level": 3,
-          "order": 2,
-          "skill": "Npm"
-        },
-        {
           "level": 2,
-          "order": 3,
+          "order": 1,
           "skill": "Webpack"
         },
         {
           "level": 1,
-          "order": 4,
+          "order": 2,
           "skill": "Gulp"
+        },
+        {
+          "level": 3,
+          "order": 3,
+          "skill": "yarn/npm"
         }
       ]
     },
@@ -232,19 +222,19 @@
       "order": 8,
       "skills": [
         {
-          "level": 1,
+          "level": 2,
           "order": 1,
-          "skill": "Python"
-        },
-        {
-          "level": 1,
-          "order": 2,
-          "skill": "Django"
+          "skill": "NodeJS"
         },
         {
           "level": 2,
+          "order": 2,
+          "skill": "ExpressJS"
+        },
+        {
+          "level": 1,
           "order": 3,
-          "skill": "Node"
+          "skill": "Python"
         }
       ]
     },

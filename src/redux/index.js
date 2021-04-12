@@ -27,9 +27,10 @@ export const getStore = () => {
       compose(applyMiddleware(thunk, updateTexts), devToolsEnhancer())
     );
   }
+
   // eslint-disable-next-line no-underscore-dangle
   if (window._debug) {
-    store.subscribe(() => console.log('$$$ STATE UPDATED', store.getState()));
+    store.subscribe(() => console.debug('STATE UPDATED', store.getState())); // eslint-disable-line no-console
   }
   return store;
 };

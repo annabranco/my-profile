@@ -11,6 +11,7 @@ export const NOTIFY_BUTTON = 'showNotifyButton';
 export const OTHER_SKILLS = 'otherSkillsState';
 export const POSITION = 'position';
 export const PROJECTS = 'projects';
+export const SEABED_AREA = 'seabedArea';
 export const SETTINGS_LOADED = 'settingsLoaded';
 export const SKILLS_FIRST_ROW = 'skillsFirstRow';
 export const SKILLS_SECOND_ROW = 'skillsSecondRow';

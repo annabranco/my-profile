@@ -12,7 +12,6 @@ import {
   SKILLS_PATH,
   TEXTS_PATH
 } from './constants';
-import './styles/reset.css';
 import { dispatchFetchDatabase } from './utils/fetchData';
 
 const dataBasePaths = [

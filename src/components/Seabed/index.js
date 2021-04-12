@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { func } from 'prop-types';
+import { func, instanceOf } from 'prop-types';
 import Formation from '../Formation';
 import OtherSkills from '../OtherSkills';
 import { finishedSelector, seabedTextsSelector } from '../../redux/selectors';
@@ -14,6 +14,8 @@ import {
   SwimmingLeft,
   SwimmingRight
 } from '../../assets/images';
+import UnderwaterAmbient from '../../assets/sounds/underwater.mp3';
+
 import {
   CENTER,
   FORMATION,
@@ -25,12 +27,16 @@ import {
   OTHER_SKILLS,
   POSITION,
   RIGHT,
+  SEABED_AREA,
   THINKING
 } from '../../constants';
 import {
+  Bubble,
+  Bubbles,
   FloorText,
   GoBackText,
   HeroImage,
+  HeroWrapper,
   Message,
   MessageContainer,
   MessageOnMobileDevices,
@@ -43,10 +49,9 @@ import {
 } from './styles';
 
 let HERO;
-let floatLeft;
-let floatRight;
+let float;
 
-const SeaBed = ({ resetScrollPosition }) => {
+const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   const texts = useSelector(seabedTextsSelector);
   const isFinished = useSelector(finishedSelector);
   const dispatch = useDispatch();
@@ -64,7 +69,8 @@ const SeaBed = ({ resetScrollPosition }) => {
       back2Surface: false,
       crossingBorder: false,
       isGoingUp: false,
-      isSwimming: false
+      isSwimming: false,
+      facing: RIGHT
     },
     MOVEMENTS
   );
@@ -95,7 +101,9 @@ const SeaBed = ({ resetScrollPosition }) => {
     THINKING
   );
   const HeroRef = useRef();
+  const HeroImg = useRef();
   const isKeyDown = useRef();
+  const sound = useRef(new Audio(UnderwaterAmbient));
 
   // ======== Handle view components (Formation and Other Skills)
 
@@ -173,7 +181,8 @@ const SeaBed = ({ resetScrollPosition }) => {
       back2Surface: false,
       crossingBorder: false,
       isGoingUp: false,
-      isSwimming: false
+      isSwimming: false,
+      facing: RIGHT
     });
     changeFormationState({
       active: false,
@@ -185,11 +194,8 @@ const SeaBed = ({ resetScrollPosition }) => {
       read: false,
       visible: false
     });
-    hideInstructions(false);
-    setTimeout(() => {
-      dispatch(triggerFinishScenario(true));
-    }, 5000);
-    // finishScenario(false);
+    hideInstructions(true);
+    dispatch(triggerFinishScenario(true));
   };
 
   // ======== Handle base HERO movements
@@ -229,27 +235,32 @@ const SeaBed = ({ resetScrollPosition }) => {
       ...prevState,
       side: undefined
     }));
-    clearTimeout(floatRight);
-    clearTimeout(floatLeft);
-    HERO.src = swimmingImage;
+    clearTimeout(float);
+    HeroImg.current.src = swimmingImage;
     HERO.style.left = newMovement;
     changeHeroMovements({
       ...heroMovements,
-      isSwimming: true
+      isSwimming: true,
+      facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
     });
-    floatRight = setTimeout(() => {
-      HERO.src = floatingImage;
+    float = setTimeout(() => {
+      HeroImg.current.src = floatingImage;
       changeHeroMovements({
         ...heroMovements,
-        isSwimming: false
+        isSwimming: false,
+        facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
       });
-    }, 3000);
+    }, 4000);
     return heroHasMoved(updatedPosition);
   };
 
   // ======= Function that fires events when HERO reaches some specific places
 
   const heroHasMoved = updatedPosition => {
+    if (!instructionsHidden) {
+      hideInstructions(true);
+    }
+
     if (heroMovements.crossingBorder) {
       changeHeroMovements({
         ...heroMovements,
@@ -265,7 +276,7 @@ const SeaBed = ({ resetScrollPosition }) => {
       !otherSkillsState.active &&
       updatedPosition.frame === CENTER
     ) {
-      goBackUp(updatedPosition);
+      goBackUp();
     }
 
     // -Highlights the text "Formation" when hero swims over it
@@ -292,8 +303,6 @@ const SeaBed = ({ resetScrollPosition }) => {
 
     // ======== WHEN the HERO crosses the RIGHT border of the screen
     if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 50) {
-      hideInstructions(true);
-
       changeHeroMovements({
         ...heroMovements,
         crossingBorder: true
@@ -321,8 +330,6 @@ const SeaBed = ({ resetScrollPosition }) => {
 
     // ======== WHEN the HERO crosses the LEFT border of the screen
     if (Number(HERO.style.left.slice(0, -2)) <= -200) {
-      hideInstructions(true);
-
       changeHeroMovements({
         ...heroMovements,
         crossingBorder: true
@@ -358,28 +365,28 @@ const SeaBed = ({ resetScrollPosition }) => {
   };
 
   // ======== All page viewed. Reset all states and go back to first page
-  const goBackUp = updatedPosition => {
+  const goBackUp = () => {
     // window.removeEventListener('keyup', captureHeroMovement);
     setTimeout(() => {
-      clearTimeout(floatRight);
-      clearTimeout(floatLeft);
-      HERO.src =
-        updatedPosition.position === ON_THE_LEFT ? SwimmingRight : SwimmingLeft;
+      clearTimeout(float);
+      HeroImg.current.src =
+        heroMovements.facing === RIGHT ? SwimmingRight : SwimmingLeft;
       changePositionState({ frame: CENTER, position: CENTER });
       changeHeroMovements({
         ...heroMovements,
         isGoingUp: true,
         isSwimming: false
       });
-    }, 2000);
+    }, 1000);
     setTimeout(() => {
       changeHeroMovements({
         back2Surface: true,
         crossingBorder: false,
         isGoingUp: true,
-        isSwimming: false
+        isSwimming: false,
+        facing: heroMovements.facing
       });
-    }, 2500);
+    }, 1500);
 
     if (!isDesktop) {
       resetScrollPosition(2000);
@@ -396,11 +403,12 @@ const SeaBed = ({ resetScrollPosition }) => {
         back2Surface: false,
         crossingBorder: false,
         isGoingUp: false,
-        isSwimming: false
+        isSwimming: false,
+        facing: RIGHT
       });
       HERO.style.left = `${window.innerWidth * 0.4}px`;
-      HERO.src = FloatingRight;
-    }, 8050);
+      HeroImg.current.src = FloatingRight;
+    }, 8000);
   };
 
   useEffect(() => {
@@ -435,12 +443,26 @@ const SeaBed = ({ resetScrollPosition }) => {
       window.removeEventListener('keydown', captureHeroMovement);
       window.removeEventListener('keyup', onKeyUp);
     };
-  }, [positionState.position]);
+  }, [positionState.position, positionState.frame, moveHero]);
 
   useEffect(() => {
     HERO = HeroRef.current;
     HERO.style.left = `${window.innerWidth * 0.4}px`;
   }, []);
+
+  useEffect(() => {
+    if (cuePointsActivated.has(SEABED_AREA)) {
+      dispatch(triggerFinishScenario(false));
+      if (sound.current.paused) {
+        sound.current.currentTime = 0;
+        sound.current.volume = 0.3;
+        sound.current.play();
+        sound.current.loop = true;
+      }
+    } else if (!sound.current.paused) {
+      sound.current.pause();
+    }
+  }, [cuePointsActivated]);
 
   return (
     <SeabedSection id="Seabed Section">
@@ -476,17 +498,33 @@ const SeaBed = ({ resetScrollPosition }) => {
         </Text>
       </SubsectionOtherSkills>
 
-      <HeroImage
-        alt="A scuba diver swimming smoothly"
+      <HeroWrapper
         back2Surface={heroMovements.back2Surface}
         crossingBorder={heroMovements.crossingBorder}
-        id="hero"
         isGoingUp={heroMovements.isGoingUp}
-        isSwimming={heroMovements.isSwimming}
-        position={positionState.position}
+        id="hero"
         ref={HeroRef}
-        src={FloatingRight}
-      />
+      >
+        <Bubbles
+          facing={heroMovements.facing}
+          isSwimming={heroMovements.isSwimming}
+        >
+          {[...Array(10).keys()].map(order => (
+            <Bubble key={order} S />
+          ))}
+        </Bubbles>
+
+        <HeroImage
+          alt="A scuba diver swimming smoothly"
+          back2Surface={heroMovements.back2Surface}
+          crossingBorder={heroMovements.crossingBorder}
+          facing={heroMovements.facing}
+          isGoingUp={heroMovements.isGoingUp}
+          isSwimming={heroMovements.isSwimming}
+          ref={HeroImg}
+          src={FloatingRight}
+        />
+      </HeroWrapper>
 
       <SeabedFloor>
         <FloorText hidden={isFinished || positionState.frame !== CENTER}>
@@ -522,6 +560,7 @@ const SeaBed = ({ resetScrollPosition }) => {
 };
 
 SeaBed.propTypes = {
+  cuePointsActivated: instanceOf(Set).isRequired,
   resetScrollPosition: func.isRequired
 };
 

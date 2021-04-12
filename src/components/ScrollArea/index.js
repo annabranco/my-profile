@@ -17,7 +17,8 @@ import {
   CUEPOINTS,
   SKILLS_FIRST_ROW,
   SKILLS_SECOND_ROW,
-  SKILLS_THIRD_ROW
+  SKILLS_THIRD_ROW,
+  SEABED_AREA
 } from '../../constants';
 import { ScrollAreaWrapper } from './styles';
 
@@ -42,6 +43,9 @@ const ScrollArea = ({ langModalVisible }) => {
     experiences: {
       scrollAreaStart: 1400 + adjustScroll,
       scrollAreaEnd: 2100 + adjustScroll
+    },
+    seabed: {
+      scrollAreaStart: 2800 + adjustScroll
     }
   };
 
@@ -53,8 +57,8 @@ const ScrollArea = ({ langModalVisible }) => {
 
     // eslint-disable-next-line no-underscore-dangle
     if (window._debug) {
-      console.log('$$$ scrollPosition', scrollPosition); // eslint-disable-line no-console
-      console.log('$$$ cuePointsActivated', cuePointsActivated); // eslint-disable-line no-console
+      console.debug('scrollPosition', scrollPosition); // eslint-disable-line no-console
+      console.debug('cuePointsActivated', cuePointsActivated); // eslint-disable-line no-console
     }
 
     SCROLL_CUEPOINTS.forEach((cuePointName, cuePoint) => {
@@ -122,8 +126,16 @@ const ScrollArea = ({ langModalVisible }) => {
       SCROLL_CUEPOINTS.set(scrollAreaEnd, 'experiencesSection');
     };
 
+    const calculateSeabedScroll = () => {
+      SCROLL_CUEPOINTS.set(
+        SECTIONS_INTERVAL_POINTS.seabed.scrollAreaStart,
+        SEABED_AREA
+      );
+    };
+
     calculateSkillsScroll();
     calculateExperiencesScroll();
+    calculateSeabedScroll();
   }, [SECTIONS_INTERVAL_POINTS, experiences, experiencesSectionIds]);
 
   return (
@@ -146,7 +158,10 @@ const ScrollArea = ({ langModalVisible }) => {
       </ScrollSection>
 
       <ScrollSection title={sectionsTexts.other}>
-        <Seabed resetScrollPosition={resetScrollPosition} />
+        <Seabed
+          cuePointsActivated={cuePointsActivated}
+          resetScrollPosition={resetScrollPosition}
+        />
       </ScrollSection>
     </ScrollAreaWrapper>
   );
