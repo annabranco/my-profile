@@ -25,6 +25,24 @@ const FloatingAnimation = keyframes`
   }
 `;
 
+const Bubbling = keyframes`
+  0%, 55%, 100% {
+    bottom: 0;
+    opacity: 0;
+    transform:translateX(0);
+  }
+  3% {
+    opacity: 0.5;
+  }
+  25% {
+    transform:translateX(50px);
+  }
+  50% {
+    bottom: ${`${window.innerHeight / 2.5}px`};
+    transform:translateX(-50px);
+  }
+`;
+
 const FloatingSoft = css`
   animation-name: ${FloatingAnimation};
   animation-duration: 7s;
@@ -53,6 +71,116 @@ const SeabedSubsectionContainer = styled.div`
   display: flex;
   width: 120px;
 `;
+
+export const Bubble = styled.div`
+  position: absolute;
+  bottom: 0;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  opacity: 0;
+  animation-name: ${Bubbling};
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  &:nth-of-type(1) {
+    left: 1%;
+    height: 10px;
+    width: 10px;
+    animation-duration: 10s;
+  }
+  &:nth-of-type(2) {
+    left: 10%;
+    height: 12px;
+    width: 12px;
+    animation-duration: 5s;
+    animation-delay: 0.3s;
+  }
+  &:nth-of-type(3) {
+    left: 15%;
+    height: 5px;
+    width: 5px;
+    animation-duration: 7s;
+    animation-delay: 0.4s;
+  }
+  &:nth-of-type(4) {
+    left: 30%;
+    height: 10px;
+    width: 10px;
+    animation-duration: 10s;
+    animation-delay: 0.5s;
+  }
+  &:nth-of-type(5) {
+    left: 40%;
+    height: 15px;
+    width: 15px;
+    animation-duration: 6s;
+    animation-delay: 0.2s;
+  }
+  &:nth-of-type(6) {
+    left: 50%;
+    height: 5px;
+    width: 5px;
+    animation-duration: 7s;
+    animation-delay: 0.1s;
+  }
+  &:nth-of-type(7) {
+    left: 55%;
+    height: 10px;
+    width: 10px;
+    animation-duration: 10s;
+    animation-delay: 0.4s;
+  }
+  &:nth-of-type(8) {
+    left: 60%;
+    height: 7px;
+    width: 7px;
+    animation-duration: 6s;
+    animation-delay: 0.5s;
+  }
+  &:nth-of-type(9) {
+    left: 65%;
+    height: 10px;
+    width: 10px;
+    animation-duration: 10s;
+    animation-delay: 0.25s;
+  }
+  &:nth-of-type(10) {
+    left: 70%;
+    height: 4px;
+    width: 4px;
+    animation-duration: 8s;
+    animation-delay: 0.3s;
+  }
+`;
+Bubble.displayName = 'Bubble';
+
+export const Bubbles = styled.div`
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100px;
+  height: 20px;
+
+  ${({ isSwimming }) =>
+    isSwimming &&
+    css`
+      top: 25px;
+    `}
+
+  ${({ facing }) =>
+    facing === 'left' &&
+    css`
+      right: unset;
+      left: 10px;
+    `}
+`;
+Bubbles.displayName = 'Bubbles';
 
 export const FloorText = styled.p`
   position: absolute;
@@ -85,9 +213,6 @@ export const GoBackText = styled.p`
 GoBackText.displayName = 'Go Back Text';
 
 export const HeroImage = styled.img`
-  position: absolute;
-  bottom: 40%;
-  opacity: 0.6;
   width: 200px;
   transition: all linear 1s;
   ${NotDisplayed};
@@ -139,6 +264,23 @@ export const HeroImage = styled.img`
   }}
 `;
 HeroImage.displayName = 'The Hero Image';
+
+export const HeroWrapper = styled.div`
+  position: absolute;
+  bottom: 40%;
+  opacity: 0.6;
+  transition: all linear 1s;
+
+  ${({ crossingBorder }) => {
+    if (crossingBorder) {
+      return css`
+        transition: none;
+      `;
+    }
+    return null;
+  }}
+`;
+HeroWrapper.displayName = 'HeroWrapper';
 
 export const Message = styled.p`
   margin: 15px 0;

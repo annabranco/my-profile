@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { func } from 'prop-types';
+import { func, instanceOf } from 'prop-types';
 import Formation from '../Formation';
 import OtherSkills from '../OtherSkills';
 import { finishedSelector, seabedTextsSelector } from '../../redux/selectors';
@@ -14,6 +14,8 @@ import {
   SwimmingLeft,
   SwimmingRight
 } from '../../assets/images';
+import UnderwaterAmbient from '../../assets/sounds/underwater.mp3';
+
 import {
   CENTER,
   FORMATION,
@@ -25,12 +27,16 @@ import {
   OTHER_SKILLS,
   POSITION,
   RIGHT,
+  SEABED_AREA,
   THINKING
 } from '../../constants';
 import {
+  Bubble,
+  Bubbles,
   FloorText,
   GoBackText,
   HeroImage,
+  HeroWrapper,
   Message,
   MessageContainer,
   MessageOnMobileDevices,
@@ -46,7 +52,7 @@ let HERO;
 let floatLeft;
 let floatRight;
 
-const SeaBed = ({ resetScrollPosition }) => {
+const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   const texts = useSelector(seabedTextsSelector);
   const isFinished = useSelector(finishedSelector);
   const dispatch = useDispatch();
@@ -64,7 +70,8 @@ const SeaBed = ({ resetScrollPosition }) => {
       back2Surface: false,
       crossingBorder: false,
       isGoingUp: false,
-      isSwimming: false
+      isSwimming: false,
+      facing: 'right'
     },
     MOVEMENTS
   );
@@ -95,7 +102,9 @@ const SeaBed = ({ resetScrollPosition }) => {
     THINKING
   );
   const HeroRef = useRef();
+  const HeroImg = useRef();
   const isKeyDown = useRef();
+  const sound = useRef(new Audio(UnderwaterAmbient));
 
   // ======== Handle view components (Formation and Other Skills)
 
@@ -231,17 +240,19 @@ const SeaBed = ({ resetScrollPosition }) => {
     }));
     clearTimeout(floatRight);
     clearTimeout(floatLeft);
-    HERO.src = swimmingImage;
+    HeroImg.current.src = swimmingImage;
     HERO.style.left = newMovement;
     changeHeroMovements({
       ...heroMovements,
-      isSwimming: true
+      isSwimming: true,
+      facing: swimmingImage === SwimmingRight ? 'right' : 'left'
     });
     floatRight = setTimeout(() => {
-      HERO.src = floatingImage;
+      HeroImg.current.src = floatingImage;
       changeHeroMovements({
         ...heroMovements,
-        isSwimming: false
+        isSwimming: false,
+        facing: 'right'
       });
     }, 3000);
     return heroHasMoved(updatedPosition);
@@ -363,13 +374,14 @@ const SeaBed = ({ resetScrollPosition }) => {
     setTimeout(() => {
       clearTimeout(floatRight);
       clearTimeout(floatLeft);
-      HERO.src =
+      HeroImg.current.src =
         updatedPosition.position === ON_THE_LEFT ? SwimmingRight : SwimmingLeft;
       changePositionState({ frame: CENTER, position: CENTER });
       changeHeroMovements({
         ...heroMovements,
         isGoingUp: true,
-        isSwimming: false
+        isSwimming: false,
+        facing: 'right'
       });
     }, 2000);
     setTimeout(() => {
@@ -377,7 +389,8 @@ const SeaBed = ({ resetScrollPosition }) => {
         back2Surface: true,
         crossingBorder: false,
         isGoingUp: true,
-        isSwimming: false
+        isSwimming: false,
+        facing: 'right'
       });
     }, 2500);
 
@@ -399,7 +412,7 @@ const SeaBed = ({ resetScrollPosition }) => {
         isSwimming: false
       });
       HERO.style.left = `${window.innerWidth * 0.4}px`;
-      HERO.src = FloatingRight;
+      HeroImg.current.src = FloatingRight;
     }, 8050);
   };
 
@@ -442,6 +455,17 @@ const SeaBed = ({ resetScrollPosition }) => {
     HERO.style.left = `${window.innerWidth * 0.4}px`;
   }, []);
 
+  useEffect(() => {
+    if (cuePointsActivated.has(SEABED_AREA) && sound.current.paused) {
+      sound.current.currentTime = 0;
+      sound.current.volume = 0.5;
+      sound.current.play();
+      sound.current.loop = true;
+    } else if (!sound.current.paused) {
+      sound.current.pause();
+    }
+  }, [cuePointsActivated]);
+
   return (
     <SeabedSection id="Seabed Section">
       {isDesktop && !instructionsHidden && (
@@ -476,17 +500,31 @@ const SeaBed = ({ resetScrollPosition }) => {
         </Text>
       </SubsectionOtherSkills>
 
-      <HeroImage
-        alt="A scuba diver swimming smoothly"
-        back2Surface={heroMovements.back2Surface}
+      <HeroWrapper
         crossingBorder={heroMovements.crossingBorder}
         id="hero"
-        isGoingUp={heroMovements.isGoingUp}
-        isSwimming={heroMovements.isSwimming}
-        position={positionState.position}
         ref={HeroRef}
-        src={FloatingRight}
-      />
+      >
+        <Bubbles
+          facing={heroMovements.facing}
+          isSwimming={heroMovements.isSwimming}
+        >
+          {[...Array(10).keys()].map(order => (
+            <Bubble key={order} S />
+          ))}
+        </Bubbles>
+
+        <HeroImage
+          alt="A scuba diver swimming smoothly"
+          back2Surface={heroMovements.back2Surface}
+          crossingBorder={heroMovements.crossingBorder}
+          isGoingUp={heroMovements.isGoingUp}
+          isSwimming={heroMovements.isSwimming}
+          position={positionState.position}
+          ref={HeroImg}
+          src={FloatingRight}
+        />
+      </HeroWrapper>
 
       <SeabedFloor>
         <FloorText hidden={isFinished || positionState.frame !== CENTER}>
@@ -522,6 +560,7 @@ const SeaBed = ({ resetScrollPosition }) => {
 };
 
 SeaBed.propTypes = {
+  cuePointsActivated: instanceOf(Set).isRequired,
   resetScrollPosition: func.isRequired
 };
 

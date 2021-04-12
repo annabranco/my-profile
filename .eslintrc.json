@@ -28,7 +28,8 @@
 		"localStorage": true,
 		"fetch": true,
 		"window": true,
-		"document": true
+		"document": true,
+		"Audio": true
 	},
 
 	"rules": {
