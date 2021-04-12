@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
-import { ON_THE_LEFT } from '../../constants';
+import { LEFT, ON_THE_LEFT } from '../../constants';
 import { Sea, SeaBed } from '../../assets/images';
 import { NotDisplayed } from '../../styles/global';
 import {
@@ -174,7 +174,7 @@ export const Bubbles = styled.div`
     `}
 
   ${({ facing }) =>
-    facing === 'left' &&
+    facing === LEFT &&
     css`
       right: unset;
       left: 10px;
@@ -199,6 +199,10 @@ export const FloorText = styled.p`
     css`
       display: hidden;
     `}
+
+  @media all and (min-width: 1400px) {
+    left: 22vw;
+  }
 `;
 FloorText.displayName = 'Floor Text';
 
@@ -221,40 +225,34 @@ export const HeroImage = styled.img`
     display: block;
   }
 
-  ${({ back2Surface, crossingBorder, isGoingUp, isSwimming, position }) => {
+  ${({ back2Surface, crossingBorder, isGoingUp, isSwimming, facing }) => {
     if (crossingBorder) {
       return css`
-        width: 250px;
         transition: none;
       `;
     }
 
     if (isSwimming) {
       return css`
-        width: 250px;
         ${FloatingSoft}
       `;
     }
 
     if (isGoingUp && back2Surface) {
       return css`
-        transform: ${position === ON_THE_LEFT
-          ? 'rotate(290deg)'
-          : 'rotate(70deg)'};
-        top: -200px !important;
-        width: 250px;
-        transition: all 10s ease !important;
+        transform: ${facing === LEFT ? 'rotate(70deg)' : 'rotate(290deg)'};
       `;
     }
 
     if (isGoingUp) {
       return css`
-        transform: ${position === ON_THE_LEFT
-          ? 'rotate(290deg)'
-          : 'rotate(70deg)'};
-        top: 40%;
-        width: 250px;
-        transition: all 10s ease;
+        transform: ${facing === LEFT ? 'rotate(70deg)' : 'rotate(290deg)'};
+      `;
+    }
+
+    if (facing === LEFT) {
+      return css`
+        transform: scaleX(-1);
       `;
     }
 
@@ -267,6 +265,7 @@ HeroImage.displayName = 'The Hero Image';
 
 export const HeroWrapper = styled.div`
   position: absolute;
+  top: unset;
   bottom: 40%;
   opacity: 0.6;
   transition: all linear 1s;
@@ -275,6 +274,25 @@ export const HeroWrapper = styled.div`
     if (crossingBorder) {
       return css`
         transition: none;
+      `;
+    }
+    return null;
+  }}
+
+  ${({ back2Surface, isGoingUp }) => {
+    if (isGoingUp && back2Surface) {
+      return css`
+        bottom: unset;
+        top: -200px;
+        transition: all 7s linear;
+      `;
+    }
+
+    if (isGoingUp) {
+      return css`
+        bottom: unset;
+        top: 40%;
+        transition: all 7s linear;
       `;
     }
     return null;

@@ -49,8 +49,7 @@ import {
 } from './styles';
 
 let HERO;
-let floatLeft;
-let floatRight;
+let float;
 
 const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   const texts = useSelector(seabedTextsSelector);
@@ -71,7 +70,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       crossingBorder: false,
       isGoingUp: false,
       isSwimming: false,
-      facing: 'right'
+      facing: RIGHT
     },
     MOVEMENTS
   );
@@ -182,7 +181,8 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       back2Surface: false,
       crossingBorder: false,
       isGoingUp: false,
-      isSwimming: false
+      isSwimming: false,
+      facing: RIGHT
     });
     changeFormationState({
       active: false,
@@ -194,11 +194,8 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       read: false,
       visible: false
     });
-    hideInstructions(false);
-    setTimeout(() => {
-      dispatch(triggerFinishScenario(true));
-    }, 5000);
-    // finishScenario(false);
+    hideInstructions(true);
+    dispatch(triggerFinishScenario(true));
   };
 
   // ======== Handle base HERO movements
@@ -238,29 +235,32 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       ...prevState,
       side: undefined
     }));
-    clearTimeout(floatRight);
-    clearTimeout(floatLeft);
+    clearTimeout(float);
     HeroImg.current.src = swimmingImage;
     HERO.style.left = newMovement;
     changeHeroMovements({
       ...heroMovements,
       isSwimming: true,
-      facing: swimmingImage === SwimmingRight ? 'right' : 'left'
+      facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
     });
-    floatRight = setTimeout(() => {
+    float = setTimeout(() => {
       HeroImg.current.src = floatingImage;
       changeHeroMovements({
         ...heroMovements,
         isSwimming: false,
-        facing: 'right'
+        facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
       });
-    }, 3000);
+    }, 4000);
     return heroHasMoved(updatedPosition);
   };
 
   // ======= Function that fires events when HERO reaches some specific places
 
   const heroHasMoved = updatedPosition => {
+    if (!instructionsHidden) {
+      hideInstructions(true);
+    }
+
     if (heroMovements.crossingBorder) {
       changeHeroMovements({
         ...heroMovements,
@@ -276,7 +276,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       !otherSkillsState.active &&
       updatedPosition.frame === CENTER
     ) {
-      goBackUp(updatedPosition);
+      goBackUp();
     }
 
     // -Highlights the text "Formation" when hero swims over it
@@ -303,8 +303,6 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
 
     // ======== WHEN the HERO crosses the RIGHT border of the screen
     if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 50) {
-      hideInstructions(true);
-
       changeHeroMovements({
         ...heroMovements,
         crossingBorder: true
@@ -332,8 +330,6 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
 
     // ======== WHEN the HERO crosses the LEFT border of the screen
     if (Number(HERO.style.left.slice(0, -2)) <= -200) {
-      hideInstructions(true);
-
       changeHeroMovements({
         ...heroMovements,
         crossingBorder: true
@@ -369,30 +365,28 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   };
 
   // ======== All page viewed. Reset all states and go back to first page
-  const goBackUp = updatedPosition => {
+  const goBackUp = () => {
     // window.removeEventListener('keyup', captureHeroMovement);
     setTimeout(() => {
-      clearTimeout(floatRight);
-      clearTimeout(floatLeft);
+      clearTimeout(float);
       HeroImg.current.src =
-        updatedPosition.position === ON_THE_LEFT ? SwimmingRight : SwimmingLeft;
+        heroMovements.facing === RIGHT ? SwimmingRight : SwimmingLeft;
       changePositionState({ frame: CENTER, position: CENTER });
       changeHeroMovements({
         ...heroMovements,
         isGoingUp: true,
-        isSwimming: false,
-        facing: 'right'
+        isSwimming: false
       });
-    }, 2000);
+    }, 1000);
     setTimeout(() => {
       changeHeroMovements({
         back2Surface: true,
         crossingBorder: false,
         isGoingUp: true,
         isSwimming: false,
-        facing: 'right'
+        facing: heroMovements.facing
       });
-    }, 2500);
+    }, 1500);
 
     if (!isDesktop) {
       resetScrollPosition(2000);
@@ -409,11 +403,12 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
         back2Surface: false,
         crossingBorder: false,
         isGoingUp: false,
-        isSwimming: false
+        isSwimming: false,
+        facing: RIGHT
       });
       HERO.style.left = `${window.innerWidth * 0.4}px`;
       HeroImg.current.src = FloatingRight;
-    }, 8050);
+    }, 8000);
   };
 
   useEffect(() => {
@@ -448,7 +443,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       window.removeEventListener('keydown', captureHeroMovement);
       window.removeEventListener('keyup', onKeyUp);
     };
-  }, [positionState.position]);
+  }, [positionState.position, positionState.frame, moveHero]);
 
   useEffect(() => {
     HERO = HeroRef.current;
@@ -456,11 +451,14 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   }, []);
 
   useEffect(() => {
-    if (cuePointsActivated.has(SEABED_AREA) && sound.current.paused) {
-      sound.current.currentTime = 0;
-      sound.current.volume = 0.5;
-      sound.current.play();
-      sound.current.loop = true;
+    if (cuePointsActivated.has(SEABED_AREA)) {
+      dispatch(triggerFinishScenario(false));
+      if (sound.current.paused) {
+        sound.current.currentTime = 0;
+        sound.current.volume = 0.3;
+        sound.current.play();
+        sound.current.loop = true;
+      }
     } else if (!sound.current.paused) {
       sound.current.pause();
     }
@@ -501,7 +499,9 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       </SubsectionOtherSkills>
 
       <HeroWrapper
+        back2Surface={heroMovements.back2Surface}
         crossingBorder={heroMovements.crossingBorder}
+        isGoingUp={heroMovements.isGoingUp}
         id="hero"
         ref={HeroRef}
       >
@@ -518,9 +518,9 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
           alt="A scuba diver swimming smoothly"
           back2Surface={heroMovements.back2Surface}
           crossingBorder={heroMovements.crossingBorder}
+          facing={heroMovements.facing}
           isGoingUp={heroMovements.isGoingUp}
           isSwimming={heroMovements.isSwimming}
-          position={positionState.position}
           ref={HeroImg}
           src={FloatingRight}
         />

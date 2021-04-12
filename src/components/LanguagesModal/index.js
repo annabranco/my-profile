@@ -35,13 +35,6 @@ export const onChangeLanguage = (
   hideForever,
   dispatch
 ) => {
-  // console.log(
-  //   '$$$ currentLang,  newLang,  hideForever,  dispatch',
-  //   currentLang,
-  //   newLang,
-  //   hideForever,
-  //   dispatch
-  // );
   if (newLang !== currentLang) {
     dispatch(changeLanguage(newLang));
     updateLanguageSettings(newLang, hideForever);

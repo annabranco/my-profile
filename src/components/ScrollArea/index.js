@@ -57,8 +57,8 @@ const ScrollArea = ({ langModalVisible }) => {
 
     // eslint-disable-next-line no-underscore-dangle
     if (window._debug) {
-      console.log('$$$ scrollPosition', scrollPosition); // eslint-disable-line no-console
-      console.log('$$$ cuePointsActivated', cuePointsActivated); // eslint-disable-line no-console
+      console.debug('scrollPosition', scrollPosition); // eslint-disable-line no-console
+      console.debug('cuePointsActivated', cuePointsActivated); // eslint-disable-line no-console
     }
 
     SCROLL_CUEPOINTS.forEach((cuePointName, cuePoint) => {
