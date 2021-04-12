@@ -219,15 +219,23 @@ export const MyNameOnMobileDevices = styled(MyName)`
 MyNameOnMobileDevices.displayName = 'My Name';
 
 export const Photo = styled.img`
-  width: 100%;
+  width: 60%;
+  border-radius: 50%;
+  border: 1px solid green;
+  box-shadow: 0 0 25px 1px ${rgba('green', 0.2)};
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.6)) contrast(0.9) sepia(0)
+    brightness(1.3); ;
 `;
 Photo.displayName = 'Photo';
 
 export const PhotoWrapper = styled.div`
   height: 170px;
   width: 100%;
-  padding-right: 5px;
+  padding-top: 25px;
   height: 500px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 
   @media all and (min-width: 500px) {
     height: 400px;
