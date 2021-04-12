@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const ScrollAreaWrapper = styled.main`
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
 
   ${props =>
     props.langModalVisible &&

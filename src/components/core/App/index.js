@@ -9,6 +9,7 @@ import {
   LANG_MODAL_VISIBLE,
   SETTINGS_LOADED
 } from '../../../constants';
+import { GlobalStyles } from '../../../styles/global';
 
 const App = () => {
   const languageSettings =
@@ -56,6 +57,7 @@ const App = () => {
 
   return (
     <ErrorBoundary>
+      <GlobalStyles />
       {langModalVisible && (
         <LanguagesModal
           hideForever={hideForever}
