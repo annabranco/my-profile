@@ -1,14 +1,18 @@
-## My Professional Profile
+# My Professional Profile
 
-<img src="https://annabranco.github.io/my-profile/static/media/annabranco.dbce0765.png" width="10%">
+<img src="https://github.com/annabranco/my-profile/raw/master/src/assets/images/annabranco.png" width="10%">
 
-Hi, I'm **Anna Branco**, Frontend developer. This is a beta version of my web
-professional profile. <br> Thank you very much for your interest on visiting me.
+Hi, I'm **Anna Branco**, Frontend developer. This is a digital version of my web
+professional profile.
 
-https://annabranco.github.io/my-profile/
+Thank you very much for your interest on visiting me.
 
-#### For an enhanced user experience, I recommended visiting it on a full-screen desktop.
+[annabranco.github.io/my-profile/](https://annabranco.github.io/my-profile/)
 
-_pre-release_ v0.10.1
+*For an enhanced user experience, I recommended visiting it on a full-screen desktop.*
 
-# React, Redux, create-react-app, SCSS (node-sass-chokidar)
+<a href="https://www.linkedin.com/in/annabranco/">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/240px-LinkedIn_logo_initials.png" width="50px">
+</a>
+
+[/annabranco/](https://www.linkedin.com/in/annabranco/)
