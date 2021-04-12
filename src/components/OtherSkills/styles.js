@@ -481,7 +481,7 @@ SamplesWrapper.displayName = 'Samples Wrapper';
 
 export const SectionOtherSkills = styled.section`
   z-index: 6;
-  position: fixed;
+  position: absolute;
   top: 80vh;
   left: 60%;
   opacity: 0.8;
