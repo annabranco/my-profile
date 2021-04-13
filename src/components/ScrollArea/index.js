@@ -144,7 +144,7 @@ const ScrollArea = ({ langModalVisible }) => {
       onScroll={handleScroll}
       ref={scrollAreaRef}
     >
-      {/* <MyInfoPage />
+      <MyInfoPage />
       <ScrollSection title={sectionsTexts.technical}>
         <Skills cuePointsActivated={cuePointsActivated} />
       </ScrollSection>
@@ -155,7 +155,7 @@ const ScrollArea = ({ langModalVisible }) => {
 
       <ScrollSection title={sectionsTexts.experience}>
         <Experiences cuePointsActivated={cuePointsActivated} />
-      </ScrollSection> */}
+      </ScrollSection>
 
       <ScrollSection title={sectionsTexts.other}>
         <Seabed

@@ -1,12 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { rgba } from 'polished';
-import {
-  colorGrayNormal,
-  colorWhite,
-  fontTitleAlt,
-  fontTitle
-} from '../../styles/theme';
-import { LEFT, RIGHT } from '../../constants';
+import { LEFT, RIGHT } from '../../../constants';
 
 const Swimming = comingFrom => keyframes`
 0% {

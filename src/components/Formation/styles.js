@@ -121,7 +121,7 @@ export const SectionFormation = styled.section`
     inset 0 1px 5px 1px ${rgba(colorWhite, 0.7)};
 
   @media all and (min-width: 768px) {
-    left: 40%;
+    left: 44%;
   }
 
   &:hover {

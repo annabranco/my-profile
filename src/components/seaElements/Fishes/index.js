@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useStateWithLabel } from '../../utils/hooks';
-import { LEFT, RIGHT } from '../../constants';
-import { FISHES } from '../../assets/images';
+import { useStateWithLabel } from '../../../utils/hooks';
+import { LEFT, RIGHT } from '../../../constants';
+import { FISHES } from '../../../assets/images';
 import { Fish } from './styles';
 
 const randomSpeed = num => `${num + 5}s`;
@@ -46,7 +46,7 @@ const Fishes = () => {
           src={FISHES[type].img}
           facing={FISHES[type].facing}
           speed={randomSpeed(Math.ceil(Math.random() * 5))}
-          alt="Swimming Fish"
+          alt="Swimming Fish" // TODO language
           bottom={randomHeight(Math.ceil(Math.random() * 4))}
           side={randomSide(Math.floor(Math.random() * 2))}
           delay={randomDelay(Math.random() * 3)}

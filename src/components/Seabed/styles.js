@@ -54,7 +54,7 @@ const FloatingSoft = css`
 
 const Floating = css`
   z-index: 5;
-  animation-name: float;
+  animation-name: ${FloatingAnimation};
   animation-duration: 3s;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
@@ -430,6 +430,7 @@ export const SubsectionOtherSkills = styled(SeabedSubsectionContainer)`
   right: 33vw;
   justify-content: flex-end;
   text-align: center;
+  ${Floating};
 
   @media all and (min-width: 768px) {
     top: initial;

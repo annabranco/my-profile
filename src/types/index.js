@@ -211,3 +211,8 @@ export const allLanguagesTextsPropType = shape({
   fr: textsPropType.isRequired,
   pt: textsPropType.isRequired
 });
+
+export const positionPropType = shape({
+  frame: string.isRequired,
+  position: string.isRequired
+});

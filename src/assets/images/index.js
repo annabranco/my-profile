@@ -55,6 +55,12 @@ export const THUMBNAILS = {
   'days-go-by': DaysGoBy
 };
 
+// Seabed
+export const ClosedShell = require('./fishes/shell-closed.png');
+export const OpenedShell = require('./fishes/shell-opened.png');
+export const ScubaFish = require('./fishes/scubafish.gif');
+export const Crab = require('./fishes/crab.gif');
+
 // Fishes
 const Fish0 = require('./fishes/fish0.gif');
 const Fish1 = require('./fishes/fish1.gif');

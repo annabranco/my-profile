@@ -9,13 +9,16 @@ import { finishedSelector, seabedTextsSelector } from '../../redux/selectors';
 import { triggerFinishScenario } from '../../redux/actions/finishedScenario';
 import { useStateWithLabel } from '../../utils/hooks';
 import { isDesktop } from '../../utils/device';
+import Shell from '../seaElements/Shell';
+import Fishes from '../seaElements/Fishes';
+import CrabElement from '../seaElements/CrabElement';
 import {
   FloatingRight,
   SwimmingLeft,
-  SwimmingRight
+  SwimmingRight,
+  ScubaFish
 } from '../../assets/images';
 import UnderwaterAmbient from '../../assets/sounds/underwater.mp3';
-
 import {
   CENTER,
   FORMATION,
@@ -47,12 +50,12 @@ import {
   Text,
   ThinkingText
 } from './styles';
-import Fishes from '../Fishes';
 
 let HERO;
 let float;
 
 const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
+  const [pearlFound, toggleHasPearl] = useStateWithLabel(false, 'pearlFound');
   const texts = useSelector(seabedTextsSelector);
   const isFinished = useSelector(finishedSelector);
   const dispatch = useDispatch();
@@ -465,6 +468,15 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
     }
   }, [cuePointsActivated]);
 
+  useEffect(() => {
+    if (pearlFound) {
+      HeroImg.current.src = ScubaFish;
+      // setTimeout(() => {
+      //   HeroImg.current.src = FloatingRight;
+      // }, 1000);
+    }
+  }, [pearlFound]);
+
   return (
     <SeabedSection id="Seabed Section">
       {isDesktop && !instructionsHidden && (
@@ -527,7 +539,15 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
         />
       </HeroWrapper>
 
-      <Fishes quantity={2} />
+      <Fishes />
+      <Shell
+        toggleHasPearl={toggleHasPearl}
+        hidden={positionState.frame !== CENTER}
+      />
+      <CrabElement
+        position={positionState}
+        hidden={positionState.frame !== RIGHT}
+      />
 
       <SeabedFloor>
         <FloorText hidden={isFinished || positionState.frame !== CENTER}>
