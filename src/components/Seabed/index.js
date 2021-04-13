@@ -47,6 +47,7 @@ import {
   Text,
   ThinkingText
 } from './styles';
+import Fishes from '../Fishes';
 
 let HERO;
 let float;
@@ -525,6 +526,8 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
           src={FloatingRight}
         />
       </HeroWrapper>
+
+      <Fishes quantity={2} />
 
       <SeabedFloor>
         <FloorText hidden={isFinished || positionState.frame !== CENTER}>
