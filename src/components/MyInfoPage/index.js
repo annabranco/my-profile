@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Social from '../Social';
 import { finishedSelector, infoPageTextSelector } from '../../redux/selectors';
 import { isFullWindowDesktop } from '../../utils/device';
-import { Mugshot, Barquinho, Birds } from '../../assets/images';
+import { Mugshot, Barquinho, Birds, BlinkingFish } from '../../assets/images';
 import {
   BirdsFlying,
   FirstArrowIcon,
@@ -23,7 +23,8 @@ import {
   SecondArrowIcon,
   SectionMyInfo,
   SocialArea,
-  ThirdArrowIcon
+  ThirdArrowIcon,
+  KindFish
 } from './styles';
 
 const MyInfoPage = () => {
@@ -43,6 +44,7 @@ const MyInfoPage = () => {
             <InfoArea>
               <MyNameOnDesktopDevices>Anna Branco</MyNameOnDesktopDevices>
               <JobTitle>{texts.job}</JobTitle>
+              {finishedScenario && <KindFish src={BlinkingFish} />}
               <InfoMessage>
                 {!finishedScenario ? texts.aditional : texts.thankyou}
               </InfoMessage>

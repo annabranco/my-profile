@@ -4,6 +4,8 @@ import { LEFT, RIGHT } from '../../constants';
 
 export const FloatingLeft = require('./other/floatingLeft.gif');
 export const Binary = require('./other/bg-binary.jpg');
+export const Birds = require('./fishes/birds.gif');
+export const BlinkingFish = require('./fishes/fish-blink.gif');
 export const FloatingRight = require('./other/floatingRight.gif');
 export const Barquinho = require('./other/barquinho.gif');
 export const LogoAdalab = require('./logo-adalab.png');
@@ -54,9 +56,6 @@ export const THUMBNAILS = {
   'my-profile': MyProfile,
   'days-go-by': DaysGoBy
 };
-
-// Birds
-export const Birds = require('./fishes/birds.gif');
 
 // Seabed
 export const ClosedShell = require('./fishes/shell-closed.png');

@@ -96,6 +96,14 @@ export const BirdsFlying = styled.img`
 `;
 BirdsFlying.displayName = 'BirdsFlying';
 
+export const KindFish = styled.img`
+  display: inline-block;
+  width: 80px;
+  margin-right: -25px;
+  vertical-align: top;
+`;
+KindFish.displayName = 'KindFish';
+
 export const FirstArrowIcon = styled(ArrowIcon)`
   animation-delay: 2s;
 `;
@@ -114,6 +122,8 @@ export const InfoArea = styled.div`
 InfoArea.displayName = 'Info Area';
 
 export const InfoMessage = styled.div`
+  display: inline-block;
+
   margin: -20px 0 0;
   width: 90%;
   font-style: italic;
