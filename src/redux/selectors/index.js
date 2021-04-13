@@ -20,7 +20,7 @@ export const globalTextsSelector = createSelector(
 );
 export const headerTitleSelector = createSelector(
   [getTexts],
-  texts => texts.header.title
+  texts => texts.header && texts.header.title
 );
 export const infoPageTextSelector = createSelector(
   [getTexts],
