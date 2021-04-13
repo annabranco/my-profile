@@ -15,8 +15,9 @@ import {
   NotifyButtonText,
   SorryText
 } from './styles';
-import { MeuBarquinho } from '../../MyInfoPage/styles';
+import { MeuBarquinho } from '../../sections/MyInfoPage/styles';
 import { errorTextsPropType } from '../../../types';
+import { isDesktop } from '../../../utils/device';
 
 const DEFAULT_ERROR_TEXTS = {
   errorLine1: "I'm awfully sorry but something unexpected had happened. :(",
@@ -40,7 +41,9 @@ const ErrorComponent = ({ error, texts }) => {
 
   return (
     <ErrorSection>
-      <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
+      {isDesktop && (
+        <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
+      )}
       <ErrorTitle>{texts.title}</ErrorTitle>
       <NotificationArea>
         <SorryText>{texts.errorLine1}</SorryText>

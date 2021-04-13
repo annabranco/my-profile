@@ -1,5 +1,5 @@
-export const CENTER = 'CENTER';
-export const LEFT = 'LEFT';
-export const ON_THE_LEFT = 'ON_THE_LEFT';
-export const ON_THE_RIGHT = 'ON_THE_RIGHT';
-export const RIGHT = 'RIGHT';
+export const CENTER = 'center';
+export const LEFT = 'left';
+export const ON_THE_LEFT = 'on_the_left';
+export const ON_THE_RIGHT = 'on_the_right';
+export const RIGHT = 'right';

@@ -1,7 +1,11 @@
 /* eslint-disable global-require */
 
+import { LEFT, RIGHT } from '../../constants';
+
 export const FloatingLeft = require('./other/floatingLeft.gif');
 export const Binary = require('./other/bg-binary.jpg');
+export const Birds = require('./fishes/birds.gif');
+export const BlinkingFish = require('./fishes/fish-blink.gif');
 export const FloatingRight = require('./other/floatingRight.gif');
 export const Barquinho = require('./other/barquinho.gif');
 export const LogoAdalab = require('./logo-adalab.png');
@@ -52,3 +56,45 @@ export const THUMBNAILS = {
   'my-profile': MyProfile,
   'days-go-by': DaysGoBy
 };
+
+// Seabed
+export const ClosedShell = require('./fishes/shell-closed.png');
+export const OpenedShell = require('./fishes/shell-opened.png');
+export const ScubaFish = require('./fishes/scubafish.gif');
+export const Crab = require('./fishes/crab.gif');
+
+// Fishes
+const Fish0 = require('./fishes/fish0.gif');
+const Fish1 = require('./fishes/fish1.gif');
+const Fish2 = require('./fishes/fish2.gif');
+const Fish3 = require('./fishes/fish3.gif');
+const Fish4 = require('./fishes/fish4.gif');
+const Fish5 = require('./fishes/fish5.gif');
+
+export const FISHES = [
+  {
+    facing: LEFT,
+    img: Fish0
+  },
+  {
+    facing: LEFT,
+    img: Fish1
+  },
+  {
+    facing: LEFT,
+    img: Fish2
+  },
+  {
+    facing: RIGHT,
+    img: Fish3,
+    waving: true
+  },
+  {
+    facing: RIGHT,
+    img: Fish4
+  },
+  {
+    facing: RIGHT,
+    img: Fish5
+  }
+];

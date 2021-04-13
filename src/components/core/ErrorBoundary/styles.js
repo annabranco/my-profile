@@ -8,7 +8,7 @@ import {
   fontTitleAlt
 } from '../../../styles/theme';
 import { FullScreen, MainBackground } from '../../../styles/global';
-import { LinkButton } from '../../Social/styles';
+import { LinkButton } from '../../elements/Social/styles';
 
 export const DetailsText = styled.p`
   font-size: 1rem;
@@ -17,8 +17,8 @@ DetailsText.displayName = 'DetailsText';
 
 export const ErrorDetailsArea = styled.div`
   background: ${colorWhite};
-  width: 60vw;
-  padding: 10px 40px;
+  width: 100%;
+  padding: 10px;
   border-radius: 8px 0;
   margin-top: 15px;
   box-shadow: 0 0 5px 2px ${colorWhite};
@@ -29,13 +29,27 @@ export const ErrorDetailsArea = styled.div`
     font-family: ${fontTitleAlt};
     color: ${colorGrayNormal};
   }
+
+  @media all and (min-width: 768px) {
+    width: 60vw;
+    padding: 10px 40px;
+  }
 `;
 ErrorDetailsArea.displayName = 'ErrorDetailsArea';
 
 export const ErrorSection = styled.div`
   ${MainBackground}
-  ${FullScreen};
-  margin: 0;
+  height: ${`${window.innerHeight}px`};
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  @media all and (min-width: 768px) {
+    ${FullScreen};
+    display: block;
+  }
 `;
 ErrorSection.displayName = 'ErrorSection';
 
@@ -50,12 +64,17 @@ ErrorTitle.displayName = 'ErrorTitle';
 
 export const NotificationArea = styled.div`
   position: relative;
-  top: 50%;
+  top: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80vw;
+  width: 80%;
+
+  @media all and (min-width: 768px) {
+    top: 50%;
+    width: 80vw;
+  }
 `;
 NotificationArea.displayName = 'NotificationArea';
 
@@ -94,13 +113,19 @@ export const NotifyButtonText = styled.p`
 NotifyButtonText.displayName = 'NotifyButtonText';
 
 export const SorryText = styled.p`
-  margin: 0 0 20px;
-  width: 80%;
+  margin: 0;
+  width: 100%;
   font-style: italic;
   font-family: ${fontSubtitle};
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   color: ${colorBlueLight};
   text-align: left;
+
+  @media all and (min-width: 768px) {
+    font-size: 1.3rem;
+    margin: 0 0 20px;
+    width: 80%;
+  }
 `;
 SorryText.displayName = 'SorryText';

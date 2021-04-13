@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 import { useStateWithLabel } from '../../../utils/hooks';
-import Header from '../../Header';
-import LanguagesModal from '../../LanguagesModal';
-import MainArea from '../../MainArea';
+import Header from '../../mainComponents/Header';
+import LanguagesModal from '../LanguagesModal';
+import MainArea from '../../mainComponents/MainArea';
 import {
   HIDE_FOREVER,
   LANG_MODAL_VISIBLE,
