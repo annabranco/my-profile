@@ -54,11 +54,11 @@ const MyName = styled.h1`
 
 const Navigating = keyframes`
   0% {
-    right   : 10vw;
+    right   : 20vw;
     opacity : 0;
   }
 
-  35% {
+  10% {
     opacity : 1;
   }
 
@@ -76,6 +76,25 @@ const Navigating = keyframes`
     opacity : 0;
   }
 `;
+
+export const BirdsFlying = styled.img`
+  position: absolute;
+  top: 30%;
+  transform: translate(-4%, 0);
+  width: 200px;
+  opacity: 0.3;
+  animation-name: ${Navigating};
+  animation-duration: 120s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  filter: contrast(0.5) opacity(0.6);
+
+  @media all and (min-width: 768px) {
+    top: 20%;
+  }
+`;
+BirdsFlying.displayName = 'BirdsFlying';
 
 export const FirstArrowIcon = styled(ArrowIcon)`
   animation-delay: 2s;

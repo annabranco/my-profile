@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import Social from '../Social';
 import { finishedSelector, infoPageTextSelector } from '../../redux/selectors';
 import { isFullWindowDesktop } from '../../utils/device';
-import { Mugshot, Barquinho } from '../../assets/images';
+import { Mugshot, Barquinho, Birds } from '../../assets/images';
 import {
+  BirdsFlying,
   FirstArrowIcon,
   InfoArea,
   InfoMessage,
@@ -52,6 +53,7 @@ const MyInfoPage = () => {
           </SocialArea>
         </MyInfoInnerWrapper>
 
+        <BirdsFlying src={Birds} />
         <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
 
         {!isFullWindowDesktop && (
