@@ -9,7 +9,6 @@ import {
   fontTitle,
   colorYellowBright
 } from '../../../styles/theme';
-import { isDesktop } from '../../../utils/device';
 
 export const Logo = styled.img`
   margin: 0 auto;
@@ -31,12 +30,14 @@ export const SkillsArea = styled.div`
   display: grid;
   grid-template-columns: repeat(4, calc(100% / 4));
   grid-gap: 20px 5px;
+  justify-content: center;
+  align-items: center;
   border-radius: 30px;
   background-image: linear-gradient(
     ${rgba(colorGreenBright, 0.1)},
     ${rgba(colorWhite, 0.2)}
   );
-  height: 100%;
+  height: 95%;
   width: 100vw;
   padding: 45px 40px 80px;
   overflow: hidden;
@@ -133,16 +134,22 @@ export const SkillItem = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 10px;
+  margin: ${({ group }) =>
+    group === 'Frontend' ? '0 auto 10px' : '0 auto 2px'};
 
   ${({ isLastElementAlone }) =>
-    isDesktop &&
     isLastElementAlone &&
     css`
-      &:last-of-type {
-        grid-column: span 2;
+      @media all and (min-width: 768px) {
+        &:last-of-type {
+          grid-column: span 2;
+        }
       }
     `}
+
+  @media all and (min-width: 768px) {
+    margin: 0 auto 10px;
+  }
 `;
 SkillItem.displayName = 'Skill Item';
 
@@ -153,17 +160,21 @@ export const Title = styled.div`
   justify-content: center;
   border: 1px solid ${colorBlack};
   border-radius: 10px 0;
-  margin: 0 auto 15px;
+  margin: 0 auto 5px;
   background-image: linear-gradient(
     ${rgba(colorWhite, 0.2)},
     ${rgba(colorBlueWater, 0.5)}
   );
-  min-height: ${({ group }) =>
-    !isDesktop && group !== 'Frontend' ? '60px' : 'auto'};
+  min-height: ${({ group }) => (group !== 'Frontend' ? '60px' : 'auto')};
   width: 100%;
   padding: 5px 0;
   text-decoration: none;
   font-family: ${fontTitleAlt};
   text-align: center;
+
+  @media all and (min-width: 768px) {
+    min-height: auto;
+    margin: 0 auto 15px;
+  }
 `;
 Title.displayName = 'Title';

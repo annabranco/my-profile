@@ -5,7 +5,9 @@ import appInfo from '../../../../package.json';
 import {
   allLanguagesSelector,
   currentLanguageSelector,
-  headerTitleSelector
+  currentSecionSelector,
+  headerTitleSelector,
+  secionsTextsSelector
 } from '../../../redux/selectors';
 import { onChangeLanguage } from '../../core/LanguagesModal';
 import {
@@ -15,12 +17,17 @@ import {
   LanguagesWrapper,
   Version
 } from './styles';
+import { isDesktop } from '../../../utils/device';
+import { INFO_PAGE_SECTION } from '../../../constants';
 
 const Header = ({ hideForever }) => {
   const APP_VERSION = appInfo.version;
   const languages = useSelector(allLanguagesSelector);
   const languageSelected = useSelector(currentLanguageSelector);
   const title = useSelector(headerTitleSelector);
+  const currentSection = useSelector(currentSecionSelector);
+  const sections = useSelector(secionsTextsSelector);
+
   const dispatch = useDispatch();
 
   const onCLickFlag = event =>
@@ -30,6 +37,13 @@ const Header = ({ hideForever }) => {
       hideForever,
       dispatch
     );
+
+  const getTitle = () => {
+    if (isDesktop || currentSection === INFO_PAGE_SECTION) {
+      return title;
+    }
+    return sections[currentSection];
+  };
 
   return (
     <HeaderArea>
@@ -53,7 +67,7 @@ const Header = ({ hideForever }) => {
             </Flag>
           ))}
       </LanguagesWrapper>
-      <AppTitle>{title}</AppTitle>
+      <AppTitle>{getTitle()}</AppTitle>
       <Version>{APP_VERSION}</Version>
     </HeaderArea>
   );

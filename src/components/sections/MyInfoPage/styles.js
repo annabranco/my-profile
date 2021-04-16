@@ -95,13 +95,15 @@ Advise.displayName = 'Advise';
 
 export const ArrowIcon = styled.i`
   margin: 0 20px;
-  font-size: 2rem;
+  font-size: ${({ sections }) => (sections ? '1.2rem' : '1.5rem')};
   color: ${rgba(colorWhite, 0.55)};
+  transform: rotate(270deg);
 
   @media all and (min-width: 768px) {
     margin: 0 100px;
     font-size: 3rem;
     color: ${rgba(colorBlueLight, 0.55)};
+    transform: none;
   }
 `;
 
@@ -194,13 +196,13 @@ JobTitle.displayName = 'Job Title';
 export const LineOfArrows = styled.div`
   opacity: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  transform: translate(0, 25px);
   animation-name: ${Vanish};
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
+  width: 125%;
 
   &:nth-of-type(1) {
     animation-delay: 2s;
@@ -213,7 +215,8 @@ export const LineOfArrows = styled.div`
   }
 
   @media all and (min-width: 768px) {
-    transform: translate(0, 0);
+    justify-content: center;
+    width: auto;
   }
 `;
 LineOfArrows.displayName = 'Line of Arrows';
@@ -334,7 +337,7 @@ PhotoWrapper.displayName = 'Photo Wrapper';
 
 export const ScrollDownDisplay = styled.div`
   position: absolute;
-  bottom: 12vh;
+  bottom: ${({ sections }) => (sections ? '10px' : '10vh')};
   right: 0;
   z-index: 3;
   display: flex;
@@ -343,14 +346,17 @@ export const ScrollDownDisplay = styled.div`
   align-items: center;
   margin: 0 10px;
   padding: 10px;
-  height: auto;
+  height: ${({ sections }) => (sections ? '40px' : 'auto')};
   width: 55%;
-  background: ${rgba(colorBlueDark, 0.2)};
+  background: ${({ sections }) =>
+    sections ? rgba(colorBlueDark, 0.6) : rgba(colorBlueDark, 0.4)};
+
   border-radius: 10px;
 
   @media all and (min-width: 768px) {
-    bottom: 20vh;
+    bottom: 10%;
     right: unset;
+    height: auto;
     width: 100%;
     align-items: flex-start;
     background: none;

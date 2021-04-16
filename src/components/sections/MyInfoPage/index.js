@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { func } from 'prop-types';
 import Social from '../../elements/Social';
 import {
@@ -37,12 +37,20 @@ import {
   ArrowIcon
 } from './styles';
 import { SKILLS_SECTION } from '../../../constants';
+import { changeSection } from '../../../redux/actions/sections';
 
 const MyInfoPage = ({ changeActiveSection }) => {
   const finishedScenario = useSelector(finishedSelector);
   const texts = useSelector(infoPageTextSelector);
   const sections = useSelector(secionsTextsSelector);
+  const dispatch = useDispatch();
+
   const arrowLines = isDesktop ? 3 : 1;
+
+  const goToNextSection = () => {
+    dispatch(changeSection(SKILLS_SECTION));
+    changeActiveSection(SKILLS_SECTION);
+  };
 
   return (
     <SectionMyInfo id="My Info Section">
@@ -77,23 +85,22 @@ const MyInfoPage = ({ changeActiveSection }) => {
 
         <ScrollDownDisplay>
           {!isDesktop && (
-            <MoreText
-              onClick={() => {
-                console.log('ckick');
-                changeActiveSection(SKILLS_SECTION);
-              }}
-            >
-              {sections.technical}
-            </MoreText>
+            <MoreText onClick={goToNextSection}>{sections.technical}</MoreText>
           )}
           {[...Array(arrowLines).keys()].map(line => (
             <LineOfArrows key={line}>
-              {[0, 1, 2].map(index => (
-                <ArrowIcon
-                  key={`${line}-${index}`}
-                  className="fas fa-angle-double-down"
-                />
-              ))}
+              {isDesktop ? (
+                <>
+                  {[0, 1, 2].map(index => (
+                    <ArrowIcon
+                      key={`${line}-${index}`}
+                      className="fas fa-angle-double-down"
+                    />
+                  ))}
+                </>
+              ) : (
+                <ArrowIcon className="fas fa-angle-double-down" />
+              )}
             </LineOfArrows>
           ))}
         </ScrollDownDisplay>

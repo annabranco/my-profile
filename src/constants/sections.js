@@ -1,6 +1,6 @@
 export const ACTIVE_SECTION = 'activeSection';
-export const INFO_PAGE_SECTION = 'INFO_PAGE_SECTION';
-export const SKILLS_SECTION = 'SKILLS_SECTION';
-export const PROJECTS_SECTION = 'PROJECTS_SECTION';
-export const EXPERIENCES_SECTION = 'EXPERIENCES_SECTION';
-export const SEABED_SECTION = 'SEABED_SECTION';
+export const INFO_PAGE_SECTION = 'main';
+export const SKILLS_SECTION = 'technical';
+export const PROJECTS_SECTION = 'projects';
+export const EXPERIENCES_SECTION = 'experience';
+export const SEABED_SECTION = 'other';

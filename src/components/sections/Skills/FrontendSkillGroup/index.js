@@ -17,7 +17,7 @@ const FrontendSkillGroup = ({ details, visible }) => (
           return null;
         }
         return (
-          <SkillItem key={`${skill.order}-${skill.skill}`}>
+          <SkillItem group={details.name} key={`${skill.order}-${skill.skill}`}>
             <Name>{skill.skill}</Name>
 
             {skill.logo && (

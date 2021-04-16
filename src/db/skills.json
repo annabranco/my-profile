@@ -164,7 +164,7 @@
     {
       "globalLevel": 2,
       "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/shaka.png",
-      "name": "Media and Ad-services",
+      "name": "Media and Ad services",
       "order": 6,
       "skills": [
         {
@@ -193,7 +193,7 @@
     {
       "globalLevel": 3,
       "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/docker.png",
-      "name": "Server-side",
+      "name": "Server side",
       "order": 7,
       "skills": [
         {

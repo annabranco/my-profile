@@ -7,6 +7,7 @@ export const finishedSelector = state => state.finishedScenario;
 export const formationSelector = state => state.formation;
 export const projectsSelector = state => state.projects;
 export const skillsSelector = state => state.skills;
+export const currentSecionSelector = state => state.currentSection;
 
 const getTexts = state => state.texts;
 

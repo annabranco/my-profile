@@ -1,4 +1,5 @@
 import config from '../config';
+import { INFO_PAGE_SECTION } from '../constants';
 import { getLanguageCodeByName } from '../utils/languages';
 
 const languageSettings =
@@ -15,5 +16,6 @@ export const INITIAL_STATE = {
   projects: [],
   skills: [],
   texts: {},
-  textsDatabase: {}
+  textsDatabase: {},
+  currentSection: INFO_PAGE_SECTION
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { bool } from 'prop-types';
 import Experiences from '../../sections/Experiences';
 import MyInfoPage from '../../sections/MyInfoPage';
@@ -8,6 +8,7 @@ import ScrollSection from './ScrollSection';
 import Skills from '../../sections/Skills';
 import Seabed from '../../sections/Seabed';
 import {
+  currentSecionSelector,
   experiencesSelector,
   secionsTextsSelector
 } from '../../../redux/selectors';
@@ -28,12 +29,22 @@ import {
 } from '../../../constants';
 import { ScrollAreaWrapper } from './styles';
 import { isDesktop } from '../../../utils/device';
+import {
+  ArrowIcon,
+  LineOfArrows,
+  MoreText,
+  ScrollDownDisplay
+} from '../../sections/MyInfoPage/styles';
+import { changeSection } from '../../../redux/actions/sections';
+import { getNextSection } from '../../../utils/sections';
 
 const SCROLL_CUEPOINTS = new Map();
 
 const ScrollArea = ({ langModalVisible }) => {
   const experiences = useSelector(experiencesSelector);
   const sectionsTexts = useSelector(secionsTextsSelector);
+  const sections = useSelector(secionsTextsSelector);
+  const currentSection = useSelector(currentSecionSelector);
 
   const [adjustScroll, changeAdjust] = useStateWithLabel(0, ADJUST_SCROLL);
   const [cuePointsActivated, updateCuepoints] = useStateWithLabel(
@@ -41,10 +52,11 @@ const ScrollArea = ({ langModalVisible }) => {
     CUEPOINTS
   );
   const [activeSection, changeActiveSection] = useStateWithLabel(
-    SKILLS_SECTION,
+    INFO_PAGE_SECTION,
     ACTIVE_SECTION
   );
   const scrollAreaRef = useRef();
+  const dispatch = useDispatch();
 
   const SECTIONS_INTERVAL_POINTS = {
     skills: {
@@ -98,6 +110,13 @@ const ScrollArea = ({ langModalVisible }) => {
     changeAdjust(adjustment);
   };
 
+  const goToNextSection = () => {
+    dispatch(changeSection(getNextSection(currentSection)));
+    changeActiveSection(getNextSection(currentSection));
+  };
+
+  const getNextSectionName = () => sections[getNextSection(currentSection)];
+
   useEffect(() => {
     const calculateSkillsScroll = () => {
       SCROLL_CUEPOINTS.set(
@@ -150,7 +169,6 @@ const ScrollArea = ({ langModalVisible }) => {
   }, [SECTIONS_INTERVAL_POINTS, experiences, experiencesSectionIds]);
 
   useEffect(() => {
-    console.log('$$$ activeSection', activeSection);
     if (!isDesktop && activeSection === SKILLS_SECTION) {
       const allCuePoints = [
         SKILLS_FIRST_ROW,
@@ -206,6 +224,15 @@ const ScrollArea = ({ langModalVisible }) => {
             resetScrollPosition={resetScrollPosition}
           />
         </ScrollSection>
+      )}
+
+      {!isDesktop && activeSection !== INFO_PAGE_SECTION && (
+        <ScrollDownDisplay sections>
+          <MoreText onClick={goToNextSection}>{getNextSectionName()}</MoreText>
+          <LineOfArrows>
+            <ArrowIcon className="fas fa-angle-double-down" sections />
+          </LineOfArrows>
+        </ScrollDownDisplay>
       )}
     </ScrollAreaWrapper>
   );
