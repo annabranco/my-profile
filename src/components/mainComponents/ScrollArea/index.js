@@ -18,9 +18,16 @@ import {
   SKILLS_FIRST_ROW,
   SKILLS_SECOND_ROW,
   SKILLS_THIRD_ROW,
-  SEABED_AREA
+  SEABED_AREA,
+  INFO_PAGE_SECTION,
+  SKILLS_SECTION,
+  PROJECTS_SECTION,
+  EXPERIENCES_SECTION,
+  SEABED_SECTION,
+  ACTIVE_SECTION
 } from '../../../constants';
 import { ScrollAreaWrapper } from './styles';
+import { isDesktop } from '../../../utils/device';
 
 const SCROLL_CUEPOINTS = new Map();
 
@@ -32,6 +39,10 @@ const ScrollArea = ({ langModalVisible }) => {
   const [cuePointsActivated, updateCuepoints] = useStateWithLabel(
     new Set(),
     CUEPOINTS
+  );
+  const [activeSection, changeActiveSection] = useStateWithLabel(
+    SKILLS_SECTION,
+    ACTIVE_SECTION
   );
   const scrollAreaRef = useRef();
 
@@ -45,7 +56,7 @@ const ScrollArea = ({ langModalVisible }) => {
       scrollAreaEnd: 2100 + adjustScroll
     },
     seabed: {
-      scrollAreaStart: 2800 + adjustScroll
+      scrollAreaStart: 2600 + adjustScroll
     }
   };
 
@@ -138,31 +149,64 @@ const ScrollArea = ({ langModalVisible }) => {
     calculateSeabedScroll();
   }, [SECTIONS_INTERVAL_POINTS, experiences, experiencesSectionIds]);
 
+  useEffect(() => {
+    console.log('$$$ activeSection', activeSection);
+    if (!isDesktop && activeSection === SKILLS_SECTION) {
+      const allCuePoints = [
+        SKILLS_FIRST_ROW,
+        SKILLS_SECOND_ROW,
+        SKILLS_THIRD_ROW
+      ];
+      updateCuepoints(new Set(allCuePoints));
+    }
+  }, [isDesktop, activeSection]);
+
   return (
     <ScrollAreaWrapper
       langModalVisible={langModalVisible}
       onScroll={handleScroll}
       ref={scrollAreaRef}
     >
-      <MyInfoPage />
-      <ScrollSection title={sectionsTexts.technical}>
-        <Skills cuePointsActivated={cuePointsActivated} />
-      </ScrollSection>
+      {(isDesktop || activeSection === INFO_PAGE_SECTION) && (
+        <MyInfoPage changeActiveSection={changeActiveSection} />
+      )}
 
-      <ScrollSection title={sectionsTexts.projects}>
-        <Projects adjustScrollAfterThumbnails={adjustScrollAfterThumbnails} />
-      </ScrollSection>
+      {(isDesktop || activeSection === SKILLS_SECTION) && (
+        <ScrollSection title={sectionsTexts.technical}>
+          <Skills
+            cuePointsActivated={cuePointsActivated}
+            changeActiveSection={changeActiveSection}
+          />
+        </ScrollSection>
+      )}
 
-      <ScrollSection title={sectionsTexts.experience}>
-        <Experiences cuePointsActivated={cuePointsActivated} />
-      </ScrollSection>
+      {(isDesktop || activeSection === PROJECTS_SECTION) && (
+        <ScrollSection title={sectionsTexts.projects}>
+          <Projects
+            adjustScrollAfterThumbnails={adjustScrollAfterThumbnails}
+            changeActiveSection={changeActiveSection}
+          />
+        </ScrollSection>
+      )}
 
-      <ScrollSection title={sectionsTexts.other}>
-        <Seabed
-          cuePointsActivated={cuePointsActivated}
-          resetScrollPosition={resetScrollPosition}
-        />
-      </ScrollSection>
+      {(isDesktop || activeSection === EXPERIENCES_SECTION) && (
+        <ScrollSection title={sectionsTexts.experience}>
+          <Experiences
+            changeActiveSection={changeActiveSection}
+            cuePointsActivated={cuePointsActivated}
+          />
+        </ScrollSection>
+      )}
+
+      {(isDesktop || activeSection === SEABED_SECTION) && (
+        <ScrollSection title={sectionsTexts.other}>
+          <Seabed
+            changeActiveSection={changeActiveSection}
+            cuePointsActivated={cuePointsActivated}
+            resetScrollPosition={resetScrollPosition}
+          />
+        </ScrollSection>
+      )}
     </ScrollAreaWrapper>
   );
 };

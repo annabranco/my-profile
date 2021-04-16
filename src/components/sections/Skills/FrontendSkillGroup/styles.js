@@ -16,11 +16,27 @@ export const FrontendGroup = styled.div`
 FrontendGroup.displayName = 'Frontend Group';
 
 export const Logo = styled.img`
-  height: 100%;
-  font-size: 3.5rem;
+  height: 120%;
 
   &.icon--react {
-    height: 60px;
+    height: 30px;
+  }
+  ${({ name }) =>
+    name === 'React' &&
+    css`
+      height: 130%;
+      transform: translate(0, -2px);
+    `}
+  @media all and (min-width: 768px) {
+    height: 100%;
+    font-size: 3.5rem;
+
+    ${({ name }) =>
+      name === 'React' &&
+      css`
+        height: 120%;
+        transform: translate(0, -2px);
+      `}
   }
 `;
 Logo.displayName = 'Logo';
@@ -29,8 +45,12 @@ export const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 68px;
+  height: 30px;
   width: 60px;
+
+  @media all and (min-width: 768px) {
+    height: 68px;
+  }
 `;
 LogoWrapper.displayName = 'Logo Wrapper';
 
@@ -39,5 +59,6 @@ export const SkillsWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
 `;
 SkillsWrapper.displayName = 'Skills Wrapper';

@@ -19,6 +19,7 @@ import {
   SkillsInsideGroup,
   Logo
 } from './styles';
+import { isDesktop } from '../../../utils/device';
 
 const FIRST_ROW_ITEMS = 'Frontend';
 const SECOND_ROW_ITEMS = new Set([1, 2, 3, 4]);
@@ -60,19 +61,26 @@ const Skills = ({ cuePointsActivated }) => {
             />
           ) : (
             <SkillGroup isVisible={isVisible(index)} position={index}>
-              <Title>{skillObject.name}</Title>
+              <Title>
+                <h3>{skillObject.name}</h3>
+              </Title>
               <SkillsInsideGroup>
-                <Logo src={skillObject.logo} alt="" />
+                {isDesktop && <Logo src={skillObject.logo} alt="" />}
                 <SkillsGrid>
-                  {skillObject.skills.map(skill => (
-                    <SkillItem
-                      key={skill.skill}
-                      isLastElementAlone={skillObject.skills.length % 2 !== 0}
-                    >
-                      <Name>{skill.skill}</Name>
-                      <SkillLevel level={skill.level} skill={skill.skill} />
-                    </SkillItem>
-                  ))}
+                  {skillObject.skills.map(skill => {
+                    if (skill.extended && !isDesktop) {
+                      return null;
+                    }
+                    return (
+                      <SkillItem
+                        key={skill.skill}
+                        isLastElementAlone={skillObject.skills.length % 2 !== 0}
+                      >
+                        <Name>{skill.skill}</Name>
+                        <SkillLevel level={skill.level} skill={skill.skill} />
+                      </SkillItem>
+                    );
+                  })}
                 </SkillsGrid>
               </SkillsInsideGroup>
             </SkillGroup>

@@ -97,11 +97,11 @@ export const SocialArea = styled.div`
     ${rgba(colorGreenBright, 0.1)},
     ${rgba(colorWhite, 0.2)}
   );
-  height: 400px;
+  height: 100%;
   padding: 10px 0 30px;
 
   @media all and (min-width: 500px) {
-    height: 500px;
+    height: 120%;
     padding: 10px 0 80px;
   }
 `;
@@ -109,10 +109,11 @@ SocialArea.displayName = 'Social Area';
 
 export const SocialItem = styled.div`
   margin: 5px 0;
-  width: 200px;
+  width: 150px;
 
   @media all and (min-width: 500px) {
     margin: 15px 0;
+    width: 200px;
   }
 `;
 SocialItem.displayName = 'Social Item';
@@ -121,6 +122,11 @@ export const SocialItemSkype = styled(SocialItem)`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 150px;
+
+  @media all and (min-width: 768px) {
+    width: 200px;
+  }
 `;
 SocialItemSkype.displayName = 'Social Item';
 

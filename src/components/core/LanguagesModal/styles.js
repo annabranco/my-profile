@@ -41,7 +41,7 @@ export const BackgroundOverlay = styled.div`
     ${rgba(colorBlueDark, 0.6)},
     ${rgba(colorBlack, 0.9)}
   );
-  height: 100vh;
+  height: ${`${window.innerHeight}px`};
   width: 100%;
 `;
 BackgroundOverlay.displayName = 'Background Overlay';

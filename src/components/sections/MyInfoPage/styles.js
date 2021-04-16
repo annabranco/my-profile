@@ -1,8 +1,22 @@
 import styled, { keyframes } from 'styled-components';
 import { rgba } from 'polished';
+import { applyMiddleware } from 'redux';
 import { Binary } from '../../../assets/images';
-import { colorBlueLight, fontSubtitle, fontTitle } from '../../../styles/theme';
-import { MainBackground, NotDisplayed } from '../../../styles/global';
+import {
+  colorBlack,
+  colorBlueDark,
+  colorBlueLight,
+  colorWhite,
+  fontSubtitle,
+  fontTitle,
+  fontTitleAlt
+} from '../../../styles/theme';
+import {
+  Appear,
+  Disappear,
+  MainBackground,
+  NotDisplayed
+} from '../../../styles/global';
 
 const Vanish = keyframes`
   0% {
@@ -11,21 +25,6 @@ const Vanish = keyframes`
 
   5% {
     opacity : 1;
-  }
-`;
-
-const ArrowIcon = styled.i`
-  opacity: 0;
-  margin: 0 20px;
-  font-size: 3rem;
-  color: ${rgba(colorBlueLight, 0.55)};
-  animation-name: ${Vanish};
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-
-  @media all and (min-width: 768px) {
-    margin: 0 100px;
   }
 `;
 
@@ -77,9 +76,38 @@ const Navigating = keyframes`
   }
 `;
 
+export const Advise = styled.div`
+  position: absolute;
+  margin-left: 3vw;
+  padding: 5px 10px;
+  bottom: 25vh;
+  width: 45vw;
+  background: rgba(254, 255, 255, 0.3);
+  font-size: 0.8em;
+  text-align: left;
+  color: ${colorBlack};
+  font-family: ${fontSubtitle};
+  opacity: 0;
+  animation: ${Appear} 10s;
+  animation-fill-mode: forwards;
+`;
+Advise.displayName = 'Advise';
+
+export const ArrowIcon = styled.i`
+  margin: 0 20px;
+  font-size: 2rem;
+  color: ${rgba(colorWhite, 0.55)};
+
+  @media all and (min-width: 768px) {
+    margin: 0 100px;
+    font-size: 3rem;
+    color: ${rgba(colorBlueLight, 0.55)};
+  }
+`;
+
 export const BirdsFlying = styled.img`
   position: absolute;
-  top: 30%;
+  top: 30vh;
   transform: translate(-4%, 0);
   width: 200px;
   opacity: 0.3;
@@ -104,60 +132,58 @@ export const KindFish = styled.img`
 `;
 KindFish.displayName = 'KindFish';
 
-export const FirstArrowIcon = styled(ArrowIcon)`
-  animation-delay: 2s;
-`;
-FirstArrowIcon.displayName = 'Animated Arrows';
-
 export const InfoArea = styled.div`
   height: 230px;
   width: 100%;
-  padding: 10px 20px 10px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 
   @media all and (min-width: 500px) {
+    align-items: flex-start;
     height: 400px;
     width: 70%;
+    padding: 10px 20px 10px 40px;
   }
 `;
 InfoArea.displayName = 'Info Area';
 
 export const InfoMessage = styled.div`
   display: inline-block;
-
-  margin: -20px 0 0;
+  margin-top: 20px;
   width: 90%;
   font-style: italic;
   font-family: ${fontSubtitle};
-  font-size: 0.8rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.2;
   color: ${colorBlueLight};
   text-align: center;
+  animation: ${Disappear} 10s;
+  animation-fill-mode: forwards;
 
   @media all and (min-width: 500px) {
+    animation: none;
     margin: 20px 0 0 20px;
     height: 200px;
     width: 80%;
     font-size: 1.2rem;
+    line-height: 1.5;
+
     text-align: left;
   }
 `;
 InfoMessage.displayName = 'Info Message';
 
 export const JobTitle = styled.h2`
-  margin-top: -30px;
-  margin-left: -25px;
   width: 42vw;
   font-family: ${fontSubtitle};
   font-size: 1.3rem;
   text-align: center;
 
-  @media all and (min-width: 321px) {
-    margin-top: 0;
-    font-size: 1.5rem;
-  }
-
   @media all and (min-width: 500px) {
-    margin-left: 0;
+    margin-top: -20px;
+    margin-left: 15px;
     width: auto;
     font-size: 2rem;
     text-align: left;
@@ -166,21 +192,43 @@ export const JobTitle = styled.h2`
 JobTitle.displayName = 'Job Title';
 
 export const LineOfArrows = styled.div`
+  opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translate(0, 25px);
+  animation-name: ${Vanish};
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+
+  &:nth-of-type(1) {
+    animation-delay: 2s;
+  }
+  &:nth-of-type(2) {
+    animation-delay: 3s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: 4s;
+  }
+
+  @media all and (min-width: 768px) {
+    transform: translate(0, 0);
+  }
 `;
 LineOfArrows.displayName = 'Line of Arrows';
 
 export const MainAreaWrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 45%;
 
   @media all and (min-width: 500px) {
     width: 75%;
+    flex-direction: row;
   }
 `;
 MainAreaWrapper.displayName = 'Main Area';
@@ -204,6 +252,14 @@ export const MeuBarquinho = styled.img`
 `;
 MeuBarquinho.displayName = 'Ship Image';
 
+export const MoreText = styled.p`
+  z-index: 50;
+  position: absolute;
+  font-family: ${fontTitleAlt};
+  color: ${colorWhite};
+`;
+MoreText.displayName = 'MoreText';
+
 export const MyInfoInnerWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -219,9 +275,12 @@ export const MyInfoInnerWrapper = styled.div`
 MyInfoInnerWrapper.displayName = 'Inner Wrapper';
 
 export const MyInfoWrapper = styled.div`
+  height: ${`${window.innerHeight}px`};
   margin-top: 50px;
   width: 100%;
+
   @media all and (min-width: 500px) {
+    height: 90vh;
     margin-top: 100px;
   }
 `;
@@ -261,7 +320,7 @@ export const PhotoWrapper = styled.div`
   height: 170px;
   width: 100%;
   padding-top: 25px;
-  height: 500px;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -274,23 +333,31 @@ export const PhotoWrapper = styled.div`
 PhotoWrapper.displayName = 'Photo Wrapper';
 
 export const ScrollDownDisplay = styled.div`
+  position: absolute;
+  bottom: 12vh;
+  right: 0;
   z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 0;
+  margin: 0 10px;
+  padding: 10px;
+  height: auto;
+  width: 55%;
+  background: ${rgba(colorBlueDark, 0.2)};
+  border-radius: 10px;
 
   @media all and (min-width: 768px) {
-    margin-top: 80px;
+    bottom: 20vh;
+    right: unset;
+    width: 100%;
+    align-items: flex-start;
+    background: none;
+    margin: 80px auto 0;
   }
 `;
 ScrollDownDisplay.displayName = 'ScrollDown Display';
-
-export const SecondArrowIcon = styled(ArrowIcon)`
-  animation-delay: 3s;
-`;
-SecondArrowIcon.displayName = 'Animated Arrows';
 
 export const SectionMyInfo = styled.section`
   ${MainBackground}
@@ -310,8 +377,3 @@ export const SocialArea = styled.div`
   }
 `;
 SocialArea.displayName = 'Social Area';
-
-export const ThirdArrowIcon = styled(ArrowIcon)`
-  animation-delay: 4s;
-`;
-ThirdArrowIcon.displayName = 'Animated Arrows';

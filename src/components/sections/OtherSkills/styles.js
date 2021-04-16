@@ -337,7 +337,7 @@ export const MacScreen = styled.div`
       transform: none;
       border-left: 0;
       background: ${colorWhite};
-      height: calc(100vh - 110px);
+      height: calc(${`${window.innerHeight}px`} - 110px);
       width: 100%;
       overflow-y: scroll;
     `}

@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { func } from 'prop-types';
 import Social from '../../elements/Social';
 import {
   finishedSelector,
-  infoPageTextSelector
+  infoPageTextSelector,
+  secionsTextsSelector
 } from '../../../redux/selectors';
-import { isFullWindowDesktop } from '../../../utils/device';
+import { isDesktop, isFullWindowDesktop } from '../../../utils/device';
 import {
   Mugshot,
   Barquinho,
@@ -13,14 +15,15 @@ import {
   BlinkingFish
 } from '../../../assets/images';
 import {
+  Advise,
   BirdsFlying,
-  FirstArrowIcon,
   InfoArea,
   InfoMessage,
   JobTitle,
   LineOfArrows,
   MainAreaWrapper,
   MeuBarquinho,
+  MoreText,
   MyInfoInnerWrapper,
   MyInfoWrapper,
   MyNameOnDesktopDevices,
@@ -28,16 +31,18 @@ import {
   Photo,
   PhotoWrapper,
   ScrollDownDisplay,
-  SecondArrowIcon,
   SectionMyInfo,
   SocialArea,
-  ThirdArrowIcon,
-  KindFish
+  KindFish,
+  ArrowIcon
 } from './styles';
+import { SKILLS_SECTION } from '../../../constants';
 
-const MyInfoPage = () => {
+const MyInfoPage = ({ changeActiveSection }) => {
   const finishedScenario = useSelector(finishedSelector);
   const texts = useSelector(infoPageTextSelector);
+  const sections = useSelector(secionsTextsSelector);
+  const arrowLines = isDesktop ? 3 : 1;
 
   return (
     <SectionMyInfo id="My Info Section">
@@ -67,40 +72,38 @@ const MyInfoPage = () => {
         <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
 
         {!isFullWindowDesktop && (
-          <MyInfoWrapper className="infoPage__advise">
-            {texts.advise}
-          </MyInfoWrapper>
+          <Advise className="infoPage__advise">{texts.advise}</Advise>
         )}
 
         <ScrollDownDisplay>
-          <LineOfArrows>
-            {[0, 1, 2].map(index => (
-              <FirstArrowIcon
-                key={index}
-                className="fas fa-angle-double-down"
-              />
-            ))}
-          </LineOfArrows>
-          <LineOfArrows>
-            {[0, 1, 2].map(index => (
-              <SecondArrowIcon
-                key={index}
-                className="fas fa-angle-double-down"
-              />
-            ))}
-          </LineOfArrows>
-          <LineOfArrows>
-            {[0, 1, 2].map(index => (
-              <ThirdArrowIcon
-                key={index}
-                className="fas fa-angle-double-down"
-              />
-            ))}
-          </LineOfArrows>
+          {!isDesktop && (
+            <MoreText
+              onClick={() => {
+                console.log('ckick');
+                changeActiveSection(SKILLS_SECTION);
+              }}
+            >
+              {sections.technical}
+            </MoreText>
+          )}
+          {[...Array(arrowLines).keys()].map(line => (
+            <LineOfArrows key={line}>
+              {[0, 1, 2].map(index => (
+                <ArrowIcon
+                  key={`${line}-${index}`}
+                  className="fas fa-angle-double-down"
+                />
+              ))}
+            </LineOfArrows>
+          ))}
         </ScrollDownDisplay>
       </MyInfoWrapper>
     </SectionMyInfo>
   );
+};
+
+MyInfoPage.propTypes = {
+  changeActiveSection: func.isRequired
 };
 
 export default MyInfoPage;

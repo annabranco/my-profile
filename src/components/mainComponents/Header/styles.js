@@ -78,8 +78,13 @@ export const LanguagesWrapper = styled.div`
 LanguagesWrapper.displayName = 'LanguagesWrapper';
 
 export const Version = styled.p`
+  display: none;
   ${headerInner}
   font-family: ${fontTitle};
   order: 3;
+
+  @media all and (min-width: 768px) {
+    display: block;
+  }
 `;
 Version.displayName = 'Version';
