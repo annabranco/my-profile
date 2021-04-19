@@ -22,6 +22,9 @@ import {
   VerticalBar
 } from './styles';
 import { HorizontalBar } from '../../elements/HorizontalBar/styles';
+import { isDesktop } from '../../../utils/device';
+import AppModal from '../../mainComponents/AppModal';
+import { useStateWithLabel } from '../../../utils/hooks';
 
 const EXPERIENCE_ON_TOP = 'newer'; // newer or older
 
@@ -29,6 +32,11 @@ const Experiences = ({ cuePointsActivated }) => {
   const experiences = useSelector(experiencesSelector);
   const languageSelected = useSelector(currentLanguageSelector);
   const texts = useSelector(globalTextsSelector);
+
+  const [selectedExperience, selectExperience] = useStateWithLabel(
+    null,
+    'selectedExperience'
+  );
 
   const customOrder = (x, y) => {
     if (EXPERIENCE_ON_TOP === 'older') {
@@ -46,6 +54,7 @@ const Experiences = ({ cuePointsActivated }) => {
             item.visible && (
               <ExperienceItem
                 key={item.dateBeginValue}
+                onClick={isDesktop ? () => null : () => selectExperience(item)}
                 visible={cuePointsActivated.has(item.id)}
               >
                 <HorizontalBar
@@ -78,12 +87,37 @@ const Experiences = ({ cuePointsActivated }) => {
                     />
                     <City>{item.place}</City>
                   </Company>
-                  <Details>{item.details[languageSelected]}</Details>
+                  {isDesktop && (
+                    <Details>{item.details[languageSelected]}</Details>
+                  )}
                 </DetailsArea>
               </ExperienceItem>
             )
         )}
       </ExperiencesWrapper>
+      {selectedExperience && (
+        <AppModal closeAction={() => selectExperience(null)}>
+          <DetailsArea
+            visible={cuePointsActivated.has(selectedExperience.id)}
+            modal
+          >
+            <Title>{selectedExperience.title[languageSelected]}</Title>
+            <Company>
+              {selectedExperience.company}
+              <CountryFlag
+                src={getFlagURL(
+                  selectedExperience.country.countryCode,
+                  'flat',
+                  'small'
+                )}
+                alt={selectedExperience.country[languageSelected]}
+              />
+              <City>{selectedExperience.place}</City>
+            </Company>
+            <Details>{selectedExperience.details[languageSelected]}</Details>
+          </DetailsArea>
+        </AppModal>
+      )}
     </ExperiencesArea>
   );
 };

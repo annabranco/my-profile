@@ -1,8 +1,4 @@
 import styled, { css } from 'styled-components';
-import {
-  SHOW_THUMBNAILS_ACTION,
-  SHOW_THUMBNAILS_ON_MOBILE_ACTION
-} from '../../../../constants';
 import { Hidden } from '../../../../styles/global';
 
 export const Icon = styled.i`

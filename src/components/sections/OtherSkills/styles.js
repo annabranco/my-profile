@@ -344,7 +344,7 @@ export const MacScreen = styled.div`
 `;
 MacScreen.displayName = 'Mac Screen';
 
-export const OtherInformationsArea = styled(OtherSkillsOuter)`
+export const OtherInformationAreaArea = styled(OtherSkillsOuter)`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -353,9 +353,9 @@ export const OtherInformationsArea = styled(OtherSkillsOuter)`
 
   padding-bottom: 30px;
 `;
-OtherInformationsArea.displayName = 'Other Informations Area';
+OtherInformationAreaArea.displayName = 'Other Informations Area';
 
-export const OtherInformationsTable = styled(OtherSkillsTable)`
+export const OtherInformationAreaTable = styled(OtherSkillsTable)`
   margin-bottom: 30px;
   font-size: 0.8rem;
 
@@ -395,7 +395,7 @@ export const OtherInformationsTable = styled(OtherSkillsTable)`
     }
   }
 `;
-OtherInformationsTable.displayName = 'Other Informations Table';
+OtherInformationAreaTable.displayName = 'Other Informations Table';
 
 export const OtherSkillsWrapper = styled.div`
   z-index: 3;

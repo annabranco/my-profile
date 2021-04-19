@@ -20,8 +20,8 @@ import {
   LanguagesTable,
   MacKeyboard,
   MacScreen,
-  OtherInformationsArea,
-  OtherInformationsTable,
+  OtherInformationAreaArea,
+  OtherInformationAreaTable,
   OtherSkillsWrapper,
   Sample,
   SamplesWrapper,
@@ -172,9 +172,9 @@ const OtherSkills = ({
               </LanguagesTable>
             </LanguagesArea>
 
-            <OtherInformationsArea>
+            <OtherInformationAreaArea>
               <Title>{texts.other}</Title>
-              <OtherInformationsTable>
+              <OtherInformationAreaTable>
                 <thead>
                   <tr>
                     <th>{texts.skill}</th>
@@ -203,8 +203,8 @@ const OtherSkills = ({
                     <td>{texts.skill5details}</td>
                   </tr>
                 </tbody>
-              </OtherInformationsTable>
-            </OtherInformationsArea>
+              </OtherInformationAreaTable>
+            </OtherInformationAreaArea>
             <DesignArea>
               <Title>{texts.design}</Title>
               <DesignText>{texts.samples}</DesignText>

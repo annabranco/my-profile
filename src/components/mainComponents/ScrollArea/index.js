@@ -170,8 +170,12 @@ const ScrollArea = ({ langModalVisible }) => {
         SKILLS_THIRD_ROW
       ];
       updateCuepoints(new Set(allCuePoints));
+    } else if (!isDesktop && activeSection === EXPERIENCES_SECTION) {
+      const allCuePoints = [];
+      experiences.forEach(exp => allCuePoints.push(exp.id));
+      updateCuepoints(new Set(allCuePoints));
     }
-  }, [activeSection, updateCuepoints]);
+  }, [activeSection, experiences, updateCuepoints]);
 
   return (
     <ScrollAreaWrapper
