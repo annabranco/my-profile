@@ -3,13 +3,13 @@
     "developer": {
       "expanded": "Expand view",
       "formation": "Formation by",
-      "goUp": "go up",
+      "goUp": "previous page",
       "main": "Main skills",
       "other": "Other skills",
       "projects": "Projects",
       "projectsText": "In this section, you can see a few of my projects and creations:",
       "reduced": "Reduce view",
-      "showMore": "show more",
+      "showMore": "next page",
       "showThumbnails": "Show thumbnails"
     },
     "error": {
@@ -105,13 +105,13 @@
     "developer": {
       "expanded": "Expandir visualización",
       "formation": "Formación por",
-      "goUp": "subir",
+      "goUp": "página anterior",
       "main": "Habilidades principales",
       "other": "Otras habilidades",
       "projects": "Proyectos",
       "projectsText": "En esta sección puede ver algunos de mis proyectos y creacciones:",
       "reduced": "Reducir visualización",
-      "showMore": "ver más",
+      "showMore": "próxima página",
       "showThumbnails": "Enseñar miniaturas"
     },
     "error": {
@@ -217,13 +217,13 @@
     "developer": {
       "expanded": "Expandir visualização",
       "formation": "Formação por",
-      "goUp": "subir",
+      "goUp": "página anterior",
       "main": "Principais habilidades",
       "other": "Outras habilidades",
       "projects": "Projetos",
       "projectsText": "Nesta seção você pode ser alguns de meus projetos e criações:",
       "reduced": "Reduzir visualização",
-      "showMore": "ver mais",
+      "showMore": "próxima página",
       "showThumbnails": "Mostrar miniaturas"
     },
     "error": {

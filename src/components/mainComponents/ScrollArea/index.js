@@ -14,7 +14,6 @@ import {
 } from '../../../redux/selectors';
 import { useStateWithLabel } from '../../../utils/hooks';
 import {
-  ADJUST_SCROLL,
   CUEPOINTS,
   SKILLS_FIRST_ROW,
   SKILLS_SECOND_ROW,
@@ -46,7 +45,6 @@ const ScrollArea = ({ langModalVisible }) => {
   const sections = useSelector(secionsTextsSelector);
   const currentSection = useSelector(currentSecionSelector);
 
-  const [adjustScroll, changeAdjust] = useStateWithLabel(0, ADJUST_SCROLL);
   const [cuePointsActivated, updateCuepoints] = useStateWithLabel(
     new Set(),
     CUEPOINTS
@@ -64,11 +62,11 @@ const ScrollArea = ({ langModalVisible }) => {
       scrollAreaEnd: 1200
     },
     experiences: {
-      scrollAreaStart: 1400 + adjustScroll,
-      scrollAreaEnd: 2100 + adjustScroll
+      scrollAreaStart: 1400,
+      scrollAreaEnd: 2100
     },
     seabed: {
-      scrollAreaStart: 2600 + adjustScroll
+      scrollAreaStart: 2600
     }
   };
 
@@ -105,10 +103,6 @@ const ScrollArea = ({ langModalVisible }) => {
 
   const resetScrollPosition = delay =>
     setTimeout(() => scrollAreaRef.current.scrollTo(0, 0), delay);
-
-  const adjustScrollAfterThumbnails = adjustment => {
-    changeAdjust(adjustment);
-  };
 
   const goToNextSection = () => {
     dispatch(changeSection(getNextSection(currentSection)));
@@ -177,7 +171,7 @@ const ScrollArea = ({ langModalVisible }) => {
       ];
       updateCuepoints(new Set(allCuePoints));
     }
-  }, [isDesktop, activeSection]);
+  }, [activeSection, updateCuepoints]);
 
   return (
     <ScrollAreaWrapper
@@ -200,10 +194,7 @@ const ScrollArea = ({ langModalVisible }) => {
 
       {(isDesktop || activeSection === PROJECTS_SECTION) && (
         <ScrollSection title={sectionsTexts.projects}>
-          <Projects
-            adjustScrollAfterThumbnails={adjustScrollAfterThumbnails}
-            changeActiveSection={changeActiveSection}
-          />
+          <Projects changeActiveSection={changeActiveSection} />
         </ScrollSection>
       )}
 

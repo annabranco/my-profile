@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { func } from 'prop-types';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
 import { projectsSelector } from '../../../redux/selectors';
@@ -13,11 +12,10 @@ import {
   BACK_ACTION,
   PROJECTS,
   SHOW_THUMBNAILS_ACTION,
-  SHOW_THUMBNAILS_ON_MOBILE_ACTION,
-  THUMBS_STATE
+  SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../constants';
 
-const Projects = ({ adjustScrollAfterThumbnails }) => {
+const Projects = () => {
   const projectsLoaded = useSelector(projectsSelector);
 
   const [actualPage, changePage] = useStateWithLabel(1, ACTUAL_PAGE);
@@ -28,23 +26,6 @@ const Projects = ({ adjustScrollAfterThumbnails }) => {
     },
     PROJECTS
   );
-  const [thumbsState, updateThumbsState] = useStateWithLabel(
-    {
-      adjustedView: 0,
-      displayThumbnails: true
-    },
-    THUMBS_STATE
-  );
-
-  const toggleProjectsThumbNails = isVisible => {
-    updateThumbsState(prevState => ({
-      adjustedView: isVisible
-        ? prevState.adjustedView + 150
-        : prevState.adjustedView - 150,
-      displayThumbnails: isVisible
-    }));
-    adjustScrollAfterThumbnails(150);
-  };
 
   const onClickChangePage = action => {
     let nextPage;
@@ -60,15 +41,8 @@ const Projects = ({ adjustScrollAfterThumbnails }) => {
     }
   };
 
-  const getThumbnailsStyle = () => {
-    if (thumbsState.displayThumbnails && isDesktop) {
-      return SHOW_THUMBNAILS_ACTION;
-    }
-    if (thumbsState.displayThumbnails) {
-      return SHOW_THUMBNAILS_ON_MOBILE_ACTION;
-    }
-    return null;
-  };
+  const getThumbnailsStyle = () =>
+    isDesktop ? SHOW_THUMBNAILS_ACTION : SHOW_THUMBNAILS_ON_MOBILE_ACTION;
 
   useEffect(() => {
     const organizeProjectsList = numberOfProjectsPerPage => {
@@ -82,24 +56,18 @@ const Projects = ({ adjustScrollAfterThumbnails }) => {
       });
     };
 
-    organizeProjectsList(isDesktop ? 2 : 1);
+    organizeProjectsList(2);
   }, [projectsLoaded, setProjectsState]);
 
   return (
     <ProjectsList
       actualPage={actualPage}
-      displayThumbnails={thumbsState.displayThumbnails}
       onClickChangePage={onClickChangePage}
       projects={projectsState.projects}
       thumbnailsStyle={getThumbnailsStyle()}
-      toggleProjectsThumbNails={toggleProjectsThumbNails}
       totalPages={projectsState.totalPages}
     />
   );
-};
-
-Projects.propTypes = {
-  adjustScrollAfterThumbnails: func.isRequired
 };
 
 export default Projects;

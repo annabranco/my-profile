@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 import { rgba } from 'polished';
-import { applyMiddleware } from 'redux';
 import { Binary } from '../../../assets/images';
 import {
   colorBlack,
