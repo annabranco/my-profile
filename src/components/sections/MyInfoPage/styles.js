@@ -134,6 +134,7 @@ export const KindFish = styled.img`
 KindFish.displayName = 'KindFish';
 
 export const InfoArea = styled.div`
+  z-index: 10;
   height: 230px;
   width: 100%;
   display: flex;
@@ -309,12 +310,14 @@ export const MyNameOnMobileDevices = styled(MyName)`
 MyNameOnMobileDevices.displayName = 'My Name';
 
 export const Photo = styled.img`
-  width: 60%;
-  border-radius: 50%;
-  border: 1px solid green;
-  box-shadow: 0 0 25px 1px ${rgba('green', 0.2)};
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.6)) contrast(0.9) sepia(0)
-    brightness(1.3); ;
+  margin-top: -15%;
+  width: 100%;
+  filter: contrast(0.9) opacity(0.75);
+
+  @media all and (min-width: 768px) {
+    filter: contrast(0.9) opacity(0.45);
+    width: 130%;
+  }
 `;
 Photo.displayName = 'Photo';
 

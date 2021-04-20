@@ -5,7 +5,7 @@ import Social from '../../elements/Social';
 import {
   finishedSelector,
   infoPageTextSelector,
-  secionsTextsSelector
+  sectionsTextsSelector
 } from '../../../redux/selectors';
 import { isDesktop, isFullWindowDesktop } from '../../../utils/device';
 import {
@@ -42,7 +42,7 @@ import { changeSection } from '../../../redux/actions/sections';
 const MyInfoPage = ({ changeActiveSection }) => {
   const finishedScenario = useSelector(finishedSelector);
   const texts = useSelector(infoPageTextSelector);
-  const sections = useSelector(secionsTextsSelector);
+  const sections = useSelector(sectionsTextsSelector);
   const dispatch = useDispatch();
 
   const arrowLines = isDesktop ? 3 : 1;

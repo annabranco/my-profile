@@ -96,6 +96,7 @@
     },
     "sections": {
       "experience": "Professional experience",
+      "formation": "Formation",
       "other": "Other information",
       "projects": "Own projects",
       "technical": "Technical Competences"
@@ -198,6 +199,7 @@
     },
     "sections": {
       "experience": "Experiencia profesional",
+      "formation": "Formación",
       "other": "Otras informaciones",
       "projects": "Proyectos propios",
       "technical": "Competencias técnicas"
@@ -304,12 +306,13 @@
         "Lembrei-me agora daquele filme antigo com uma nave alienígena vivendo em um abismo no mar...",
         "Às vezes eu esqueço que sou só uma personagem dentro de um perfil profissional",
         "Oh.. eu gostaria que tivéssemos tempo para nadar por aí...",
-        "Pois é... eu também adoraria explorar mais, mas temosque nos focar no perfil profissional, não é?"
+        "Pois é... eu também adoraria explorar mais, mas temosque nos focar no perfil profissional, né?"
       ],
       "time2go": "É hora de voltar..."
     },
     "sections": {
       "experience": "Experiência profissional",
+      "formation": "Formação",
       "other": "Outras informações",
       "projects": "Projetos próprios",
       "technical": "Competências técnicas"

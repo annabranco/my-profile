@@ -3,7 +3,8 @@ import {
   SKILLS_SECTION,
   PROJECTS_SECTION,
   EXPERIENCES_SECTION,
-  SEABED_SECTION
+  FORMATION_SECTION,
+  OTHER_INFO_SECTION
 } from '../constants';
 
 const sections = [
@@ -11,7 +12,8 @@ const sections = [
   SKILLS_SECTION,
   PROJECTS_SECTION,
   EXPERIENCES_SECTION,
-  SEABED_SECTION
+  FORMATION_SECTION,
+  OTHER_INFO_SECTION
 ];
 
 export const getNextSection = current => {

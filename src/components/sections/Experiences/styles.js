@@ -34,6 +34,16 @@ Company.displayName = 'Company';
 export const CountryFlag = styled.img`
   margin: 0 5px;
   vertical-align: middle;
+
+  ${({ formation }) =>
+    formation &&
+    css`
+      display: block;
+    `}
+
+  @media all and (min-width: 768px) {
+    display: inline-block;
+  }
 `;
 CountryFlag.displayName = 'Country Flag';
 

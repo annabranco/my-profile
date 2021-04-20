@@ -14,12 +14,6 @@ export const HorizontalBar = styled.div`
       border-top: ${border} solid ${rgba(colorBlueLight, 0.3)};
     `}
 
-  ${({ width }) =>
-    width &&
-    css`
-      width: ${width};
-    `}
-
   ${({ hidden }) =>
     hidden &&
     css`
@@ -38,5 +32,19 @@ export const HorizontalBar = styled.div`
       margin-left: ${margin};
     `}
 
+
+      ${({ formationItems, index }) =>
+    formationItems &&
+    css`
+      width: ${`${(40 / formationItems) * ((index + 1) * formationItems)}px`};
+    `}
+
+  @media all and (min-width: 768px) {
+    ${({ formationItems, index }) =>
+      formationItems &&
+      css`
+        width: ${`${(60 / formationItems) * ((index + 1) * formationItems)}px`};
+      `}
+  }
 `;
 HorizontalBar.displayName = 'Horizontal Bar';

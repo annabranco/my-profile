@@ -7,7 +7,7 @@ import {
   currentLanguageSelector,
   currentSecionSelector,
   headerTitleSelector,
-  secionsTextsSelector
+  sectionsTextsSelector
 } from '../../../redux/selectors';
 import { onChangeLanguage } from '../../core/LanguagesModal';
 import {
@@ -26,7 +26,7 @@ const Header = ({ hideForever }) => {
   const languageSelected = useSelector(currentLanguageSelector);
   const title = useSelector(headerTitleSelector);
   const currentSection = useSelector(currentSecionSelector);
-  const sections = useSelector(secionsTextsSelector);
+  const sections = useSelector(sectionsTextsSelector);
 
   const dispatch = useDispatch();
 

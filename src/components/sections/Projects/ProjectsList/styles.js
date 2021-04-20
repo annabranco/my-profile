@@ -57,8 +57,9 @@ Paginator.displayName = 'Paginator';
 export const ProjectsGrid = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 225px 225px;
-  grid-gap: 15;
+  grid-template-rows: 50% 50%;
+  grid-gap: 15px;
+  height: 70%;
 
   @media all and (min-width: 768px) {
     grid-gap: 30px 40px;
@@ -70,12 +71,16 @@ export const ProjectsGrid = styled.ul`
 ProjectsGrid.displayName = 'Projects Grid';
 
 export const ProjectsSection = styled.section`
-  padding-top: 50px;
+  padding-top: 8vh;
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media all and (min-width: 375px) {
+    padding-top: 10vh;
+  }
 
   @media all and (min-width: 768px) {
     padding-top: 20px;

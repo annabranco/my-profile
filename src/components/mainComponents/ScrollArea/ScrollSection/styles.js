@@ -32,7 +32,7 @@ export const SectionContent = styled.div`
 SectionContent.displayName = 'Section Content';
 
 export const SectionHeader = styled.div`
-  z-index: 3;
+  z-index: 15;
   display: flex;
   justify-content: center;
   align-items: flex-start;

@@ -70,16 +70,18 @@ const Formation = ({
           </>
         ) : (
           <FormationArea>
-            <SeabedCloseButton
-              onClick={() => onClickClose('formationSection')}
-              type="button"
-              aria-label={globalTexts.close}
-            >
-              X
-            </SeabedCloseButton>
+            {isDesktop && (
+              <SeabedCloseButton
+                onClick={() => onClickClose('formationSection')}
+                type="button"
+                aria-label={globalTexts.close}
+              >
+                X
+              </SeabedCloseButton>
+            )}
             <VerticalBar />
             <FormationWrapper>
-              <Title>{texts.formation}</Title>
+              {isDesktop && <Title>{texts.formation}</Title>}
               {formation.sort(customOrder).map(
                 (item, index) =>
                   item.visible && (
@@ -88,9 +90,8 @@ const Formation = ({
                         border="4px"
                         margin="9%"
                         moveY="25px"
-                        width={`${
-                          (60 / formation.length) * ((index + 1) * 10)
-                        }px`}
+                        formationItems={formation.length}
+                        index={index}
                       />
                       <DateArea>
                         {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
@@ -103,9 +104,8 @@ const Formation = ({
                         )}
                       </DateArea>
                       <DetailsArea
-                        margin={`${
-                          (60 / formation.length) * ((index + 1) * 6)
-                        }px`}
+                        formationItems={formation.length}
+                        index={index}
                       >
                         <FormationTitle>
                           {item.title[languageSelected]}
@@ -113,6 +113,7 @@ const Formation = ({
                         <Details>
                           {item.university}
                           <CountryFlag
+                            formation
                             src={getFlagURL(item.countryCode, 'flat', 'small')}
                             alt={item.country[languageSelected]}
                           />

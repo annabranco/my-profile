@@ -39,7 +39,7 @@ export const seabedTextsSelector = createSelector(
   [getTexts],
   texts => texts.seabed
 );
-export const secionsTextsSelector = createSelector(
+export const sectionsTextsSelector = createSelector(
   [getTexts],
   texts => texts.sections
 );

@@ -10,7 +10,7 @@ import Seabed from '../../sections/Seabed';
 import {
   currentSecionSelector,
   experiencesSelector,
-  secionsTextsSelector
+  sectionsTextsSelector
 } from '../../../redux/selectors';
 import { useStateWithLabel } from '../../../utils/hooks';
 import {
@@ -24,7 +24,8 @@ import {
   PROJECTS_SECTION,
   EXPERIENCES_SECTION,
   SEABED_SECTION,
-  ACTIVE_SECTION
+  ACTIVE_SECTION,
+  FORMATION_SECTION
 } from '../../../constants';
 import { ScrollAreaWrapper } from './styles';
 import { isDesktop } from '../../../utils/device';
@@ -36,13 +37,13 @@ import {
 } from '../../sections/MyInfoPage/styles';
 import { changeSection } from '../../../redux/actions/sections';
 import { getNextSection } from '../../../utils/sections';
+import Formation from '../../sections/Formation';
 
 const SCROLL_CUEPOINTS = new Map();
 
 const ScrollArea = ({ langModalVisible }) => {
   const experiences = useSelector(experiencesSelector);
-  const sectionsTexts = useSelector(secionsTextsSelector);
-  const sections = useSelector(secionsTextsSelector);
+  const sectionsTexts = useSelector(sectionsTextsSelector);
   const currentSection = useSelector(currentSecionSelector);
 
   const [cuePointsActivated, updateCuepoints] = useStateWithLabel(
@@ -109,7 +110,8 @@ const ScrollArea = ({ langModalVisible }) => {
     changeActiveSection(getNextSection(currentSection));
   };
 
-  const getNextSectionName = () => sections[getNextSection(currentSection)];
+  const getNextSectionName = () =>
+    sectionsTexts[getNextSection(currentSection)];
 
   useEffect(() => {
     const calculateSkillsScroll = () => {
@@ -172,8 +174,20 @@ const ScrollArea = ({ langModalVisible }) => {
       updateCuepoints(new Set(allCuePoints));
     } else if (!isDesktop && activeSection === EXPERIENCES_SECTION) {
       const allCuePoints = [];
-      experiences.forEach(exp => allCuePoints.push(exp.id));
-      updateCuepoints(new Set(allCuePoints));
+      let currentExperience = 0;
+
+      const addNextExperience = () => {
+        if (currentExperience === experiences.length - 1) {
+          return null;
+        }
+        setTimeout(() => {
+          allCuePoints.push(experiences[currentExperience].id);
+          updateCuepoints(new Set(allCuePoints));
+          currentExperience += 1;
+          addNextExperience();
+        }, 200);
+      };
+      addNextExperience();
     }
   }, [activeSection, experiences, updateCuepoints]);
 
@@ -217,6 +231,15 @@ const ScrollArea = ({ langModalVisible }) => {
             changeActiveSection={changeActiveSection}
             cuePointsActivated={cuePointsActivated}
             resetScrollPosition={resetScrollPosition}
+          />
+        </ScrollSection>
+      )}
+
+      {!isDesktop && activeSection === FORMATION_SECTION && (
+        <ScrollSection title={sectionsTexts.other}>
+          <Formation
+            changeActiveSection={changeActiveSection}
+            status={{ read: true, visible: true }}
           />
         </ScrollSection>
       )}

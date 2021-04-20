@@ -50,7 +50,7 @@ const Experiences = ({ cuePointsActivated }) => {
       <VerticalBar />
       <ExperiencesWrapper>
         {experiences.sort(customOrder).map(
-          item =>
+          (item, index) =>
             item.visible && (
               <ExperienceItem
                 key={item.dateBeginValue}
@@ -61,7 +61,8 @@ const Experiences = ({ cuePointsActivated }) => {
                   border="2px"
                   margin="9%"
                   moveY="25px"
-                  width="20%"
+                  formationItems={experiences.length}
+                  index={index}
                 />
                 <DateArea>
                   {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
