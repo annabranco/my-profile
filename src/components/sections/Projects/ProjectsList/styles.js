@@ -64,8 +64,7 @@ export const ProjectsGrid = styled.ul`
   @media all and (min-width: 768px) {
     grid-gap: 30px 40px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 360px;
-    height: 390px;
+    grid-template-rows: auto;
   }
 `;
 ProjectsGrid.displayName = 'Projects Grid';
@@ -86,7 +85,7 @@ export const ProjectsSection = styled.section`
   @media all and (min-width: 768px) {
     padding-top: 20px;
     width: 60%;
-    min-height: 400px;
+    min-height: 35vw;
   }
 `;
 ProjectsSection.displayName = 'PROJECTS Section';
