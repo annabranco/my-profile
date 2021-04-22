@@ -1,23 +1,24 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
+import { skillsSelector } from '../../../redux/selectors';
+import { isDesktop } from '../../../utils/device';
 import FrontendSkillGroup from './FrontendSkillGroup';
 import SkillLevel from './SkillLevel';
-import { skillsSelector } from '../../../redux/selectors';
 import {
   SKILLS_FIRST_ROW,
   SKILLS_SECOND_ROW,
   SKILLS_THIRD_ROW
 } from '../../../constants';
 import {
-  SkillsArea,
-  Title,
-  SkillsGrid,
-  SkillItem,
+  Logo,
   Name,
   SkillGroup,
+  SkillItem,
+  SkillsArea,
+  SkillsGrid,
   SkillsInsideGroup,
-  Logo
+  Title
 } from './styles';
 
 const FIRST_ROW_ITEMS = 'Frontend';
@@ -60,19 +61,26 @@ const Skills = ({ cuePointsActivated }) => {
             />
           ) : (
             <SkillGroup isVisible={isVisible(index)} position={index}>
-              <Title>{skillObject.name}</Title>
+              <Title>
+                <h3>{skillObject.name}</h3>
+              </Title>
               <SkillsInsideGroup>
-                <Logo src={skillObject.logo} alt="" />
+                {isDesktop && <Logo src={skillObject.logo} alt="" />}
                 <SkillsGrid>
-                  {skillObject.skills.map(skill => (
-                    <SkillItem
-                      key={skill.skill}
-                      isLastElementAlone={skillObject.skills.length % 2 !== 0}
-                    >
-                      <Name>{skill.skill}</Name>
-                      <SkillLevel level={skill.level} skill={skill.skill} />
-                    </SkillItem>
-                  ))}
+                  {skillObject.skills.map(skill => {
+                    if (skill.extended && !isDesktop) {
+                      return null;
+                    }
+                    return (
+                      <SkillItem
+                        key={skill.skill}
+                        isLastElementAlone={skillObject.skills.length % 2 !== 0}
+                      >
+                        <Name>{skill.skill}</Name>
+                        <SkillLevel level={skill.level} skill={skill.skill} />
+                      </SkillItem>
+                    );
+                  })}
                 </SkillsGrid>
               </SkillsInsideGroup>
             </SkillGroup>

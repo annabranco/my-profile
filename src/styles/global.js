@@ -1,6 +1,6 @@
-import { css, createGlobalStyle } from 'styled-components';
+import { css, createGlobalStyle, keyframes } from 'styled-components';
 import { rgba } from 'polished';
-import { colorWhite } from './theme';
+import { colorWhite, fontText } from './theme';
 import { Sea } from '../assets/images';
 
 export const NotDisplayed = css`
@@ -12,7 +12,7 @@ export const Hidden = css`
 `;
 
 export const FullScreen = css`
-  height: 100vh;
+  height: ${`${window.innerHeight}px`};
   padding: 60px;
 `;
 
@@ -83,6 +83,9 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+div, p {
+    font-family: ${fontText};
+}
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -104,5 +107,23 @@ table {
     width: 5px;
     box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
       inset -2px -2px 2px rgba(0, 0, 0, 0.75);
+  }
+`;
+
+export const Appear = keyframes`
+  0%, 50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+export const Disappear = keyframes`
+  0%, 90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 `;

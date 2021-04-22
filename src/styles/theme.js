@@ -1,7 +1,8 @@
 /* Fonts */
-export const fontTitle = 'Alegreya Sans SC; sans-serif';
-export const fontTitleAlt = 'Acme; sans-serif';
-export const fontSubtitle = 'Corben; cursive';
+export const fontTitle = "'Alegreya Sans SC', cursive";
+export const fontTitleAlt = "'Acme', sans-serif";
+export const fontSubtitle = "'Poppins', sans-serif";
+export const fontText = "'Corben', cursive";
 
 /* ======== COLOR PALETTE */
 

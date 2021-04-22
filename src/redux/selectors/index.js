@@ -7,6 +7,7 @@ export const finishedSelector = state => state.finishedScenario;
 export const formationSelector = state => state.formation;
 export const projectsSelector = state => state.projects;
 export const skillsSelector = state => state.skills;
+export const currentSecionSelector = state => state.currentSection;
 
 const getTexts = state => state.texts;
 
@@ -26,6 +27,10 @@ export const infoPageTextSelector = createSelector(
   [getTexts],
   texts => texts.infoPage
 );
+export const instructionsTextSelector = createSelector(
+  [getTexts],
+  texts => texts.instructions
+);
 export const languagesModelTextsSelector = createSelector(
   [getTexts],
   texts => texts.languages
@@ -38,7 +43,7 @@ export const seabedTextsSelector = createSelector(
   [getTexts],
   texts => texts.seabed
 );
-export const secionsTextsSelector = createSelector(
+export const sectionsTextsSelector = createSelector(
   [getTexts],
   texts => texts.sections
 );

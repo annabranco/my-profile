@@ -57,7 +57,11 @@ import {
 let HERO;
 let float;
 
-const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
+const SeaBed = ({
+  cuePointsActivated,
+  openSeabedElement,
+  resetScrollPosition
+}) => {
   const [pearlFound, toggleHasPearl] = useStateWithLabel(false, 'pearlFound');
   const texts = useSelector(seabedTextsSelector);
   const isFinished = useSelector(finishedSelector);
@@ -75,9 +79,9 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
     {
       back2Surface: false,
       crossingBorder: false,
+      facing: RIGHT,
       isGoingUp: false,
-      isSwimming: false,
-      facing: RIGHT
+      isSwimming: false
     },
     MOVEMENTS
   );
@@ -138,6 +142,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   };
 
   const onClickOpen = type => {
+    openSeabedElement(true);
     if (type === 'formationSection' && !formationState.visible) {
       return changeFormationState({
         active: true,
@@ -156,6 +161,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   };
 
   const onClickClose = type => {
+    openSeabedElement(false);
     if (type === 'formationSection' && formationState.visible) {
       changeFormationState(prevState => ({
         active: isDesktop ? prevState.active : false,
@@ -187,9 +193,9 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
     changeHeroMovements({
       back2Surface: false,
       crossingBorder: false,
+      facing: RIGHT,
       isGoingUp: false,
-      isSwimming: false,
-      facing: RIGHT
+      isSwimming: false
     });
     changeFormationState({
       active: false,
@@ -202,6 +208,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       visible: false
     });
     hideInstructions(true);
+    openSeabedElement(false);
     dispatch(triggerFinishScenario(true));
   };
 
@@ -258,12 +265,15 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
         facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
       });
     }, 4000);
-    return heroHasMoved(updatedPosition);
+    return heroHasMoved(
+      updatedPosition,
+      swimmingImage === SwimmingRight ? RIGHT : LEFT
+    );
   };
 
   // ======= Function that fires events when HERO reaches some specific places
 
-  const heroHasMoved = updatedPosition => {
+  const heroHasMoved = (updatedPosition, facing) => {
     if (!instructionsHidden) {
       hideInstructions(true);
     }
@@ -273,17 +283,6 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
         ...heroMovements,
         crossingBorder: false
       });
-    }
-
-    // -WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
-    if (
-      formationState.read &&
-      !formationState.active &&
-      otherSkillsState.read &&
-      !otherSkillsState.active &&
-      updatedPosition.frame === CENTER
-    ) {
-      goBackUp();
     }
 
     // -Highlights the text "Formation" when hero swims over it
@@ -360,6 +359,17 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
         changeOtherSkillsState(prevState => ({ ...prevState, active: true }));
       }
     }
+
+    // -WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
+    if (
+      formationState.read &&
+      !formationState.active &&
+      otherSkillsState.read &&
+      !otherSkillsState.active &&
+      updatedPosition.frame === CENTER
+    ) {
+      goBackUp(facing);
+    }
   };
 
   // ======== Triggers a random thought when the HERO reaches any outer border.
@@ -372,15 +382,15 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
   };
 
   // ======== All page viewed. Reset all states and go back to first page
-  const goBackUp = () => {
-    // window.removeEventListener('keyup', captureHeroMovement);
+  const goBackUp = facing => {
     setTimeout(() => {
       clearTimeout(float);
-      HeroImg.current.src =
-        heroMovements.facing === RIGHT ? SwimmingRight : SwimmingLeft;
+      HeroImg.current.src = facing === RIGHT ? SwimmingRight : SwimmingLeft;
       changePositionState({ frame: CENTER, position: CENTER });
       changeHeroMovements({
-        ...heroMovements,
+        back2Surface: false,
+        crossingBorder: false,
+        facing,
         isGoingUp: true,
         isSwimming: false
       });
@@ -389,9 +399,9 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       changeHeroMovements({
         back2Surface: true,
         crossingBorder: false,
+        facing,
         isGoingUp: true,
-        isSwimming: false,
-        facing: heroMovements.facing
+        isSwimming: false
       });
     }, 1500);
 
@@ -409,9 +419,9 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       changeHeroMovements({
         back2Surface: false,
         crossingBorder: false,
+        facing: RIGHT,
         isGoingUp: false,
-        isSwimming: false,
-        facing: RIGHT
+        isSwimming: false
       });
       HERO.style.left = `${window.innerWidth * 0.4}px`;
       HeroImg.current.src = FloatingRight;
@@ -514,8 +524,8 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
       <HeroWrapper
         back2Surface={heroMovements.back2Surface}
         crossingBorder={heroMovements.crossingBorder}
-        isGoingUp={heroMovements.isGoingUp}
         id="hero"
+        isGoingUp={heroMovements.isGoingUp}
         ref={HeroRef}
       >
         <Bubbles
@@ -541,12 +551,12 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
 
       <FishesElement />
       <ShellElement
-        toggleHasPearl={toggleHasPearl}
         hidden={positionState.frame !== CENTER}
+        toggleHasPearl={toggleHasPearl}
       />
       <CrabElement
-        position={positionState}
         hidden={positionState.frame !== RIGHT}
+        position={positionState}
       />
 
       <SeabedFloor>
@@ -584,6 +594,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
 
 SeaBed.propTypes = {
   cuePointsActivated: instanceOf(Set).isRequired,
+  openSeabedElement: func.isRequired,
   resetScrollPosition: func.isRequired
 };
 

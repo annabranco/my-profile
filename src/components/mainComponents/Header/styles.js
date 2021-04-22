@@ -22,30 +22,39 @@ export const AppTitle = styled.h2`
   order  : 1;
   height: 20px;
   font-family: ${fontTitleAlt};
+  text-transform: uppercase;
+  font-size: 1.2rem;
 
   @media all and (min-width: 500px) {
+    text-transform: unset;
     order: 2;
+    font-size: 1rem;
   }
 `;
 AppTitle.displayName = 'AppTitle';
 
 export const Flag = styled.div`
   display: inline;
-  margin: 0 10px;
+  margin: 0 5px;
   outline: none;
   opacity: 0.3;
   cursor: pointer;
+  max-width: 32px;
 
   ${props =>
     props.lang === props.languageSelected &&
     css`
       ${activeFlag}
     `}
+
+  @media all and (min-width: 768px) {
+    margin: 0 10px;
+  }
 `;
 Flag.displayName = 'Flag';
 
 export const HeaderArea = styled.header`
-  z-index: 2;
+  z-index: 50;
   position: fixed;
   top: 0;
   left: 0;
@@ -58,19 +67,21 @@ export const HeaderArea = styled.header`
     ${rgba(colorWhite, 0.6)} 50%
   );
   height: 40px;
-  width: 100%;
-  padding: 0 80px;
+  width: 100vw;
+  padding: 0 20px;
 
   @media all and (min-width: 500px) {
     flex-wrap: nowrap;
+    padding: 0 80px;
   }
 `;
 HeaderArea.displayName = 'Header';
 
 export const LanguagesWrapper = styled.div`
   ${headerInner}
-  order: 3;
+  order: 2;
   height: 20px;
+
   @media all and (min-width: 500px) {
     order: 1;
   }
@@ -78,8 +89,13 @@ export const LanguagesWrapper = styled.div`
 LanguagesWrapper.displayName = 'LanguagesWrapper';
 
 export const Version = styled.p`
+  display: none;
   ${headerInner}
   font-family: ${fontTitle};
   order: 3;
+
+  @media all and (min-width: 768px) {
+    display: block;
+  }
 `;
 Version.displayName = 'Version';

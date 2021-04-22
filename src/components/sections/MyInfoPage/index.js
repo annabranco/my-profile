@@ -5,19 +5,21 @@ import {
   finishedSelector,
   infoPageTextSelector
 } from '../../../redux/selectors';
-import { isFullWindowDesktop } from '../../../utils/device';
+import { isDesktop, isFullWindowDesktop } from '../../../utils/device';
 import {
-  Mugshot,
   Barquinho,
   Birds,
-  BlinkingFish
+  BlinkingFish,
+  Mugshot
 } from '../../../assets/images';
 import {
+  Advise,
+  ArrowIcon,
   BirdsFlying,
-  FirstArrowIcon,
   InfoArea,
   InfoMessage,
   JobTitle,
+  KindFish,
   LineOfArrows,
   MainAreaWrapper,
   MeuBarquinho,
@@ -27,17 +29,14 @@ import {
   MyNameOnMobileDevices,
   Photo,
   PhotoWrapper,
-  ScrollDownDisplay,
-  SecondArrowIcon,
   SectionMyInfo,
-  SocialArea,
-  ThirdArrowIcon,
-  KindFish
+  SocialArea
 } from './styles';
 
 const MyInfoPage = () => {
   const finishedScenario = useSelector(finishedSelector);
   const texts = useSelector(infoPageTextSelector);
+  const arrowLines = isDesktop ? 3 : 1;
 
   return (
     <SectionMyInfo id="My Info Section">
@@ -67,37 +66,29 @@ const MyInfoPage = () => {
         <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
 
         {!isFullWindowDesktop && (
-          <MyInfoWrapper className="infoPage__advise">
-            {texts.advise}
-          </MyInfoWrapper>
+          <Advise className="infoPage__advise">{texts.advise}</Advise>
         )}
 
-        <ScrollDownDisplay>
-          <LineOfArrows>
-            {[0, 1, 2].map(index => (
-              <FirstArrowIcon
-                key={index}
-                className="fas fa-angle-double-down"
-              />
+        {isDesktop && (
+          <>
+            {[...Array(arrowLines).keys()].map(line => (
+              <LineOfArrows key={line}>
+                {isDesktop ? (
+                  <>
+                    {[0, 1, 2].map(index => (
+                      <ArrowIcon
+                        key={`${line}-${index}`}
+                        className="fas fa-angle-double-down"
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <ArrowIcon className="fas fa-angle-double-down" />
+                )}
+              </LineOfArrows>
             ))}
-          </LineOfArrows>
-          <LineOfArrows>
-            {[0, 1, 2].map(index => (
-              <SecondArrowIcon
-                key={index}
-                className="fas fa-angle-double-down"
-              />
-            ))}
-          </LineOfArrows>
-          <LineOfArrows>
-            {[0, 1, 2].map(index => (
-              <ThirdArrowIcon
-                key={index}
-                className="fas fa-angle-double-down"
-              />
-            ))}
-          </LineOfArrows>
-        </ScrollDownDisplay>
+          </>
+        )}
       </MyInfoWrapper>
     </SectionMyInfo>
   );

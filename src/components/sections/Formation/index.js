@@ -1,8 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
+import {
+  formationSelector,
+  globalTextsSelector,
+  currentLanguageSelector,
+  seabedTextsSelector
+} from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import { getFlagURL } from '../../../utils/icons';
+import { seabedElementsPropType } from '../../../types';
+import { HorizontalBar } from '../../elements/HorizontalBar/styles';
+import { Title } from '../../mainComponents/ScrollArea/ScrollSection/styles';
+import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';
+import { TextFindSomething } from '../Seabed/styles';
 import {
   Details,
   DetailsArea,
@@ -14,17 +25,6 @@ import {
   SectionFormation,
   VerticalBar
 } from './styles';
-import { SeabedCloseButton, TextFindSomething } from '../Seabed/styles';
-import { HorizontalBar } from '../../elements/HorizontalBar/styles';
-import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';
-import { Title } from '../../mainComponents/ScrollArea/ScrollSection/styles';
-import { seabedElementsPropType } from '../../../types';
-import {
-  formationSelector,
-  globalTextsSelector,
-  currentLanguageSelector,
-  seabedTextsSelector
-} from '../../../redux/selectors';
 
 const FORMATION_ON_TOP = 'older'; // newer or older
 
@@ -69,28 +69,20 @@ const Formation = ({
             <FakeText>- - - --- --</FakeText>
           </>
         ) : (
-          <FormationArea>
-            <SeabedCloseButton
-              onClick={() => onClickClose('formationSection')}
-              type="button"
-              aria-label={globalTexts.close}
-            >
-              X
-            </SeabedCloseButton>
+          <FormationArea onClick={() => onClickClose('formationSection')}>
             <VerticalBar />
             <FormationWrapper>
-              <Title>{texts.formation}</Title>
+              {isDesktop && <Title>{texts.formation}</Title>}
               {formation.sort(customOrder).map(
                 (item, index) =>
                   item.visible && (
                     <FormationItem visible key={item.dateBeginValue}>
                       <HorizontalBar
                         border="4px"
+                        formationItems={formation.length}
+                        index={index}
                         margin="9%"
                         moveY="25px"
-                        width={`${
-                          (60 / formation.length) * ((index + 1) * 10)
-                        }px`}
                       />
                       <DateArea>
                         {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
@@ -103,9 +95,8 @@ const Formation = ({
                         )}
                       </DateArea>
                       <DetailsArea
-                        margin={`${
-                          (60 / formation.length) * ((index + 1) * 6)
-                        }px`}
+                        formationItems={formation.length}
+                        index={index}
                       >
                         <FormationTitle>
                           {item.title[languageSelected]}
@@ -113,12 +104,18 @@ const Formation = ({
                         <Details>
                           {item.university}
                           <CountryFlag
-                            src={getFlagURL(item.countryCode, 'flat', 'small')}
                             alt={item.country[languageSelected]}
+                            formation
+                            round
+                            src={getFlagURL({
+                              country: item.countryCode,
+                              size: 'small',
+                              style: 'round3d'
+                            })}
                           />
                         </Details>
                         {item.gradeText && (
-                          <Details>
+                          <Details subtext>
                             {item.gradeText[languageSelected]}
                             {item.grade.toFixed(2)}
                           </Details>
@@ -136,9 +133,14 @@ const Formation = ({
 };
 
 Formation.propTypes = {
-  onClickClose: func.isRequired,
-  onClickOpen: func.isRequired,
+  onClickClose: func,
+  onClickOpen: func,
   status: seabedElementsPropType.isRequired
+};
+
+Formation.defaultProps = {
+  onClickClose: () => null,
+  onClickOpen: () => null
 };
 
 export default Formation;

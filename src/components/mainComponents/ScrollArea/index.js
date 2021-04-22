@@ -1,51 +1,95 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { bool } from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { bool, func } from 'prop-types';
+import {
+  currentSecionSelector,
+  experiencesSelector,
+  sectionsTextsSelector
+} from '../../../redux/selectors';
+import { changeSection } from '../../../redux/actions/sections';
+import { isDesktop } from '../../../utils/device';
+import { useStateWithLabel } from '../../../utils/hooks';
+import { getNextSection, getPreviousSection } from '../../../utils/sections';
+import SwipeInstructions from '../../elements/SwipeInstructions';
 import Experiences from '../../sections/Experiences';
+import Formation from '../../sections/Formation';
 import MyInfoPage from '../../sections/MyInfoPage';
 import Projects from '../../sections/Projects';
 import ScrollSection from './ScrollSection';
-import Skills from '../../sections/Skills';
 import Seabed from '../../sections/Seabed';
+import Skills from '../../sections/Skills';
+import OtherSkillsInfo from '../../sections/OtherSkills/OtherSkillsInfo';
 import {
-  experiencesSelector,
-  secionsTextsSelector
-} from '../../../redux/selectors';
-import { useStateWithLabel } from '../../../utils/hooks';
-import {
-  ADJUST_SCROLL,
+  ACTIVE_SECTION,
+  BACK_ACTION,
   CUEPOINTS,
+  EXPERIENCES,
+  EXPERIENCES_SECTION,
+  FORMATION_SECTION,
+  INFO_PAGE_SECTION,
+  OTHER_INFO_SECTION,
+  PROJECTS,
+  PROJECTS_SECTION,
+  SEABED_AREA,
+  SEABED_SECTION,
+  SHOW_INSTRUCTIONS,
   SKILLS_FIRST_ROW,
   SKILLS_SECOND_ROW,
-  SKILLS_THIRD_ROW,
-  SEABED_AREA
+  SKILLS_SECTION,
+  SKILLS_THIRD_ROW
 } from '../../../constants';
+import {
+  ArrowIcon,
+  LineOfArrows,
+  MoreText,
+  ScrollDownDisplay
+} from '../../sections/MyInfoPage/styles';
 import { ScrollAreaWrapper } from './styles';
 
 const SCROLL_CUEPOINTS = new Map();
+let touchEvent = 0;
 
-const ScrollArea = ({ langModalVisible }) => {
+const ScrollArea = ({
+  isSeabedElementOpened,
+  langModalVisible,
+  openSeabedElement
+}) => {
   const experiences = useSelector(experiencesSelector);
-  const sectionsTexts = useSelector(secionsTextsSelector);
+  const sectionsTexts = useSelector(sectionsTextsSelector);
+  const currentSection = useSelector(currentSecionSelector);
 
-  const [adjustScroll, changeAdjust] = useStateWithLabel(0, ADJUST_SCROLL);
   const [cuePointsActivated, updateCuepoints] = useStateWithLabel(
     new Set(),
     CUEPOINTS
   );
+  const [activeSection, changeActiveSection] = useStateWithLabel(
+    INFO_PAGE_SECTION,
+    ACTIVE_SECTION
+  );
+  const [showInstructions, toggleInstructions] = useStateWithLabel(
+    true,
+    SHOW_INSTRUCTIONS
+  );
+
   const scrollAreaRef = useRef();
+  const dispatch = useDispatch();
+  const touchActive = useRef();
 
   const SECTIONS_INTERVAL_POINTS = {
     skills: {
       scrollAreaStart: 200,
       scrollAreaEnd: 1200
     },
+    projects: {
+      scrollAreaStart: 1000,
+      scrollAreaEnd: 2000
+    },
     experiences: {
-      scrollAreaStart: 1400 + adjustScroll,
-      scrollAreaEnd: 2100 + adjustScroll
+      scrollAreaStart: 1400,
+      scrollAreaEnd: 2100
     },
     seabed: {
-      scrollAreaStart: 2800 + adjustScroll
+      scrollAreaStart: 2600
     }
   };
 
@@ -65,7 +109,7 @@ const ScrollArea = ({ langModalVisible }) => {
       if (scrollPosition < cuePoint) {
         cuePointsAfterScrolling.delete(cuePointName);
       } else if (scrollPosition >= Number(cuePoint)) {
-        if (cuePointName === 'experiencesSection') {
+        if (cuePointName === EXPERIENCES) {
           // Makes experiences also go out when scrolling down
           //     experiencesSectionIds.forEach(experienceCuePoint => {
           //       cuePointsAfterScrolling.delete(experienceCuePoint);
@@ -83,9 +127,47 @@ const ScrollArea = ({ langModalVisible }) => {
   const resetScrollPosition = delay =>
     setTimeout(() => scrollAreaRef.current.scrollTo(0, 0), delay);
 
-  const adjustScrollAfterThumbnails = adjustment => {
-    changeAdjust(adjustment);
+  const goToNextSection = type => {
+    if (type === BACK_ACTION) {
+      dispatch(changeSection(getPreviousSection(currentSection)));
+      changeActiveSection(getPreviousSection(currentSection));
+    } else {
+      dispatch(changeSection(getNextSection(currentSection)));
+      changeActiveSection(getNextSection(currentSection));
+    }
   };
+
+  const handleTouchStart = ev => {
+    const xCoord = ev.changedTouches[0].screenX;
+    touchEvent = xCoord;
+  };
+
+  const handleTouchEnd = ev => {
+    const xCoord = ev.changedTouches[0].screenX;
+    const difference = touchEvent - xCoord;
+
+    if (difference >= 200) {
+      if (showInstructions && !langModalVisible) {
+        ev.stopPropagation();
+        toggleInstructions(false);
+        return;
+      }
+      goToNextSection();
+    } else if (difference <= -200) {
+      if (showInstructions && !langModalVisible) {
+        ev.stopPropagation();
+        toggleInstructions(false);
+        return;
+      }
+      goToNextSection(BACK_ACTION);
+    }
+    setTimeout(() => {
+      touchEvent = 0;
+    }, 1000);
+  };
+
+  const getNextSectionName = () =>
+    sectionsTexts[getNextSection(currentSection)];
 
   useEffect(() => {
     const calculateSkillsScroll = () => {
@@ -123,7 +205,14 @@ const ScrollArea = ({ langModalVisible }) => {
         experiencesSectionIds.add(experiences[index].id);
         index += 1;
       }
-      SCROLL_CUEPOINTS.set(scrollAreaEnd, 'experiencesSection');
+      SCROLL_CUEPOINTS.set(scrollAreaEnd, EXPERIENCES);
+    };
+
+    const calculateProjectsScroll = () => {
+      SCROLL_CUEPOINTS.set(
+        SECTIONS_INTERVAL_POINTS.projects.scrollAreaStart,
+        PROJECTS
+      );
     };
 
     const calculateSeabedScroll = () => {
@@ -134,41 +223,128 @@ const ScrollArea = ({ langModalVisible }) => {
     };
 
     calculateSkillsScroll();
+    calculateProjectsScroll();
     calculateExperiencesScroll();
     calculateSeabedScroll();
   }, [SECTIONS_INTERVAL_POINTS, experiences, experiencesSectionIds]);
 
+  useEffect(() => {
+    if (!isDesktop && activeSection === SKILLS_SECTION) {
+      const allCuePoints = [
+        SKILLS_FIRST_ROW,
+        SKILLS_SECOND_ROW,
+        SKILLS_THIRD_ROW
+      ];
+      updateCuepoints(new Set(allCuePoints));
+    } else if (!isDesktop && activeSection === EXPERIENCES_SECTION) {
+      const allCuePoints = [];
+      let currentExperience = 0;
+
+      const addNextExperience = () => {
+        if (currentExperience === experiences.length - 1) {
+          return null;
+        }
+        allCuePoints.push(experiences[currentExperience].id);
+        updateCuepoints(new Set(allCuePoints));
+        currentExperience += 1;
+
+        return setTimeout(() => {
+          addNextExperience();
+        }, 50);
+      };
+      addNextExperience();
+    }
+  }, [activeSection, experiences, updateCuepoints]);
+
+  useEffect(() => {
+    if (!isDesktop && !touchActive.current) {
+      document.addEventListener('touchstart', handleTouchStart);
+      document.addEventListener('touchend', handleTouchEnd);
+      touchActive.current = true;
+    }
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+      touchActive.current = false;
+    };
+  }, [handleTouchStart, handleTouchEnd, handleTouchEnd]);
+
   return (
     <ScrollAreaWrapper
+      isSeabedElementOpened={isSeabedElementOpened}
       langModalVisible={langModalVisible}
       onScroll={handleScroll}
       ref={scrollAreaRef}
     >
-      <MyInfoPage />
-      <ScrollSection title={sectionsTexts.technical}>
-        <Skills cuePointsActivated={cuePointsActivated} />
-      </ScrollSection>
-
-      <ScrollSection title={sectionsTexts.projects}>
-        <Projects adjustScrollAfterThumbnails={adjustScrollAfterThumbnails} />
-      </ScrollSection>
-
-      <ScrollSection title={sectionsTexts.experience}>
-        <Experiences cuePointsActivated={cuePointsActivated} />
-      </ScrollSection>
-
-      <ScrollSection title={sectionsTexts.other}>
-        <Seabed
-          cuePointsActivated={cuePointsActivated}
-          resetScrollPosition={resetScrollPosition}
+      {!isDesktop && showInstructions && (
+        <SwipeInstructions
+          onCloseInstructions={toggleInstructions}
+          langModalVisible={langModalVisible}
         />
-      </ScrollSection>
+      )}
+
+      {(isDesktop || activeSection === INFO_PAGE_SECTION) && <MyInfoPage />}
+
+      {(isDesktop || activeSection === SKILLS_SECTION) && (
+        <ScrollSection title={sectionsTexts.technical}>
+          <Skills cuePointsActivated={cuePointsActivated} />
+        </ScrollSection>
+      )}
+
+      {(isDesktop || activeSection === PROJECTS_SECTION) && (
+        <ScrollSection title={sectionsTexts.projects}>
+          <Projects cuePointsActivated={cuePointsActivated} />
+        </ScrollSection>
+      )}
+
+      {(isDesktop || activeSection === EXPERIENCES_SECTION) && (
+        <ScrollSection title={sectionsTexts.experience}>
+          <Experiences cuePointsActivated={cuePointsActivated} />
+        </ScrollSection>
+      )}
+
+      {(isDesktop || activeSection === SEABED_SECTION) && (
+        <ScrollSection title={sectionsTexts.other}>
+          <Seabed
+            cuePointsActivated={cuePointsActivated}
+            openSeabedElement={openSeabedElement}
+            resetScrollPosition={resetScrollPosition}
+          />
+        </ScrollSection>
+      )}
+
+      {!isDesktop && activeSection === FORMATION_SECTION && (
+        <ScrollSection title={sectionsTexts.other}>
+          <Formation status={{ active: true, read: true, visible: true }} />
+        </ScrollSection>
+      )}
+
+      {!isDesktop && activeSection === OTHER_INFO_SECTION && (
+        <ScrollSection title={sectionsTexts.other}>
+          <OtherSkillsInfo visible />
+        </ScrollSection>
+      )}
+
+      {!isDesktop && (
+        <ScrollDownDisplay sections>
+          <MoreText onClick={goToNextSection}>{getNextSectionName()}</MoreText>
+          <LineOfArrows>
+            <ArrowIcon
+              className="fas fa-angle-double-down"
+              goBack={activeSection === OTHER_INFO_SECTION}
+              sections
+            />
+          </LineOfArrows>
+        </ScrollDownDisplay>
+      )}
     </ScrollAreaWrapper>
   );
 };
 
 ScrollArea.propTypes = {
-  langModalVisible: bool.isRequired
+  langModalVisible: bool.isRequired,
+  isSeabedElementOpened: bool.isRequired,
+  openSeabedElement: func.isRequired
 };
 
 export default ScrollArea;

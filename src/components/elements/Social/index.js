@@ -1,4 +1,5 @@
 import React from 'react';
+import { infoPageTextPropType } from '../../../types';
 import {
   Icon,
   Link,
@@ -9,7 +10,6 @@ import {
   SocialItemSkype,
   Text
 } from './styles';
-import { infoPageTextPropType } from '../../../types';
 
 const Social = ({ texts }) => (
   <SocialArea>

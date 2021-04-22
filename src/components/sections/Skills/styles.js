@@ -1,16 +1,17 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
-  colorGreenBright,
-  colorWhite,
   colorBlack,
   colorBlueWater,
-  fontTitleAlt,
+  colorGreenBright,
+  colorWhite,
+  colorYellowBright,
   fontTitle,
-  colorYellowBright
+  fontTitleAlt
 } from '../../../styles/theme';
 
 export const Logo = styled.img`
+  margin: 0 auto;
   height: 30%;
   width: 30%;
 `;
@@ -27,44 +28,49 @@ Name.displayName = 'Name';
 
 export const SkillsArea = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, calc(100% / 4 - 15px));
-  grid-gap: 20px;
+  grid-template-columns: repeat(4, calc(100% / 4));
+  grid-gap: 20px 5px;
+  justify-content: center;
+  align-items: center;
   border-radius: 30px;
   background-image: linear-gradient(
     ${rgba(colorGreenBright, 0.1)},
     ${rgba(colorWhite, 0.2)}
   );
-  height: 600px;
-  width: 90vw;
+  height: 95%;
+  width: 100vw;
   padding: 45px 40px 80px;
   overflow: hidden;
 
   @media all and (min-width: 768px) {
-    /* opacity: 0; */
-    /* transform: translate(0, 100vh); */
+    grid-template-columns: repeat(4, calc(100% / 4 - 15px));
+    grid-gap: 20px;
+    height: 600px;
+    width: 90vw;
     transition: all ease 2s;
-
-    &.comeIn {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
   }
 `;
 SkillsArea.displayName = 'Skills Area';
 
 export const SkillsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 60px);
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media all and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 60px);
+    grid-gap: 20px;
+  }
 `;
 SkillsGrid.displayName = 'Skills Grid';
 
 export const SkillGroup = styled.div`
   max-width: 280px;
   border-radius: 10%;
-  margin: 20px 0 10px;
-  padding-bottom: 10px;
   opacity: 0;
+
   &:hover {
     background: ${rgba(colorYellowBright, 0.1)};
   }
@@ -102,13 +108,23 @@ export const SkillGroup = styled.div`
       margin-top: 0;
       opacity: 1;
     `}
+
+  @media all and (min-width: 768px) {
+    margin: 20px 0 10px;
+    padding-bottom: 10px;
+  }
 `;
 SkillGroup.displayName = 'Skill Group';
 
 export const SkillsInsideGroup = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   width: 100%;
+
+  @media all and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 SkillsInsideGroup.displayName = 'Skills Inside Group';
 
@@ -118,33 +134,47 @@ export const SkillItem = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: ${({ group }) =>
+    group === 'Frontend' ? '0 auto 10px' : '0 auto 2px'};
 
-  &:hover .skills__inner--stars {
-    display: block;
-  }
-
-  ${props =>
-    props.isLastElementAlone &&
+  ${({ isLastElementAlone }) =>
+    isLastElementAlone &&
     css`
-      &:last-of-type {
-        grid-column: span 2;
+      @media all and (min-width: 768px) {
+        &:last-of-type {
+          grid-column: span 2;
+        }
       }
     `}
+
+  @media all and (min-width: 768px) {
+    margin: 0 auto 10px;
+  }
 `;
 SkillItem.displayName = 'Skill Item';
 
-export const Title = styled.h3`
+export const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid ${colorBlack};
   border-radius: 10px 0;
-  margin: 0 0 15px;
+  margin: 0 auto 5px;
   background-image: linear-gradient(
     ${rgba(colorWhite, 0.2)},
     ${rgba(colorBlueWater, 0.5)}
   );
+  min-height: ${({ group }) => (group !== 'Frontend' ? '60px' : 'auto')};
   width: 100%;
   padding: 5px 0;
   text-decoration: none;
   font-family: ${fontTitleAlt};
   text-align: center;
+
+  @media all and (min-width: 768px) {
+    min-height: auto;
+    margin: 0 auto 15px;
+  }
 `;
 Title.displayName = 'Title';

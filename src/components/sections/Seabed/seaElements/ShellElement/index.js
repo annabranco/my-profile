@@ -3,7 +3,6 @@ import { bool, func } from 'prop-types';
 import { ClosedShell, OpenedShell } from '../../../../../assets/images';
 import FoundPearl from '../../../../../assets/sounds/found.mp3';
 import Bong from '../../../../../assets/sounds/bong.mp3';
-
 import { TheShell, ShellContainer, Pearl, PearlShine } from './styles';
 
 const FindingSound = new Audio(FoundPearl);
@@ -46,8 +45,8 @@ const ShellElement = ({ toggleHasPearl, hidden }) => {
 };
 
 ShellElement.propTypes = {
-  toggleHasPearl: func.isRequired,
-  hidden: bool.isRequired
+  hidden: bool.isRequired,
+  toggleHasPearl: func.isRequired
 };
 
 export default ShellElement;

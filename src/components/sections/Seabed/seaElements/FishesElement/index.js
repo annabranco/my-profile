@@ -42,15 +42,15 @@ const FishesElement = () => {
     const deployFish = (type, order) => {
       currentFishes.push(
         <Fish
-          key={`fish${type}-${order}`}
-          src={FISHES[type].img}
-          facing={FISHES[type].facing}
-          speed={randomSpeed(Math.ceil(Math.random() * 5))}
           alt="Swimming Fish" // TODO language
           bottom={randomHeight(Math.ceil(Math.random() * 4))}
-          side={randomSide(Math.floor(Math.random() * 2))}
           delay={randomDelay(Math.random() * 3)}
+          facing={FISHES[type].facing}
+          key={`fish${type}-${order}`}
           movementType={randomMovement(Math.floor(Math.random() * 4))}
+          side={randomSide(Math.floor(Math.random() * 2))}
+          speed={randomSpeed(Math.ceil(Math.random() * 5))}
+          src={FISHES[type].img}
           waving={FISHES[type].waving}
         />
       );
@@ -69,7 +69,7 @@ const FishesElement = () => {
       }
       updateFishes(currentFishes);
     }, 12000);
-  }, [updateFishes]);
+  }, []);
 
   return <>{fishes.map(fish => fish)}</>;
 };

@@ -29,7 +29,7 @@ export const Text = styled.p`
 Text.displayName = 'Text';
 
 export const BackgroundOverlay = styled.div`
-  z-index: 3;
+  z-index: 101;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -41,7 +41,7 @@ export const BackgroundOverlay = styled.div`
     ${rgba(colorBlueDark, 0.6)},
     ${rgba(colorBlack, 0.9)}
   );
-  height: 100vh;
+  height: ${`${window.innerHeight}px`};
   width: 100%;
 `;
 BackgroundOverlay.displayName = 'Background Overlay';
@@ -113,8 +113,8 @@ FlagsWrapper.displayName = 'Flags Wrapper';
 
 export const Image = styled.img`
   opacity: 0.5;
-  margin-top: -10px;
-  width: 100%;
+  margin-top: 0;
+  width: 50%;
 
   ${props =>
     props.lang === props.languageSelected &&

@@ -1,12 +1,15 @@
 import React from 'react';
 import { node, string } from 'prop-types';
 import { SectionContent, SectionHeader, Title } from './styles';
+import { isDesktop } from '../../../../utils/device';
 
 const ScrollSection = ({ children, title }) => (
   <section id={title}>
-    <SectionHeader>
-      <Title>{title}</Title>
-    </SectionHeader>
+    {isDesktop && (
+      <SectionHeader>
+        <Title>{title}</Title>
+      </SectionHeader>
+    )}
     <SectionContent>{children}</SectionContent>
   </section>
 );

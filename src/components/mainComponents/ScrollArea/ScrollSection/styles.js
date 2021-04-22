@@ -13,7 +13,7 @@ export const SectionContent = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-image: linear-gradient(
       ${rgba('#ffffff', 0.92)},
@@ -22,13 +22,17 @@ export const SectionContent = styled.div`
     ),
     url(${Sea});
   background-position: center;
-  height: auto;
+  height: ${`${window.innerHeight}px`};
   overflow: hidden;
+
+  @media all and (min-width: 768px) {
+    height: auto;
+  }
 `;
 SectionContent.displayName = 'Section Content';
 
 export const SectionHeader = styled.div`
-  z-index: 3;
+  z-index: 15;
   display: flex;
   justify-content: center;
   align-items: flex-start;
