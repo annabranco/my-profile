@@ -19,6 +19,7 @@ import {
   ModalWrapper,
   Text
 } from './styles';
+import { getFlagURL } from '../../../utils/icons';
 
 const updateLanguageSettings = (language, hideForever) =>
   localStorage.setItem(
@@ -85,7 +86,11 @@ const LanguagesModal = ({
                 alt=""
                 lang={item.languageCode}
                 languageSelected={languageSelected}
-                src={`https://www.countryflags.io/${item.flagCode}/shiny/64.png`}
+                src={getFlagURL({
+                  country: item.flagCode,
+                  style: 'flat3d',
+                  size: 'small'
+                })}
               />
             </Flag>
           ))}

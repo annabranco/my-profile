@@ -113,8 +113,8 @@ FlagsWrapper.displayName = 'Flags Wrapper';
 
 export const Image = styled.img`
   opacity: 0.5;
-  margin-top: -10px;
-  width: 100%;
+  margin-top: 0;
+  width: 50%;
 
   ${props =>
     props.lang === props.languageSelected &&

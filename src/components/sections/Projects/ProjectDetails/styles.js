@@ -1,12 +1,26 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 import {
   colorBlueDark,
   colorBlack,
   fontTitle,
   colorGrayDark,
-  colorWhite
+  colorWhite,
+  fontTitleAlt
 } from '../../../../styles/theme';
+
+const EnterScreen = side => keyframes`
+0% {
+  transform: translate(${side === 'right' ? '50vw' : '-50vw'}, 0);
+  opacity: 0;
+  }
+
+  100% {
+  transform: translate(0, 0);
+  opacity: 1;
+  }
+
+`;
 
 export const Description = styled.p`
   margin-bottom: 10px;
@@ -31,6 +45,29 @@ Link.displayName = 'Link';
 
 export const ProjectItem = styled.div`
   height: auto;
+  transform: translate(50vw, 0);
+  opcity: 0;
+
+  ${({ actualPage }) =>
+    actualPage === 1
+      ? css`
+          animation: ${EnterScreen('right')} 3s ease-out forwards;
+        `
+      : css`
+          animation: ${EnterScreen('right')} 1s ease-out forwards;
+        `}
+
+  &:first-of-type {
+    transform: translate(-50vw, 0);
+    ${({ actualPage }) =>
+      actualPage === 1
+        ? css`
+            animation: ${EnterScreen('left')} 3s ease-out forwards;
+          `
+        : css`
+            animation: ${EnterScreen('left')} 1s ease-out forwards;
+          `}
+  }
 `;
 ProjectItem.displayName = 'Project Item';
 
@@ -46,6 +83,7 @@ RepoIcon.displayName = 'Repo Icon';
 export const RepoUrl = styled.p`
   margin: 0;
   text-align: right;
+  font-family: ${fontTitleAlt};
 
   @media all and (min-width: 768px) {
     text-align: left;

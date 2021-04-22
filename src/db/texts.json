@@ -44,33 +44,74 @@
       "readingLanguage": "You are reading my professional profile in English."
     },
     "otherSkills": {
-      "basic": "Basic",
       "design": "Graphic design",
-      "english": "English",
       "find": "You've found... a computer?!",
       "find2": "And it is oddly on",
-      "fluent": "Fluent",
-      "french": "French",
       "how": "How I have developed it",
-      "intermediate": "Intermediate",
       "investigate": "Click on the screen to investigate it.",
       "languages": "Languages",
+      "languagesSpoken" : [
+        {
+          "language": "English",
+          "speak": "Fluent",
+          "read": "Fluent",
+          "write": "Fluent",
+          "flagCode": "us"
+        },
+        {
+          "language": "Spanish",
+          "speak": "Fluent",
+          "read": "Fluent",
+          "write": "Fluent",
+          "flagCode": "es"
+        },
+        {
+          "language": "Portuguese",
+          "speak": "Fluent",
+          "read": "Fluent",
+          "write": "Fluent",
+          "flagCode": "br"
+        },
+        {
+          "language": "French",
+          "speak": "Intermediate",
+          "read": "Intermediate",
+          "write": "Basic",
+          "flagCode": "fr"
+        },
+        {
+          "language": "Russian",
+          "speak": "Basic",
+          "read": "Basic",
+          "write": "Basic",
+          "flagCode": "ru"
+        }
+      ],
       "other": "Other skills",
-      "portuguese": "Portuguese",
-      "russian": "Russian",
       "samples": "Here are some of my design creations:",
       "skill": "Skill",
-      "skill1": "Working under pressure",
-      "skill1details": "More than 5 years as volunteer on ambulances and emergencies",
-      "skill2": "Leadership",
-      "skill2details": "More than 3 years of professional experience managing different teams",
-      "skill3": "Communication",
-      "skill3details": "Solid experience teaching, giving formations and speeches",
-      "skill4": "Empathy",
-      "skill4details": "Psychology formation and humanitarian background",
-      "skill5": "Flexibility",
-      "skill5details": "Very good experience working within multicultural environments",
-      "spanish": "Spanish"
+      "skills": [
+        {
+          "skill": "Working under pressure",
+          "details": "More than 5 years as volunteer on ambulances and emergencies"
+        },
+        {
+          "skill": "Leadership",
+          "details": "More than 3 years of professional experience managing different teams"
+        },
+        {
+          "skill": "Communication",
+          "details": "Solid experience teaching, giving formations and speeches"
+        },
+        {
+          "skill": "Empathy",
+          "details": "Psychology formation and humanitarian background"
+        },
+        {
+          "skill": "Flexibility",
+          "details": "Very good experience working within multicultural environments"
+        }
+      ]
     },
     "seabed": {
       "formation": "Formation",
@@ -147,33 +188,74 @@
       "readingLanguage": "Estás leyendo mi perfil profesional en español."
     },
     "otherSkills": {
-      "basic": "Básico",
       "design": "Diseño gráfico",
-      "english": "Inglés",
       "find": "Has encontrado... un ordenador?!",
       "find2": "Y curiosamente está funcionando...",
-      "fluent": "Fluído",
-      "french": "Francés",
       "how": "Como la he desarrollado",
-      "intermediate": "Intermedio",
       "investigate": "Haz click en la pantalla para investigarlo.",
       "languages": "Idiomas",
+      "languagesSpoken" : [
+        {
+          "language": "Inglés",
+          "speak": "Fluído",
+          "read": "Fluído",
+          "write": "Fluído",
+          "flagCode": "us"
+        },
+        {
+          "language": "Castellano",
+          "speak": "Fluído",
+          "read": "Fluído",
+          "write": "Fluído",
+          "flagCode": "es"
+        },
+        {
+          "language": "Português",
+          "speak": "Fluído",
+          "read": "Fluído",
+          "write": "Fluído",
+          "flagCode": "br"
+        },
+        {
+          "language": "Francés",
+          "speak": "Intermedio",
+          "read": "Intermedio",
+          "write": "Básico",
+          "flagCode": "fr"
+        },
+        {
+          "language": "Ruso",
+          "speak": "Básico",
+          "read": "Básico",
+          "write": "Básico",
+          "flagCode": "ru"
+        }
+      ],
       "other": "Otras competencias",
-      "portuguese": "Portugués",
-      "russian": "Ruso",
       "samples": "Aquí puedes ver algunas creaciones mías:",
       "skill": "Competencia",
-      "skill1": "Trabajar bajo presión",
-      "skill1details": "Más de 5 años como voluntaria en ambulancias y emergencias",
-      "skill2": "Liderazgo",
-      "skill2details": "Más de 3 años de experiencia profesional gestionando distintos equipos",
-      "skill3": "Comunicación",
-      "skill3details": "Sólida experiencia en enseñanza, impartiendo formaciones y charlas",
-      "skill4": "Empatía",
-      "skill4details": "Formación en psicología y experiencia humanitaria",
-      "skill5": "Flexibilidad",
-      "skill5details": "Excelente experiencia trabajando en ambientes multiculturales",
-      "spanish": "Español"
+            "skills": [
+        {
+          "skill": "Trabajar bajo presión",
+          "details": "Más de 5 años como voluntaria en ambulancias y emergencias"
+        },
+        {
+          "skill": "Liderazgo",
+          "details": "Más de 3 años de experiencia profesional gestionando distintos equipos"
+        },
+        {
+          "skill": "Comunicación",
+          "details": "Sólida experiencia en enseñanza, impartiendo formaciones y charlas"
+        },
+        {
+          "skill": "Empatía",
+          "details": "Formación en psicología y experiencia humanitaria"
+        },
+        {
+          "skill": "Flexibilidad",
+          "details": "Excelente experiencia trabajando en ambientes multiculturales"
+        }
+      ]
     },
     "seabed": {
       "formation": "Formación",
@@ -260,33 +342,74 @@
       "readingLanguage": "Você está lendo meu perfil profissional em português."
     },
     "otherSkills": {
-      "basic": "Básico",
       "design": "Desenho gráfico",
-      "english": "Inglês",
       "find": "Você encontrou... um computador?!",
       "find2": "E estranhamente está funcionando...",
-      "fluent": "Fluente",
-      "french": "Francês",
       "how": "Como eu a desenvolvi",
-      "intermediate": "Intermediário",
       "investigate": "Clique na tela para investigá-lo.",
       "languages": "Idiomas",
+      "languagesSpoken" : [
+        {
+          "language": "Inglês",
+          "speak": "Fluente",
+          "read": "Fluente",
+          "write": "Fluente",
+          "flagCode": "us"
+        },
+        {
+          "language": "Espanhol",
+          "speak": "Fluente",
+          "read": "Fluente",
+          "write": "Fluente",
+          "flagCode": "es"
+        },
+        {
+          "language": "Português",
+          "speak": "Fluente",
+          "read": "Fluente",
+          "write": "Fluente",
+          "flagCode": "br"
+        },
+        {
+          "language": "Francês",
+          "speak": "Intermediário",
+          "read": "Intermediário",
+          "write": "Básico",
+          "flagCode": "fr"
+        },
+        {
+          "language": "Russo",
+          "speak": "Básico",
+          "read": "Básico",
+          "write": "Básico",
+          "flagCode": "ru"
+        }
+      ],
       "other": "Outras competências",
-      "portuguese": "Português",
-      "russian": "Russo",
       "samples": "Você pode aqui algumas criações minhas:",
       "skill": "Competência",
-      "skill1": "Trabalhar sobre pressão",
-      "skill1details": "Mais de 5 anos como voluntária em ambulâncias e emergências",
-      "skill2": "Liderança",
-      "skill2details": "Mais de 3 anos de experiência profissional gestionando diferentes equipes",
-      "skill3": "Comunicação",
-      "skill3details": "Experiência sólida de ensino, dando formações e palestras",
-      "skill4": "Empatia",
-      "skill4details": "Formação em psicologia e experiência humanitária",
-      "skill5": "Flexibilidade",
-      "skill5details": "Excelente experiência trabalhando em ambientes multiculturais",
-      "spanish": "Espanhol"
+      "skills": [
+        {
+          "skill": "Trabalhar sobre pressão",
+          "details": "Mais de 5 anos como voluntária em ambulâncias e emergências"
+        },
+        {
+          "skill": "Liderança",
+          "details": "Mais de 3 anos de experiência profissional gestionando diferentes equipes"
+        },
+        {
+          "skill": "Comunicação",
+          "details": "Experiência sólida de ensino, dando formações e palestras"
+        },
+        {
+          "skill": "Empatia",
+          "details": "Formação em psicologia e experiência humanitária"
+        },
+        {
+          "skill": "Flexibilidade",
+          "details": "Excelente experiência trabalhando em ambientes multiculturais"
+        }
+      ]
     },
     "seabed": {
       "formation": "Formação",

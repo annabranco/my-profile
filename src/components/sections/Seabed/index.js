@@ -539,7 +539,7 @@ const SeaBed = ({ cuePointsActivated, resetScrollPosition }) => {
         />
       </HeroWrapper>
 
-      <FishesElement />
+      {/* <FishesElement /> */}
       <ShellElement
         toggleHasPearl={toggleHasPearl}
         hidden={positionState.frame !== CENTER}

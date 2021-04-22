@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
+import { instanceOf } from 'prop-types';
 import { projectsSelector } from '../../../redux/selectors';
 import { useStateWithLabel } from '../../../utils/hooks';
 import { isDesktop } from '../../../utils/device';
@@ -15,7 +16,7 @@ import {
   SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../constants';
 
-const Projects = () => {
+const Projects = ({ cuePointsActivated }) => {
   const projectsLoaded = useSelector(projectsSelector);
 
   const [actualPage, changePage] = useStateWithLabel(1, ACTUAL_PAGE);
@@ -66,8 +67,13 @@ const Projects = () => {
       projects={projectsState.projects}
       thumbnailsStyle={getThumbnailsStyle()}
       totalPages={projectsState.totalPages}
+      visible={cuePointsActivated.has(PROJECTS)}
     />
   );
+};
+
+Projects.propTypes = {
+  cuePointsActivated: instanceOf(Set).isRequired
 };
 
 export default Projects;

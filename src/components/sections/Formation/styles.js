@@ -7,13 +7,14 @@ import {
   fontSubtitle,
   colorYellowBright,
   colorBlueWater,
-  colorYellowDark
+  colorYellowDark,
+  fontTitleAlt
 } from '../../../styles/theme';
 import { Title } from '../Experiences/styles';
 
 export const Details = styled.p`
   margin: 0 20px;
-  font-family: ${fontSubtitle};
+  font-family: ${({ subtext }) => (subtext ? fontTitleAlt : fontSubtitle)};
   font-size: 0.9rem;
   line-height: 1;
 

@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
   colorWhite,
@@ -18,153 +18,6 @@ import {
   fontTitleAlt
 } from '../../../styles/theme';
 import { Hidden, NotDisplayed } from '../../../styles/global';
-
-const BrightScreen = keyframes`
-	from {
-		box-shadow : 0 0 10px 3px ${colorGreenPale};
-	}
-
-	to {
-		box-shadow : 0 0 20px 1px ${colorBlueWater};
-	}
-`;
-
-const OtherSkillsOuter = styled.div`
-  border-radius: 30px;
-  margin: 30px auto 0;
-  background-image: linear-gradient(
-    ${rgba(colorGreenBright, 0.1)},
-    ${rgba(colorWhite, 0.2)}
-  );
-  width: 100%;
-  padding: 10px 15px 30px;
-`;
-
-const OtherSkillsTable = styled.table`
-  margin: 0 auto;
-  width: 100%;
-  letter-spacing: 1px;
-  font-family: sans-serif;
-
-  @media all and (min-width: 768px) {
-    width: 90%;
-  }
-
-  & th {
-    padding-top: 10px;
-    letter-spacing: 0;
-    text-shadow: 0 0 1px ${colorWhite};
-    font-family: ${fontTitle};
-    font-size: 1rem;
-    line-height: 1rem;
-    font-weight: bold;
-    color: ${colorGreenBright};
-    text-align: center;
-
-    @media all and (min-width: 768px) {
-      padding-top: 15px;
-      letter-spacing: 1px;
-      font-size: 1.3rem;
-    }
-  }
-
-  & tr td:first-of-type {
-    width: 35%;
-    padding: 0 10px;
-    vertical-align: middle;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: ${colorGrayDark};
-    text-align: center;
-  }
-
-  & td {
-    height: 30px;
-    width: 65%;
-    padding-right: 10px;
-    font-size: 0.8rem;
-    text-align: left;
-
-    @media all and (min-width: 768px) {
-      font-size: 0.9rem;
-    }
-  }
-`;
-
-export const CloseButton = styled.button`
-  border: 1px solid $[colorRedDark];
-  border-radius: 5px 0;
-
-  padding: 2px 5px;
-  text-shadow: 0 0 1px ${rgba(colorGrayDark, 0.51)};
-  font-family: ${fontTitleAlt};
-  font-size: 0.7rem;
-  color: ${colorBlack};
-  cursor: pointer;
-  box-shadow: 0 1px 2px 0 ${rgba(colorBlack, 0.4)},
-    inset 0 1px 5px 1px ${rgba(colorWhite, 0.7)};
-  grid-column-start: span 2;
-
-  @media all and (min-width: 321px) {
-    border-radius: 8px 0;
-    padding: 2px 10px;
-    font-size: 1.2rem;
-  }
-
-  @media all and (min-width: 768px) {
-    top: 32px;
-    right: 60px;
-    border-radius: 12px 0;
-    padding: 3px 12px;
-    font-size: 1.4rem;
-  }
-
-  &:hover {
-    transform: translate(0, 1px);
-    text-decoration: none;
-    box-shadow: inset 0 2px 5px 1px ${rgba(colorBlack, 0.4)};
-  }
-
-  ${({ hidden }) =>
-    hidden &&
-    css`
-      ${NotDisplayed}
-    `}
-`;
-CloseButton.displayName = 'Close Button';
-
-export const DesignArea = styled(OtherSkillsOuter)`
-  margin-top: -60px;
-  margin-bottom: 50px;
-`;
-DesignArea.displayName = 'Design Area';
-
-export const DesignText = styled.p`
-  margin: 15px auto;
-`;
-DesignText.displayName = 'Design Text';
-
-export const Flag = styled.img`
-  position: absolute;
-  top: 60px;
-  left: -28px;
-  border: 1px solid ${colorGreenPale};
-  border-radius: 50%;
-  background: ${rgba(colorWhite, 1)};
-  padding: 5px;
-
-  @media all and (min-width: 768px) {
-    left: -35px;
-  }
-`;
-Flag.displayName = 'Flag';
-
-export const Icon = styled.i`
-  position: absolute;
-  left: 10px;
-  color: ${colorBlueLight};
-`;
-Icon.displayName = 'Icon';
 
 export const KeyboardKeysWrapper = styled.div`
   position: absolute;
@@ -189,61 +42,6 @@ export const Keys = styled.div`
   text-align: center;
 `;
 Keys.displayName = 'Keyboard Keys';
-
-export const LanguagesArea = styled(OtherSkillsOuter)`
-  padding: 10px 20px 30px 30px;
-  grid-row-start: span 2;
-`;
-LanguagesArea.displayName = 'Languages Area';
-
-export const LanguagesTable = styled(OtherSkillsTable)`
-  margin: 0 auto;
-  width: 100%;
-
-  & td {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    padding-left: 60px;
-
-    &:hover {
-      background: ${rgba(colorYellowBright, 0.5)};
-      font-size: 1.1rem;
-    }
-  }
-
-  & td:first-of-type {
-    margin-top: 15px;
-    width: 80%;
-    padding-left: 10px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 1px ${colorWhite};
-    font-family: ${fontTitle};
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: ${colorGreenBright};
-
-    &:hover {
-      background: none;
-    }
-  }
-
-  & td:nth-child(even) {
-    background-color: ${rgba(colorWhite, 0.5)};
-
-    &:hover {
-      background: ${rgba(colorYellowPale, 0.5)};
-      font-size: 1.1rem;
-    }
-
-    & .icon--languages {
-      color: ${colorBlueNormal};
-    }
-  }
-`;
-LanguagesTable.displayName = 'Languages Table';
 
 export const MacCloseButton = styled.button`
   z-index: 10;
@@ -337,147 +135,12 @@ export const MacScreen = styled.div`
       transform: none;
       border-left: 0;
       background: ${colorWhite};
-      height: calc(${`${window.innerHeight}px`} - 110px);
+      height: ${`${window.innerHeight}px`};
       width: 100%;
-      overflow-y: scroll;
+      overflow: hidden;
     `}
 `;
 MacScreen.displayName = 'Mac Screen';
-
-export const OtherInformationAreaArea = styled(OtherSkillsOuter)`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 30px;
-
-  padding-bottom: 30px;
-`;
-OtherInformationAreaArea.displayName = 'Other Informations Area';
-
-export const OtherInformationAreaTable = styled(OtherSkillsTable)`
-  margin-bottom: 30px;
-  font-size: 0.8rem;
-
-  & td {
-    height: 40px;
-    width: auto;
-
-    &:first-of-type {
-      width: 250px;
-      padding-left: 5px;
-    }
-  }
-
-  & tr {
-    line-height: 40px;
-    font-size: 0.8rem;
-
-    &:hover {
-      background: ${rgba(colorYellowPale, 0.5)};
-      font-size: 0.8rem;
-    }
-  }
-
-  & tr:nth-child(even) {
-    background-color: ${rgba(colorWhite, 0.5)};
-    font-size: 0.8rem;
-
-    &:hover {
-      background: ${rgba(colorYellowPale, 0.5)};
-      font-size: 0.8rem;
-    }
-  }
-
-  & thead tr {
-    &:hover {
-      background: none;
-    }
-  }
-`;
-OtherInformationAreaTable.displayName = 'Other Informations Table';
-
-export const OtherSkillsWrapper = styled.div`
-  z-index: 3;
-  position: relative;
-  top: 5px;
-  left: 5px;
-  opacity: 0.9;
-  transform: perspective(-1em) rotateX(-2deg) skewX(-1deg);
-  background-image: linear-gradient(${colorBlueWater}, ${colorWhite});
-  height: 40px;
-  width: 60px;
-  overflow: hidden;
-  cursor: pointer;
-  animation-name: ${BrightScreen};
-  animation-duration: 650ms;
-  animation-iteration-count: infinite;
-
-  &:hover {
-    opacity: 1;
-    border: 5px solid ${colorYellowBright};
-  }
-
-  ${({ visible }) =>
-    visible &&
-    css`
-      top: 0;
-      left: 0;
-      opacity: 1;
-      transform: none;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      background-image: linear-gradient(
-        ${rgba(colorBlueWater, 0.3)},
-        ${rgba(colorWhite, 0.2)}
-      );
-      height: auto;
-      width: 100%;
-      overflow-y: scroll;
-      padding: 10px 0 30px;
-      cursor: default;
-
-      @media all and (min-width: 768px) {
-        grid-template-columns: 1fr 3fr;
-        grid-gap: 50px;
-        padding: 0 50px 30px;
-      }
-
-      &:hover {
-        border: 0;
-      }
-    `}
-`;
-OtherSkillsWrapper.displayName = 'Other Skills Wrapper';
-
-export const Sample = styled.div`
-  border: 3px solid ${rgba(colorWhite, 0.5)};
-  height: 120px;
-  width: 28vw;
-  cursor: pointer;
-  background-size: cover;
-
-  @media all and (min-width: 768px) {
-    width: 20vw;
-  }
-
-  ${({ image }) => css`
-    background-image: url(${image});
-  `}
-
-  &:hover {
-    border: 3px solid ${colorYellowBright};
-  }
-`;
-Sample.displayName = 'Sample';
-
-export const SamplesWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-`;
-SamplesWrapper.displayName = 'Samples Wrapper';
 
 export const SectionOtherSkills = styled.section`
   z-index: 6;
@@ -499,24 +162,10 @@ export const SectionOtherSkills = styled.section`
         opacity: 1;
         height: auto;
         width: 100%;
-        padding-top: 110px;
       `}
   }
 `;
 SectionOtherSkills.displayName = 'OTHER SKILLS Section';
-
-export const Title = styled.h2`
-  margin: 10px 0;
-  width: 100%;
-  font-family: ${fontSubtitle};
-  font-size: 2rem;
-  text-align: center;
-
-  @media all and (min-width: 768px) {
-    margin: 10px 20px 10px 0;
-  }
-`;
-Title.displayName = 'Title';
 
 export const TopBar = styled.img`
   z-index: 9;

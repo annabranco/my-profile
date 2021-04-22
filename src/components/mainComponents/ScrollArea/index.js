@@ -25,7 +25,9 @@ import {
   EXPERIENCES_SECTION,
   SEABED_SECTION,
   ACTIVE_SECTION,
-  FORMATION_SECTION
+  FORMATION_SECTION,
+  OTHER_INFO_SECTION,
+  PROJECTS
 } from '../../../constants';
 import { ScrollAreaWrapper } from './styles';
 import { isDesktop } from '../../../utils/device';
@@ -38,6 +40,8 @@ import {
 import { changeSection } from '../../../redux/actions/sections';
 import { getNextSection } from '../../../utils/sections';
 import Formation from '../../sections/Formation';
+import OtherSkills from '../../sections/OtherSkills';
+import OtherSkillsInfo from '../../sections/OtherSkills/OtherSkillsInfo';
 
 const SCROLL_CUEPOINTS = new Map();
 
@@ -61,6 +65,10 @@ const ScrollArea = ({ langModalVisible }) => {
     skills: {
       scrollAreaStart: 200,
       scrollAreaEnd: 1200
+    },
+    projects: {
+      scrollAreaStart: 1000,
+      scrollAreaEnd: 2000
     },
     experiences: {
       scrollAreaStart: 1400,
@@ -152,6 +160,13 @@ const ScrollArea = ({ langModalVisible }) => {
       SCROLL_CUEPOINTS.set(scrollAreaEnd, 'experiencesSection');
     };
 
+    const calculateProjectsScroll = () => {
+      SCROLL_CUEPOINTS.set(
+        SECTIONS_INTERVAL_POINTS.projects.scrollAreaStart,
+        PROJECTS
+      );
+    };
+
     const calculateSeabedScroll = () => {
       SCROLL_CUEPOINTS.set(
         SECTIONS_INTERVAL_POINTS.seabed.scrollAreaStart,
@@ -160,6 +175,7 @@ const ScrollArea = ({ langModalVisible }) => {
     };
 
     calculateSkillsScroll();
+    calculateProjectsScroll();
     calculateExperiencesScroll();
     calculateSeabedScroll();
   }, [SECTIONS_INTERVAL_POINTS, experiences, experiencesSectionIds]);
@@ -180,12 +196,13 @@ const ScrollArea = ({ langModalVisible }) => {
         if (currentExperience === experiences.length - 1) {
           return null;
         }
-        setTimeout(() => {
-          allCuePoints.push(experiences[currentExperience].id);
-          updateCuepoints(new Set(allCuePoints));
-          currentExperience += 1;
+        allCuePoints.push(experiences[currentExperience].id);
+        updateCuepoints(new Set(allCuePoints));
+        currentExperience += 1;
+
+        return setTimeout(() => {
           addNextExperience();
-        }, 200);
+        }, 50);
       };
       addNextExperience();
     }
@@ -197,38 +214,29 @@ const ScrollArea = ({ langModalVisible }) => {
       onScroll={handleScroll}
       ref={scrollAreaRef}
     >
-      {(isDesktop || activeSection === INFO_PAGE_SECTION) && (
-        <MyInfoPage changeActiveSection={changeActiveSection} />
-      )}
+      {(isDesktop || activeSection === INFO_PAGE_SECTION) && <MyInfoPage />}
 
       {(isDesktop || activeSection === SKILLS_SECTION) && (
         <ScrollSection title={sectionsTexts.technical}>
-          <Skills
-            cuePointsActivated={cuePointsActivated}
-            changeActiveSection={changeActiveSection}
-          />
+          <Skills cuePointsActivated={cuePointsActivated} />
         </ScrollSection>
       )}
 
       {(isDesktop || activeSection === PROJECTS_SECTION) && (
         <ScrollSection title={sectionsTexts.projects}>
-          <Projects changeActiveSection={changeActiveSection} />
+          <Projects cuePointsActivated={cuePointsActivated} />
         </ScrollSection>
       )}
 
       {(isDesktop || activeSection === EXPERIENCES_SECTION) && (
         <ScrollSection title={sectionsTexts.experience}>
-          <Experiences
-            changeActiveSection={changeActiveSection}
-            cuePointsActivated={cuePointsActivated}
-          />
+          <Experiences cuePointsActivated={cuePointsActivated} />
         </ScrollSection>
       )}
 
       {(isDesktop || activeSection === SEABED_SECTION) && (
         <ScrollSection title={sectionsTexts.other}>
           <Seabed
-            changeActiveSection={changeActiveSection}
             cuePointsActivated={cuePointsActivated}
             resetScrollPosition={resetScrollPosition}
           />
@@ -237,14 +245,17 @@ const ScrollArea = ({ langModalVisible }) => {
 
       {!isDesktop && activeSection === FORMATION_SECTION && (
         <ScrollSection title={sectionsTexts.other}>
-          <Formation
-            changeActiveSection={changeActiveSection}
-            status={{ read: true, visible: true }}
-          />
+          <Formation status={{ read: true, visible: true }} />
         </ScrollSection>
       )}
 
-      {!isDesktop && activeSection !== INFO_PAGE_SECTION && (
+      {!isDesktop && activeSection === OTHER_INFO_SECTION && (
+        <ScrollSection title={sectionsTexts.other}>
+          <OtherSkillsInfo visible />
+        </ScrollSection>
+      )}
+
+      {!isDesktop && (
         <ScrollDownDisplay sections>
           <MoreText onClick={goToNextSection}>{getNextSectionName()}</MoreText>
           <LineOfArrows>

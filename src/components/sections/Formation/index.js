@@ -114,12 +114,17 @@ const Formation = ({
                           {item.university}
                           <CountryFlag
                             formation
-                            src={getFlagURL(item.countryCode, 'flat', 'small')}
+                            src={getFlagURL({
+                              country: item.countryCode,
+                              style: 'round3d',
+                              size: 'small'
+                            })}
                             alt={item.country[languageSelected]}
+                            round
                           />
                         </Details>
                         {item.gradeText && (
-                          <Details>
+                          <Details subtext>
                             {item.gradeText[languageSelected]}
                             {item.grade.toFixed(2)}
                           </Details>
@@ -137,9 +142,15 @@ const Formation = ({
 };
 
 Formation.propTypes = {
-  onClickClose: func.isRequired,
-  onClickOpen: func.isRequired,
-  status: seabedElementsPropType.isRequired
+  onClickClose: func,
+  onClickOpen: func,
+  status: seabedElementsPropType
+};
+
+Formation.defaultProps = {
+  onClickClose: () => null,
+  onClickOpen: () => null,
+  status: { read: true, visible: true }
 };
 
 export default Formation;

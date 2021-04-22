@@ -7,6 +7,7 @@ import {
   colorBlueLight,
   colorWhite,
   fontSubtitle,
+  fontText,
   fontTitle,
   fontTitleAlt
 } from '../../../styles/theme';
@@ -35,7 +36,7 @@ const MyName = styled.h1`
   background-clip: text;
   font-family: ${fontTitle};
   font-size: 3rem;
-  font-weight: 900;
+  font-weight: 700;
   color: transparent;
   display: block;
   margin: 5px 0;
@@ -155,8 +156,6 @@ export const InfoMessage = styled.div`
   display: inline-block;
   margin-top: 20px;
   width: 90%;
-  font-style: italic;
-  font-family: ${fontSubtitle};
   font-size: 0.9rem;
   line-height: 1.2;
   color: ${colorBlueLight};
@@ -179,6 +178,7 @@ InfoMessage.displayName = 'Info Message';
 
 export const JobTitle = styled.h2`
   width: 42vw;
+  margin-top: -15px;
   font-family: ${fontSubtitle};
   font-size: 1.3rem;
   text-align: center;
@@ -338,10 +338,10 @@ export const PhotoWrapper = styled.div`
 PhotoWrapper.displayName = 'Photo Wrapper';
 
 export const ScrollDownDisplay = styled.div`
+  z-index: 50;
   position: absolute;
   bottom: ${({ sections }) => (sections ? '10px' : '10vh')};
   right: 0;
-  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -19,6 +19,8 @@ import {
 } from './styles';
 import { isDesktop } from '../../../utils/device';
 import { INFO_PAGE_SECTION } from '../../../constants';
+import { getFlagURL } from '../../../utils/icons';
+import { CountryFlag } from '../../sections/Experiences/styles';
 
 const Header = ({ hideForever }) => {
   const APP_VERSION = appInfo.version;
@@ -60,9 +62,13 @@ const Header = ({ hideForever }) => {
               role="button"
               tabIndex={0}
             >
-              <img
+              <CountryFlag
                 alt=""
-                src={`https://www.countryflags.io/${item.flagCode}/flat/16.png`}
+                src={getFlagURL({
+                  country: item.flagCode,
+                  style: 'flat3d',
+                  size: 'small'
+                })}
               />
             </Flag>
           ))}

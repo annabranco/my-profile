@@ -13,6 +13,7 @@ import {
 export const City = styled.span`
   font-size: 0.7rem;
   font-style: italic;
+  font-family: ${fontTitleAlt};
 
   @media all and (min-width: 768px) {
     font-size: 0.8rem;
@@ -34,6 +35,7 @@ Company.displayName = 'Company';
 export const CountryFlag = styled.img`
   margin: 0 5px;
   vertical-align: middle;
+  max-width: ${({ round }) => (round ? '16px' : '20px')};
 
   ${({ formation }) =>
     formation &&

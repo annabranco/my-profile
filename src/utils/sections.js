@@ -19,7 +19,7 @@ const sections = [
 export const getNextSection = current => {
   const currentId = sections.findIndex(section => section === current);
 
-  if (currentId) {
+  if (currentId === 0 || currentId !== -1) {
     if (currentId === sections.length - 1) {
       return INFO_PAGE_SECTION;
     }

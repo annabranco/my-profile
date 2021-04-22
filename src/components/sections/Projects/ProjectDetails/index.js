@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { number } from 'prop-types';
 import { currentLanguageSelector } from '../../../../redux/selectors';
 import { THUMBNAILS } from '../../../../assets/images';
 import { projectsPropType } from '../../../../types';
@@ -15,11 +16,11 @@ import {
 } from './styles';
 import { isDesktop } from '../../../../utils/device';
 
-const ProjectDetails = ({ project }) => {
+const ProjectDetails = ({ actualPage, project }) => {
   const languageSelected = useSelector(currentLanguageSelector);
 
   return (
-    <ProjectItem key={project.title}>
+    <ProjectItem actualPage={actualPage} key={project.title}>
       {isDesktop && (
         <>
           <Link href={project.url} rel="noopener noreferrer" target="_Blank">
@@ -50,6 +51,7 @@ const ProjectDetails = ({ project }) => {
 };
 
 ProjectDetails.propTypes = {
+  actualPage: number.isRequired,
   project: projectsPropType.isRequired
 };
 

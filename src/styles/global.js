@@ -1,6 +1,6 @@
 import { css, createGlobalStyle, keyframes } from 'styled-components';
 import { rgba } from 'polished';
-import { colorWhite } from './theme';
+import { colorWhite, fontText } from './theme';
 import { Sea } from '../assets/images';
 
 export const NotDisplayed = css`
@@ -82,6 +82,9 @@ blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
+}
+div, p {
+    font-family: ${fontText};
 }
 table {
 	border-collapse: collapse;

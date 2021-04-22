@@ -32,7 +32,7 @@ export const CloseButton = styled.p`
       &::before {
         content: 'x';
         text-transform: uppercase;
-        font-weight: 900;
+        font-weight: 700;
         font-family: ${fontTitleAlt};
         font-size: 1rem;
       }
@@ -50,7 +50,7 @@ export const CloseButton = styled.p`
         &::before {
           content: '${text}';
           text-transform: uppercase;
-          font-weight: 900;
+          font-weight: 700;
         }
       `};
   }

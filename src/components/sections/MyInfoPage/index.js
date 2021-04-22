@@ -39,18 +39,10 @@ import {
 import { SKILLS_SECTION } from '../../../constants';
 import { changeSection } from '../../../redux/actions/sections';
 
-const MyInfoPage = ({ changeActiveSection }) => {
+const MyInfoPage = () => {
   const finishedScenario = useSelector(finishedSelector);
   const texts = useSelector(infoPageTextSelector);
-  const sections = useSelector(sectionsTextsSelector);
-  const dispatch = useDispatch();
-
   const arrowLines = isDesktop ? 3 : 1;
-
-  const goToNextSection = () => {
-    dispatch(changeSection(SKILLS_SECTION));
-    changeActiveSection(SKILLS_SECTION);
-  };
 
   return (
     <SectionMyInfo id="My Info Section">
@@ -83,34 +75,29 @@ const MyInfoPage = ({ changeActiveSection }) => {
           <Advise className="infoPage__advise">{texts.advise}</Advise>
         )}
 
-        <ScrollDownDisplay>
-          {!isDesktop && (
-            <MoreText onClick={goToNextSection}>{sections.technical}</MoreText>
-          )}
-          {[...Array(arrowLines).keys()].map(line => (
-            <LineOfArrows key={line}>
-              {isDesktop ? (
-                <>
-                  {[0, 1, 2].map(index => (
-                    <ArrowIcon
-                      key={`${line}-${index}`}
-                      className="fas fa-angle-double-down"
-                    />
-                  ))}
-                </>
-              ) : (
-                <ArrowIcon className="fas fa-angle-double-down" />
-              )}
-            </LineOfArrows>
-          ))}
-        </ScrollDownDisplay>
+        {isDesktop && (
+          <>
+            {[...Array(arrowLines).keys()].map(line => (
+              <LineOfArrows key={line}>
+                {isDesktop ? (
+                  <>
+                    {[0, 1, 2].map(index => (
+                      <ArrowIcon
+                        key={`${line}-${index}`}
+                        className="fas fa-angle-double-down"
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <ArrowIcon className="fas fa-angle-double-down" />
+                )}
+              </LineOfArrows>
+            ))}
+          </>
+        )}
       </MyInfoWrapper>
     </SectionMyInfo>
   );
-};
-
-MyInfoPage.propTypes = {
-  changeActiveSection: func.isRequired
 };
 
 export default MyInfoPage;

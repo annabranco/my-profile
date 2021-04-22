@@ -1,0 +1,431 @@
+import styled, { css, keyframes } from 'styled-components';
+import { rgba } from 'polished';
+import {
+  colorWhite,
+  colorBlueLight,
+  colorBlack,
+  fontSubtitle,
+  colorGreenBright,
+  colorBlueNormal,
+  fontTitle,
+  colorGrayDark,
+  colorYellowBright,
+  colorBlueWater,
+  colorGreenPale,
+  colorYellowPale,
+  fontTitleAlt
+} from '../../../../styles/theme';
+import { NotDisplayed } from '../../../../styles/global';
+
+const BrightScreen = keyframes`
+  from {
+    box-shadow : 0 0 10px 3px ${colorGreenPale};
+  }
+
+  to {
+    box-shadow : 0 0 20px 1px ${colorBlueWater};
+  }
+`;
+
+const OtherSkillsOuter = styled.div`
+  border-radius: 30px;
+  margin: 30px auto 0;
+  background-image: linear-gradient(
+    ${rgba(colorGreenBright, 0.1)},
+    ${rgba(colorWhite, 0.2)}
+  );
+  width: 100%;
+  padding: 10px 15px 30px;
+`;
+
+const OtherSkillsTable = styled.table`
+  margin: 0 auto;
+  width: 100%;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+
+  & th {
+    padding-top: 10px;
+    letter-spacing: 0;
+    text-shadow: 0 0 1px ${colorWhite};
+    font-family: ${fontTitle};
+    font-size: 0.8rem;
+    line-height: 1rem;
+    font-weight: bold;
+    color: ${colorGreenBright};
+    text-align: center;
+
+    @media all and (min-width: 768px) {
+      padding-top: 15px;
+      letter-spacing: 1px;
+      font-size: 1.3rem;
+    }
+  }
+
+  & tr td:first-of-type {
+    padding: 0 10px;
+    vertical-align: middle;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: ${colorGrayDark};
+    text-align: center;
+  }
+
+  & td {
+    padding-right: 10px;
+    font-size: 0.6rem;
+    text-align: left;
+
+    @media all and (min-width: 768px) {
+      font-size: 0.7rem;
+
+      & tr td:first-of-type {
+        font-size: 0.6rem;
+      }
+    }
+  }
+
+  @media all and (min-width: 768px) {
+    width: 90%;
+  }
+`;
+
+export const CloseButton = styled.button`
+  border: 1px solid $[colorRedDark];
+  border-radius: 5px 0;
+
+  padding: 2px 5px;
+  text-shadow: 0 0 1px ${rgba(colorGrayDark, 0.51)};
+  font-family: ${fontTitleAlt};
+  font-size: 0.7rem;
+  color: ${colorBlack};
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 ${rgba(colorBlack, 0.4)},
+    inset 0 1px 5px 1px ${rgba(colorWhite, 0.7)};
+  grid-column-start: span 2;
+
+  @media all and (min-width: 321px) {
+    border-radius: 8px 0;
+    padding: 2px 10px;
+    font-size: 1.2rem;
+  }
+
+  @media all and (min-width: 768px) {
+    top: 32px;
+    right: 60px;
+    border-radius: 12px 0;
+    padding: 3px 12px;
+    font-size: 1.4rem;
+  }
+
+  &:hover {
+    transform: translate(0, 1px);
+    text-decoration: none;
+    box-shadow: inset 0 2px 5px 1px ${rgba(colorBlack, 0.4)};
+  }
+
+  ${({ hidden }) =>
+    hidden &&
+    css`
+      ${NotDisplayed}
+    `}
+`;
+CloseButton.displayName = 'Close Button';
+
+export const DesignArea = styled(OtherSkillsOuter)`
+  margin-top: -60px;
+  margin-bottom: 50px;
+`;
+DesignArea.displayName = 'Design Area';
+
+export const DesignText = styled.p`
+  margin: 15px auto;
+`;
+DesignText.displayName = 'Design Text';
+
+export const Flag = styled.img`
+  position: absolute;
+  left: -15px;
+  border-radius: 50%;
+  padding: 5px;
+  max-width: 24px;
+
+  @media all and (min-width: 768px) {
+    top: 35px;
+    left: -35px;
+    background: ${rgba(colorWhite, 0.5)};
+    border: 1px solid ${colorGreenPale};
+    max-width: 32px;
+  }
+`;
+Flag.displayName = 'Flag';
+
+export const Icon = styled.i`
+  position: absolute;
+  left: 10px;
+  color: ${colorBlueLight};
+`;
+Icon.displayName = 'Icon';
+
+export const LanguagesArea = styled(OtherSkillsOuter)`
+  margin: 40px 0 0 10px;
+  width: 40%;
+
+  @media all and (min-width: 768px) {
+    margin: 30px 0 0;
+    grid-row-start: span 2;
+    padding: 10px 20px 30px 30px;
+    height: auto;
+    width: 100%;
+  }
+`;
+LanguagesArea.displayName = 'Languages Area';
+
+export const LanguagesTable = styled(OtherSkillsTable)`
+  margin: 0 auto;
+
+  & td {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+    height: 20px;
+    width: 100%;
+    align-items: center;
+    font-size: 0.7rem;
+
+    &:hover {
+      background: ${rgba(colorYellowBright, 0.5)};
+      font-size: 1.1rem;
+    }
+  }
+
+  & td:first-of-type {
+    margin-top: 10px;
+    width: 80%;
+    padding-left: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 1px ${colorWhite};
+    font-family: ${fontTitle};
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: ${colorGreenBright};
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  & td:nth-child(even) {
+    background-color: ${rgba(colorWhite, 0.5)};
+
+    &:hover {
+      background: ${rgba(colorYellowPale, 0.5)};
+      font-size: 1.1rem;
+    }
+
+    & .icon--languages {
+      color: ${colorBlueNormal};
+    }
+  }
+
+  @media all and (min-width: 768px) {
+    & td {
+      padding-left: 60px;
+      height: 15px;
+      width: 100%;
+    }
+
+    & td:first-of-type {
+      margin-top: 15px;
+    }
+  }
+`;
+LanguagesTable.displayName = 'Languages Table';
+
+export const OtherInformationAreaArea = styled(OtherSkillsOuter)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  width: 50%;
+  margin: 40px 10px 0;
+
+  @media all and (min-width: 768px) {
+    display: block;
+
+    width: 100%;
+  }
+`;
+OtherInformationAreaArea.displayName = 'Other Informations Area';
+
+export const OtherInformationAreaTable = styled(OtherSkillsTable)`
+  margin: 0 0 30px;
+  width: 100%;
+
+  & td {
+    height: auto;
+    width: auto;
+  }
+
+  & tr {
+    line-height: 1;
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: ${rgba(colorYellowPale, 0.5)};
+      font-size: 0.8rem;
+    }
+  }
+
+  & tr td {
+    padding: 10px 5px;
+  }
+
+  & tr td:first-of-type {
+    padding: 5px 0;
+  }
+
+  & tr:nth-child(even) {
+    background-color: ${rgba(colorWhite, 0.5)};
+
+    &:hover {
+      background: ${rgba(colorYellowPale, 0.5)};
+      font-size: 0.8rem;
+    }
+  }
+
+  & thead tr {
+    &:hover {
+      background: none;
+    }
+  }
+
+  @media all and (min-width: 768px) {
+    & td {
+      width: auto;
+
+      &:first-of-type {
+        width: 250px;
+        padding-left: 5px;
+        font-size: 0.6rem;
+      }
+    }
+
+    & tr {
+      line-height: 40px;
+      font-size: 0.6rem;
+
+      &:hover {
+        background: ${rgba(colorYellowPale, 0.5)};
+        font-size: 0.7rem;
+      }
+    }
+  }
+`;
+OtherInformationAreaTable.displayName = 'Other Informations Table';
+
+export const OtherSkillsWrapper = styled.div`
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  flex-wrap: wrap;
+
+  @media all and (min-width: 768px) {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    height: 40px;
+    width: 60px;
+    opacity: 0.9;
+    transform: perspective(-1em) rotateX(-2deg) skewX(-1deg);
+    background-image: linear-gradient(${colorBlueWater}, ${colorWhite});
+    cursor: pointer;
+    animation-name: ${BrightScreen};
+    animation-duration: 650ms;
+    animation-iteration-count: infinite;
+
+    &:hover {
+      opacity: 1;
+      border: 5px solid ${colorYellowBright};
+    }
+
+    ${({ visible }) =>
+      visible &&
+      css`
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        opacity: 1;
+        transform: none;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: auto;
+        grid-gap: 50px;
+        padding: 10px 50px 30px;
+        background-image: linear-gradient(
+          ${rgba(colorBlueWater, 0.3)},
+          ${rgba(colorWhite, 0.2)}
+        );
+        overflow: hidden;
+        cursor: default;
+
+        &:hover {
+          border: 0;
+        }
+      `}
+  }
+`;
+OtherSkillsWrapper.displayName = 'Other Skills Wrapper';
+
+export const Sample = styled.div`
+  border: 3px solid ${rgba(colorWhite, 0.5)};
+  height: 120px;
+  width: 28vw;
+  cursor: pointer;
+  background-size: cover;
+
+  @media all and (min-width: 768px) {
+    width: 20vw;
+  }
+
+  ${({ image }) => css`
+    background-image: url(${image});
+  `}
+
+  &:hover {
+    border: 3px solid ${colorYellowBright};
+  }
+`;
+Sample.displayName = 'Sample';
+
+export const SamplesWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+`;
+SamplesWrapper.displayName = 'Samples Wrapper';
+
+export const Title = styled.h2`
+  margin: 10px 0;
+  width: 100%;
+  font-family: ${fontSubtitle};
+  font-size: 1.2rem;
+  text-align: center;
+
+  @media all and (min-width: 768px) {
+    margin: 5px 20px 10px 0;
+    font-size: 1.3rem;
+  }
+`;
+Title.displayName = 'Title';

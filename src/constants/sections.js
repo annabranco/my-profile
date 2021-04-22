@@ -5,4 +5,4 @@ export const PROJECTS_SECTION = 'projects';
 export const EXPERIENCES_SECTION = 'experience';
 export const FORMATION_SECTION = 'formation';
 export const OTHER_INFO_SECTION = 'other';
-export const SEABED_SECTION = 'other';
+export const SEABED_SECTION = 'seabed';

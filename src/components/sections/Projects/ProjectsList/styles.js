@@ -49,7 +49,7 @@ export const Paginator = styled.div`
   @media all and (min-width: 768px) {
     height: auto;
     width: auto;
-    margin-bottom: 40px;
+    margin: 30px auto;
   }
 `;
 Paginator.displayName = 'Paginator';
@@ -77,6 +77,7 @@ export const ProjectsSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: height 3s linear;
 
   @media all and (min-width: 375px) {
     padding-top: 10vh;
@@ -85,13 +86,13 @@ export const ProjectsSection = styled.section`
   @media all and (min-width: 768px) {
     padding-top: 20px;
     width: 60%;
+    min-height: 400px;
   }
 `;
 ProjectsSection.displayName = 'PROJECTS Section';
 
 export const Text = styled.span`
   position: absolute;
-  bottom: 40vh;
   vertical-align: super;
   font-size: 1rem;
   text-align: center;
@@ -107,11 +108,13 @@ export const Text = styled.span`
   ${({ next }) => {
     if (next) {
       return css`
+        bottom: 40vh;
         right: 15px;
         transform: rotate(180deg) translate(0, 50px);
       `;
     }
     return css`
+      bottom: 28vh;
       left: 15px;
       transform: translate(0, 50px);
     `;

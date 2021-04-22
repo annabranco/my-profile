@@ -39,6 +39,7 @@ export const Flag = styled.div`
   outline: none;
   opacity: 0.3;
   cursor: pointer;
+  max-width: 32px;
 
   ${props =>
     props.lang === props.languageSelected &&
@@ -66,7 +67,7 @@ export const HeaderArea = styled.header`
     ${rgba(colorWhite, 0.6)} 50%
   );
   height: 40px;
-  width: 100%;
+  width: 100vw;
   padding: 0 20px;
 
   @media all and (min-width: 500px) {

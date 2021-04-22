@@ -79,11 +79,11 @@ const Experiences = ({ cuePointsActivated }) => {
                   <Company>
                     {item.company}
                     <CountryFlag
-                      src={getFlagURL(
-                        item.country.countryCode,
-                        'flat',
-                        'small'
-                      )}
+                      src={getFlagURL({
+                        country: item.country.countryCode,
+                        style: 'round3d',
+                        size: 'small'
+                      })}
                       alt={item.country[languageSelected]}
                     />
                     <City>{item.place}</City>
@@ -106,11 +106,11 @@ const Experiences = ({ cuePointsActivated }) => {
             <Company>
               {selectedExperience.company}
               <CountryFlag
-                src={getFlagURL(
-                  selectedExperience.country.countryCode,
-                  'flat',
-                  'small'
-                )}
+                src={getFlagURL({
+                  country: selectedExperience.country.countryCode,
+                  style: 'flat3d',
+                  size: 'small'
+                })}
                 alt={selectedExperience.country[languageSelected]}
               />
               <City>{selectedExperience.place}</City>
