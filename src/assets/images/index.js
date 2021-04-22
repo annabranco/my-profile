@@ -2,19 +2,21 @@
 
 import { LEFT, RIGHT } from '../../constants';
 
-export const FloatingLeft = require('./other/floatingLeft.gif');
+export const ArrowsDown = require('./other/arrowsDown.gif');
+export const Barquinho = require('./other/barquinho.gif');
 export const Binary = require('./other/bg-binary.jpg');
 export const Birds = require('./fishes/birds.gif');
 export const BlinkingFish = require('./fishes/fish-blink.gif');
+export const FloatingLeft = require('./other/floatingLeft.gif');
 export const FloatingRight = require('./other/floatingRight.gif');
-export const Barquinho = require('./other/barquinho.gif');
 export const LogoAdalab = require('./logo-adalab.png');
 export const MacNotebook = require('./bg/bg-mac.jpg');
 export const Mugshot = require('./annabranco.png');
 export const Sea = require('./bg/sea.gif');
 export const SeaBed = require('./bg/seabed.jpg');
-export const SwimmingRight = require('./other/swimmingRight.gif');
 export const SwimmingLeft = require('./other/swimmingLeft.gif');
+export const SwimmingRight = require('./other/swimmingRight.gif');
+export const Swipe = require('./other/swipe.gif');
 
 // Skills
 export const Agile = require('./skills/agile.png');

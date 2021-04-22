@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { node, func } from 'prop-types';
+import { func, node } from 'prop-types';
 import { ModalOverlay } from './styles';
 
 const AppModal = ({ children, closeAction }) => {

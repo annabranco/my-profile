@@ -1,43 +1,37 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { func } from 'prop-types';
+import { useSelector } from 'react-redux';
 import Social from '../../elements/Social';
 import {
   finishedSelector,
-  infoPageTextSelector,
-  sectionsTextsSelector
+  infoPageTextSelector
 } from '../../../redux/selectors';
 import { isDesktop, isFullWindowDesktop } from '../../../utils/device';
 import {
-  Mugshot,
   Barquinho,
   Birds,
-  BlinkingFish
+  BlinkingFish,
+  Mugshot
 } from '../../../assets/images';
 import {
   Advise,
+  ArrowIcon,
   BirdsFlying,
   InfoArea,
   InfoMessage,
   JobTitle,
+  KindFish,
   LineOfArrows,
   MainAreaWrapper,
   MeuBarquinho,
-  MoreText,
   MyInfoInnerWrapper,
   MyInfoWrapper,
   MyNameOnDesktopDevices,
   MyNameOnMobileDevices,
   Photo,
   PhotoWrapper,
-  ScrollDownDisplay,
   SectionMyInfo,
-  SocialArea,
-  KindFish,
-  ArrowIcon
+  SocialArea
 } from './styles';
-import { SKILLS_SECTION } from '../../../constants';
-import { changeSection } from '../../../redux/actions/sections';
 
 const MyInfoPage = () => {
   const finishedScenario = useSelector(finishedSelector);

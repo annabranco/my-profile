@@ -2,12 +2,12 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { Sea } from '../../../assets/images';
 import {
-  colorBlueLight,
-  fontTitle,
-  colorRedDark,
-  fontTitleAlt,
   colorBlueDark,
-  fontSubtitle
+  colorBlueLight,
+  colorRedDark,
+  fontSubtitle,
+  fontTitle,
+  fontTitleAlt
 } from '../../../styles/theme';
 
 export const City = styled.span`

@@ -2,20 +2,10 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
   colorWhite,
-  colorBlueLight,
   colorBlack,
   colorGrayNormal,
-  fontSubtitle,
-  colorGreenBright,
-  colorBlueNormal,
-  fontTitle,
   colorGrayDark,
-  colorYellowBright,
-  colorBlueWater,
-  colorGreenPale,
-  colorYellowPale,
-  colorRedBright,
-  fontTitleAlt
+  colorRedBright
 } from '../../../styles/theme';
 import { Hidden, NotDisplayed } from '../../../styles/global';
 

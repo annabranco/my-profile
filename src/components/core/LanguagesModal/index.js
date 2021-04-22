@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bool, func } from 'prop-types';
-import AppButton from '../../elements/AppButton';
 import {
   allLanguagesSelector,
   currentLanguageSelector,
   languagesModelTextsSelector
 } from '../../../redux/selectors';
 import { changeLanguage } from '../../../redux/actions/languages';
+import { getFlagURL } from '../../../utils/icons';
+import AppButton from '../../elements/AppButton';
 import {
   BackgroundOverlay,
   CheckBox,
@@ -19,7 +20,6 @@ import {
   ModalWrapper,
   Text
 } from './styles';
-import { getFlagURL } from '../../../utils/icons';
 
 const updateLanguageSettings = (language, hideForever) =>
   localStorage.setItem(
@@ -53,18 +53,21 @@ const LanguagesModal = ({
 
   const dispatch = useDispatch();
 
-  const onClickClose = () => {
+  const onClickClose = event => {
+    event.stopPropagation();
     onCloseLanguageModal(hideForever);
     updateLanguageSettings(languageSelected, hideForever);
   };
 
-  const onCLickFlag = event =>
+  const onCLickFlag = event => {
+    event.stopPropagation();
     onChangeLanguage(
       languageSelected,
       event.currentTarget.lang,
       hideForever,
       dispatch
     );
+  };
 
   return (
     <BackgroundOverlay>
@@ -99,13 +102,13 @@ const LanguagesModal = ({
         <Text>{texts.changeUpperBar}</Text>
         <CheckBoxArea role="checkbox" onClick={toggleBlockLangModal}>
           <CheckBox
-            className="languages__checkbox"
             checked={hideForever}
+            className="languages__checkbox"
             id="checkLang"
             name="hideForever"
             onClick={toggleBlockLangModal}
-            type="checkbox"
             readOnly
+            type="checkbox"
           />
           <label htmlFor="blockLang">{texts.chekboxText}</label>
         </CheckBoxArea>

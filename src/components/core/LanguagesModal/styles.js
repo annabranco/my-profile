@@ -29,7 +29,7 @@ export const Text = styled.p`
 Text.displayName = 'Text';
 
 export const BackgroundOverlay = styled.div`
-  z-index: 3;
+  z-index: 101;
   position: absolute;
   display: flex;
   justify-content: center;

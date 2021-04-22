@@ -1,25 +1,25 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
+import { skillsSelector } from '../../../redux/selectors';
+import { isDesktop } from '../../../utils/device';
 import FrontendSkillGroup from './FrontendSkillGroup';
 import SkillLevel from './SkillLevel';
-import { skillsSelector } from '../../../redux/selectors';
 import {
   SKILLS_FIRST_ROW,
   SKILLS_SECOND_ROW,
   SKILLS_THIRD_ROW
 } from '../../../constants';
 import {
-  SkillsArea,
-  Title,
-  SkillsGrid,
-  SkillItem,
+  Logo,
   Name,
   SkillGroup,
+  SkillItem,
+  SkillsArea,
+  SkillsGrid,
   SkillsInsideGroup,
-  Logo
+  Title
 } from './styles';
-import { isDesktop } from '../../../utils/device';
 
 const FIRST_ROW_ITEMS = 'Frontend';
 const SECOND_ROW_ITEMS = new Set([1, 2, 3, 4]);

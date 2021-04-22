@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 import { Binary } from '../../../assets/images';
 import {
@@ -7,7 +7,6 @@ import {
   colorBlueLight,
   colorWhite,
   fontSubtitle,
-  fontText,
   fontTitle,
   fontTitleAlt
 } from '../../../styles/theme';
@@ -98,6 +97,12 @@ export const ArrowIcon = styled.i`
   font-size: ${({ sections }) => (sections ? '1.2rem' : '1.5rem')};
   color: ${rgba(colorWhite, 0.55)};
   transform: rotate(270deg);
+
+  ${({ goBack }) =>
+    goBack &&
+    css`
+      transform: rotate(180deg);
+    `}
 
   @media all and (min-width: 768px) {
     margin: 0 100px;

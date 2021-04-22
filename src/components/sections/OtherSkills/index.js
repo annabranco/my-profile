@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
 import { otherSkillsTextSelector } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
+import OtherSkillsInfo from './OtherSkillsInfo';
 import { MacNotebook } from '../../../assets/images';
+import { seabedElementsPropType } from '../../../types';
 import { TextFindSomething } from '../Seabed/styles';
 import {
   KeyboardKeysWrapper,
@@ -13,8 +15,6 @@ import {
   SectionOtherSkills,
   TopBar
 } from './styles';
-import { seabedElementsPropType } from '../../../types';
-import OtherSkillsInfo from './OtherSkillsInfo';
 
 const OtherSkills = ({
   onClickClose,

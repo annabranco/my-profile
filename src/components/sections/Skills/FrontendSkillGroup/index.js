@@ -1,10 +1,10 @@
 import React from 'react';
 import { bool } from 'prop-types';
 import SkillLevel from '../SkillLevel';
+import { isDesktop } from '../../../../utils/device';
+import { skillGroupsPropType } from '../../../../types';
 import { FrontendGroup, Logo, LogoWrapper, SkillsWrapper } from './styles';
 import { Name, SkillItem, Title } from '../styles';
-import { skillGroupsPropType } from '../../../../types';
-import { isDesktop } from '../../../../utils/device';
 
 const FrontendSkillGroup = ({ details, visible }) => (
   <FrontendGroup visible={visible}>

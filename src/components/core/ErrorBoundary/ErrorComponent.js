@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { string } from 'prop-types';
 import appInfo from '../../../../package.json';
 import { useStateWithLabel } from '../../../utils/hooks';
+import { isDesktop } from '../../../utils/device';
 import { Barquinho } from '../../../assets/images';
 import { NOTIFY_BUTTON } from '../../../constants';
+import { errorTextsPropType } from '../../../types';
+import { MeuBarquinho } from '../../sections/MyInfoPage/styles';
 import {
   DetailsText,
   ErrorDetailsArea,
@@ -15,9 +18,6 @@ import {
   NotifyButtonText,
   SorryText
 } from './styles';
-import { MeuBarquinho } from '../../sections/MyInfoPage/styles';
-import { errorTextsPropType } from '../../../types';
-import { isDesktop } from '../../../utils/device';
 
 const DEFAULT_ERROR_TEXTS = {
   errorLine1: "I'm awfully sorry but something unexpected had happened. :(",

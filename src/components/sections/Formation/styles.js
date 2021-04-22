@@ -1,13 +1,13 @@
 import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 import {
-  colorWhite,
-  colorBlueLight,
   colorBlack,
-  fontSubtitle,
-  colorYellowBright,
+  colorBlueLight,
   colorBlueWater,
+  colorWhite,
+  colorYellowBright,
   colorYellowDark,
+  fontSubtitle,
   fontTitleAlt
 } from '../../../styles/theme';
 import { Title } from '../Experiences/styles';

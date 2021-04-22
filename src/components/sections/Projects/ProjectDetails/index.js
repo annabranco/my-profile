@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { number } from 'prop-types';
 import { currentLanguageSelector } from '../../../../redux/selectors';
+import { isDesktop } from '../../../../utils/device';
 import { THUMBNAILS } from '../../../../assets/images';
 import { projectsPropType } from '../../../../types';
 import {
@@ -14,7 +15,6 @@ import {
   Thumbnail,
   Title
 } from './styles';
-import { isDesktop } from '../../../../utils/device';
 
 const ProjectDetails = ({ actualPage, project }) => {
   const languageSelected = useSelector(currentLanguageSelector);

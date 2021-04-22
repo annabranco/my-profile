@@ -13,7 +13,8 @@ export const ScrollAreaWrapper = styled.main`
 
   @media all and (min-width: 768px) {
     position: unset;
-    overflow-y: scroll;
+    overflow-y: ${({ isSeabedElementOpened }) =>
+      isSeabedElementOpened ? 'hidden' : 'scroll'};
   }
 `;
 ScrollAreaWrapper.displayName = 'Scroll Area';

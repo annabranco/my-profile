@@ -28,7 +28,10 @@ const App = () => {
     false,
     LANG_MODAL_VISIBLE
   );
-
+  const [isSeabedElementOpened, openSeabedElement] = useStateWithLabel(
+    false,
+    'isSeabedElementOpened'
+  );
   const toggleBlockLangModal = () => toggleHideForever(prevState => !prevState);
 
   const onCloseLanguageModal = () => {
@@ -65,8 +68,17 @@ const App = () => {
           toggleBlockLangModal={toggleBlockLangModal}
         />
       )}
-      <Header hideForever={hideForever} />
-      {settingsLoaded && <MainArea langModalVisible={langModalVisible} />}
+      <Header
+        hideForever={hideForever}
+        isSeabedElementOpened={isSeabedElementOpened}
+      />
+      {settingsLoaded && (
+        <MainArea
+          isSeabedElementOpened={isSeabedElementOpened}
+          langModalVisible={langModalVisible}
+          openSeabedElement={openSeabedElement}
+        />
+      )}
     </ErrorBoundary>
   );
 };

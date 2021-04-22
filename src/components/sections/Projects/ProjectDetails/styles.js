@@ -1,11 +1,11 @@
 import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 import {
-  colorBlueDark,
   colorBlack,
-  fontTitle,
+  colorBlueDark,
   colorGrayDark,
   colorWhite,
+  fontTitle,
   fontTitleAlt
 } from '../../../../styles/theme';
 

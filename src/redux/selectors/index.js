@@ -27,6 +27,10 @@ export const infoPageTextSelector = createSelector(
   [getTexts],
   texts => texts.infoPage
 );
+export const instructionsTextSelector = createSelector(
+  [getTexts],
+  texts => texts.instructions
+);
 export const languagesModelTextsSelector = createSelector(
   [getTexts],
   texts => texts.languages

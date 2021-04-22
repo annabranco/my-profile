@@ -66,7 +66,7 @@ export const ModalOverlay = styled.div`
   align-items: center;
   justify-content: center;
   height: ${`${window.innerHeight}px`};
-  overflow-x: auto;
+  overflow: hidden;
   width: 100vw;
   z-index: 100;
   background-image: linear-gradient(

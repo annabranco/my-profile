@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
-  colorGreenBright,
-  colorWhite,
   colorBlack,
   colorBlueWater,
-  fontTitleAlt,
+  colorGreenBright,
+  colorWhite,
+  colorYellowBright,
   fontTitle,
-  colorYellowBright
+  fontTitleAlt
 } from '../../../styles/theme';
 
 export const Logo = styled.img`

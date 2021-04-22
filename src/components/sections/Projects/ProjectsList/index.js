@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { arrayOf, bool, func, number, oneOf } from 'prop-types';
 import { developerTextSelector } from '../../../../redux/selectors';
+import { isDesktop } from '../../../../utils/device';
 import ProjectDetails from '../ProjectDetails';
 import {
   ADVANCE_ACTION,
@@ -11,7 +12,6 @@ import {
 } from '../../../../constants';
 import { projectsPropType } from '../../../../types';
 import { Icon, Paginator, ProjectsGrid, ProjectsSection, Text } from './styles';
-import { isDesktop } from '../../../../utils/device';
 
 const ProjectsList = ({
   actualPage,

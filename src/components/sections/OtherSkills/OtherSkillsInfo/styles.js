@@ -1,21 +1,18 @@
 import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 import {
-  colorWhite,
   colorBlueLight,
-  colorBlack,
-  fontSubtitle,
-  colorGreenBright,
   colorBlueNormal,
-  fontTitle,
-  colorGrayDark,
-  colorYellowBright,
   colorBlueWater,
+  colorGrayDark,
+  colorGreenBright,
   colorGreenPale,
+  colorWhite,
+  colorYellowBright,
   colorYellowPale,
-  fontTitleAlt
+  fontSubtitle,
+  fontTitle
 } from '../../../../styles/theme';
-import { NotDisplayed } from '../../../../styles/global';
 
 const BrightScreen = keyframes`
   from {
@@ -89,48 +86,6 @@ const OtherSkillsTable = styled.table`
     width: 90%;
   }
 `;
-
-export const CloseButton = styled.button`
-  border: 1px solid $[colorRedDark];
-  border-radius: 5px 0;
-
-  padding: 2px 5px;
-  text-shadow: 0 0 1px ${rgba(colorGrayDark, 0.51)};
-  font-family: ${fontTitleAlt};
-  font-size: 0.7rem;
-  color: ${colorBlack};
-  cursor: pointer;
-  box-shadow: 0 1px 2px 0 ${rgba(colorBlack, 0.4)},
-    inset 0 1px 5px 1px ${rgba(colorWhite, 0.7)};
-  grid-column-start: span 2;
-
-  @media all and (min-width: 321px) {
-    border-radius: 8px 0;
-    padding: 2px 10px;
-    font-size: 1.2rem;
-  }
-
-  @media all and (min-width: 768px) {
-    top: 32px;
-    right: 60px;
-    border-radius: 12px 0;
-    padding: 3px 12px;
-    font-size: 1.4rem;
-  }
-
-  &:hover {
-    transform: translate(0, 1px);
-    text-decoration: none;
-    box-shadow: inset 0 2px 5px 1px ${rgba(colorBlack, 0.4)};
-  }
-
-  ${({ hidden }) =>
-    hidden &&
-    css`
-      ${NotDisplayed}
-    `}
-`;
-CloseButton.displayName = 'Close Button';
 
 export const DesignArea = styled(OtherSkillsOuter)`
   margin-top: -60px;
@@ -232,12 +187,13 @@ export const LanguagesTable = styled(OtherSkillsTable)`
   @media all and (min-width: 768px) {
     & td {
       padding-left: 60px;
-      height: 15px;
+      height: 3vh;
       width: 100%;
     }
 
-    & td:first-of-type {
+    & tr td:first-of-type {
       margin-top: 15px;
+      font-size: 1.5rem;
     }
   }
 `;
@@ -319,8 +275,22 @@ export const OtherInformationAreaTable = styled(OtherSkillsTable)`
     }
 
     & tr {
+      display: flex;
+      flex-direction: initial;
+      justify-content: center;
+      align-content: space-between;
+      height: 5vh;
       line-height: 40px;
       font-size: 0.6rem;
+
+      & td {
+        width: 20vw;
+
+        &:nth-child(2) {
+          width: 50%;
+          text-align: left;
+        }
+      }
 
       &:hover {
         background: ${rgba(colorYellowPale, 0.5)};
@@ -339,6 +309,7 @@ export const OtherSkillsWrapper = styled.div`
   justify-content: center;
   width: 100vw;
   flex-wrap: wrap;
+  overflow: hidden;
 
   @media all and (min-width: 768px) {
     position: relative;
@@ -362,9 +333,9 @@ export const OtherSkillsWrapper = styled.div`
     ${({ visible }) =>
       visible &&
       css`
-        top: 0;
+        top: 90px;
         left: 0;
-        height: 100vh;
+        height: 100%;
         width: 100vw;
         opacity: 1;
         transform: none;
@@ -413,6 +384,7 @@ export const SamplesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
+  justify-content: center;
 `;
 SamplesWrapper.displayName = 'Samples Wrapper';
 

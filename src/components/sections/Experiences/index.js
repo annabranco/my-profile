@@ -7,6 +7,10 @@ import {
   globalTextsSelector
 } from '../../../redux/selectors';
 import { getFlagURL } from '../../../utils/icons';
+import { isDesktop } from '../../../utils/device';
+import { HorizontalBar } from '../../elements/HorizontalBar/styles';
+import AppModal from '../../mainComponents/AppModal';
+import { useStateWithLabel } from '../../../utils/hooks';
 import {
   City,
   Company,
@@ -21,10 +25,6 @@ import {
   Title,
   VerticalBar
 } from './styles';
-import { HorizontalBar } from '../../elements/HorizontalBar/styles';
-import { isDesktop } from '../../../utils/device';
-import AppModal from '../../mainComponents/AppModal';
-import { useStateWithLabel } from '../../../utils/hooks';
 
 const EXPERIENCE_ON_TOP = 'newer'; // newer or older
 
@@ -59,10 +59,10 @@ const Experiences = ({ cuePointsActivated }) => {
               >
                 <HorizontalBar
                   border="2px"
-                  margin="9%"
-                  moveY="25px"
                   formationItems={experiences.length}
                   index={index}
+                  margin="9%"
+                  moveY="25px"
                 />
                 <DateArea>
                   {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
@@ -79,12 +79,12 @@ const Experiences = ({ cuePointsActivated }) => {
                   <Company>
                     {item.company}
                     <CountryFlag
+                      alt={item.country[languageSelected]}
                       src={getFlagURL({
                         country: item.country.countryCode,
                         style: 'round3d',
                         size: 'small'
                       })}
-                      alt={item.country[languageSelected]}
                     />
                     <City>{item.place}</City>
                   </Company>
@@ -108,8 +108,8 @@ const Experiences = ({ cuePointsActivated }) => {
               <CountryFlag
                 src={getFlagURL({
                   country: selectedExperience.country.countryCode,
-                  style: 'flat3d',
-                  size: 'small'
+                  size: 'small',
+                  style: 'flat3d'
                 })}
                 alt={selectedExperience.country[languageSelected]}
               />

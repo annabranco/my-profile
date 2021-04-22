@@ -35,6 +35,11 @@
       "job": "Front End Developer",
       "thankyou": "Thank you very much for navigating trough all my profile!"
     },
+    "instructions": {
+      "swipe": "Swipe to navigate",
+      "button": "Or use the button below",
+      "buttonText": "Go on"
+    },
     "languages": {
       "changeDefault": "Click below to change the default language:",
       "changeUpperBar": "You may also change it in the upper bar",
@@ -47,7 +52,6 @@
       "design": "Graphic design",
       "find": "You've found... a computer?!",
       "find2": "And it is oddly on",
-      "how": "How I have developed it",
       "investigate": "Click on the screen to investigate it.",
       "languages": "Languages",
       "languagesSpoken" : [
@@ -89,7 +93,6 @@
       ],
       "other": "Other skills",
       "samples": "Here are some of my design creations:",
-      "skill": "Skill",
       "skills": [
         {
           "skill": "Working under pressure",
@@ -138,6 +141,7 @@
     "sections": {
       "experience": "Professional experience",
       "formation": "Formation",
+      "main": "Contact Info",
       "other": "Other information",
       "projects": "Own projects",
       "technical": "Technical Competences"
@@ -179,6 +183,11 @@
       "job": "Desarrolladora Frontend",
       "thankyou": "Muchas gracias por navegar por todo mi perfil!"
     },
+    "instructions": {
+      "swipe": "Desliza el dedo para navegar",
+      "button": "O usa el botón abajo",
+      "buttonText": "Avanzar"
+    },
     "languages": {
       "changeDefault": "Haz click abajo para cambiar el idioma predeterminado:",
       "changeUpperBar": "También puedes cambiarlo en la barra superior",
@@ -191,7 +200,6 @@
       "design": "Diseño gráfico",
       "find": "Has encontrado... un ordenador?!",
       "find2": "Y curiosamente está funcionando...",
-      "how": "Como la he desarrollado",
       "investigate": "Haz click en la pantalla para investigarlo.",
       "languages": "Idiomas",
       "languagesSpoken" : [
@@ -233,8 +241,7 @@
       ],
       "other": "Otras competencias",
       "samples": "Aquí puedes ver algunas creaciones mías:",
-      "skill": "Competencia",
-            "skills": [
+      "skills": [
         {
           "skill": "Trabajar bajo presión",
           "details": "Más de 5 años como voluntaria en ambulancias y emergencias"
@@ -282,6 +289,7 @@
     "sections": {
       "experience": "Experiencia profesional",
       "formation": "Formación",
+      "main": "Contacto",
       "other": "Otras informaciones",
       "projects": "Proyectos propios",
       "technical": "Competencias técnicas"
@@ -333,6 +341,11 @@
       "job": "Programadora Frontend",
       "thankyou": "Muito obrigada por navegar por todo o meu perfil!"
     },
+    "instructions": {
+      "swipe": "Deslize o dedo para navegar",
+      "button": "Ou use o botão abaixo",
+      "buttonText": "Avançar"
+    },
     "languages": {
       "changeDefault": "Clique abaixo para mudar o idioma padrão:",
       "changeUpperBar": "Você também pode mudá-lo na barra superior",
@@ -345,7 +358,6 @@
       "design": "Desenho gráfico",
       "find": "Você encontrou... um computador?!",
       "find2": "E estranhamente está funcionando...",
-      "how": "Como eu a desenvolvi",
       "investigate": "Clique na tela para investigá-lo.",
       "languages": "Idiomas",
       "languagesSpoken" : [
@@ -387,7 +399,6 @@
       ],
       "other": "Outras competências",
       "samples": "Você pode aqui algumas criações minhas:",
-      "skill": "Competência",
       "skills": [
         {
           "skill": "Trabalhar sobre pressão",
@@ -436,6 +447,7 @@
     "sections": {
       "experience": "Experiência profissional",
       "formation": "Formação",
+      "main": "Contato",
       "other": "Outras informações",
       "projects": "Projetos próprios",
       "technical": "Competências técnicas"

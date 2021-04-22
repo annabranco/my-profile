@@ -9,10 +9,7 @@ import {
   colorWhite,
   colorYellowBright,
   colorYellowPale,
-  fontTitle,
-  colorGrayDark,
-  fontTitleAlt,
-  colorRedBright
+  fontTitle
 } from '../../../styles/theme';
 
 const FloatingAnimation = keyframes`
@@ -225,7 +222,7 @@ export const HeroImage = styled.img`
     display: block;
   }
 
-  ${({ back2Surface, crossingBorder, isGoingUp, isSwimming, facing }) => {
+  ${({ crossingBorder, isGoingUp, isSwimming, facing }) => {
     if (crossingBorder) {
       return css`
         transition: none;
@@ -238,21 +235,14 @@ export const HeroImage = styled.img`
       `;
     }
 
-    if (isGoingUp && back2Surface) {
-      return css`
-        transform: ${facing === LEFT ? 'rotate(70deg)' : 'rotate(290deg)'};
-      `;
-    }
-
     if (isGoingUp) {
+      if (facing === LEFT) {
+        return css`
+          transform: ${facing === LEFT ? 'rotate(70deg)' : 'rotate(-70deg)'};
+        `;
+      }
       return css`
-        transform: ${facing === LEFT ? 'rotate(70deg)' : 'rotate(290deg)'};
-      `;
-    }
-
-    if (facing === LEFT) {
-      return css`
-        transform: scaleX(-1);
+        transform: ${facing === LEFT ? 'rotate(70deg)' : 'rotate(-70deg)'};
       `;
     }
 
@@ -325,53 +315,6 @@ export const MessageOnMobileDevices = styled(Message)`
   ${NotDisplayed};
 `;
 MessageOnMobileDevices.displayName = 'Message';
-
-export const SeabedCloseButton = styled.button`
-  z-index: 4;
-  position: absolute;
-  top: 10px;
-  right: 5px;
-  border: 1px solid $[colorRedDark];
-  border-radius: 5px 0;
-  background-image: linear-gradient(
-    ${rgba(colorWhite, 0.2)},
-    ${rgba(colorRedBright, 0.9)}
-  );
-  padding: 2px 5px;
-  text-shadow: 0 0 1px ${rgba(colorGrayDark, 0.51)};
-  font-family: ${fontTitleAlt};
-  font-size: 0.7rem;
-  color: ${colorBlack};
-  cursor: pointer;
-  box-shadow: 0 1px 2px 0 ${rgba(colorBlack, 0.4)},
-    inset 0 1px 5px 1px ${rgba(colorWhite, 0.7)};
-
-  @media all and (min-width: 321px) {
-    border-radius: 8px 0;
-    padding: 2px 10px;
-    font-size: 1.2rem;
-  }
-
-  @media all and (min-width: 768px) {
-    right: 10px;
-    border-radius: 12px 0;
-    padding: 3px 12px;
-    font-size: 1.4rem;
-  }
-
-  &:hover {
-    transform: translate(0, 1px);
-    text-decoration: none;
-    box-shadow: inset 0 2px 5px 1px ${rgba(colorBlack, 0.4)};
-  }
-
-  ${({ hidden }) =>
-    hidden &&
-    css`
-      ${NotDisplayed}
-    `}
-`;
-SeabedCloseButton.displayName = 'Close Button';
 
 export const SeabedFloor = styled.div`
   position: absolute;

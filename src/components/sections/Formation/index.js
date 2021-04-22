@@ -1,8 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
+import {
+  formationSelector,
+  globalTextsSelector,
+  currentLanguageSelector,
+  seabedTextsSelector
+} from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import { getFlagURL } from '../../../utils/icons';
+import { seabedElementsPropType } from '../../../types';
+import { HorizontalBar } from '../../elements/HorizontalBar/styles';
+import { Title } from '../../mainComponents/ScrollArea/ScrollSection/styles';
+import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';
+import { TextFindSomething } from '../Seabed/styles';
 import {
   Details,
   DetailsArea,
@@ -14,17 +25,6 @@ import {
   SectionFormation,
   VerticalBar
 } from './styles';
-import { SeabedCloseButton, TextFindSomething } from '../Seabed/styles';
-import { HorizontalBar } from '../../elements/HorizontalBar/styles';
-import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';
-import { Title } from '../../mainComponents/ScrollArea/ScrollSection/styles';
-import { seabedElementsPropType } from '../../../types';
-import {
-  formationSelector,
-  globalTextsSelector,
-  currentLanguageSelector,
-  seabedTextsSelector
-} from '../../../redux/selectors';
 
 const FORMATION_ON_TOP = 'older'; // newer or older
 
@@ -69,16 +69,7 @@ const Formation = ({
             <FakeText>- - - --- --</FakeText>
           </>
         ) : (
-          <FormationArea>
-            {isDesktop && (
-              <SeabedCloseButton
-                onClick={() => onClickClose('formationSection')}
-                type="button"
-                aria-label={globalTexts.close}
-              >
-                X
-              </SeabedCloseButton>
-            )}
+          <FormationArea onClick={() => onClickClose('formationSection')}>
             <VerticalBar />
             <FormationWrapper>
               {isDesktop && <Title>{texts.formation}</Title>}
@@ -88,10 +79,10 @@ const Formation = ({
                     <FormationItem visible key={item.dateBeginValue}>
                       <HorizontalBar
                         border="4px"
-                        margin="9%"
-                        moveY="25px"
                         formationItems={formation.length}
                         index={index}
+                        margin="9%"
+                        moveY="25px"
                       />
                       <DateArea>
                         {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
@@ -113,14 +104,14 @@ const Formation = ({
                         <Details>
                           {item.university}
                           <CountryFlag
+                            alt={item.country[languageSelected]}
                             formation
+                            round
                             src={getFlagURL({
                               country: item.countryCode,
-                              style: 'round3d',
-                              size: 'small'
+                              size: 'small',
+                              style: 'round3d'
                             })}
-                            alt={item.country[languageSelected]}
-                            round
                           />
                         </Details>
                         {item.gradeText && (
@@ -144,13 +135,12 @@ const Formation = ({
 Formation.propTypes = {
   onClickClose: func,
   onClickOpen: func,
-  status: seabedElementsPropType
+  status: seabedElementsPropType.isRequired
 };
 
 Formation.defaultProps = {
   onClickClose: () => null,
-  onClickOpen: () => null,
-  status: { read: true, visible: true }
+  onClickOpen: () => null
 };
 
 export default Formation;

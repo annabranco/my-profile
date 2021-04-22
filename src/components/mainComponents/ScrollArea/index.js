@@ -1,51 +1,59 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { bool } from 'prop-types';
-import Experiences from '../../sections/Experiences';
-import MyInfoPage from '../../sections/MyInfoPage';
-import Projects from '../../sections/Projects';
-import ScrollSection from './ScrollSection';
-import Skills from '../../sections/Skills';
-import Seabed from '../../sections/Seabed';
+import { bool, func } from 'prop-types';
 import {
   currentSecionSelector,
   experiencesSelector,
   sectionsTextsSelector
 } from '../../../redux/selectors';
+import { changeSection } from '../../../redux/actions/sections';
+import { isDesktop } from '../../../utils/device';
 import { useStateWithLabel } from '../../../utils/hooks';
+import { getNextSection, getPreviousSection } from '../../../utils/sections';
+import SwipeInstructions from '../../elements/SwipeInstructions';
+import Experiences from '../../sections/Experiences';
+import Formation from '../../sections/Formation';
+import MyInfoPage from '../../sections/MyInfoPage';
+import Projects from '../../sections/Projects';
+import ScrollSection from './ScrollSection';
+import Seabed from '../../sections/Seabed';
+import Skills from '../../sections/Skills';
+import OtherSkillsInfo from '../../sections/OtherSkills/OtherSkillsInfo';
 import {
+  ACTIVE_SECTION,
+  BACK_ACTION,
   CUEPOINTS,
+  EXPERIENCES,
+  EXPERIENCES_SECTION,
+  FORMATION_SECTION,
+  INFO_PAGE_SECTION,
+  OTHER_INFO_SECTION,
+  PROJECTS,
+  PROJECTS_SECTION,
+  SEABED_AREA,
+  SEABED_SECTION,
+  SHOW_INSTRUCTIONS,
   SKILLS_FIRST_ROW,
   SKILLS_SECOND_ROW,
-  SKILLS_THIRD_ROW,
-  SEABED_AREA,
-  INFO_PAGE_SECTION,
   SKILLS_SECTION,
-  PROJECTS_SECTION,
-  EXPERIENCES_SECTION,
-  SEABED_SECTION,
-  ACTIVE_SECTION,
-  FORMATION_SECTION,
-  OTHER_INFO_SECTION,
-  PROJECTS
+  SKILLS_THIRD_ROW
 } from '../../../constants';
-import { ScrollAreaWrapper } from './styles';
-import { isDesktop } from '../../../utils/device';
 import {
   ArrowIcon,
   LineOfArrows,
   MoreText,
   ScrollDownDisplay
 } from '../../sections/MyInfoPage/styles';
-import { changeSection } from '../../../redux/actions/sections';
-import { getNextSection } from '../../../utils/sections';
-import Formation from '../../sections/Formation';
-import OtherSkills from '../../sections/OtherSkills';
-import OtherSkillsInfo from '../../sections/OtherSkills/OtherSkillsInfo';
+import { ScrollAreaWrapper } from './styles';
 
 const SCROLL_CUEPOINTS = new Map();
+let touchEvent = 0;
 
-const ScrollArea = ({ langModalVisible }) => {
+const ScrollArea = ({
+  isSeabedElementOpened,
+  langModalVisible,
+  openSeabedElement
+}) => {
   const experiences = useSelector(experiencesSelector);
   const sectionsTexts = useSelector(sectionsTextsSelector);
   const currentSection = useSelector(currentSecionSelector);
@@ -58,8 +66,14 @@ const ScrollArea = ({ langModalVisible }) => {
     INFO_PAGE_SECTION,
     ACTIVE_SECTION
   );
+  const [showInstructions, toggleInstructions] = useStateWithLabel(
+    true,
+    SHOW_INSTRUCTIONS
+  );
+
   const scrollAreaRef = useRef();
   const dispatch = useDispatch();
+  const touchActive = useRef();
 
   const SECTIONS_INTERVAL_POINTS = {
     skills: {
@@ -95,7 +109,7 @@ const ScrollArea = ({ langModalVisible }) => {
       if (scrollPosition < cuePoint) {
         cuePointsAfterScrolling.delete(cuePointName);
       } else if (scrollPosition >= Number(cuePoint)) {
-        if (cuePointName === 'experiencesSection') {
+        if (cuePointName === EXPERIENCES) {
           // Makes experiences also go out when scrolling down
           //     experiencesSectionIds.forEach(experienceCuePoint => {
           //       cuePointsAfterScrolling.delete(experienceCuePoint);
@@ -113,9 +127,43 @@ const ScrollArea = ({ langModalVisible }) => {
   const resetScrollPosition = delay =>
     setTimeout(() => scrollAreaRef.current.scrollTo(0, 0), delay);
 
-  const goToNextSection = () => {
-    dispatch(changeSection(getNextSection(currentSection)));
-    changeActiveSection(getNextSection(currentSection));
+  const goToNextSection = type => {
+    if (type === BACK_ACTION) {
+      dispatch(changeSection(getPreviousSection(currentSection)));
+      changeActiveSection(getPreviousSection(currentSection));
+    } else {
+      dispatch(changeSection(getNextSection(currentSection)));
+      changeActiveSection(getNextSection(currentSection));
+    }
+  };
+
+  const handleTouchStart = ev => {
+    const xCoord = ev.changedTouches[0].screenX;
+    touchEvent = xCoord;
+  };
+
+  const handleTouchEnd = ev => {
+    const xCoord = ev.changedTouches[0].screenX;
+    const difference = touchEvent - xCoord;
+
+    if (difference >= 200) {
+      if (showInstructions && !langModalVisible) {
+        ev.stopPropagation();
+        toggleInstructions(false);
+        return;
+      }
+      goToNextSection();
+    } else if (difference <= -200) {
+      if (showInstructions && !langModalVisible) {
+        ev.stopPropagation();
+        toggleInstructions(false);
+        return;
+      }
+      goToNextSection(BACK_ACTION);
+    }
+    setTimeout(() => {
+      touchEvent = 0;
+    }, 1000);
   };
 
   const getNextSectionName = () =>
@@ -157,7 +205,7 @@ const ScrollArea = ({ langModalVisible }) => {
         experiencesSectionIds.add(experiences[index].id);
         index += 1;
       }
-      SCROLL_CUEPOINTS.set(scrollAreaEnd, 'experiencesSection');
+      SCROLL_CUEPOINTS.set(scrollAreaEnd, EXPERIENCES);
     };
 
     const calculateProjectsScroll = () => {
@@ -208,12 +256,33 @@ const ScrollArea = ({ langModalVisible }) => {
     }
   }, [activeSection, experiences, updateCuepoints]);
 
+  useEffect(() => {
+    if (!isDesktop && !touchActive.current) {
+      document.addEventListener('touchstart', handleTouchStart);
+      document.addEventListener('touchend', handleTouchEnd);
+      touchActive.current = true;
+    }
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+      touchActive.current = false;
+    };
+  }, [handleTouchStart, handleTouchEnd, handleTouchEnd]);
+
   return (
     <ScrollAreaWrapper
+      isSeabedElementOpened={isSeabedElementOpened}
       langModalVisible={langModalVisible}
       onScroll={handleScroll}
       ref={scrollAreaRef}
     >
+      {!isDesktop && showInstructions && (
+        <SwipeInstructions
+          onCloseInstructions={toggleInstructions}
+          langModalVisible={langModalVisible}
+        />
+      )}
+
       {(isDesktop || activeSection === INFO_PAGE_SECTION) && <MyInfoPage />}
 
       {(isDesktop || activeSection === SKILLS_SECTION) && (
@@ -238,6 +307,7 @@ const ScrollArea = ({ langModalVisible }) => {
         <ScrollSection title={sectionsTexts.other}>
           <Seabed
             cuePointsActivated={cuePointsActivated}
+            openSeabedElement={openSeabedElement}
             resetScrollPosition={resetScrollPosition}
           />
         </ScrollSection>
@@ -245,7 +315,7 @@ const ScrollArea = ({ langModalVisible }) => {
 
       {!isDesktop && activeSection === FORMATION_SECTION && (
         <ScrollSection title={sectionsTexts.other}>
-          <Formation status={{ read: true, visible: true }} />
+          <Formation status={{ active: true, read: true, visible: true }} />
         </ScrollSection>
       )}
 
@@ -259,7 +329,11 @@ const ScrollArea = ({ langModalVisible }) => {
         <ScrollDownDisplay sections>
           <MoreText onClick={goToNextSection}>{getNextSectionName()}</MoreText>
           <LineOfArrows>
-            <ArrowIcon className="fas fa-angle-double-down" sections />
+            <ArrowIcon
+              className="fas fa-angle-double-down"
+              goBack={activeSection === OTHER_INFO_SECTION}
+              sections
+            />
           </LineOfArrows>
         </ScrollDownDisplay>
       )}
@@ -268,7 +342,9 @@ const ScrollArea = ({ langModalVisible }) => {
 };
 
 ScrollArea.propTypes = {
-  langModalVisible: bool.isRequired
+  langModalVisible: bool.isRequired,
+  isSeabedElementOpened: bool.isRequired,
+  openSeabedElement: func.isRequired
 };
 
 export default ScrollArea;
