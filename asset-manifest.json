@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/my-profile/static/js/main.1db5d219.chunk.js",
-    "main.js.map": "/my-profile/static/js/main.1db5d219.chunk.js.map",
+    "main.js": "/my-profile/static/js/main.6480bc85.chunk.js",
+    "main.js.map": "/my-profile/static/js/main.6480bc85.chunk.js.map",
     "runtime-main.js": "/my-profile/static/js/runtime-main.07fb587a.js",
     "runtime-main.js.map": "/my-profile/static/js/runtime-main.07fb587a.js.map",
     "static/js/2.eb48f234.chunk.js": "/my-profile/static/js/2.eb48f234.chunk.js",
     "static/js/2.eb48f234.chunk.js.map": "/my-profile/static/js/2.eb48f234.chunk.js.map",
     "index.html": "/my-profile/index.html",
-    "precache-manifest.056f13ace9541aa67c70f76bebe001c9.js": "/my-profile/precache-manifest.056f13ace9541aa67c70f76bebe001c9.js",
+    "precache-manifest.209bf4684c4f522f3b6bb5cf4ba23499.js": "/my-profile/precache-manifest.209bf4684c4f522f3b6bb5cf4ba23499.js",
     "service-worker.js": "/my-profile/service-worker.js",
     "static/js/2.eb48f234.chunk.js.LICENSE.txt": "/my-profile/static/js/2.eb48f234.chunk.js.LICENSE.txt",
     "static/media/agile.png": "/my-profile/static/media/agile.9afa8fc2.png",
@@ -65,6 +65,6 @@
   "entrypoints": [
     "static/js/runtime-main.07fb587a.js",
     "static/js/2.eb48f234.chunk.js",
-    "static/js/main.1db5d219.chunk.js"
+    "static/js/main.6480bc85.chunk.js"
   ]
 }
