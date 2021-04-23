@@ -18,9 +18,7 @@ const sections = [
 
 export const getNextSection = current => {
   const currentId = sections.findIndex(section => section === current);
-  console.log('$$$ currentId', currentId);
 
-  console.log('$$$ sections[currentId + 1]', sections[currentId + 1]);
   if (currentId === 0 || currentId !== -1) {
     if (currentId === sections.length - 1) {
       return INFO_PAGE_SECTION;
@@ -32,9 +30,6 @@ export const getNextSection = current => {
 
 export const getPreviousSection = current => {
   const currentId = sections.findIndex(section => section === current);
-  console.log('$$$ currentId', currentId);
-
-  console.log('$$$ sections[currentId + 1]', sections[currentId + 1]);
 
   if (currentId === 0 || currentId === -1) {
     return INFO_PAGE_SECTION;

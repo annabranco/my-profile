@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bool, func } from 'prop-types';
 import {
@@ -127,44 +127,50 @@ const ScrollArea = ({
   const resetScrollPosition = delay =>
     setTimeout(() => scrollAreaRef.current.scrollTo(0, 0), delay);
 
-  const goToNextSection = type => {
-    if (type === BACK_ACTION) {
-      dispatch(changeSection(getPreviousSection(currentSection)));
-      changeActiveSection(getPreviousSection(currentSection));
-    } else {
-      dispatch(changeSection(getNextSection(currentSection)));
-      changeActiveSection(getNextSection(currentSection));
-    }
-  };
+  const goToNextSection = useCallback(
+    type => {
+      if (type === BACK_ACTION) {
+        dispatch(changeSection(getPreviousSection(currentSection)));
+        changeActiveSection(getPreviousSection(currentSection));
+      } else {
+        dispatch(changeSection(getNextSection(currentSection)));
+        changeActiveSection(getNextSection(currentSection));
+      }
+    },
+    [dispatch, currentSection, changeActiveSection]
+  );
 
-  const handleTouchStart = ev => {
+  const handleTouchStart = useCallback(ev => {
     const xCoord = ev.changedTouches[0].screenX;
     touchEvent = xCoord;
-  };
+  }, []);
 
-  const handleTouchEnd = ev => {
-    const xCoord = ev.changedTouches[0].screenX;
-    const difference = touchEvent - xCoord;
+  const handleTouchEnd = useCallback(
+    ev => {
+      const xCoord = ev.changedTouches[0].screenX;
+      const difference = touchEvent - xCoord;
 
-    if (difference >= 200) {
-      if (showInstructions && !langModalVisible) {
-        ev.stopPropagation();
-        toggleInstructions(false);
-        return;
+      if (difference >= 100) {
+        if (showInstructions && !langModalVisible) {
+          ev.stopPropagation();
+          toggleInstructions(false);
+          return;
+        }
+        goToNextSection();
+      } else if (difference <= -100) {
+        if (showInstructions && !langModalVisible) {
+          ev.stopPropagation();
+          toggleInstructions(false);
+          return;
+        }
+        goToNextSection(BACK_ACTION);
       }
-      goToNextSection();
-    } else if (difference <= -200) {
-      if (showInstructions && !langModalVisible) {
-        ev.stopPropagation();
-        toggleInstructions(false);
-        return;
-      }
-      goToNextSection(BACK_ACTION);
-    }
-    setTimeout(() => {
-      touchEvent = 0;
-    }, 1000);
-  };
+      setTimeout(() => {
+        touchEvent = 0;
+      }, 1000);
+    },
+    [showInstructions, langModalVisible, goToNextSection, toggleInstructions]
+  );
 
   const getNextSectionName = () =>
     sectionsTexts[getNextSection(currentSection)];
@@ -267,7 +273,7 @@ const ScrollArea = ({
       document.removeEventListener('touchend', handleTouchEnd);
       touchActive.current = false;
     };
-  }, [handleTouchStart, handleTouchEnd, handleTouchEnd]);
+  }, [handleTouchStart, handleTouchEnd]);
 
   return (
     <ScrollAreaWrapper
