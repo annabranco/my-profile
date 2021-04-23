@@ -69,7 +69,7 @@ const FishesElement = () => {
       }
       updateFishes(currentFishes);
     }, 12000);
-  }, []);
+  }, [updateFishes]);
 
   return <>{fishes.map(fish => fish)}</>;
 };
