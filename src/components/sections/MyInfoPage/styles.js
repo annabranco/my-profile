@@ -79,7 +79,7 @@ export const Advise = styled.div`
   position: absolute;
   margin-left: 3vw;
   padding: 5px 10px;
-  bottom: 25vh;
+  bottom: 20vh;
   width: 45vw;
   background: rgba(254, 255, 255, 0.3);
   font-size: 0.8em;
@@ -263,6 +263,8 @@ MeuBarquinho.displayName = 'Ship Image';
 export const MoreText = styled.p`
   z-index: 50;
   position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
   font-family: ${fontTitleAlt};
   color: ${colorWhite};
 `;
