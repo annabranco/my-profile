@@ -1,11 +1,14 @@
 import config from '../config';
 import { INFO_PAGE_SECTION } from '../constants';
 import { getLanguageCodeByName } from '../utils/languages';
+import { AppState, LanguagePreferences } from '../types/interfaces';
 
-const languageSettings =
-  JSON.parse(localStorage.getItem("Anna Branco's professional profile")) || {};
+const languageSettings: LanguagePreferences | Record<string, never> =
+  JSON.parse(
+    localStorage.getItem("Anna Branco's professional profile") as string
+  ) || {};
 
-export const INITIAL_STATE = {
+export const INITIAL_STATE: AppState = {
   experiences: [],
   finishedScenario: false,
   formation: [],
