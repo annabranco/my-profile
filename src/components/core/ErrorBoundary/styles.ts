@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import {
   colorWhite,
@@ -78,7 +79,11 @@ export const NotificationArea = styled.div`
 `;
 NotificationArea.displayName = 'NotificationArea';
 
-export const NotifyButton = styled(LinkButton)`
+interface NotifyButtonProps extends React.ComponentPropsWithoutRef<'a'> {
+  visible?: boolean | null;
+}
+
+export const NotifyButton = styled(LinkButton)<NotifyButtonProps>`
   margin-top: 40px;
   position: fixed;
   bottom: 5%;

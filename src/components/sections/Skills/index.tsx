@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
 import { skillsSelector } from '../../../redux/selectors';
@@ -32,7 +32,7 @@ const THIRD_ROW_ITEMS: Set<number> = new Set([5, 6, 7, 8]);
 
 const Skills = ({
   cuePointsActivated
-}: CuePointsActivatedProps): JSX.Element => {
+}: CuePointsActivatedProps): ReactElement => {
   const skills: AppState['skills'] = useSelector(skillsSelector);
 
   const isVisible = (identificator: string | number): boolean => {

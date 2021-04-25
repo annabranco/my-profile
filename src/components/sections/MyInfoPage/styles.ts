@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 import { Binary } from '../../../assets/images';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import Social from '../../elements/Social';
 import {
@@ -34,9 +34,11 @@ import {
 } from './styles';
 import { AppState, InfoPageTextType } from '../../../types/interfaces';
 
-const MyInfoPage = (): JSX.Element => {
-  const finishedScenario: AppState['finishedScenario']  = useSelector(finishedSelector);
-  const texts: InfoPageTextType  = useSelector(infoPageTextSelector);
+const MyInfoPage = (): ReactElement => {
+  const finishedScenario: AppState['finishedScenario'] = useSelector(
+    finishedSelector
+  );
+  const texts: InfoPageTextType = useSelector(infoPageTextSelector);
   const arrowLines: number = isDesktop ? 3 : 1;
 
   return (

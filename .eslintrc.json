@@ -72,6 +72,17 @@
 		"jsx-a11y/click-events-have-key-events": 0,
 		"linebreak-style": "off",
 		"lines-around-comment": ["error", {"beforeBlockComment": true}],
+		"max-len": [
+			"error",
+			{
+				"code": 120,
+				"ignoreTrailingComments": true,
+				"ignoreUrls": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true,
+				"ignoreRegExpLiterals": true
+			}
+		],
 		"multiline-comment-style": "off",
 		"no-alert": "error",
 		"no-console": ["warn", {"allow": ["warn", "error"]}],

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { string } from 'prop-types';
 import appInfo from '../../../../package.json';
 import { useStateWithLabel } from '../../../utils/hooks';
 import { isDesktop } from '../../../utils/device';
 import { Barquinho } from '../../../assets/images';
 import { NOTIFY_BUTTON } from '../../../constants';
-import { errorTextsPropType } from '../../../types';
+import { errorTextsPropType } from '../../../types/propTypes';
 import { MeuBarquinho } from '../../sections/MyInfoPage/styles';
 import {
   DetailsText,
@@ -18,6 +18,7 @@ import {
   NotifyButtonText,
   SorryText
 } from './styles';
+import { ErrorTextType } from '../../../types/interfaces';
 
 const DEFAULT_ERROR_TEXTS = {
   errorLine1: "I'm awfully sorry but something unexpected had happened. :(",
@@ -29,8 +30,14 @@ const DEFAULT_ERROR_TEXTS = {
 
 const REPORT_ISSUE_PAGE = `${appInfo.bugs.url}/new`;
 
-const ErrorComponent = ({ error, texts }) => {
-  const [showNotifyButton, toggleNotifyButton] = useStateWithLabel(
+const ErrorComponent = ({
+  error,
+  texts
+}: {
+  error: string;
+  texts: ErrorTextType;
+}): ReactElement => {
+  const [showNotifyButton, toggleNotifyButton] = useStateWithLabel<boolean>(
     false,
     NOTIFY_BUTTON
   );

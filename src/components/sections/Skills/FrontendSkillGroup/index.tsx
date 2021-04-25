@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { bool } from 'prop-types';
 import SkillLevel from '../SkillLevel';
 import { isDesktop } from '../../../../utils/device';
@@ -13,7 +13,7 @@ const FrontendSkillGroup = ({
 }: {
   details: SkillGroupsType;
   visible: boolean;
-}): JSX.Element => (
+}): ReactElement => (
   <FrontendGroup visible={visible}>
     <Title group={details.name}>
       <h3>{details.name}</h3>
