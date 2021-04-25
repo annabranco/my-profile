@@ -150,12 +150,19 @@ export const skillGroupsPropType = shape({
   skills: arrayOf(skillPropType).isRequired
 });
 
+export const instructionsPropType = shape({
+  swipe: string.isRequired,
+  button: string.isRequired,
+  buttonText: string.isRequired
+});
+
 export const textsPropType = shape({
   developer: developerTextPropType.isRequired,
   error: errorTextsPropType.isRequired,
   global: globalTextsPropType.isRequired,
   header: headerTextPropType.isRequired,
   infoPage: infoPageTextPropType.isRequired,
+  instructions: instructionsPropType.isRequired,
   languages: languagesTextPropType.isRequired,
   otherSkills: otherSkillsTextPropType.isRequired,
   seabed: seabedTextPropType.isRequired,

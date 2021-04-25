@@ -1,4 +1,18 @@
 /* eslint-disable no-use-before-define */
+
+export interface AppState {
+  currentSection: string;
+  experiences: ExperiencesData | [];
+  finishedScenario: boolean;
+  formation: FormationData | [];
+  language: string;
+  languages: LanguagesData | [];
+  projects: ProjectsData | [];
+  skills: SkillsData | [];
+  texts: TextsType | Record<string, never>;
+  textsDatabase: TextsData | Record<string, never>;
+}
+
 export type Country = 'br' | 'es' | 'fr' | 'gr' | 'ie' | 'ru' | 'us';
 
 interface CountryType {
@@ -100,6 +114,12 @@ export interface InfoPageTextType {
   thankyou: string;
 }
 
+export interface InstructionsTextType {
+  swipe: string;
+  button: string;
+  buttonText: string;
+}
+
 export interface LanguagesTextType {
   changeDefault: string;
   changeUpperBar: string;
@@ -113,6 +133,11 @@ export type LanguageCode = 'en' | 'es' | 'pt' | 'fr';
 
 export interface LanguagesData {
   languages: LanguagesType[];
+}
+
+export interface LanguagePreferences {
+  language: string;
+  hideLanguagesModalForever: boolean;
 }
 
 export interface LanguageType {
@@ -211,7 +236,7 @@ export interface SkillType {
   skill: string;
 }
 
-export interface SkillData {
+export interface SkillsData {
   skillGroups: SkillGroupsType[];
 }
 
@@ -245,6 +270,7 @@ export interface TextsType {
   global: GlobalTextsType;
   header: HeaderTextType;
   infoPage: InfoPageTextType;
+  instructions: InstructionsTextType;
   languages: LanguagesTextType;
   otherSkills: OtherSkillsTextType;
   seabed: SeabedTextType;
@@ -256,6 +282,6 @@ export interface ServerResponse {
   dataFormation: FormationData;
   dataLanguages: LanguagesData;
   dataProjects: ProjectsData;
-  dataSkills: SkillData;
+  dataSkills: SkillsData;
   texts: TextsData;
 }
