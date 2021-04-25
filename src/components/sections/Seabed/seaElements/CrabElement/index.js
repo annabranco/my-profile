@@ -1,7 +1,7 @@
 import React from 'react';
 import { bool } from 'prop-types';
 import { Crab } from '../../../../../assets/images';
-import { positionPropType } from '../../../../../types';
+import { positionPropType } from '../../../../../types/propTypes';
 import { CENTER, ON_THE_RIGHT } from '../../../../../constants';
 import { TheCrab } from './styles';
 

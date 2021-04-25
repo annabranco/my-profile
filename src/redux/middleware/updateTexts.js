@@ -22,4 +22,5 @@ export default store => next => action => {
     default:
       next(action);
   }
+  return null;
 };

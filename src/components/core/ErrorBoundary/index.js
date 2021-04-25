@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { node } from 'prop-types';
 import ErrorComponent from './ErrorComponent';
-import { errorTextsPropType } from '../../../types';
+import { errorTextsPropType } from '../../../types/propTypes';
 
 class ErrorBoundary extends Component {
   static propTypes = {

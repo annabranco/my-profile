@@ -9,7 +9,7 @@ import {
 } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import { getFlagURL } from '../../../utils/icons';
-import { seabedElementsPropType } from '../../../types';
+import { seabedElementsPropType } from '../../../types/propTypes';
 import { HorizontalBar } from '../../elements/HorizontalBar/styles';
 import { Title } from '../../mainComponents/ScrollArea/ScrollSection/styles';
 import { CountryFlag, DateArea, TextDate } from '../Experiences/styles';

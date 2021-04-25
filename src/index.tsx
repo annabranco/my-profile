@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { getStore } from './redux';
 import App from './components/core/App';
@@ -26,8 +26,10 @@ const dataBasePaths = [
 const store = getStore();
 
 dispatchFetchDatabase(dataBasePaths)
-  .then(() => {
-    ReactDOM.render(
+  .then(a => {
+    console.log('$$$ a', a);
+
+    render(
       <Provider store={store}>
         <App />
       </Provider>,
@@ -36,7 +38,7 @@ dispatchFetchDatabase(dataBasePaths)
   })
   .catch(error => {
     console.error(error);
-    ReactDOM.render(
+    render(
       <ErrorComponent
         error={`Fail when building up the application => ${error.message}`}
       />,

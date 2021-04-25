@@ -1,21 +1,11 @@
 import { arrayOf, bool, number, shape, string } from 'prop-types';
 
-// Primary Proptypes
-
-const textInAllLanguagesPropType = shape({
-  en: string.isRequired,
-  es: string.isRequired,
-  pt: string.isRequired
-});
-
 const countryPropTypes = shape({
   en: string.isRequired,
   es: string.isRequired,
   pt: string.isRequired,
   countryCode: string.isRequired
 });
-
-// Secondary Proptypes
 
 export const developerTextPropType = shape({
   expanded: string.isRequired,
@@ -35,35 +25,6 @@ export const errorTextsPropType = shape({
   errorLine2: string.isRequired,
   notifyMe: string.isRequired,
   title: string.isRequired
-});
-
-export const experiencesTextPropType = shape({
-  company: string.isRequired,
-  country: countryPropTypes.isRequired,
-  dateBegin: string.isRequired,
-  dateBeginValue: number.isRequired,
-  dateEnd: string,
-  dateEndValue: number,
-  details: textInAllLanguagesPropType.isRequired,
-  id: string.isRequired,
-  place: string.isRequired,
-  title: textInAllLanguagesPropType.isRequired,
-  visible: bool.isRequired
-});
-
-export const formationPropType = shape({
-  country: textInAllLanguagesPropType.isRequired,
-  countryCode: string.isRequired,
-  dateBegin: string.isRequired,
-  dateBeginValue: number.isRequired,
-  dateEnd: string,
-  dateEndValue: number,
-  grade: number,
-  gradeText: textInAllLanguagesPropType,
-  id: string.isRequired,
-  place: string.isRequired,
-  university: string.isRequired,
-  visible: bool.isRequired
 });
 
 export const formationTextPropType = shape({
@@ -143,12 +104,9 @@ export const otherSkillsTextPropType = shape({
   spanish: string.isRequired
 });
 
-export const projectsPropType = shape({
-  description: textInAllLanguagesPropType.isRequired,
-  order: number.isRequired,
-  repo: string.isRequired,
-  thumbnail: string.isRequired,
-  url: string.isRequired
+export const positionPropType = shape({
+  frame: string.isRequired,
+  position: string.isRequired
 });
 
 export const sectionsTextPropType = shape({
@@ -178,12 +136,11 @@ export const seabedTextPropType = shape({
 });
 
 export const skillPropType = shape({
+  extended: bool,
   order: number.isRequired,
   level: number.isRequired,
   skill: string.isRequired
 });
-
-// -- Terciary PropTypes
 
 export const skillGroupsPropType = shape({
   globalLevel: number.isRequired,
@@ -212,7 +169,39 @@ export const allLanguagesTextsPropType = shape({
   pt: textsPropType.isRequired
 });
 
-export const positionPropType = shape({
-  frame: string.isRequired,
-  position: string.isRequired
+export const experiencesTextPropType = shape({
+  company: string.isRequired,
+  country: countryPropTypes.isRequired,
+  dateBegin: string.isRequired,
+  dateBeginValue: number.isRequired,
+  dateEnd: string,
+  dateEndValue: number,
+  details: allLanguagesTextsPropType.isRequired,
+  id: string.isRequired,
+  place: string.isRequired,
+  title: allLanguagesTextsPropType.isRequired,
+  visible: bool.isRequired
+});
+
+export const formationPropType = shape({
+  country: allLanguagesTextsPropType.isRequired,
+  countryCode: string.isRequired,
+  dateBegin: string.isRequired,
+  dateBeginValue: number.isRequired,
+  dateEnd: string,
+  dateEndValue: number,
+  grade: number,
+  gradeText: allLanguagesTextsPropType,
+  id: string.isRequired,
+  place: string.isRequired,
+  university: string.isRequired,
+  visible: bool.isRequired
+});
+
+export const projectsPropType = shape({
+  description: allLanguagesTextsPropType.isRequired,
+  order: number.isRequired,
+  repo: string.isRequired,
+  thumbnail: string.isRequired,
+  url: string.isRequired
 });

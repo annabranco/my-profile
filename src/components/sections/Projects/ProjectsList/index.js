@@ -10,7 +10,7 @@ import {
   SHOW_THUMBNAILS_ACTION,
   SHOW_THUMBNAILS_ON_MOBILE_ACTION
 } from '../../../../constants';
-import { projectsPropType } from '../../../../types';
+import { projectsPropType } from '../../../../types/propTypes';
 import { Icon, Paginator, ProjectsGrid, ProjectsSection, Text } from './styles';
 
 const ProjectsList = ({

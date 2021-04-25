@@ -1,5 +1,5 @@
 import React from 'react';
-import { infoPageTextPropType } from '../../../types';
+import { infoPageTextPropType } from '../../../types/propTypes';
 import {
   Icon,
   Link,

@@ -4,7 +4,7 @@ import { number } from 'prop-types';
 import { currentLanguageSelector } from '../../../../redux/selectors';
 import { isDesktop } from '../../../../utils/device';
 import { THUMBNAILS } from '../../../../assets/images';
-import { projectsPropType } from '../../../../types';
+import { projectsPropType } from '../../../../types/propTypes';
 import {
   Description,
   Link,

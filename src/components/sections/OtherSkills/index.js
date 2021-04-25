@@ -5,7 +5,7 @@ import { otherSkillsTextSelector } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import OtherSkillsInfo from './OtherSkillsInfo';
 import { MacNotebook } from '../../../assets/images';
-import { seabedElementsPropType } from '../../../types';
+import { seabedElementsPropType } from '../../../types/propTypes';
 import { TextFindSomething } from '../Seabed/styles';
 import {
   KeyboardKeysWrapper,
