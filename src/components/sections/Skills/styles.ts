@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
@@ -66,7 +67,12 @@ export const SkillsGrid = styled.div`
 `;
 SkillsGrid.displayName = 'Skills Grid';
 
-export const SkillGroup = styled.div`
+interface SkillGroupProps extends React.ComponentPropsWithoutRef<'div'> {
+  isVisible?: boolean;
+  position?: number;
+}
+
+export const SkillGroup = styled.div<SkillGroupProps>`
   max-width: 280px;
   border-radius: 10%;
   opacity: 0;
@@ -128,7 +134,12 @@ export const SkillsInsideGroup = styled.div`
 `;
 SkillsInsideGroup.displayName = 'Skills Inside Group';
 
-export const SkillItem = styled.div`
+interface SkillItemProps extends React.ComponentPropsWithoutRef<'div'> {
+  group?: string;
+  isLastElementAlone?: boolean;
+}
+
+export const SkillItem = styled.div<SkillItemProps>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -153,7 +164,11 @@ export const SkillItem = styled.div`
 `;
 SkillItem.displayName = 'Skill Item';
 
-export const Title = styled.div`
+interface TitleProps extends React.ComponentPropsWithoutRef<'div'> {
+  group?: string;
+}
+
+export const Title = styled.div<TitleProps>`
   display: flex;
   flex-direction: column;
   align-items: center;

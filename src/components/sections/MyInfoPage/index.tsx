@@ -34,7 +34,7 @@ import {
 } from './styles';
 import { AppState, InfoPageTextType } from '../../../types/interfaces';
 
-const MyInfoPage = () => {
+const MyInfoPage = (): JSX.Element => {
   const finishedScenario: AppState['finishedScenario']  = useSelector(finishedSelector);
   const texts: InfoPageTextType  = useSelector(infoPageTextSelector);
   const arrowLines: number = isDesktop ? 3 : 1;

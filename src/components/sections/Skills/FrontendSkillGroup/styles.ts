@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-export const FrontendGroup = styled.div`
+interface FrontendGroupProps extends React.ComponentPropsWithoutRef<'div'> {
+  visible?: boolean;
+}
+
+export const FrontendGroup = styled.div<FrontendGroupProps>`
   grid-column: span 4;
   margin-top: 100%;
   opacity: 0;
@@ -15,7 +19,11 @@ export const FrontendGroup = styled.div`
 `;
 FrontendGroup.displayName = 'Frontend Group';
 
-export const Logo = styled.img`
+interface LogoProps extends React.ComponentPropsWithoutRef<'img'> {
+  name?: string;
+}
+
+export const Logo = styled.img<LogoProps>`
   height: 120%;
 
   &.icon--react {

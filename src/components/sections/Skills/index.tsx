@@ -20,39 +20,49 @@ import {
   SkillsInsideGroup,
   Title
 } from './styles';
+import {
+  CuePointsActivatedProps,
+  AppState,
+  SkillGroupsType
+} from '../../../types/interfaces';
 
 const FIRST_ROW_ITEMS = 'Frontend';
-const SECOND_ROW_ITEMS = new Set([1, 2, 3, 4]);
-const THIRD_ROW_ITEMS = new Set([5, 6, 7, 8]);
+const SECOND_ROW_ITEMS: Set<number> = new Set([1, 2, 3, 4]);
+const THIRD_ROW_ITEMS: Set<number> = new Set([5, 6, 7, 8]);
 
-const Skills = ({ cuePointsActivated }) => {
-  const skills = useSelector(skillsSelector);
+const Skills = ({
+  cuePointsActivated
+}: CuePointsActivatedProps): JSX.Element => {
+  const skills: AppState['skills'] = useSelector(skillsSelector);
 
-  const isVisible = identificator => {
-    if (
-      cuePointsActivated.has(SKILLS_FIRST_ROW) &&
-      FIRST_ROW_ITEMS.includes(identificator)
-    ) {
-      return true;
-    }
-    if (
-      cuePointsActivated.has(SKILLS_SECOND_ROW) &&
-      SECOND_ROW_ITEMS.has(identificator)
-    ) {
-      return true;
-    }
-    if (
-      cuePointsActivated.has(SKILLS_THIRD_ROW) &&
-      THIRD_ROW_ITEMS.has(identificator)
-    ) {
-      return true;
+  const isVisible = (identificator: string | number): boolean => {
+    if (typeof identificator === 'string') {
+      if (
+        cuePointsActivated.has(SKILLS_FIRST_ROW) &&
+        FIRST_ROW_ITEMS.includes(identificator)
+      ) {
+        return true;
+      }
+    } else {
+      if (
+        cuePointsActivated.has(SKILLS_SECOND_ROW) &&
+        SECOND_ROW_ITEMS.has(identificator)
+      ) {
+        return true;
+      }
+      if (
+        cuePointsActivated.has(SKILLS_THIRD_ROW) &&
+        THIRD_ROW_ITEMS.has(identificator)
+      ) {
+        return true;
+      }
     }
     return false;
   };
 
   return (
     <SkillsArea>
-      {skills.map((skillObject, index) => (
+      {skills.map((skillObject: SkillGroupsType, index: number) => (
         <Fragment key={skillObject.name}>
           {skillObject.name === 'Frontend' ? (
             <FrontendSkillGroup

@@ -2,13 +2,13 @@
 
 export interface AppState {
   currentSection: string;
-  experiences: ExperiencesData | [];
+  experiences: ExperiencesType[] | [];
   finishedScenario: boolean;
-  formation: FormationData | [];
+  formation: FormationType[] | [];
   language: string;
-  languages: LanguagesData | [];
-  projects: ProjectsData | [];
-  skills: SkillsData | [];
+  languages: LanguagesType[] | [];
+  projects: ProjectsType[] | [];
+  skills: SkillGroupsType[] | [];
   texts: TextsType | Record<string, never>;
   textsDatabase: TextsData | Record<string, never>;
 }
@@ -20,6 +20,10 @@ interface CountryType {
   es: string;
   pt: string;
   countryCode: string;
+}
+
+export interface CuePointsActivatedProps {
+  cuePointsActivated: Set<string>;
 }
 
 export interface DeveloperTextType {
@@ -231,8 +235,9 @@ export interface SeabedTextType {
 
 export interface SkillType {
   extended: boolean;
-  order: number;
   level: number;
+  logo?: string;
+  order: number;
   skill: string;
 }
 

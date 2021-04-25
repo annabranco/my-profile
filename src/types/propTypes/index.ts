@@ -139,6 +139,7 @@ export const skillPropType = shape({
   extended: bool,
   order: number.isRequired,
   level: number.isRequired,
+  logo: string,
   skill: string.isRequired
 });
 
