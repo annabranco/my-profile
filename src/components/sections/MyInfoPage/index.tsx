@@ -32,11 +32,12 @@ import {
   SectionMyInfo,
   SocialArea
 } from './styles';
+import { AppState, InfoPageTextType } from '../../../types/interfaces';
 
 const MyInfoPage = () => {
-  const finishedScenario = useSelector(finishedSelector);
-  const texts = useSelector(infoPageTextSelector);
-  const arrowLines = isDesktop ? 3 : 1;
+  const finishedScenario: AppState['finishedScenario']  = useSelector(finishedSelector);
+  const texts: InfoPageTextType  = useSelector(infoPageTextSelector);
+  const arrowLines: number = isDesktop ? 3 : 1;
 
   return (
     <SectionMyInfo id="My Info Section">

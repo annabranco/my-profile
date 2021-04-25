@@ -92,7 +92,12 @@ export const Advise = styled.div`
 `;
 Advise.displayName = 'Advise';
 
-export const ArrowIcon = styled.i`
+interface ArrowIconProps extends React.ComponentPropsWithoutRef<'i'> {
+  sections?: boolean;
+  goBack?: boolean;
+}
+
+export const ArrowIcon = styled.i<ArrowIconProps>`
   margin: 0 20px;
   font-size: ${({ sections }) => (sections ? '1.2rem' : '1.5rem')};
   color: ${rgba(colorWhite, 0.55)};
@@ -344,7 +349,11 @@ export const PhotoWrapper = styled.div`
 `;
 PhotoWrapper.displayName = 'Photo Wrapper';
 
-export const ScrollDownDisplay = styled.div`
+interface ScrollDownDisplayProps extends React.ComponentPropsWithoutRef<'i'> {
+  sections?: boolean;
+}
+
+export const ScrollDownDisplay = styled.div<ScrollDownDisplayProps>`
   z-index: 50;
   position: absolute;
   bottom: ${({ sections }) => (sections ? '10px' : '10vh')};
