@@ -1,4 +1,11 @@
 import axios from 'axios';
+import { getStore } from '../redux';
+import { loadExperiences } from '../redux/actions/experiences';
+import { loadFormation } from '../redux/actions/formation';
+import { loadLanguages } from '../redux/actions/languages';
+import { loadProjects } from '../redux/actions/projects';
+import { loadSkills } from '../redux/actions/skills';
+import { loadTexts } from '../redux/actions/texts';
 import {
   EXPERIENCES_PATH,
   FORMATION_PATH,
@@ -7,17 +14,11 @@ import {
   SKILLS_PATH,
   TEXTS_PATH
 } from '../constants';
-import { getStore } from '../redux';
-import { loadExperiences } from '../redux/actions/experiences';
-import { loadFormation } from '../redux/actions/formation';
-import { loadLanguages } from '../redux/actions/languages';
-import { loadProjects } from '../redux/actions/projects';
-import { loadSkills } from '../redux/actions/skills';
-import { loadTexts } from '../redux/actions/texts';
+import { ServerResponse } from '../types/interfaces';
 
 const store = getStore();
 
-const dispatchReduxAction = (URL, request) => {
+const dispatchReduxAction = <T>(URL: string, request: T) => {
   switch (URL) {
     case EXPERIENCES_PATH:
       return store.dispatch(loadExperiences(request));
@@ -36,8 +37,10 @@ const dispatchReduxAction = (URL, request) => {
   }
 };
 
-export const dispatchFetchDatabase = dataBasePaths => {
-  const requestData = URL => {
+export const dispatchFetchDatabase = (
+  dataBasePaths: string[]
+): Promise<void | ServerResponse> => {
+  const requestData = (URL: string) => {
     const request = axios
       .get(URL)
       .then(data => {

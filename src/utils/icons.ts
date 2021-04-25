@@ -1,4 +1,10 @@
-export const getFlagURL = ({ country, style = 'normal', size }) => {
+import { FlagAttributes } from '../types/interfaces';
+
+export const getFlagURL = ({
+  country,
+  style = 'flat',
+  size
+}: FlagAttributes): string => {
   const BASE_URL = 'https://cdn.countryflags.com/thumbs';
   const ALTERNATIVE_URL =
     'https://www.countryflags.com/wp-content/uploads/flags';
@@ -21,7 +27,7 @@ export const getFlagURL = ({ country, style = 'normal', size }) => {
     wave: 'flag-wave-250'
   };
 
-  if (style === 'normal') {
+  if (style === 'flat') {
     return `${ALTERNATIVE_URL}/${country}.png`;
   }
   return `${BASE_URL}/${COUNTRIES[country]}/${STYLES[style]}.png`;
