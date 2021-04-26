@@ -5,8 +5,8 @@ export interface AppState {
   experiences: ExperiencesType[] | [];
   finishedScenario: boolean;
   formation: FormationType[] | [];
-  language: string;
-  languages: LanguagesType[] | [];
+  language: LanguageCode;
+  languages: LanguageType[] | [];
   projects: ProjectsType[] | [];
   skills: SkillGroupsType[] | [];
   texts: TextsType | Record<string, never>;
@@ -129,7 +129,7 @@ export interface LanguagesTextType {
   changeUpperBar: string;
   chekboxText: string;
   language: string;
-  languageCode: string;
+  languageCode: LanguageCode;
   readingLanguage: string;
 }
 
@@ -140,20 +140,20 @@ export interface LanguagesData {
 }
 
 export interface LanguagePreferences {
-  language: string;
+  language: LanguageCode;
   hideLanguagesModalForever: boolean;
 }
 
 export interface LanguageType {
   active: boolean;
-  flagCode: string;
+  flagCode: Country;
   language: string;
-  languageCode: string;
+  languageCode: LanguageCode;
   languageEn: string;
   order: number;
 }
 
-interface LanguagesType {
+export interface LanguagesType {
   en: string;
   es: string;
   pt: string;

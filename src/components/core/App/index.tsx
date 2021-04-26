@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, ReactElement } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 import { useStateWithLabel } from '../../../utils/hooks';
 import Header from '../../mainComponents/Header';
-import LanguagesModal from '../LanguagesModal';
+import LanguagesModal from '../../elements/LanguagesModal';
 import MainArea from '../../mainComponents/MainArea';
 import {
   HIDE_FOREVER,
@@ -10,37 +10,40 @@ import {
   SETTINGS_LOADED
 } from '../../../constants';
 import { GlobalStyles } from '../../../styles/global';
+import { LanguagePreferences } from '../../../types/interfaces';
 
-const App = () => {
-  const languageSettings =
-    JSON.parse(localStorage.getItem("Anna Branco's professional profile")) ||
-    {};
+const App = (): ReactElement => {
+  const languageSettings: LanguagePreferences | Record<string, never> =
+    JSON.parse(
+      localStorage.getItem("Anna Branco's professional profile") as string
+    ) || {};
 
-  const [hideForever, toggleHideForever] = useStateWithLabel(
+  const [hideForever, toggleHideForever] = useStateWithLabel<boolean>(
     languageSettings.hideLanguagesModalForever || false,
     HIDE_FOREVER
   );
-  const [settingsLoaded, setSettingsLoaded] = useStateWithLabel(
+  const [settingsLoaded, setSettingsLoaded] = useStateWithLabel<boolean>(
     false,
     SETTINGS_LOADED
   );
-  const [langModalVisible, toggleModalVisible] = useStateWithLabel(
+  const [langModalVisible, toggleModalVisible] = useStateWithLabel<boolean>(
     false,
     LANG_MODAL_VISIBLE
   );
-  const [isSeabedElementOpened, openSeabedElement] = useStateWithLabel(
+  const [isSeabedElementOpened, openSeabedElement] = useStateWithLabel<boolean>(
     false,
     'isSeabedElementOpened'
   );
-  const toggleBlockLangModal = () => toggleHideForever(prevState => !prevState);
+  const toggleBlockLangModal = (): void =>
+    toggleHideForever(prevState => !prevState);
 
-  const onCloseLanguageModal = () => {
+  const onCloseLanguageModal = (): void => {
     toggleModalVisible(false);
     toggleHideForever(hideForever);
   };
 
   useEffect(() => {
-    const loadLanguageSettings = () => {
+    const loadLanguageSettings = (): void => {
       toggleHideForever(
         languageSettings.hideLanguagesModalForever || hideForever
       );

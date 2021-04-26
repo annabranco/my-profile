@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, ReactElement } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bool, func } from 'prop-types';
 import {
@@ -8,7 +8,7 @@ import {
 } from '../../../redux/selectors';
 import { changeLanguage } from '../../../redux/actions/languages';
 import { getFlagURL } from '../../../utils/icons';
-import AppButton from '../../elements/AppButton';
+import AppButton from '../AppButton';
 import {
   BackgroundOverlay,
   CheckBox,
@@ -20,8 +20,9 @@ import {
   ModalWrapper,
   Text
 } from './styles';
+import { LanguageCode, LanguageType } from '../../../types/interfaces';
 
-const updateLanguageSettings = (language, hideForever) =>
+const updateLanguageSettings = (language: string, hideForever: boolean): void =>
   localStorage.setItem(
     "Anna Branco's professional profile",
     JSON.stringify({
@@ -30,43 +31,54 @@ const updateLanguageSettings = (language, hideForever) =>
     })
   );
 
+interface DispatchAction {
+  type: string;
+  payload: string;
+}
+
 export const onChangeLanguage = (
-  currentLang,
-  newLang,
-  hideForever,
-  dispatch
-) => {
+  currentLang: string,
+  newLang: string,
+  hideForever: boolean,
+  dispatch: Dispatch<DispatchAction>
+): void => {
   if (newLang !== currentLang) {
     dispatch(changeLanguage(newLang));
     updateLanguageSettings(newLang, hideForever);
   }
 };
 
+interface Props {
+  hideForever: boolean;
+  onCloseLanguageModal: () => void;
+  toggleBlockLangModal: () => void;
+}
+
 const LanguagesModal = ({
   hideForever,
   onCloseLanguageModal,
   toggleBlockLangModal
-}) => {
+}: Props): ReactElement => {
   const texts = useSelector(languagesModelTextsSelector);
-  const languages = useSelector(allLanguagesSelector);
-  const languageSelected = useSelector(currentLanguageSelector);
+  const languages: LanguageType[] = useSelector(allLanguagesSelector);
+  const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
 
   const dispatch = useDispatch();
 
-  const onClickClose = event => {
+  const onClickClose = (event: React.MouseEvent) => {
     event.stopPropagation();
-    onCloseLanguageModal(hideForever);
+    onCloseLanguageModal();
     updateLanguageSettings(languageSelected, hideForever);
   };
 
-  const onCLickFlag = event => {
+  const onCLickFlag = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void => {
+    const clickedElement = event.currentTarget as HTMLDivElement;
+    const language = clickedElement.lang as LanguageCode;
+
     event.stopPropagation();
-    onChangeLanguage(
-      languageSelected,
-      event.currentTarget.lang,
-      hideForever,
-      dispatch
-    );
+    onChangeLanguage(languageSelected, language, hideForever, dispatch);
   };
 
   return (

@@ -26,6 +26,17 @@
 		"window": true
 	},
 
+	"overrides": [
+		{
+			"files": ["**/*.ts", "**/*.tsx"],
+			"plugins": ["@typescript-eslint"],
+			"rules": {
+				"no-use-before-define": "off",
+				"@typescript-eslint/no-use-before-define": ["error"]
+			}
+		}
+	],
+
 	"parser": "@typescript-eslint/parser",
 
 	"parserOptions": {
@@ -35,14 +46,7 @@
 		"sourceType": "module"
 	},
 
-	"plugins": [
-		"import",
-		"jsx-a11y",
-		"prettier",
-		"react",
-		"react-hooks",
-		"@typescript-eslint"
-	],
+	"plugins": ["import", "jsx-a11y", "prettier", "react", "react-hooks"],
 
 	"rules": {
 		"@typescript-eslint/no-var-requires": 0,

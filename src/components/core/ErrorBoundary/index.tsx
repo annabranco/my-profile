@@ -4,14 +4,15 @@ import { node } from 'prop-types';
 import ErrorComponent from './ErrorComponent';
 import { errorTextsPropType } from '../../../types/propTypes';
 import { AppState, ErrorTextType } from '../../../types/interfaces';
+import defaultTexts from '../../../db/texts.json';
 
 interface ErrorTexts {
-  texts: ErrorTextType;
+  texts: ErrorTextType | undefined;
 }
 
 interface Props {
-  children: ReactNode;
-  texts: ErrorTextType;
+  children: ReactNode | ReactNode[];
+  texts: ErrorTextType | undefined;
 }
 
 interface State {
@@ -20,12 +21,12 @@ interface State {
 
 class ErrorBoundary extends Component<Props, State> {
   static propTypes = {
-    children: node,
-    texts: errorTextsPropType.isRequired
+    children: node.isRequired,
+    texts: errorTextsPropType
   };
 
   static defaultProps = {
-    children: null
+    texts: defaultTexts.en.error
   };
 
   state: State = {
@@ -41,7 +42,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   render() {
-    const { error }: { error: Error | null } = this.state;
+    const { error }: State = this.state;
     const { texts }: ErrorTexts = this.props;
 
     if (error) {

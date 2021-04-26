@@ -11,7 +11,7 @@ import {
 } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import { getFlagURL } from '../../../utils/icons';
-import { onChangeLanguage } from '../../core/LanguagesModal';
+import { onChangeLanguage } from '../../elements/LanguagesModal';
 import { INFO_PAGE_SECTION } from '../../../constants';
 import { CountryFlag } from '../../sections/Experiences/styles';
 import {

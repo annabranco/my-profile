@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
@@ -10,6 +11,7 @@ import {
   fontTitleAlt
 } from '../../../styles/theme';
 import { NotDisplayed } from '../../../styles/global';
+import { LanguageCode } from '../../../types/interfaces';
 
 const activeFlag = css`
   opacity: 1;
@@ -81,7 +83,12 @@ export const ModalWrapper = styled.div`
 `;
 ModalWrapper.displayName = 'Modal Wrapper';
 
-export const Flag = styled.div`
+interface FlagProps extends React.ComponentPropsWithoutRef<'div'> {
+  active?: boolean;
+  languageSelected: LanguageCode;
+}
+
+export const Flag = styled.div<FlagProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,8 +97,8 @@ export const Flag = styled.div`
   margin: 10px;
   cursor: pointer;
 
-  ${props =>
-    !props.active &&
+  ${({ active }) =>
+    !active &&
     css`
       ${NotDisplayed};
     `}
@@ -111,13 +118,18 @@ export const FlagsWrapper = styled.div`
 `;
 FlagsWrapper.displayName = 'Flags Wrapper';
 
-export const Image = styled.img`
+interface ImageProps extends React.ComponentPropsWithoutRef<'img'> {
+  lang: LanguageCode;
+  languageSelected: LanguageCode;
+}
+
+export const Image = styled.img<ImageProps>`
   opacity: 0.5;
   margin-top: 0;
   width: 50%;
 
-  ${props =>
-    props.lang === props.languageSelected &&
+  ${({ lang, languageSelected }) =>
+    lang === languageSelected &&
     css`
       ${activeFlag}
     `}

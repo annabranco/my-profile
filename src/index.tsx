@@ -26,9 +26,7 @@ const dataBasePaths = [
 const store = getStore();
 
 dispatchFetchDatabase(dataBasePaths)
-  .then(a => {
-    console.log('$$$ a', a);
-
+  .then(() => {
     render(
       <Provider store={store}>
         <App />
