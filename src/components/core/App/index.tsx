@@ -1,4 +1,5 @@
 import React, { useEffect, ReactElement } from 'react';
+import { LanguagePreferences } from '../../../types/interfaces';
 import ErrorBoundary from '../ErrorBoundary';
 import { useStateWithLabel } from '../../../utils/hooks';
 import Header from '../../mainComponents/Header';
@@ -10,7 +11,6 @@ import {
   SETTINGS_LOADED
 } from '../../../constants';
 import { GlobalStyles } from '../../../styles/global';
-import { LanguagePreferences } from '../../../types/interfaces';
 
 const App = (): ReactElement => {
   const languageSettings: LanguagePreferences | Record<string, never> =

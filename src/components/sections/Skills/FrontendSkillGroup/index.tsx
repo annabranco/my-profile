@@ -1,19 +1,18 @@
 import React, { ReactElement } from 'react';
 import { bool } from 'prop-types';
+import { SkillGroupsType } from '../../../../types/interfaces';
 import SkillLevel from '../SkillLevel';
 import { isDesktop } from '../../../../utils/device';
 import { skillGroupsPropType } from '../../../../types/propTypes';
 import { FrontendGroup, Logo, LogoWrapper, SkillsWrapper } from './styles';
 import { Name, SkillItem, Title } from '../styles';
-import { SkillGroupsType } from '../../../../types/interfaces';
 
-const FrontendSkillGroup = ({
-  details,
-  visible
-}: {
+interface Props {
   details: SkillGroupsType;
   visible: boolean;
-}): ReactElement => (
+}
+
+const FrontendSkillGroup = ({ details, visible }: Props): ReactElement => (
   <FrontendGroup visible={visible}>
     <Title group={details.name}>
       <h3>{details.name}</h3>

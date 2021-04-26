@@ -1,9 +1,9 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { node } from 'prop-types';
+import { AppState, ErrorTextType } from '../../../types/interfaces';
 import ErrorComponent from './ErrorComponent';
 import { errorTextsPropType } from '../../../types/propTypes';
-import { AppState, ErrorTextType } from '../../../types/interfaces';
 import defaultTexts from '../../../db/texts.json';
 
 interface ErrorTexts {

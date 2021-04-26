@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Dispatch, ReactElement, SetStateAction } from 'react';
 import { bool, func } from 'prop-types';
 import ScrollArea from '../ScrollArea';
+
+interface Props {
+  isSeabedElementOpened: boolean;
+  langModalVisible: boolean;
+  openSeabedElement: Dispatch<SetStateAction<boolean>>;
+}
 
 const MainArea = ({
   isSeabedElementOpened,
   langModalVisible,
   openSeabedElement
-}) => (
+}: Props): ReactElement => (
   <ScrollArea
     isSeabedElementOpened={isSeabedElementOpened}
     langModalVisible={langModalVisible}

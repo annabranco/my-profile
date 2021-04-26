@@ -1,6 +1,14 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, {
+  Dispatch,
+  ReactElement,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bool, func } from 'prop-types';
+import { ExperiencesType, SectionsTextType } from '../../../types/interfaces';
 import {
   currentSecionSelector,
   experiencesSelector,
@@ -46,34 +54,46 @@ import {
 } from '../../sections/MyInfoPage/styles';
 import { ScrollAreaWrapper } from './styles';
 
-const SCROLL_CUEPOINTS = new Map();
+const SCROLL_CUEPOINTS: Map<number, string> = new Map();
 let touchEvent = 0;
+
+declare global {
+  interface Window {
+    _debug: any;
+  }
+}
+
+interface Props {
+  isSeabedElementOpened: boolean;
+  langModalVisible: boolean;
+  openSeabedElement: Dispatch<SetStateAction<boolean>>;
+}
 
 const ScrollArea = ({
   isSeabedElementOpened,
   langModalVisible,
   openSeabedElement
-}) => {
-  const experiences = useSelector(experiencesSelector);
-  const sectionsTexts = useSelector(sectionsTextsSelector);
-  const currentSection = useSelector(currentSecionSelector);
+}: Props): ReactElement => {
+  const experiences: ExperiencesType[] = useSelector(experiencesSelector);
+  const sectionsTexts: SectionsTextType = useSelector(sectionsTextsSelector);
+  const currentSection: string = useSelector(currentSecionSelector);
 
-  const [cuePointsActivated, updateCuepoints] = useStateWithLabel(
+  const [cuePointsActivated, updateCuepoints] = useStateWithLabel<Set<string>>(
     new Set(),
     CUEPOINTS
   );
-  const [activeSection, changeActiveSection] = useStateWithLabel(
+  const [activeSection, changeActiveSection] = useStateWithLabel<string>(
     INFO_PAGE_SECTION,
     ACTIVE_SECTION
   );
-  const [showInstructions, toggleInstructions] = useStateWithLabel(
+  const [showInstructions, toggleInstructions] = useStateWithLabel<boolean>(
     true,
     SHOW_INSTRUCTIONS
   );
 
-  const scrollAreaRef = useRef();
   const dispatch = useDispatch();
-  const touchActive = useRef();
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const touchActive = useRef<boolean>(false);
 
   const SECTIONS_INTERVAL_POINTS = {
     skills: {
@@ -95,8 +115,9 @@ const ScrollArea = ({
 
   const experiencesSectionIds = new Set();
 
-  const handleScroll = event => {
-    const scrollPosition = event.target.scrollTop;
+  const handleScroll = (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
+    const target = event.target as HTMLElement;
+    const scrollPosition = target.scrollTop;
     const cuePointsAfterScrolling = new Set(cuePointsActivated);
 
     // eslint-disable-next-line no-underscore-dangle
@@ -124,11 +145,13 @@ const ScrollArea = ({
     }
   };
 
-  const resetScrollPosition = delay =>
-    setTimeout(() => scrollAreaRef.current.scrollTo(0, 0), delay);
+  const resetScrollPosition = (delay: number): void => {
+    const scrollArea = scrollAreaRef.current as HTMLDivElement;
+    setTimeout(() => scrollArea.scrollTo(0, 0), delay);
+  };
 
   const goToNextSection = useCallback(
-    type => {
+    (type?: string): void => {
       if (type === BACK_ACTION) {
         dispatch(changeSection(getPreviousSection(currentSection)));
         changeActiveSection(getPreviousSection(currentSection));
@@ -140,26 +163,26 @@ const ScrollArea = ({
     [dispatch, currentSection, changeActiveSection]
   );
 
-  const handleTouchStart = useCallback(ev => {
-    const xCoord = ev.changedTouches[0].screenX;
+  const handleTouchStart = useCallback((event: TouchEvent): void => {
+    const xCoord: number = event.changedTouches[0].screenX;
     touchEvent = xCoord;
   }, []);
 
   const handleTouchEnd = useCallback(
-    ev => {
-      const xCoord = ev.changedTouches[0].screenX;
-      const difference = touchEvent - xCoord;
+    (event: TouchEvent): void => {
+      const xCoord: number = event.changedTouches[0].screenX;
+      const difference: number = touchEvent - xCoord;
 
       if (difference >= 100) {
         if (showInstructions && !langModalVisible) {
-          ev.stopPropagation();
+          event.stopPropagation();
           toggleInstructions(false);
           return;
         }
         goToNextSection();
       } else if (difference <= -100) {
         if (showInstructions && !langModalVisible) {
-          ev.stopPropagation();
+          event.stopPropagation();
           toggleInstructions(false);
           return;
         }
@@ -172,11 +195,11 @@ const ScrollArea = ({
     [showInstructions, langModalVisible, goToNextSection, toggleInstructions]
   );
 
-  const getNextSectionName = () =>
+  const getNextSectionName = (): string =>
     sectionsTexts[getNextSection(currentSection)];
 
   useEffect(() => {
-    const calculateSkillsScroll = () => {
+    const calculateSkillsScroll = (): void => {
       SCROLL_CUEPOINTS.set(
         SECTIONS_INTERVAL_POINTS.skills.scrollAreaStart,
         SKILLS_FIRST_ROW
@@ -192,13 +215,16 @@ const ScrollArea = ({
       );
     };
 
-    const calculateExperiencesScroll = () => {
-      const NUMBER_OF_EXPERIENCES_DISPLAYED = experiences.length;
+    const calculateExperiencesScroll = (): void => {
+      const NUMBER_OF_EXPERIENCES_DISPLAYED: number = experiences.length;
       const {
         scrollAreaStart,
         scrollAreaEnd
+      }: {
+        scrollAreaStart: number;
+        scrollAreaEnd: number;
       } = SECTIONS_INTERVAL_POINTS.experiences;
-      const intervalWindowForEachExperience =
+      const intervalWindowForEachExperience: number =
         (scrollAreaEnd - scrollAreaStart) / NUMBER_OF_EXPERIENCES_DISPLAYED;
       let index = 0;
 
@@ -236,25 +262,25 @@ const ScrollArea = ({
 
   useEffect(() => {
     if (!isDesktop && activeSection === SKILLS_SECTION) {
-      const allCuePoints = [
+      const allCuePoints: string[] = [
         SKILLS_FIRST_ROW,
         SKILLS_SECOND_ROW,
         SKILLS_THIRD_ROW
       ];
       updateCuepoints(new Set(allCuePoints));
     } else if (!isDesktop && activeSection === EXPERIENCES_SECTION) {
-      const allCuePoints = [];
+      const allCuePoints: string[] = [];
       let currentExperience = 0;
 
-      const addNextExperience = () => {
+      const addNextExperience = (): void => {
         if (currentExperience === experiences.length - 1) {
-          return null;
+          return;
         }
         allCuePoints.push(experiences[currentExperience].id);
         updateCuepoints(new Set(allCuePoints));
         currentExperience += 1;
 
-        return setTimeout(() => {
+        setTimeout(() => {
           addNextExperience();
         }, 50);
       };
@@ -283,10 +309,7 @@ const ScrollArea = ({
       ref={scrollAreaRef}
     >
       {!isDesktop && showInstructions && (
-        <SwipeInstructions
-          onCloseInstructions={toggleInstructions}
-          langModalVisible={langModalVisible}
-        />
+        <SwipeInstructions onCloseInstructions={toggleInstructions} />
       )}
 
       {(isDesktop || activeSection === INFO_PAGE_SECTION) && <MyInfoPage />}
@@ -333,7 +356,9 @@ const ScrollArea = ({
 
       {!isDesktop && (
         <ScrollDownDisplay sections>
-          <MoreText onClick={goToNextSection}>{getNextSectionName()}</MoreText>
+          <MoreText onClick={() => goToNextSection()}>
+            {getNextSectionName()}
+          </MoreText>
           <LineOfArrows>
             <ArrowIcon
               className="fas fa-angle-double-down"

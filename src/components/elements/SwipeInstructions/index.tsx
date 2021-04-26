@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
+import { InstructionsTextType } from '../../../types/interfaces';
 import { instructionsTextSelector } from '../../../redux/selectors';
 import AppModal from '../../mainComponents/AppModal';
 import { ArrowsDown, Swipe } from '../../../assets/images';
@@ -11,7 +12,6 @@ import {
   ScrollDownDisplay
 } from '../../sections/MyInfoPage/styles';
 import { ArrowsImage, InstructionsText, SwipeImage } from './styles';
-import { InstructionsTextType } from '../../../types/interfaces';
 
 interface Props {
   onCloseInstructions: (opened: boolean) => void;

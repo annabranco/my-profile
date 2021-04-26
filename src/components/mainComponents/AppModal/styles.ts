@@ -2,22 +2,19 @@
 
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import {
-  colorBlack,
-  colorBlueDark,
-  colorWhite,
-  fontTitleAlt
-} from '../../../styles/theme';
+import { colorBlack, colorBlueDark, fontTitleAlt } from '../../../styles/theme';
 
-export const CloseButton = styled.p`
+interface CloseButtonProps extends React.ComponentPropsWithoutRef<'p'> {
+  text?: string;
+}
+
+export const CloseButton = styled.p<CloseButtonProps>`
   z-index: 100;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 100;
   color: red;
-  color: ${({ colors }) => colors.terciary};
-  background: ${({ colors }) => colors && colors.primary};
   cursor: pointer;
   border-radius: 5px;
   padding: 5px 10px;
@@ -39,12 +36,11 @@ export const CloseButton = styled.p`
     `};
 
   @media all and (min-width: 768px) {
-    ${({ colors, text }) =>
+    ${({ text }) =>
       text &&
       css`
         top: 20px;
         right: 50px;
-        border: ${`2px solid ${colors.terciary}`};
         background: none;
 
         &::before {

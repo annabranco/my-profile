@@ -13,6 +13,10 @@ export interface AppState {
   textsDatabase: TextsData | Record<string, never>;
 }
 
+interface BasicObjectInterface {
+  [key: string]: string;
+}
+
 export type Country = 'br' | 'es' | 'fr' | 'gr' | 'ie' | 'ru' | 'us';
 
 interface CountryType {
@@ -20,10 +24,6 @@ interface CountryType {
   es: string;
   pt: string;
   countryCode: string;
-}
-
-export interface CuePointsActivatedProps {
-  cuePointsActivated: Set<string>;
 }
 
 export interface DeveloperTextType {
@@ -207,7 +207,7 @@ export interface ProjectsType {
   url: string;
 }
 
-export interface SectionsTextType {
+export interface SectionsTextType extends BasicObjectInterface {
   experience: string;
   other: string;
   projects: string;

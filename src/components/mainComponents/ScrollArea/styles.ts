@@ -1,12 +1,19 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 
-export const ScrollAreaWrapper = styled.main`
+interface ScrollAreaWrapperProps
+  extends React.ComponentPropsWithoutRef<'main'> {
+  langModalVisible: boolean;
+  isSeabedElementOpened: boolean;
+}
+
+export const ScrollAreaWrapper = styled.main<ScrollAreaWrapperProps>`
   height: ${`${window.innerHeight}px`};
   overflow: hidden;
   position: absolute;
 
-  ${props =>
-    props.langModalVisible &&
+  ${({ langModalVisible }) =>
+    langModalVisible &&
     css`
       overflow-y: hidden;
     `}

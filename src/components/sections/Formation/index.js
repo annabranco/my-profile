@@ -31,7 +31,7 @@ const FORMATION_ON_TOP = 'older'; // newer or older
 const Formation = ({
   onClickClose,
   onClickOpen,
-  status: { read, visible }
+  status: { active, read, visible }
 }) => {
   const formation = useSelector(formationSelector);
   const languageSelected = useSelector(currentLanguageSelector);

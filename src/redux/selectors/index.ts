@@ -3,7 +3,6 @@ import {
   AppState,
   DeveloperTextType,
   GlobalTextsType,
-  HeaderTextType,
   InfoPageTextType,
   InstructionsTextType,
   LanguagesTextType,
@@ -47,7 +46,7 @@ export const globalTextsSelector = createSelector<
 export const headerTitleSelector = createSelector<
   AppState,
   AppState['texts'],
-  HeaderTextType | string
+  string
 >([getTexts], texts => texts.header && texts.header.title);
 export const infoPageTextSelector = createSelector<
   AppState,

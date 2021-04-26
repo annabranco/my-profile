@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
 import { string } from 'prop-types';
+import { ErrorTextType } from '../../../types/interfaces';
 import appInfo from '../../../../package.json';
 import { useStateWithLabel } from '../../../utils/hooks';
 import { isDesktop } from '../../../utils/device';
@@ -18,7 +19,6 @@ import {
   NotifyButtonText,
   SorryText
 } from './styles';
-import { ErrorTextType } from '../../../types/interfaces';
 
 const DEFAULT_ERROR_TEXTS = {
   errorLine1: "I'm awfully sorry but something unexpected had happened. :(",
@@ -30,13 +30,12 @@ const DEFAULT_ERROR_TEXTS = {
 
 const REPORT_ISSUE_PAGE = `${appInfo.bugs.url}/new`;
 
-const ErrorComponent = ({
-  error,
-  texts
-}: {
+interface Props {
   error: string;
   texts: ErrorTextType;
-}): ReactElement => {
+}
+
+const ErrorComponent = ({ error, texts }: Props): ReactElement => {
   const [showNotifyButton, toggleNotifyButton] = useStateWithLabel<boolean>(
     false,
     NOTIFY_BUTTON

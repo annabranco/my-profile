@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
@@ -6,6 +7,7 @@ import {
   fontTitleAlt,
   fontTitle
 } from '../../../styles/theme';
+import { LanguageCode } from '../../../types/interfaces';
 
 const headerInner = css`
   min-width: 250px;
@@ -33,7 +35,12 @@ export const AppTitle = styled.h2`
 `;
 AppTitle.displayName = 'AppTitle';
 
-export const Flag = styled.div`
+interface FlagProps extends React.ComponentPropsWithoutRef<'div'> {
+  lang?: LanguageCode;
+  languageSelected: LanguageCode;
+}
+
+export const Flag = styled.div<FlagProps>`
   display: inline;
   margin: 0 5px;
   outline: none;
@@ -41,8 +48,8 @@ export const Flag = styled.div`
   cursor: pointer;
   max-width: 32px;
 
-  ${props =>
-    props.lang === props.languageSelected &&
+  ${({ lang, languageSelected }) =>
+    lang === languageSelected &&
     css`
       ${activeFlag}
     `}

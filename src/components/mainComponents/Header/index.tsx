@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bool } from 'prop-types';
+import {
+  LanguageCode,
+  LanguageType,
+  SectionsTextType
+} from '../../../types/interfaces';
 import appInfo from '../../../../package.json';
 import {
   allLanguagesSelector,
@@ -22,17 +27,27 @@ import {
   Version
 } from './styles';
 
-const Header = ({ hideForever, isSeabedElementOpened }) => {
-  const APP_VERSION = appInfo.version;
-  const languages = useSelector(allLanguagesSelector);
-  const languageSelected = useSelector(currentLanguageSelector);
-  const title = useSelector(headerTitleSelector);
-  const currentSection = useSelector(currentSecionSelector);
-  const sections = useSelector(sectionsTextsSelector);
+interface Props {
+  hideForever: boolean;
+  isSeabedElementOpened: boolean;
+}
+
+const Header = ({
+  hideForever,
+  isSeabedElementOpened
+}: Props): ReactElement => {
+  const APP_VERSION: string = appInfo.version;
+  const languages: LanguageType[] = useSelector(allLanguagesSelector);
+  const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
+  const title: string = useSelector(headerTitleSelector);
+  const currentSection: string = useSelector(currentSecionSelector);
+  const sections: SectionsTextType = useSelector(sectionsTextsSelector);
 
   const dispatch = useDispatch();
 
-  const onCLickFlag = event =>
+  const onCLickFlag = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ): void =>
     onChangeLanguage(
       languageSelected,
       event.currentTarget.lang,
@@ -40,7 +55,7 @@ const Header = ({ hideForever, isSeabedElementOpened }) => {
       dispatch
     );
 
-  const getTitle = () => {
+  const getTitle = (): string => {
     if (isDesktop || currentSection === INFO_PAGE_SECTION) {
       return title;
     }

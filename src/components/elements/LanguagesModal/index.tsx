@@ -1,6 +1,7 @@
 import React, { Dispatch, ReactElement } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bool, func } from 'prop-types';
+import { LanguageCode, LanguageType } from '../../../types/interfaces';
 import {
   allLanguagesSelector,
   currentLanguageSelector,
@@ -20,7 +21,6 @@ import {
   ModalWrapper,
   Text
 } from './styles';
-import { LanguageCode, LanguageType } from '../../../types/interfaces';
 
 const updateLanguageSettings = (language: string, hideForever: boolean): void =>
   localStorage.setItem(
@@ -65,7 +65,7 @@ const LanguagesModal = ({
 
   const dispatch = useDispatch();
 
-  const onClickClose = (event: React.MouseEvent) => {
+  const onClickClose = (event: React.MouseEvent): void => {
     event.stopPropagation();
     onCloseLanguageModal();
     updateLanguageSettings(languageSelected, hideForever);
@@ -74,11 +74,13 @@ const LanguagesModal = ({
   const onCLickFlag = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ): void => {
-    const clickedElement = event.currentTarget as HTMLDivElement;
-    const language = clickedElement.lang as LanguageCode;
-
     event.stopPropagation();
-    onChangeLanguage(languageSelected, language, hideForever, dispatch);
+    onChangeLanguage(
+      languageSelected,
+      event.currentTarget.lang,
+      hideForever,
+      dispatch
+    );
   };
 
   return (

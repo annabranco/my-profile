@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { node, string } from 'prop-types';
 import { SectionContent, SectionHeader, Title } from './styles';
 import { isDesktop } from '../../../../utils/device';
 
-const ScrollSection = ({ children, title }) => (
+interface Props {
+  children: ReactNode | ReactNode[];
+  title: string;
+}
+
+const ScrollSection = ({ children, title }: Props): ReactElement => (
   <section id={title}>
     {isDesktop && (
       <SectionHeader>

@@ -1,6 +1,7 @@
 import React, { Fragment, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
+import { AppState, SkillGroupsType } from '../../../types/interfaces';
 import { skillsSelector } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import FrontendSkillGroup from './FrontendSkillGroup';
@@ -20,19 +21,16 @@ import {
   SkillsInsideGroup,
   Title
 } from './styles';
-import {
-  CuePointsActivatedProps,
-  AppState,
-  SkillGroupsType
-} from '../../../types/interfaces';
 
 const FIRST_ROW_ITEMS = 'Frontend';
 const SECOND_ROW_ITEMS: Set<number> = new Set([1, 2, 3, 4]);
 const THIRD_ROW_ITEMS: Set<number> = new Set([5, 6, 7, 8]);
 
-const Skills = ({
-  cuePointsActivated
-}: CuePointsActivatedProps): ReactElement => {
+interface Props {
+  cuePointsActivated: Set<string>;
+}
+
+const Skills = ({ cuePointsActivated }: Props): ReactElement => {
   const skills: AppState['skills'] = useSelector(skillsSelector);
 
   const isVisible = (identificator: string | number): boolean => {

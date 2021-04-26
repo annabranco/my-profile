@@ -2,13 +2,12 @@ import React, { ReactElement } from 'react';
 import { number, string } from 'prop-types';
 import { Star, StarsWrapper } from './styles';
 
-const SkillLevel = ({
-  level,
-  skill
-}: {
+interface Props {
   level: number;
   skill: string;
-}): ReactElement => {
+}
+
+const SkillLevel = ({ level, skill }: Props): ReactElement => {
   const stars: '*'[] = new Array(level).fill('*');
 
   return (

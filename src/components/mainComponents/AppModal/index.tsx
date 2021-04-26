@@ -1,9 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { func, node } from 'prop-types';
 import { ModalOverlay } from './styles';
 
-const AppModal = ({ children, closeAction }) => {
+interface Props {
+  children: ReactNode | ReactNode[];
+  closeAction?: (event: React.MouseEvent) => void;
+}
+
+const AppModal = ({ children, closeAction }: Props): ReactElement => {
   return <ModalOverlay onClick={closeAction}>{children}</ModalOverlay>;
 };
 
