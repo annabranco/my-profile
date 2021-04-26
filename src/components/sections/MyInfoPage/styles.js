@@ -319,10 +319,10 @@ MyNameOnMobileDevices.displayName = 'My Name';
 export const Photo = styled.img`
   margin-top: -15%;
   width: 100%;
-  filter: contrast(0.9) opacity(0.75);
+  filter: contrast(1.4) opacity(0.65);
 
   @media all and (min-width: 768px) {
-    filter: contrast(0.9) opacity(0.45);
+    filter: contrast(1.9) opacity(0.55);
     width: 130%;
   }
 `;
