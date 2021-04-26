@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
 import { instructionsTextSelector } from '../../../redux/selectors';
@@ -11,12 +11,17 @@ import {
   ScrollDownDisplay
 } from '../../sections/MyInfoPage/styles';
 import { ArrowsImage, InstructionsText, SwipeImage } from './styles';
+import { InstructionsTextType } from '../../../types/interfaces';
 
-const SwipeInstructions = ({ onCloseInstructions }) => {
-  const text = useSelector(instructionsTextSelector);
+interface Props {
+  onCloseInstructions: (opened: boolean) => void;
+}
 
-  const onClickScreen = ev => {
-    ev.stopPropagation();
+const SwipeInstructions = ({ onCloseInstructions }: Props): ReactElement => {
+  const text: InstructionsTextType = useSelector(instructionsTextSelector);
+
+  const onClickScreen = (event: React.MouseEvent): void => {
+    event.stopPropagation();
     onCloseInstructions(false);
   };
 

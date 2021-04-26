@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
@@ -7,7 +8,11 @@ import {
   fontTitle
 } from '../../../styles/theme';
 
-export const StyledButton = styled.button`
+interface StyledButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  buttonStyle: string;
+}
+
+export const StyledButton = styled.button<StyledButtonProps>`
   border: 1px solid ${colorBlack};
   border-radius: 15px 0;
   margin: 5px auto;
@@ -30,11 +35,11 @@ export const StyledButton = styled.button`
     box-shadow: inset 0 2px 5px 1px rgba($black, 0.4);
   }
 
-  ${({ style }) => {
+  ${({ buttonStyle }) => {
     return (
-      style &&
+      buttonStyle &&
       css`
-        color: ${style};
+        color: ${buttonStyle};
       `
     );
   }}

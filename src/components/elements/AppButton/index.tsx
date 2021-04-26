@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { func, string } from 'prop-types';
 import { StyledButton } from './styles';
 
-const AppButton = ({ buttonStyle, onClick, text }) => (
+interface Props {
+  buttonStyle: string;
+  onClick: (event: React.MouseEvent) => void;
+  text: string;
+}
+
+const AppButton = ({ buttonStyle, onClick, text }: Props): ReactElement => (
   <StyledButton buttonStyle={buttonStyle} onClick={onClick} type="button">
     {text}
   </StyledButton>

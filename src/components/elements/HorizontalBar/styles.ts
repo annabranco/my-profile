@@ -1,9 +1,19 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { colorBlueLight } from '../../../styles/theme';
 import { Hidden } from '../../../styles/global';
 
-export const HorizontalBar = styled.div`
+interface HorizontalBarProps extends React.ComponentPropsWithoutRef<'div'> {
+  border: string;
+  hidden: boolean;
+  moveY: string;
+  margin: string;
+  formationItems: number;
+  index: number;
+}
+
+export const HorizontalBar = styled.div<HorizontalBarProps>`
   position: absolute;
   display: inline-block;
   border-top: 5px solid ${rgba(colorBlueLight, 0.3)};
