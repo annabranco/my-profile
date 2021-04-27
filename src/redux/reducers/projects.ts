@@ -1,7 +1,16 @@
 import { LOAD_PROJECTS_SUCCESS } from '../../constants';
+import { IProjects } from '../../types/interfaces';
 import { INITIAL_STATE } from '../initialState';
 
-export default (state = INITIAL_STATE.projects, action) => {
+interface Action {
+  type: string;
+  payload: IProjects[];
+}
+
+export default (
+  state: IProjects[] = INITIAL_STATE.projects,
+  action: Action
+): IProjects[] => {
   const { type, payload } = action;
 
   switch (type) {
