@@ -1,18 +1,18 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { node } from 'prop-types';
-import { AppState, ErrorTextType } from '../../../types/interfaces';
+import { IAppState, IErrorText } from '../../../types/interfaces';
 import ErrorComponent from './ErrorComponent';
 import { errorTextsPropType } from '../../../types/propTypes';
 import defaultTexts from '../../../db/texts.json';
 
 interface ErrorTexts {
-  texts: ErrorTextType | undefined;
+  texts: IErrorText | undefined;
 }
 
 interface Props {
   children: ReactNode | ReactNode[];
-  texts: ErrorTextType | undefined;
+  texts: IErrorText | undefined;
 }
 
 interface State {
@@ -52,7 +52,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: AppState): ErrorTexts => ({
+const mapStateToProps = (state: IAppState): ErrorTexts => ({
   texts: state.texts.error
 });
 

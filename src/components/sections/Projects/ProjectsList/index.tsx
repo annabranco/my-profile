@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { arrayOf, bool, func, number } from 'prop-types';
-import { ProjectsType } from '../../../../types/interfaces';
+import { IProjects } from '../../../../types/interfaces';
 import { developerTextSelector } from '../../../../redux/selectors';
 import { isDesktop } from '../../../../utils/device';
 import ProjectDetails from '../ProjectDetails';
@@ -12,7 +12,7 @@ import { Icon, Paginator, ProjectsGrid, ProjectsSection, Text } from './styles';
 interface Props {
   actualPage: number;
   onClickChangePage: (action: string) => void;
-  projects: ProjectsType[][];
+  projects: IProjects[][];
   totalPages: number;
   visible: boolean;
 }

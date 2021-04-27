@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
 import { string } from 'prop-types';
-import { ErrorTextType } from '../../../types/interfaces';
+import { IErrorText } from '../../../types/interfaces';
 import appInfo from '../../../../package.json';
 import { useStateWithLabel } from '../../../utils/hooks';
 import { isDesktop } from '../../../utils/device';
@@ -32,7 +32,7 @@ const REPORT_ISSUE_PAGE = `${appInfo.bugs.url}/new`;
 
 interface Props {
   error: string;
-  texts: ErrorTextType;
+  texts: IErrorText;
 }
 
 const ErrorComponent = ({ error, texts }: Props): ReactElement => {

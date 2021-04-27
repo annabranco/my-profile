@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { bool } from 'prop-types';
-import { SkillGroupsType } from '../../../../types/interfaces';
+import { ISkillGroups } from '../../../../types/interfaces';
 import SkillLevel from '../SkillLevel';
 import { isDesktop } from '../../../../utils/device';
 import { skillGroupsPropType } from '../../../../types/propTypes';
@@ -8,7 +8,7 @@ import { FrontendGroup, Logo, LogoWrapper, SkillsWrapper } from './styles';
 import { Name, SkillItem, Title } from '../styles';
 
 interface Props {
-  details: SkillGroupsType;
+  details: ISkillGroups;
   visible: boolean;
 }
 

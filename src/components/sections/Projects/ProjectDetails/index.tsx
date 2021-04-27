@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { number } from 'prop-types';
-import { ProjectsType } from '../../../../types/interfaces';
+import { IProjects } from '../../../../types/interfaces';
 import { currentLanguageSelector } from '../../../../redux/selectors';
 import { isDesktop } from '../../../../utils/device';
 import { THUMBNAILS } from '../../../../assets/images';
@@ -19,7 +19,7 @@ import {
 
 interface Props {
   actualPage: number;
-  project: ProjectsType;
+  project: IProjects;
 }
 
 const ProjectDetails = ({ actualPage, project }: Props): ReactElement => {

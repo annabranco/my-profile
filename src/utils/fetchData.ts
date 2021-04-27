@@ -14,7 +14,7 @@ import {
   SKILLS_PATH,
   TEXTS_PATH
 } from '../constants';
-import { ServerResponse } from '../types/interfaces';
+import { IServerResponse } from '../types/interfaces';
 
 const store = getStore();
 
@@ -39,7 +39,7 @@ const dispatchReduxAction = <T>(URL: string, request: T) => {
 
 export const dispatchFetchDatabase = (
   dataBasePaths: string[]
-): Promise<void | ServerResponse> => {
+): Promise<void | IServerResponse> => {
   const requestData = (URL: string) => {
     const request = axios
       .get(URL)

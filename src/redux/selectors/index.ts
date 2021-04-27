@@ -1,80 +1,82 @@
 import { createSelector } from 'reselect';
 import {
-  AppState,
-  DeveloperTextType,
-  GlobalTextsType,
-  InfoPageTextType,
-  InstructionsTextType,
-  LanguagesTextType,
-  OtherSkillsTextType,
-  SeabedTextType,
-  SectionsTextType
+  IAppState,
+  IDeveloperText,
+  IGlobalTexts,
+  IInfoPageText,
+  IInstructionsText,
+  ILanguagesText,
+  IOtherSkillsText,
+  ISeabedText,
+  ISectionsText
 } from '../../types/interfaces';
 
-export const allLanguagesSelector = (state: AppState): AppState['languages'] =>
-  state.languages;
+export const allLanguagesSelector = (
+  state: IAppState
+): IAppState['languages'] => state.languages;
 export const currentLanguageSelector = (
-  state: AppState
-): AppState['language'] => state.language;
-export const experiencesSelector = (state: AppState): AppState['experiences'] =>
-  state.experiences;
+  state: IAppState
+): IAppState['language'] => state.language;
+export const experiencesSelector = (
+  state: IAppState
+): IAppState['experiences'] => state.experiences;
 export const finishedSelector = (
-  state: AppState
-): AppState['finishedScenario'] => state.finishedScenario;
-export const formationSelector = (state: AppState): AppState['formation'] =>
+  state: IAppState
+): IAppState['finishedScenario'] => state.finishedScenario;
+export const formationSelector = (state: IAppState): IAppState['formation'] =>
   state.formation;
-export const projectsSelector = (state: AppState): AppState['projects'] =>
+export const projectsSelector = (state: IAppState): IAppState['projects'] =>
   state.projects;
-export const skillsSelector = (state: AppState): AppState['skills'] =>
+export const skillsSelector = (state: IAppState): IAppState['skills'] =>
   state.skills;
 export const currentSecionSelector = (
-  state: AppState
-): AppState['currentSection'] => state.currentSection;
+  state: IAppState
+): IAppState['currentSection'] => state.currentSection;
 
-const getTexts = (state: AppState): AppState['texts'] => state.texts;
+const getTexts = (state: IAppState): IAppState['texts'] => state.texts;
 
 export const developerTextSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  DeveloperTextType
+  IAppState,
+  IAppState['texts'],
+  IDeveloperText
 >([getTexts], texts => texts.developer);
 export const globalTextsSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  GlobalTextsType
+  IAppState,
+  IAppState['texts'],
+  IGlobalTexts
 >([getTexts], texts => texts.global);
 export const headerTitleSelector = createSelector<
-  AppState,
-  AppState['texts'],
+  IAppState,
+  IAppState['texts'],
   string
 >([getTexts], texts => texts.header && texts.header.title);
 export const infoPageTextSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  InfoPageTextType
+  IAppState,
+  IAppState['texts'],
+  IInfoPageText
 >([getTexts], texts => texts.infoPage);
 export const instructionsTextSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  InstructionsTextType
+  IAppState,
+  IAppState['texts'],
+  IInstructionsText
 >([getTexts], texts => texts.instructions);
 export const languagesModelTextsSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  LanguagesTextType
+  IAppState,
+  IAppState['texts'],
+  ILanguagesText
 >([getTexts], texts => texts.languages);
 export const otherSkillsTextSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  OtherSkillsTextType
+  IAppState,
+  IAppState['texts'],
+  IOtherSkillsText
 >([getTexts], texts => texts.otherSkills);
 export const seabedTextsSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  SeabedTextType
+  IAppState,
+  IAppState['texts'],
+  ISeabedText
 >([getTexts], texts => texts.seabed);
 export const sectionsTextsSelector = createSelector<
-  AppState,
-  AppState['texts'],
-  SectionsTextType
+  IAppState,
+  IAppState['texts'],
+  ISectionsText
 >([getTexts], texts => texts.sections);

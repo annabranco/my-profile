@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bool } from 'prop-types';
 import {
   LanguageCode,
-  LanguageType,
-  SectionsTextType
+  ILanguage,
+  ISectionsText
 } from '../../../types/interfaces';
 import appInfo from '../../../../package.json';
 import {
@@ -37,11 +37,11 @@ const Header = ({
   isSeabedElementOpened
 }: Props): ReactElement => {
   const APP_VERSION: string = appInfo.version;
-  const languages: LanguageType[] = useSelector(allLanguagesSelector);
+  const languages: ILanguage[] = useSelector(allLanguagesSelector);
   const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
   const title: string = useSelector(headerTitleSelector);
   const currentSection: string = useSelector(currentSecionSelector);
-  const sections: SectionsTextType = useSelector(sectionsTextsSelector);
+  const sections: ISectionsText = useSelector(sectionsTextsSelector);
 
   const dispatch = useDispatch();
 

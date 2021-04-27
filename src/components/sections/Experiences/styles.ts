@@ -52,7 +52,7 @@ export const CountryFlag = styled.img<CountryFlagProps>`
     display: inline-block;
   }
 `;
-CountryFlag.displayName = 'Country Flag';
+CountryFlag.displayName = 'ICountry Flag';
 
 export const DateArea = styled.div`
   width: 12%;

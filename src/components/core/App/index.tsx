@@ -1,5 +1,5 @@
 import React, { useEffect, ReactElement } from 'react';
-import { LanguagePreferences } from '../../../types/interfaces';
+import { ILanguagePreferences } from '../../../types/interfaces';
 import ErrorBoundary from '../ErrorBoundary';
 import { useStateWithLabel } from '../../../utils/hooks';
 import Header from '../../mainComponents/Header';
@@ -13,7 +13,7 @@ import {
 import { GlobalStyles } from '../../../styles/global';
 
 const App = (): ReactElement => {
-  const languageSettings: LanguagePreferences | Record<string, never> =
+  const languageSettings: ILanguagePreferences | Record<string, never> =
     JSON.parse(
       localStorage.getItem("Anna Branco's professional profile") as string
     ) || {};

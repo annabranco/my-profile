@@ -1,33 +1,33 @@
 /* eslint-disable no-use-before-define */
 
-export interface AppState {
+export interface IAppState {
   currentSection: string;
-  experiences: ExperiencesType[] | [];
+  experiences: IExperiencesType[] | [];
   finishedScenario: boolean;
-  formation: FormationType[] | [];
+  formation: IFormation[] | [];
   language: LanguageCode;
-  languages: LanguageType[] | [];
-  projects: ProjectsType[] | [];
-  skills: SkillGroupsType[] | [];
-  texts: TextsType | Record<string, never>;
-  textsDatabase: TextsData | Record<string, never>;
+  languages: ILanguage[] | [];
+  projects: IProjects[] | [];
+  skills: ISkillGroups[] | [];
+  texts: ITexts | Record<string, never>;
+  textsDatabase: ITextsData | Record<string, never>;
 }
 
-interface BasicObjectInterface {
+interface IBasicObject {
   [key: string]: string;
 }
 
-export type Country = 'br' | 'es' | 'fr' | 'gr' | 'ie' | 'ru' | 'us';
+export type ICountry = 'br' | 'es' | 'fr' | 'gr' | 'ie' | 'ru' | 'us';
 
-interface CountryType {
+interface ICountryType {
   en: string;
   es: string;
   pt: string;
   fr?: string;
-  countryCode: Country;
+  countryCode: ICountry;
 }
 
-export interface DeveloperTextType {
+export interface IDeveloperText {
   expanded: string;
   formation: string;
   goUp: string;
@@ -40,28 +40,28 @@ export interface DeveloperTextType {
   showThumbnails: string;
 }
 
-export interface ErrorTextType {
+export interface IErrorText {
   errorLine1: string;
   errorLine2: string;
   notifyMe: string;
   title: string;
 }
 
-export interface ExperiencesData {
-  experiences: ExperiencesType[];
+export interface IExperiencesData {
+  experiences: IExperiencesType[];
 }
 
-export interface ExperiencesType {
+export interface IExperiencesType {
   company: string;
-  country: CountryType;
+  country: ICountryType;
   dateBegin: string;
   dateBeginValue: number;
   dateEnd: string;
   dateEndValue: number;
-  details: LanguagesType;
+  details: ILanguages;
   id: string;
   place: string;
-  title: LanguagesType;
+  title: ILanguages;
   visible: boolean;
 }
 
@@ -70,26 +70,26 @@ export interface IFish {
   img: string;
   waving: boolean;
 }
-export interface FormationData {
-  formation: FormationType[];
+export interface IFormationData {
+  formation: IFormation[];
 }
 
-export interface FormationType {
-  country: CountryType;
+export interface IFormation {
+  country: ICountryType;
   dateBegin: string;
   dateBeginValue: number;
   dateEnd: string;
   dateEndValue: number;
   grade: number;
-  gradeText: LanguagesType;
+  gradeText: ILanguages;
   id: string;
   place: string;
-  title: LanguagesType;
+  title: ILanguages;
   university: string;
   visible: boolean;
 }
 
-export interface FormationTextType {
+export interface IFormationText {
   brazil: string;
   grade: string;
   ir: string;
@@ -98,13 +98,13 @@ export interface FormationTextType {
   spain: string;
 }
 
-export interface GlobalTextsType {
+export interface IGlobalTexts {
   open: string;
   close: string;
   since: string;
 }
 
-export interface HeaderTextType {
+export interface IHeaderText {
   contact: string;
   title: string;
 }
@@ -116,7 +116,7 @@ export interface IHeroMovement {
   isGoingUp: boolean;
   isSwimming: boolean;
 }
-export interface InfoPageTextType {
+export interface IInfoPageText {
   aditional: string;
   advise: string;
   call: string;
@@ -125,13 +125,13 @@ export interface InfoPageTextType {
   thankyou: string;
 }
 
-export interface InstructionsTextType {
+export interface IInstructionsText {
   swipe: string;
   button: string;
   buttonText: string;
 }
 
-export interface LanguagesTextType {
+export interface ILanguagesText {
   changeDefault: string;
   changeUpperBar: string;
   chekboxText: string;
@@ -142,11 +142,11 @@ export interface LanguagesTextType {
 
 export type LanguageCode = 'en' | 'es' | 'pt' | 'fr';
 
-export interface LanguagesData {
-  languages: LanguagesType[];
+export interface ILanguagesData {
+  languages: ILanguages[];
 }
 
-export interface LanguagePreferences {
+export interface ILanguagePreferences {
   language: LanguageCode;
   hideLanguagesModalForever: boolean;
 }
@@ -156,26 +156,31 @@ export interface ILanguagesSpoken {
   speak: string;
   read: string;
   write: string;
-  flagCode: Country;
+  flagCode: ICountry;
 }
 
-export interface LanguageType {
+export interface ILanguage {
   active: boolean;
-  flagCode: Country;
+  flagCode: ICountry;
   language: string;
   languageCode: LanguageCode;
   languageEn: string;
   order: number;
 }
 
-export interface LanguagesType {
+export interface ILanguages {
   en: string;
   es: string;
   pt: string;
   fr: string;
 }
 
-export interface OtherSkillsTextType {
+export interface IOtherSkill {
+  skill: string;
+  details: string;
+}
+
+export interface IOtherSkillsText {
   design: string;
   find: string;
   find2: string;
@@ -184,30 +189,25 @@ export interface OtherSkillsTextType {
   languagesSpoken: ILanguagesSpoken[];
   other: string;
   samples: string;
-  skills: ISkill[];
+  skills: IOtherSkill[];
 }
 
-export interface ISkill {
-  skill: string;
-  details: string;
-}
-
-export interface PositionType {
+export interface IPosition {
   frame: string;
   position: string;
 }
 
-export interface ProjectsData {
-  projects: ProjectsType[];
+export interface IProjectsData {
+  projects: IProjects[];
 }
 
 export interface IProjectsIndexator {
-  projects: ProjectsType[][];
+  projects: IProjects[][];
   totalPages: number;
 }
 
-export interface ProjectsType {
-  description: LanguagesType;
+export interface IProjects {
+  description: ILanguages;
   order: number;
   repo: string;
   thumbnail: string;
@@ -215,20 +215,20 @@ export interface ProjectsType {
   url: string;
 }
 
-export interface SectionsTextType extends BasicObjectInterface {
+export interface ISectionsText extends IBasicObject {
   experience: string;
   other: string;
   projects: string;
   technical: string;
 }
 
-export interface SeabedElementsType {
+export interface ISeabedElements {
   active: boolean;
   read: boolean;
   visible: boolean;
 }
 
-export interface SeabedTextType {
+export interface ISeabedText {
   formation: string;
   find: string;
   find2: string;
@@ -242,7 +242,16 @@ export interface SeabedTextType {
   time2go: string;
 }
 
-export interface SkillType {
+export interface IServerResponse {
+  dataExperiences: IExperiencesData;
+  dataFormation: IFormationData;
+  dataLanguages: ILanguagesData;
+  dataProjects: IProjectsData;
+  dataSkills: ISkillsData;
+  texts: ITextsData;
+}
+
+export interface ISkill {
   extended: boolean;
   level: number;
   logo?: string;
@@ -250,19 +259,19 @@ export interface SkillType {
   skill: string;
 }
 
-export interface SkillsData {
-  skillGroups: SkillGroupsType[];
+export interface ISkillsData {
+  skillGroups: ISkillGroups[];
 }
 
-export interface SkillGroupsType {
+export interface ISkillGroups {
   globalLevel: number;
   logo: string;
   name: string;
   order: number;
-  skills: SkillType[];
+  skills: ISkill[];
 }
 
-export type Style =
+export type IStyle =
   | 'flat'
   | 'flat3d'
   | 'round'
@@ -271,36 +280,27 @@ export type Style =
   | 'square'
   | 'wave';
 
-export interface TextsData {
-  en: TextsType;
-  es: TextsType;
-  fr: TextsType;
-  pt: TextsType;
+export interface ITextsData {
+  en: ITexts;
+  es: ITexts;
+  fr: ITexts;
+  pt: ITexts;
 }
 
-export interface TextsType {
-  developer: DeveloperTextType;
-  error: ErrorTextType;
-  global: GlobalTextsType;
-  header: HeaderTextType;
-  infoPage: InfoPageTextType;
-  instructions: InstructionsTextType;
-  languages: LanguagesTextType;
-  otherSkills: OtherSkillsTextType;
-  seabed: SeabedTextType;
-  sections: SectionsTextType;
+export interface ITexts {
+  developer: IDeveloperText;
+  error: IErrorText;
+  global: IGlobalTexts;
+  header: IHeaderText;
+  infoPage: IInfoPageText;
+  instructions: IInstructionsText;
+  languages: ILanguagesText;
+  otherSkills: IOtherSkillsText;
+  seabed: ISeabedText;
+  sections: ISectionsText;
 }
 
 export interface IThinkingState {
   side: string;
   thoughts: number;
-}
-
-export interface ServerResponse {
-  dataExperiences: ExperiencesData;
-  dataFormation: FormationData;
-  dataLanguages: LanguagesData;
-  dataProjects: ProjectsData;
-  dataSkills: SkillsData;
-  texts: TextsData;
 }

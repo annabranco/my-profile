@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bool, func } from 'prop-types';
-import { ExperiencesType, SectionsTextType } from '../../../types/interfaces';
+import { IExperiencesType, ISectionsText } from '../../../types/interfaces';
 import {
   currentSecionSelector,
   experiencesSelector,
@@ -74,8 +74,8 @@ const ScrollArea = ({
   langModalVisible,
   openSeabedElement
 }: Props): ReactElement => {
-  const experiences: ExperiencesType[] = useSelector(experiencesSelector);
-  const sectionsTexts: SectionsTextType = useSelector(sectionsTextsSelector);
+  const experiences: IExperiencesType[] = useSelector(experiencesSelector);
+  const sectionsTexts: ISectionsText = useSelector(sectionsTextsSelector);
   const currentSection: string = useSelector(currentSecionSelector);
 
   const [cuePointsActivated, updateCuepoints] = useStateWithLabel<Set<string>>(

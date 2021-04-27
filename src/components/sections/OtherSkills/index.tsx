@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
-import { SeabedElementsType } from '../../../types/interfaces';
+import { ISeabedElements } from '../../../types/interfaces';
 import { otherSkillsTextSelector } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import OtherSkillsInfo from './OtherSkillsInfo';
@@ -20,7 +20,7 @@ import {
 interface Props {
   onClickClose: (type: string) => void;
   onClickOpen: (type: string) => void;
-  status: SeabedElementsType;
+  status: ISeabedElements;
 }
 
 const OtherSkills = ({

@@ -1,10 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { bool, func } from 'prop-types';
-import {
-  GlobalTextsType,
-  OtherSkillsTextType
-} from '../../../../types/interfaces';
+import { IGlobalTexts, IOtherSkillsText } from '../../../../types/interfaces';
 import {
   globalTextsSelector,
   otherSkillsTextSelector
@@ -37,8 +34,8 @@ const OtherSkillsInfo = ({
   onClickClose,
   visible
 }: Props): ReactElement => {
-  const texts: OtherSkillsTextType = useSelector(otherSkillsTextSelector);
-  const globalTexts: GlobalTextsType = useSelector(globalTextsSelector);
+  const texts: IOtherSkillsText = useSelector(otherSkillsTextSelector);
+  const globalTexts: IGlobalTexts = useSelector(globalTextsSelector);
 
   return (
     <OtherSkillsWrapper

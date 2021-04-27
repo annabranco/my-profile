@@ -1,7 +1,7 @@
 import React, { Fragment, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
-import { AppState, SkillGroupsType } from '../../../types/interfaces';
+import { IAppState, ISkillGroups } from '../../../types/interfaces';
 import { skillsSelector } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import FrontendSkillGroup from './FrontendSkillGroup';
@@ -31,7 +31,7 @@ interface Props {
 }
 
 const Skills = ({ cuePointsActivated }: Props): ReactElement => {
-  const skills: AppState['skills'] = useSelector(skillsSelector);
+  const skills: IAppState['skills'] = useSelector(skillsSelector);
 
   const isVisible = (identificator: string | number): boolean => {
     if (typeof identificator === 'string') {
@@ -60,7 +60,7 @@ const Skills = ({ cuePointsActivated }: Props): ReactElement => {
 
   return (
     <SkillsArea>
-      {skills.map((skillObject: SkillGroupsType, index: number) => (
+      {skills.map((skillObject: ISkillGroups, index: number) => (
         <Fragment key={skillObject.name}>
           {skillObject.name === 'Frontend' ? (
             <FrontendSkillGroup

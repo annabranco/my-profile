@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
 import {
-  ExperiencesType,
-  GlobalTextsType,
+  IExperiencesType,
+  IGlobalTexts,
   LanguageCode
 } from '../../../types/interfaces';
 import {
@@ -38,15 +38,15 @@ interface Props {
 }
 
 const Experiences = ({ cuePointsActivated }: Props): ReactElement => {
-  const experiences: ExperiencesType[] = useSelector(experiencesSelector);
+  const experiences: IExperiencesType[] = useSelector(experiencesSelector);
   const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
-  const texts: GlobalTextsType = useSelector(globalTextsSelector);
+  const texts: IGlobalTexts = useSelector(globalTextsSelector);
 
   const [selectedExperience, selectExperience] = useStateWithLabel<
-    ExperiencesType | Record<string, never>
+    IExperiencesType | Record<string, never>
   >({}, 'selectedExperience');
 
-  const customOrder = (x: ExperiencesType, y: ExperiencesType) => {
+  const customOrder = (x: IExperiencesType, y: IExperiencesType) => {
     if (EXPERIENCE_ON_TOP === 'newer') {
       return y.dateBeginValue - x.dateBeginValue;
     }

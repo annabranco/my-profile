@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
-import { InstructionsTextType } from '../../../types/interfaces';
+import { IInstructionsText } from '../../../types/interfaces';
 import { instructionsTextSelector } from '../../../redux/selectors';
 import AppModal from '../../mainComponents/AppModal';
 import { ArrowsDown, Swipe } from '../../../assets/images';
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const SwipeInstructions = ({ onCloseInstructions }: Props): ReactElement => {
-  const text: InstructionsTextType = useSelector(instructionsTextSelector);
+  const text: IInstructionsText = useSelector(instructionsTextSelector);
 
   const onClickScreen = (event: React.MouseEvent): void => {
     event.stopPropagation();

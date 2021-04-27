@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { chunk, sortBy } from 'lodash';
 import { instanceOf } from 'prop-types';
-import { IProjectsIndexator, ProjectsType } from '../../../types/interfaces';
+import { IProjectsIndexator, IProjects } from '../../../types/interfaces';
 import { projectsSelector } from '../../../redux/selectors';
 import { useStateWithLabel } from '../../../utils/hooks';
 import ProjectsList from './ProjectsList';
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const Projects = ({ cuePointsActivated }: Props): ReactElement => {
-  const projectsLoaded: ProjectsType[] = useSelector(projectsSelector);
+  const projectsLoaded: IProjects[] = useSelector(projectsSelector);
 
   const [actualPage, changePage] = useStateWithLabel<number>(1, ACTUAL_PAGE);
   const [

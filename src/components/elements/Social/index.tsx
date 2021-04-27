@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { InfoPageTextType } from '../../../types/interfaces';
+import { IInfoPageText } from '../../../types/interfaces';
 import { infoPageTextPropType } from '../../../types/propTypes';
 import {
   Icon,
@@ -12,7 +12,7 @@ import {
   Text
 } from './styles';
 
-const Social = ({ texts }: { texts: InfoPageTextType }): ReactElement => (
+const Social = ({ texts }: { texts: IInfoPageText }): ReactElement => (
   <SocialArea>
     <SocialItem>
       <Link href="mailto:anya.branco@icloud.com">

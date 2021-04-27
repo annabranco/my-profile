@@ -1,8 +1,8 @@
-import { Country, Style } from '../types/interfaces';
+import { ICountry, IStyle } from '../types/interfaces';
 
 export interface Props {
-  country: Country;
-  style: Style;
+  country: ICountry;
+  style: IStyle;
   size?: string;
 }
 

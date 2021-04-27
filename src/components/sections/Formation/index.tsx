@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
 import {
-  FormationType,
-  GlobalTextsType,
+  IFormation,
+  IGlobalTexts,
   LanguageCode,
-  SeabedElementsType,
-  SeabedTextType
+  ISeabedElements,
+  ISeabedText
 } from '../../../types/interfaces';
 import {
   currentLanguageSelector,
@@ -38,7 +38,7 @@ const FORMATION_ON_TOP = 'older'; // newer or older
 interface Props {
   onClickClose: (type: string) => void;
   onClickOpen: (type: string) => void;
-  status: SeabedElementsType;
+  status: ISeabedElements;
 }
 
 const Formation = ({
@@ -46,12 +46,12 @@ const Formation = ({
   onClickOpen,
   status: { read, visible }
 }: Props): ReactElement => {
-  const formation: FormationType[] = useSelector(formationSelector);
+  const formation: IFormation[] = useSelector(formationSelector);
   const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
-  const texts: SeabedTextType = useSelector(seabedTextsSelector);
-  const globalTexts: GlobalTextsType = useSelector(globalTextsSelector);
+  const texts: ISeabedText = useSelector(seabedTextsSelector);
+  const globalTexts: IGlobalTexts = useSelector(globalTextsSelector);
 
-  const customOrder = (x: FormationType, y: FormationType) => {
+  const customOrder = (x: IFormation, y: IFormation) => {
     if (FORMATION_ON_TOP === 'older') {
       return x.dateBeginValue - y.dateBeginValue;
     }

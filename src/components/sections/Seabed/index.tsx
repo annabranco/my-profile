@@ -10,9 +10,9 @@ import { func, instanceOf } from 'prop-types';
 import {
   IHeroMovement,
   IThinkingState,
-  PositionType,
-  SeabedElementsType,
-  SeabedTextType
+  IPosition,
+  ISeabedElements,
+  ISeabedText
 } from '../../../types/interfaces';
 import Formation from '../Formation';
 import OtherSkills from '../OtherSkills';
@@ -82,14 +82,14 @@ const SeaBed = ({
     false,
     'pearlFound'
   );
-  const texts: SeabedTextType = useSelector(seabedTextsSelector);
+  const texts: ISeabedText = useSelector(seabedTextsSelector);
   const isFinished: boolean = useSelector(finishedSelector);
   const dispatch = useDispatch();
 
   const [
     formationState,
     changeFormationState
-  ] = useStateWithLabel<SeabedElementsType>(
+  ] = useStateWithLabel<ISeabedElements>(
     {
       active: false,
       read: false,
@@ -114,7 +114,7 @@ const SeaBed = ({
   const [
     otherSkillsState,
     changeOtherSkillsState
-  ] = useStateWithLabel<SeabedElementsType>(
+  ] = useStateWithLabel<ISeabedElements>(
     {
       active: false,
       read: false,
@@ -122,7 +122,7 @@ const SeaBed = ({
     },
     OTHER_SKILLS
   );
-  const [positionState, changePositionState] = useStateWithLabel<PositionType>(
+  const [positionState, changePositionState] = useStateWithLabel<IPosition>(
     {
       frame: CENTER,
       position: 'initial'
@@ -167,7 +167,7 @@ const SeaBed = ({
     openSeabedElement(false);
     if (type === 'formationSection' && formationState.visible) {
       changeFormationState(
-        (prevState: SeabedElementsType): SeabedElementsType => ({
+        (prevState: ISeabedElements): ISeabedElements => ({
           active: isDesktop ? prevState.active : false,
           read: true,
           visible: false
@@ -175,7 +175,7 @@ const SeaBed = ({
       );
     } else if (type === 'otherSkillsSection' && otherSkillsState.visible) {
       changeOtherSkillsState(
-        (prevState: SeabedElementsType): SeabedElementsType => ({
+        (prevState: ISeabedElements): ISeabedElements => ({
           active: isDesktop ? prevState.active : false,
           read: true,
           visible: false
@@ -288,7 +288,7 @@ const SeaBed = ({
 
   // ======= Function that fires events when HERO reaches some specific places
 
-  const heroHasMoved = (updatedPosition: PositionType, facing: string) => {
+  const heroHasMoved = (updatedPosition: IPosition, facing: string) => {
     if (!instructionsHidden) {
       hideInstructions(true);
     }
@@ -303,7 +303,7 @@ const SeaBed = ({
     // -Highlights the text "Formation" when hero swims over it
     if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 400) {
       changePositionState(
-        (prevState: PositionType): PositionType => ({
+        (prevState: IPosition): IPosition => ({
           ...prevState,
           position: ON_THE_RIGHT
         })
@@ -312,7 +312,7 @@ const SeaBed = ({
       // -Highlights the text "Other Skills" when hero swims over it
     } else if (Number(HERO.style.left.slice(0, -2)) <= 200) {
       changePositionState(
-        (prevState: PositionType): PositionType => ({
+        (prevState: IPosition): IPosition => ({
           ...prevState,
           position: ON_THE_LEFT
         })
@@ -321,7 +321,7 @@ const SeaBed = ({
       // -Clear highlights
     } else if (updatedPosition.position !== CENTER && !isFinished) {
       changePositionState(
-        (prevState: PositionType): PositionType => ({
+        (prevState: IPosition): IPosition => ({
           frame: prevState.frame,
           position: CENTER
         })
@@ -347,7 +347,7 @@ const SeaBed = ({
       if (updatedPosition.frame === LEFT) {
         changePositionState({ frame: CENTER, position: ON_THE_LEFT });
         changeOtherSkillsState(
-          (prevState: SeabedElementsType): SeabedElementsType => ({
+          (prevState: ISeabedElements): ISeabedElements => ({
             ...prevState,
             active: false
           })
@@ -357,7 +357,7 @@ const SeaBed = ({
       } else if (updatedPosition.frame === CENTER) {
         changePositionState({ frame: RIGHT, position: ON_THE_LEFT });
         changeFormationState(
-          (prevState: SeabedElementsType): SeabedElementsType => ({
+          (prevState: ISeabedElements): ISeabedElements => ({
             ...prevState,
             active: true
           })
@@ -383,7 +383,7 @@ const SeaBed = ({
       if (updatedPosition.frame === RIGHT) {
         changePositionState({ frame: CENTER, position: ON_THE_RIGHT });
         changeFormationState(
-          (prevState: SeabedElementsType): SeabedElementsType => ({
+          (prevState: ISeabedElements): ISeabedElements => ({
             ...prevState,
             active: false
           })
@@ -393,7 +393,7 @@ const SeaBed = ({
       } else if (updatedPosition.frame === CENTER) {
         changePositionState({ frame: LEFT, position: ON_THE_RIGHT });
         changeOtherSkillsState(
-          (prevState: SeabedElementsType): SeabedElementsType => ({
+          (prevState: ISeabedElements): ISeabedElements => ({
             ...prevState,
             active: true
           })
@@ -415,7 +415,7 @@ const SeaBed = ({
 
   // ======== Handle base HERO movements
 
-  const moveHero = (key: string, updatedPosition: PositionType): void => {
+  const moveHero = (key: string, updatedPosition: IPosition): void => {
     const DISPLACEMENT = 250;
     const heroImg = HeroImg.current as HTMLImageElement;
     let floatingImage: string = FloatingRight;

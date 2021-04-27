@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { bool } from 'prop-types';
-import { PositionType } from '../../../../../types/interfaces';
+import { IPosition } from '../../../../../types/interfaces';
 import { Crab } from '../../../../../assets/images';
 import { positionPropType } from '../../../../../types/propTypes';
 import { CENTER, ON_THE_RIGHT } from '../../../../../constants';
@@ -8,7 +8,7 @@ import { TheCrab } from './styles';
 
 interface Props {
   hidden: boolean;
-  position: PositionType;
+  position: IPosition;
 }
 
 const CrabComponent = ({ hidden, position }: Props): ReactElement => (

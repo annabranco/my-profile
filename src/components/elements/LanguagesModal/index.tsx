@@ -1,7 +1,7 @@
 import React, { Dispatch, ReactElement } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bool, func } from 'prop-types';
-import { LanguageCode, LanguageType } from '../../../types/interfaces';
+import { LanguageCode, ILanguage } from '../../../types/interfaces';
 import {
   allLanguagesSelector,
   currentLanguageSelector,
@@ -60,7 +60,7 @@ const LanguagesModal = ({
   toggleBlockLangModal
 }: Props): ReactElement => {
   const texts = useSelector(languagesModelTextsSelector);
-  const languages: LanguageType[] = useSelector(allLanguagesSelector);
+  const languages: ILanguage[] = useSelector(allLanguagesSelector);
   const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
 
   const dispatch = useDispatch();
