@@ -1,34 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import chunk from 'lodash/chunk';
-import sortBy from 'lodash/sortBy';
+import { chunk, sortBy } from 'lodash';
 import { instanceOf } from 'prop-types';
+import { IProjectsIndexator, ProjectsType } from '../../../types/interfaces';
 import { projectsSelector } from '../../../redux/selectors';
 import { useStateWithLabel } from '../../../utils/hooks';
-import { isDesktop } from '../../../utils/device';
 import ProjectsList from './ProjectsList';
 import {
   ACTUAL_PAGE,
   ADVANCE_ACTION,
   BACK_ACTION,
-  PROJECTS,
-  SHOW_THUMBNAILS_ACTION,
-  SHOW_THUMBNAILS_ON_MOBILE_ACTION
+  PROJECTS
 } from '../../../constants';
 
-const Projects = ({ cuePointsActivated }) => {
-  const projectsLoaded = useSelector(projectsSelector);
+interface Props {
+  cuePointsActivated: Set<string>;
+}
 
-  const [actualPage, changePage] = useStateWithLabel(1, ACTUAL_PAGE);
-  const [projectsState, setProjectsState] = useStateWithLabel(
+const Projects = ({ cuePointsActivated }: Props): ReactElement => {
+  const projectsLoaded: ProjectsType[] = useSelector(projectsSelector);
+
+  const [actualPage, changePage] = useStateWithLabel<number>(1, ACTUAL_PAGE);
+  const [
+    projectsState,
+    setProjectsState
+  ] = useStateWithLabel<IProjectsIndexator>(
     {
-      projects: null,
+      projects: [],
       totalPages: 0
     },
     PROJECTS
   );
 
-  const onClickChangePage = action => {
+  const onClickChangePage = (action: string): void => {
     let nextPage;
 
     if (action === ADVANCE_ACTION) {
@@ -42,11 +46,8 @@ const Projects = ({ cuePointsActivated }) => {
     }
   };
 
-  const getThumbnailsStyle = () =>
-    isDesktop ? SHOW_THUMBNAILS_ACTION : SHOW_THUMBNAILS_ON_MOBILE_ACTION;
-
   useEffect(() => {
-    const organizeProjectsList = numberOfProjectsPerPage => {
+    const organizeProjectsList = (numberOfProjectsPerPage: number): void => {
       const pagedProjects = chunk(
         sortBy(projectsLoaded),
         numberOfProjectsPerPage
@@ -65,7 +66,6 @@ const Projects = ({ cuePointsActivated }) => {
       actualPage={actualPage}
       onClickChangePage={onClickChangePage}
       projects={projectsState.projects}
-      thumbnailsStyle={getThumbnailsStyle()}
       totalPages={projectsState.totalPages}
       visible={cuePointsActivated.has(PROJECTS)}
     />

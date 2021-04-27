@@ -33,7 +33,12 @@ export const Keys = styled.div`
 `;
 Keys.displayName = 'Keyboard Keys';
 
-export const MacCloseButton = styled.button`
+interface MacCloseButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  isTabButton?: boolean;
+  visible?: boolean;
+}
+
+export const MacCloseButton = styled.button<MacCloseButtonProps>`
   z-index: 10;
   position: fixed;
   top: 43px;
@@ -88,7 +93,11 @@ export const MacCloseButton = styled.button`
     `}
 `;
 
-export const MacKeyboard = styled.div`
+interface MacKeyboardProps extends React.ComponentPropsWithoutRef<'div'> {
+  hidden?: boolean;
+}
+
+export const MacKeyboard = styled.div<MacKeyboardProps>`
   position: absolute;
   top: 30px;
   left: 2px;
@@ -110,7 +119,11 @@ export const MacKeyboard = styled.div`
 `;
 MacKeyboard.displayName = 'Mac Keyboard';
 
-export const MacScreen = styled.div`
+interface MacScreenProps extends React.ComponentPropsWithoutRef<'div'> {
+  visible?: boolean;
+}
+
+export const MacScreen = styled.div<MacScreenProps>`
   opacity: 0.9;
   transform: perspective(8em) rotateX(-5deg) skewX(-4deg);
   border-left: 1px solid ${colorGrayNormal};
@@ -132,7 +145,12 @@ export const MacScreen = styled.div`
 `;
 MacScreen.displayName = 'Mac Screen';
 
-export const SectionOtherSkills = styled.section`
+interface SectionOtherSkillsProps
+  extends React.ComponentPropsWithoutRef<'section'> {
+  visible?: boolean;
+}
+
+export const SectionOtherSkills = styled.section<SectionOtherSkillsProps>`
   z-index: 6;
   position: absolute;
   top: 80vh;
@@ -157,7 +175,11 @@ export const SectionOtherSkills = styled.section`
 `;
 SectionOtherSkills.displayName = 'OTHER SKILLS Section';
 
-export const TopBar = styled.img`
+interface TopBarProps extends React.ComponentPropsWithoutRef<'img'> {
+  visible?: boolean;
+}
+
+export const TopBar = styled.img<TopBarProps>`
   z-index: 9;
   position: absolute;
   top: 0;

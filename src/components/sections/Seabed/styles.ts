@@ -152,7 +152,12 @@ export const Bubble = styled.div`
 `;
 Bubble.displayName = 'Bubble';
 
-export const Bubbles = styled.div`
+interface BubblesProps extends React.ComponentPropsWithoutRef<'div'> {
+  isSwimming: boolean;
+  facing: string;
+}
+
+export const Bubbles = styled.div<BubblesProps>`
   position: absolute;
   top: 0;
   right: 10px;
@@ -213,7 +218,14 @@ export const GoBackText = styled.p`
 `;
 GoBackText.displayName = 'Go Back Text';
 
-export const HeroImage = styled.img`
+interface HeroImageProps extends React.ComponentPropsWithoutRef<'img'> {
+  crossingBorder: boolean;
+  isGoingUp: boolean;
+  isSwimming: boolean;
+  facing: string;
+}
+
+export const HeroImage = styled.img<HeroImageProps>`
   width: 200px;
   transition: all linear 1s;
   ${NotDisplayed};
@@ -253,7 +265,13 @@ export const HeroImage = styled.img`
 `;
 HeroImage.displayName = 'The Hero Image';
 
-export const HeroWrapper = styled.div`
+interface HeroWrapperProps extends React.ComponentPropsWithoutRef<'div'> {
+  back2Surface: boolean;
+  crossingBorder: boolean;
+  isGoingUp: boolean;
+}
+
+export const HeroWrapper = styled.div<HeroWrapperProps>`
   position: absolute;
   top: unset;
   bottom: 40%;
@@ -310,11 +328,6 @@ export const MessageContainer = styled.div`
   ${FloatingSoft};
 `;
 MessageContainer.displayName = 'Message Container';
-
-export const MessageOnMobileDevices = styled(Message)`
-  ${NotDisplayed};
-`;
-MessageOnMobileDevices.displayName = 'Message';
 
 export const SeabedFloor = styled.div`
   position: absolute;
@@ -391,7 +404,11 @@ export const SubsectionOtherSkills = styled(SeabedSubsectionContainer)`
 `;
 SubsectionOtherSkills.displayName = 'Subsection Other Skills';
 
-export const Text = styled.p`
+interface TextProps extends React.ComponentPropsWithoutRef<'p'> {
+  active: boolean;
+}
+
+export const Text = styled.p<TextProps>`
   opacity: 0.9;
   text-shadow: 0 0 3px ${colorBlueDark};
   font-family: sans-serif;
@@ -449,7 +466,11 @@ export const TextFindSomething = styled.p`
 `;
 TextFindSomething.displayName = 'Text Find Something';
 
-export const ThinkingText = styled.p`
+interface ThinkingTextProps extends React.ComponentPropsWithoutRef<'p'> {
+  side: string;
+}
+
+export const ThinkingText = styled.p<ThinkingTextProps>`
   position: absolute;
   bottom: 68%;
   opacity: 0.8;

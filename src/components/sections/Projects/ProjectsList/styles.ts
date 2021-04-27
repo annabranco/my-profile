@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
 import { Hidden } from '../../../../styles/global';
 
-export const Icon = styled.i`
+interface IconProps extends React.ComponentPropsWithoutRef<'i'> {
+  notVisible?: boolean;
+  next?: boolean;
+}
+
+export const Icon = styled.i<IconProps>`
   position: absolute;
   bottom: 40vh;
   font-size: 2.5rem;
@@ -90,7 +95,12 @@ export const ProjectsSection = styled.section`
 `;
 ProjectsSection.displayName = 'PROJECTS Section';
 
-export const Text = styled.span`
+interface TextProps extends React.ComponentPropsWithoutRef<'span'> {
+  notVisible?: boolean;
+  next?: boolean;
+}
+
+export const Text = styled.span<TextProps>`
   position: absolute;
   vertical-align: super;
   font-size: 1rem;

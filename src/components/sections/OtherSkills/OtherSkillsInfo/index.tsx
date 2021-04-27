@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { bool, func } from 'prop-types';
+import {
+  GlobalTextsType,
+  OtherSkillsTextType
+} from '../../../../types/interfaces';
 import {
   globalTextsSelector,
   otherSkillsTextSelector
@@ -22,9 +26,19 @@ import {
   Title
 } from './styles';
 
-const OtherSkillsInfo = ({ onClickOpen, onClickClose, visible }) => {
-  const texts = useSelector(otherSkillsTextSelector);
-  const globalTexts = useSelector(globalTextsSelector);
+interface Props {
+  onClickClose: (type: string) => void;
+  onClickOpen: (type: string) => void;
+  visible: boolean;
+}
+
+const OtherSkillsInfo = ({
+  onClickOpen,
+  onClickClose,
+  visible
+}: Props): ReactElement => {
+  const texts: OtherSkillsTextType = useSelector(otherSkillsTextSelector);
+  const globalTexts: GlobalTextsType = useSelector(globalTextsSelector);
 
   return (
     <OtherSkillsWrapper

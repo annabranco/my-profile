@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useStateWithLabel } from '../../../../../utils/hooks';
 import { LEFT, RIGHT } from '../../../../../constants';
 import { FISHES } from '../../../../../assets/images';
 import { Fish } from './styles';
 
-const randomSpeed = num => `${num + 5}s`;
-const randomSide = num => (num === 0 ? RIGHT : LEFT);
-const randomDelay = num => `${num.toFixed(1)}s`;
-const randomHeight = num => {
+const randomSpeed = (num: number): string => `${num + 5}s`;
+const randomSide = (num: number): string => (num === 0 ? RIGHT : LEFT);
+const randomDelay = (num: number): string => `${num.toFixed(1)}s`;
+const randomHeight = (num: number): string => {
   switch (num) {
     case 0:
       return '20%';
@@ -20,7 +20,7 @@ const randomHeight = num => {
       return '70%';
   }
 };
-const randomMovement = num => {
+const randomMovement = (num: number): string => {
   switch (num) {
     case 0:
       return 'ease-in';
@@ -34,12 +34,15 @@ const randomMovement = num => {
   }
 };
 
-const FishesElement = () => {
-  const [fishes, updateFishes] = useStateWithLabel([], 'fishes');
+const FishesElement = (): ReactElement => {
+  const [fishes, updateFishes] = useStateWithLabel<ReactElement[]>(
+    [],
+    'fishes'
+  );
 
   useEffect(() => {
-    let currentFishes = [];
-    const deployFish = (type, order) => {
+    let currentFishes: ReactElement[] = [];
+    const deployFish = (type: number, order: number): void => {
       currentFishes.push(
         <Fish
           alt="Swimming Fish" // TODO language
@@ -51,7 +54,7 @@ const FishesElement = () => {
           side={randomSide(Math.floor(Math.random() * 2))}
           speed={randomSpeed(Math.ceil(Math.random() * 5))}
           src={FISHES[type].img}
-          waving={FISHES[type].waving}
+          waving={FISHES[type].waving || false}
         />
       );
     };

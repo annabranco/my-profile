@@ -1,33 +1,36 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
-import { arrayOf, bool, func, number, oneOf } from 'prop-types';
+import { arrayOf, bool, func, number } from 'prop-types';
+import { ProjectsType } from '../../../../types/interfaces';
 import { developerTextSelector } from '../../../../redux/selectors';
 import { isDesktop } from '../../../../utils/device';
 import ProjectDetails from '../ProjectDetails';
-import {
-  ADVANCE_ACTION,
-  BACK_ACTION,
-  SHOW_THUMBNAILS_ACTION,
-  SHOW_THUMBNAILS_ON_MOBILE_ACTION
-} from '../../../../constants';
+import { ADVANCE_ACTION, BACK_ACTION } from '../../../../constants';
 import { projectsPropType } from '../../../../types/propTypes';
 import { Icon, Paginator, ProjectsGrid, ProjectsSection, Text } from './styles';
+
+interface Props {
+  actualPage: number;
+  onClickChangePage: (action: string) => void;
+  projects: ProjectsType[][];
+  totalPages: number;
+  visible: boolean;
+}
 
 const ProjectsList = ({
   actualPage,
   onClickChangePage,
   projects,
-  thumbnailsStyle,
   totalPages,
   visible
-}) => {
+}: Props): ReactElement => {
   const texts = useSelector(developerTextSelector);
 
   return (
     <ProjectsSection>
       {(visible || !isDesktop) && (
         <>
-          <ProjectsGrid thumbnailsStyle={thumbnailsStyle}>
+          <ProjectsGrid>
             {projects &&
               projects[actualPage - 1].map(project => (
                 <ProjectDetails
@@ -71,10 +74,6 @@ ProjectsList.propTypes = {
   actualPage: number.isRequired,
   onClickChangePage: func.isRequired,
   projects: arrayOf(arrayOf(projectsPropType)),
-  thumbnailsStyle: oneOf([
-    SHOW_THUMBNAILS_ON_MOBILE_ACTION,
-    SHOW_THUMBNAILS_ACTION
-  ]),
   totalPages: number.isRequired,
   visible: bool.isRequired
 };
@@ -94,8 +93,7 @@ ProjectsList.defaultProps = {
         url: ''
       }
     ]
-  ],
-  thumbnailsStyle: ''
+  ]
 };
 
 export default ProjectsList;

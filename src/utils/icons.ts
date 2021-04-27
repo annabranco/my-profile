@@ -1,10 +1,16 @@
-import { FlagAttributes } from '../types/interfaces';
+import { Country, Style } from '../types/interfaces';
+
+export interface Props {
+  country: Country;
+  style: Style;
+  size?: string;
+}
 
 export const getFlagURL = ({
   country,
-  style = 'flat',
-  size
-}: FlagAttributes): string => {
+  style = 'flat'
+}: // size
+Props): string => {
   const BASE_URL = 'https://cdn.countryflags.com/thumbs';
   const ALTERNATIVE_URL =
     'https://www.countryflags.com/wp-content/uploads/flags';

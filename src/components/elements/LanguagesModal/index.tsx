@@ -32,8 +32,8 @@ const updateLanguageSettings = (language: string, hideForever: boolean): void =>
   );
 
 interface DispatchAction {
-  type: string;
   payload: string;
+  type: string;
 }
 
 export const onChangeLanguage = (

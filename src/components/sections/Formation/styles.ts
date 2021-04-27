@@ -12,7 +12,13 @@ import {
 } from '../../../styles/theme';
 import { Title } from '../Experiences/styles';
 
-export const Details = styled.p`
+interface DetailsProps extends React.ComponentPropsWithoutRef<'p'> {
+  formation?: boolean;
+  round?: boolean;
+  subtext?: boolean;
+}
+
+export const Details = styled.p<DetailsProps>`
   margin: 0 20px;
   font-family: ${({ subtext }) => (subtext ? fontTitleAlt : fontSubtitle)};
   font-size: 0.9rem;
@@ -29,7 +35,7 @@ export const Details = styled.p`
 `;
 Details.displayName = 'Details';
 
-const goIn = (formationItems, index) => keyframes`
+const goIn = (formationItems: number, index: number) => keyframes`
   0% {
     margin-left : -100vw;
   }
@@ -40,7 +46,12 @@ const goIn = (formationItems, index) => keyframes`
       }px`};  }
 `;
 
-export const DetailsArea = styled.div`
+interface DetailsAreaProps extends React.ComponentPropsWithoutRef<'div'> {
+  formationItems: number;
+  index: number;
+}
+
+export const DetailsArea = styled.div<DetailsAreaProps>`
   margin-top: 10px;
   width: 80%;
 
@@ -117,7 +128,12 @@ export const FormationWrapper = styled.div`
 `;
 FormationWrapper.displayName = 'Formation Wrapper';
 
-export const SectionFormation = styled.section`
+interface SectionFormationProps
+  extends React.ComponentPropsWithoutRef<'section'> {
+  visible?: boolean;
+}
+
+export const SectionFormation = styled.section<SectionFormationProps>`
   z-index: 6;
 
   ${({ visible }) =>

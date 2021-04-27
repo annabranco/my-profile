@@ -4,9 +4,9 @@
       "country": {
         "en": "Brazil",
         "es": "Brasil",
-        "pt": "Brasil"
+        "pt": "Brasil",
+        "countryCode": "br"
       },
-      "countryCode": "br",
       "dateBegin": "1999",
       "dateBeginValue": 915145200000,
       "dateEnd": "2005",
@@ -31,9 +31,9 @@
       "country": {
         "en": "Brazil",
         "es": "Brasil",
-        "pt": "Brasil"
+        "pt": "Brasil",
+        "countryCode": "br"
       },
-      "countryCode": "br",
       "dateBegin": "2007",
       "dateBeginValue": 1167606000000,
       "dateEnd": "2011",
@@ -58,9 +58,9 @@
       "country": {
         "en": "Spain",
         "es": "España",
-        "pt": "Espanha"
+        "pt": "Espanha",
+        "countryCode": "es"
       },
-      "countryCode": "es",
       "dateBegin": "2012",
       "dateBeginValue": 1341093600000,
       "dateEnd": "2013",
@@ -85,9 +85,9 @@
       "country": {
         "en": "Spain",
         "es": "España",
-        "pt": "Espanha"
+        "pt": "Espanha",
+        "countryCode": "es"
       },
-      "countryCode": "es",
       "dateBegin": "2018",
       "dateBeginValue": 1525125600000,
       "dateEnd": "2018",

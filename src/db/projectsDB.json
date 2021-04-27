@@ -2,9 +2,9 @@
   "projects": [
     {
       "description": {
-        "en" : "A free unofficial app to enhance the players experience while playing Zombicide tabletop game.",
-        "es" : "Una app no oficial y gratuita para mejorar la experiencia de los jugadores en sus partidas del juego de mesa Zombicide.",
-        "pt" : "Una app nãp oficial e gratuita para melhorar a experiência dos jogadores em suas partidas do jogo de tabuleiro Zombicide."
+        "en" : "An  unofficial app to enhance players' experience while playing Zombicide tabletop game.",
+        "es" : "Una app no oficial para mejorar la experiencia del juego de mesa Zombicide.",
+        "pt" : "Una app nãp oficial para melhorar a experiência do jogo de tabuleiro Zombicide."
       },
       "order"     : 1,
       "repo"      : "https://github.com/annabranco/zombicide-party",
@@ -14,9 +14,9 @@
     },
     {
       "description": {
-        "en" : "A landing page for No Name Kitchen, a NGO working with refugees arriving in Europe. Pre.release.",
-        "es" : "Una página landing para No Name Kitchen, una ONG que trabaja con refugiados llegando a Europa. Pre-release.",
-        "pt" : "Uma página landing para No Name Kitchen, uma ONG que trabalha com refugiados chegando à Europa. Pre-release."
+        "en" : "A page for No Name Kitchen, a NGO working with refugees arriving in Europe. Pre-release.",
+        "es" : "Una página para No Name Kitchen, una ONG que trabaja con refugiados. Pre-release.",
+        "pt" : "Uma página para No Name Kitchen, uma ONG que trabalha com refugiados. Pre-release."
       },
       "order"     : 2,
       "repo"      : "https://github.com/annabranco/nnk",
@@ -50,9 +50,9 @@
     },
         {
       "description": {
-        "en" : "A demo pre-release of a game of Shougi, the Japanese Chess. Unfinished, but playable and fun.",
-        "es" : "Una demo pre-release de un juego de Shougi, el ajedrez japonés. No está terminado, pero puede ser jugado.",
-        "pt" : "Uma demo pre-release de um jogo de Shougi, o xadrez japonês. Não está terminado, mas pode ser jogado."
+        "en" : "A demo pre-release of a game of Shougi, the Japanese Chess. Unfinished, but playable.",
+        "es" : "Una demo pre-release de un juego de Shougi, el ajedrez japonés. No está terminado.",
+        "pt" : "Uma demo pre-release de um jogo de Shougi, o xadrez japonês. Não está terminado."
       },
       "order"     : 5,
       "repo"      : "https://github.com/annabranco/shougi",
@@ -62,9 +62,9 @@
     },
         {
       "description": {
-        "en" : "A beautiful visual database of Harry Potter characters, with filters and favorites function.",
-        "es" : "Un proyecto visual de los personajes de Harry Potter, con filtros y gestión de favoritos.",
-        "pt" : "Un bonito projeto visual dos personagens de Harry Potter, com filtros e gestão de favoritos."
+        "en" : "A beautiful visual database presentating Harry Potter's characters.",
+        "es" : "Un bonito proyecto visual presentando los personajes de Harry Potter.",
+        "pt" : "Un bonito projeto visual apresetnando os personagens de Harry Potter."
       },
       "order"     : 6,
       "repo"      : "https://github.com/annabranco/harry-potter-database",
@@ -74,9 +74,9 @@
     },
     {
       "description": {
-        "en" : "A beautiful TV series finder, where users can search on a huge database, see summaries and ratings.",
-        "es" : "Un buscador de series, donde puedes buscar en una enorme base de datos, ver sinopsis y valoraciones.",
-        "pt" : "Um buscador de séries, onde você pode buscar en um enorme banco de dados, ver sinopses e avaliações."
+        "en" : "A beautiful TV series finder, where users can search on a huge database.",
+        "es" : "Un buscador de series, donde puedes buscar en una enorme base de datos.",
+        "pt" : "Um buscador de séries, onde você pode buscar en um enorme banco de dados."
       },
       "order"     : 7,
       "repo"      : "https://github.com/annabranco/tv-series-finder",
@@ -98,9 +98,9 @@
     },
     {
       "description": {
-        "en" : "An animation game where the player interacts with the weather and creates beatiful natural events. In progress.",
-        "es" : "Un juego de animación donde el jugador interactúa con el tiempo y crea bonitos eventos naturales. En desarrollo.",
-        "pt" : "Um jogo de animação onde o jogador interage con o tempo e cria bonitos eventos naturais. Em desenvolvimento."
+        "en" : "An animation game where the player interacts with the weather. In progress.",
+        "es" : "Un juego de animación donde el jugador interactúa con el tiempo. En desarrollo.",
+        "pt" : "Um jogo de animação onde o jogador interage con o tempo. Em desenvolvimento."
       },
       "order"     : 9,
       "repo"      : "https://github.com/annabranco/days-go-by",

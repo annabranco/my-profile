@@ -59,7 +59,7 @@ let touchEvent = 0;
 
 declare global {
   interface Window {
-    _debug: any;
+    _debug: boolean;
   }
 }
 

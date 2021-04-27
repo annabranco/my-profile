@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { rgba } from 'polished';
 import {
-  colorWhite,
-  colorBlueDark,
   colorBlack,
-  fontTitleAlt,
+  colorBlueDark,
+  colorBlueNormal,
   colorGreenBright,
-  colorBlueNormal
+  colorWhite,
+  fontTitleAlt
 } from '../../../styles/theme';
 
 export const Icon = styled.div`

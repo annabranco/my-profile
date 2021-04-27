@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
+import { AppState, InfoPageTextType } from '../../../types/interfaces';
 import Social from '../../elements/Social';
 import {
   finishedSelector,
@@ -32,7 +33,6 @@ import {
   SectionMyInfo,
   SocialArea
 } from './styles';
-import { AppState, InfoPageTextType } from '../../../types/interfaces';
 
 const MyInfoPage = (): ReactElement => {
   const finishedScenario: AppState['finishedScenario'] = useSelector(

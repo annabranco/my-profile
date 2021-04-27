@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { Dispatch, ReactElement, SetStateAction } from 'react';
 import { bool, func } from 'prop-types';
+import { useStateWithLabel } from '../../../../../utils/hooks';
 import { ClosedShell, OpenedShell } from '../../../../../assets/images';
 import FoundPearl from '../../../../../assets/sounds/found.mp3';
 import Bong from '../../../../../assets/sounds/bong.mp3';
@@ -8,11 +9,16 @@ import { TheShell, ShellContainer, Pearl, PearlShine } from './styles';
 const FindingSound = new Audio(FoundPearl);
 const GettingSound = new Audio(Bong);
 
-const ShellElement = ({ toggleHasPearl, hidden }) => {
-  const [opened, open] = useState(false);
-  const [hasPearl, getPearl] = useState(false);
+interface Props {
+  hidden: boolean;
+  toggleHasPearl: Dispatch<SetStateAction<boolean>>;
+}
 
-  const onClickShell = () => {
+const ShellElement = ({ toggleHasPearl, hidden }: Props): ReactElement => {
+  const [opened, open] = useStateWithLabel<boolean>(false, 'pearlOpened');
+  const [hasPearl, getPearl] = useStateWithLabel<boolean>(false, 'hasPearl');
+
+  const onClickShell = (): void => {
     if (!opened) {
       open(true);
       FindingSound.currentTime = 0;
@@ -21,7 +27,7 @@ const ShellElement = ({ toggleHasPearl, hidden }) => {
     }
   };
 
-  const onClickPearl = () => {
+  const onClickPearl = (): void => {
     getPearl(true);
     GettingSound.currentTime = 0;
     GettingSound.volume = 0.1;

@@ -23,7 +23,8 @@ interface CountryType {
   en: string;
   es: string;
   pt: string;
-  countryCode: string;
+  fr?: string;
+  countryCode: Country;
 }
 
 export interface DeveloperTextType {
@@ -64,19 +65,17 @@ export interface ExperiencesType {
   visible: boolean;
 }
 
-export interface FlagAttributes {
-  country: Country;
-  style: Style;
-  size?: string;
+export interface IFish {
+  facing: string;
+  img: string;
+  waving: boolean;
 }
-
 export interface FormationData {
   formation: FormationType[];
 }
 
 export interface FormationType {
-  country: LanguagesType;
-  countryCode: string;
+  country: CountryType;
   dateBegin: string;
   dateBeginValue: number;
   dateEnd: string;
@@ -85,6 +84,7 @@ export interface FormationType {
   gradeText: LanguagesType;
   id: string;
   place: string;
+  title: LanguagesType;
   university: string;
   visible: boolean;
 }
@@ -109,6 +109,13 @@ export interface HeaderTextType {
   title: string;
 }
 
+export interface IHeroMovement {
+  back2Surface: boolean;
+  crossingBorder: boolean;
+  facing: string;
+  isGoingUp: boolean;
+  isSwimming: boolean;
+}
 export interface InfoPageTextType {
   aditional: string;
   advise: string;
@@ -144,6 +151,14 @@ export interface LanguagePreferences {
   hideLanguagesModalForever: boolean;
 }
 
+export interface ILanguagesSpoken {
+  language: string;
+  speak: string;
+  read: string;
+  write: string;
+  flagCode: Country;
+}
+
 export interface LanguageType {
   active: boolean;
   flagCode: Country;
@@ -161,33 +176,20 @@ export interface LanguagesType {
 }
 
 export interface OtherSkillsTextType {
-  basic: string;
   design: string;
-  english: string;
   find: string;
   find2: string;
-  fluent: string;
-  french: string;
-  how: string;
-  intermediate: string;
   investigate: string;
   languages: string;
+  languagesSpoken: ILanguagesSpoken[];
   other: string;
-  portuguese: string;
-  russian: string;
   samples: string;
+  skills: ISkill[];
+}
+
+export interface ISkill {
   skill: string;
-  skill1: string;
-  skill1details: string;
-  skill2: string;
-  skill2details: string;
-  skill3: string;
-  skill3details: string;
-  skill4: string;
-  skill4details: string;
-  skill5: string;
-  skill5details: string;
-  spanish: string;
+  details: string;
 }
 
 export interface PositionType {
@@ -199,11 +201,17 @@ export interface ProjectsData {
   projects: ProjectsType[];
 }
 
+export interface IProjectsIndexator {
+  projects: ProjectsType[][];
+  totalPages: number;
+}
+
 export interface ProjectsType {
   description: LanguagesType;
   order: number;
   repo: string;
   thumbnail: string;
+  title: string;
   url: string;
 }
 
@@ -221,6 +229,7 @@ export interface SeabedElementsType {
 }
 
 export interface SeabedTextType {
+  formation: string;
   find: string;
   find2: string;
   findMore: string;
@@ -280,6 +289,11 @@ export interface TextsType {
   otherSkills: OtherSkillsTextType;
   seabed: SeabedTextType;
   sections: SectionsTextType;
+}
+
+export interface IThinkingState {
+  side: string;
+  thoughts: number;
 }
 
 export interface ServerResponse {

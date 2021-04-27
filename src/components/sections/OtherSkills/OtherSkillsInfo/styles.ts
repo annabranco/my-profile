@@ -301,7 +301,12 @@ export const OtherInformationAreaTable = styled(OtherSkillsTable)`
 `;
 OtherInformationAreaTable.displayName = 'Other Informations Table';
 
-export const OtherSkillsWrapper = styled.div`
+interface OtherSkillsWrapperProps
+  extends React.ComponentPropsWithoutRef<'div'> {
+  visible?: boolean;
+}
+
+export const OtherSkillsWrapper = styled.div<OtherSkillsWrapperProps>`
   z-index: 3;
   display: flex;
   flex-direction: row;
@@ -359,7 +364,11 @@ export const OtherSkillsWrapper = styled.div`
 `;
 OtherSkillsWrapper.displayName = 'Other Skills Wrapper';
 
-export const Sample = styled.div`
+interface SampleProps extends React.ComponentPropsWithoutRef<'div'> {
+  image: string;
+}
+
+export const Sample = styled.div<SampleProps>`
   border: 3px solid ${rgba(colorWhite, 0.5)};
   height: 120px;
   width: 28vw;

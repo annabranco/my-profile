@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { number } from 'prop-types';
+import { ProjectsType } from '../../../../types/interfaces';
 import { currentLanguageSelector } from '../../../../redux/selectors';
 import { isDesktop } from '../../../../utils/device';
 import { THUMBNAILS } from '../../../../assets/images';
@@ -16,7 +17,12 @@ import {
   Title
 } from './styles';
 
-const ProjectDetails = ({ actualPage, project }) => {
+interface Props {
+  actualPage: number;
+  project: ProjectsType;
+}
+
+const ProjectDetails = ({ actualPage, project }: Props): ReactElement => {
   const languageSelected = useSelector(currentLanguageSelector);
 
   return (
@@ -43,7 +49,10 @@ const ProjectDetails = ({ actualPage, project }) => {
         rel="noopener noreferrer"
         target="_Blank"
       >
-        <Thumbnail src={THUMBNAILS[project.thumbnail]} alt={project.title} />
+        <Thumbnail
+          src={THUMBNAILS[project.thumbnail as keyof typeof THUMBNAILS]}
+          alt={project.title}
+        />
         {!isDesktop && <Title>{project.title}</Title>}
       </Link>
     </ProjectItem>

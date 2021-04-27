@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { colorBlueLight } from '../../../styles/theme';
@@ -6,11 +5,11 @@ import { Hidden } from '../../../styles/global';
 
 interface HorizontalBarProps extends React.ComponentPropsWithoutRef<'div'> {
   border: string;
-  hidden: boolean;
-  moveY: string;
-  margin: string;
   formationItems: number;
+  hidden?: boolean;
   index: number;
+  margin: string;
+  moveY: string;
 }
 
 export const HorizontalBar = styled.div<HorizontalBarProps>`

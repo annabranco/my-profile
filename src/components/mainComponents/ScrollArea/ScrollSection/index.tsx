@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { node, string } from 'prop-types';
-import { SectionContent, SectionHeader, Title } from './styles';
 import { isDesktop } from '../../../../utils/device';
+import { SectionContent, SectionHeader, Title } from './styles';
 
 interface Props {
   children: ReactNode | ReactNode[];

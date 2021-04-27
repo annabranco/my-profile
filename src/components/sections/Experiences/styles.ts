@@ -32,7 +32,12 @@ export const Company = styled.p`
 `;
 Company.displayName = 'Company';
 
-export const CountryFlag = styled.img`
+interface CountryFlagProps extends React.ComponentPropsWithoutRef<'img'> {
+  round?: boolean;
+  formation?: boolean;
+}
+
+export const CountryFlag = styled.img<CountryFlagProps>`
   margin: 0 5px;
   vertical-align: middle;
   max-width: ${({ round }) => (round ? '16px' : '20px')};
@@ -59,7 +64,12 @@ export const Details = styled.p`
 `;
 Details.displayName = 'Details';
 
-export const DetailsArea = styled.div`
+interface DetailsAreaProps extends React.ComponentPropsWithoutRef<'div'> {
+  modal?: boolean;
+  visible: boolean;
+}
+
+export const DetailsArea = styled.div<DetailsAreaProps>`
   margin-top: 10px;
   margin-left: 40px;
   transform: translate(800px, 0);
@@ -118,7 +128,11 @@ export const ExperiencesWrapper = styled.div`
 `;
 ExperiencesWrapper.displayName = 'Experiences Wrapper';
 
-export const ExperienceItem = styled.div`
+interface ExperienceItemProps extends React.ComponentPropsWithoutRef<'div'> {
+  visible: boolean;
+}
+
+export const ExperienceItem = styled.div<ExperienceItemProps>`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;

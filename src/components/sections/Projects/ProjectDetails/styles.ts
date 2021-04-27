@@ -8,10 +8,11 @@ import {
   fontTitle,
   fontTitleAlt
 } from '../../../../styles/theme';
+import { RIGHT } from '../../../../constants';
 
-const EnterScreen = side => keyframes`
+const EnterScreen = (side: string) => keyframes`
 0% {
-  transform: translate(${side === 'right' ? '50vw' : '-50vw'}, 0);
+  transform: translate(${side === RIGHT ? '50vw' : '-50vw'}, 0);
   opacity: 0;
   }
 
@@ -43,10 +44,14 @@ export const Link = styled.a`
 `;
 Link.displayName = 'Link';
 
-export const ProjectItem = styled.div`
+interface ProjectItemProps extends React.ComponentPropsWithoutRef<'div'> {
+  actualPage?: number;
+}
+
+export const ProjectItem = styled.div<ProjectItemProps>`
   height: auto;
   transform: translate(50vw, 0);
-  opcity: 0;
+  /* opacity: 0; */
 
   ${({ actualPage }) =>
     actualPage === 1

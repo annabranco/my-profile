@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
 import {
+  FormationType,
+  GlobalTextsType,
+  LanguageCode,
+  SeabedElementsType,
+  SeabedTextType
+} from '../../../types/interfaces';
+import {
+  currentLanguageSelector,
   formationSelector,
   globalTextsSelector,
-  currentLanguageSelector,
   seabedTextsSelector
 } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
@@ -28,17 +35,23 @@ import {
 
 const FORMATION_ON_TOP = 'older'; // newer or older
 
+interface Props {
+  onClickClose: (type: string) => void;
+  onClickOpen: (type: string) => void;
+  status: SeabedElementsType;
+}
+
 const Formation = ({
   onClickClose,
   onClickOpen,
-  status: { active, read, visible }
-}) => {
-  const formation = useSelector(formationSelector);
-  const languageSelected = useSelector(currentLanguageSelector);
-  const texts = useSelector(seabedTextsSelector);
-  const globalTexts = useSelector(globalTextsSelector);
+  status: { read, visible }
+}: Props): ReactElement => {
+  const formation: FormationType[] = useSelector(formationSelector);
+  const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
+  const texts: SeabedTextType = useSelector(seabedTextsSelector);
+  const globalTexts: GlobalTextsType = useSelector(globalTextsSelector);
 
-  const customOrder = (x, y) => {
+  const customOrder = (x: FormationType, y: FormationType) => {
     if (FORMATION_ON_TOP === 'older') {
       return x.dateBeginValue - y.dateBeginValue;
     }
@@ -76,7 +89,7 @@ const Formation = ({
               {formation.sort(customOrder).map(
                 (item, index) =>
                   item.visible && (
-                    <FormationItem visible key={item.dateBeginValue}>
+                    <FormationItem key={item.dateBeginValue}>
                       <HorizontalBar
                         border="4px"
                         formationItems={formation.length}
@@ -85,7 +98,9 @@ const Formation = ({
                         moveY="25px"
                       />
                       <DateArea>
-                        {!item.dateEnd && <TextDate>{texts.since}</TextDate>}
+                        {!item.dateEnd && (
+                          <TextDate>{globalTexts.since}</TextDate>
+                        )}
                         <TextDate>{item.dateBegin}</TextDate>
                         {item.dateEnd && (
                           <>
@@ -108,7 +123,7 @@ const Formation = ({
                             formation
                             round
                             src={getFlagURL({
-                              country: item.countryCode,
+                              country: item.country.countryCode,
                               size: 'small',
                               style: 'round3d'
                             })}

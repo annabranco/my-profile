@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { bool } from 'prop-types';
+import { PositionType } from '../../../../../types/interfaces';
 import { Crab } from '../../../../../assets/images';
 import { positionPropType } from '../../../../../types/propTypes';
 import { CENTER, ON_THE_RIGHT } from '../../../../../constants';
 import { TheCrab } from './styles';
 
-const CrabComponent = ({ hidden, position }) => (
+interface Props {
+  hidden: boolean;
+  position: PositionType;
+}
+
+const CrabComponent = ({ hidden, position }: Props): ReactElement => (
   <TheCrab
     alt="A crab on the bottom of the sea" // TODO language
     hidden={hidden}

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
+import {
+  ExperiencesType,
+  GlobalTextsType,
+  LanguageCode
+} from '../../../types/interfaces';
 import {
   currentLanguageSelector,
   experiencesSelector,
@@ -28,21 +33,24 @@ import {
 
 const EXPERIENCE_ON_TOP = 'newer'; // newer or older
 
-const Experiences = ({ cuePointsActivated }) => {
-  const experiences = useSelector(experiencesSelector);
-  const languageSelected = useSelector(currentLanguageSelector);
-  const texts = useSelector(globalTextsSelector);
+interface Props {
+  cuePointsActivated: Set<string>;
+}
 
-  const [selectedExperience, selectExperience] = useStateWithLabel(
-    null,
-    'selectedExperience'
-  );
+const Experiences = ({ cuePointsActivated }: Props): ReactElement => {
+  const experiences: ExperiencesType[] = useSelector(experiencesSelector);
+  const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
+  const texts: GlobalTextsType = useSelector(globalTextsSelector);
 
-  const customOrder = (x, y) => {
-    if (EXPERIENCE_ON_TOP === 'older') {
-      return x.dateBeginValue - y.dateBeginValue;
+  const [selectedExperience, selectExperience] = useStateWithLabel<
+    ExperiencesType | Record<string, never>
+  >({}, 'selectedExperience');
+
+  const customOrder = (x: ExperiencesType, y: ExperiencesType) => {
+    if (EXPERIENCE_ON_TOP === 'newer') {
+      return y.dateBeginValue - x.dateBeginValue;
     }
-    return y.dateBeginValue - x.dateBeginValue;
+    return x.dateBeginValue - y.dateBeginValue;
   };
 
   return (
@@ -96,8 +104,8 @@ const Experiences = ({ cuePointsActivated }) => {
             )
         )}
       </ExperiencesWrapper>
-      {selectedExperience && (
-        <AppModal closeAction={() => selectExperience(null)}>
+      {selectedExperience.title && (
+        <AppModal closeAction={() => selectExperience({})}>
           <DetailsArea
             visible={cuePointsActivated.has(selectedExperience.id)}
             modal

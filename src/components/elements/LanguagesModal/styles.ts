@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import {
@@ -17,18 +16,6 @@ const activeFlag = css`
   opacity: 1;
   cursor: default;
 `;
-
-export const Text = styled.p`
-  margin: 5px 0;
-  font-family: ${fontSubtitle};
-  font-size: 0.8rem;
-  text-align: center;
-
-  @media all and (min-width: 560px) {
-    font-size: 1rem;
-  }
-`;
-Text.displayName = 'Text';
 
 export const BackgroundOverlay = styled.div`
   z-index: 101;
@@ -53,35 +40,22 @@ export const CheckBox = styled.input`
 `;
 CheckBox.displayName = 'CheckBox';
 
+export const Text = styled.p`
+  margin: 5px 0;
+  font-family: ${fontSubtitle};
+  font-size: 0.8rem;
+  text-align: center;
+
+  @media all and (min-width: 560px) {
+    font-size: 1rem;
+  }
+`;
+Text.displayName = 'Text';
+
 export const CheckBoxArea = styled(Text)`
   margin: 30px 0 10px;
 `;
 CheckBoxArea.displayName = 'CheckBox Area';
-
-export const ModalWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  border: 1px solid;
-  border-radius: 40px 0;
-  background-image: linear-gradient(
-    to bottom left,
-    ${colorWhite},
-    #e6f4f4,
-    ${colorBlueLight}
-  );
-  height: 280px;
-  width: 340px;
-  padding: 20px;
-  box-shadow: 2px 2px 10px 2px ${rgba(colorGrayNormal, 0.7)};
-
-  @media all and (min-width: 560px) {
-    border-radius: 50px 0;
-    height: 260px;
-    width: 480px;
-  }
-`;
-ModalWrapper.displayName = 'Modal Wrapper';
 
 interface FlagProps extends React.ComponentPropsWithoutRef<'div'> {
   active?: boolean;
@@ -143,3 +117,28 @@ export const Label = styled.div`
   text-align: center;
 `;
 Label.displayName = 'Label';
+
+export const ModalWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid;
+  border-radius: 40px 0;
+  background-image: linear-gradient(
+    to bottom left,
+    ${colorWhite},
+    #e6f4f4,
+    ${colorBlueLight}
+  );
+  height: 280px;
+  width: 340px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px 2px ${rgba(colorGrayNormal, 0.7)};
+
+  @media all and (min-width: 560px) {
+    border-radius: 50px 0;
+    height: 260px;
+    width: 480px;
+  }
+`;
+ModalWrapper.displayName = 'Modal Wrapper';

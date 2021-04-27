@@ -1,8 +1,19 @@
-/* eslint-disable no-use-before-define, react-hooks/exhaustive-deps */
-
-import React, { useEffect, useRef } from 'react';
+import React, {
+  Dispatch,
+  ReactElement,
+  SetStateAction,
+  useEffect,
+  useRef
+} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { func, instanceOf } from 'prop-types';
+import {
+  IHeroMovement,
+  IThinkingState,
+  PositionType,
+  SeabedElementsType,
+  SeabedTextType
+} from '../../../types/interfaces';
 import Formation from '../Formation';
 import OtherSkills from '../OtherSkills';
 import {
@@ -45,7 +56,6 @@ import {
   HeroWrapper,
   Message,
   MessageContainer,
-  MessageOnMobileDevices,
   SeabedFloor,
   SeabedSection,
   SubsectionFormation,
@@ -54,20 +64,32 @@ import {
   ThinkingText
 } from './styles';
 
-let HERO;
-let float;
+let HERO: HTMLElement;
+let float: ReturnType<typeof setTimeout>;
+
+interface Props {
+  cuePointsActivated: Set<string>;
+  openSeabedElement: Dispatch<SetStateAction<boolean>>;
+  resetScrollPosition: (delay: number) => void;
+}
 
 const SeaBed = ({
   cuePointsActivated,
   openSeabedElement,
   resetScrollPosition
-}) => {
-  const [pearlFound, toggleHasPearl] = useStateWithLabel(false, 'pearlFound');
-  const texts = useSelector(seabedTextsSelector);
-  const isFinished = useSelector(finishedSelector);
+}: Props): ReactElement => {
+  const [pearlFound, toggleHasPearl] = useStateWithLabel<boolean>(
+    false,
+    'pearlFound'
+  );
+  const texts: SeabedTextType = useSelector(seabedTextsSelector);
+  const isFinished: boolean = useSelector(finishedSelector);
   const dispatch = useDispatch();
 
-  const [formationState, changeFormationState] = useStateWithLabel(
+  const [
+    formationState,
+    changeFormationState
+  ] = useStateWithLabel<SeabedElementsType>(
     {
       active: false,
       read: false,
@@ -75,7 +97,7 @@ const SeaBed = ({
     },
     FORMATION
   );
-  const [heroMovements, changeHeroMovements] = useStateWithLabel(
+  const [heroMovements, changeHeroMovements] = useStateWithLabel<IHeroMovement>(
     {
       back2Surface: false,
       crossingBorder: false,
@@ -85,11 +107,14 @@ const SeaBed = ({
     },
     MOVEMENTS
   );
-  const [instructionsHidden, hideInstructions] = useStateWithLabel(
+  const [instructionsHidden, hideInstructions] = useStateWithLabel<boolean>(
     false,
     INSTRUCTIONS
   );
-  const [otherSkillsState, changeOtherSkillsState] = useStateWithLabel(
+  const [
+    otherSkillsState,
+    changeOtherSkillsState
+  ] = useStateWithLabel<SeabedElementsType>(
     {
       active: false,
       read: false,
@@ -97,83 +122,65 @@ const SeaBed = ({
     },
     OTHER_SKILLS
   );
-  const [positionState, changePositionState] = useStateWithLabel(
+  const [positionState, changePositionState] = useStateWithLabel<PositionType>(
     {
       frame: CENTER,
       position: 'initial'
     },
     POSITION
   );
-  const [thinkingState, changeThinkingState] = useStateWithLabel(
+  const [
+    thinkingState,
+    changeThinkingState
+  ] = useStateWithLabel<IThinkingState>(
     {
-      side: undefined,
+      side: '',
       thoughts: -1
     },
     THINKING
   );
-  const HeroRef = useRef();
-  const HeroImg = useRef();
-  const isKeyDown = useRef();
-  const sound = useRef(new Audio(UnderwaterAmbient));
+  const HeroRef = useRef<HTMLDivElement>(null);
+  const HeroImg = useRef<HTMLImageElement>(null);
+  const isKeyDown = useRef<boolean | null>(null);
+  const sound = useRef<HTMLAudioElement>(new Audio(UnderwaterAmbient));
 
   // ======== Handle view components (Formation and Other Skills)
 
-  const closeSubsections = () => {
-    onClickClose('formationSection');
-    onClickClose('otherSkillsSection');
-  };
-
-  const onClickLinkOnMobile = link => {
-    if (link === 'formationSection') {
-      return changeFormationState({
-        active: true,
-        read: true,
-        visible: true
-      });
-    }
-    if (link === 'otherSkillsSection') {
-      return changeOtherSkillsState({
-        active: true,
-        read: true,
-        visible: true
-      });
-    }
-    return null;
-  };
-
-  const onClickOpen = type => {
+  const onClickOpen = (type: string): void => {
     openSeabedElement(true);
     if (type === 'formationSection' && !formationState.visible) {
-      return changeFormationState({
+      changeFormationState({
+        active: true,
+        read: true,
+        visible: true
+      });
+    } else if (type === 'otherSkillsSection' && !otherSkillsState.visible) {
+      changeOtherSkillsState({
         active: true,
         read: true,
         visible: true
       });
     }
-    if (type === 'otherSkillsSection' && !otherSkillsState.visible) {
-      return changeOtherSkillsState({
-        active: true,
-        read: true,
-        visible: true
-      });
-    }
-    return null;
   };
 
-  const onClickClose = type => {
+  const onClickClose = (type: string): void => {
     openSeabedElement(false);
     if (type === 'formationSection' && formationState.visible) {
-      changeFormationState(prevState => ({
-        active: isDesktop ? prevState.active : false,
-        read: true,
-        visible: false
-      }));
+      changeFormationState(
+        (prevState: SeabedElementsType): SeabedElementsType => ({
+          active: isDesktop ? prevState.active : false,
+          read: true,
+          visible: false
+        })
+      );
     } else if (type === 'otherSkillsSection' && otherSkillsState.visible) {
-      changeOtherSkillsState(prevState => ({
-        active: isDesktop ? prevState.active : false,
-        read: true,
-        visible: false
-      }));
+      changeOtherSkillsState(
+        (prevState: SeabedElementsType): SeabedElementsType => ({
+          active: isDesktop ? prevState.active : false,
+          read: true,
+          visible: false
+        })
+      );
     }
     if (formationState.read && otherSkillsState.read && isDesktop) {
       // -- Triggers thank you message on first screen
@@ -181,13 +188,13 @@ const SeaBed = ({
     }
   };
 
-  const resetInitialState = () => {
+  const resetInitialState = (): void => {
     changePositionState({
       frame: CENTER,
       position: 'initial'
     });
     changeThinkingState({
-      side: undefined,
+      side: '',
       thoughts: -1
     });
     changeHeroMovements({
@@ -212,188 +219,26 @@ const SeaBed = ({
     dispatch(triggerFinishScenario(true));
   };
 
-  // ======== Handle base HERO movements
-
-  const moveHero = (key, updatedPosition) => {
-    const DISPLACEMENT = 250;
-    let floatingImage;
-    let newMovement;
-    let swimmingImage;
-
-    if (key === 'ArrowRight') {
-      // -Prevents movement beyond right margin on frame RIGHT
-      if (
-        updatedPosition.frame === RIGHT &&
-        updatedPosition.position === ON_THE_RIGHT
-      ) {
-        return onReachBorder(ON_THE_RIGHT);
-      }
-      floatingImage = FloatingRight;
-      swimmingImage = SwimmingRight;
-      newMovement = `${Number(HERO.style.left.slice(0, -2)) + DISPLACEMENT}px`;
-      closeSubsections();
-    } else if (key === 'ArrowLeft') {
-      // -Prevents movement beyond left margin on frame LEFT
-      if (
-        updatedPosition.frame === LEFT &&
-        updatedPosition.position === ON_THE_LEFT
-      ) {
-        return onReachBorder(ON_THE_LEFT);
-      }
-      swimmingImage = SwimmingLeft;
-      floatingImage = FloatingRight;
-      newMovement = `${Number(HERO.style.left.slice(0, -2)) - DISPLACEMENT}px`;
-      closeSubsections();
-    }
-    changeThinkingState(prevState => ({
-      ...prevState,
-      side: undefined
-    }));
-    clearTimeout(float);
-    HeroImg.current.src = swimmingImage;
-    HERO.style.left = newMovement;
-    changeHeroMovements({
-      ...heroMovements,
-      isSwimming: true,
-      facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
-    });
-    float = setTimeout(() => {
-      HeroImg.current.src = floatingImage;
-      changeHeroMovements({
-        ...heroMovements,
-        isSwimming: false,
-        facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
-      });
-    }, 4000);
-    return heroHasMoved(
-      updatedPosition,
-      swimmingImage === SwimmingRight ? RIGHT : LEFT
-    );
-  };
-
-  // ======= Function that fires events when HERO reaches some specific places
-
-  const heroHasMoved = (updatedPosition, facing) => {
-    if (!instructionsHidden) {
-      hideInstructions(true);
-    }
-
-    if (heroMovements.crossingBorder) {
-      changeHeroMovements({
-        ...heroMovements,
-        crossingBorder: false
-      });
-    }
-
-    // -Highlights the text "Formation" when hero swims over it
-    if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 400) {
-      changePositionState(prevState => ({
-        ...prevState,
-        position: ON_THE_RIGHT
-      }));
-
-      // -Highlights the text "Other Skills" when hero swims over it
-    } else if (Number(HERO.style.left.slice(0, -2)) <= 200) {
-      changePositionState(prevState => ({
-        ...prevState,
-        position: ON_THE_LEFT
-      }));
-
-      // -Clear highlights
-    } else if (updatedPosition.position !== CENTER && !isFinished) {
-      changePositionState(prevState => ({
-        frame: prevState.frame,
-        position: CENTER
-      }));
-    }
-
-    // ======== WHEN the HERO crosses the RIGHT border of the screen
-    if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 50) {
-      changeHeroMovements({
-        ...heroMovements,
-        crossingBorder: true
-      });
-      HERO.style.left = '-30px';
-      setTimeout(() => {
-        // HERO.style.transition = 'all ease 1s';
-        changeHeroMovements({
-          ...heroMovements,
-          crossingBorder: false
-        });
-      }, 10);
-
-      // -If HERO is coming from frame "left" (OtherSkills) sets scenario to "center"
-      if (updatedPosition.frame === LEFT) {
-        changePositionState({ frame: CENTER, position: ON_THE_LEFT });
-        changeOtherSkillsState(prevState => ({ ...prevState, active: false }));
-
-        // -If HERO is coming from frame "center" (basic Seabed) sets scenario to "right" (Formation)
-      } else if (updatedPosition.frame === CENTER) {
-        changePositionState({ frame: RIGHT, position: ON_THE_LEFT });
-        changeFormationState(prevState => ({ ...prevState, active: true }));
-      }
-    }
-
-    // ======== WHEN the HERO crosses the LEFT border of the screen
-    if (Number(HERO.style.left.slice(0, -2)) <= -200) {
-      changeHeroMovements({
-        ...heroMovements,
-        crossingBorder: true
-      });
-      HERO.style.left = `${window.innerWidth - 200}px`;
-      setTimeout(() => {
-        changeHeroMovements({
-          ...heroMovements,
-          crossingBorder: false
-        });
-      }, 10);
-
-      // -If HERO is coming from frame "right" (Formation) sets scenario to "center"
-      if (updatedPosition.frame === RIGHT) {
-        changePositionState({ frame: CENTER, position: ON_THE_RIGHT });
-        changeFormationState(prevState => ({ ...prevState, active: false }));
-
-        // -If HERO is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkillsSection)
-      } else if (updatedPosition.frame === CENTER) {
-        changePositionState({ frame: LEFT, position: ON_THE_RIGHT });
-        changeOtherSkillsState(prevState => ({ ...prevState, active: true }));
-      }
-    }
-
-    // -WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
-    if (
-      formationState.read &&
-      !formationState.active &&
-      otherSkillsState.read &&
-      !otherSkillsState.active &&
-      updatedPosition.frame === CENTER
-    ) {
-      goBackUp(facing);
-    }
-  };
-
-  // ======== Triggers a random thought when the HERO reaches any outer border.
-  const onReachBorder = side => {
-    changeThinkingState(prevState => ({
-      side,
-      thoughts:
-        prevState.thoughts === 7 ? prevState.thoughts : prevState.thoughts + 1
-    }));
+  const closeSubsections = () => {
+    onClickClose('formationSection');
+    onClickClose('otherSkillsSection');
   };
 
   // ======== All page viewed. Reset all states and go back to first page
-  const goBackUp = facing => {
+  const goBackUp = (facing: string): void => {
     setTimeout(() => {
       clearTimeout(float);
-      HeroImg.current.src = facing === RIGHT ? SwimmingRight : SwimmingLeft;
-      changePositionState({ frame: CENTER, position: CENTER });
-      changeHeroMovements({
-        back2Surface: false,
-        crossingBorder: false,
-        facing,
-        isGoingUp: true,
-        isSwimming: false
-      });
+      if (HeroImg.current) {
+        HeroImg.current.src = facing === RIGHT ? SwimmingRight : SwimmingLeft;
+        changePositionState({ frame: CENTER, position: CENTER });
+        changeHeroMovements({
+          back2Surface: false,
+          crossingBorder: false,
+          facing,
+          isGoingUp: true,
+          isSwimming: false
+        });
+      }
     }, 1000);
     setTimeout(() => {
       changeHeroMovements({
@@ -424,8 +269,210 @@ const SeaBed = ({
         isSwimming: false
       });
       HERO.style.left = `${window.innerWidth * 0.4}px`;
-      HeroImg.current.src = FloatingRight;
+      if (HeroImg.current) {
+        HeroImg.current.src = FloatingRight;
+      }
     }, 8000);
+  };
+
+  // ======== Triggers a random thought when the HERO reaches any outer border.
+  const onReachBorder = (side: string): void => {
+    changeThinkingState(
+      (prevState: IThinkingState): IThinkingState => ({
+        side,
+        thoughts:
+          prevState.thoughts === 7 ? prevState.thoughts : prevState.thoughts + 1
+      })
+    );
+  };
+
+  // ======= Function that fires events when HERO reaches some specific places
+
+  const heroHasMoved = (updatedPosition: PositionType, facing: string) => {
+    if (!instructionsHidden) {
+      hideInstructions(true);
+    }
+
+    if (heroMovements.crossingBorder) {
+      changeHeroMovements({
+        ...heroMovements,
+        crossingBorder: false
+      });
+    }
+
+    // -Highlights the text "Formation" when hero swims over it
+    if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 400) {
+      changePositionState(
+        (prevState: PositionType): PositionType => ({
+          ...prevState,
+          position: ON_THE_RIGHT
+        })
+      );
+
+      // -Highlights the text "Other Skills" when hero swims over it
+    } else if (Number(HERO.style.left.slice(0, -2)) <= 200) {
+      changePositionState(
+        (prevState: PositionType): PositionType => ({
+          ...prevState,
+          position: ON_THE_LEFT
+        })
+      );
+
+      // -Clear highlights
+    } else if (updatedPosition.position !== CENTER && !isFinished) {
+      changePositionState(
+        (prevState: PositionType): PositionType => ({
+          frame: prevState.frame,
+          position: CENTER
+        })
+      );
+    }
+
+    // ======== WHEN the HERO crosses the RIGHT border of the screen
+    if (Number(HERO.style.left.slice(0, -2)) >= window.innerWidth - 50) {
+      changeHeroMovements({
+        ...heroMovements,
+        crossingBorder: true
+      });
+      HERO.style.left = '-30px';
+      setTimeout(() => {
+        // HERO.style.transition = 'all ease 1s';
+        changeHeroMovements({
+          ...heroMovements,
+          crossingBorder: false
+        });
+      }, 10);
+
+      // -If HERO is coming from frame "left" (OtherSkills) sets scenario to "center"
+      if (updatedPosition.frame === LEFT) {
+        changePositionState({ frame: CENTER, position: ON_THE_LEFT });
+        changeOtherSkillsState(
+          (prevState: SeabedElementsType): SeabedElementsType => ({
+            ...prevState,
+            active: false
+          })
+        );
+
+        // -If HERO is coming from frame "center" (basic Seabed) sets scenario to "right" (Formation)
+      } else if (updatedPosition.frame === CENTER) {
+        changePositionState({ frame: RIGHT, position: ON_THE_LEFT });
+        changeFormationState(
+          (prevState: SeabedElementsType): SeabedElementsType => ({
+            ...prevState,
+            active: true
+          })
+        );
+      }
+    }
+
+    // ======== WHEN the HERO crosses the LEFT border of the screen
+    if (Number(HERO.style.left.slice(0, -2)) <= -200) {
+      changeHeroMovements({
+        ...heroMovements,
+        crossingBorder: true
+      });
+      HERO.style.left = `${window.innerWidth - 200}px`;
+      setTimeout((): void => {
+        changeHeroMovements({
+          ...heroMovements,
+          crossingBorder: false
+        });
+      }, 10);
+
+      // -If HERO is coming from frame "right" (Formation) sets scenario to "center"
+      if (updatedPosition.frame === RIGHT) {
+        changePositionState({ frame: CENTER, position: ON_THE_RIGHT });
+        changeFormationState(
+          (prevState: SeabedElementsType): SeabedElementsType => ({
+            ...prevState,
+            active: false
+          })
+        );
+
+        // -If HERO is coming from frame "center" (basic Seabed) sets scenario to "left" (OtherSkillsSection)
+      } else if (updatedPosition.frame === CENTER) {
+        changePositionState({ frame: LEFT, position: ON_THE_RIGHT });
+        changeOtherSkillsState(
+          (prevState: SeabedElementsType): SeabedElementsType => ({
+            ...prevState,
+            active: true
+          })
+        );
+      }
+    }
+
+    // -WHEN the HERO has viewed all components (Formation and OtherSkills), he goes up
+    if (
+      formationState.read &&
+      !formationState.active &&
+      otherSkillsState.read &&
+      !otherSkillsState.active &&
+      updatedPosition.frame === CENTER
+    ) {
+      goBackUp(facing);
+    }
+  };
+
+  // ======== Handle base HERO movements
+
+  const moveHero = (key: string, updatedPosition: PositionType): void => {
+    const DISPLACEMENT = 250;
+    const heroImg = HeroImg.current as HTMLImageElement;
+    let floatingImage: string = FloatingRight;
+    let newMovement = '';
+    let swimmingImage: string = SwimmingRight;
+
+    if (key === 'ArrowRight') {
+      // -Prevents movement beyond right margin on frame RIGHT
+      if (
+        updatedPosition.frame === RIGHT &&
+        updatedPosition.position === ON_THE_RIGHT
+      ) {
+        return onReachBorder(ON_THE_RIGHT);
+      }
+      floatingImage = FloatingRight;
+      swimmingImage = SwimmingRight;
+      newMovement = `${Number(HERO.style.left.slice(0, -2)) + DISPLACEMENT}px`;
+      closeSubsections();
+    } else if (key === 'ArrowLeft') {
+      // -Prevents movement beyond left margin on frame LEFT
+      if (
+        updatedPosition.frame === LEFT &&
+        updatedPosition.position === ON_THE_LEFT
+      ) {
+        return onReachBorder(ON_THE_LEFT);
+      }
+      swimmingImage = SwimmingLeft;
+      floatingImage = FloatingRight;
+      newMovement = `${Number(HERO.style.left.slice(0, -2)) - DISPLACEMENT}px`;
+      closeSubsections();
+    }
+    changeThinkingState(
+      (prevState: IThinkingState): IThinkingState => ({
+        ...prevState,
+        side: ''
+      })
+    );
+    clearTimeout(float);
+    heroImg.src = swimmingImage;
+    HERO.style.left = newMovement;
+    changeHeroMovements({
+      ...heroMovements,
+      isSwimming: true,
+      facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
+    });
+    float = setTimeout(() => {
+      heroImg.src = floatingImage;
+      changeHeroMovements({
+        ...heroMovements,
+        isSwimming: false,
+        facing: swimmingImage === SwimmingRight ? RIGHT : LEFT
+      });
+    }, 4000);
+    return heroHasMoved(
+      updatedPosition,
+      swimmingImage === SwimmingRight ? RIGHT : LEFT
+    );
   };
 
   useEffect(() => {
@@ -433,7 +480,8 @@ const SeaBed = ({
       isKeyDown.current = false;
     };
 
-    const captureHeroMovement = ({ key }) => {
+    const captureHeroMovement = (event: KeyboardEvent) => {
+      const { key } = event;
       if (!isKeyDown.current) {
         isKeyDown.current = true;
         setTimeout(() => {
@@ -463,8 +511,10 @@ const SeaBed = ({
   }, [positionState, moveHero, isFinished]);
 
   useEffect(() => {
-    HERO = HeroRef.current;
-    HERO.style.left = `${window.innerWidth * 0.4}px`;
+    if (HeroRef.current) {
+      HERO = HeroRef.current;
+      HERO.style.left = `${window.innerWidth * 0.4}px`;
+    }
   }, []);
 
   useEffect(() => {
@@ -483,7 +533,8 @@ const SeaBed = ({
 
   useEffect(() => {
     if (pearlFound) {
-      HeroImg.current.src = ScubaFish;
+      const heroImg = HeroImg.current as HTMLImageElement;
+      heroImg.src = ScubaFish;
     }
   }, [pearlFound]);
 
@@ -493,15 +544,11 @@ const SeaBed = ({
         <MessageContainer>
           <Message>{texts.message}</Message>
           <Message>{texts.messageKeyboard}</Message>
-          <MessageOnMobileDevices>
-            {texts.messageDevices}
-          </MessageOnMobileDevices>
         </MessageContainer>
       )}
 
       <SubsectionFormation
         hidden={isFinished || positionState.frame !== CENTER}
-        onClick={() => onClickLinkOnMobile(!isDesktop && 'formationSection')}
         role="button"
         tabIndex={0}
       >
@@ -512,7 +559,6 @@ const SeaBed = ({
 
       <SubsectionOtherSkills
         hidden={isFinished || positionState.frame !== CENTER}
-        onClick={() => onClickLinkOnMobile(!isDesktop && 'otherSkillsSection')}
         role="button"
         tabIndex={0}
       >
@@ -533,13 +579,12 @@ const SeaBed = ({
           isSwimming={heroMovements.isSwimming}
         >
           {[...Array(10).keys()].map(order => (
-            <Bubble key={order} S />
+            <Bubble key={order} />
           ))}
         </Bubbles>
 
         <HeroImage
           alt="A scuba diver swimming smoothly"
-          back2Surface={heroMovements.back2Surface}
           crossingBorder={heroMovements.crossingBorder}
           facing={heroMovements.facing}
           isGoingUp={heroMovements.isGoingUp}

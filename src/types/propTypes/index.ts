@@ -56,6 +56,15 @@ export const infoPageTextPropType = shape({
   thankyou: string.isRequired
 });
 
+export const LanguagePropType = shape({
+  active: bool.isRequired,
+  flagCode: string.isRequired,
+  language: string.isRequired,
+  languageCode: string.isRequired,
+  languageEn: string.isRequired,
+  order: number.isRequired
+});
+
 export const languagesTextPropType = shape({
   changeDefault: string.isRequired,
   changeUpperBar: string.isRequired,
@@ -74,34 +83,21 @@ export const languagesPropType = shape({
   order: number.isRequired
 });
 
+const skillItemPropType = shape({
+  skill: string.isRequired,
+  details: string.isRequired
+});
+
 export const otherSkillsTextPropType = shape({
-  basic: string.isRequired,
   design: string.isRequired,
-  english: string.isRequired,
   find: string.isRequired,
   find2: string.isRequired,
-  fluent: string.isRequired,
-  french: string.isRequired,
-  how: string.isRequired,
-  intermediate: string.isRequired,
   investigate: string.isRequired,
   languages: string.isRequired,
+  languagesSpoken: arrayOf(LanguagePropType).isRequired,
   other: string.isRequired,
-  portuguese: string.isRequired,
-  russian: string.isRequired,
   samples: string.isRequired,
-  skill: string.isRequired,
-  skill1: string.isRequired,
-  skill1details: string.isRequired,
-  skill2: string.isRequired,
-  skill2details: string.isRequired,
-  skill3: string.isRequired,
-  skill3details: string.isRequired,
-  skill4: string.isRequired,
-  skill4details: string.isRequired,
-  skill5: string.isRequired,
-  skill5details: string.isRequired,
-  spanish: string.isRequired
+  skills: arrayOf(skillItemPropType).isRequired
 });
 
 export const positionPropType = shape({
@@ -173,8 +169,15 @@ export const textsPropType = shape({
 export const allLanguagesTextsPropType = shape({
   en: textsPropType.isRequired,
   es: textsPropType.isRequired,
-  fr: textsPropType.isRequired,
+  fr: textsPropType,
   pt: textsPropType.isRequired
+});
+
+export const allLanguagesStringPropType = shape({
+  en: string.isRequired,
+  es: string.isRequired,
+  fr: string,
+  pt: string.isRequired
 });
 
 export const experiencesTextPropType = shape({
@@ -192,8 +195,7 @@ export const experiencesTextPropType = shape({
 });
 
 export const formationPropType = shape({
-  country: allLanguagesTextsPropType.isRequired,
-  countryCode: string.isRequired,
+  country: countryPropTypes.isRequired,
   dateBegin: string.isRequired,
   dateBeginValue: number.isRequired,
   dateEnd: string,
@@ -207,9 +209,10 @@ export const formationPropType = shape({
 });
 
 export const projectsPropType = shape({
-  description: allLanguagesTextsPropType.isRequired,
+  description: allLanguagesStringPropType.isRequired,
   order: number.isRequired,
   repo: string.isRequired,
   thumbnail: string.isRequired,
+  title: string.isRequired,
   url: string.isRequired
 });

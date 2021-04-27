@@ -1,13 +1,12 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
+import { LanguageCode } from '../../../types/interfaces';
 import {
   colorGrayNormal,
   colorWhite,
   fontTitleAlt,
   fontTitle
 } from '../../../styles/theme';
-import { LanguageCode } from '../../../types/interfaces';
 
 const headerInner = css`
   min-width: 250px;

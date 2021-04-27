@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { LEFT, RIGHT } from '../../../../../constants';
 
-const Swimming = comingFrom => keyframes`
+const Swimming = (comingFrom: string) => keyframes`
 0% {
     ${comingFrom}   : -10vw;
   }
@@ -15,7 +15,7 @@ const Swimming = comingFrom => keyframes`
   }
 `;
 
-const SwimmingWaving = (comingFrom, bottom) => keyframes`
+const SwimmingWaving = (comingFrom: string, bottom: string) => keyframes`
   0% {
     ${comingFrom}   : -10vw;
     bottom: ${bottom};
@@ -36,7 +36,17 @@ const SwimmingWaving = (comingFrom, bottom) => keyframes`
   }
 `;
 
-export const Fish = styled.img`
+interface FishProps extends React.ComponentPropsWithoutRef<'img'> {
+  bottom: string;
+  delay: string;
+  facing: string;
+  movementType: string;
+  side: string;
+  speed: string;
+  waving: boolean;
+}
+
+export const Fish = styled.img<FishProps>`
   position: absolute;
   width: 80px;
   bottom: ${({ bottom }) => bottom};

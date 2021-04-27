@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { bool } from 'prop-types';
 import {
   LanguageCode,

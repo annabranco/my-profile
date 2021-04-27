@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-export const TheCrab = styled.img`
+interface TheCrabProps extends React.ComponentPropsWithoutRef<'img'> {
+  runnaway: boolean;
+}
+
+export const TheCrab = styled.img<TheCrabProps>`
   position: absolute;
   bottom: 30px;
   right: 50%;
