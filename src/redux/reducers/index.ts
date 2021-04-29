@@ -1,4 +1,16 @@
 import { combineReducers } from 'redux';
+import {
+  IPageSection,
+  IExperiencesType,
+  IFormation,
+  LanguageCode,
+  ILanguage,
+  IProjects,
+  ISkillGroups,
+  ITexts,
+  ITextsData,
+  IActionReducer
+} from '../../types/interfaces/index';
 import currentSection from './currentSection';
 import experiences from './experiences';
 import finishedScenario from './finishedScenario';
@@ -9,6 +21,19 @@ import projects from './projects';
 import skills from './skills';
 import texts from './texts';
 import textsDatabase from './textsDatabase';
+
+interface RootReducer {
+  currentSection: IActionReducer<IPageSection | undefined>;
+  experiences: IActionReducer<IExperiencesType[] | [] | undefined>;
+  finishedScenario: IActionReducer<boolean | undefined>;
+  formation: IActionReducer<IFormation[] | [] | undefined>;
+  language: IActionReducer<LanguageCode | undefined>;
+  languages: IActionReducer<ILanguage[] | [] | undefined>;
+  projects: IActionReducer<IProjects[] | [] | undefined>;
+  skills: IActionReducer<ISkillGroups[] | [] | undefined>;
+  texts: IActionReducer<ITexts | Record<string, never> | undefined>;
+  textsDatabase: IActionReducer<ITextsData | Record<string, never> | undefined>;
+}
 
 const rootReducer = combineReducers({
   currentSection,
@@ -21,6 +46,6 @@ const rootReducer = combineReducers({
   skills,
   texts,
   textsDatabase
-});
+} as RootReducer);
 
 export default rootReducer;

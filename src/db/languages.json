@@ -1,60 +1,58 @@
-{
-  "languages": [
-    {
-      "active"       : true,
-      "flagCode"      : "us",
-      "language"     : "English",
-      "languageCode" : "en",
-      "languageEn"   : "English",
-      "order"        : 1
-    },
-    {
-      "active"       : true,
-      "flagCode"      : "es",
-      "language"     : "Español",
-      "languageCode" : "es",
-      "languageEn"   : "Spanish",
-      "order"        : 2
-    },
-    {
-      "active"       : true,
-      "flagCode"      : "br",
-      "language"     : "Português",
-      "languageCode" : "pt",
-      "languageEn"   : "Portuguese",
-      "order"        : 3
-    },
-    {
-      "active"       : false,
-      "flagCode"      : "fr",
-      "language"     : "Français",
-      "languageCode" : "fr",
-      "languageEn"   : "French",
-      "order"        : 4
-    },
-    {
-      "active"       : false,
-      "flagCode"      : "ru",
-      "language"     : "Пусский язык",
-      "languageCode" : "ru",
-      "languageEn"   : "Russian",
-      "order"        : 5
-    },
-    {
-      "active"       : false,
-      "flagCode"      : "de",
-      "language"     : "Deutsch",
-      "languageCode" : "de",
-      "languageEn"   : "German",
-      "order"        : 6
-    },
-    {
-      "active"       : false,
-      "flagCode"      : "jp",
-      "language"     : "日本語",
-      "languageCode" : "jp",
-      "languageEn"   : "Japanese",
-      "order"        : 7
-    }
-  ]
-}
+[
+  {
+    "active"       : true,
+    "flagCode"      : "us",
+    "language"     : "English",
+    "languageCode" : "en",
+    "languageEn"   : "English",
+    "order"        : 1
+  },
+  {
+    "active"       : true,
+    "flagCode"      : "es",
+    "language"     : "Español",
+    "languageCode" : "es",
+    "languageEn"   : "Spanish",
+    "order"        : 2
+  },
+  {
+    "active"       : true,
+    "flagCode"      : "br",
+    "language"     : "Português",
+    "languageCode" : "pt",
+    "languageEn"   : "Portuguese",
+    "order"        : 3
+  },
+  {
+    "active"       : false,
+    "flagCode"      : "fr",
+    "language"     : "Français",
+    "languageCode" : "fr",
+    "languageEn"   : "French",
+    "order"        : 4
+  },
+  {
+    "active"       : false,
+    "flagCode"      : "ru",
+    "language"     : "Пусский язык",
+    "languageCode" : "ru",
+    "languageEn"   : "Russian",
+    "order"        : 5
+  },
+  {
+    "active"       : false,
+    "flagCode"      : "de",
+    "language"     : "Deutsch",
+    "languageCode" : "de",
+    "languageEn"   : "German",
+    "order"        : 6
+  },
+  {
+    "active"       : false,
+    "flagCode"      : "jp",
+    "language"     : "日本語",
+    "languageCode" : "jp",
+    "languageEn"   : "Japanese",
+    "order"        : 7
+  }
+]

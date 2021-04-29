@@ -9,6 +9,7 @@ const languageSettings: ILanguagePreferences | Record<string, never> =
   ) || {};
 
 export const INITIAL_STATE: IAppState = {
+  currentSection: INFO_PAGE_SECTION,
   experiences: [],
   finishedScenario: false,
   formation: [],
@@ -19,6 +20,5 @@ export const INITIAL_STATE: IAppState = {
   projects: [],
   skills: [],
   texts: {},
-  textsDatabase: {},
-  currentSection: INFO_PAGE_SECTION
+  textsDatabase: {}
 };

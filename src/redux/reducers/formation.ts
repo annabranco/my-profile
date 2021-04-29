@@ -1,16 +1,11 @@
 import { LOAD_FORMATION_SUCCESS } from '../../constants';
-import { IFormation } from '../../types/interfaces';
+import { IActionReducer, IFormation } from '../../types/interfaces';
 import { INITIAL_STATE } from '../initialState';
 
-interface Action {
-  type: string;
-  payload: IFormation[];
-}
-
-export default (
-  state: IFormation[] = INITIAL_STATE.formation,
-  action: Action
-): IFormation[] => {
+const formationReducer: IActionReducer<IFormation[]> = (
+  state = INITIAL_STATE.formation,
+  action
+) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -20,3 +15,5 @@ export default (
       return state;
   }
 };
+
+export default formationReducer;

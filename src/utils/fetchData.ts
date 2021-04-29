@@ -1,4 +1,16 @@
 import axios from 'axios';
+import { AnyAction, Store } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
+import {
+  IAppState,
+  IExperiencesType,
+  IFormation,
+  ILanguage,
+  IProjects,
+  IServerResponse,
+  ISkillGroups,
+  ITextsData
+} from '../types/interfaces';
 import { getStore } from '../redux';
 import { loadExperiences } from '../redux/actions/experiences';
 import { loadFormation } from '../redux/actions/formation';
@@ -14,24 +26,45 @@ import {
   SKILLS_PATH,
   TEXTS_PATH
 } from '../constants';
-import { IServerResponse } from '../types/interfaces';
 
-const store = getStore();
+const store: Store<IAppState> = getStore();
 
-const dispatchReduxAction = <T>(URL: string, request: T) => {
+const dispatchReduxAction = (
+  URL: string,
+  request: Promise<
+    | IExperiencesType[]
+    | IFormation[]
+    | ILanguage[]
+    | IProjects[]
+    | ISkillGroups[]
+    | ITextsData
+  >
+) => {
   switch (URL) {
     case EXPERIENCES_PATH:
-      return store.dispatch(loadExperiences(request));
+      return (store.dispatch as ThunkDispatch<IAppState, unknown, AnyAction>)(
+        loadExperiences(request as Promise<IExperiencesType[]>)
+      ); // [*]
     case FORMATION_PATH:
-      return store.dispatch(loadFormation(request));
+      return (store.dispatch as ThunkDispatch<IAppState, unknown, AnyAction>)(
+        loadFormation(request as Promise<IFormation[]>)
+      );
     case LANGUAGES_PATH:
-      return store.dispatch(loadLanguages(request));
+      return (store.dispatch as ThunkDispatch<IAppState, unknown, AnyAction>)(
+        loadLanguages(request as Promise<ILanguage[]>)
+      );
     case PROJECTS_PATH:
-      return store.dispatch(loadProjects(request));
+      return (store.dispatch as ThunkDispatch<IAppState, unknown, AnyAction>)(
+        loadProjects(request as Promise<IProjects[]>)
+      );
     case SKILLS_PATH:
-      return store.dispatch(loadSkills(request));
+      return (store.dispatch as ThunkDispatch<IAppState, unknown, AnyAction>)(
+        loadSkills(request as Promise<ISkillGroups[]>)
+      );
     case TEXTS_PATH:
-      return store.dispatch(loadTexts(request));
+      return (store.dispatch as ThunkDispatch<ITextsData, unknown, AnyAction>)(
+        loadTexts(request as Promise<ITextsData>)
+      );
     default:
       return null;
   }
@@ -43,9 +76,7 @@ export const dispatchFetchDatabase = (
   const requestData = (URL: string) => {
     const request = axios
       .get(URL)
-      .then(data => {
-        return data.data;
-      })
+      .then(data => data.data)
       .catch(error =>
         console.error(`Failed to get data from ${URL}. ${error}.`)
       );

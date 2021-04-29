@@ -1,16 +1,11 @@
 import { LOAD_EXPERIENCES_SUCCESS } from '../../constants';
-import { IExperiencesType } from '../../types/interfaces';
+import { IActionReducer, IExperiencesType } from '../../types/interfaces';
 import { INITIAL_STATE } from '../initialState';
 
-interface Action {
-  type: string;
-  payload: IExperiencesType[];
-}
-
-export default (
-  state: IExperiencesType[] = INITIAL_STATE.experiences,
-  action: Action
-): IExperiencesType[] => {
+const experiencesReducer: IActionReducer<IExperiencesType[]> = (
+  state = INITIAL_STATE.experiences,
+  action
+) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -20,3 +15,5 @@ export default (
       return state;
   }
 };
+
+export default experiencesReducer;

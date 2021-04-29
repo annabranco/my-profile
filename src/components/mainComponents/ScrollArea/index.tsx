@@ -8,7 +8,11 @@ import React, {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bool, func } from 'prop-types';
-import { IExperiencesType, ISectionsText } from '../../../types/interfaces';
+import {
+  IExperiencesType,
+  IPageSection,
+  ISectionsText
+} from '../../../types/interfaces';
 import {
   currentSecionSelector,
   experiencesSelector,
@@ -76,7 +80,7 @@ const ScrollArea = ({
 }: Props): ReactElement => {
   const experiences: IExperiencesType[] = useSelector(experiencesSelector);
   const sectionsTexts: ISectionsText = useSelector(sectionsTextsSelector);
-  const currentSection: string = useSelector(currentSecionSelector);
+  const currentSection: IPageSection = useSelector(currentSecionSelector);
 
   const [cuePointsActivated, updateCuepoints] = useStateWithLabel<Set<string>>(
     new Set(),

@@ -1,7 +1,28 @@
 /* eslint-disable no-use-before-define */
 
+import { Dispatch } from 'redux';
+
+interface IAction<T> {
+  type: string;
+  payload: T;
+}
+
+interface IActionRequest {
+  type: string;
+}
+
+export type IActionDispatchFunction<T> = (payload: T) => IAction<T>;
+
+export type IActionRequestFunction = () => IActionRequest;
+
+export type IActionDispatchFunctionWithRequest<T> = (
+  request: Promise<T>
+) => (dispatch: Dispatch) => void;
+
+export type IActionReducer<T> = (state: T, action: IAction<T>) => T;
+
 export interface IAppState {
-  currentSection: string;
+  currentSection: IPageSection;
   experiences: IExperiencesType[] | [];
   finishedScenario: boolean;
   formation: IFormation[] | [];
@@ -192,6 +213,14 @@ export interface IOtherSkillsText {
   skills: IOtherSkill[];
 }
 
+export type IPageSection =
+  | 'main'
+  | 'technical'
+  | 'projects'
+  | 'experience'
+  | 'formation'
+  | 'other';
+
 export interface IPosition {
   frame: string;
   position: string;
@@ -280,13 +309,6 @@ export type IStyle =
   | 'square'
   | 'wave';
 
-export interface ITextsData {
-  en: ITexts;
-  es: ITexts;
-  fr: ITexts;
-  pt: ITexts;
-}
-
 export interface ITexts {
   developer: IDeveloperText;
   error: IErrorText;
@@ -298,6 +320,13 @@ export interface ITexts {
   otherSkills: IOtherSkillsText;
   seabed: ISeabedText;
   sections: ISectionsText;
+}
+
+export interface ITextsData {
+  en: ITexts;
+  es: ITexts;
+  fr: ITexts;
+  pt: ITexts;
 }
 
 export interface IThinkingState {

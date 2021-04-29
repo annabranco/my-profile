@@ -1,29 +1,36 @@
 import {
+  IActionDispatchFunction,
+  IActionDispatchFunctionWithRequest,
+  IActionRequestFunction,
+  ISkillGroups
+} from '../../types/interfaces';
+import {
   LOAD_SKILLS,
   LOAD_SKILLS_SUCCESS,
   LOAD_SKILLS_FAIL
 } from '../../constants';
 
-export const loadSkillsRequest = () => ({
+export const loadSkillsRequest: IActionRequestFunction = () => ({
   type: LOAD_SKILLS
 });
 
-export const loadSkillsSuccess = skills => ({
+export const loadSkillsSuccess: IActionDispatchFunction<
+  ISkillGroups[]
+> = skills => ({
   type: LOAD_SKILLS_SUCCESS,
   payload: [...skills]
 });
 
-export const loadSkillsFail = error => ({
+export const loadSkillsFail: IActionDispatchFunction<Error> = error => ({
   type: LOAD_SKILLS_FAIL,
   payload: error
 });
 
-export const loadSkills = request => dispatch => {
+export const loadSkills: IActionDispatchFunctionWithRequest<
+  ISkillGroups[]
+> = request => dispatch => {
   dispatch(loadSkillsRequest());
   request
-    .then(
-      ({ skillGroups }) =>
-        skillGroups && dispatch(loadSkillsSuccess(skillGroups))
-    )
+    .then(skills => skills && dispatch(loadSkillsSuccess(skills)))
     .catch(error => dispatch(loadSkillsFail(error)));
 };

@@ -1,6 +1,7 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, compose, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import { IAppState } from '../types/interfaces/index';
 import { isDevelopment } from '../utils/environments';
 import { INITIAL_STATE } from './initialState';
 import updateTexts from './middleware/updateTexts';
@@ -14,16 +15,16 @@ const productionFeatures = {
 };
 
 const devToolsEnhancer = composeWithDevTools({
-  features: !isDevelopment && productionFeatures
+  features: isDevelopment ? productionFeatures : {}
 });
 
-let store;
+let store: Store;
 
-export const getStore = () => {
+export const getStore = (): Store<IAppState> => {
   if (!store) {
     store = createStore(
       rootReducer,
-      INITIAL_STATE,
+      INITIAL_STATE, // [1]
       compose(applyMiddleware(thunk, updateTexts), devToolsEnhancer())
     );
   }

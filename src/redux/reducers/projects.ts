@@ -1,16 +1,11 @@
 import { LOAD_PROJECTS_SUCCESS } from '../../constants';
-import { IProjects } from '../../types/interfaces';
+import { IActionReducer, IProjects } from '../../types/interfaces';
 import { INITIAL_STATE } from '../initialState';
 
-interface Action {
-  type: string;
-  payload: IProjects[];
-}
-
-export default (
-  state: IProjects[] = INITIAL_STATE.projects,
-  action: Action
-): IProjects[] => {
+const projectsReducer: IActionReducer<IProjects[]> = (
+  state = INITIAL_STATE.projects,
+  action
+) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -20,3 +15,5 @@ export default (
       return state;
   }
 };
+
+export default projectsReducer;

@@ -1,16 +1,11 @@
 import { CHANGE_LANGUAGE } from '../../constants';
-import { LanguageCode } from '../../types/interfaces';
+import { IActionReducer, LanguageCode } from '../../types/interfaces';
 import { INITIAL_STATE } from '../initialState';
 
-interface Action {
-  type: string;
-  payload: LanguageCode;
-}
-
-export default (
-  state: LanguageCode = INITIAL_STATE.language,
-  action: Action
-): LanguageCode => {
+const languageReducer: IActionReducer<LanguageCode> = (
+  state = INITIAL_STATE.language,
+  action
+) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -20,3 +15,5 @@ export default (
       return state;
   }
 };
+
+export default languageReducer;
