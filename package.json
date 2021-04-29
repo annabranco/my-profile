@@ -2,7 +2,7 @@
   "name": "anna-branco-profile",
   "author": "Anna Branco <anna.branco@icloud.com> (https://github.com/annabranco)",
   "description": "This is Anna Branco's developer profile",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "repository": "github:annabranco/my-profile/",
   "homepage": "http://annabranco.github.io/my-profile/",
   "keywords": [
@@ -25,7 +25,7 @@
     "start:dev-wait-server": "wait-on http://localhost:3031/health && npm start",
     "test": "jest",
     "test:dev": "jest --silent=false --watch",
-    "version": "auto-changelog -p --tag-prefix v && git add CHANGELOG.md",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
