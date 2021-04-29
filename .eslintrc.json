@@ -1,50 +1,102 @@
 {
-	"extends": [
-		"eslint-config-airbnb",
-		"eslint-config-prettier",
-		"eslint-config-prettier/react",
-		"plugin:import/recommended",
-		"plugin:react/recommended",
-		"prettier",
-		"prettier/react"
-	],
-
-	"plugins": ["react", "react-hooks", "prettier", "jsx-a11y", "import"],
-
-	"parser": "babel-eslint",
-	"parserOptions": {
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"jsx": true
-		}
-	},
 	"env": {
 		"es6": true,
-		"node": true,
-		"jest": true
+		"jest": true,
+		"node": true
 	},
+
+	"extends": [
+		"eslint-config-airbnb",
+		"prettier",
+		"prettier/react",
+		"eslint-config-prettier",
+		"eslint-config-prettier/react",
+		"plugin:react/recommended",
+		"plugin:import/errors",
+		"plugin:import/recommended",
+		"plugin:import/warnings",
+		"plugin:@typescript-eslint/recommended"
+	],
 
 	"globals": {
-		"localStorage": true,
-		"fetch": true,
-		"window": true,
+		"Audio": true,
 		"document": true,
-		"Audio": true
+		"fetch": true,
+		"localStorage": true,
+		"window": true
 	},
 
+	"overrides": [
+		{
+			"files": ["**/*.ts", "**/*.tsx"],
+			"plugins": ["@typescript-eslint"],
+			"rules": {
+				"no-use-before-define": "off",
+				"@typescript-eslint/no-use-before-define": ["error"]
+			}
+		}
+	],
+
+	"parser": "@typescript-eslint/parser",
+
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+
+	"plugins": ["import", "jsx-a11y", "prettier", "react", "react-hooks"],
+
 	"rules": {
+		"@typescript-eslint/no-var-requires": 0,
+		"no-use-before-define": [0],
+		"@typescript-eslint/no-use-before-define": [1],
 		"arrow-parens": ["error", "as-needed"],
-		"indent": 0,
-		"react/destructuring-assignment": [0],
 		"curly": ["error", "all"],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"jsx": "never",
+				"ts": "never",
+				"tsx": "never"
+			}
+		],
 		"import/prefer-default-export": "off",
-		"no-alert": "error",
-		"no-debugger": "error",
-		"no-console": ["warn", {"allow": ["warn", "error"]}],
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": ["**/*.test.js", "**/jest-setup.js"]
+			}
+		],
+		"indent": 0,
+		"jsx-a11y/media-has-caption": 1,
+		"jsx-a11y/click-events-have-key-events": 0,
 		"linebreak-style": "off",
 		"lines-around-comment": ["error", {"beforeBlockComment": true}],
+		"max-len": [
+			"error",
+			{
+				"code": 120,
+				"ignoreTrailingComments": true,
+				"ignoreUrls": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true,
+				"ignoreRegExpLiterals": true
+			}
+		],
 		"multiline-comment-style": "off",
-		"react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+		"no-alert": "error",
+		"no-console": ["warn", {"allow": ["warn", "error"]}],
+		"no-debugger": "error",
+		"no-plusplus": [
+			"error",
+			{
+				"allowForLoopAfterthoughts": true
+			}
+		],
 		"prettier/prettier": [
 			"error",
 			{
@@ -56,22 +108,21 @@
 				"arrowParens": "avoid"
 			}
 		],
-		"no-plusplus": [
-			"error",
-			{
-				"allowForLoopAfterthoughts": true
-			}
+		"react/destructuring-assignment": [0],
+		"react/jsx-filename-extension": [
+			2,
+			{"extensions": [".js", ".jsx", ".ts", ".tsx"]}
 		],
-		"import/no-extraneous-dependencies": [
-			"error",
-			{
-				"devDependencies": ["**/*.test.js", "**/jest-setup.js"]
-			}
-		],
-		"jsx-a11y/media-has-caption": 1,
-		"jsx-a11y/click-events-have-key-events": 0,
-		"react/state-in-constructor": 0,
 		"react/sort-comp": 0,
+		"react/state-in-constructor": 0,
 		"react/static-property-placement": 0
+	},
+
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
+		}
 	}
 }

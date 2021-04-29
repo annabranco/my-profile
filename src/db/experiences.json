@@ -1,161 +1,159 @@
-{
-  "experiences": [
-    {
-      "company": "Tribunal de Justiça",
-      "country": {
-        "en": "Brazil",
-        "es": "Brasil",
-        "pt": "Brasil",
-        "countryCode": "br"
-      },
-      "dateBegin": "05-2005",
-      "dateBeginValue": 1114898400000,
-      "dateEnd": "12-2014",
-      "dateEndValue": 1417388400000,
-      "details": {
-        "en": "Public servant with a rising carreer beginning as administrative technician coming to head of sector responsible for social projects.",
-        "es": "Funcionaria con carrera ascendente, empezando como técnica administrativa y llegando a ser jefe de sector responsable por proyectos sociales.",
-        "pt": "Servidora pública com uma carreira ascendente, começando como técnica administrativa e chegando a ser chefe de setor responsável por projetos sociais."
-      },
-      "id": "tjerj",
-      "place": "Rio de Janeiro",
-      "title": {
-        "en": "Public Servant",
-        "es": "Funcionaria Pública",
-        "pt": "Servidora Pública"
-      },
-      "visible": true
+[
+  {
+    "company": "Tribunal de Justiça",
+    "country": {
+      "en": "Brazil",
+      "es": "Brasil",
+      "pt": "Brasil",
+      "countryCode": "br"
     },
-    {
-      "company": "Cruz Roja Española",
-      "country": {
-        "en": "Greece",
-        "es": "Grecia",
-        "pt": "Grécia",
-        "countryCode": "gr"
-      },
-      "dateBegin": "10-2015",
-      "dateBeginValue": 1443650400000,
-      "dateEnd": "12-2015",
-      "dateEndValue": 1448924400000,
-      "details": {
-        "en": "Deployed in Greece on a temporary mission (2 months), providing emergency psychosocial support for Syrian people and other refugees arriving in Europe.",
-        "es": "Desplegada a Grecia misión temporal (2 meses), brindando apoyo psicosocial de emergencia a personas sirias y otros refugiados y refugiadas llegando a Europa.",
-        "pt": "Posicionada na Grécia em uma missão temporária (2 meses), propiciando apoio psicossocial de emergência para pessoas sírias e outros refugiados e refugiadas chegando à Europa."
-      },
-      "id": "cre",
-      "place": "Samos",
-      "title": {
-        "en": "International Emergencies Response Delegate (ERU)",
-        "es": "Delegada Internacional de Respuesta en Emergencias (ERU)",
-        "pt": "Delegada Internacional de Resposta em Emergências (ERU)"
-      },
-      "visible": true
+    "dateBegin": "05-2005",
+    "dateBeginValue": 1114898400000,
+    "dateEnd": "12-2014",
+    "dateEndValue": 1417388400000,
+    "details": {
+      "en": "Public servant with a rising carreer beginning as administrative technician coming to head of sector responsible for social projects.",
+      "es": "Funcionaria con carrera ascendente, empezando como técnica administrativa y llegando a ser jefe de sector responsable por proyectos sociales.",
+      "pt": "Servidora pública com uma carreira ascendente, começando como técnica administrativa e chegando a ser chefe de setor responsável por projetos sociais."
     },
-    {
-      "company": "Servicios Profesionales Sociales",
-      "country": {
-        "en": "Spain",
-        "es": "España",
-        "pt": "Espanha",
-        "countryCode": "es"
-      },
-      "dateBegin": "09-2017",
-      "dateBeginValue": 1504216800000,
-      "dateEnd": "05-2018",
-      "dateEndValue": 1525125600000,
-      "details": {
-        "en": "I gave classes on Information and Communication Technology skills: windows environment, basic software use and internet. Teaching more than 210 kids of Primary Education, from 6 up to 12 years old.",
-        "es": "He impartido clases sobre habilidades de Tecnología de la Información y Comunicación: ambiente windows, aplicaciones básicas y uso de internet, enseñando más de 210 niños y niñas de Educación Primaria, de los 6 a los 12 años de edad.",
-        "pt": "Dei aulas sobre habilidades de Tecnologia de Informação e Comunicação: ambiente windows, softwares básicos e uso de internet, ensinando mais de 210 crianças de Educação Primária, de 6 a 12 anos de idade."
-      },
-      "id": "sps",
-      "place": "Madrid",
-      "title": {
-        "en": "ICT Instructor",
-        "es": "Instructora de TIC",
-        "pt": "Instrutora de TIC"
-      },
-      "visible": true
+    "id": "tjerj",
+    "place": "Rio de Janeiro",
+    "title": {
+      "en": "Public Servant",
+      "es": "Funcionaria Pública",
+      "pt": "Servidora Pública"
     },
-    {
-      "company": "Nfq Advisory, Solutions, Outsourcing",
-      "country": {
-        "en": "Spain",
-        "es": "España",
-        "pt": "Espanha",
-                "countryCode": "es"
+    "visible": true
+  },
+  {
+    "company": "Cruz Roja Española",
+    "country": {
+      "en": "Greece",
+      "es": "Grecia",
+      "pt": "Grécia",
+      "countryCode": "gr"
+    },
+    "dateBegin": "10-2015",
+    "dateBeginValue": 1443650400000,
+    "dateEnd": "12-2015",
+    "dateEndValue": 1448924400000,
+    "details": {
+      "en": "Deployed in Greece on a temporary mission (2 months), providing emergency psychosocial support for Syrian people and other refugees arriving in Europe.",
+      "es": "Desplegada a Grecia misión temporal (2 meses), brindando apoyo psicosocial de emergencia a personas sirias y otros refugiados y refugiadas llegando a Europa.",
+      "pt": "Posicionada na Grécia em uma missão temporária (2 meses), propiciando apoio psicossocial de emergência para pessoas sírias e outros refugiados e refugiadas chegando à Europa."
+    },
+    "id": "cre",
+    "place": "Samos",
+    "title": {
+      "en": "International Emergencies Response Delegate (ERU)",
+      "es": "Delegada Internacional de Respuesta en Emergencias (ERU)",
+      "pt": "Delegada Internacional de Resposta em Emergências (ERU)"
+    },
+    "visible": true
+  },
+  {
+    "company": "Servicios Profesionales Sociales",
+    "country": {
+      "en": "Spain",
+      "es": "España",
+      "pt": "Espanha",
+      "countryCode": "es"
+    },
+    "dateBegin": "09-2017",
+    "dateBeginValue": 1504216800000,
+    "dateEnd": "05-2018",
+    "dateEndValue": 1525125600000,
+    "details": {
+      "en": "I gave classes on Information and Communication Technology skills: windows environment, basic software use and internet. Teaching more than 210 kids of Primary Education, from 6 up to 12 years old.",
+      "es": "He impartido clases sobre habilidades de Tecnología de la Información y Comunicación: ambiente windows, aplicaciones básicas y uso de internet, enseñando más de 210 niños y niñas de Educación Primaria, de los 6 a los 12 años de edad.",
+      "pt": "Dei aulas sobre habilidades de Tecnologia de Informação e Comunicação: ambiente windows, softwares básicos e uso de internet, ensinando mais de 210 crianças de Educação Primária, de 6 a 12 anos de idade."
+    },
+    "id": "sps",
+    "place": "Madrid",
+    "title": {
+      "en": "ICT Instructor",
+      "es": "Instructora de TIC",
+      "pt": "Instrutora de TIC"
+    },
+    "visible": true
+  },
+  {
+    "company": "Nfq Advisory, Solutions, Outsourcing",
+    "country": {
+      "en": "Spain",
+      "es": "España",
+      "pt": "Espanha",
+              "countryCode": "es"
 
-      },
-      "dateBegin": "10-2018",
-      "dateBeginValue": 1538344800000,
-      "dateEnd": "01-2019",
-      "dateEndValue": 1548025200000,
-      "details": {
-        "en": "Developing and mantaining internal applications using Angular 6/7. Implementing and running Unit testing with Karma & Jasmine. Active participation on suggesting enhancements on UI.",
-        "es": "Desarrollo y mantenimiento de aplicaciones internas usando Angular 6/7. Implementación y acompañamiento de testes unitarios con Karma & Jasmine. Participación activa en sugerencias de mejorías en UI.",
-        "pt": "Desenvolvimento e manutençao de aplicativos internos usando Angular 6/7. Implementação e acompanhamento de testes unitários com Karma & Jasmine. Participação ativa em sugestões de aprimoramentos em UI."
-      },
-      "id": "nfq",
-      "place": "Madrid",
-      "title": {
-        "en": "Junior Frontend Developer",
-        "es": "Desarrolladora Frontend Junior",
-        "pt": "Programadora Frontend Junior"
-      },
-      "visible": true
     },
-    {
-      "company": "Atresmedia",
-      "country": {
-        "en": "Spain",
-        "es": "España",
-        "pt": "Espanha",
-        "countryCode": "es"
-      },
-      "dateBegin": "01-2019",
-      "dateBeginValue": 1548111600000,
-      "dateEnd": "01-2020",
-      "dateEndValue": 1577833200000,
-      "details": {
-        "en": "Developing of new functionalities and mantaining Atresplayer application for Web and SmartTvs using React16/Redux. Deploying staging and production versions using Jenkins/NGINX/Docker. Creating services with Node/Express. Active participation suggesting enhancements for Atresplayer functionalities, as well as updates for a better UX.",
-        "es": "Desarrollo de nuevas funcionalidades y mantenimiento de la aplicación Atresplayer Web y para SmartTvs usando React16/Redux. Despliegue de versiones staging y producción usando Jenkins/NGINX/Docker. Creacción de servicios con Node/Express. Participación activa sugiriendo mejoras en las funcionalidades de Atresplayer bien como para una mejor UX.",
-        "pt": "Desenvolvimento de novas funcionalidades e manutençao do aplicativo Atresplayer para Web e SmartTvs usando React16/Redux. Desplegue de versión de provas e produçao usando Jenking/NGINX/Docker. Criação de serviços com Node/Express. Participação ativa sugerindo aprimoramentos nas funcionalidades do Atresplayer, bem como melhorias para uma melhor UX."
-      },
-      "id": "a3",
-      "place": "San Sebastián de los Reyes",
-      "title": {
-        "en": "Software Developer",
-        "es": "Desarrolladora de Software",
-        "pt": "Programadora de Software"
-      },
-      "visible": true
+    "dateBegin": "10-2018",
+    "dateBeginValue": 1538344800000,
+    "dateEnd": "01-2019",
+    "dateEndValue": 1548025200000,
+    "details": {
+      "en": "Developing and mantaining internal applications using Angular 6/7. Implementing and running Unit testing with Karma & Jasmine. Active participation on suggesting enhancements on UI.",
+      "es": "Desarrollo y mantenimiento de aplicaciones internas usando Angular 6/7. Implementación y acompañamiento de testes unitarios con Karma & Jasmine. Participación activa en sugerencias de mejorías en UI.",
+      "pt": "Desenvolvimento e manutençao de aplicativos internos usando Angular 6/7. Implementação e acompanhamento de testes unitários com Karma & Jasmine. Participação ativa em sugestões de aprimoramentos em UI."
     },
-    {
-      "company": "Atresmedia",
-      "country": {
-        "en": "Spain",
-        "es": "España",
-        "pt": "Espanha",
-        "countryCode": "es"
-      },
-      "dateBegin": "01-2020",
-      "dateBeginValue": 1577833200000,
-      "dateEnd": null,
-      "dateEndValue": null,
-      "details": {
-        "en": "",
-        "es": "",
-        "pt": ""
-      },
-      "id": "a3-2",
-      "place": "San Sebastián de los Reyes",
-      "title": {
-        "en": "Software Engineer",
-        "es": "Engeniera de Software",
-        "pt": "Engenheira de Software"
-      },
-      "visible": true
-    }
-  ]
-}
+    "id": "nfq",
+    "place": "Madrid",
+    "title": {
+      "en": "Junior Frontend Developer",
+      "es": "Desarrolladora Frontend Junior",
+      "pt": "Programadora Frontend Junior"
+    },
+    "visible": true
+  },
+  {
+    "company": "Atresmedia",
+    "country": {
+      "en": "Spain",
+      "es": "España",
+      "pt": "Espanha",
+      "countryCode": "es"
+    },
+    "dateBegin": "01-2019",
+    "dateBeginValue": 1548111600000,
+    "dateEnd": "01-2020",
+    "dateEndValue": 1577833200000,
+    "details": {
+      "en": "Developing of new functionalities and mantaining Atresplayer application for Web and SmartTvs using React16/Redux. Deploying staging and production versions using Jenkins/NGINX/Docker. Creating services with Node/Express. Active participation suggesting enhancements for Atresplayer functionalities, as well as updates for a better UX.",
+      "es": "Desarrollo de nuevas funcionalidades y mantenimiento de la aplicación Atresplayer Web y para SmartTvs usando React16/Redux. Despliegue de versiones staging y producción usando Jenkins/NGINX/Docker. Creacción de servicios con Node/Express. Participación activa sugiriendo mejoras en las funcionalidades de Atresplayer bien como para una mejor UX.",
+      "pt": "Desenvolvimento de novas funcionalidades e manutençao do aplicativo Atresplayer para Web e SmartTvs usando React16/Redux. Desplegue de versión de provas e produçao usando Jenking/NGINX/Docker. Criação de serviços com Node/Express. Participação ativa sugerindo aprimoramentos nas funcionalidades do Atresplayer, bem como melhorias para uma melhor UX."
+    },
+    "id": "a3",
+    "place": "San Sebastián de los Reyes",
+    "title": {
+      "en": "Software Developer",
+      "es": "Desarrolladora de Software",
+      "pt": "Programadora de Software"
+    },
+    "visible": true
+  },
+  {
+    "company": "Atresmedia",
+    "country": {
+      "en": "Spain",
+      "es": "España",
+      "pt": "Espanha",
+      "countryCode": "es"
+    },
+    "dateBegin": "01-2020",
+    "dateBeginValue": 1577833200000,
+    "dateEnd": null,
+    "dateEndValue": null,
+    "details": {
+      "en": "",
+      "es": "",
+      "pt": ""
+    },
+    "id": "a3-2",
+    "place": "San Sebastián de los Reyes",
+    "title": {
+      "en": "Software Engineer",
+      "es": "Engeniera de Software",
+      "pt": "Engenheira de Software"
+    },
+    "visible": true
+  }
+]

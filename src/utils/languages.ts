@@ -1,0 +1,12 @@
+import { APP_LANGUAGES } from '../constants';
+import { LanguageCode } from '../types/interfaces';
+
+export const getLanguageCodeByName = (name: string): string => {
+  const index = Object.values(APP_LANGUAGES).findIndex(
+    language => language === name
+  );
+  return Object.keys(APP_LANGUAGES)[index];
+};
+
+export const getLanguageNameByCode = (code: LanguageCode): string =>
+  APP_LANGUAGES[code];

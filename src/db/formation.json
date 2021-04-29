@@ -1,108 +1,106 @@
-{
-  "formation": [
-    {
-      "country": {
-        "en": "Brazil",
-        "es": "Brasil",
-        "pt": "Brasil"
-      },
-      "countryCode": "br",
-      "dateBegin": "1999",
-      "dateBeginValue": 915145200000,
-      "dateEnd": "2005",
-      "dateEndValue": 1120168800000,
-      "grade": 8.46,
-      "gradeText": {
-        "en": "Final grade: ",
-        "es": "Grado final: ",
-        "pt": "Média final: "
-      },
-      "id": "psy",
-      "place": "Rio de Janeiro",
-      "title": {
-        "en": "Psychology",
-        "es": "Psicología",
-        "pt": "Psicologia"
-      },
-      "university": "Universidade Gama Filho",
-      "visible": true
+[
+  {
+    "country": {
+      "en": "Brazil",
+      "es": "Brasil",
+      "pt": "Brasil",
+      "countryCode": "br"
     },
-    {
-      "country": {
-        "en": "Brazil",
-        "es": "Brasil",
-        "pt": "Brasil"
-      },
-      "countryCode": "br",
-      "dateBegin": "2007",
-      "dateBeginValue": 1167606000000,
-      "dateEnd": "2011",
-      "dateEndValue": 1309471200000,
-      "grade": 9.15,
-      "gradeText": {
-        "en": "Final grade: ",
-        "es": "Grado final: ",
-        "pt": "Média final: "
-      },
-      "id": "ir",
-      "place": "Rio de Janeiro",
-      "title": {
-        "en": "International Relations",
-        "es": "Relaciones Internacionales",
-        "pt": "Relações Internacionais"
-      },
-      "university": "Universidade Estácio de Sá",
-      "visible": true
+    "dateBegin": "1999",
+    "dateBeginValue": 915145200000,
+    "dateEnd": "2005",
+    "dateEndValue": 1120168800000,
+    "grade": 8.46,
+    "gradeText": {
+      "en": "Final grade: ",
+      "es": "Grado final: ",
+      "pt": "Média final: "
     },
-    {
-      "country": {
-        "en": "Spain",
-        "es": "España",
-        "pt": "Espanha"
-      },
-      "countryCode": "es",
-      "dateBegin": "2012",
-      "dateBeginValue": 1341093600000,
-      "dateEnd": "2013",
-      "dateEndValue": 1372629600000,
-      "grade": 8,
-      "gradeText": {
-        "en": "Final grade: ",
-        "es": "Grado final: ",
-        "pt": "Média final: "
-      },
-      "id": "master-uab",
-      "place": "Barcelona",
-      "title": {
-        "en": "Master in International Relations",
-        "es": "Máster en Relaciones Internacionales",
-        "pt": "Mestrado em Relações Internacionais"
-      },
-      "university": "Universitat Autònoma de Barcelona",
-      "visible": true
+    "id": "psy",
+    "place": "Rio de Janeiro",
+    "title": {
+      "en": "Psychology",
+      "es": "Psicología",
+      "pt": "Psicologia"
     },
-    {
-      "country": {
-        "en": "Spain",
-        "es": "España",
-        "pt": "Espanha"
-      },
-      "countryCode": "es",
-      "dateBegin": "2018",
-      "dateBeginValue": 1525125600000,
-      "dateEnd": "2018",
-      "dateEndValue": 1538344800000,
-      "grade": null,
-      "gradeText": null,
-      "id": "adalab",
-      "place": "Madrid",
-      "title": {
-        "en": "Frontend Developer",
-        "es": "Programadora Frontend",
-        "pt": "Programadora Frontend"
-      },
-      "university": "Adalab",
-      "visible": true
-    }
-  ]
-}
+    "university": "Universidade Gama Filho",
+    "visible": true
+  },
+  {
+    "country": {
+      "en": "Brazil",
+      "es": "Brasil",
+      "pt": "Brasil",
+      "countryCode": "br"
+    },
+    "dateBegin": "2007",
+    "dateBeginValue": 1167606000000,
+    "dateEnd": "2011",
+    "dateEndValue": 1309471200000,
+    "grade": 9.15,
+    "gradeText": {
+      "en": "Final grade: ",
+      "es": "Grado final: ",
+      "pt": "Média final: "
+    },
+    "id": "ir",
+    "place": "Rio de Janeiro",
+    "title": {
+      "en": "International Relations",
+      "es": "Relaciones Internacionales",
+      "pt": "Relações Internacionais"
+    },
+    "university": "Universidade Estácio de Sá",
+    "visible": true
+  },
+  {
+    "country": {
+      "en": "Spain",
+      "es": "España",
+      "pt": "Espanha",
+      "countryCode": "es"
+    },
+    "dateBegin": "2012",
+    "dateBeginValue": 1341093600000,
+    "dateEnd": "2013",
+    "dateEndValue": 1372629600000,
+    "grade": 8,
+    "gradeText": {
+      "en": "Final grade: ",
+      "es": "Grado final: ",
+      "pt": "Média final: "
+    },
+    "id": "master-uab",
+    "place": "Barcelona",
+    "title": {
+      "en": "Master in International Relations",
+      "es": "Máster en Relaciones Internacionales",
+      "pt": "Mestrado em Relações Internacionais"
+    },
+    "university": "Universitat Autònoma de Barcelona",
+    "visible": true
+  },
+  {
+    "country": {
+      "en": "Spain",
+      "es": "España",
+      "pt": "Espanha",
+      "countryCode": "es"
+    },
+    "dateBegin": "2018",
+    "dateBeginValue": 1525125600000,
+    "dateEnd": "2018",
+    "dateEndValue": 1538344800000,
+    "grade": null,
+    "gradeText": null,
+    "id": "adalab",
+    "place": "Madrid",
+    "title": {
+      "en": "Frontend Developer",
+      "es": "Programadora Frontend",
+      "pt": "Programadora Frontend"
+    },
+    "university": "Adalab",
+    "visible": true
+  }
+]
