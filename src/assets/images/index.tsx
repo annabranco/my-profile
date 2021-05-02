@@ -47,6 +47,7 @@ import SwimmingLeft from './other/swimmingLeft.gif';
 import SwimmingRight from './other/swimmingRight.gif';
 import Swipe from './other/swipe.gif';
 import ToyStory from './thumbnails/thumbnail-toy-story.jpg';
+import Transform from './other/transform.gif';
 import TvSeries from './thumbnails/thumbnail-tv-series-finder.jpg';
 import Typescript from './skills/typescript.png';
 import Webpack from './skills/webpack.png';
@@ -126,6 +127,7 @@ export {
   SwimmingLeft,
   SwimmingRight,
   Swipe,
+  Transform,
   Typescript,
   Webpack
 };
