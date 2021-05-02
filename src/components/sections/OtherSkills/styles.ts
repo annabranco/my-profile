@@ -5,7 +5,8 @@ import {
   colorBlack,
   colorGrayNormal,
   colorGrayDark,
-  colorRedBright
+  colorRedBright,
+  fontSubtitle
 } from '../../../styles/theme';
 import { Hidden, NotDisplayed } from '../../../styles/global';
 
@@ -32,6 +33,38 @@ export const Keys = styled.div`
   text-align: center;
 `;
 Keys.displayName = 'Keyboard Keys';
+
+export const MacCamera = styled.div`
+  z-index: 100;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 20px;
+  height: 20px;
+  background: #2f353f;
+  border-radius: 50px;
+  border: 2px solid ${rgba('#2f353f', 0.1)};
+  box-shadow: inset 0 0 1px ${rgba('black', 0.1)};
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50px;
+    background-color: white;
+    opacity: 0.3;
+    box-shadow: 0 0 5px 3px white;
+  }
+
+  @media all and (min-width: 2000px) {
+    top: -35px;
+  }
+`;
+MacCamera.displayName = 'Keyboard MacCamera';
 
 interface MacCloseButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   isTabButton?: boolean;
@@ -138,12 +171,45 @@ export const MacScreen = styled.div<MacScreenProps>`
       transform: none;
       border-left: 0;
       background: ${colorWhite};
-      height: ${`${window.innerHeight}px`};
+      height: ${`calc(${window.innerHeight}px - 60px)`};
       width: 100%;
       overflow: hidden;
     `}
+
+  @media all and (min-width: 2000px) {
+    ${({ visible }) =>
+      visible &&
+      css`
+        height: ${`calc(${window.innerHeight}px - 120px)`};
+      `}
+  }
 `;
 MacScreen.displayName = 'Mac Screen';
+
+export const Mark = styled.div`
+  z-index: 100;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
+  font-weight: 500;
+  font-family: ${fontSubtitle};
+  font-size: 0.9rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  user-select: none;
+
+  @media all and (min-width: 2000px) {
+    bottom: -40px;
+  }
+`;
+Mark.displayName = 'Keyboard Mark';
+
+export const MarkLight = styled.span`
+  font-weight: 100;
+`;
+MarkLight.displayName = 'Keyboard MarkLight';
 
 interface SectionOtherSkillsProps
   extends React.ComponentPropsWithoutRef<'section'> {
@@ -169,7 +235,23 @@ export const SectionOtherSkills = styled.section<SectionOtherSkillsProps>`
         left: 0;
         opacity: 1;
         height: auto;
+        width: 101%;
+        border: 30px solid #1e2126;
+      `}
+  }
+  @media all and (min-width: 1400px) {
+    ${({ visible }) =>
+      visible &&
+      css`
         width: 100%;
+      `}
+  }
+
+  @media all and (min-width: 2000px) {
+    ${({ visible }) =>
+      visible &&
+      css`
+        border: 60px solid #1e2126;
       `}
   }
 `;
@@ -192,9 +274,15 @@ export const TopBar = styled.img<TopBarProps>`
       opacity: 1;
       z-index: 4;
       position: fixed;
-      top: 0;
-      left: -8px;
-      width: 101vw;
+      top: 30px;
+      left: 30px;
+      width: 96.3vw;
     `}
+
+  @media all and (min-width: 2000px) {
+    top: 60px;
+    left: 60px;
+    width: 95.5vw;
+  }
 `;
 TopBar.displayName = 'Top Bar';

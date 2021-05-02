@@ -90,6 +90,18 @@ const OtherSkillsTable = styled.table`
 export const DesignArea = styled(OtherSkillsOuter)`
   margin-top: -60px;
   margin-bottom: 50px;
+
+  @media all and (min-width: 768px) {
+    margin-top: -100px;
+  }
+
+  @media all and (min-width: 1400px) {
+    margin-top: -60px;
+  }
+
+  @media all and (min-width: 2000px) {
+    margin-top: 0;
+  }
 `;
 DesignArea.displayName = 'Design Area';
 
@@ -106,11 +118,21 @@ export const Flag = styled.img`
   max-width: 24px;
 
   @media all and (min-width: 768px) {
-    top: 35px;
+    top: 15px;
     left: -35px;
     background: ${rgba(colorWhite, 0.5)};
     border: 1px solid ${colorGreenPale};
     max-width: 32px;
+  }
+
+  @media all and (min-width: 1400px) {
+    top: 40px;
+  }
+
+  @media all and (min-width: 2000px) {
+    top: 70px;
+    left: -70px;
+    max-width: 60px;
   }
 `;
 Flag.displayName = 'Flag';
@@ -127,11 +149,17 @@ export const LanguagesArea = styled(OtherSkillsOuter)`
   width: 40%;
 
   @media all and (min-width: 768px) {
-    margin: 30px 0 0;
+    margin: 0;
     grid-row-start: span 2;
     padding: 10px 20px 30px 30px;
     height: auto;
     width: 100%;
+  }
+  @media all and (min-width: 1400px) {
+    margin: 15px 0 0;
+  }
+  @media all and (min-width: 2000px) {
+    margin: 100px 0 0;
   }
 `;
 LanguagesArea.displayName = 'Languages Area';
@@ -187,6 +215,19 @@ export const LanguagesTable = styled(OtherSkillsTable)`
   @media all and (min-width: 768px) {
     & td {
       padding-left: 60px;
+      height: 2.5vh;
+      width: 100%;
+    }
+
+    & tr td:first-of-type {
+      margin-top: 10px;
+      font-size: 1.4rem;
+    }
+  }
+
+  @media all and (min-width: 1400px) {
+    & td {
+      padding-left: 60px;
       height: 3vh;
       width: 100%;
     }
@@ -194,6 +235,17 @@ export const LanguagesTable = styled(OtherSkillsTable)`
     & tr td:first-of-type {
       margin-top: 15px;
       font-size: 1.5rem;
+    }
+  }
+
+  @media all and (min-width: 2000px) {
+    & td {
+      font-size: 1.5rem;
+    }
+
+    & tr td:first-of-type {
+      margin-top: 15px;
+      font-size: 2.2rem;
     }
   }
 `;
@@ -210,9 +262,15 @@ export const OtherInformationAreaArea = styled(OtherSkillsOuter)`
   margin: 40px 10px 0;
 
   @media all and (min-width: 768px) {
+    margin: 0 10px;
     display: block;
-
     width: 100%;
+  }
+  @media all and (min-width: 1400px) {
+    margin: 15px 0 0;
+  }
+  @media all and (min-width: 2000px) {
+    margin: 100px 0 -200px;
   }
 `;
 OtherInformationAreaArea.displayName = 'Other Informations Area';
@@ -242,6 +300,7 @@ export const OtherInformationAreaTable = styled(OtherSkillsTable)`
 
   & tr td {
     padding: 10px 5px;
+    line-height: 13px;
   }
 
   & tr td:first-of-type {
@@ -295,6 +354,39 @@ export const OtherInformationAreaTable = styled(OtherSkillsTable)`
       &:hover {
         background: ${rgba(colorYellowPale, 0.5)};
         font-size: 0.7rem;
+      }
+    }
+  }
+
+  @media all and (min-width: 2000px) {
+    & td {
+      width: auto;
+      font-size: 1.1rem;
+
+      &:first-of-type {
+        font-size: 1.2rem;
+      }
+    }
+
+    & tr td:first-of-type {
+      font-size: 1.2rem;
+    }
+
+    & tr {
+      font-size: 1rem;
+
+      & td {
+        width: 20vw;
+
+        &:nth-child(2) {
+          width: 50%;
+          text-align: left;
+        }
+      }
+
+      &:hover {
+        background: ${rgba(colorYellowPale, 0.5)};
+        font-size: 1.4rem;
       }
     }
   }
@@ -376,7 +468,15 @@ export const Sample = styled.div<SampleProps>`
   background-size: cover;
 
   @media all and (min-width: 768px) {
+    width: 10vw;
+  }
+
+  @media all and (min-width: 1400px) {
     width: 20vw;
+  }
+
+  @media all and (min-width: 2000px) {
+    height: 15vh;
   }
 
   ${({ image }) => css`
@@ -391,9 +491,13 @@ Sample.displayName = 'Sample';
 
 export const SamplesWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 10px;
   justify-content: center;
+
+  @media all and (min-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 SamplesWrapper.displayName = 'Samples Wrapper';
 
