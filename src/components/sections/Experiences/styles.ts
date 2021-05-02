@@ -117,7 +117,7 @@ export const ExperiencesWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-end;
-  margin: 130px auto 0;
+  margin: 160px auto 0;
   padding-right: 5vw;
   height: 50%;
 

@@ -115,6 +115,7 @@ export const Thumbnail = styled.img`
   margin-top: 10px;
   margin-left: 20px;
   width: 90%;
+  min-height: 100px;
   min-width: 90%;
   box-shadow: 0 3px 7px 0 ${rgba(colorGrayDark, 0.8)};
   transition: all 1s ease;
@@ -127,6 +128,10 @@ export const Thumbnail = styled.img`
 
   @media all and (min-width: 768px) {
     margin-left: 0;
+    min-height: 200px;
+  }
+  @media all and (min-width: 2000px) {
+    min-height: 400px;
   }
 `;
 Thumbnail.displayName = 'Thumbnail';

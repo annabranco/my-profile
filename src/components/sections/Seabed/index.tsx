@@ -594,7 +594,7 @@ const SeaBed = ({
         />
       </HeroWrapper>
 
-      <FishesElement />
+      {/* <FishesElement /> */}
       <ShellElement
         hidden={positionState.frame !== CENTER}
         toggleHasPearl={toggleHasPearl}

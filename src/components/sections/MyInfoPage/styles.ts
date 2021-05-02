@@ -49,6 +49,10 @@ const MyName = styled.h1`
   @media all and (min-width: 1024px) {
     font-size: 5rem;
   }
+
+  @media all and (min-width: 2000px) {
+    font-size: 6rem;
+  }
 `;
 
 const Navigating = keyframes`
@@ -134,6 +138,10 @@ export const BirdsFlying = styled.img`
   @media all and (min-width: 768px) {
     top: 20%;
   }
+  @media all and (min-width: 2000px) {
+    top: 33%;
+    width: 350px;
+  }
 `;
 BirdsFlying.displayName = 'BirdsFlying';
 
@@ -184,6 +192,10 @@ export const InfoMessage = styled.div`
 
     text-align: left;
   }
+
+  @media all and (min-width: 2000px) {
+    font-size: 1.4rem;
+  }
 `;
 InfoMessage.displayName = 'Info Message';
 
@@ -229,6 +241,10 @@ export const LineOfArrows = styled.div`
     justify-content: center;
     width: auto;
   }
+
+  @media all and (min-width: 2000px) {
+    transform: translate(0, 50vh);
+  }
 `;
 LineOfArrows.displayName = 'Line of Arrows';
 
@@ -262,6 +278,11 @@ export const MeuBarquinho = styled.img`
   @media all and (min-width: 768px) {
     top: 30%;
     filter: saturate(0.5) brightness(1.8) contrast(30%) opacity(0.2);
+  }
+
+  @media all and (min-width: 2000px) {
+    top: 40%;
+    width: 200px;
   }
 `;
 MeuBarquinho.displayName = 'Ship Image';
@@ -308,12 +329,16 @@ export const MyNameOnDesktopDevices = styled(MyName)`
   @media all and (min-width: 500px) {
     display: block;
   }
+
+  @media all and (min-width: 500px) {
+    display: block;
+  }
 `;
 MyNameOnDesktopDevices.displayName = 'My Name';
 
 export const MyNameOnMobileDevices = styled(MyName)`
   display: block;
-  margin: 5px 0;
+  margin: 10px 0 5px;
   text-align: center;
 
   @media all and (min-width: 500px) {
@@ -399,6 +424,10 @@ export const SocialArea = styled.div`
 
   @media all and (min-width: 500px) {
     width: 25%;
+  }
+
+  @media all and (min-width: 2000px) {
+    height: 60vh;
   }
 `;
 SocialArea.displayName = 'Social Area';

@@ -31,6 +31,9 @@ export const AppTitle = styled.h2`
     order: 2;
     font-size: 1rem;
   }
+  @media all and (min-width: 2000px) {
+    font-size: 1.2rem;
+  }
 `;
 AppTitle.displayName = 'AppTitle';
 
