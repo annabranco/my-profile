@@ -5,6 +5,7 @@ import { ISeabedElements } from '../../../types/interfaces';
 import { otherSkillsTextSelector } from '../../../redux/selectors';
 import { isDesktop } from '../../../utils/device';
 import OtherSkillsInfo from './OtherSkillsInfo';
+import { MacInterface } from './OtherSkillsInfo/macElements';
 import { MacNotebook } from '../../../assets/images';
 import { seabedElementsPropType } from '../../../types/propTypes';
 import { TextFindSomething } from '../Seabed/styles';
@@ -41,7 +42,12 @@ const OtherSkills = ({
       ) : null}
 
       <SectionOtherSkills id="Other Skills Section" visible={visible}>
-        {isDesktop && <TopBar visible={visible} src={MacNotebook} alt="" />}
+        {isDesktop && visible && (
+          <>
+            <MacInterface />
+            <TopBar visible={visible} src={MacNotebook} alt="" />
+          </>
+        )}
         <MacScreen visible={visible}>
           <OtherSkillsInfo
             onClickOpen={onClickOpen}
