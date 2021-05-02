@@ -55,6 +55,12 @@ export const LinkButton = styled(Link)`
     width: 200px;
   }
 
+  @media all and (min-width: 2000px) {
+    margin-left: -50px;
+    height: 80px;
+    width: 300px;
+  }
+
   &:hover {
     transform: translate(0, 1px);
     text-decoration: none;
@@ -75,6 +81,11 @@ export const LinkSkypeButton = styled(LinkButton)`
 
   @media all and (min-width: 500px) {
     width: 50%;
+  }
+
+  @media all and (min-width: 2000px) {
+    height: 80px;
+    width: 150px;
   }
 
   &:first-of-type {
@@ -127,6 +138,11 @@ export const SocialItemSkype = styled(SocialItem)`
   @media all and (min-width: 768px) {
     width: 200px;
   }
+  @media all and (min-width: 2000px) {
+    margin-left: 50px;
+    justify-content: space-between;
+    width: 250px;
+  }
 `;
 SocialItemSkype.displayName = 'Social Item';
 
@@ -151,6 +167,9 @@ export const Text = styled.p`
   @media all and (min-width: 500px) {
     margin: 4px 0 0 0;
     font-size: 1.3rem;
+  }
+  @media all and (min-width: 2000px) {
+    font-size: 2rem;
   }
 `;
 Text.displayName = 'Text';

@@ -32,6 +32,7 @@ const ProjectsList = ({
         <>
           <ProjectsGrid>
             {projects &&
+              projects[actualPage - 1] &&
               projects[actualPage - 1].map(project => (
                 <ProjectDetails
                   actualPage={actualPage}
