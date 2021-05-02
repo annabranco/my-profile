@@ -30,7 +30,8 @@ import {
   FloatingRight,
   SwimmingLeft,
   SwimmingRight,
-  ScubaFish
+  ScubaFish,
+  Transform
 } from '../../../assets/images';
 import UnderwaterAmbient from '../../../assets/sounds/underwater.mp3';
 import {
@@ -97,6 +98,7 @@ const SeaBed = ({
     },
     FORMATION
   );
+  const [isFish, toggleIsFish] = useStateWithLabel<boolean>(false, 'isFish');
   const [heroMovements, changeHeroMovements] = useStateWithLabel<IHeroMovement>(
     {
       back2Surface: false,
@@ -454,7 +456,16 @@ const SeaBed = ({
       })
     );
     clearTimeout(float);
-    heroImg.src = swimmingImage;
+    if (isFish) {
+      heroImg.src = Transform;
+      setTimeout(() => {
+        heroImg.src = swimmingImage;
+        toggleIsFish(false);
+      }, 1000);
+    } else {
+      heroImg.src = swimmingImage;
+    }
+
     HERO.style.left = newMovement;
     changeHeroMovements({
       ...heroMovements,
@@ -534,7 +545,11 @@ const SeaBed = ({
   useEffect(() => {
     if (pearlFound) {
       const heroImg = HeroImg.current as HTMLImageElement;
-      heroImg.src = ScubaFish;
+      heroImg.src = Transform;
+      setTimeout(() => {
+        heroImg.src = ScubaFish;
+        toggleIsFish(true);
+      }, 1000);
     }
   }, [pearlFound]);
 
