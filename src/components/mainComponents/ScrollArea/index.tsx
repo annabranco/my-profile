@@ -337,7 +337,7 @@ const ScrollArea = ({
       )}
 
       {(isDesktop || activeSection === SEABED_SECTION) && (
-        <ScrollSection title={sectionsTexts.other}>
+        <ScrollSection last title={sectionsTexts.other}>
           <Seabed
             cuePointsActivated={cuePointsActivated}
             openSeabedElement={openSeabedElement}

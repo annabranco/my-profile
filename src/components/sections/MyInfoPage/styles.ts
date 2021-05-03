@@ -18,13 +18,33 @@ import {
   NotDisplayed
 } from '../../../styles/global';
 
-const Vanish = keyframes`
-  0% {
+const DownWeGo = (displacement: number) => keyframes`
+  0%  {
     opacity : 0;
+    transform: none;
   }
 
   5% {
     opacity : 1;
+  }
+  15%, 35%, 55% {
+    opacity : 0;
+  }
+  20% {
+    opacity : 1;
+    transform: translate(0,${displacement}px);
+  }
+  40% {
+    opacity : 1;
+    transform: translate(0,${displacement * 2}px);
+  }
+  60% {
+    opacity : 1;
+    transform: translate(0,${displacement * 3}px);
+  }
+  75% {
+    opacity : 0;
+    transform: translate(0,${displacement * 3}px);
   }
 `;
 
@@ -221,8 +241,7 @@ export const LineOfArrows = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  animation-name: ${Vanish};
-  animation-duration: 3s;
+  animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   width: 125%;
@@ -240,10 +259,15 @@ export const LineOfArrows = styled.div`
   @media all and (min-width: 768px) {
     justify-content: center;
     width: auto;
+    animation-name: ${DownWeGo(30)};
   }
-
+  @media all and (min-width: 1400px) {
+    padding-top: 5vh;
+    animation-name: ${DownWeGo(50)};
+  }
   @media all and (min-width: 2000px) {
-    transform: translate(0, 50vh);
+    padding-top: 5vh;
+    animation-name: ${DownWeGo(100)};
   }
 `;
 LineOfArrows.displayName = 'Line of Arrows';
