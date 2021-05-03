@@ -10,6 +10,7 @@ export const ScrollAreaWrapper = styled.main<ScrollAreaWrapperProps>`
   height: ${`${window.innerHeight}px`};
   overflow: hidden;
   position: absolute;
+  scroll-snap-type: y proximity;
 
   ${({ langModalVisible }) =>
     langModalVisible &&
@@ -24,3 +25,13 @@ export const ScrollAreaWrapper = styled.main<ScrollAreaWrapperProps>`
   }
 `;
 ScrollAreaWrapper.displayName = 'Scroll Area';
+
+interface ScrollSectionElementProps
+  extends React.ComponentPropsWithoutRef<'div'> {
+  last: boolean;
+}
+
+export const ScrollSectionElement = styled.div<ScrollSectionElementProps>`
+  scroll-snap-align: ${({ last }) => last && 'end'};
+`;
+ScrollSectionElement.displayName = 'ScrollSectionElement';

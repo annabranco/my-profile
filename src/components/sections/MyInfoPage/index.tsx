@@ -39,7 +39,6 @@ const MyInfoPage = (): ReactElement => {
     finishedSelector
   );
   const texts: IInfoPageText = useSelector(infoPageTextSelector);
-  const arrowLines: number = isDesktop ? 3 : 1;
 
   return (
     <SectionMyInfo id="My Info Section">
@@ -74,22 +73,20 @@ const MyInfoPage = (): ReactElement => {
 
         {isDesktop && (
           <>
-            {[...Array(arrowLines).keys()].map(line => (
-              <LineOfArrows key={line}>
-                {isDesktop ? (
-                  <>
-                    {[0, 1, 2].map(index => (
-                      <ArrowIcon
-                        key={`${line}-${index}`}
-                        className="fas fa-angle-double-down"
-                      />
-                    ))}
-                  </>
-                ) : (
-                  <ArrowIcon className="fas fa-angle-double-down" />
-                )}
-              </LineOfArrows>
-            ))}
+            <LineOfArrows>
+              {isDesktop ? (
+                <>
+                  {[0, 1, 2].map(index => (
+                    <ArrowIcon
+                      key={`${index}`}
+                      className="fas fa-angle-double-down"
+                    />
+                  ))}
+                </>
+              ) : (
+                <ArrowIcon className="fas fa-angle-double-down" />
+              )}
+            </LineOfArrows>
           </>
         )}
       </MyInfoWrapper>
