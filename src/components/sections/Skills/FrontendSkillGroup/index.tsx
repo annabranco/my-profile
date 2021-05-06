@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { bool } from 'prop-types';
 import { ISkillGroups } from '../../../../types/interfaces';
 import SkillLevel from '../SkillLevel';

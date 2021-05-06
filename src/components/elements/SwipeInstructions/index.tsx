@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
+import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { func } from 'prop-types';
 import { IInstructionsText } from '../../../types/interfaces';

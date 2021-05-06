@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { string } from 'prop-types';
 import { IErrorText } from '../../../types/interfaces';
 import appInfo from '../../../../package.json';

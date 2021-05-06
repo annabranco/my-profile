@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement } from 'react';
+import { Fragment, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { instanceOf } from 'prop-types';
 import { IAppState, ISkillGroups } from '../../../types/interfaces';

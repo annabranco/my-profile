@@ -1,4 +1,5 @@
-import React, { Dispatch, ReactElement } from 'react';
+import { Dispatch, ReactElement } from 'react';
+import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bool, func } from 'prop-types';
 import { LanguageCode, ILanguage } from '../../../types/interfaces';

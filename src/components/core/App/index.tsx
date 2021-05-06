@@ -1,4 +1,4 @@
-import React, { useEffect, ReactElement } from 'react';
+import { useEffect, ReactElement } from 'react';
 import { ILanguagePreferences } from '../../../types/interfaces';
 import ErrorBoundary from '../ErrorBoundary';
 import { useStateWithLabel } from '../../../utils/hooks';

@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
+
+import * as React from 'react';
 import { func, node } from 'prop-types';
 import { ModalOverlay } from './styles';
 

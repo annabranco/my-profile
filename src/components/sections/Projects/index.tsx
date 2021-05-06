@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { chunk, sortBy } from 'lodash';
 import { instanceOf } from 'prop-types';
