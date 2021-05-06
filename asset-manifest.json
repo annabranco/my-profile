@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/my-profile/static/js/main.357f88a5.chunk.js",
-    "main.js.map": "/my-profile/static/js/main.357f88a5.chunk.js.map",
+    "main.js": "/my-profile/static/js/main.6dfb9b7f.chunk.js",
+    "main.js.map": "/my-profile/static/js/main.6dfb9b7f.chunk.js.map",
     "runtime-main.js": "/my-profile/static/js/runtime-main.86b8bb4e.js",
     "runtime-main.js.map": "/my-profile/static/js/runtime-main.86b8bb4e.js.map",
-    "static/js/2.7ff6d033.chunk.js": "/my-profile/static/js/2.7ff6d033.chunk.js",
-    "static/js/2.7ff6d033.chunk.js.map": "/my-profile/static/js/2.7ff6d033.chunk.js.map",
+    "static/js/2.53789174.chunk.js": "/my-profile/static/js/2.53789174.chunk.js",
+    "static/js/2.53789174.chunk.js.map": "/my-profile/static/js/2.53789174.chunk.js.map",
     "index.html": "/my-profile/index.html",
-    "static/js/2.7ff6d033.chunk.js.LICENSE.txt": "/my-profile/static/js/2.7ff6d033.chunk.js.LICENSE.txt",
+    "static/js/2.53789174.chunk.js.LICENSE.txt": "/my-profile/static/js/2.53789174.chunk.js.LICENSE.txt",
     "static/media/agile.0800d6bb.png": "/my-profile/static/media/agile.0800d6bb.png",
     "static/media/angular.5b40f655.png": "/my-profile/static/media/angular.5b40f655.png",
     "static/media/annabranco.0768249a.png": "/my-profile/static/media/annabranco.0768249a.png",
@@ -63,7 +63,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.86b8bb4e.js",
-    "static/js/2.7ff6d033.chunk.js",
-    "static/js/main.357f88a5.chunk.js"
+    "static/js/2.53789174.chunk.js",
+    "static/js/main.6dfb9b7f.chunk.js"
   ]
 }
