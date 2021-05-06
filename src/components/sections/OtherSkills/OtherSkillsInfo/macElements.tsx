@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { MacCamera, Mark, MarkLight } from '../styles';
 
 export const MacInterface = (): ReactElement => (

@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { bool, node, string } from 'prop-types';
 import { isDesktop } from '../../../../utils/device';
 import { SectionContent, SectionHeader, Title } from './styles';

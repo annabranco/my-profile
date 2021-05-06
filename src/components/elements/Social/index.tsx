@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { IInfoPageText } from '../../../types/interfaces';
 import { infoPageTextPropType } from '../../../types/propTypes';
 import {

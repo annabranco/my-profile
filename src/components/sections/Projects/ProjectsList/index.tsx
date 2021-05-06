@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { arrayOf, bool, func, number } from 'prop-types';
 import { IProjects } from '../../../../types/interfaces';

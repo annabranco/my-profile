@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { useStateWithLabel } from '../../../../../utils/hooks';
 import { LEFT, RIGHT } from '../../../../../constants';
 import { FISHES } from '../../../../../assets/images';

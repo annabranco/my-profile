@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactElement, SetStateAction } from 'react';
+import { Dispatch, ReactElement, SetStateAction } from 'react';
 import { bool, func } from 'prop-types';
 import { useStateWithLabel } from '../../../../../utils/hooks';
 import { ClosedShell, OpenedShell } from '../../../../../assets/images';

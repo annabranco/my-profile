@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { number, string } from 'prop-types';
 import { Star, StarsWrapper } from './styles';
 

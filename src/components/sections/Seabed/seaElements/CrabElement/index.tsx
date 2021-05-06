@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { bool } from 'prop-types';
 import { IPosition } from '../../../../../types/interfaces';
 import { Crab } from '../../../../../assets/images';

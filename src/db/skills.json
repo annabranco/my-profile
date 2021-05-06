@@ -26,20 +26,20 @@
       {
         "level": 3,
         "order": 4,
+        "skill": "TypeScript",
+        "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/typescript.png"
+      },
+      {
+        "level": 3,
+        "order": 5,
         "skill": "Frontity",
         "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/frontity.png"
       },
       {
         "level": 1,
-        "order": 5,
+        "order": 6,
         "skill": "Angular",
         "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/angular.png"
-      },
-      {
-        "level": 2,
-        "order": 6,
-        "skill": "TypeScript",
-        "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/typescript.png"
       },
       {
         "level": 3,

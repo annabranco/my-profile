@@ -1,4 +1,4 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ErrorInfo, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { node } from 'prop-types';
 import { IAppState, IErrorText } from '../../../types/interfaces';

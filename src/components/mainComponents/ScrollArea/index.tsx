@@ -1,4 +1,4 @@
-import React, {
+import {
   Dispatch,
   ReactElement,
   SetStateAction,
@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useRef
 } from 'react';
+import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bool, func } from 'prop-types';
 import {

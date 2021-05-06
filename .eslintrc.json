@@ -109,10 +109,9 @@
 			}
 		],
 		"react/destructuring-assignment": [0],
-		"react/jsx-filename-extension": [
-			2,
-			{"extensions": [".js", ".jsx", ".ts", ".tsx"]}
-		],
+		"react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx", ".ts", ".tsx"]}],
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off",
 		"react/sort-comp": 0,
 		"react/state-in-constructor": 0,
 		"react/static-property-placement": 0
