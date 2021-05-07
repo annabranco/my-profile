@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Crab Component > matches the snapshot 1`] = `
+<TheCrab
+  alt="A crab on the bottom of the sea"
+  hidden={false}
+  runnaway={false}
+  src={
+    Object {
+      "process": [Function],
+    }
+  }
+/>
+`;
