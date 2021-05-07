@@ -1,21 +1,46 @@
-import { shallow, ShallowWrapper } from 'enzyme';
+import React, { Component, ReactElement } from 'react';
+import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
 import FishesElement from '.';
+import { Fish } from './styles';
+import { LEFT } from '../../../../../constants';
 
 // TODO [07-May -21]: Define real test suits (Anna Branco)
 
+const MockFish = () => (
+  <Fish
+    alt="Mocked Fish"
+    bottom="20%"
+    delay="0s"
+    facing={LEFT}
+    key="fish"
+    movementType="ease-in"
+    side={LEFT}
+    speed="1s"
+    src="fish"
+    waving={false}
+  />
+);
+
 describe('< FishesElement >', () => {
-  let wrapper: ShallowWrapper;
+  let wrapper: ReactWrapper;
 
   beforeAll(() => {
-    wrapper = shallow(<FishesElement />);
+    wrapper = mount(<FishesElement />);
   });
 
   it('should mount', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('matches the snapshot', () => {
+  xit('matches the snapshot', () => {
+    // As Fishes elements are created randomly on init, snapshots will never match
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render at least one Fish on screen', () => {
+    jest.spyOn(React, 'useEffect').mockImplementation(f => f());
+
+    expect(wrapper.find('Fish').length).toBeGreaterThanOrEqual(1);
   });
 });

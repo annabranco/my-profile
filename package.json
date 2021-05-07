@@ -23,7 +23,7 @@
     "start:dev": "cross-env REACT_APP_DEV_SERVER=true concurrently \"npm run start:dev-server\" \"npm run start:dev-wait-server\"",
     "start:dev-server": "babel-node ./localService/dev-server",
     "start:dev-wait-server": "wait-on http://localhost:3031/health && npm start",
-    "test": "jest",
+    "test": "jest --verbose",
     "test:dev": "jest --silent=false --watch",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "predeploy": "npm run build",

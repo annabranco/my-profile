@@ -43,7 +43,8 @@ const ErrorComponent = ({ error, texts }: Props): ReactElement => {
 
   useEffect(() => {
     setTimeout(() => toggleNotifyButton(true), 5000);
-  });
+    // toggleNotifyButton(true);
+  }, []);
 
   return (
     <ErrorSection>

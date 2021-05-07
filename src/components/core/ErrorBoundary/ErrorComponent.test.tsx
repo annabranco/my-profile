@@ -2,6 +2,8 @@ import React from 'react';
 import {
   ComponentClass,
   HTMLAttributes,
+  mount,
+  ReactWrapper,
   shallow,
   ShallowWrapper
 } from 'enzyme';
@@ -25,11 +27,21 @@ interface TextElement extends ComponentClass<HTMLAttributes> {
 }
 
 describe('< ErrorComponent >', () => {
-  let wrapper: ShallowWrapper;
-  jest.spyOn(React, 'useEffect').mockImplementation(f => f());
+  let wrapper: ReactWrapper;
+  let useEffect: any;
+  const setState = jest.fn();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const useStateMock: any = (initState: any) => [initState, setState];
+
+  const mockUseEffect = () => {
+    useEffect.mockImplementationOnce((f: () => void) => f());
+  };
+
+  jest.spyOn(React, 'useState').mockImplementation(useStateMock);
 
   beforeAll(() => {
-    wrapper = shallow(<ErrorComponent error={MOCK_ERROR} />);
+    wrapper = mount(<ErrorComponent error={MOCK_ERROR} />);
+    useEffect = jest.spyOn(React, 'useEffect');
   });
 
   it('should mount', () => {
@@ -90,7 +102,10 @@ describe('< ErrorComponent >', () => {
     let notifyButton = wrapper.find('NotifyButton');
     expect(notifyButton.prop('visible')).toBe(false);
 
+    mockUseEffect();
     jest.useFakeTimers();
+    expect(setState).toHaveBeenCalledTimes(1);
+
     setTimeout(() => {
       wrapper.update();
       notifyButton = wrapper.find('NotifyButton');
@@ -98,7 +113,7 @@ describe('< ErrorComponent >', () => {
 
       wrapper.unmount();
       done();
-    }, 5000);
+    }, 7000);
     jest.runAllTimers();
   });
 });
