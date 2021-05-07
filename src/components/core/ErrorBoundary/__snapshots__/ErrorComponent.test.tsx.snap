@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< ErrorComponent > matches the snapshot 1`] = `
+<ErrorComponent
+  error="MOCK_ERROR"
+  texts={
+    Object {
+      "errorLine1": "I'm awfully sorry but something unexpected had happened. :(",
+      "errorLine2": "I'd really appreciate if you could notify me of this error on my issues page.",
+      "notifyMe": "Notify me",
+      "title": "That's embarassing...",
+    }
+  }
+>
+  <ErrorSection>
+    <div
+      className="jTIoGN"
+    >
+      <ErrorTitle>
+        <h2
+          className="bLGTyS"
+        >
+          That's embarassing...
+        </h2>
+      </ErrorTitle>
+      <NotificationArea>
+        <div
+          className="hJjFnT"
+        >
+          <SorryText>
+            <p
+              className="kEjzio"
+            >
+              I'm awfully sorry but something unexpected had happened. :(
+            </p>
+          </SorryText>
+          <SorryText>
+            <p
+              className="kEjzio"
+            >
+              I'd really appreciate if you could notify me of this error on my issues page.
+            </p>
+          </SorryText>
+          <ErrorDetailsArea>
+            <div
+              className="bAVCfX"
+            >
+              <DetailsText>
+                <p
+                  className="dkRjAK"
+                >
+                  MOCK_ERROR
+                </p>
+              </DetailsText>
+            </div>
+          </ErrorDetailsArea>
+          <NotifyButton
+            href="https://github.com/annabranco/my-profile/issues/new"
+            rel="noopener noreferrer"
+            target="_Blank"
+            visible={false}
+          >
+            <a
+              className="gpMUny cyqwki hKAMQs"
+              href="https://github.com/annabranco/my-profile/issues/new"
+              rel="noopener noreferrer"
+              target="_Blank"
+            >
+              <NotifyButtonText>
+                <p
+                  className="hwUAiy"
+                >
+                  Notify me
+                </p>
+              </NotifyButtonText>
+              <NotifyButtonIcon
+                className="fab fa-github-alt"
+              >
+                <i
+                  className="jGtolL fab fa-github-alt"
+                />
+              </NotifyButtonIcon>
+            </a>
+          </NotifyButton>
+        </div>
+      </NotificationArea>
+    </div>
+  </ErrorSection>
+</ErrorComponent>
+`;

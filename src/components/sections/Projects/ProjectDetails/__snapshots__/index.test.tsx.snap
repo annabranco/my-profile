@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< ProjectDetails > matches the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ProjectDetails
+    actualPage={1}
+    project={
+      Object {
+        "description": Object {
+          "en": "An  unofficial app to enhance players' experience while playing Zombicide tabletop game.",
+          "es": "Una app no oficial para mejorar la experiencia del juego de mesa Zombicide.",
+          "pt": "Una app nãp oficial para melhorar a experiência do jogo de tabuleiro Zombicide.",
+        },
+        "order": 1,
+        "repo": "https://github.com/annabranco/zombicide-party",
+        "thumbnail": "zombicide-party",
+        "title": "Zombicide Party",
+        "url": "https://annabranco.github.io/zombicide-party/",
+      }
+    }
+  />
+</Provider>
+`;

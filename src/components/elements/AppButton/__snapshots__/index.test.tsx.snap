@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< AppButton > matches the snapshot 1`] = `
+<App Button
+  buttonStyle=""
+  onClick={[Function]}
+  type="button"
+>
+  Mock Button
+</App Button>
+`;

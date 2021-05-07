@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< FishesElement > matches the snapshot 1`] = `
+<FishesElement>
+  <Fish
+    alt="Swimming Fish"
+    bottom="30%"
+    delay="3.0s"
+    facing="right"
+    key="fish3-1"
+    movementType="ease-in"
+    side="left"
+    speed="7s"
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
+    waving={true}
+  >
+    <img
+      alt="Swimming Fish"
+      className="kRUVMb"
+      speed="7s"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
+    />
+  </Fish>
+  <Fish
+    alt="Swimming Fish"
+    bottom="60%"
+    delay="1.7s"
+    facing="left"
+    key="fish0-2"
+    movementType="ease-in"
+    side="right"
+    speed="7s"
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
+    waving={false}
+  >
+    <img
+      alt="Swimming Fish"
+      className="iAugPx"
+      speed="7s"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
+    />
+  </Fish>
+</FishesElement>
+`;

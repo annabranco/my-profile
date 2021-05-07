@@ -3,7 +3,7 @@ import {
   IPageSection,
   IExperiencesType,
   IFormation,
-  LanguageCode,
+  ILanguageCode,
   ILanguage,
   IProjects,
   ISkillGroups,
@@ -27,7 +27,7 @@ interface RootReducer {
   experiences: IActionReducer<IExperiencesType[] | [] | undefined>;
   finishedScenario: IActionReducer<boolean | undefined>;
   formation: IActionReducer<IFormation[] | [] | undefined>;
-  language: IActionReducer<LanguageCode | undefined>;
+  language: IActionReducer<ILanguageCode | undefined>;
   languages: IActionReducer<ILanguage[] | [] | undefined>;
   projects: IActionReducer<IProjects[] | [] | undefined>;
   skills: IActionReducer<ISkillGroups[] | [] | undefined>;

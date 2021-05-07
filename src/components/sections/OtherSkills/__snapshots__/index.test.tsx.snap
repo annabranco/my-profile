@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< OtherSkills > matches the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OtherSkills
+    onClickClose={[Function]}
+    onClickOpen={[Function]}
+    status={
+      Object {
+        "active": false,
+        "read": false,
+        "visible": false,
+      }
+    }
+  />
+</Provider>
+`;

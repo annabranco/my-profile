@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< ScrollSection > matches the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ScrollSection
+    last={false}
+    title="Mock Section"
+  >
+    <MockChildren />
+  </ScrollSection>
+</Provider>
+`;

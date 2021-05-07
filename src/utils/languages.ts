@@ -1,5 +1,5 @@
 import { APP_LANGUAGES } from '../constants';
-import { LanguageCode } from '../types/interfaces';
+import { ILanguageCode } from '../types/interfaces';
 
 export const getLanguageCodeByName = (name: string): string => {
   const index = Object.values(APP_LANGUAGES).findIndex(
@@ -8,5 +8,5 @@ export const getLanguageCodeByName = (name: string): string => {
   return Object.keys(APP_LANGUAGES)[index];
 };
 
-export const getLanguageNameByCode = (code: LanguageCode): string =>
+export const getLanguageNameByCode = (code: ILanguageCode): string =>
   APP_LANGUAGES[code];

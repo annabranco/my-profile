@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Social > matches the snapshot 1`] = `
+<Social Area>
+  <Social Item>
+    <Link
+      href="mailto:anya.branco@icloud.com"
+    >
+      <Icon
+        className="far fa-envelope"
+      />
+      <Text>
+        anya.branco@icloud.com
+      </Text>
+    </Link>
+  </Social Item>
+  <Social Item>
+    <Link Button
+      href="https://github.com/annabranco"
+      rel="noopener noreferrer"
+      target="_Blank"
+    >
+      <Icon
+        className="fab fa-github-alt"
+      />
+      <Text>
+        Github
+      </Text>
+    </Link Button>
+  </Social Item>
+  <Social Item>
+    <Link Button
+      href="https://www.linkedin.com/in/annabranco/"
+      rel="noopener noreferrer"
+      target="_Blank"
+    >
+      <Icon
+        className="fab fa-linkedin-in"
+      />
+      <Text>
+        LinkedIn
+      </Text>
+    </Link Button>
+  </Social Item>
+  <Social Item>
+    <Link Button
+      href="https://twitter.com/AnyaBranco"
+      rel="noopener noreferrer"
+      target="_Blank"
+    >
+      <Icon
+        className="fab fa-twitter"
+      />
+      <Text>
+        Twitter
+      </Text>
+    </Link Button>
+  </Social Item>
+  <Social Item>
+    <Link Button 
+      href="skype:live%3Aanna.branco_3?call"
+    >
+      <Icon
+        className="fab fa-skype"
+      />
+      <Text>
+        Call
+      </Text>
+    </Link Button >
+    <Link Button 
+      href="skype:live%3Aanna.branco_3?chat"
+    >
+       
+      <Icon
+        className="fas fa-comments"
+      />
+      <Text>
+        Chat
+      </Text>
+    </Link Button >
+  </Social Item>
+</Social Area>
+`;

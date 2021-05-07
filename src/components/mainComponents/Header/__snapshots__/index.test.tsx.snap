@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Header Component > matches the snapshot 1`] = `
+<MockProvider>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Header
+      hideForever={true}
+      isSeabedElementOpened={true}
+    />
+  </Provider>
+</MockProvider>
+`;

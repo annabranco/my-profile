@@ -26,7 +26,7 @@ export interface IAppState {
   experiences: IExperiencesType[] | [];
   finishedScenario: boolean;
   formation: IFormation[] | [];
-  language: LanguageCode;
+  language: ILanguageCode;
   languages: ILanguage[] | [];
   projects: IProjects[] | [];
   skills: ISkillGroups[] | [];
@@ -157,18 +157,18 @@ export interface ILanguagesText {
   changeUpperBar: string;
   chekboxText: string;
   language: string;
-  languageCode: LanguageCode;
+  languageCode: ILanguageCode;
   readingLanguage: string;
 }
 
-export type LanguageCode = 'en' | 'es' | 'pt' | 'fr';
+export type ILanguageCode = 'en' | 'es' | 'pt' | 'fr';
 
 export interface ILanguagesData {
   languages: ILanguages[];
 }
 
 export interface ILanguagePreferences {
-  language: LanguageCode;
+  language: ILanguageCode;
   hideLanguagesModalForever: boolean;
 }
 
@@ -184,7 +184,7 @@ export interface ILanguage {
   active: boolean;
   flagCode: ICountry;
   language: string;
-  languageCode: LanguageCode;
+  languageCode: ILanguageCode;
   languageEn: string;
   order: number;
 }
@@ -322,6 +322,9 @@ export interface ITexts {
   sections: ISectionsText;
 }
 
+export interface ITextsFrench {
+  languages: ILanguagesText;
+}
 export interface ITextsData {
   en: ITexts;
   es: ITexts;

@@ -10,7 +10,7 @@ import {
   fontTitleAlt
 } from '../../../styles/theme';
 import { NotDisplayed } from '../../../styles/global';
-import { LanguageCode } from '../../../types/interfaces';
+import { ILanguageCode } from '../../../types/interfaces';
 
 const activeFlag = css`
   opacity: 1;
@@ -59,7 +59,7 @@ CheckBoxArea.displayName = 'CheckBox Area';
 
 interface FlagProps extends React.ComponentPropsWithoutRef<'div'> {
   active?: boolean;
-  languageSelected: LanguageCode;
+  languageSelected: ILanguageCode;
 }
 
 export const Flag = styled.div<FlagProps>`
@@ -93,8 +93,8 @@ export const FlagsWrapper = styled.div`
 FlagsWrapper.displayName = 'Flags Wrapper';
 
 interface ImageProps extends React.ComponentPropsWithoutRef<'img'> {
-  lang: LanguageCode;
-  languageSelected: LanguageCode;
+  lang: ILanguageCode;
+  languageSelected: ILanguageCode;
 }
 
 export const Image = styled.img<ImageProps>`

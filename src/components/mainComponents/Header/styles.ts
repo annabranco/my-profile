@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { LanguageCode } from '../../../types/interfaces';
+import { ILanguageCode } from '../../../types/interfaces';
 import {
   colorGrayNormal,
   colorWhite,
@@ -38,8 +38,8 @@ export const AppTitle = styled.h2`
 AppTitle.displayName = 'AppTitle';
 
 interface FlagProps extends React.ComponentPropsWithoutRef<'div'> {
-  lang?: LanguageCode;
-  languageSelected: LanguageCode;
+  lang?: ILanguageCode;
+  languageSelected: ILanguageCode;
 }
 
 export const Flag = styled.div<FlagProps>`
