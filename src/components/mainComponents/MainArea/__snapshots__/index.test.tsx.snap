@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< MainArea > matches the snapshot 1`] = `
+<ScrollArea
+  isSeabedElementOpened={false}
+  langModalVisible={false}
+  openSeabedElement={[Function]}
+/>
+`;

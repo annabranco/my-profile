@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< FrontendSkillGroup > matches the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <FrontendSkillGroup
+    details={
+      Object {
+        "globalLevel": 3,
+        "logo": "",
+        "name": "Frontend",
+        "order": 1,
+        "skills": Array [
+          Object {
+            "level": 3,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/js.png",
+            "order": 1,
+            "skill": "JavaScript",
+          },
+          Object {
+            "level": 3,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/react.png",
+            "order": 2,
+            "skill": "React",
+          },
+          Object {
+            "level": 2,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/redux.png",
+            "order": 3,
+            "skill": "Redux",
+          },
+          Object {
+            "level": 3,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/typescript.png",
+            "order": 4,
+            "skill": "TypeScript",
+          },
+          Object {
+            "level": 3,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/frontity.png",
+            "order": 5,
+            "skill": "Frontity",
+          },
+          Object {
+            "level": 1,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/angular.png",
+            "order": 6,
+            "skill": "Angular",
+          },
+          Object {
+            "extended": true,
+            "level": 3,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/html5.png",
+            "order": 7,
+            "skill": "HTML5",
+          },
+          Object {
+            "level": 3,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/css3.png",
+            "order": 8,
+            "skill": "CSS3",
+          },
+          Object {
+            "level": 3,
+            "logo": "https://raw.githubusercontent.com/annabranco/my-profile/master/src/assets/images/skills/styled-components.png",
+            "order": 9,
+            "skill": "Styled",
+          },
+        ],
+      }
+    }
+    visible={true}
+  />
+</Provider>
+`;

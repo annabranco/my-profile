@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< MacElements > matches the snapshot 1`] = `
+<div>
+  <Keyboard MacCamera />
+  <Keyboard Mark>
+    MacBook 
+    <Keyboard MarkLight>
+      Water
+    </Keyboard MarkLight>
+  </Keyboard Mark>
+</div>
+`;
+
+exports[`< OtherSkillsInfo > matches the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OtherSkillsInfo
+    onClickClose={[Function]}
+    onClickOpen={[Function]}
+    visible={true}
+  />
+</Provider>
+`;

@@ -11,6 +11,7 @@ import { setupMockProvider, getMockState } from '../../../../testing/mocks';
 import { CHANGE_LANGUAGE } from '../../../constants';
 import { AppTitle, Flag } from './styles';
 import { IAppState } from '../../../types/interfaces';
+import '../../../../testing/mocks/matchMedia';
 
 const APP_VERSION = appInfo.version;
 

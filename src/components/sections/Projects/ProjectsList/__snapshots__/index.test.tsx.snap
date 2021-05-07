@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< ProjectsList > matches the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ProjectsList
+    actualPage={1}
+    onClickChangePage={[Function]}
+    projects={
+      Array [
+        Array [
+          Object {
+            "description": Object {
+              "en": "An  unofficial app to enhance players' experience while playing Zombicide tabletop game.",
+              "es": "Una app no oficial para mejorar la experiencia del juego de mesa Zombicide.",
+              "pt": "Una app nãp oficial para melhorar a experiência do jogo de tabuleiro Zombicide.",
+            },
+            "order": 1,
+            "repo": "https://github.com/annabranco/zombicide-party",
+            "thumbnail": "zombicide-party",
+            "title": "Zombicide Party",
+            "url": "https://annabranco.github.io/zombicide-party/",
+          },
+          Object {
+            "description": Object {
+              "en": "A page for No Name Kitchen, a NGO working with refugees arriving in Europe. Pre-release.",
+              "es": "Una página para No Name Kitchen, una ONG que trabaja con refugiados. Pre-release.",
+              "pt": "Uma página para No Name Kitchen, uma ONG que trabalha com refugiados. Pre-release.",
+            },
+            "order": 2,
+            "repo": "https://github.com/annabranco/nnk",
+            "thumbnail": "no-name-kitchen",
+            "title": "No Name Kitchen",
+            "url": "http://nnk.vercel.app/",
+          },
+          Object {
+            "description": Object {
+              "en": "A fun and beautiful memory card game themed on Disney’s Toy Story characters, for all ages.",
+              "es": "Un divertido y bonito juego de parejas, con tema de Toy Story (Disney), para todas las edades. ",
+              "pt": "Um divertido e bonito jogo da memória, com temática de Toy Story (Disney), para todas as idades.",
+            },
+            "order": 3,
+            "repo": "https://github.com/annabranco/toy-story-games",
+            "thumbnail": "toy-story",
+            "title": "Toy Story Games",
+            "url": "https://annabranco.github.io/toy-story-games/",
+          },
+          Object {
+            "description": Object {
+              "en": "The prototype of an own Role Playing Game built in vanilla JavaScript. Work in progress.",
+              "es": "El prototipo de un juego de rol mío desarrollado en JavaScript vanilla. En desarrollo.",
+              "pt": "O protótipo de um jogo de RPG meu programado en JavaScript vanilla. Em desenvolvimento.",
+            },
+            "order": 4,
+            "repo": "https://github.com/annabranco/an-adventure",
+            "thumbnail": "an-adventure",
+            "title": "An Adventure",
+            "url": "https://annabranco.github.io/an-adventure/",
+          },
+        ],
+        Array [
+          Object {
+            "description": Object {
+              "en": "A demo pre-release of a game of Shougi, the Japanese Chess. Unfinished, but playable.",
+              "es": "Una demo pre-release de un juego de Shougi, el ajedrez japonés. No está terminado.",
+              "pt": "Uma demo pre-release de um jogo de Shougi, o xadrez japonês. Não está terminado.",
+            },
+            "order": 5,
+            "repo": "https://github.com/annabranco/shougi",
+            "thumbnail": "shougi",
+            "title": "Shougi",
+            "url": "https://annabranco.github.io/shougi/",
+          },
+          Object {
+            "description": Object {
+              "en": "A beautiful visual database presentating Harry Potter's characters.",
+              "es": "Un bonito proyecto visual presentando los personajes de Harry Potter.",
+              "pt": "Un bonito projeto visual apresetnando os personagens de Harry Potter.",
+            },
+            "order": 6,
+            "repo": "https://github.com/annabranco/harry-potter-database",
+            "thumbnail": "harry-potter-database",
+            "title": "Harry Potter Database",
+            "url": "https://annabranco.github.io/harry-potter-database",
+          },
+          Object {
+            "description": Object {
+              "en": "A beautiful TV series finder, where users can search on a huge database.",
+              "es": "Un buscador de series, donde puedes buscar en una enorme base de datos.",
+              "pt": "Um buscador de séries, onde você pode buscar en um enorme banco de dados.",
+            },
+            "order": 7,
+            "repo": "https://github.com/annabranco/tv-series-finder",
+            "thumbnail": "tv-series-finder",
+            "title": "TV Series Finder",
+            "url": "https://annabranco.github.io/tv-series-finder/",
+          },
+          Object {
+            "description": Object {
+              "en": "This is the page you are visiting; a digital presentation of CV and professional profile.",
+              "es": "Esta es la página donde estás; una presentación digital de mi CV y perfil profesional.",
+              "pt": "Esta é a página onde você está; uma apresentação digital do meu CV e perfil profissional.",
+            },
+            "order": 8,
+            "repo": "https://github.com/annabranco/my-profile",
+            "thumbnail": "my-profile",
+            "title": "My profile",
+            "url": "https://annabranco.github.io/my-profile/",
+          },
+        ],
+        Array [
+          Object {
+            "description": Object {
+              "en": "An animation game where the player interacts with the weather. In progress.",
+              "es": "Un juego de animación donde el jugador interactúa con el tiempo. En desarrollo.",
+              "pt": "Um jogo de animação onde o jogador interage con o tempo. Em desenvolvimento.",
+            },
+            "order": 9,
+            "repo": "https://github.com/annabranco/days-go-by",
+            "thumbnail": "days-go-by",
+            "title": "Days Go By",
+            "url": "https://annabranco.github.io/days-go-by/",
+          },
+        ],
+      ]
+    }
+    totalPages={4}
+    visible={true}
+  />
+</Provider>
+`;
