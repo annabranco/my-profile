@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Shell Component > matches the snapshot 1`] = `
+<ShellContainer
+  hidden={false}
+>
+  <TheShell
+    onClick={[Function]}
+    src={
+      Object {
+        "process": [Function],
+      }
+    }
+  />
+</ShellContainer>
+`;
