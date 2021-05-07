@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bool } from 'prop-types';
 import {
-  LanguageCode,
+  ILanguageCode,
   ILanguage,
   ISectionsText
 } from '../../../types/interfaces';
@@ -39,7 +39,7 @@ const Header = ({
 }: Props): ReactElement => {
   const APP_VERSION: string = appInfo.version;
   const languages: ILanguage[] = useSelector(allLanguagesSelector);
-  const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
+  const languageSelected: ILanguageCode = useSelector(currentLanguageSelector);
   const title: string = useSelector(headerTitleSelector);
   const currentSection: string = useSelector(currentSecionSelector);
   const sections: ISectionsText = useSelector(sectionsTextsSelector);

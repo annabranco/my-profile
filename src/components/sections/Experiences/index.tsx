@@ -4,7 +4,7 @@ import { instanceOf } from 'prop-types';
 import {
   IExperiencesType,
   IGlobalTexts,
-  LanguageCode
+  ILanguageCode
 } from '../../../types/interfaces';
 import {
   currentLanguageSelector,
@@ -39,7 +39,7 @@ interface Props {
 
 const Experiences = ({ cuePointsActivated }: Props): ReactElement => {
   const experiences: IExperiencesType[] = useSelector(experiencesSelector);
-  const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
+  const languageSelected: ILanguageCode = useSelector(currentLanguageSelector);
   const texts: IGlobalTexts = useSelector(globalTextsSelector);
 
   const [selectedExperience, selectExperience] = useStateWithLabel<

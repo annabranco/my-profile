@@ -17,5 +17,5 @@
 		"noFallthroughCasesInSwitch": true
 	},
 	"include": ["src"],
-	"typeRoots": ["node_modules/@types", "types/custom/"]
+	"typeRoots": ["node_modules/@types", "types/custom/*"]
 }

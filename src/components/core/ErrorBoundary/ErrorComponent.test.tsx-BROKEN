@@ -21,7 +21,7 @@ describe('< ErrorComponent >', () => {
     expect(component).toBeDefined();
   });
 
-  it('matches the snapshot', () => {
+  /*  it('matches the snapshot', () => {
     const tree = shallow(<ErrorComponent error={MOCK_ERROR} />);
     expect(tree).toMatchSnapshot();
   });
@@ -85,4 +85,5 @@ describe('< ErrorComponent >', () => {
   //   expect(notifyButton3.prop('visible')).toBe(false);
   //   console.log('$$$ notifyButton.debug()', notifyButton.props());
   // });
+  */
 });

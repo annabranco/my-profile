@@ -4,7 +4,7 @@ import { func } from 'prop-types';
 import {
   IFormation,
   IGlobalTexts,
-  LanguageCode,
+  ILanguageCode,
   ISeabedElements,
   ISeabedText
 } from '../../../types/interfaces';
@@ -47,7 +47,7 @@ const Formation = ({
   status: { read, visible }
 }: Props): ReactElement => {
   const formation: IFormation[] = useSelector(formationSelector);
-  const languageSelected: LanguageCode = useSelector(currentLanguageSelector);
+  const languageSelected: ILanguageCode = useSelector(currentLanguageSelector);
   const texts: ISeabedText = useSelector(seabedTextsSelector);
   const globalTexts: IGlobalTexts = useSelector(globalTextsSelector);
 
