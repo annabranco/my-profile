@@ -4,7 +4,7 @@ import '../../../../testing/mocks/matchMedia';
 import LanguagesModal from '.';
 import { setupMockProvider } from '../../../../testing/mocks';
 
-// TODO [07-May -21]: Enhance Testing (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< LanguagesModal >', () => {
   let MockProvider;
@@ -30,5 +30,20 @@ describe('< LanguagesModal >', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  xit('should display all languages options received from server', () => {
+  });
+
+  xit('should display a flag and the name of each language', () => {
+  });
+
+  xit('should change the app language when the flag or name is clicked', () => {
+  });
+
+  xit('should close modal when OK button is clicked', () => {
+  });
+
+  xit('should set language preferencies on localstorage when OK button is clicked', () => {
   });
 });

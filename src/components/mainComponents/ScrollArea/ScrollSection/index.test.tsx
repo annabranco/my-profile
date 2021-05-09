@@ -5,7 +5,7 @@ import { setupMockProvider } from '../../../../../testing/mocks';
 
 const MockChildren = () => <p>Mock Text</p>;
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< ScrollSection >', () => {
   let MockProvider;

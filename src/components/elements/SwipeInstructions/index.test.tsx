@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import SwipeInstructions from '.';
 import { setupMockProvider } from '../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< SwipeInstructions >', () => {
   let MockProvider;
@@ -24,5 +24,20 @@ describe('< SwipeInstructions >', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  xit('should display a swipe image', () => {
+  });
+
+  xit('should display a button to advance sections', () => {
+  });
+
+  xit('should display arrows pointing to the advance button', () => {
+  });
+
+  xit('should trigger a close action when clicked anywhere', () => {
+  });
+
+  xit('should trigger a close action on swipe', () => {
   });
 });

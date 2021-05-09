@@ -4,7 +4,7 @@ import '../../../../testing/mocks/matchMedia';
 import App from '.';
 import { setupMockProvider } from '../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< App >', () => {
   let MockProvider;
@@ -25,5 +25,20 @@ describe('< App >', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  xit('should have an Error Boundary', () => {
+  });
+
+  xit('should get languages preferences from localStorage', () => {
+  });
+
+  xit('should display a language modal on mount', () => {
+  });
+
+  xit('should render a Header component', () => {
+  });
+
+  xit('should display a Main Area component only when settings are loaded', () => {
   });
 });

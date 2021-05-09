@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import SkillLevel from '.';
 import { setupMockProvider } from '../../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [07-May -21]: Define real test suites (Anna Branco)
 
 describe('< SkillLevel >', () => {
   let MockProvider;

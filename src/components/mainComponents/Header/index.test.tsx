@@ -13,6 +13,8 @@ import { AppTitle, Flag } from './styles';
 import { IAppState } from '../../../types/interfaces';
 import '../../../../testing/mocks/matchMedia';
 
+// TODO [10-May -21]: Refine testing (Anna Branco)
+
 const APP_VERSION = appInfo.version;
 
 describe('< Header Component >', () => {

@@ -4,7 +4,7 @@ import '../../../../testing/mocks/matchMedia';
 import SeaBed from '.';
 import { setupMockProvider } from '../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [07-May -21]: Define real test suites (Anna Branco)
 
 describe('< SeaBed >', () => {
   let MockProvider;

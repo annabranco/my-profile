@@ -5,7 +5,7 @@ import sortBy from 'lodash/sortBy';
 import ProjectsList from '.';
 import { getMockState, setupMockProvider } from '../../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< ProjectsList >', () => {
   const mockProjects = getMockState({
