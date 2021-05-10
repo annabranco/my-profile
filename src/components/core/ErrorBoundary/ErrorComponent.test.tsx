@@ -4,11 +4,11 @@ import {
   HTMLAttributes,
   mount,
   ReactWrapper,
-  shallow,
-  ShallowWrapper
+  shallow
 } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import 'jest-styled-components';
+import { act } from 'react-dom/test-utils';
 import ErrorComponent from './ErrorComponent';
 import appInfo from '../../../../package.json';
 import { NotifyButton } from './styles';
@@ -28,20 +28,10 @@ interface TextElement extends ComponentClass<HTMLAttributes> {
 
 describe('< ErrorComponent >', () => {
   let wrapper: ReactWrapper;
-  let useEffect: any;
-  const setState = jest.fn();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const useStateMock: any = (initState: any) => [initState, setState];
-
-  const mockUseEffect = () => {
-    useEffect.mockImplementationOnce((f: () => void) => f());
-  };
-
-  jest.spyOn(React, 'useState').mockImplementation(useStateMock);
 
   beforeAll(() => {
+    jest.useFakeTimers();
     wrapper = mount(<ErrorComponent error={MOCK_ERROR} />);
-    useEffect = jest.spyOn(React, 'useEffect');
   });
 
   it('should mount', () => {
@@ -91,29 +81,19 @@ describe('< ErrorComponent >', () => {
     expect(toJson(buttonInitial)).toHaveStyleRule('opacity', '1');
   });
 
-  /*
-    This test is failing
-    Trying to get help to solve it here:
-
-    https://stackoverflow.com/questions/67440874/how-can-i-test-a-component-style-modified-by-a-settimeout-fired-on-useeffect
-  */
-
-  xit('should display the notify button only after X seconds', done => {
+  it('should display the notify button only after X seconds', () => {
+    jest.useFakeTimers();
+    act(() => {
+      wrapper = mount(<ErrorComponent error={MOCK_ERROR} />);
+    });
     let notifyButton = wrapper.find('NotifyButton');
     expect(notifyButton.prop('visible')).toBe(false);
 
-    mockUseEffect();
-    jest.useFakeTimers();
-    expect(setState).toHaveBeenCalledTimes(1);
-
-    setTimeout(() => {
-      wrapper.update();
-      notifyButton = wrapper.find('NotifyButton');
-      expect(notifyButton.prop('visible')).toBe(true);
-
-      wrapper.unmount();
-      done();
-    }, 7000);
-    jest.runAllTimers();
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    wrapper.update();
+    notifyButton = wrapper.find('NotifyButton');
+    expect(notifyButton.prop('visible')).toBeTruthy();
   });
 });
