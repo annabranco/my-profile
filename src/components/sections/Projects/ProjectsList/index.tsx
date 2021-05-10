@@ -43,18 +43,20 @@ const ProjectsList = ({
           </ProjectsGrid>
 
           <Paginator>
-            <Text notVisible={actualPage === 1}>{texts.goUp}</Text>
+            <Text notVisible={actualPage === 1}>{texts.showMorePrevious}</Text>
             <Icon
-              aria-label={texts.goUp}
-              className="far fa-arrow-alt-circle-up"
+              aria-label={texts.showMorePrevious}
+              className="far fa-arrow-alt-circle-left"
               notVisible={actualPage === 1}
               onClick={() => onClickChangePage(BACK_ACTION)}
               role="button"
               tabIndex={0}
             />
             <Icon
-              aria-label={texts.showMore}
-              className="far fa-arrow-alt-circle-down"
+              aria-label={
+                actualPage === 1 ? texts.showMore : texts.showMoreNext
+              }
+              className="far fa-arrow-alt-circle-right"
               next
               notVisible={actualPage === totalPages}
               onClick={() => onClickChangePage(ADVANCE_ACTION)}
@@ -62,7 +64,7 @@ const ProjectsList = ({
               tabIndex={0}
             />
             <Text next notVisible={actualPage === totalPages}>
-              {texts.showMore}
+              {actualPage === 1 ? texts.showMore : texts.showMoreNext}
             </Text>
           </Paginator>
         </>
