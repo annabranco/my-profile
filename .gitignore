@@ -5,6 +5,9 @@ yarn-error.log
 # production
 /build
 
+# testing
+/coverage
+
 # misc
 .DS_Store
 .vscode/

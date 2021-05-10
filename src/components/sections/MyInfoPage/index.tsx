@@ -51,7 +51,9 @@ const MyInfoPage = (): ReactElement => {
               <Photo src={Mugshot} alt="Anna Branco" />
             </PhotoWrapper>
             <InfoArea>
-              <MyNameOnDesktopDevices>Anna Branco</MyNameOnDesktopDevices>
+              <MyNameOnDesktopDevices data-e2e-id="me">
+                Anna Branco
+              </MyNameOnDesktopDevices>
               <JobTitle>{texts.job}</JobTitle>
               {finishedScenario && <KindFish src={BlinkingFish} />}
               <InfoMessage>
