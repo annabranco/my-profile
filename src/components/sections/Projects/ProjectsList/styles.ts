@@ -27,12 +27,10 @@ export const Icon = styled.i<IconProps>`
     if (next) {
       return css`
         right: 3px;
-        transform: rotate(-90deg);
       `;
     }
     return css`
       left: 3px;
-      transform: rotate(-90deg);
     `;
   }}
 

@@ -5,7 +5,7 @@ import FishesElement from '.';
 import { Fish } from './styles';
 import { LEFT } from '../../../../../constants';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 const MockFish = () => (
   <Fish

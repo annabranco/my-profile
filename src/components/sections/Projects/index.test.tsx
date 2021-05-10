@@ -5,7 +5,7 @@ import Projects from '.';
 import { setupMockProvider } from '../../../../testing/mocks';
 // import { getMockState } from '../../../testing/mocks/mockState';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< Projects >', () => {
   let MockProvider;
@@ -27,4 +27,8 @@ describe('< Projects >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should render a ProjectsList component', () => {});
+
+  xit('should correctly send updated information to ProjectsList component', () => {});
 });

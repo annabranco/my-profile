@@ -121,7 +121,7 @@ const LanguagesModal = ({
             className="languages__checkbox"
             id="checkLang"
             name="hideForever"
-            onClick={toggleBlockLangModal}
+            // onClick={toggleBlockLangModal}
             readOnly
             type="checkbox"
           />

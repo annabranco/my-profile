@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import '../../../../testing/mocks/matchMedia';
 import MainArea from '.';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< MainArea >', () => {
   let wrapper: ShallowWrapper;
@@ -24,5 +24,8 @@ describe('< MainArea >', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  xit('should correctly pass received props to a Scroll Area component', () => {
   });
 });

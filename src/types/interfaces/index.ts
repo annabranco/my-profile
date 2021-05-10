@@ -51,13 +51,14 @@ interface ICountryType {
 export interface IDeveloperText {
   expanded: string;
   formation: string;
-  goUp: string;
   main: string;
   other: string;
   projects: string;
   projectsText: string;
   reduced: string;
   showMore: string;
+  showMoreNext: string;
+  showMorePrevious: string;
   showThumbnails: string;
 }
 

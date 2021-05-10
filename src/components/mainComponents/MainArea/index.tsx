@@ -2,6 +2,8 @@ import { Dispatch, ReactElement, SetStateAction } from 'react';
 import { bool, func } from 'prop-types';
 import ScrollArea from '../ScrollArea';
 
+// TODO [10-May -21]: Check if this component is still necessary (Anna Branco)
+
 interface Props {
   isSeabedElementOpened: boolean;
   langModalVisible: boolean;

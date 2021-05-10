@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import SkillLevel from '.';
 import { setupMockProvider } from '../../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [07-May -21]: Define real test suites (Anna Branco)
 
 describe('< SkillLevel >', () => {
   let MockProvider;
@@ -25,4 +25,8 @@ describe('< SkillLevel >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should render a wrapper with stars corresponding to the level received by props', () => {});
+
+  xit('should make the stars visible only on hover', () => {});
 });

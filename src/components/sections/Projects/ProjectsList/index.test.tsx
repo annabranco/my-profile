@@ -5,7 +5,7 @@ import sortBy from 'lodash/sortBy';
 import ProjectsList from '.';
 import { getMockState, setupMockProvider } from '../../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suits (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< ProjectsList >', () => {
   const mockProjects = getMockState({
@@ -37,4 +37,14 @@ describe('< ProjectsList >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should only render Projects List when visible prop is true or on devices', () => {});
+
+  xit('should render grid with all projects received from props', () => {});
+
+  xit('should render a button to advance a page of projects', () => {});
+
+  xit('should not render a button to advance if there are only two projects', () => {});
+
+  xit('should render a button to go back a page of projects when not on the first page', () => {});
 });

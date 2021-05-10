@@ -28,4 +28,7 @@ describe('< ErrorBoundary >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should pass caught error to an Error Component', () => {
+  });
 });
