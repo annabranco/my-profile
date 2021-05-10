@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import ProjectDetails from '.';
 import { getMockState, setupMockProvider } from '../../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suites (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< ProjectDetails >', () => {
   const mockProject = getMockState({
@@ -28,4 +28,12 @@ describe('< ProjectDetails >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should render info about the project received by props, displaying  the name, thumbnail and link', () => {});
+
+  xit('should render the project description on desktops', () => {});
+
+  xit('should display an animation when displaying each pair of projects', () => {});
+
+  xit('should translate all texts when the language is changed', () => {});
 });

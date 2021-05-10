@@ -27,4 +27,8 @@ describe('< Projects >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should render a ProjectsList component', () => {});
+
+  xit('should correctly send updated information to ProjectsList component', () => {});
 });

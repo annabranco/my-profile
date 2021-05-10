@@ -25,4 +25,8 @@ describe('< SkillLevel >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should render a wrapper with stars corresponding to the level received by props', () => {});
+
+  xit('should make the stars visible only on hover', () => {});
 });

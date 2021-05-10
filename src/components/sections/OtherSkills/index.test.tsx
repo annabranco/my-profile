@@ -7,7 +7,7 @@ import {
   subSectionsStatus
 } from '../../../../testing/mocks';
 
-// TODO [07-May -21]: Define real test suites (Anna Branco)
+// TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
 describe('< OtherSkills >', () => {
   let MockProvider;
@@ -33,4 +33,18 @@ describe('< OtherSkills >', () => {
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  xit('should render an event message on desktops', () => {});
+
+  xit('should display a section title', () => {});
+
+  xit('should display a notebook element', () => {});
+
+  xit('should call prop onClickOpen when notebook is clicked', () => {});
+
+  xit('should display a SectionOtherSkills component passing the visibility prop', () => {});
+
+  xit('should render a Mac interface simulation on desktops when prop visible is true', () => {});
+
+  xit('should translate all texts when the language is changed', () => {});
 });
