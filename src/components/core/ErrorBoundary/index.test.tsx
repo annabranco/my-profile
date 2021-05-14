@@ -1,8 +1,7 @@
-import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
 import ErrorBoundary from '.';
-import { setupMockProvider } from '../../../../testing/mocks';
+import { setupMockProvider } from '../../../tests/mocks';
 
 const MockChild = () => <p>Mock Child</p>;
 
@@ -29,6 +28,5 @@ describe('< ErrorBoundary >', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  xit('should pass caught error to an Error Component', () => {
-  });
+  xit('should pass caught error to an Error Component', () => {});
 });

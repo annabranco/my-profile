@@ -24,7 +24,7 @@ const FrontendSkillGroup = ({ details, visible }: Props): ReactElement => (
         }
         return (
           <SkillItem group={details.name} key={`${skill.order}-${skill.skill}`}>
-            <Name>{skill.skill}</Name>
+            <Name data-e2e-id={`skill-${skill.skill}`}>{skill.skill}</Name>
 
             {skill.logo && (
               <LogoWrapper>

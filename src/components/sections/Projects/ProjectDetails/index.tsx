@@ -29,14 +29,24 @@ const ProjectDetails = ({ actualPage, project }: Props): ReactElement => {
     <ProjectItem actualPage={actualPage} key={project.title}>
       {isDesktop && (
         <>
-          <Link href={project.url} rel="noopener noreferrer" target="_Blank">
+          <Link
+            href={project.url}
+            data-e2e-id={`projects-title_${project.title}`}
+            rel="noopener noreferrer"
+            target="_Blank"
+          >
             <Title>
               {project.title}
               <SeeIcon className="far fa-eye" />
             </Title>
           </Link>
           <Description>{project.description[languageSelected]}</Description>
-          <Link href={project.repo} rel="noopener noreferrer" target="_Blank">
+          <Link
+            href={project.repo}
+            data-e2e-id={`projects-repo_${project.title}`}
+            rel="noopener noreferrer"
+            target="_Blank"
+          >
             <RepoUrl className="project__repo">
               <RepoIcon className="fab fa-github-alt" />
               {project.repo.replace('https://github.com', '')}
@@ -45,6 +55,7 @@ const ProjectDetails = ({ actualPage, project }: Props): ReactElement => {
         </>
       )}
       <Link
+        data-e2e-id={`projects-thumb_${project.title}`}
         href={isDesktop ? project.url : project.repo}
         rel="noopener noreferrer"
         target="_Blank"

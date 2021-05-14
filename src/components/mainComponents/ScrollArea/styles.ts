@@ -10,7 +10,7 @@ export const ScrollAreaWrapper = styled.main<ScrollAreaWrapperProps>`
   height: ${`${window.innerHeight}px`};
   overflow: hidden;
   position: absolute;
-  scroll-snap-type: y proximity;
+  /* scroll-snap-type: y proximity; */
 
   ${({ langModalVisible }) =>
     langModalVisible &&

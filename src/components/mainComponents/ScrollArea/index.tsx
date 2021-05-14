@@ -74,6 +74,24 @@ interface Props {
   openSeabedElement: Dispatch<SetStateAction<boolean>>;
 }
 
+export const SECTIONS_INTERVAL_POINTS = {
+  skills: {
+    scrollAreaStart: 200,
+    scrollAreaEnd: 1200
+  },
+  projects: {
+    scrollAreaStart: 1000,
+    scrollAreaEnd: 2000
+  },
+  experiences: {
+    scrollAreaStart: 1400,
+    scrollAreaEnd: 2100
+  },
+  seabed: {
+    scrollAreaStart: 2600
+  }
+};
+
 const ScrollArea = ({
   isSeabedElementOpened,
   langModalVisible,
@@ -99,24 +117,6 @@ const ScrollArea = ({
   const dispatch = useDispatch();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const touchActive = useRef<boolean>(false);
-
-  const SECTIONS_INTERVAL_POINTS = {
-    skills: {
-      scrollAreaStart: 200,
-      scrollAreaEnd: 1200
-    },
-    projects: {
-      scrollAreaStart: 1000,
-      scrollAreaEnd: 2000
-    },
-    experiences: {
-      scrollAreaStart: 1400,
-      scrollAreaEnd: 2100
-    },
-    seabed: {
-      scrollAreaStart: 2600
-    }
-  };
 
   const experiencesSectionIds = new Set();
 
@@ -308,6 +308,7 @@ const ScrollArea = ({
 
   return (
     <ScrollAreaWrapper
+      data-e2e-id="scrollArea"
       isSeabedElementOpened={isSeabedElementOpened}
       langModalVisible={langModalVisible}
       onScroll={handleScroll}
@@ -320,25 +321,38 @@ const ScrollArea = ({
       {(isDesktop || activeSection === INFO_PAGE_SECTION) && <MyInfoPage />}
 
       {(isDesktop || activeSection === SKILLS_SECTION) && (
-        <ScrollSection title={sectionsTexts.technical}>
+        <ScrollSection
+          datae2eid="section-skills"
+          title={sectionsTexts.technical}
+        >
           <Skills cuePointsActivated={cuePointsActivated} />
         </ScrollSection>
       )}
 
       {(isDesktop || activeSection === PROJECTS_SECTION) && (
-        <ScrollSection title={sectionsTexts.projects}>
+        <ScrollSection
+          datae2eid="section-projects"
+          title={sectionsTexts.projects}
+        >
           <Projects cuePointsActivated={cuePointsActivated} />
         </ScrollSection>
       )}
 
       {(isDesktop || activeSection === EXPERIENCES_SECTION) && (
-        <ScrollSection title={sectionsTexts.experience}>
+        <ScrollSection
+          datae2eid="section-experiences"
+          title={sectionsTexts.experience}
+        >
           <Experiences cuePointsActivated={cuePointsActivated} />
         </ScrollSection>
       )}
 
       {(isDesktop || activeSection === SEABED_SECTION) && (
-        <ScrollSection last title={sectionsTexts.other}>
+        <ScrollSection
+          datae2eid="section-seabed"
+          last
+          title={sectionsTexts.other}
+        >
           <Seabed
             cuePointsActivated={cuePointsActivated}
             openSeabedElement={openSeabedElement}

@@ -11,10 +11,11 @@ const SkillLevel = ({ level, skill }: Props): ReactElement => {
   const stars: '*'[] = new Array(level).fill('*');
 
   return (
-    <StarsWrapper>
+    <StarsWrapper data-e2e-id={`skill-${skill}_starsWrapper`}>
       {stars.map((_, index) => (
         <Star
           aria-hidden
+          data-e2e-id={`skill-${skill}_star`}
           className="fas fa-star"
           key={`${skill}-${level}-${index}`} // eslint-disable-line react/no-array-index-key
         />

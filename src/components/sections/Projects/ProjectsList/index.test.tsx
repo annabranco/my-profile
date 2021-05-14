@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import chunk from 'lodash/chunk';
 import sortBy from 'lodash/sortBy';
 import ProjectsList from '.';
-import { getMockState, setupMockProvider } from '../../../../../testing/mocks';
+import { getMockState, setupMockProvider } from '../../../../tests/mocks';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 

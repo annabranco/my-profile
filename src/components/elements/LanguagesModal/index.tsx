@@ -86,12 +86,13 @@ const LanguagesModal = ({
 
   return (
     <BackgroundOverlay>
-      <ModalWrapper>
+      <ModalWrapper data-e2e-id="languagesModal">
         <FlagsWrapper>
           {languages.map(item => (
             <Flag
               active={item.active}
               aria-label={item.language}
+              data-e2e-id={`langModal-flag_${item.flagCode}`}
               key={item.languageCode}
               lang={item.languageCode}
               languageSelected={languageSelected}
@@ -114,11 +115,14 @@ const LanguagesModal = ({
           ))}
         </FlagsWrapper>
 
-        <Text>{texts.changeUpperBar}</Text>
+        <Text data-e2e-id="langModal-instructionsText">
+          {texts.changeUpperBar}
+        </Text>
         <CheckBoxArea role="checkbox" onClick={toggleBlockLangModal}>
           <CheckBox
             checked={hideForever}
             className="languages__checkbox"
+            data-e2e-id="langModal-checkbox"
             id="checkLang"
             name="hideForever"
             // onClick={toggleBlockLangModal}
@@ -127,7 +131,12 @@ const LanguagesModal = ({
           />
           <label htmlFor="blockLang">{texts.chekboxText}</label>
         </CheckBoxArea>
-        <AppButton buttonStyle="confirm" onClick={onClickClose} text="ok" />
+        <AppButton
+          buttonStyle="confirm"
+          datae2eid="langModal-ok"
+          onClick={onClickClose}
+          text="ok"
+        />
       </ModalWrapper>
     </BackgroundOverlay>
   );

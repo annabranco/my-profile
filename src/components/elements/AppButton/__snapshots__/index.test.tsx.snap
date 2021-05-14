@@ -3,6 +3,7 @@
 exports[`< AppButton > matches the snapshot 1`] = `
 <App Button
   buttonStyle=""
+  data-e2e-id={null}
   onClick={[Function]}
   type="button"
 >

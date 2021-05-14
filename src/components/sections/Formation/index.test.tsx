@@ -1,11 +1,8 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
-import '../../../../testing/mocks/matchMedia';
+import '../../../tests/mocks/matchMedia';
 import Formation from '.';
-import {
-  setupMockProvider,
-  subSectionsStatus
-} from '../../../../testing/mocks';
+import { setupMockProvider, subSectionsStatus } from '../../../tests/mocks';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 

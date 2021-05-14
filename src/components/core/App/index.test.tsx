@@ -1,8 +1,8 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
-import '../../../../testing/mocks/matchMedia';
+import '../../../tests/mocks/matchMedia';
 import App from '.';
-import { setupMockProvider } from '../../../../testing/mocks';
+import { setupMockProvider } from '../../../tests/mocks';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
@@ -27,18 +27,13 @@ describe('< App >', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  xit('should have an Error Boundary', () => {
-  });
+  xit('should have an Error Boundary', () => {});
 
-  xit('should get languages preferences from localStorage', () => {
-  });
+  xit('should get languages preferences from localStorage', () => {});
 
-  xit('should display a language modal on mount', () => {
-  });
+  xit('should display a language modal on mount', () => {});
 
-  xit('should render a Header component', () => {
-  });
+  xit('should render a Header component', () => {});
 
-  xit('should display a Main Area component only when settings are loaded', () => {
-  });
+  xit('should display a Main Area component only when settings are loaded', () => {});
 });

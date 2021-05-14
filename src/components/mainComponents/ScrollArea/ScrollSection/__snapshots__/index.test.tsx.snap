@@ -14,6 +14,7 @@ exports[`< ScrollSection > matches the snapshot 1`] = `
   }
 >
   <ScrollSection
+    datae2eid={null}
     last={false}
     title="Mock Section"
   >

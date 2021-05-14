@@ -311,16 +311,16 @@ export type IStyle =
   | 'wave';
 
 export interface ITexts {
-  developer: IDeveloperText;
-  error: IErrorText;
-  global: IGlobalTexts;
+  developer?: IDeveloperText;
+  error?: IErrorText;
+  global?: IGlobalTexts;
   header: IHeaderText;
-  infoPage: IInfoPageText;
-  instructions: IInstructionsText;
+  infoPage?: IInfoPageText;
+  instructions?: IInstructionsText;
   languages: ILanguagesText;
-  otherSkills: IOtherSkillsText;
-  seabed: ISeabedText;
-  sections: ISectionsText;
+  otherSkills?: IOtherSkillsText;
+  seabed?: ISeabedText;
+  sections?: ISectionsText;
 }
 
 export interface ITextsFrench {

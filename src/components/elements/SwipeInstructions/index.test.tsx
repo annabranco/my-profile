@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
 import SwipeInstructions from '.';
-import { setupMockProvider } from '../../../../testing/mocks';
+import { setupMockProvider } from '../../../tests/mocks';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
@@ -26,18 +26,13 @@ describe('< SwipeInstructions >', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  xit('should display a swipe image', () => {
-  });
+  xit('should display a swipe image', () => {});
 
-  xit('should display a button to advance sections', () => {
-  });
+  xit('should display a button to advance sections', () => {});
 
-  xit('should display arrows pointing to the advance button', () => {
-  });
+  xit('should display arrows pointing to the advance button', () => {});
 
-  xit('should trigger a close action when clicked anywhere', () => {
-  });
+  xit('should trigger a close action when clicked anywhere', () => {});
 
-  xit('should trigger a close action on swipe', () => {
-  });
+  xit('should trigger a close action on swipe', () => {});
 });

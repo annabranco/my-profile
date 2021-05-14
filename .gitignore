@@ -7,6 +7,7 @@ yarn-error.log
 
 # testing
 /coverage
+/cypress
 
 # misc
 .DS_Store

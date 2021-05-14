@@ -47,6 +47,7 @@ const ProjectsList = ({
             <Icon
               aria-label={texts.showMorePrevious}
               className="far fa-arrow-alt-circle-left"
+              data-e2e-id="projects-button_back"
               notVisible={actualPage === 1}
               onClick={() => onClickChangePage(BACK_ACTION)}
               role="button"
@@ -57,6 +58,7 @@ const ProjectsList = ({
                 actualPage === 1 ? texts.showMore : texts.showMoreNext
               }
               className="far fa-arrow-alt-circle-right"
+              data-e2e-id="projects-button_advance"
               next
               notVisible={actualPage === totalPages}
               onClick={() => onClickChangePage(ADVANCE_ACTION)}

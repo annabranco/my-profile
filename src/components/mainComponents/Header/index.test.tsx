@@ -7,11 +7,11 @@ import renderer, {
 } from 'react-test-renderer';
 import Header from './index';
 import appInfo from '../../../../package.json';
-import { setupMockProvider, getMockState } from '../../../../testing/mocks';
+import { setupMockProvider, getMockState } from '../../../tests/mocks';
 import { CHANGE_LANGUAGE } from '../../../constants';
 import { AppTitle, Flag } from './styles';
 import { IAppState } from '../../../types/interfaces';
-import '../../../../testing/mocks/matchMedia';
+import '../../../tests/mocks/matchMedia';
 
 // TODO [10-May -21]: Refine testing (Anna Branco)
 

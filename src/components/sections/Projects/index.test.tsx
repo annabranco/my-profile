@@ -1,9 +1,9 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
-import '../../../../testing/mocks/matchMedia';
+import '../../../tests/mocks/matchMedia';
 import Projects from '.';
-import { setupMockProvider } from '../../../../testing/mocks';
-// import { getMockState } from '../../../testing/mocks/mockState';
+import { setupMockProvider } from '../../../tests/mocks';
+// import { getMockState } from '../../../tests/mocks/mockState';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 

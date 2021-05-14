@@ -39,27 +39,27 @@ export const developerTextSelector = createSelector<
   IAppState,
   IAppState['texts'],
   IDeveloperText
->([getTexts], texts => texts.developer);
+>([getTexts], texts => texts.developer as IDeveloperText);
 export const globalTextsSelector = createSelector<
   IAppState,
   IAppState['texts'],
   IGlobalTexts
->([getTexts], texts => texts.global);
+>([getTexts], texts => texts.global as IGlobalTexts);
 export const headerTitleSelector = createSelector<
   IAppState,
   IAppState['texts'],
   string
->([getTexts], texts => texts.header && texts.header.title);
+>([getTexts], texts => texts.header.title as string);
 export const infoPageTextSelector = createSelector<
   IAppState,
   IAppState['texts'],
   IInfoPageText
->([getTexts], texts => texts.infoPage);
+>([getTexts], texts => texts.infoPage as IInfoPageText);
 export const instructionsTextSelector = createSelector<
   IAppState,
   IAppState['texts'],
   IInstructionsText
->([getTexts], texts => texts.instructions);
+>([getTexts], texts => texts.instructions as IInstructionsText);
 export const languagesModelTextsSelector = createSelector<
   IAppState,
   IAppState['texts'],
@@ -69,14 +69,14 @@ export const otherSkillsTextSelector = createSelector<
   IAppState,
   IAppState['texts'],
   IOtherSkillsText
->([getTexts], texts => texts.otherSkills);
+>([getTexts], texts => texts.otherSkills as IOtherSkillsText);
 export const seabedTextsSelector = createSelector<
   IAppState,
   IAppState['texts'],
   ISeabedText
->([getTexts], texts => texts.seabed);
+>([getTexts], texts => texts.seabed as ISeabedText);
 export const sectionsTextsSelector = createSelector<
   IAppState,
   IAppState['texts'],
   ISectionsText
->([getTexts], texts => texts.sections);
+>([getTexts], texts => texts.sections as ISectionsText);

@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
 import ScrollSection from '.';
-import { setupMockProvider } from '../../../../../testing/mocks';
+import { setupMockProvider } from '../../../../tests/mocks';
 
 const MockChildren = () => <p>Mock Text</p>;
 

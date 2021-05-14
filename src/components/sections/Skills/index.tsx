@@ -84,7 +84,9 @@ const Skills = ({ cuePointsActivated }: Props): ReactElement => {
                         key={skill.skill}
                         isLastElementAlone={skillObject.skills.length % 2 !== 0}
                       >
-                        <Name>{skill.skill}</Name>
+                        <Name data-e2e-id={`skill-${skill.skill}`}>
+                          {skill.skill}
+                        </Name>
                         <SkillLevel level={skill.level} skill={skill.skill} />
                       </SkillItem>
                     );

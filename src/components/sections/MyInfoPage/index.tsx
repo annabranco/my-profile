@@ -54,7 +54,7 @@ const MyInfoPage = (): ReactElement => {
               <MyNameOnDesktopDevices data-e2e-id="me">
                 Anna Branco
               </MyNameOnDesktopDevices>
-              <JobTitle>{texts.job}</JobTitle>
+              <JobTitle data-e2e-id="jobTitle">{texts.job}</JobTitle>
               {finishedScenario && <KindFish src={BlinkingFish} />}
               <InfoMessage>
                 {!finishedScenario ? texts.aditional : texts.thankyou}
