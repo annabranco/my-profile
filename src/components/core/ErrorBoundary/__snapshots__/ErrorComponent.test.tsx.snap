@@ -16,16 +16,22 @@ exports[`< ErrorComponent > matches the snapshot 1`] = `
     <div
       className="jTIoGN"
     >
-      <ErrorTitle>
+      <ErrorTitle
+        data-e2e-id="error-title"
+      >
         <h2
           className="bLGTyS"
+          data-e2e-id="error-title"
         >
           That's embarassing...
         </h2>
       </ErrorTitle>
-      <NotificationArea>
+      <NotificationArea
+        data-e2e-id="error-sorryText"
+      >
         <div
           className="hJjFnT"
+          data-e2e-id="error-sorryText"
         >
           <SorryText>
             <p
@@ -45,9 +51,12 @@ exports[`< ErrorComponent > matches the snapshot 1`] = `
             <div
               className="bAVCfX"
             >
-              <DetailsText>
+              <DetailsText
+                data-e2e-id="error-message"
+              >
                 <p
                   className="dkRjAK"
+                  data-e2e-id="error-message"
                 >
                   MOCK_ERROR
                 </p>
@@ -55,13 +64,14 @@ exports[`< ErrorComponent > matches the snapshot 1`] = `
             </div>
           </ErrorDetailsArea>
           <NotifyButton
+            data-e2e-id="error-button"
             href="https://github.com/annabranco/my-profile/issues/new"
             rel="noopener noreferrer"
             target="_Blank"
-            visible={false}
           >
             <a
-              className="gpMUny cyqwki hKAMQs"
+              className="gpMUny cyqwki cldwgd"
+              data-e2e-id="error-button"
               href="https://github.com/annabranco/my-profile/issues/new"
               rel="noopener noreferrer"
               target="_Blank"

@@ -6,7 +6,6 @@ export const FORMATION = 'formation';
 export const INSTRUCTIONS = 'instructionsHidden';
 export const LANG_MODAL_VISIBLE = 'langModalVisible';
 export const MOVEMENTS = 'heroMovements';
-export const NOTIFY_BUTTON = 'showNotifyButton';
 export const OTHER_SKILLS = 'otherSkillsState';
 export const POSITION = 'position';
 export const PROJECTS = 'projects';

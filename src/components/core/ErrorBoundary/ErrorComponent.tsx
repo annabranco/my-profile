@@ -1,11 +1,9 @@
-import { ReactElement, useEffect } from 'react';
+import { ReactElement } from 'react';
 import { string } from 'prop-types';
 import { IErrorText } from '../../../types/interfaces';
 import appInfo from '../../../../package.json';
-import { useStateWithLabel } from '../../../utils/hooks';
 import { isDesktop } from '../../../utils/device';
 import { Barquinho } from '../../../assets/images';
-import { NOTIFY_BUTTON } from '../../../constants';
 import { errorTextsPropType } from '../../../types/propTypes';
 import { MeuBarquinho } from '../../sections/MyInfoPage/styles';
 import {
@@ -35,42 +33,28 @@ interface Props {
   texts: IErrorText;
 }
 
-const ErrorComponent = ({ error, texts }: Props): ReactElement => {
-  const [showNotifyButton, toggleNotifyButton] = useStateWithLabel<boolean>(
-    false,
-    NOTIFY_BUTTON
-  );
-
-  useEffect(() => {
-    setTimeout(() => toggleNotifyButton(true), 5000);
-    // toggleNotifyButton(true);
-  }, []);
-
-  return (
-    <ErrorSection>
-      {isDesktop && (
-        <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />
-      )}
-      <ErrorTitle>{texts.title}</ErrorTitle>
-      <NotificationArea>
-        <SorryText>{texts.errorLine1}</SorryText>
-        <SorryText>{texts.errorLine2}</SorryText>
-        <ErrorDetailsArea>
-          <DetailsText>{error}</DetailsText>
-        </ErrorDetailsArea>
-        <NotifyButton
-          visible={showNotifyButton}
-          href={REPORT_ISSUE_PAGE}
-          target="_Blank"
-          rel="noopener noreferrer"
-        >
-          <NotifyButtonText>{texts.notifyMe}</NotifyButtonText>
-          <NotifyButtonIcon className="fab fa-github-alt" />
-        </NotifyButton>
-      </NotificationArea>
-    </ErrorSection>
-  );
-};
+const ErrorComponent = ({ error, texts }: Props): ReactElement => (
+  <ErrorSection>
+    {isDesktop && <MeuBarquinho src={Barquinho} alt="Navigating beautifully" />}
+    <ErrorTitle data-e2e-id="error-title">{texts.title}</ErrorTitle>
+    <NotificationArea data-e2e-id="error-sorryText">
+      <SorryText>{texts.errorLine1}</SorryText>
+      <SorryText>{texts.errorLine2}</SorryText>
+      <ErrorDetailsArea>
+        <DetailsText data-e2e-id="error-message">{error}</DetailsText>
+      </ErrorDetailsArea>
+      <NotifyButton
+        data-e2e-id="error-button"
+        href={REPORT_ISSUE_PAGE}
+        target="_Blank"
+        rel="noopener noreferrer"
+      >
+        <NotifyButtonText>{texts.notifyMe}</NotifyButtonText>
+        <NotifyButtonIcon className="fab fa-github-alt" />
+      </NotifyButton>
+    </NotificationArea>
+  </ErrorSection>
+);
 
 ErrorComponent.propTypes = {
   error: string.isRequired,

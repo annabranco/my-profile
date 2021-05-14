@@ -16,8 +16,10 @@ describe('Changing Languages', () => {
         JSON.stringify({ language: 'en', hideLanguagesModalForever: true })
       );
     }
+  });
+
+  before(() => {
     cy.visit('/');
-    cy.wait(2000);
   });
 
   it('mounts correctly', () => {
@@ -25,7 +27,7 @@ describe('Changing Languages', () => {
     cy.contains('Frontend Developer');
   });
 
-  it('should display a functional Languages selector modal when loaded', () => {
+  it('should display a Languages selector modal when loaded', () => {
     cy.get('[data-e2e-id="languagesModal"]').should('exist');
   });
 
@@ -65,7 +67,7 @@ describe('Changing Languages', () => {
   it('should change the language to Portuguese when the Brazil flag is clicked', () => {
     cy.get('[data-e2e-id="langModal-instructionsText"]').should(
       'have.text',
-      ENGLISH.languages.changeUpperBar
+      SPANISH.languages.changeUpperBar
     );
     cy.get('[data-e2e-id="langModal-flag_br"]').click({
       scrollBehavior: false
@@ -102,7 +104,7 @@ describe('Changing Languages', () => {
   it('should change language when Header flags are clicked', () => {
     cy.get('[data-e2e-id="appTitle"]').should(
       'have.text',
-      ENGLISH.header.title
+      PORTUGUESE.header.title
     );
     cy.get('[data-e2e-id="header-flag_es"]').click({
       scrollBehavior: false
@@ -111,19 +113,19 @@ describe('Changing Languages', () => {
       'have.text',
       SPANISH.header.title
     );
-    cy.get('[data-e2e-id="header-flag_br"]').click({
-      scrollBehavior: false
-    });
-    cy.get('[data-e2e-id="appTitle"]').should(
-      'have.text',
-      PORTUGUESE.header.title
-    );
     cy.get('[data-e2e-id="header-flag_us"]').click({
       scrollBehavior: false
     });
     cy.get('[data-e2e-id="appTitle"]').should(
       'have.text',
       ENGLISH.header.title
+    );
+    cy.get('[data-e2e-id="header-flag_br"]').click({
+      scrollBehavior: false
+    });
+    cy.get('[data-e2e-id="appTitle"]').should(
+      'have.text',
+      PORTUGUESE.header.title
     );
   });
 });
@@ -361,11 +363,11 @@ describe('Scrolling down to  Own Projects  section', () => {
   });
 });
 
-describe.skip('Scrolling down to  Professional Experience  section', () => {
+describe('Scrolling down to  Professional Experience  section', () => {
   it('should activate and animate Professional Experience section when scrolled down for a while', async () => {});
 });
 
-describe.skip('Scrolling down to  Seabed section', () => {
+describe('Scrolling down to  Seabed section', () => {
   it('should display the Sea Bed section when scrolled down until the bottom', async () => {});
 
   it('should display a Shell on the bottom, and cause a transforming effect if its inner pearl is taken', async () => {});

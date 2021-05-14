@@ -7,6 +7,6 @@
   "supportFile": "src/tests/support/index.js",
   "pluginsFile": "src/tests/plugins/index.js",
   "videosFolder": "coverage/videos",
-  "screenshotsFolder": "coverage/screenshots"
-
+  "screenshotsFolder": "coverage/screenshots",
+  "video": false
 }

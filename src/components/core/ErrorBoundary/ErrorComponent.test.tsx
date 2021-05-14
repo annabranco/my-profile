@@ -72,27 +72,4 @@ describe('< ErrorComponent >', () => {
     expect((notifyButton.type() as TextElement).target).toBe('a');
     expect(notifyButton.props().href).toBe(REPORT_ISSUE_PAGE);
   });
-
-  it('should only display notify button after prop change', () => {
-    const buttonInitial = shallow(<NotifyButton />);
-    expect(toJson(buttonInitial)).toHaveStyleRule('opacity', '0');
-    buttonInitial.setProps({ visible: true });
-    expect(toJson(buttonInitial)).toHaveStyleRule('opacity', '1');
-  });
-
-  it('should display the notify button only after X seconds', () => {
-    jest.useFakeTimers();
-    act(() => {
-      wrapper = mount(<ErrorComponent error={MOCK_ERROR} />);
-    });
-    let notifyButton = wrapper.find('NotifyButton');
-    expect(notifyButton.prop('visible')).toBe(false);
-
-    act(() => {
-      jest.runOnlyPendingTimers();
-    });
-    wrapper.update();
-    notifyButton = wrapper.find('NotifyButton');
-    expect(notifyButton.prop('visible')).toBeTruthy();
-  });
 });
