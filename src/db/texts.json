@@ -298,6 +298,10 @@
     }
   },
   "fr": {
+    "header": {
+      "contact": "Contact",
+      "title": "Profile de Anna Branco"
+    },
     "languages": {
       "changeDefault": "Cliquez ci-dessous pour changer le langue par défaut:",
       "changeUpperBar": "Vous pouvez aussi le changer dans la barre supérieure",

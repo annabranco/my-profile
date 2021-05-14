@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
 import Skills from '.';
-import { setupMockProvider } from '../../../../testing/mocks';
+import { setupMockProvider } from '../../../tests/mocks';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 

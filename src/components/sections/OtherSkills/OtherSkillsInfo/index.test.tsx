@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
 import OtherSkillsInfo from '.';
-import { setupMockProvider } from '../../../../../testing/mocks';
+import { setupMockProvider } from '../../../../tests/mocks';
 import { MacInterface } from './macElements';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)

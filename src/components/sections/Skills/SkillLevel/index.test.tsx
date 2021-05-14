@@ -1,7 +1,7 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
 import SkillLevel from '.';
-import { setupMockProvider } from '../../../../../testing/mocks';
+import { setupMockProvider } from '../../../../tests/mocks';
 
 // TODO [07-May -21]: Define real test suites (Anna Branco)
 

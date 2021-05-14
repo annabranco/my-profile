@@ -3,7 +3,7 @@
 import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
-import { ILanguageCode } from '../../src/types/interfaces';
+import { ILanguageCode } from '../../types/interfaces';
 import interceptorMiddleware from './middleware';
 import getMockState from './state';
 
@@ -13,7 +13,6 @@ interface ChildrenProps {
 
 interface MockProviderProps {
   MockProvider: ({ children }: ChildrenProps) => ReactElement;
-  // store: MockStoreEnhanced<IAppState>;
 }
 
 interface PartialStateProps {
@@ -36,7 +35,6 @@ const getMockProvider = (
     MockProvider: ({ children }: ChildrenProps) => (
       <Provider store={store}>{children}</Provider>
     )
-    // store
   };
 };
 

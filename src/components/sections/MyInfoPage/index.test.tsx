@@ -1,8 +1,8 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
-import '../../../../testing/mocks/matchMedia';
+import '../../../tests/mocks/matchMedia';
 import MyInfoPage from '.';
-import { setupMockProvider } from '../../../../testing/mocks';
+import { setupMockProvider } from '../../../tests/mocks';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
@@ -27,30 +27,21 @@ describe('< MyInfoPage >', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  xit('should display my name correctly on desktop and devices', () => {
-  });
+  xit('should display my name correctly on desktop and devices', () => {});
 
-  xit('should display my photo', () => {
-  });
+  xit('should display my photo', () => {});
 
-  xit('should display a job title updated with data obtained from server', () => {
-  });
+  xit('should display a job title updated with data obtained from server', () => {});
 
-  xit('should render a Social component', () => {
-  });
+  xit('should render a Social component', () => {});
 
-  xit('should display a thanks message when all app is viewed', () => {
-  });
+  xit('should display a thanks message when all app is viewed', () => {});
 
-  xit('should display a boat animation', () => {
-  });
+  xit('should display a boat animation', () => {});
 
-  xit('should display a desktop recommendation advise on devices', () => {
-  });
+  xit('should display a desktop recommendation advise on devices', () => {});
 
-  xit('should display animated arrows on desktop', () => {
-  });
+  xit('should display animated arrows on desktop', () => {});
 
-  xit('should translate all texts when the language is changed', () => {
-  });
+  xit('should translate all texts when the language is changed', () => {});
 });

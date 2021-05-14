@@ -68,7 +68,7 @@
 		"import/no-extraneous-dependencies": [
 			"error",
 			{
-				"devDependencies": ["**/*.test.ts", "**/*.test.tsx", "**/jest-setup.js"]
+				"devDependencies": ["**/*.test.ts", "**/*.test.tsx", "**/jest-setup.js", "**/tests/**/**.*"]
 			}
 		],
 		"indent": 0,

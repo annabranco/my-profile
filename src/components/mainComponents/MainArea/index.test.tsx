@@ -1,6 +1,6 @@
 import { shallow, ShallowWrapper } from 'enzyme';
 import 'jest-styled-components';
-import '../../../../testing/mocks/matchMedia';
+import '../../../tests/mocks/matchMedia';
 import MainArea from '.';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
@@ -26,6 +26,5 @@ describe('< MainArea >', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  xit('should correctly pass received props to a Scroll Area component', () => {
-  });
+  xit('should correctly pass received props to a Scroll Area component', () => {});
 });

@@ -4,6 +4,7 @@ exports[`< Social > matches the snapshot 1`] = `
 <Social Area>
   <Social Item>
     <Link
+      data-e2e-id="social-email"
       href="mailto:anya.branco@icloud.com"
     >
       <Icon
@@ -16,6 +17,7 @@ exports[`< Social > matches the snapshot 1`] = `
   </Social Item>
   <Social Item>
     <Link Button
+      data-e2e-id="social-github"
       href="https://github.com/annabranco"
       rel="noopener noreferrer"
       target="_Blank"
@@ -30,6 +32,7 @@ exports[`< Social > matches the snapshot 1`] = `
   </Social Item>
   <Social Item>
     <Link Button
+      data-e2e-id="social-linkedin"
       href="https://www.linkedin.com/in/annabranco/"
       rel="noopener noreferrer"
       target="_Blank"
@@ -44,6 +47,7 @@ exports[`< Social > matches the snapshot 1`] = `
   </Social Item>
   <Social Item>
     <Link Button
+      data-e2e-id="social-twitter"
       href="https://twitter.com/AnyaBranco"
       rel="noopener noreferrer"
       target="_Blank"
@@ -58,6 +62,7 @@ exports[`< Social > matches the snapshot 1`] = `
   </Social Item>
   <Social Item>
     <Link Button 
+      data-e2e-id="social-skype_call"
       href="skype:live%3Aanna.branco_3?call"
     >
       <Icon
@@ -68,6 +73,7 @@ exports[`< Social > matches the snapshot 1`] = `
       </Text>
     </Link Button >
     <Link Button 
+      data-e2e-id="social-skype_chat"
       href="skype:live%3Aanna.branco_3?chat"
     >
        

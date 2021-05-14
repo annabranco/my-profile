@@ -8,13 +8,13 @@ import {
   ITexts,
   ITextsData,
   ILanguageCode
-} from '../../src/types/interfaces/index';
-import experiences from '../../src/db/experiences.json';
-import formation from '../../src/db/formation.json';
-import languages from '../../src/db/languages.json';
-import projects from '../../src/db/projectsDB.json';
-import skills from '../../src/db/skills.json';
-import textsDatabase from '../../src/db/texts.json';
+} from '../../types/interfaces/index';
+import experiences from '../../db/experiences.json';
+import formation from '../../db/formation.json';
+import languages from '../../db/languages.json';
+import projects from '../../db/projectsDB.json';
+import skills from '../../db/skills.json';
+import textsDatabase from '../../db/texts.json';
 
 interface LanguageProps {
   language: ILanguageCode;

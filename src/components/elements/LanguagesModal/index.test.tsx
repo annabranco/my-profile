@@ -1,8 +1,8 @@
 import { mount, ReactWrapper } from 'enzyme';
 import 'jest-styled-components';
-import '../../../../testing/mocks/matchMedia';
+import '../../../tests/mocks/matchMedia';
 import LanguagesModal from '.';
-import { setupMockProvider } from '../../../../testing/mocks';
+import { setupMockProvider } from '../../../tests/mocks';
 
 // TODO [10-May -21]: Implement defined testing suite (Anna Branco)
 
@@ -32,18 +32,13 @@ describe('< LanguagesModal >', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  xit('should display all languages options received from server', () => {
-  });
+  xit('should display all languages options received from server', () => {});
 
-  xit('should display a flag and the name of each language', () => {
-  });
+  xit('should display a flag and the name of each language', () => {});
 
-  xit('should change the app language when the flag or name is clicked', () => {
-  });
+  xit('should change the app language when the flag or name is clicked', () => {});
 
-  xit('should close modal when OK button is clicked', () => {
-  });
+  xit('should close modal when OK button is clicked', () => {});
 
-  xit('should set language preferencies on localstorage when OK button is clicked', () => {
-  });
+  xit('should set language preferencies on localstorage when OK button is clicked', () => {});
 });

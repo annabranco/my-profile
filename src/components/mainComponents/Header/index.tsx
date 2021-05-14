@@ -73,6 +73,7 @@ const Header = ({
               .map(item => (
                 <Flag
                   aria-label={item.language}
+                  data-e2e-id={`header-flag_${item.flagCode}`}
                   key={item.languageCode}
                   lang={item.languageCode}
                   languageSelected={languageSelected}
@@ -91,7 +92,7 @@ const Header = ({
                 </Flag>
               ))}
           </LanguagesWrapper>
-          <AppTitle>{getTitle()}</AppTitle>
+          <AppTitle data-e2e-id="appTitle">{getTitle()}</AppTitle>
           <Version>{APP_VERSION}</Version>
         </HeaderArea>
       )}

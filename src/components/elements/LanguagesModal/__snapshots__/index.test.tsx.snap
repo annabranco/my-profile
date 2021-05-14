@@ -23,9 +23,12 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
         <div
           className="fWpqKC"
         >
-          <Modal Wrapper>
+          <Modal Wrapper
+            data-e2e-id="languagesModal"
+          >
             <div
               className="NKJtm"
+              data-e2e-id="languagesModal"
             >
               <Flags Wrapper>
                 <div
@@ -34,6 +37,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <Flag
                     active={true}
                     aria-label="English"
+                    data-e2e-id="langModal-flag_us"
                     key="en"
                     lang="en"
                     languageSelected="en"
@@ -44,6 +48,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                     <div
                       aria-label="English"
                       className="kBTZlT"
+                      data-e2e-id="langModal-flag_us"
                       lang="en"
                       onClick={[Function]}
                       role="button"
@@ -74,6 +79,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <Flag
                     active={true}
                     aria-label="Español"
+                    data-e2e-id="langModal-flag_es"
                     key="es"
                     lang="es"
                     languageSelected="en"
@@ -84,6 +90,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                     <div
                       aria-label="Español"
                       className="kBTZlT"
+                      data-e2e-id="langModal-flag_es"
                       lang="es"
                       onClick={[Function]}
                       role="button"
@@ -114,6 +121,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <Flag
                     active={true}
                     aria-label="Português"
+                    data-e2e-id="langModal-flag_br"
                     key="pt"
                     lang="pt"
                     languageSelected="en"
@@ -124,6 +132,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                     <div
                       aria-label="Português"
                       className="kBTZlT"
+                      data-e2e-id="langModal-flag_br"
                       lang="pt"
                       onClick={[Function]}
                       role="button"
@@ -154,6 +163,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <Flag
                     active={false}
                     aria-label="Français"
+                    data-e2e-id="langModal-flag_fr"
                     key="fr"
                     lang="fr"
                     languageSelected="en"
@@ -164,6 +174,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                     <div
                       aria-label="Français"
                       className="hjScPF"
+                      data-e2e-id="langModal-flag_fr"
                       lang="fr"
                       onClick={[Function]}
                       role="button"
@@ -194,6 +205,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <Flag
                     active={false}
                     aria-label="Пусский язык"
+                    data-e2e-id="langModal-flag_ru"
                     key="ru"
                     lang="ru"
                     languageSelected="en"
@@ -204,6 +216,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                     <div
                       aria-label="Пусский язык"
                       className="hjScPF"
+                      data-e2e-id="langModal-flag_ru"
                       lang="ru"
                       onClick={[Function]}
                       role="button"
@@ -234,6 +247,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <Flag
                     active={false}
                     aria-label="Deutsch"
+                    data-e2e-id="langModal-flag_de"
                     key="de"
                     lang="de"
                     languageSelected="en"
@@ -244,6 +258,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                     <div
                       aria-label="Deutsch"
                       className="hjScPF"
+                      data-e2e-id="langModal-flag_de"
                       lang="de"
                       onClick={[Function]}
                       role="button"
@@ -274,6 +289,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <Flag
                     active={false}
                     aria-label="日本語"
+                    data-e2e-id="langModal-flag_jp"
                     key="jp"
                     lang="jp"
                     languageSelected="en"
@@ -284,6 +300,7 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                     <div
                       aria-label="日本語"
                       className="hjScPF"
+                      data-e2e-id="langModal-flag_jp"
                       lang="jp"
                       onClick={[Function]}
                       role="button"
@@ -313,9 +330,12 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   </Flag>
                 </div>
               </Flags Wrapper>
-              <Text>
+              <Text
+                data-e2e-id="langModal-instructionsText"
+              >
                 <p
                   className="fzGfxz"
+                  data-e2e-id="langModal-instructionsText"
                 >
                   You may also change it in the upper bar
                 </p>
@@ -332,18 +352,18 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
                   <CheckBox
                     checked={true}
                     className="languages__checkbox"
+                    data-e2e-id="langModal-checkbox"
                     id="checkLang"
                     name="hideForever"
-                    onClick={[Function]}
                     readOnly={true}
                     type="checkbox"
                   >
                     <input
                       checked={true}
                       className="bNZqCL languages__checkbox"
+                      data-e2e-id="langModal-checkbox"
                       id="checkLang"
                       name="hideForever"
-                      onClick={[Function]}
                       readOnly={true}
                       type="checkbox"
                     />
@@ -357,16 +377,19 @@ exports[`< LanguagesModal > matches the snapshot 1`] = `
               </CheckBox Area>
               <AppButton
                 buttonStyle="confirm"
+                datae2eid="langModal-ok"
                 onClick={[Function]}
                 text="ok"
               >
                 <App Button
                   buttonStyle="confirm"
+                  data-e2e-id="langModal-ok"
                   onClick={[Function]}
                   type="button"
                 >
                   <button
                     className="dCozZD"
+                    data-e2e-id="langModal-ok"
                     onClick={[Function]}
                     type="button"
                   >

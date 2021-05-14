@@ -40,6 +40,10 @@ const App = (): ReactElement => {
   const onCloseLanguageModal = (): void => {
     toggleModalVisible(false);
     toggleHideForever(hideForever);
+    // setTimeout(() => {
+    // // TODO: Review modal button clicking on e2e test. It is not closing modal.
+    //   console.log('$$$ langModalVisible', langModalVisible);
+    // }, 3000);
   };
 
   useEffect(() => {
