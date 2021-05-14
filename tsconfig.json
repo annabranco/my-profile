@@ -17,6 +17,5 @@
 		"noFallthroughCasesInSwitch": true
 	},
 	"include": ["src"],
-	"exclude": ["**/*.spec.ts"],
 	"typeRoots": ["node_modules/@types", "types/custom/*"]
 }

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   colorWhite,
   colorBlueLight,
@@ -86,14 +86,6 @@ export const NotifyButton = styled(LinkButton)<NotifyButtonProps>`
   margin-top: 40px;
   position: fixed;
   bottom: 5%;
-  opacity: 0;
-
-  ${({ visible }) =>
-    visible &&
-    css`
-      opacity: 1;
-      transition: opacity 10s;
-    `}
 `;
 NotifyButton.displayName = 'NotifyButton';
 

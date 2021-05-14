@@ -1,5 +1,5 @@
 module.exports = {
-  coverageDirectory: 'test-reports/jest-coverage',
+  coverageDirectory: 'coverage/jest-coverage',
   // coverageReporters: ['json'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
