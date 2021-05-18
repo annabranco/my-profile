@@ -17,7 +17,7 @@ const Social = ({ texts }: { texts: IInfoPageText }): ReactElement => (
     <SocialItem>
       <Link data-e2e-id="social-email" href="mailto:anya.branco@icloud.com">
         <Icon className="far fa-envelope" />
-        <Text>anya.branco@icloud.com</Text>
+        <Text>ann.branco@icloud.com</Text>
       </Link>
     </SocialItem>
     <SocialItem>
