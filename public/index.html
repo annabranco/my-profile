@@ -14,14 +14,14 @@
   	<meta name="theme-color" content="#ffff">
 		<meta name="twitter:creator" content="@anyabranco" />
 		<meta name="twitter:description" content="Anna Branco's professional profile" />
-		<meta name="twitter:image" content="https://raw.githubusercontent.com/annabranco/my-profile/master/public/social-preview.jpg" />
+		<meta name="twitter:image" itemprop="image" content="https://raw.githubusercontent.com/annabranco/my-profile/master/public/social-preview.jpg" />
 		<meta name="twitter:site" content="@anyabranco" />
 		<meta name="twitter:title" content="Anna Branco" />
 	 	<meta name="twitter:card" content="summary_large_image" />
 
 		<meta property="og:description" content="Anna Branco's professional profile" />
-		<meta property="og:image" content="%PUBLIC_URL%/social-preview.jpg" />
-		<meta property="og:image:url" content="%PUBLIC_URL%/social-preview.jpg" />
+		<meta property="og:image" content="https://raw.githubusercontent.com/annabranco/my-profile/master/public/social-preview.jpg" />
+		<meta property="og:image:url" content="https://raw.githubusercontent.com/annabranco/my-profile/master/public/social-preview.jpg" />
 		<meta property="og:locale" content="es_ES" />
 		<meta property="og:title" content="Anna Branco" />
 		<meta property="og:type" content="website" />
@@ -37,6 +37,9 @@
 	</head>
 
 	<body>
+	<link itemprop="thumbnailUrl" href="https://raw.githubusercontent.com/annabranco/my-profile/master/public/social-preview.jpg">
+	<span itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
+	<link itemprop="url" href="https://raw.githubusercontent.com/annabranco/my-profile/master/public/social-preview.jpg">
 		<noscript>
     Really!? I can't believe you are disabling JavaScript... oh, c'mon!
   </noscript>
