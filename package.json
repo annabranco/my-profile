@@ -20,7 +20,7 @@
   "scripts": {
     "build": "react-scripts build",
     "cypress:start:app": "cross-env BROWSER=none react-scripts -r @cypress/instrument-cra start",
-    "cypress:start:wait": "start-server-and-test cypress:start:app http://localhost:3000/my-profile",
+    "cypress:start:wait": "start-server-and-test cypress:start:app http://localhost:3000/",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -79,7 +79,9 @@
     "babel-jest": "26.6.0",
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "concurrently": "^7.0.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "cypress": "^7.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
