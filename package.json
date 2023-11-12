@@ -35,7 +35,7 @@
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "lodash": "^4.17.19",
     "polished": "^4.0.3",
     "prop-types": "^15.7.2",
